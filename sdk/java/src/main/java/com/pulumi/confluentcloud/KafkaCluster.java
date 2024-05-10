@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Example Kafka clusters on AWS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,37 +56,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var basic = new KafkaCluster(&#34;basic&#34;, KafkaClusterArgs.builder()        
- *             .displayName(&#34;basic_kafka_cluster&#34;)
- *             .availability(&#34;SINGLE_ZONE&#34;)
- *             .cloud(&#34;AWS&#34;)
- *             .region(&#34;us-east-2&#34;)
+ *         var basic = new KafkaCluster("basic", KafkaClusterArgs.builder()        
+ *             .displayName("basic_kafka_cluster")
+ *             .availability("SINGLE_ZONE")
+ *             .cloud("AWS")
+ *             .region("us-east-2")
  *             .basic()
  *             .environment(KafkaClusterEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .build());
  * 
- *         var standard = new KafkaCluster(&#34;standard&#34;, KafkaClusterArgs.builder()        
- *             .displayName(&#34;standard_kafka_cluster&#34;)
- *             .availability(&#34;SINGLE_ZONE&#34;)
- *             .cloud(&#34;AWS&#34;)
- *             .region(&#34;us-east-2&#34;)
+ *         var standard = new KafkaCluster("standard", KafkaClusterArgs.builder()        
+ *             .displayName("standard_kafka_cluster")
+ *             .availability("SINGLE_ZONE")
+ *             .cloud("AWS")
+ *             .region("us-east-2")
  *             .standard()
  *             .environment(KafkaClusterEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .build());
  * 
- *         var dedicated = new KafkaCluster(&#34;dedicated&#34;, KafkaClusterArgs.builder()        
- *             .displayName(&#34;dedicated_kafka_cluster&#34;)
- *             .availability(&#34;MULTI_ZONE&#34;)
- *             .cloud(&#34;AWS&#34;)
- *             .region(&#34;us-east-2&#34;)
+ *         var dedicated = new KafkaCluster("dedicated", KafkaClusterArgs.builder()        
+ *             .displayName("dedicated_kafka_cluster")
+ *             .availability("MULTI_ZONE")
+ *             .cloud("AWS")
+ *             .region("us-east-2")
  *             .dedicated(KafkaClusterDedicatedArgs.builder()
  *                 .cku(2)
  *                 .build())
@@ -96,13 +97,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Kafka clusters on Azure
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -129,37 +132,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var basic = new KafkaCluster(&#34;basic&#34;, KafkaClusterArgs.builder()        
- *             .displayName(&#34;basic_kafka_cluster&#34;)
- *             .availability(&#34;SINGLE_ZONE&#34;)
- *             .cloud(&#34;AZURE&#34;)
- *             .region(&#34;centralus&#34;)
+ *         var basic = new KafkaCluster("basic", KafkaClusterArgs.builder()        
+ *             .displayName("basic_kafka_cluster")
+ *             .availability("SINGLE_ZONE")
+ *             .cloud("AZURE")
+ *             .region("centralus")
  *             .basic()
  *             .environment(KafkaClusterEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .build());
  * 
- *         var standard = new KafkaCluster(&#34;standard&#34;, KafkaClusterArgs.builder()        
- *             .displayName(&#34;standard_kafka_cluster&#34;)
- *             .availability(&#34;SINGLE_ZONE&#34;)
- *             .cloud(&#34;AZURE&#34;)
- *             .region(&#34;centralus&#34;)
+ *         var standard = new KafkaCluster("standard", KafkaClusterArgs.builder()        
+ *             .displayName("standard_kafka_cluster")
+ *             .availability("SINGLE_ZONE")
+ *             .cloud("AZURE")
+ *             .region("centralus")
  *             .standard()
  *             .environment(KafkaClusterEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .build());
  * 
- *         var dedicated = new KafkaCluster(&#34;dedicated&#34;, KafkaClusterArgs.builder()        
- *             .displayName(&#34;dedicated_kafka_cluster&#34;)
- *             .availability(&#34;MULTI_ZONE&#34;)
- *             .cloud(&#34;AZURE&#34;)
- *             .region(&#34;centralus&#34;)
+ *         var dedicated = new KafkaCluster("dedicated", KafkaClusterArgs.builder()        
+ *             .displayName("dedicated_kafka_cluster")
+ *             .availability("MULTI_ZONE")
+ *             .cloud("AZURE")
+ *             .region("centralus")
  *             .dedicated(KafkaClusterDedicatedArgs.builder()
  *                 .cku(2)
  *                 .build())
@@ -170,13 +173,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Kafka clusters on GCP
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -203,37 +208,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var basic = new KafkaCluster(&#34;basic&#34;, KafkaClusterArgs.builder()        
- *             .displayName(&#34;basic_kafka_cluster&#34;)
- *             .availability(&#34;SINGLE_ZONE&#34;)
- *             .cloud(&#34;GCP&#34;)
- *             .region(&#34;us-central1&#34;)
+ *         var basic = new KafkaCluster("basic", KafkaClusterArgs.builder()        
+ *             .displayName("basic_kafka_cluster")
+ *             .availability("SINGLE_ZONE")
+ *             .cloud("GCP")
+ *             .region("us-central1")
  *             .basic()
  *             .environment(KafkaClusterEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .build());
  * 
- *         var standard = new KafkaCluster(&#34;standard&#34;, KafkaClusterArgs.builder()        
- *             .displayName(&#34;standard_kafka_cluster&#34;)
- *             .availability(&#34;SINGLE_ZONE&#34;)
- *             .cloud(&#34;GCP&#34;)
- *             .region(&#34;us-central1&#34;)
+ *         var standard = new KafkaCluster("standard", KafkaClusterArgs.builder()        
+ *             .displayName("standard_kafka_cluster")
+ *             .availability("SINGLE_ZONE")
+ *             .cloud("GCP")
+ *             .region("us-central1")
  *             .standard()
  *             .environment(KafkaClusterEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .build());
  * 
- *         var dedicated = new KafkaCluster(&#34;dedicated&#34;, KafkaClusterArgs.builder()        
- *             .displayName(&#34;dedicated_kafka_cluster&#34;)
- *             .availability(&#34;MULTI_ZONE&#34;)
- *             .cloud(&#34;GCP&#34;)
- *             .region(&#34;us-central1&#34;)
+ *         var dedicated = new KafkaCluster("dedicated", KafkaClusterArgs.builder()        
+ *             .displayName("dedicated_kafka_cluster")
+ *             .availability("MULTI_ZONE")
+ *             .cloud("GCP")
+ *             .region("us-central1")
  *             .dedicated(KafkaClusterDedicatedArgs.builder()
  *                 .cku(2)
  *                 .build())
@@ -244,7 +249,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

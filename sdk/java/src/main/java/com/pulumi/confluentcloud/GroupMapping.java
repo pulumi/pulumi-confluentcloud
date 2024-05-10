@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,21 +48,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var application_developers = new GroupMapping(&#34;application-developers&#34;, GroupMappingArgs.builder()        
- *             .displayName(&#34;Application Developers&#34;)
- *             .description(&#34;Admin access to production environment for Engineering&#34;)
- *             .filter(&#34;\&#34;engineering\&#34; in groups&#34;)
+ *         var application_developers = new GroupMapping("application-developers", GroupMappingArgs.builder()        
+ *             .displayName("Application Developers")
+ *             .description("Admin access to production environment for Engineering")
+ *             .filter("\"engineering\" in groups")
  *             .build());
  * 
- *         var envadmin = new RoleBinding(&#34;envadmin&#34;, RoleBindingArgs.builder()        
- *             .principal(application_developers.id().applyValue(id -&gt; String.format(&#34;User:%s&#34;, id)))
- *             .roleName(&#34;EnvironmentAdmin&#34;)
+ *         var envadmin = new RoleBinding("envadmin", RoleBindingArgs.builder()        
+ *             .principal(application_developers.id().applyValue(id -> String.format("User:%s", id)))
+ *             .roleName("EnvironmentAdmin")
  *             .crnPattern(prod.resourceName())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Example Identity Pool to be used with Azure AD
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,32 +49,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var azure = new IdentityProvider(&#34;azure&#34;, IdentityProviderArgs.builder()        
- *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
- *             .description(&#34;My description&#34;)
- *             .issuer(&#34;https://login.microsoftonline.com/{tenant_id}/v2.0&#34;)
- *             .jwksUri(&#34;https://login.microsoftonline.com/common/discovery/v2.0/keys&#34;)
+ *         var azure = new IdentityProvider("azure", IdentityProviderArgs.builder()        
+ *             .displayName("My OIDC Provider: Azure AD")
+ *             .description("My description")
+ *             .issuer("https://login.microsoftonline.com/{tenant_id}/v2.0")
+ *             .jwksUri("https://login.microsoftonline.com/common/discovery/v2.0/keys")
  *             .build());
  * 
- *         var example = new IdentityPool(&#34;example&#34;, IdentityPoolArgs.builder()        
+ *         var example = new IdentityPool("example", IdentityPoolArgs.builder()        
  *             .identityProvider(IdentityPoolIdentityProviderArgs.builder()
  *                 .id(azure.id())
  *                 .build())
- *             .displayName(&#34;My Identity Pool&#34;)
- *             .description(&#34;Prod Access to Kafka clusters to Release Engineering&#34;)
- *             .identityClaim(&#34;claims.sub&#34;)
- *             .filter(&#34;claims.aud==\&#34;confluent\&#34; &amp;&amp; claims.group!=\&#34;invalid_group\&#34;&#34;)
+ *             .displayName("My Identity Pool")
+ *             .description("Prod Access to Kafka clusters to Release Engineering")
+ *             .identityClaim("claims.sub")
+ *             .filter("claims.aud==\"confluent\" && claims.group!=\"invalid_group\"")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Identity Pool to be used with Okta
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -97,26 +100,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var okta = new IdentityProvider(&#34;okta&#34;, IdentityProviderArgs.builder()        
- *             .displayName(&#34;My OIDC Provider: Okta&#34;)
- *             .description(&#34;My description&#34;)
- *             .issuer(&#34;https://mycompany.okta.com/oauth2/default&#34;)
- *             .jwksUri(&#34;https://mycompany.okta.com/oauth2/default/v1/keys&#34;)
+ *         var okta = new IdentityProvider("okta", IdentityProviderArgs.builder()        
+ *             .displayName("My OIDC Provider: Okta")
+ *             .description("My description")
+ *             .issuer("https://mycompany.okta.com/oauth2/default")
+ *             .jwksUri("https://mycompany.okta.com/oauth2/default/v1/keys")
  *             .build());
  * 
- *         var example = new IdentityPool(&#34;example&#34;, IdentityPoolArgs.builder()        
+ *         var example = new IdentityPool("example", IdentityPoolArgs.builder()        
  *             .identityProvider(IdentityPoolIdentityProviderArgs.builder()
  *                 .id(okta.id())
  *                 .build())
- *             .displayName(&#34;My Identity Pool&#34;)
- *             .description(&#34;Prod Access to Kafka clusters to Release Engineering&#34;)
- *             .identityClaim(&#34;claims.sub&#34;)
- *             .filter(&#34;claims.aud==\&#34;confluent\&#34; &amp;&amp; claims.group!=\&#34;invalid_group\&#34;&#34;)
+ *             .displayName("My Identity Pool")
+ *             .description("Prod Access to Kafka clusters to Release Engineering")
+ *             .identityClaim("claims.sub")
+ *             .filter("claims.aud==\"confluent\" && claims.group!=\"invalid_group\"")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## External Documentation

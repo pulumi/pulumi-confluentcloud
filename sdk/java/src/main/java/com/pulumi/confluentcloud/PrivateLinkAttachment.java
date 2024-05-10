@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,19 +49,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new PrivateLinkAttachment(&#34;main&#34;, PrivateLinkAttachmentArgs.builder()        
- *             .cloud(&#34;AWS&#34;)
- *             .region(&#34;us-west-2&#34;)
- *             .displayName(&#34;staging-platt&#34;)
+ *         var main = new PrivateLinkAttachment("main", PrivateLinkAttachmentArgs.builder()        
+ *             .cloud("AWS")
+ *             .region("us-west-2")
+ *             .displayName("staging-platt")
  *             .environment(PrivateLinkAttachmentEnvironmentArgs.builder()
- *                 .id(&#34;env-3732nw&#34;)
+ *                 .id("env-3732nw")
  *                 .build())
  *             .build());
  * 
- *         ctx.export(&#34;privateLinkAttachment&#34;, main);
+ *         ctx.export("privateLinkAttachment", main);
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

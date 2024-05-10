@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Example Network Link Service on AWS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,44 +52,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var aws_private_link = new Network(&#34;aws-private-link&#34;, NetworkArgs.builder()        
- *             .displayName(&#34;AWS Private Link Network&#34;)
- *             .cloud(&#34;AWS&#34;)
- *             .region(&#34;us-east-1&#34;)
- *             .connectionTypes(&#34;PRIVATELINK&#34;)
+ *         var aws_private_link = new Network("aws-private-link", NetworkArgs.builder()        
+ *             .displayName("AWS Private Link Network")
+ *             .cloud("AWS")
+ *             .region("us-east-1")
+ *             .connectionTypes("PRIVATELINK")
  *             .zones(            
- *                 &#34;use1-az1&#34;,
- *                 &#34;use1-az2&#34;,
- *                 &#34;use1-az6&#34;)
+ *                 "use1-az1",
+ *                 "use1-az2",
+ *                 "use1-az6")
  *             .environment(NetworkEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .build());
  * 
- *         var awsNls = new NetworkLinkService(&#34;awsNls&#34;, NetworkLinkServiceArgs.builder()        
- *             .displayName(&#34;AWS Private Link network link service&#34;)
+ *         var awsNls = new NetworkLinkService("awsNls", NetworkLinkServiceArgs.builder()        
+ *             .displayName("AWS Private Link network link service")
  *             .environment(NetworkLinkServiceEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .network(NetworkLinkServiceNetworkArgs.builder()
  *                 .id(aws_private_link.id())
  *                 .build())
- *             .description(&#34;Test NL service&#34;)
+ *             .description("Test NL service")
  *             .accept(NetworkLinkServiceAcceptArgs.builder()
  *                 .environments(                
- *                     &#34;env-5678&#34;,
- *                     &#34;env-0923&#34;)
- *                 .networks(&#34;n-1234&#34;)
+ *                     "env-5678",
+ *                     "env-0923")
+ *                 .networks("n-1234")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

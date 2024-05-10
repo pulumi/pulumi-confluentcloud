@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Example Peering on AWS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,28 +55,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var aws_peering = new Network(&#34;aws-peering&#34;, NetworkArgs.builder()        
- *             .displayName(&#34;AWS Peering Network&#34;)
- *             .cloud(&#34;AWS&#34;)
- *             .region(&#34;us-east-2&#34;)
- *             .cidr(&#34;10.10.0.0/16&#34;)
- *             .connectionTypes(&#34;PEERING&#34;)
+ *         var aws_peering = new Network("aws-peering", NetworkArgs.builder()        
+ *             .displayName("AWS Peering Network")
+ *             .cloud("AWS")
+ *             .region("us-east-2")
+ *             .cidr("10.10.0.0/16")
+ *             .connectionTypes("PEERING")
  *             .environment(NetworkEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .build());
  * 
- *         var aws = new Peering(&#34;aws&#34;, PeeringArgs.builder()        
- *             .displayName(&#34;AWS Peering&#34;)
+ *         var aws = new Peering("aws", PeeringArgs.builder()        
+ *             .displayName("AWS Peering")
  *             .aws(PeeringAwsArgs.builder()
- *                 .account(&#34;012345678901&#34;)
- *                 .vpc(&#34;vpc-abcdef0123456789a&#34;)
- *                 .routes(&#34;172.31.0.0/16&#34;)
- *                 .customerRegion(&#34;us-east-2&#34;)
+ *                 .account("012345678901")
+ *                 .vpc("vpc-abcdef0123456789a")
+ *                 .routes("172.31.0.0/16")
+ *                 .customerRegion("us-east-2")
  *                 .build())
  *             .environment(PeeringEnvironmentArgs.builder()
  *                 .id(development.id())
@@ -87,13 +88,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Peering on Azure
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -122,27 +125,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var azure_peering = new Network(&#34;azure-peering&#34;, NetworkArgs.builder()        
- *             .displayName(&#34;Azure Peering Network&#34;)
- *             .cloud(&#34;AZURE&#34;)
- *             .region(&#34;centralus&#34;)
- *             .cidr(&#34;10.10.0.0/16&#34;)
- *             .connectionTypes(&#34;PEERING&#34;)
+ *         var azure_peering = new Network("azure-peering", NetworkArgs.builder()        
+ *             .displayName("Azure Peering Network")
+ *             .cloud("AZURE")
+ *             .region("centralus")
+ *             .cidr("10.10.0.0/16")
+ *             .connectionTypes("PEERING")
  *             .environment(NetworkEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .build());
  * 
- *         var azure = new Peering(&#34;azure&#34;, PeeringArgs.builder()        
- *             .displayName(&#34;Azure Peering&#34;)
+ *         var azure = new Peering("azure", PeeringArgs.builder()        
+ *             .displayName("Azure Peering")
  *             .azure(PeeringAzureArgs.builder()
- *                 .tenant(&#34;1111tttt-1111-1111-1111-111111tttttt&#34;)
- *                 .vnet(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet&#34;)
- *                 .customerRegion(&#34;centralus&#34;)
+ *                 .tenant("1111tttt-1111-1111-1111-111111tttttt")
+ *                 .vnet("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet")
+ *                 .customerRegion("centralus")
  *                 .build())
  *             .environment(PeeringEnvironmentArgs.builder()
  *                 .id(development.id())
@@ -154,13 +157,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Peering on GCP
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -189,27 +194,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var gcp_peering = new Network(&#34;gcp-peering&#34;, NetworkArgs.builder()        
- *             .displayName(&#34;GCP Peering Network&#34;)
- *             .cloud(&#34;GCP&#34;)
- *             .region(&#34;us-west4&#34;)
- *             .cidr(&#34;10.10.0.0/16&#34;)
- *             .connectionTypes(&#34;PEERING&#34;)
+ *         var gcp_peering = new Network("gcp-peering", NetworkArgs.builder()        
+ *             .displayName("GCP Peering Network")
+ *             .cloud("GCP")
+ *             .region("us-west4")
+ *             .cidr("10.10.0.0/16")
+ *             .connectionTypes("PEERING")
  *             .environment(NetworkEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .build());
  * 
- *         var gcp = new Peering(&#34;gcp&#34;, PeeringArgs.builder()        
- *             .displayName(&#34;GCP Peering&#34;)
+ *         var gcp = new Peering("gcp", PeeringArgs.builder()        
+ *             .displayName("GCP Peering")
  *             .gcp(PeeringGcpArgs.builder()
- *                 .project(&#34;temp-gear-123456&#34;)
- *                 .vpcNetwork(&#34;customer-test-vpc-network&#34;)
- *                 .customerRegion(&#34;us-west4&#34;)
+ *                 .project("temp-gear-123456")
+ *                 .vpcNetwork("customer-test-vpc-network")
+ *                 .customerRegion("us-west4")
  *                 .build())
  *             .environment(PeeringEnvironmentArgs.builder()
  *                 .id(development.id())
@@ -221,7 +226,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

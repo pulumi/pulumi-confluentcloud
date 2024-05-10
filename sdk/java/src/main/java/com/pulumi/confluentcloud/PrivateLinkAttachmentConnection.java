@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,36 +53,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var aws = new PrivateLinkAttachmentConnection(&#34;aws&#34;, PrivateLinkAttachmentConnectionArgs.builder()        
- *             .displayName(&#34;my_endpoint&#34;)
+ *         var aws = new PrivateLinkAttachmentConnection("aws", PrivateLinkAttachmentConnectionArgs.builder()        
+ *             .displayName("my_endpoint")
  *             .environment(PrivateLinkAttachmentConnectionEnvironmentArgs.builder()
- *                 .id(&#34;env-8gv0v5&#34;)
+ *                 .id("env-8gv0v5")
  *                 .build())
  *             .aws(PrivateLinkAttachmentConnectionAwsArgs.builder()
- *                 .vpcEndpointId(&#34;vpce-0ed4d51f5d6ef9b6d&#34;)
+ *                 .vpcEndpointId("vpce-0ed4d51f5d6ef9b6d")
  *                 .build())
  *             .privateLinkAttachment(PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs.builder()
- *                 .id(&#34;platt-plyvyl&#34;)
+ *                 .id("platt-plyvyl")
  *                 .build())
  *             .build());
  * 
- *         var azure = new PrivateLinkAttachmentConnection(&#34;azure&#34;, PrivateLinkAttachmentConnectionArgs.builder()        
- *             .displayName(&#34;prod-azure-central-us-az1-connection&#34;)
+ *         var azure = new PrivateLinkAttachmentConnection("azure", PrivateLinkAttachmentConnectionArgs.builder()        
+ *             .displayName("prod-azure-central-us-az1-connection")
  *             .environment(PrivateLinkAttachmentConnectionEnvironmentArgs.builder()
- *                 .id(&#34;env-12345&#34;)
+ *                 .id("env-12345")
  *                 .build())
  *             .azure(PrivateLinkAttachmentConnectionAzureArgs.builder()
- *                 .privateEndpointResourceId(&#34;/subscriptions/123aaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/testvpc/providers/Microsoft.Network/privateEndpoints/pe-platt-abcdef-az1&#34;)
+ *                 .privateEndpointResourceId("/subscriptions/123aaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/testvpc/providers/Microsoft.Network/privateEndpoints/pe-platt-abcdef-az1")
  *                 .build())
  *             .privateLinkAttachment(PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs.builder()
- *                 .id(&#34;platt-abcdef&#34;)
+ *                 .id("platt-abcdef")
  *                 .build())
  *             .build());
  * 
- *         ctx.export(&#34;privateLinkAttachmentConnection&#34;, aws);
+ *         ctx.export("privateLinkAttachmentConnection", aws);
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

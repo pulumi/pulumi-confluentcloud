@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * 
  * ### Example Network that supports Private Link Connections
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,19 +52,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var aws_private_link = new Network(&#34;aws-private-link&#34;, NetworkArgs.builder()        
- *             .displayName(&#34;AWS Private Link Network&#34;)
- *             .cloud(&#34;AWS&#34;)
- *             .region(&#34;us-east-1&#34;)
- *             .connectionTypes(&#34;PRIVATELINK&#34;)
+ *         var aws_private_link = new Network("aws-private-link", NetworkArgs.builder()        
+ *             .displayName("AWS Private Link Network")
+ *             .cloud("AWS")
+ *             .region("us-east-1")
+ *             .connectionTypes("PRIVATELINK")
  *             .zones(            
- *                 &#34;use1-az1&#34;,
- *                 &#34;use1-az2&#34;,
- *                 &#34;use1-az6&#34;)
+ *                 "use1-az1",
+ *                 "use1-az2",
+ *                 "use1-az6")
  *             .environment(NetworkEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
@@ -71,12 +72,14 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Network that supports Peering Connections
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -100,16 +103,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var azure_peering = new Network(&#34;azure-peering&#34;, NetworkArgs.builder()        
- *             .displayName(&#34;Azure Peering Network&#34;)
- *             .cloud(&#34;AZURE&#34;)
- *             .region(&#34;eastus2&#34;)
- *             .cidr(&#34;10.10.0.0/16&#34;)
- *             .connectionTypes(&#34;PEERING&#34;)
+ *         var azure_peering = new Network("azure-peering", NetworkArgs.builder()        
+ *             .displayName("Azure Peering Network")
+ *             .cloud("AZURE")
+ *             .region("eastus2")
+ *             .cidr("10.10.0.0/16")
+ *             .connectionTypes("PEERING")
  *             .environment(NetworkEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
@@ -117,12 +120,14 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Network that supports Private Service Connect Connections
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -147,35 +152,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var gcp_private_service_connect = new Network(&#34;gcp-private-service-connect&#34;, NetworkArgs.builder()        
- *             .displayName(&#34;GCP Private Service Connect Network&#34;)
- *             .cloud(&#34;GCP&#34;)
- *             .region(&#34;us-central1&#34;)
- *             .connectionTypes(&#34;PRIVATELINK&#34;)
+ *         var gcp_private_service_connect = new Network("gcp-private-service-connect", NetworkArgs.builder()        
+ *             .displayName("GCP Private Service Connect Network")
+ *             .cloud("GCP")
+ *             .region("us-central1")
+ *             .connectionTypes("PRIVATELINK")
  *             .zones(            
- *                 &#34;us-central1-a&#34;,
- *                 &#34;us-central1-b&#34;,
- *                 &#34;us-central1-c&#34;)
+ *                 "us-central1-a",
+ *                 "us-central1-b",
+ *                 "us-central1-c")
  *             .environment(NetworkEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .dnsConfig(NetworkDnsConfigArgs.builder()
- *                 .resolution(&#34;PRIVATE&#34;)
+ *                 .resolution("PRIVATE")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Network that supports Transit Gateway Endpoints
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -199,16 +206,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var aws_transit_gateway_attachment = new Network(&#34;aws-transit-gateway-attachment&#34;, NetworkArgs.builder()        
- *             .displayName(&#34;AWS Transit Gateway Attachment Network&#34;)
- *             .cloud(&#34;AWS&#34;)
- *             .region(&#34;us-east-1&#34;)
- *             .cidr(&#34;10.10.0.0/16&#34;)
- *             .connectionTypes(&#34;TRANSITGATEWAY&#34;)
+ *         var aws_transit_gateway_attachment = new Network("aws-transit-gateway-attachment", NetworkArgs.builder()        
+ *             .displayName("AWS Transit Gateway Attachment Network")
+ *             .cloud("AWS")
+ *             .region("us-east-1")
+ *             .cidr("10.10.0.0/16")
+ *             .connectionTypes("TRANSITGATEWAY")
  *             .environment(NetworkEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
@@ -216,7 +223,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

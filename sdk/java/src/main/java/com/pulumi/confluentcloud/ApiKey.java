@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * 
  * ### Example Kafka API Key
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,9 +48,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var app_manager_kafka_api_key = new ApiKey(&#34;app-manager-kafka-api-key&#34;, ApiKeyArgs.builder()        
- *             .displayName(&#34;app-manager-kafka-api-key&#34;)
- *             .description(&#34;Kafka API Key that is owned by &#39;app-manager&#39; service account&#34;)
+ *         var app_manager_kafka_api_key = new ApiKey("app-manager-kafka-api-key", ApiKeyArgs.builder()        
+ *             .displayName("app-manager-kafka-api-key")
+ *             .description("Kafka API Key that is owned by 'app-manager' service account")
  *             .owner(ApiKeyOwnerArgs.builder()
  *                 .id(app_manager.id())
  *                 .apiVersion(app_manager.apiVersion())
@@ -67,12 +68,14 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example ksqlDB API Key
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -96,9 +99,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ksqldb_api_key = new ApiKey(&#34;ksqldb-api-key&#34;, ApiKeyArgs.builder()        
- *             .displayName(&#34;ksqldb-api-key&#34;)
- *             .description(&#34;KsqlDB API Key that is owned by &#39;app-manager&#39; service account&#34;)
+ *         var ksqldb_api_key = new ApiKey("ksqldb-api-key", ApiKeyArgs.builder()        
+ *             .displayName("ksqldb-api-key")
+ *             .description("KsqlDB API Key that is owned by 'app-manager' service account")
  *             .owner(ApiKeyOwnerArgs.builder()
  *                 .id(app_manager.id())
  *                 .apiVersion(app_manager.apiVersion())
@@ -116,12 +119,14 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Schema Registry API Key
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -145,9 +150,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var env_manager_schema_registry_api_key = new ApiKey(&#34;env-manager-schema-registry-api-key&#34;, ApiKeyArgs.builder()        
- *             .displayName(&#34;env-manager-schema-registry-api-key&#34;)
- *             .description(&#34;Schema Registry API Key that is owned by &#39;env-manager&#39; service account&#34;)
+ *         var env_manager_schema_registry_api_key = new ApiKey("env-manager-schema-registry-api-key", ApiKeyArgs.builder()        
+ *             .displayName("env-manager-schema-registry-api-key")
+ *             .description("Schema Registry API Key that is owned by 'env-manager' service account")
  *             .owner(ApiKeyOwnerArgs.builder()
  *                 .id(env_manager.id())
  *                 .apiVersion(env_manager.apiVersion())
@@ -165,12 +170,14 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Flink API Key
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -194,9 +201,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var env_manager_flink_api_key = new ApiKey(&#34;env-manager-flink-api-key&#34;, ApiKeyArgs.builder()        
- *             .displayName(&#34;env-manager-flink-api-key&#34;)
- *             .description(&#34;Flink API Key that is owned by &#39;env-manager&#39; service account&#34;)
+ *         var env_manager_flink_api_key = new ApiKey("env-manager-flink-api-key", ApiKeyArgs.builder()        
+ *             .displayName("env-manager-flink-api-key")
+ *             .description("Flink API Key that is owned by 'env-manager' service account")
  *             .owner(ApiKeyOwnerArgs.builder()
  *                 .id(env_manager.id())
  *                 .apiVersion(env_manager.apiVersion())
@@ -214,12 +221,14 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Cloud API Key
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -241,9 +250,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var env_manager_cloud_api_key = new ApiKey(&#34;env-manager-cloud-api-key&#34;, ApiKeyArgs.builder()        
- *             .displayName(&#34;env-manager-cloud-api-key&#34;)
- *             .description(&#34;Cloud API Key that is owned by &#39;env-manager&#39; service account&#34;)
+ *         var env_manager_cloud_api_key = new ApiKey("env-manager-cloud-api-key", ApiKeyArgs.builder()        
+ *             .displayName("env-manager-cloud-api-key")
+ *             .description("Cloud API Key that is owned by 'env-manager' service account")
  *             .owner(ApiKeyOwnerArgs.builder()
  *                 .id(env_manager.id())
  *                 .apiVersion(env_manager.apiVersion())
@@ -253,7 +262,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

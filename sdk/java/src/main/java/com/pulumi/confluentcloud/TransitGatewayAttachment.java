@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Example Transit Gateway Attachment on AWS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,31 +53,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var aws_transit_gateway_attachment = new Network(&#34;aws-transit-gateway-attachment&#34;, NetworkArgs.builder()        
- *             .displayName(&#34;AWS Transit Gateway Attachment Network&#34;)
- *             .cloud(&#34;AWS&#34;)
- *             .region(&#34;us-east-2&#34;)
- *             .cidr(&#34;10.10.0.0/16&#34;)
- *             .connectionTypes(&#34;TRANSITGATEWAY&#34;)
+ *         var aws_transit_gateway_attachment = new Network("aws-transit-gateway-attachment", NetworkArgs.builder()        
+ *             .displayName("AWS Transit Gateway Attachment Network")
+ *             .cloud("AWS")
+ *             .region("us-east-2")
+ *             .cidr("10.10.0.0/16")
+ *             .connectionTypes("TRANSITGATEWAY")
  *             .environment(NetworkEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .build());
  * 
- *         var aws = new TransitGatewayAttachment(&#34;aws&#34;, TransitGatewayAttachmentArgs.builder()        
- *             .displayName(&#34;AWS Transit Gateway Attachment&#34;)
+ *         var aws = new TransitGatewayAttachment("aws", TransitGatewayAttachmentArgs.builder()        
+ *             .displayName("AWS Transit Gateway Attachment")
  *             .aws(TransitGatewayAttachmentAwsArgs.builder()
- *                 .ramResourceShareArn(&#34;arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx&#34;)
- *                 .transitGatewayId(&#34;tgw-xxxxxxxxxxxxxxxxx&#34;)
+ *                 .ramResourceShareArn("arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx")
+ *                 .transitGatewayId("tgw-xxxxxxxxxxxxxxxxx")
  *                 .routes(                
- *                     &#34;192.168.0.0/16&#34;,
- *                     &#34;172.16.0.0/12&#34;,
- *                     &#34;100.64.0.0/10&#34;,
- *                     &#34;10.0.0.0/8&#34;)
+ *                     "192.168.0.0/16",
+ *                     "172.16.0.0/12",
+ *                     "100.64.0.0/10",
+ *                     "10.0.0.0/8")
  *                 .build())
  *             .environment(TransitGatewayAttachmentEnvironmentArgs.builder()
  *                 .id(development.id())
@@ -88,7 +89,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

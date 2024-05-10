@@ -18,7 +18,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,16 +41,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var prod = new Environment(&#34;prod&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Production&#34;)
+ *         var prod = new Environment("prod", EnvironmentArgs.builder()        
+ *             .displayName("Production")
  *             .streamGovernance(EnvironmentStreamGovernanceArgs.builder()
- *                 .package_(&#34;ESSENTIALS&#34;)
+ *                 .package_("ESSENTIALS")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

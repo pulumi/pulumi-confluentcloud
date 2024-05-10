@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KafkaClientQuota(&#34;example&#34;, KafkaClientQuotaArgs.builder()        
- *             .displayName(&#34;test-quota&#34;)
- *             .description(&#34;Test Quota&#34;)
+ *         var example = new KafkaClientQuota("example", KafkaClientQuotaArgs.builder()        
+ *             .displayName("test-quota")
+ *             .description("Test Quota")
  *             .throughput(KafkaClientQuotaThroughputArgs.builder()
- *                 .ingressByteRate(&#34;100&#34;)
- *                 .egressByteRate(&#34;200&#34;)
+ *                 .ingressByteRate("100")
+ *                 .egressByteRate("200")
  *                 .build())
  *             .principals(            
  *                 appManager.id(),
@@ -66,7 +67,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Example BYOK Key on Azure
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,23 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var azureKey = new ByokKey(&#34;azureKey&#34;, ByokKeyArgs.builder()        
+ *         var azureKey = new ByokKey("azureKey", ByokKeyArgs.builder()        
  *             .azure(ByokKeyAzureArgs.builder()
- *                 .tenantId(&#34;11111111-1111-1111-1111-111111111111&#34;)
- *                 .keyVaultId(&#34;/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault&#34;)
- *                 .keyIdentifier(&#34;https://test-vault.vault.azure.net/keys/test-key&#34;)
+ *                 .tenantId("11111111-1111-1111-1111-111111111111")
+ *                 .keyVaultId("/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault")
+ *                 .keyIdentifier("https://test-vault.vault.azure.net/keys/test-key")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example BYOK Key on GCP
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -85,15 +88,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var gcpKey = new ByokKey(&#34;gcpKey&#34;, ByokKeyArgs.builder()        
+ *         var gcpKey = new ByokKey("gcpKey", ByokKeyArgs.builder()        
  *             .gcp(ByokKeyGcpArgs.builder()
- *                 .keyId(&#34;projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test&#34;)
+ *                 .keyId("projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started
