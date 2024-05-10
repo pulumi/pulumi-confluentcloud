@@ -5,6 +5,8 @@ package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetGatewayAwsEgressPrivateLinkGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayAwsPeeringGateway;
+import com.pulumi.confluentcloud.outputs.GetGatewayAzureEgressPrivateLinkGateway;
+import com.pulumi.confluentcloud.outputs.GetGatewayAzurePeeringGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayEnvironment;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -24,6 +26,16 @@ public final class GetGatewayResult {
      * 
      */
     private List<GetGatewayAwsPeeringGateway> awsPeeringGateways;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetGatewayAzureEgressPrivateLinkGateway> azureEgressPrivateLinkGateways;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetGatewayAzurePeeringGateway> azurePeeringGateways;
     /**
      * @return (Required String) A human-readable name for the Gateway.
      * 
@@ -46,6 +58,20 @@ public final class GetGatewayResult {
      */
     public List<GetGatewayAwsPeeringGateway> awsPeeringGateways() {
         return this.awsPeeringGateways;
+    }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetGatewayAzureEgressPrivateLinkGateway> azureEgressPrivateLinkGateways() {
+        return this.azureEgressPrivateLinkGateways;
+    }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetGatewayAzurePeeringGateway> azurePeeringGateways() {
+        return this.azurePeeringGateways;
     }
     /**
      * @return (Required String) A human-readable name for the Gateway.
@@ -72,6 +98,8 @@ public final class GetGatewayResult {
     public static final class Builder {
         private List<GetGatewayAwsEgressPrivateLinkGateway> awsEgressPrivateLinkGateways;
         private List<GetGatewayAwsPeeringGateway> awsPeeringGateways;
+        private List<GetGatewayAzureEgressPrivateLinkGateway> azureEgressPrivateLinkGateways;
+        private List<GetGatewayAzurePeeringGateway> azurePeeringGateways;
         private String displayName;
         private GetGatewayEnvironment environment;
         private String id;
@@ -80,6 +108,8 @@ public final class GetGatewayResult {
     	      Objects.requireNonNull(defaults);
     	      this.awsEgressPrivateLinkGateways = defaults.awsEgressPrivateLinkGateways;
     	      this.awsPeeringGateways = defaults.awsPeeringGateways;
+    	      this.azureEgressPrivateLinkGateways = defaults.azureEgressPrivateLinkGateways;
+    	      this.azurePeeringGateways = defaults.azurePeeringGateways;
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
     	      this.id = defaults.id;
@@ -106,6 +136,28 @@ public final class GetGatewayResult {
         }
         public Builder awsPeeringGateways(GetGatewayAwsPeeringGateway... awsPeeringGateways) {
             return awsPeeringGateways(List.of(awsPeeringGateways));
+        }
+        @CustomType.Setter
+        public Builder azureEgressPrivateLinkGateways(List<GetGatewayAzureEgressPrivateLinkGateway> azureEgressPrivateLinkGateways) {
+            if (azureEgressPrivateLinkGateways == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "azureEgressPrivateLinkGateways");
+            }
+            this.azureEgressPrivateLinkGateways = azureEgressPrivateLinkGateways;
+            return this;
+        }
+        public Builder azureEgressPrivateLinkGateways(GetGatewayAzureEgressPrivateLinkGateway... azureEgressPrivateLinkGateways) {
+            return azureEgressPrivateLinkGateways(List.of(azureEgressPrivateLinkGateways));
+        }
+        @CustomType.Setter
+        public Builder azurePeeringGateways(List<GetGatewayAzurePeeringGateway> azurePeeringGateways) {
+            if (azurePeeringGateways == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "azurePeeringGateways");
+            }
+            this.azurePeeringGateways = azurePeeringGateways;
+            return this;
+        }
+        public Builder azurePeeringGateways(GetGatewayAzurePeeringGateway... azurePeeringGateways) {
+            return azurePeeringGateways(List.of(azurePeeringGateways));
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
@@ -135,6 +187,8 @@ public final class GetGatewayResult {
             final var _resultValue = new GetGatewayResult();
             _resultValue.awsEgressPrivateLinkGateways = awsEgressPrivateLinkGateways;
             _resultValue.awsPeeringGateways = awsPeeringGateways;
+            _resultValue.azureEgressPrivateLinkGateways = azureEgressPrivateLinkGateways;
+            _resultValue.azurePeeringGateways = azurePeeringGateways;
             _resultValue.displayName = displayName;
             _resultValue.environment = environment;
             _resultValue.id = id;

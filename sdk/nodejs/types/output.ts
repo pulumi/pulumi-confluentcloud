@@ -24,6 +24,29 @@ export interface AccessPointAwsEgressPrivateLinkEndpoint {
     vpcEndpointServiceName: string;
 }
 
+export interface AccessPointAzureEgressPrivateLinkEndpoint {
+    /**
+     * (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
+     */
+    privateEndpointDomain: string;
+    /**
+     * (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
+     */
+    privateEndpointIpAddress: string;
+    /**
+     * (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+     */
+    privateEndpointResourceId: string;
+    /**
+     * Resource ID of the Azure Private Link service.
+     */
+    privateLinkServiceResourceId: string;
+    /**
+     * Name of the subresource for the Private Endpoint to connect to.
+     */
+    privateLinkSubresourceName?: string;
+}
+
 export interface AccessPointEnvironment {
     /**
      * The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
@@ -453,6 +476,29 @@ export interface GetAccessPointAwsEgressPrivateLinkEndpoint {
     vpcEndpointServiceName: string;
 }
 
+export interface GetAccessPointAzureEgressPrivateLinkEndpoint {
+    /**
+     * (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
+     */
+    privateEndpointDomain: string;
+    /**
+     * (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
+     */
+    privateEndpointIpAddress: string;
+    /**
+     * (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+     */
+    privateEndpointResourceId: string;
+    /**
+     * (Required String) Resource ID of the Azure Private Link service.
+     */
+    privateLinkServiceResourceId: string;
+    /**
+     * (Required String) Name of the subresource for the Private Endpoint to connect to.
+     */
+    privateLinkSubresourceName: string;
+}
+
 export interface GetAccessPointEnvironment {
     /**
      * The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
@@ -618,14 +664,32 @@ export interface GetGatewayAwsEgressPrivateLinkGateway {
      */
     principalArn: string;
     /**
-     * (Required String) AWS region of the Peering Gateway.
+     * (Required String) Azure region of the Peering Gateway.
      */
     region: string;
 }
 
 export interface GetGatewayAwsPeeringGateway {
     /**
-     * (Required String) AWS region of the Peering Gateway.
+     * (Required String) Azure region of the Peering Gateway.
+     */
+    region: string;
+}
+
+export interface GetGatewayAzureEgressPrivateLinkGateway {
+    /**
+     * (Required String) Azure region of the Peering Gateway.
+     */
+    region: string;
+    /**
+     * (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC.
+     */
+    subscription: string;
+}
+
+export interface GetGatewayAzurePeeringGateway {
+    /**
+     * (Required String) Azure region of the Peering Gateway.
      */
     region: string;
 }

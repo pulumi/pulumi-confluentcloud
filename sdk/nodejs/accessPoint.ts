@@ -18,16 +18,29 @@ import * as utilities from "./utilities";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const development = new confluentcloud.Environment("development", {displayName: "Development"});
- * const main = new confluentcloud.AccessPoint("main", {
+ * const aws = new confluentcloud.AccessPoint("aws", {
  *     displayName: "access_point",
  *     environment: {
  *         id: development.id,
  *     },
  *     gateway: {
- *         id: mainConfluentNetwork.gateway[0].id,
+ *         id: main.gateway[0].id,
  *     },
  *     awsEgressPrivateLinkEndpoint: {
  *         vpcEndpointServiceName: "com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000",
+ *     },
+ * });
+ * const azure = new confluentcloud.AccessPoint("azure", {
+ *     displayName: "access_point",
+ *     environment: {
+ *         id: development.id,
+ *     },
+ *     gateway: {
+ *         id: main.gateway[0].id,
+ *     },
+ *     azureEgressPrivateLinkEndpoint: {
+ *         privateLinkServiceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3",
+ *         privateLinkSubresourceName: "sqlServer",
  *     },
  * });
  * ```
@@ -74,7 +87,14 @@ export class AccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPoint.__pulumiType;
     }
 
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     public readonly awsEgressPrivateLinkEndpoint!: pulumi.Output<outputs.AccessPointAwsEgressPrivateLinkEndpoint | undefined>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    public readonly azureEgressPrivateLinkEndpoint!: pulumi.Output<outputs.AccessPointAzureEgressPrivateLinkEndpoint | undefined>;
     /**
      * The name of the Access Point.
      */
@@ -99,6 +119,7 @@ export class AccessPoint extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AccessPointState | undefined;
             resourceInputs["awsEgressPrivateLinkEndpoint"] = state ? state.awsEgressPrivateLinkEndpoint : undefined;
+            resourceInputs["azureEgressPrivateLinkEndpoint"] = state ? state.azureEgressPrivateLinkEndpoint : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["gateway"] = state ? state.gateway : undefined;
@@ -111,6 +132,7 @@ export class AccessPoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'gateway'");
             }
             resourceInputs["awsEgressPrivateLinkEndpoint"] = args ? args.awsEgressPrivateLinkEndpoint : undefined;
+            resourceInputs["azureEgressPrivateLinkEndpoint"] = args ? args.azureEgressPrivateLinkEndpoint : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["gateway"] = args ? args.gateway : undefined;
@@ -124,7 +146,14 @@ export class AccessPoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccessPoint resources.
  */
 export interface AccessPointState {
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     awsEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAwsEgressPrivateLinkEndpoint>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    azureEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureEgressPrivateLinkEndpoint>;
     /**
      * The name of the Access Point.
      */
@@ -140,7 +169,14 @@ export interface AccessPointState {
  * The set of arguments for constructing a AccessPoint resource.
  */
 export interface AccessPointArgs {
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     awsEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAwsEgressPrivateLinkEndpoint>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    azureEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureEgressPrivateLinkEndpoint>;
     /**
      * The name of the Access Point.
      */

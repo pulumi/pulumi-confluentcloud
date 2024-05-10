@@ -36,16 +36,32 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewAccessPoint(ctx, "main", &confluentcloud.AccessPointArgs{
+//			_, err = confluentcloud.NewAccessPoint(ctx, "aws", &confluentcloud.AccessPointArgs{
 //				DisplayName: pulumi.String("access_point"),
 //				Environment: &confluentcloud.AccessPointEnvironmentArgs{
 //					Id: development.ID(),
 //				},
 //				Gateway: &confluentcloud.AccessPointGatewayArgs{
-//					Id: pulumi.Any(mainConfluentNetwork.Gateway[0].Id),
+//					Id: pulumi.Any(main.Gateway[0].Id),
 //				},
 //				AwsEgressPrivateLinkEndpoint: &confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs{
 //					VpcEndpointServiceName: pulumi.String("com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewAccessPoint(ctx, "azure", &confluentcloud.AccessPointArgs{
+//				DisplayName: pulumi.String("access_point"),
+//				Environment: &confluentcloud.AccessPointEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//				Gateway: &confluentcloud.AccessPointGatewayArgs{
+//					Id: pulumi.Any(main.Gateway[0].Id),
+//				},
+//				AzureEgressPrivateLinkEndpoint: &confluentcloud.AccessPointAzureEgressPrivateLinkEndpointArgs{
+//					PrivateLinkServiceResourceId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3"),
+//					PrivateLinkSubresourceName:   pulumi.String("sqlServer"),
 //				},
 //			})
 //			if err != nil {
@@ -73,7 +89,10 @@ import (
 type AccessPoint struct {
 	pulumi.CustomResourceState
 
+	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoint AccessPointAwsEgressPrivateLinkEndpointPtrOutput `pulumi:"awsEgressPrivateLinkEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	AzureEgressPrivateLinkEndpoint AccessPointAzureEgressPrivateLinkEndpointPtrOutput `pulumi:"azureEgressPrivateLinkEndpoint"`
 	// The name of the Access Point.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -117,7 +136,10 @@ func GetAccessPoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessPoint resources.
 type accessPointState struct {
+	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoint *AccessPointAwsEgressPrivateLinkEndpoint `pulumi:"awsEgressPrivateLinkEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	AzureEgressPrivateLinkEndpoint *AccessPointAzureEgressPrivateLinkEndpoint `pulumi:"azureEgressPrivateLinkEndpoint"`
 	// The name of the Access Point.
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -126,7 +148,10 @@ type accessPointState struct {
 }
 
 type AccessPointState struct {
+	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoint AccessPointAwsEgressPrivateLinkEndpointPtrInput
+	// (Optional Configuration Block) supports the following:
+	AzureEgressPrivateLinkEndpoint AccessPointAzureEgressPrivateLinkEndpointPtrInput
 	// The name of the Access Point.
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -139,7 +164,10 @@ func (AccessPointState) ElementType() reflect.Type {
 }
 
 type accessPointArgs struct {
+	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoint *AccessPointAwsEgressPrivateLinkEndpoint `pulumi:"awsEgressPrivateLinkEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	AzureEgressPrivateLinkEndpoint *AccessPointAzureEgressPrivateLinkEndpoint `pulumi:"azureEgressPrivateLinkEndpoint"`
 	// The name of the Access Point.
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -149,7 +177,10 @@ type accessPointArgs struct {
 
 // The set of arguments for constructing a AccessPoint resource.
 type AccessPointArgs struct {
+	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoint AccessPointAwsEgressPrivateLinkEndpointPtrInput
+	// (Optional Configuration Block) supports the following:
+	AzureEgressPrivateLinkEndpoint AccessPointAzureEgressPrivateLinkEndpointPtrInput
 	// The name of the Access Point.
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -244,10 +275,18 @@ func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// (Optional Configuration Block) supports the following:
 func (o AccessPointOutput) AwsEgressPrivateLinkEndpoint() AccessPointAwsEgressPrivateLinkEndpointPtrOutput {
 	return o.ApplyT(func(v *AccessPoint) AccessPointAwsEgressPrivateLinkEndpointPtrOutput {
 		return v.AwsEgressPrivateLinkEndpoint
 	}).(AccessPointAwsEgressPrivateLinkEndpointPtrOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o AccessPointOutput) AzureEgressPrivateLinkEndpoint() AccessPointAzureEgressPrivateLinkEndpointPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointAzureEgressPrivateLinkEndpointPtrOutput {
+		return v.AzureEgressPrivateLinkEndpoint
+	}).(AccessPointAzureEgressPrivateLinkEndpointPtrOutput)
 }
 
 // The name of the Access Point.

@@ -12,6 +12,7 @@ from . import outputs
 
 __all__ = [
     'AccessPointAwsEgressPrivateLinkEndpoint',
+    'AccessPointAzureEgressPrivateLinkEndpoint',
     'AccessPointEnvironment',
     'AccessPointGateway',
     'ApiKeyManagedResource',
@@ -142,6 +143,7 @@ __all__ = [
     'TransitGatewayAttachmentEnvironment',
     'TransitGatewayAttachmentNetwork',
     'GetAccessPointAwsEgressPrivateLinkEndpointResult',
+    'GetAccessPointAzureEgressPrivateLinkEndpointResult',
     'GetAccessPointEnvironmentResult',
     'GetAccessPointGatewayResult',
     'GetBusinessMetadataAttributeDefinitionResult',
@@ -159,6 +161,8 @@ __all__ = [
     'GetFlinkComputePoolEnvironmentResult',
     'GetGatewayAwsEgressPrivateLinkGatewayResult',
     'GetGatewayAwsPeeringGatewayResult',
+    'GetGatewayAzureEgressPrivateLinkGatewayResult',
+    'GetGatewayAzurePeeringGatewayResult',
     'GetGatewayEnvironmentResult',
     'GetIdentityPoolIdentityProviderResult',
     'GetInvitationCreatorResult',
@@ -326,6 +330,97 @@ class AccessPointAwsEgressPrivateLinkEndpoint(dict):
         (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
         """
         return pulumi.get(self, "vpc_endpoint_id")
+
+
+@pulumi.output_type
+class AccessPointAzureEgressPrivateLinkEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceResourceId":
+            suggest = "private_link_service_resource_id"
+        elif key == "privateEndpointDomain":
+            suggest = "private_endpoint_domain"
+        elif key == "privateEndpointIpAddress":
+            suggest = "private_endpoint_ip_address"
+        elif key == "privateEndpointResourceId":
+            suggest = "private_endpoint_resource_id"
+        elif key == "privateLinkSubresourceName":
+            suggest = "private_link_subresource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointAzureEgressPrivateLinkEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointAzureEgressPrivateLinkEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointAzureEgressPrivateLinkEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_link_service_resource_id: str,
+                 private_endpoint_domain: Optional[str] = None,
+                 private_endpoint_ip_address: Optional[str] = None,
+                 private_endpoint_resource_id: Optional[str] = None,
+                 private_link_subresource_name: Optional[str] = None):
+        """
+        :param str private_link_service_resource_id: Resource ID of the Azure Private Link service.
+        :param str private_endpoint_domain: (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
+        :param str private_endpoint_ip_address: (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
+        :param str private_endpoint_resource_id: (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+        :param str private_link_subresource_name: Name of the subresource for the Private Endpoint to connect to.
+        """
+        pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
+        if private_endpoint_domain is not None:
+            pulumi.set(__self__, "private_endpoint_domain", private_endpoint_domain)
+        if private_endpoint_ip_address is not None:
+            pulumi.set(__self__, "private_endpoint_ip_address", private_endpoint_ip_address)
+        if private_endpoint_resource_id is not None:
+            pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
+        if private_link_subresource_name is not None:
+            pulumi.set(__self__, "private_link_subresource_name", private_link_subresource_name)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceResourceId")
+    def private_link_service_resource_id(self) -> str:
+        """
+        Resource ID of the Azure Private Link service.
+        """
+        return pulumi.get(self, "private_link_service_resource_id")
+
+    @property
+    @pulumi.getter(name="privateEndpointDomain")
+    def private_endpoint_domain(self) -> Optional[str]:
+        """
+        (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
+        """
+        return pulumi.get(self, "private_endpoint_domain")
+
+    @property
+    @pulumi.getter(name="privateEndpointIpAddress")
+    def private_endpoint_ip_address(self) -> Optional[str]:
+        """
+        (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
+        """
+        return pulumi.get(self, "private_endpoint_ip_address")
+
+    @property
+    @pulumi.getter(name="privateEndpointResourceId")
+    def private_endpoint_resource_id(self) -> Optional[str]:
+        """
+        (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+        """
+        return pulumi.get(self, "private_endpoint_resource_id")
+
+    @property
+    @pulumi.getter(name="privateLinkSubresourceName")
+    def private_link_subresource_name(self) -> Optional[str]:
+        """
+        Name of the subresource for the Private Endpoint to connect to.
+        """
+        return pulumi.get(self, "private_link_subresource_name")
 
 
 @pulumi.output_type
@@ -4426,6 +4521,68 @@ class GetAccessPointAwsEgressPrivateLinkEndpointResult(dict):
 
 
 @pulumi.output_type
+class GetAccessPointAzureEgressPrivateLinkEndpointResult(dict):
+    def __init__(__self__, *,
+                 private_endpoint_domain: str,
+                 private_endpoint_ip_address: str,
+                 private_endpoint_resource_id: str,
+                 private_link_service_resource_id: str,
+                 private_link_subresource_name: str):
+        """
+        :param str private_endpoint_domain: (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
+        :param str private_endpoint_ip_address: (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
+        :param str private_endpoint_resource_id: (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+        :param str private_link_service_resource_id: (Required String) Resource ID of the Azure Private Link service.
+        :param str private_link_subresource_name: (Required String) Name of the subresource for the Private Endpoint to connect to.
+        """
+        pulumi.set(__self__, "private_endpoint_domain", private_endpoint_domain)
+        pulumi.set(__self__, "private_endpoint_ip_address", private_endpoint_ip_address)
+        pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
+        pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
+        pulumi.set(__self__, "private_link_subresource_name", private_link_subresource_name)
+
+    @property
+    @pulumi.getter(name="privateEndpointDomain")
+    def private_endpoint_domain(self) -> str:
+        """
+        (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
+        """
+        return pulumi.get(self, "private_endpoint_domain")
+
+    @property
+    @pulumi.getter(name="privateEndpointIpAddress")
+    def private_endpoint_ip_address(self) -> str:
+        """
+        (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
+        """
+        return pulumi.get(self, "private_endpoint_ip_address")
+
+    @property
+    @pulumi.getter(name="privateEndpointResourceId")
+    def private_endpoint_resource_id(self) -> str:
+        """
+        (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+        """
+        return pulumi.get(self, "private_endpoint_resource_id")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceResourceId")
+    def private_link_service_resource_id(self) -> str:
+        """
+        (Required String) Resource ID of the Azure Private Link service.
+        """
+        return pulumi.get(self, "private_link_service_resource_id")
+
+    @property
+    @pulumi.getter(name="privateLinkSubresourceName")
+    def private_link_subresource_name(self) -> str:
+        """
+        (Required String) Name of the subresource for the Private Endpoint to connect to.
+        """
+        return pulumi.get(self, "private_link_subresource_name")
+
+
+@pulumi.output_type
 class GetAccessPointEnvironmentResult(dict):
     def __init__(__self__, *,
                  id: str):
@@ -4846,7 +5003,7 @@ class GetGatewayAwsEgressPrivateLinkGatewayResult(dict):
                  region: str):
         """
         :param str principal_arn: (Required String) The principal ARN used by the AWS Egress Private Link Gateway.
-        :param str region: (Required String) AWS region of the Peering Gateway.
+        :param str region: (Required String) Azure region of the Peering Gateway.
         """
         pulumi.set(__self__, "principal_arn", principal_arn)
         pulumi.set(__self__, "region", region)
@@ -4863,7 +5020,7 @@ class GetGatewayAwsEgressPrivateLinkGatewayResult(dict):
     @pulumi.getter
     def region(self) -> str:
         """
-        (Required String) AWS region of the Peering Gateway.
+        (Required String) Azure region of the Peering Gateway.
         """
         return pulumi.get(self, "region")
 
@@ -4873,7 +5030,7 @@ class GetGatewayAwsPeeringGatewayResult(dict):
     def __init__(__self__, *,
                  region: str):
         """
-        :param str region: (Required String) AWS region of the Peering Gateway.
+        :param str region: (Required String) Azure region of the Peering Gateway.
         """
         pulumi.set(__self__, "region", region)
 
@@ -4881,7 +5038,54 @@ class GetGatewayAwsPeeringGatewayResult(dict):
     @pulumi.getter
     def region(self) -> str:
         """
-        (Required String) AWS region of the Peering Gateway.
+        (Required String) Azure region of the Peering Gateway.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetGatewayAzureEgressPrivateLinkGatewayResult(dict):
+    def __init__(__self__, *,
+                 region: str,
+                 subscription: str):
+        """
+        :param str region: (Required String) Azure region of the Peering Gateway.
+        :param str subscription: (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC.
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "subscription", subscription)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        (Required String) Azure region of the Peering Gateway.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def subscription(self) -> str:
+        """
+        (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC.
+        """
+        return pulumi.get(self, "subscription")
+
+
+@pulumi.output_type
+class GetGatewayAzurePeeringGatewayResult(dict):
+    def __init__(__self__, *,
+                 region: str):
+        """
+        :param str region: (Required String) Azure region of the Peering Gateway.
+        """
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        (Required String) Azure region of the Peering Gateway.
         """
         return pulumi.get(self, "region")
 

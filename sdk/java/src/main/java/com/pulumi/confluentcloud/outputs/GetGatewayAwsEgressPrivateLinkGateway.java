@@ -16,7 +16,7 @@ public final class GetGatewayAwsEgressPrivateLinkGateway {
      */
     private String principalArn;
     /**
-     * @return (Required String) AWS region of the Peering Gateway.
+     * @return (Required String) Azure region of the Peering Gateway.
      * 
      */
     private String region;
@@ -30,7 +30,7 @@ public final class GetGatewayAwsEgressPrivateLinkGateway {
         return this.principalArn;
     }
     /**
-     * @return (Required String) AWS region of the Peering Gateway.
+     * @return (Required String) Azure region of the Peering Gateway.
      * 
      */
     public String region() {

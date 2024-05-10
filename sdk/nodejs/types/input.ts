@@ -24,6 +24,29 @@ export interface AccessPointAwsEgressPrivateLinkEndpoint {
     vpcEndpointServiceName: pulumi.Input<string>;
 }
 
+export interface AccessPointAzureEgressPrivateLinkEndpoint {
+    /**
+     * (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
+     */
+    privateEndpointDomain?: pulumi.Input<string>;
+    /**
+     * (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
+     */
+    privateEndpointIpAddress?: pulumi.Input<string>;
+    /**
+     * (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+     */
+    privateEndpointResourceId?: pulumi.Input<string>;
+    /**
+     * Resource ID of the Azure Private Link service.
+     */
+    privateLinkServiceResourceId: pulumi.Input<string>;
+    /**
+     * Name of the subresource for the Private Endpoint to connect to.
+     */
+    privateLinkSubresourceName?: pulumi.Input<string>;
+}
+
 export interface AccessPointEnvironment {
     /**
      * The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.

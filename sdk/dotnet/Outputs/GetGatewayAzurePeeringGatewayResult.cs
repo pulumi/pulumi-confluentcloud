@@ -11,24 +11,16 @@ namespace Pulumi.ConfluentCloud.Outputs
 {
 
     [OutputType]
-    public sealed class GetGatewayAwsEgressPrivateLinkGatewayResult
+    public sealed class GetGatewayAzurePeeringGatewayResult
     {
-        /// <summary>
-        /// (Required String) The principal ARN used by the AWS Egress Private Link Gateway.
-        /// </summary>
-        public readonly string PrincipalArn;
         /// <summary>
         /// (Required String) Azure region of the Peering Gateway.
         /// </summary>
         public readonly string Region;
 
         [OutputConstructor]
-        private GetGatewayAwsEgressPrivateLinkGatewayResult(
-            string principalArn,
-
-            string region)
+        private GetGatewayAzurePeeringGatewayResult(string region)
         {
-            PrincipalArn = principalArn;
             Region = region;
         }
     }

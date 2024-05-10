@@ -7,6 +7,9 @@
                     "aws_egress_private_link_endpoint": {
                         "maxItemsOne": true
                     },
+                    "azure_egress_private_link_endpoint": {
+                        "maxItemsOne": true
+                    },
                     "environment": {
                         "maxItemsOne": true
                     },
@@ -755,6 +758,9 @@
                     "aws_egress_private_link_endpoint": {
                         "maxItemsOne": false
                     },
+                    "azure_egress_private_link_endpoint": {
+                        "maxItemsOne": false
+                    },
                     "environment": {
                         "maxItemsOne": true
                     },
@@ -857,6 +863,12 @@
                         "maxItemsOne": false
                     },
                     "aws_peering_gateway": {
+                        "maxItemsOne": false
+                    },
+                    "azure_egress_private_link_gateway": {
+                        "maxItemsOne": false
+                    },
+                    "azure_peering_gateway": {
                         "maxItemsOne": false
                     },
                     "environment": {

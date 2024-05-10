@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.AccessPointArgs;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.AccessPointState;
 import com.pulumi.confluentcloud.outputs.AccessPointAwsEgressPrivateLinkEndpoint;
+import com.pulumi.confluentcloud.outputs.AccessPointAzureEgressPrivateLinkEndpoint;
 import com.pulumi.confluentcloud.outputs.AccessPointEnvironment;
 import com.pulumi.confluentcloud.outputs.AccessPointGateway;
 import com.pulumi.core.Output;
@@ -39,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.AccessPointEnvironmentArgs;
  * import com.pulumi.confluentcloud.inputs.AccessPointGatewayArgs;
  * import com.pulumi.confluentcloud.inputs.AccessPointAwsEgressPrivateLinkEndpointArgs;
+ * import com.pulumi.confluentcloud.inputs.AccessPointAzureEgressPrivateLinkEndpointArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,16 +58,30 @@ import javax.annotation.Nullable;
  *             .displayName("Development")
  *             .build());
  * 
- *         var main = new AccessPoint("main", AccessPointArgs.builder()        
+ *         var aws = new AccessPoint("aws", AccessPointArgs.builder()        
  *             .displayName("access_point")
  *             .environment(AccessPointEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .gateway(AccessPointGatewayArgs.builder()
- *                 .id(mainConfluentNetwork.gateway()[0].id())
+ *                 .id(main.gateway()[0].id())
  *                 .build())
  *             .awsEgressPrivateLinkEndpoint(AccessPointAwsEgressPrivateLinkEndpointArgs.builder()
  *                 .vpcEndpointServiceName("com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000")
+ *                 .build())
+ *             .build());
+ * 
+ *         var azure = new AccessPoint("azure", AccessPointArgs.builder()        
+ *             .displayName("access_point")
+ *             .environment(AccessPointEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .gateway(AccessPointGatewayArgs.builder()
+ *                 .id(main.gateway()[0].id())
+ *                 .build())
+ *             .azureEgressPrivateLinkEndpoint(AccessPointAzureEgressPrivateLinkEndpointArgs.builder()
+ *                 .privateLinkServiceResourceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3")
+ *                 .privateLinkSubresourceName("sqlServer")
  *                 .build())
  *             .build());
  * 
@@ -92,11 +108,33 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/accessPoint:AccessPoint")
 public class AccessPoint extends com.pulumi.resources.CustomResource {
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
     @Export(name="awsEgressPrivateLinkEndpoint", refs={AccessPointAwsEgressPrivateLinkEndpoint.class}, tree="[0]")
     private Output</* @Nullable */ AccessPointAwsEgressPrivateLinkEndpoint> awsEgressPrivateLinkEndpoint;
 
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public Output<Optional<AccessPointAwsEgressPrivateLinkEndpoint>> awsEgressPrivateLinkEndpoint() {
         return Codegen.optional(this.awsEgressPrivateLinkEndpoint);
+    }
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Export(name="azureEgressPrivateLinkEndpoint", refs={AccessPointAzureEgressPrivateLinkEndpoint.class}, tree="[0]")
+    private Output</* @Nullable */ AccessPointAzureEgressPrivateLinkEndpoint> azureEgressPrivateLinkEndpoint;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Output<Optional<AccessPointAzureEgressPrivateLinkEndpoint>> azureEgressPrivateLinkEndpoint() {
+        return Codegen.optional(this.azureEgressPrivateLinkEndpoint);
     }
     /**
      * The name of the Access Point.

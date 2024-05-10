@@ -59,6 +59,14 @@ export interface GetGatewayResult {
      */
     readonly awsPeeringGateways: outputs.GetGatewayAwsPeeringGateway[];
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly azureEgressPrivateLinkGateways: outputs.GetGatewayAzureEgressPrivateLinkGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly azurePeeringGateways: outputs.GetGatewayAzurePeeringGateway[];
+    /**
      * (Required String) A human-readable name for the Gateway.
      */
     readonly displayName: string;

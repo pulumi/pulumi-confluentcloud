@@ -19,16 +19,21 @@ class AccessPointArgs:
                  environment: pulumi.Input['AccessPointEnvironmentArgs'],
                  gateway: pulumi.Input['AccessPointGatewayArgs'],
                  aws_egress_private_link_endpoint: Optional[pulumi.Input['AccessPointAwsEgressPrivateLinkEndpointArgs']] = None,
+                 azure_egress_private_link_endpoint: Optional[pulumi.Input['AccessPointAzureEgressPrivateLinkEndpointArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
         :param pulumi.Input['AccessPointEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input['AccessPointAwsEgressPrivateLinkEndpointArgs'] aws_egress_private_link_endpoint: (Optional Configuration Block) supports the following:
+        :param pulumi.Input['AccessPointAzureEgressPrivateLinkEndpointArgs'] azure_egress_private_link_endpoint: (Optional Configuration Block) supports the following:
         :param pulumi.Input[str] display_name: The name of the Access Point.
         """
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "gateway", gateway)
         if aws_egress_private_link_endpoint is not None:
             pulumi.set(__self__, "aws_egress_private_link_endpoint", aws_egress_private_link_endpoint)
+        if azure_egress_private_link_endpoint is not None:
+            pulumi.set(__self__, "azure_egress_private_link_endpoint", azure_egress_private_link_endpoint)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
 
@@ -56,11 +61,26 @@ class AccessPointArgs:
     @property
     @pulumi.getter(name="awsEgressPrivateLinkEndpoint")
     def aws_egress_private_link_endpoint(self) -> Optional[pulumi.Input['AccessPointAwsEgressPrivateLinkEndpointArgs']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
         return pulumi.get(self, "aws_egress_private_link_endpoint")
 
     @aws_egress_private_link_endpoint.setter
     def aws_egress_private_link_endpoint(self, value: Optional[pulumi.Input['AccessPointAwsEgressPrivateLinkEndpointArgs']]):
         pulumi.set(self, "aws_egress_private_link_endpoint", value)
+
+    @property
+    @pulumi.getter(name="azureEgressPrivateLinkEndpoint")
+    def azure_egress_private_link_endpoint(self) -> Optional[pulumi.Input['AccessPointAzureEgressPrivateLinkEndpointArgs']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_egress_private_link_endpoint")
+
+    @azure_egress_private_link_endpoint.setter
+    def azure_egress_private_link_endpoint(self, value: Optional[pulumi.Input['AccessPointAzureEgressPrivateLinkEndpointArgs']]):
+        pulumi.set(self, "azure_egress_private_link_endpoint", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -79,16 +99,21 @@ class AccessPointArgs:
 class _AccessPointState:
     def __init__(__self__, *,
                  aws_egress_private_link_endpoint: Optional[pulumi.Input['AccessPointAwsEgressPrivateLinkEndpointArgs']] = None,
+                 azure_egress_private_link_endpoint: Optional[pulumi.Input['AccessPointAzureEgressPrivateLinkEndpointArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['AccessPointEnvironmentArgs']] = None,
                  gateway: Optional[pulumi.Input['AccessPointGatewayArgs']] = None):
         """
         Input properties used for looking up and filtering AccessPoint resources.
+        :param pulumi.Input['AccessPointAwsEgressPrivateLinkEndpointArgs'] aws_egress_private_link_endpoint: (Optional Configuration Block) supports the following:
+        :param pulumi.Input['AccessPointAzureEgressPrivateLinkEndpointArgs'] azure_egress_private_link_endpoint: (Optional Configuration Block) supports the following:
         :param pulumi.Input[str] display_name: The name of the Access Point.
         :param pulumi.Input['AccessPointEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         if aws_egress_private_link_endpoint is not None:
             pulumi.set(__self__, "aws_egress_private_link_endpoint", aws_egress_private_link_endpoint)
+        if azure_egress_private_link_endpoint is not None:
+            pulumi.set(__self__, "azure_egress_private_link_endpoint", azure_egress_private_link_endpoint)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if environment is not None:
@@ -99,11 +124,26 @@ class _AccessPointState:
     @property
     @pulumi.getter(name="awsEgressPrivateLinkEndpoint")
     def aws_egress_private_link_endpoint(self) -> Optional[pulumi.Input['AccessPointAwsEgressPrivateLinkEndpointArgs']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
         return pulumi.get(self, "aws_egress_private_link_endpoint")
 
     @aws_egress_private_link_endpoint.setter
     def aws_egress_private_link_endpoint(self, value: Optional[pulumi.Input['AccessPointAwsEgressPrivateLinkEndpointArgs']]):
         pulumi.set(self, "aws_egress_private_link_endpoint", value)
+
+    @property
+    @pulumi.getter(name="azureEgressPrivateLinkEndpoint")
+    def azure_egress_private_link_endpoint(self) -> Optional[pulumi.Input['AccessPointAzureEgressPrivateLinkEndpointArgs']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_egress_private_link_endpoint")
+
+    @azure_egress_private_link_endpoint.setter
+    def azure_egress_private_link_endpoint(self, value: Optional[pulumi.Input['AccessPointAzureEgressPrivateLinkEndpointArgs']]):
+        pulumi.set(self, "azure_egress_private_link_endpoint", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -145,6 +185,7 @@ class AccessPoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_egress_private_link_endpoint: Optional[pulumi.Input[pulumi.InputType['AccessPointAwsEgressPrivateLinkEndpointArgs']]] = None,
+                 azure_egress_private_link_endpoint: Optional[pulumi.Input[pulumi.InputType['AccessPointAzureEgressPrivateLinkEndpointArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['AccessPointEnvironmentArgs']]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['AccessPointGatewayArgs']]] = None,
@@ -161,16 +202,28 @@ class AccessPoint(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         development = confluentcloud.Environment("development", display_name="Development")
-        main = confluentcloud.AccessPoint("main",
+        aws = confluentcloud.AccessPoint("aws",
             display_name="access_point",
             environment=confluentcloud.AccessPointEnvironmentArgs(
                 id=development.id,
             ),
             gateway=confluentcloud.AccessPointGatewayArgs(
-                id=main_confluent_network["gateway"][0]["id"],
+                id=main["gateway"][0]["id"],
             ),
             aws_egress_private_link_endpoint=confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs(
                 vpc_endpoint_service_name="com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000",
+            ))
+        azure = confluentcloud.AccessPoint("azure",
+            display_name="access_point",
+            environment=confluentcloud.AccessPointEnvironmentArgs(
+                id=development.id,
+            ),
+            gateway=confluentcloud.AccessPointGatewayArgs(
+                id=main["gateway"][0]["id"],
+            ),
+            azure_egress_private_link_endpoint=confluentcloud.AccessPointAzureEgressPrivateLinkEndpointArgs(
+                private_link_service_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3",
+                private_link_subresource_name="sqlServer",
             ))
         ```
 
@@ -190,6 +243,8 @@ class AccessPoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AccessPointAwsEgressPrivateLinkEndpointArgs']] aws_egress_private_link_endpoint: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[pulumi.InputType['AccessPointAzureEgressPrivateLinkEndpointArgs']] azure_egress_private_link_endpoint: (Optional Configuration Block) supports the following:
         :param pulumi.Input[str] display_name: The name of the Access Point.
         :param pulumi.Input[pulumi.InputType['AccessPointEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
@@ -211,16 +266,28 @@ class AccessPoint(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         development = confluentcloud.Environment("development", display_name="Development")
-        main = confluentcloud.AccessPoint("main",
+        aws = confluentcloud.AccessPoint("aws",
             display_name="access_point",
             environment=confluentcloud.AccessPointEnvironmentArgs(
                 id=development.id,
             ),
             gateway=confluentcloud.AccessPointGatewayArgs(
-                id=main_confluent_network["gateway"][0]["id"],
+                id=main["gateway"][0]["id"],
             ),
             aws_egress_private_link_endpoint=confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs(
                 vpc_endpoint_service_name="com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000",
+            ))
+        azure = confluentcloud.AccessPoint("azure",
+            display_name="access_point",
+            environment=confluentcloud.AccessPointEnvironmentArgs(
+                id=development.id,
+            ),
+            gateway=confluentcloud.AccessPointGatewayArgs(
+                id=main["gateway"][0]["id"],
+            ),
+            azure_egress_private_link_endpoint=confluentcloud.AccessPointAzureEgressPrivateLinkEndpointArgs(
+                private_link_service_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3",
+                private_link_subresource_name="sqlServer",
             ))
         ```
 
@@ -254,6 +321,7 @@ class AccessPoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_egress_private_link_endpoint: Optional[pulumi.Input[pulumi.InputType['AccessPointAwsEgressPrivateLinkEndpointArgs']]] = None,
+                 azure_egress_private_link_endpoint: Optional[pulumi.Input[pulumi.InputType['AccessPointAzureEgressPrivateLinkEndpointArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['AccessPointEnvironmentArgs']]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['AccessPointGatewayArgs']]] = None,
@@ -267,6 +335,7 @@ class AccessPoint(pulumi.CustomResource):
             __props__ = AccessPointArgs.__new__(AccessPointArgs)
 
             __props__.__dict__["aws_egress_private_link_endpoint"] = aws_egress_private_link_endpoint
+            __props__.__dict__["azure_egress_private_link_endpoint"] = azure_egress_private_link_endpoint
             __props__.__dict__["display_name"] = display_name
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
@@ -285,6 +354,7 @@ class AccessPoint(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             aws_egress_private_link_endpoint: Optional[pulumi.Input[pulumi.InputType['AccessPointAwsEgressPrivateLinkEndpointArgs']]] = None,
+            azure_egress_private_link_endpoint: Optional[pulumi.Input[pulumi.InputType['AccessPointAzureEgressPrivateLinkEndpointArgs']]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[pulumi.InputType['AccessPointEnvironmentArgs']]] = None,
             gateway: Optional[pulumi.Input[pulumi.InputType['AccessPointGatewayArgs']]] = None) -> 'AccessPoint':
@@ -295,6 +365,8 @@ class AccessPoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AccessPointAwsEgressPrivateLinkEndpointArgs']] aws_egress_private_link_endpoint: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[pulumi.InputType['AccessPointAzureEgressPrivateLinkEndpointArgs']] azure_egress_private_link_endpoint: (Optional Configuration Block) supports the following:
         :param pulumi.Input[str] display_name: The name of the Access Point.
         :param pulumi.Input[pulumi.InputType['AccessPointEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
@@ -303,6 +375,7 @@ class AccessPoint(pulumi.CustomResource):
         __props__ = _AccessPointState.__new__(_AccessPointState)
 
         __props__.__dict__["aws_egress_private_link_endpoint"] = aws_egress_private_link_endpoint
+        __props__.__dict__["azure_egress_private_link_endpoint"] = azure_egress_private_link_endpoint
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["environment"] = environment
         __props__.__dict__["gateway"] = gateway
@@ -311,7 +384,18 @@ class AccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsEgressPrivateLinkEndpoint")
     def aws_egress_private_link_endpoint(self) -> pulumi.Output[Optional['outputs.AccessPointAwsEgressPrivateLinkEndpoint']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
         return pulumi.get(self, "aws_egress_private_link_endpoint")
+
+    @property
+    @pulumi.getter(name="azureEgressPrivateLinkEndpoint")
+    def azure_egress_private_link_endpoint(self) -> pulumi.Output[Optional['outputs.AccessPointAzureEgressPrivateLinkEndpoint']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_egress_private_link_endpoint")
 
     @property
     @pulumi.getter(name="displayName")

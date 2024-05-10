@@ -120,9 +120,13 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetAccessPointResult
     {
         /// <summary>
-        /// (Required Configuration Block) supports the following:
+        /// (Optional Configuration Block) supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessPointAwsEgressPrivateLinkEndpointResult> AwsEgressPrivateLinkEndpoints;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccessPointAzureEgressPrivateLinkEndpointResult> AzureEgressPrivateLinkEndpoints;
         /// <summary>
         /// (Required String) A human-readable name for the Access Point.
         /// </summary>
@@ -141,6 +145,8 @@ namespace Pulumi.ConfluentCloud
         private GetAccessPointResult(
             ImmutableArray<Outputs.GetAccessPointAwsEgressPrivateLinkEndpointResult> awsEgressPrivateLinkEndpoints,
 
+            ImmutableArray<Outputs.GetAccessPointAzureEgressPrivateLinkEndpointResult> azureEgressPrivateLinkEndpoints,
+
             string displayName,
 
             Outputs.GetAccessPointEnvironmentResult environment,
@@ -150,6 +156,7 @@ namespace Pulumi.ConfluentCloud
             string id)
         {
             AwsEgressPrivateLinkEndpoints = awsEgressPrivateLinkEndpoints;
+            AzureEgressPrivateLinkEndpoints = azureEgressPrivateLinkEndpoints;
             DisplayName = displayName;
             Environment = environment;
             Gateways = gateways;
