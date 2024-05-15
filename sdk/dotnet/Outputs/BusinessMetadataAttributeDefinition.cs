@@ -31,6 +31,8 @@ namespace Pulumi.ConfluentCloud.Outputs
         public readonly string Name;
         /// <summary>
         /// (Optional Map) Block for the attribute options:
+        /// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+        /// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Options;
         /// <summary>

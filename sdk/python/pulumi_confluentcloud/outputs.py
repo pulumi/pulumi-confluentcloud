@@ -636,6 +636,8 @@ class BusinessMetadataAttributeDefinition(dict):
         :param str description: The description of this attribute.
         :param bool is_optional: An optional flag to control whether the attribute should be optional or required. The default value is `false`.
         :param Mapping[str, str] options: (Optional Map) Block for the attribute options:
+               - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\"cf_entity\\"]`.
+               - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
         :param str type: (Required String) The type of the attribute, it always returns `string`.
         """
         pulumi.set(__self__, "name", name)
@@ -687,6 +689,8 @@ class BusinessMetadataAttributeDefinition(dict):
     def options(self) -> Optional[Mapping[str, str]]:
         """
         (Optional Map) Block for the attribute options:
+        - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\"cf_entity\\"]`.
+        - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
         """
         return pulumi.get(self, "options")
 
@@ -4635,6 +4639,8 @@ class GetBusinessMetadataAttributeDefinitionResult(dict):
                
                > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
         :param Mapping[str, str] options: (Optional Map) Block for the attribute options:
+               - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\"cf_entity\\"]`.
+               - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
         :param str type: (Required String) The type of the attribute, it always returns `string`.
         """
         pulumi.set(__self__, "default_value", default_value)
@@ -4683,6 +4689,8 @@ class GetBusinessMetadataAttributeDefinitionResult(dict):
     def options(self) -> Mapping[str, str]:
         """
         (Optional Map) Block for the attribute options:
+        - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\"cf_entity\\"]`.
+        - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
         """
         return pulumi.get(self, "options")
 

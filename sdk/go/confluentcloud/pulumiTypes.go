@@ -1210,6 +1210,8 @@ type BusinessMetadataAttributeDefinition struct {
 	// The name of the attribute.
 	Name string `pulumi:"name"`
 	// (Optional Map) Block for the attribute options:
+	// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+	// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
 	Options map[string]string `pulumi:"options"`
 	// (Required String) The type of the attribute, it always returns `string`.
 	Type *string `pulumi:"type"`
@@ -1236,6 +1238,8 @@ type BusinessMetadataAttributeDefinitionArgs struct {
 	// The name of the attribute.
 	Name pulumi.StringInput `pulumi:"name"`
 	// (Optional Map) Block for the attribute options:
+	// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+	// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
 	Options pulumi.StringMapInput `pulumi:"options"`
 	// (Required String) The type of the attribute, it always returns `string`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -1313,6 +1317,8 @@ func (o BusinessMetadataAttributeDefinitionOutput) Name() pulumi.StringOutput {
 }
 
 // (Optional Map) Block for the attribute options:
+// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
 func (o BusinessMetadataAttributeDefinitionOutput) Options() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BusinessMetadataAttributeDefinition) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
@@ -19456,6 +19462,8 @@ type GetBusinessMetadataAttributeDefinition struct {
 	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
 	Name string `pulumi:"name"`
 	// (Optional Map) Block for the attribute options:
+	// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+	// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
 	Options map[string]string `pulumi:"options"`
 	// (Required String) The type of the attribute, it always returns `string`.
 	Type string `pulumi:"type"`
@@ -19484,6 +19492,8 @@ type GetBusinessMetadataAttributeDefinitionArgs struct {
 	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
 	Name pulumi.StringInput `pulumi:"name"`
 	// (Optional Map) Block for the attribute options:
+	// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+	// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
 	Options pulumi.StringMapInput `pulumi:"options"`
 	// (Required String) The type of the attribute, it always returns `string`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -19563,6 +19573,8 @@ func (o GetBusinessMetadataAttributeDefinitionOutput) Name() pulumi.StringOutput
 }
 
 // (Optional Map) Block for the attribute options:
+// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
 func (o GetBusinessMetadataAttributeDefinitionOutput) Options() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetBusinessMetadataAttributeDefinition) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
