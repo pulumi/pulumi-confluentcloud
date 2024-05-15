@@ -340,7 +340,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "(Optional Map) Block for the attribute options:\n"
+                    "description": "(Optional Map) Block for the attribute options:\n- `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\\"cf_entity\\\"]`.\n- `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.\n"
                 },
                 "type": {
                     "type": "string",
@@ -2642,7 +2642,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "(Optional Map) Block for the attribute options:\n"
+                    "description": "(Optional Map) Block for the attribute options:\n- `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\\"cf_entity\\\"]`.\n- `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.\n"
                 },
                 "type": {
                     "type": "string",
