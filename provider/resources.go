@@ -70,8 +70,10 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: tfbridge.MakeResource(mainPkg, mainMod, "ApiKey"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
-				}},
-			"confluent_cluster_link": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "ClusterLink"),
+				},
+			},
+			"confluent_cluster_link": {
+				Tok: tfbridge.MakeResource(mainPkg, mainMod, "ClusterLink"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"link_name": tfbridge.AutoName("link", 255, "-"),
 				},
@@ -81,16 +83,19 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: tfbridge.MakeResource(mainPkg, mainMod, "Environment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
-				}},
+				},
+			},
 			"confluent_kafka_acl":          {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaAcl")},
 			"confluent_kafka_client_quota": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaClientQuota")},
-			"confluent_kafka_cluster": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaCluster"),
+			"confluent_kafka_cluster": {
+				Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaCluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
 					"standard":     {Name: "standard", MaxItemsOne: tfbridge.True()},
 					"basic":        {Name: "basic", MaxItemsOne: tfbridge.True()},
 					"dedicated":    {Name: "dedicated", MaxItemsOne: tfbridge.True()},
-				}},
+				},
+			},
 			"confluent_kafka_cluster_config": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaClusterConfig")},
 			"confluent_kafka_mirror_topic":   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaMirrorTopic")},
 			"confluent_kafka_topic": {
@@ -147,7 +152,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: tfbridge.MakeResource(mainPkg, mainMod, "ServiceAccount"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
-				}},
+				},
+			},
 			"confluent_identity_pool":     {Tok: tfbridge.MakeResource(mainPkg, mainMod, "IdentityPool")},
 			"confluent_identity_provider": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "IdentityProvider")},
 			"confluent_ksql_cluster":      {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KsqlCluster")},
@@ -177,8 +183,10 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
 				"@types/mime": "^2.0.0",
 			},
+			RespectSchemaVersion: true,
 		},
 		Python: &tfbridge.PythonInfo{
+			RespectSchemaVersion: true,
 			Requires: map[string]string{
 				"pulumi": ">=3.0.0,<4.0.0",
 			},
@@ -193,8 +201,10 @@ func Provider() tfbridge.ProviderInfo {
 				mainPkg,
 			),
 			GenerateResourceContainerTypes: true,
+			RespectSchemaVersion:           true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
+			RespectSchemaVersion: true,
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},
