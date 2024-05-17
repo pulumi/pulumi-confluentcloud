@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var azureKey = new ByokKey("azureKey", ByokKeyArgs.builder()        
+ *         var azureKey = new ByokKey("azureKey", ByokKeyArgs.builder()
  *             .azure(ByokKeyAzureArgs.builder()
  *                 .tenantId("11111111-1111-1111-1111-111111111111")
  *                 .keyVaultId("/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault")
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var gcpKey = new ByokKey("gcpKey", ByokKeyArgs.builder()        
+ *         var gcpKey = new ByokKey("gcpKey", ByokKeyArgs.builder()
  *             .gcp(ByokKeyGcpArgs.builder()
  *                 .keyId("projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test")
  *                 .build())

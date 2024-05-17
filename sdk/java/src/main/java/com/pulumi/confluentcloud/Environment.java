@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var prod = new Environment("prod", EnvironmentArgs.builder()        
+ *         var prod = new Environment("prod", EnvironmentArgs.builder()
  *             .displayName("Production")
  *             .streamGovernance(EnvironmentStreamGovernanceArgs.builder()
  *                 .package_("ESSENTIALS")

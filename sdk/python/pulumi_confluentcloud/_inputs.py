@@ -558,6 +558,8 @@ class BusinessMetadataAttributeDefinitionArgs:
         :param pulumi.Input[str] description: The description of this attribute.
         :param pulumi.Input[bool] is_optional: An optional flag to control whether the attribute should be optional or required. The default value is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: (Optional Map) Block for the attribute options:
+               - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\"cf_entity\\"]`.
+               - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
         :param pulumi.Input[str] type: (Required String) The type of the attribute, it always returns `string`.
         """
         pulumi.set(__self__, "name", name)
@@ -625,6 +627,8 @@ class BusinessMetadataAttributeDefinitionArgs:
     def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         (Optional Map) Block for the attribute options:
+        - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\"cf_entity\\"]`.
+        - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
         """
         return pulumi.get(self, "options")
 

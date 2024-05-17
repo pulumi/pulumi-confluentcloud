@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var source = new Connector("source", ConnectorArgs.builder()        
+ *         var source = new Connector("source", ConnectorArgs.builder()
  *             .environment(ConnectorEnvironmentArgs.builder()
  *                 .id(staging.id())
  *                 .build())
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sink = new Connector("sink", ConnectorArgs.builder()        
+ *         var sink = new Connector("sink", ConnectorArgs.builder()
  *             .environment(ConnectorEnvironmentArgs.builder()
  *                 .id(staging.id())
  *                 .build())
@@ -176,7 +176,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sink = new Connector("sink", ConnectorArgs.builder()        
+ *         var sink = new Connector("sink", ConnectorArgs.builder()
  *             .environment(ConnectorEnvironmentArgs.builder()
  *                 .id(staging.id())
  *                 .build())
@@ -245,7 +245,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var source = new Connector("source", ConnectorArgs.builder()        
+ *         var source = new Connector("source", ConnectorArgs.builder()
  *             .environment(ConnectorEnvironmentArgs.builder()
  *                 .id(staging.id())
  *                 .build())

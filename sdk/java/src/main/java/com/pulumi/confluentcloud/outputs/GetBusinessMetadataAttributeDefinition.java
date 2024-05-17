@@ -36,6 +36,8 @@ public final class GetBusinessMetadataAttributeDefinition {
     private String name;
     /**
      * @return (Optional Map) Block for the attribute options:
+     * - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\&#34;cf_entity\&#34;]`.
+     * - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
      * 
      */
     private Map<String,String> options;
@@ -78,6 +80,8 @@ public final class GetBusinessMetadataAttributeDefinition {
     }
     /**
      * @return (Optional Map) Block for the attribute options:
+     * - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\&#34;cf_entity\&#34;]`.
+     * - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
      * 
      */
     public Map<String,String> options() {

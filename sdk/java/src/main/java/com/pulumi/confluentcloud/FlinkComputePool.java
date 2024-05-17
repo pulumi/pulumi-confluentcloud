@@ -44,11 +44,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var main = new FlinkComputePool("main", FlinkComputePoolArgs.builder()        
+ *         var main = new FlinkComputePool("main", FlinkComputePoolArgs.builder()
  *             .displayName("standard_compute_pool")
  *             .cloud("AWS")
  *             .region("us-east-1")
