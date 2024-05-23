@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var aws_private_link = new Network("aws-private-link", NetworkArgs.builder()        
+ *         var aws_private_link = new Network("aws-private-link", NetworkArgs.builder()
  *             .displayName("AWS Private Link Network")
  *             .cloud("AWS")
  *             .region("us-east-1")
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var awsNls = new NetworkLinkService("awsNls", NetworkLinkServiceArgs.builder()        
+ *         var awsNls = new NetworkLinkService("awsNls", NetworkLinkServiceArgs.builder()
  *             .displayName("AWS Private Link network link service")
  *             .environment(NetworkLinkServiceEnvironmentArgs.builder()
  *                 .id(development.id())

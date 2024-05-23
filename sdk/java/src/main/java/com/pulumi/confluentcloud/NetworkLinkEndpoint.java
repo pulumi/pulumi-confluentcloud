@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nle = new NetworkLinkEndpoint("nle", NetworkLinkEndpointArgs.builder()        
+ *         var nle = new NetworkLinkEndpoint("nle", NetworkLinkEndpointArgs.builder()
  *             .displayName("nle1")
  *             .description("TEST-NLE1")
  *             .environment(NetworkLinkEndpointEnvironmentArgs.builder()

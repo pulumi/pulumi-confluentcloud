@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode
- *         var east_to_west = new ClusterLink("east-to-west", ClusterLinkArgs.builder()        
+ *         var east_to_west = new ClusterLink("east-to-west", ClusterLinkArgs.builder()
  *             .link("bidirectional-link")
  *             .linkMode("BIDIRECTIONAL")
  *             .localKafkaCluster(ClusterLinkLocalKafkaClusterArgs.builder()
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var west_to_east = new ClusterLink("west-to-east", ClusterLinkArgs.builder()        
+ *         var west_to_east = new ClusterLink("west-to-east", ClusterLinkArgs.builder()
  *             .link("bidirectional-link")
  *             .linkMode("BIDIRECTIONAL")
  *             .localKafkaCluster(ClusterLinkLocalKafkaClusterArgs.builder()

@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var basic = new KafkaCluster("basic", KafkaClusterArgs.builder()        
+ *         var basic = new KafkaCluster("basic", KafkaClusterArgs.builder()
  *             .displayName("basic_kafka_cluster")
  *             .availability("SINGLE_ZONE")
  *             .cloud("AWS")
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var standard = new KafkaCluster("standard", KafkaClusterArgs.builder()        
+ *         var standard = new KafkaCluster("standard", KafkaClusterArgs.builder()
  *             .displayName("standard_kafka_cluster")
  *             .availability("SINGLE_ZONE")
  *             .cloud("AWS")
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var dedicated = new KafkaCluster("dedicated", KafkaClusterArgs.builder()        
+ *         var dedicated = new KafkaCluster("dedicated", KafkaClusterArgs.builder()
  *             .displayName("dedicated_kafka_cluster")
  *             .availability("MULTI_ZONE")
  *             .cloud("AWS")
@@ -132,11 +132,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var basic = new KafkaCluster("basic", KafkaClusterArgs.builder()        
+ *         var basic = new KafkaCluster("basic", KafkaClusterArgs.builder()
  *             .displayName("basic_kafka_cluster")
  *             .availability("SINGLE_ZONE")
  *             .cloud("AZURE")
@@ -147,7 +147,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var standard = new KafkaCluster("standard", KafkaClusterArgs.builder()        
+ *         var standard = new KafkaCluster("standard", KafkaClusterArgs.builder()
  *             .displayName("standard_kafka_cluster")
  *             .availability("SINGLE_ZONE")
  *             .cloud("AZURE")
@@ -158,7 +158,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var dedicated = new KafkaCluster("dedicated", KafkaClusterArgs.builder()        
+ *         var dedicated = new KafkaCluster("dedicated", KafkaClusterArgs.builder()
  *             .displayName("dedicated_kafka_cluster")
  *             .availability("MULTI_ZONE")
  *             .cloud("AZURE")
@@ -208,11 +208,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var basic = new KafkaCluster("basic", KafkaClusterArgs.builder()        
+ *         var basic = new KafkaCluster("basic", KafkaClusterArgs.builder()
  *             .displayName("basic_kafka_cluster")
  *             .availability("SINGLE_ZONE")
  *             .cloud("GCP")
@@ -223,7 +223,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var standard = new KafkaCluster("standard", KafkaClusterArgs.builder()        
+ *         var standard = new KafkaCluster("standard", KafkaClusterArgs.builder()
  *             .displayName("standard_kafka_cluster")
  *             .availability("SINGLE_ZONE")
  *             .cloud("GCP")
@@ -234,7 +234,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var dedicated = new KafkaCluster("dedicated", KafkaClusterArgs.builder()        
+ *         var dedicated = new KafkaCluster("dedicated", KafkaClusterArgs.builder()
  *             .displayName("dedicated_kafka_cluster")
  *             .availability("MULTI_ZONE")
  *             .cloud("GCP")

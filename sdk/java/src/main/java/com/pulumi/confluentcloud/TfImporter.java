@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TfImporter("example", TfImporterArgs.builder()        
+ *         var example = new TfImporter("example", TfImporterArgs.builder()
  *             .resources(            
  *                 "confluent_service_account",
  *                 "confluent_environment")

@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var aws_transit_gateway_attachment = new Network("aws-transit-gateway-attachment", NetworkArgs.builder()        
+ *         var aws_transit_gateway_attachment = new Network("aws-transit-gateway-attachment", NetworkArgs.builder()
  *             .displayName("AWS Transit Gateway Attachment Network")
  *             .cloud("AWS")
  *             .region("us-east-2")
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var aws = new TransitGatewayAttachment("aws", TransitGatewayAttachmentArgs.builder()        
+ *         var aws = new TransitGatewayAttachment("aws", TransitGatewayAttachmentArgs.builder()
  *             .displayName("AWS Transit Gateway Attachment")
  *             .aws(TransitGatewayAttachmentAwsArgs.builder()
  *                 .ramResourceShareArn("arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx")
