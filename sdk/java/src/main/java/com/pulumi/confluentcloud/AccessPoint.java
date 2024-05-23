@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var aws = new AccessPoint("aws", AccessPointArgs.builder()        
+ *         var aws = new AccessPoint("aws", AccessPointArgs.builder()
  *             .displayName("access_point")
  *             .environment(AccessPointEnvironmentArgs.builder()
  *                 .id(development.id())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var azure = new AccessPoint("azure", AccessPointArgs.builder()        
+ *         var azure = new AccessPoint("azure", AccessPointArgs.builder()
  *             .displayName("access_point")
  *             .environment(AccessPointEnvironmentArgs.builder()
  *                 .id(development.id())

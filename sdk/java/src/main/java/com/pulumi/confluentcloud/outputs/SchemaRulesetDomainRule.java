@@ -13,45 +13,135 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SchemaRulesetDomainRule {
+    /**
+     * @return An optional description of the rule.
+     * 
+     */
     private @Nullable String doc;
+    /**
+     * @return The body of the rule, which is optional.
+     * 
+     */
     private @Nullable String expr;
+    /**
+     * @return The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     * 
+     */
     private @Nullable String kind;
+    /**
+     * @return The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+     * 
+     */
     private @Nullable String mode;
+    /**
+     * @return A user-defined name that can be used to reference the rule.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     * 
+     */
     private @Nullable String onFailure;
+    /**
+     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * 
+     */
     private @Nullable String onSuccess;
+    /**
+     * @return A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     * 
+     * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     * 
+     * &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     */
     private @Nullable Map<String,String> params;
+    /**
+     * @return The tags to which the rule applies, if any.
+     * 
+     */
     private @Nullable List<String> tags;
+    /**
+     * @return The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * 
+     */
     private @Nullable String type;
 
     private SchemaRulesetDomainRule() {}
+    /**
+     * @return An optional description of the rule.
+     * 
+     */
     public Optional<String> doc() {
         return Optional.ofNullable(this.doc);
     }
+    /**
+     * @return The body of the rule, which is optional.
+     * 
+     */
     public Optional<String> expr() {
         return Optional.ofNullable(this.expr);
     }
+    /**
+     * @return The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     * 
+     */
     public Optional<String> kind() {
         return Optional.ofNullable(this.kind);
     }
+    /**
+     * @return The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+     * 
+     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
+    /**
+     * @return A user-defined name that can be used to reference the rule.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     * 
+     */
     public Optional<String> onFailure() {
         return Optional.ofNullable(this.onFailure);
     }
+    /**
+     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * 
+     */
     public Optional<String> onSuccess() {
         return Optional.ofNullable(this.onSuccess);
     }
+    /**
+     * @return A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     * 
+     * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     * 
+     * &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     */
     public Map<String,String> params() {
         return this.params == null ? Map.of() : this.params;
     }
+    /**
+     * @return The tags to which the rule applies, if any.
+     * 
+     */
     public List<String> tags() {
         return this.tags == null ? List.of() : this.tags;
     }
+    /**
+     * @return The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

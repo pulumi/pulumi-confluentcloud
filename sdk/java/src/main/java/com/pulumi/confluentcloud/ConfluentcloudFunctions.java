@@ -781,7 +781,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
      *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
      *             .roleName("EnvironmentAdmin")
      *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
@@ -843,7 +843,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
      *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
      *             .roleName("EnvironmentAdmin")
      *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
@@ -905,7 +905,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
      *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
      *             .roleName("EnvironmentAdmin")
      *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
@@ -967,7 +967,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
      *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
      *             .roleName("EnvironmentAdmin")
      *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
@@ -1029,7 +1029,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
      *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
      *             .roleName("EnvironmentAdmin")
      *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
@@ -1091,7 +1091,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
      *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
      *             .roleName("EnvironmentAdmin")
      *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
@@ -3545,7 +3545,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("app_mgr")
      *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
      *             .build());
@@ -3608,7 +3608,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("app_mgr")
      *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
      *             .build());
@@ -3671,7 +3671,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("app_mgr")
      *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
      *             .build());
@@ -3734,7 +3734,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("app_mgr")
      *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
      *             .build());
@@ -4041,7 +4041,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("test_sa")
      *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
      *             .build());
@@ -4100,7 +4100,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("test_sa")
      *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
      *             .build());
@@ -4159,7 +4159,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("test_sa")
      *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
      *             .build());
@@ -4218,7 +4218,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("test_sa")
      *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
      *             .build());
@@ -6810,7 +6810,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
      *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
      *             .build());
      * 
@@ -6865,7 +6865,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
      *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
      *             .build());
      * 
@@ -6920,7 +6920,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
      *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
      *             .build());
      * 
@@ -6975,7 +6975,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
      *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
      *             .build());
      * 
@@ -7030,7 +7030,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
      *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
      *             .build());
      * 
@@ -7085,7 +7085,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
      *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
      *             .build());
      * 
@@ -7422,11 +7422,11 @@ public final class ConfluentcloudFunctions {
      *             .email("test123{@literal @}gmail.com")
      *             .build());
      * 
-     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
      *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
      *             .build());
      * 
-     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()        
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
      *             .displayName("standard_kafka_cluster_on_aws")
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
@@ -7437,7 +7437,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
      *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
@@ -7504,11 +7504,11 @@ public final class ConfluentcloudFunctions {
      *             .email("test123{@literal @}gmail.com")
      *             .build());
      * 
-     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
      *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
      *             .build());
      * 
-     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()        
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
      *             .displayName("standard_kafka_cluster_on_aws")
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
@@ -7519,7 +7519,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
      *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
@@ -7586,11 +7586,11 @@ public final class ConfluentcloudFunctions {
      *             .email("test123{@literal @}gmail.com")
      *             .build());
      * 
-     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
      *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
      *             .build());
      * 
-     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()        
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
      *             .displayName("standard_kafka_cluster_on_aws")
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
@@ -7601,7 +7601,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
      *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
@@ -7668,11 +7668,11 @@ public final class ConfluentcloudFunctions {
      *             .email("test123{@literal @}gmail.com")
      *             .build());
      * 
-     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
      *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
      *             .build());
      * 
-     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()        
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
      *             .displayName("standard_kafka_cluster_on_aws")
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
@@ -7683,7 +7683,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
      *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
@@ -7750,11 +7750,11 @@ public final class ConfluentcloudFunctions {
      *             .email("test123{@literal @}gmail.com")
      *             .build());
      * 
-     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
      *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
      *             .build());
      * 
-     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()        
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
      *             .displayName("standard_kafka_cluster_on_aws")
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
@@ -7765,7 +7765,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
      *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
@@ -7832,11 +7832,11 @@ public final class ConfluentcloudFunctions {
      *             .email("test123{@literal @}gmail.com")
      *             .build());
      * 
-     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
      *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
      *             .build());
      * 
-     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()        
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
      *             .displayName("standard_kafka_cluster_on_aws")
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
@@ -7847,7 +7847,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
      *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())

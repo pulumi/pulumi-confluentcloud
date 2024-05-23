@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var aws = new PrivateLinkAttachmentConnection("aws", PrivateLinkAttachmentConnectionArgs.builder()        
+ *         var aws = new PrivateLinkAttachmentConnection("aws", PrivateLinkAttachmentConnectionArgs.builder()
  *             .displayName("my_endpoint")
  *             .environment(PrivateLinkAttachmentConnectionEnvironmentArgs.builder()
  *                 .id("env-8gv0v5")
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var azure = new PrivateLinkAttachmentConnection("azure", PrivateLinkAttachmentConnectionArgs.builder()        
+ *         var azure = new PrivateLinkAttachmentConnection("azure", PrivateLinkAttachmentConnectionArgs.builder()
  *             .displayName("prod-azure-central-us-az1-connection")
  *             .environment(PrivateLinkAttachmentConnectionEnvironmentArgs.builder()
  *                 .id("env-12345")

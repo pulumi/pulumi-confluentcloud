@@ -46,14 +46,14 @@ public final class ApiKeyManagedResourceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * @return The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
      * 
      */
     public Output<String> id() {
@@ -145,7 +145,7 @@ public final class ApiKeyManagedResourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param id The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+         * @param id The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ApiKeyManagedResourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param id The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+         * @param id The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
          * 
          * @return builder
          * 

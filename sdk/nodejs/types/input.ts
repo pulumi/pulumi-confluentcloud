@@ -71,7 +71,7 @@ export interface ApiKeyManagedResource {
      */
     environment: pulumi.Input<inputs.ApiKeyManagedResourceEnvironment>;
     /**
-     * The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
      */
     id: pulumi.Input<string>;
     /**
@@ -82,7 +82,7 @@ export interface ApiKeyManagedResource {
 
 export interface ApiKeyManagedResourceEnvironment {
     /**
-     * (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
+     * The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -121,6 +121,8 @@ export interface BusinessMetadataAttributeDefinition {
     name: pulumi.Input<string>;
     /**
      * (Optional Map) Block for the attribute options:
+     * - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+     * - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
      */
     options?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -245,11 +247,11 @@ export interface ClusterLinkDestinationKafkaCluster {
 
 export interface ClusterLinkDestinationKafkaClusterCredentials {
     /**
-     * The Kafka API Key for your Confluent Cloud cluster.
+     * The Kafka API Key.
      */
     key: pulumi.Input<string>;
     /**
-     * The Kafka API Secret for your Confluent Cloud cluster.
+     * The Kafka API Secret.
      */
     secret: pulumi.Input<string>;
 }
@@ -275,11 +277,11 @@ export interface ClusterLinkLocalKafkaCluster {
 
 export interface ClusterLinkLocalKafkaClusterCredentials {
     /**
-     * The Kafka API Key for your Confluent Cloud cluster.
+     * The Kafka API Key.
      */
     key: pulumi.Input<string>;
     /**
-     * The Kafka API Secret for your Confluent Cloud cluster.
+     * The Kafka API Secret.
      */
     secret: pulumi.Input<string>;
 }
@@ -305,11 +307,11 @@ export interface ClusterLinkRemoteKafkaCluster {
 
 export interface ClusterLinkRemoteKafkaClusterCredentials {
     /**
-     * The Kafka API Key for your Confluent Cloud cluster.
+     * The Kafka API Key.
      */
     key: pulumi.Input<string>;
     /**
-     * The Kafka API Secret for your Confluent Cloud cluster.
+     * The Kafka API Secret.
      */
     secret: pulumi.Input<string>;
 }
@@ -335,11 +337,11 @@ export interface ClusterLinkSourceKafkaCluster {
 
 export interface ClusterLinkSourceKafkaClusterCredentials {
     /**
-     * The Kafka API Key for your Confluent Cloud cluster.
+     * The Kafka API Key.
      */
     key: pulumi.Input<string>;
     /**
-     * The Kafka API Secret for your Confluent Cloud cluster.
+     * The Kafka API Secret.
      */
     secret: pulumi.Input<string>;
 }
@@ -1847,11 +1849,11 @@ export interface KafkaMirrorTopicKafkaCluster {
 
 export interface KafkaMirrorTopicKafkaClusterCredentials {
     /**
-     * The Kafka API Key for your Confluent Cloud cluster.
+     * The Kafka API Key.
      */
     key: pulumi.Input<string>;
     /**
-     * The Kafka API Secret for your Confluent Cloud cluster.
+     * The Kafka API Secret.
      */
     secret: pulumi.Input<string>;
 }
@@ -2269,7 +2271,13 @@ export interface SchemaMetadata {
 }
 
 export interface SchemaMetadataTag {
+    /**
+     * The setting name.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * The list of tags.
+     */
     values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -2365,15 +2373,50 @@ export interface SchemaRuleset {
 }
 
 export interface SchemaRulesetDomainRule {
+    /**
+     * An optional description of the rule.
+     */
     doc?: pulumi.Input<string>;
+    /**
+     * The body of the rule, which is optional.
+     */
     expr?: pulumi.Input<string>;
+    /**
+     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     */
     kind?: pulumi.Input<string>;
+    /**
+     * The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+     */
     mode?: pulumi.Input<string>;
+    /**
+     * A user-defined name that can be used to reference the rule.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     */
     onFailure?: pulumi.Input<string>;
+    /**
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     */
     onSuccess?: pulumi.Input<string>;
+    /**
+     * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     *
+     * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     *
+     * > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     */
     params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The tags to which the rule applies, if any.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     */
     type?: pulumi.Input<string>;
 }
 

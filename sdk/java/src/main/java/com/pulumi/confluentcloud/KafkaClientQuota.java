@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KafkaClientQuota("example", KafkaClientQuotaArgs.builder()        
+ *         var example = new KafkaClientQuota("example", KafkaClientQuotaArgs.builder()
  *             .displayName("test-quota")
  *             .description("Test Quota")
  *             .throughput(KafkaClientQuotaThroughputArgs.builder()

@@ -15,14 +15,14 @@ public final class ClusterLinkSourceKafkaClusterCredentialsArgs extends com.pulu
     public static final ClusterLinkSourceKafkaClusterCredentialsArgs Empty = new ClusterLinkSourceKafkaClusterCredentialsArgs();
 
     /**
-     * The Kafka API Key for your Confluent Cloud cluster.
+     * The Kafka API Key.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The Kafka API Key for your Confluent Cloud cluster.
+     * @return The Kafka API Key.
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class ClusterLinkSourceKafkaClusterCredentialsArgs extends com.pulu
     }
 
     /**
-     * The Kafka API Secret for your Confluent Cloud cluster.
+     * The Kafka API Secret.
      * 
      */
     @Import(name="secret", required=true)
     private Output<String> secret;
 
     /**
-     * @return The Kafka API Secret for your Confluent Cloud cluster.
+     * @return The Kafka API Secret.
      * 
      */
     public Output<String> secret() {
@@ -70,7 +70,7 @@ public final class ClusterLinkSourceKafkaClusterCredentialsArgs extends com.pulu
         }
 
         /**
-         * @param key The Kafka API Key for your Confluent Cloud cluster.
+         * @param key The Kafka API Key.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ClusterLinkSourceKafkaClusterCredentialsArgs extends com.pulu
         }
 
         /**
-         * @param key The Kafka API Key for your Confluent Cloud cluster.
+         * @param key The Kafka API Key.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ClusterLinkSourceKafkaClusterCredentialsArgs extends com.pulu
         }
 
         /**
-         * @param secret The Kafka API Secret for your Confluent Cloud cluster.
+         * @param secret The Kafka API Secret.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ClusterLinkSourceKafkaClusterCredentialsArgs extends com.pulu
         }
 
         /**
-         * @param secret The Kafka API Secret for your Confluent Cloud cluster.
+         * @param secret The Kafka API Secret.
          * 
          * @return builder
          * 

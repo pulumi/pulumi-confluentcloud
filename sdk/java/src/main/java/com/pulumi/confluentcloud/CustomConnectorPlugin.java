@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var source = new CustomConnectorPlugin("source", CustomConnectorPluginArgs.builder()        
+ *         var source = new CustomConnectorPlugin("source", CustomConnectorPluginArgs.builder()
  *             .displayName("Datagen Source Connector Plugin")
  *             .documentationLink("https://www.confluent.io/hub/confluentinc/kafka-connect-datagen")
  *             .connectorClass("io.confluent.kafka.connect.datagen.DatagenConnector")
