@@ -17,72 +17,162 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
 
     public static final SchemaRulesetDomainRuleArgs Empty = new SchemaRulesetDomainRuleArgs();
 
+    /**
+     * An optional description of the rule.
+     * 
+     */
     @Import(name="doc")
     private @Nullable Output<String> doc;
 
+    /**
+     * @return An optional description of the rule.
+     * 
+     */
     public Optional<Output<String>> doc() {
         return Optional.ofNullable(this.doc);
     }
 
+    /**
+     * The body of the rule, which is optional.
+     * 
+     */
     @Import(name="expr")
     private @Nullable Output<String> expr;
 
+    /**
+     * @return The body of the rule, which is optional.
+     * 
+     */
     public Optional<Output<String>> expr() {
         return Optional.ofNullable(this.expr);
     }
 
+    /**
+     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     * 
+     */
     @Import(name="kind")
     private @Nullable Output<String> kind;
 
+    /**
+     * @return The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     * 
+     */
     public Optional<Output<String>> kind() {
         return Optional.ofNullable(this.kind);
     }
 
+    /**
+     * The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+     * 
+     */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
+    /**
+     * @return The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+     * 
+     */
     public Optional<Output<String>> mode() {
         return Optional.ofNullable(this.mode);
     }
 
+    /**
+     * A user-defined name that can be used to reference the rule.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return A user-defined name that can be used to reference the rule.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     * 
+     */
     @Import(name="onFailure")
     private @Nullable Output<String> onFailure;
 
+    /**
+     * @return An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     * 
+     */
     public Optional<Output<String>> onFailure() {
         return Optional.ofNullable(this.onFailure);
     }
 
+    /**
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * 
+     */
     @Import(name="onSuccess")
     private @Nullable Output<String> onSuccess;
 
+    /**
+     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * 
+     */
     public Optional<Output<String>> onSuccess() {
         return Optional.ofNullable(this.onSuccess);
     }
 
+    /**
+     * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     * 
+     * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     * 
+     * &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     */
     @Import(name="params")
     private @Nullable Output<Map<String,String>> params;
 
+    /**
+     * @return A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     * 
+     * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     * 
+     * &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     */
     public Optional<Output<Map<String,String>>> params() {
         return Optional.ofNullable(this.params);
     }
 
+    /**
+     * The tags to which the rule applies, if any.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
+    /**
+     * @return The tags to which the rule applies, if any.
+     * 
+     */
     public Optional<Output<List<String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -120,96 +210,232 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
             $ = new SchemaRulesetDomainRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param doc An optional description of the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder doc(@Nullable Output<String> doc) {
             $.doc = doc;
             return this;
         }
 
+        /**
+         * @param doc An optional description of the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder doc(String doc) {
             return doc(Output.of(doc));
         }
 
+        /**
+         * @param expr The body of the rule, which is optional.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expr(@Nullable Output<String> expr) {
             $.expr = expr;
             return this;
         }
 
+        /**
+         * @param expr The body of the rule, which is optional.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expr(String expr) {
             return expr(Output.of(expr));
         }
 
+        /**
+         * @param kind The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kind(@Nullable Output<String> kind) {
             $.kind = kind;
             return this;
         }
 
+        /**
+         * @param kind The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kind(String kind) {
             return kind(Output.of(kind));
         }
 
+        /**
+         * @param mode The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mode(@Nullable Output<String> mode) {
             $.mode = mode;
             return this;
         }
 
+        /**
+         * @param mode The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
         }
 
+        /**
+         * @param name A user-defined name that can be used to reference the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name A user-defined name that can be used to reference the rule.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param onFailure An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+         * 
+         * @return builder
+         * 
+         */
         public Builder onFailure(@Nullable Output<String> onFailure) {
             $.onFailure = onFailure;
             return this;
         }
 
+        /**
+         * @param onFailure An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+         * 
+         * @return builder
+         * 
+         */
         public Builder onFailure(String onFailure) {
             return onFailure(Output.of(onFailure));
         }
 
+        /**
+         * @param onSuccess An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder onSuccess(@Nullable Output<String> onSuccess) {
             $.onSuccess = onSuccess;
             return this;
         }
 
+        /**
+         * @param onSuccess An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder onSuccess(String onSuccess) {
             return onSuccess(Output.of(onSuccess));
         }
 
+        /**
+         * @param params A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+         * 
+         * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+         * 
+         * &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+         * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+         * 
+         * @return builder
+         * 
+         */
         public Builder params(@Nullable Output<Map<String,String>> params) {
             $.params = params;
             return this;
         }
 
+        /**
+         * @param params A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+         * 
+         * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+         * 
+         * &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+         * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+         * 
+         * @return builder
+         * 
+         */
         public Builder params(Map<String,String> params) {
             return params(Output.of(params));
         }
 
+        /**
+         * @param tags The tags to which the rule applies, if any.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<List<String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags The tags to which the rule applies, if any.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(List<String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tags The tags to which the rule applies, if any.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(String... tags) {
             return tags(List.of(tags));
         }
 
+        /**
+         * @param type The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

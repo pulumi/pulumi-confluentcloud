@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new PrivateLinkAttachment("main", PrivateLinkAttachmentArgs.builder()        
+ *         var main = new PrivateLinkAttachment("main", PrivateLinkAttachmentArgs.builder()
  *             .cloud("AWS")
  *             .region("us-west-2")
  *             .displayName("staging-platt")

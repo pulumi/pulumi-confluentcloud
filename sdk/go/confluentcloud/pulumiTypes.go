@@ -699,7 +699,7 @@ type ApiKeyManagedResource struct {
 	ApiVersion string `pulumi:"apiVersion"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment ApiKeyManagedResourceEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+	// The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
 	// The kind of the managed resource that the API Key associated with, for example, `Cluster`.
 	Kind string `pulumi:"kind"`
@@ -721,7 +721,7 @@ type ApiKeyManagedResourceArgs struct {
 	ApiVersion pulumi.StringInput `pulumi:"apiVersion"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment ApiKeyManagedResourceEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+	// The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The kind of the managed resource that the API Key associated with, for example, `Cluster`.
 	Kind pulumi.StringInput `pulumi:"kind"`
@@ -814,7 +814,7 @@ func (o ApiKeyManagedResourceOutput) Environment() ApiKeyManagedResourceEnvironm
 	return o.ApplyT(func(v ApiKeyManagedResource) ApiKeyManagedResourceEnvironment { return v.Environment }).(ApiKeyManagedResourceEnvironmentOutput)
 }
 
-// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+// The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
 func (o ApiKeyManagedResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyManagedResource) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -868,7 +868,7 @@ func (o ApiKeyManagedResourcePtrOutput) Environment() ApiKeyManagedResourceEnvir
 	}).(ApiKeyManagedResourceEnvironmentPtrOutput)
 }
 
-// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+// The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
 func (o ApiKeyManagedResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKeyManagedResource) *string {
 		if v == nil {
@@ -889,7 +889,7 @@ func (o ApiKeyManagedResourcePtrOutput) Kind() pulumi.StringPtrOutput {
 }
 
 type ApiKeyManagedResourceEnvironment struct {
-	// (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
+	// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -905,7 +905,7 @@ type ApiKeyManagedResourceEnvironmentInput interface {
 }
 
 type ApiKeyManagedResourceEnvironmentArgs struct {
-	// (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
+	// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -986,7 +986,7 @@ func (o ApiKeyManagedResourceEnvironmentOutput) ToApiKeyManagedResourceEnvironme
 	}).(ApiKeyManagedResourceEnvironmentPtrOutput)
 }
 
-// (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
+// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
 func (o ApiKeyManagedResourceEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyManagedResourceEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1015,7 +1015,7 @@ func (o ApiKeyManagedResourceEnvironmentPtrOutput) Elem() ApiKeyManagedResourceE
 	}).(ApiKeyManagedResourceEnvironmentOutput)
 }
 
-// (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
+// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
 func (o ApiKeyManagedResourceEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKeyManagedResourceEnvironment) *string {
 		if v == nil {
@@ -1210,6 +1210,8 @@ type BusinessMetadataAttributeDefinition struct {
 	// The name of the attribute.
 	Name string `pulumi:"name"`
 	// (Optional Map) Block for the attribute options:
+	// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+	// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
 	Options map[string]string `pulumi:"options"`
 	// (Required String) The type of the attribute, it always returns `string`.
 	Type *string `pulumi:"type"`
@@ -1236,6 +1238,8 @@ type BusinessMetadataAttributeDefinitionArgs struct {
 	// The name of the attribute.
 	Name pulumi.StringInput `pulumi:"name"`
 	// (Optional Map) Block for the attribute options:
+	// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+	// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
 	Options pulumi.StringMapInput `pulumi:"options"`
 	// (Required String) The type of the attribute, it always returns `string`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -1313,6 +1317,8 @@ func (o BusinessMetadataAttributeDefinitionOutput) Name() pulumi.StringOutput {
 }
 
 // (Optional Map) Block for the attribute options:
+// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
 func (o BusinessMetadataAttributeDefinitionOutput) Options() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BusinessMetadataAttributeDefinition) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
@@ -2924,9 +2930,9 @@ func (o ClusterLinkDestinationKafkaClusterPtrOutput) RestEndpoint() pulumi.Strin
 }
 
 type ClusterLinkDestinationKafkaClusterCredentials struct {
-	// The Kafka API Key for your Confluent Cloud cluster.
+	// The Kafka API Key.
 	Key string `pulumi:"key"`
-	// The Kafka API Secret for your Confluent Cloud cluster.
+	// The Kafka API Secret.
 	Secret string `pulumi:"secret"`
 }
 
@@ -2942,9 +2948,9 @@ type ClusterLinkDestinationKafkaClusterCredentialsInput interface {
 }
 
 type ClusterLinkDestinationKafkaClusterCredentialsArgs struct {
-	// The Kafka API Key for your Confluent Cloud cluster.
+	// The Kafka API Key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Kafka API Secret for your Confluent Cloud cluster.
+	// The Kafka API Secret.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -3025,12 +3031,12 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) ToClusterLinkDestin
 	}).(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput)
 }
 
-// The Kafka API Key for your Confluent Cloud cluster.
+// The Kafka API Key.
 func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Kafka API Secret for your Confluent Cloud cluster.
+// The Kafka API Secret.
 func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -3059,7 +3065,7 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Elem() ClusterLi
 	}).(ClusterLinkDestinationKafkaClusterCredentialsOutput)
 }
 
-// The Kafka API Key for your Confluent Cloud cluster.
+// The Kafka API Key.
 func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3069,7 +3075,7 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Key() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Kafka API Secret for your Confluent Cloud cluster.
+// The Kafka API Secret.
 func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3274,9 +3280,9 @@ func (o ClusterLinkLocalKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOu
 }
 
 type ClusterLinkLocalKafkaClusterCredentials struct {
-	// The Kafka API Key for your Confluent Cloud cluster.
+	// The Kafka API Key.
 	Key string `pulumi:"key"`
-	// The Kafka API Secret for your Confluent Cloud cluster.
+	// The Kafka API Secret.
 	Secret string `pulumi:"secret"`
 }
 
@@ -3292,9 +3298,9 @@ type ClusterLinkLocalKafkaClusterCredentialsInput interface {
 }
 
 type ClusterLinkLocalKafkaClusterCredentialsArgs struct {
-	// The Kafka API Key for your Confluent Cloud cluster.
+	// The Kafka API Key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Kafka API Secret for your Confluent Cloud cluster.
+	// The Kafka API Secret.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -3375,12 +3381,12 @@ func (o ClusterLinkLocalKafkaClusterCredentialsOutput) ToClusterLinkLocalKafkaCl
 	}).(ClusterLinkLocalKafkaClusterCredentialsPtrOutput)
 }
 
-// The Kafka API Key for your Confluent Cloud cluster.
+// The Kafka API Key.
 func (o ClusterLinkLocalKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkLocalKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Kafka API Secret for your Confluent Cloud cluster.
+// The Kafka API Secret.
 func (o ClusterLinkLocalKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkLocalKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -3409,7 +3415,7 @@ func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkLoca
 	}).(ClusterLinkLocalKafkaClusterCredentialsOutput)
 }
 
-// The Kafka API Key for your Confluent Cloud cluster.
+// The Kafka API Key.
 func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkLocalKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3419,7 +3425,7 @@ func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Kafka API Secret for your Confluent Cloud cluster.
+// The Kafka API Secret.
 func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkLocalKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3624,9 +3630,9 @@ func (o ClusterLinkRemoteKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrO
 }
 
 type ClusterLinkRemoteKafkaClusterCredentials struct {
-	// The Kafka API Key for your Confluent Cloud cluster.
+	// The Kafka API Key.
 	Key string `pulumi:"key"`
-	// The Kafka API Secret for your Confluent Cloud cluster.
+	// The Kafka API Secret.
 	Secret string `pulumi:"secret"`
 }
 
@@ -3642,9 +3648,9 @@ type ClusterLinkRemoteKafkaClusterCredentialsInput interface {
 }
 
 type ClusterLinkRemoteKafkaClusterCredentialsArgs struct {
-	// The Kafka API Key for your Confluent Cloud cluster.
+	// The Kafka API Key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Kafka API Secret for your Confluent Cloud cluster.
+	// The Kafka API Secret.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -3725,12 +3731,12 @@ func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) ToClusterLinkRemoteKafka
 	}).(ClusterLinkRemoteKafkaClusterCredentialsPtrOutput)
 }
 
-// The Kafka API Key for your Confluent Cloud cluster.
+// The Kafka API Key.
 func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkRemoteKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Kafka API Secret for your Confluent Cloud cluster.
+// The Kafka API Secret.
 func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkRemoteKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -3759,7 +3765,7 @@ func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkRem
 	}).(ClusterLinkRemoteKafkaClusterCredentialsOutput)
 }
 
-// The Kafka API Key for your Confluent Cloud cluster.
+// The Kafka API Key.
 func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkRemoteKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3769,7 +3775,7 @@ func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Kafka API Secret for your Confluent Cloud cluster.
+// The Kafka API Secret.
 func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkRemoteKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3974,9 +3980,9 @@ func (o ClusterLinkSourceKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrO
 }
 
 type ClusterLinkSourceKafkaClusterCredentials struct {
-	// The Kafka API Key for your Confluent Cloud cluster.
+	// The Kafka API Key.
 	Key string `pulumi:"key"`
-	// The Kafka API Secret for your Confluent Cloud cluster.
+	// The Kafka API Secret.
 	Secret string `pulumi:"secret"`
 }
 
@@ -3992,9 +3998,9 @@ type ClusterLinkSourceKafkaClusterCredentialsInput interface {
 }
 
 type ClusterLinkSourceKafkaClusterCredentialsArgs struct {
-	// The Kafka API Key for your Confluent Cloud cluster.
+	// The Kafka API Key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Kafka API Secret for your Confluent Cloud cluster.
+	// The Kafka API Secret.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -4075,12 +4081,12 @@ func (o ClusterLinkSourceKafkaClusterCredentialsOutput) ToClusterLinkSourceKafka
 	}).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
 }
 
-// The Kafka API Key for your Confluent Cloud cluster.
+// The Kafka API Key.
 func (o ClusterLinkSourceKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Kafka API Secret for your Confluent Cloud cluster.
+// The Kafka API Secret.
 func (o ClusterLinkSourceKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -4109,7 +4115,7 @@ func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkSou
 	}).(ClusterLinkSourceKafkaClusterCredentialsOutput)
 }
 
-// The Kafka API Key for your Confluent Cloud cluster.
+// The Kafka API Key.
 func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaClusterCredentials) *string {
 		if v == nil {
@@ -4119,7 +4125,7 @@ func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Kafka API Secret for your Confluent Cloud cluster.
+// The Kafka API Secret.
 func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaClusterCredentials) *string {
 		if v == nil {
@@ -8857,9 +8863,9 @@ func (o KafkaMirrorTopicKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOu
 }
 
 type KafkaMirrorTopicKafkaClusterCredentials struct {
-	// The Kafka API Key for your Confluent Cloud cluster.
+	// The Kafka API Key.
 	Key string `pulumi:"key"`
-	// The Kafka API Secret for your Confluent Cloud cluster.
+	// The Kafka API Secret.
 	Secret string `pulumi:"secret"`
 }
 
@@ -8875,9 +8881,9 @@ type KafkaMirrorTopicKafkaClusterCredentialsInput interface {
 }
 
 type KafkaMirrorTopicKafkaClusterCredentialsArgs struct {
-	// The Kafka API Key for your Confluent Cloud cluster.
+	// The Kafka API Key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Kafka API Secret for your Confluent Cloud cluster.
+	// The Kafka API Secret.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -8958,12 +8964,12 @@ func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) ToKafkaMirrorTopicKafkaCl
 	}).(KafkaMirrorTopicKafkaClusterCredentialsPtrOutput)
 }
 
-// The Kafka API Key for your Confluent Cloud cluster.
+// The Kafka API Key.
 func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaMirrorTopicKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Kafka API Secret for your Confluent Cloud cluster.
+// The Kafka API Secret.
 func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaMirrorTopicKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -8992,7 +8998,7 @@ func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) Elem() KafkaMirrorTopi
 	}).(KafkaMirrorTopicKafkaClusterCredentialsOutput)
 }
 
-// The Kafka API Key for your Confluent Cloud cluster.
+// The Kafka API Key.
 func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaMirrorTopicKafkaClusterCredentials) *string {
 		if v == nil {
@@ -9002,7 +9008,7 @@ func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Kafka API Secret for your Confluent Cloud cluster.
+// The Kafka API Secret.
 func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaMirrorTopicKafkaClusterCredentials) *string {
 		if v == nil {
@@ -15149,7 +15155,9 @@ func (o SchemaMetadataPtrOutput) Tags() SchemaMetadataTagArrayOutput {
 }
 
 type SchemaMetadataTag struct {
-	Key    *string  `pulumi:"key"`
+	// The setting name.
+	Key *string `pulumi:"key"`
+	// The list of tags.
 	Values []string `pulumi:"values"`
 }
 
@@ -15165,7 +15173,9 @@ type SchemaMetadataTagInput interface {
 }
 
 type SchemaMetadataTagArgs struct {
-	Key    pulumi.StringPtrInput   `pulumi:"key"`
+	// The setting name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The list of tags.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -15220,10 +15230,12 @@ func (o SchemaMetadataTagOutput) ToSchemaMetadataTagOutputWithContext(ctx contex
 	return o
 }
 
+// The setting name.
 func (o SchemaMetadataTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaMetadataTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The list of tags.
 func (o SchemaMetadataTagOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaMetadataTag) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -16843,16 +16855,31 @@ func (o SchemaRulesetPtrOutput) MigrationRules() SchemaRulesetMigrationRuleArray
 }
 
 type SchemaRulesetDomainRule struct {
-	Doc       *string           `pulumi:"doc"`
-	Expr      *string           `pulumi:"expr"`
-	Kind      *string           `pulumi:"kind"`
-	Mode      *string           `pulumi:"mode"`
-	Name      *string           `pulumi:"name"`
-	OnFailure *string           `pulumi:"onFailure"`
-	OnSuccess *string           `pulumi:"onSuccess"`
-	Params    map[string]string `pulumi:"params"`
-	Tags      []string          `pulumi:"tags"`
-	Type      *string           `pulumi:"type"`
+	// An optional description of the rule.
+	Doc *string `pulumi:"doc"`
+	// The body of the rule, which is optional.
+	Expr *string `pulumi:"expr"`
+	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+	Kind *string `pulumi:"kind"`
+	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+	Mode *string `pulumi:"mode"`
+	// A user-defined name that can be used to reference the rule.
+	Name *string `pulumi:"name"`
+	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure *string `pulumi:"onFailure"`
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess *string `pulumi:"onSuccess"`
+	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	//
+	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+	//
+	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+	Params map[string]string `pulumi:"params"`
+	// The tags to which the rule applies, if any.
+	Tags []string `pulumi:"tags"`
+	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	Type *string `pulumi:"type"`
 }
 
 // SchemaRulesetDomainRuleInput is an input type that accepts SchemaRulesetDomainRuleArgs and SchemaRulesetDomainRuleOutput values.
@@ -16867,16 +16894,31 @@ type SchemaRulesetDomainRuleInput interface {
 }
 
 type SchemaRulesetDomainRuleArgs struct {
-	Doc       pulumi.StringPtrInput   `pulumi:"doc"`
-	Expr      pulumi.StringPtrInput   `pulumi:"expr"`
-	Kind      pulumi.StringPtrInput   `pulumi:"kind"`
-	Mode      pulumi.StringPtrInput   `pulumi:"mode"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	OnFailure pulumi.StringPtrInput   `pulumi:"onFailure"`
-	OnSuccess pulumi.StringPtrInput   `pulumi:"onSuccess"`
-	Params    pulumi.StringMapInput   `pulumi:"params"`
-	Tags      pulumi.StringArrayInput `pulumi:"tags"`
-	Type      pulumi.StringPtrInput   `pulumi:"type"`
+	// An optional description of the rule.
+	Doc pulumi.StringPtrInput `pulumi:"doc"`
+	// The body of the rule, which is optional.
+	Expr pulumi.StringPtrInput `pulumi:"expr"`
+	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// A user-defined name that can be used to reference the rule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
+	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	//
+	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+	//
+	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+	Params pulumi.StringMapInput `pulumi:"params"`
+	// The tags to which the rule applies, if any.
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
+	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (SchemaRulesetDomainRuleArgs) ElementType() reflect.Type {
@@ -16930,42 +16972,57 @@ func (o SchemaRulesetDomainRuleOutput) ToSchemaRulesetDomainRuleOutputWithContex
 	return o
 }
 
+// An optional description of the rule.
 func (o SchemaRulesetDomainRuleOutput) Doc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
 }
 
+// The body of the rule, which is optional.
 func (o SchemaRulesetDomainRuleOutput) Expr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
 }
 
+// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
 func (o SchemaRulesetDomainRuleOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 func (o SchemaRulesetDomainRuleOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
+// A user-defined name that can be used to reference the rule.
 func (o SchemaRulesetDomainRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
 func (o SchemaRulesetDomainRuleOutput) OnFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
+// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
 func (o SchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
 
+// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+//
+// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+//
+// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 func (o SchemaRulesetDomainRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }
 
+// The tags to which the rule applies, if any.
 func (o SchemaRulesetDomainRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
+// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
 func (o SchemaRulesetDomainRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -19456,6 +19513,8 @@ type GetBusinessMetadataAttributeDefinition struct {
 	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
 	Name string `pulumi:"name"`
 	// (Optional Map) Block for the attribute options:
+	// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+	// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
 	Options map[string]string `pulumi:"options"`
 	// (Required String) The type of the attribute, it always returns `string`.
 	Type string `pulumi:"type"`
@@ -19484,6 +19543,8 @@ type GetBusinessMetadataAttributeDefinitionArgs struct {
 	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
 	Name pulumi.StringInput `pulumi:"name"`
 	// (Optional Map) Block for the attribute options:
+	// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+	// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
 	Options pulumi.StringMapInput `pulumi:"options"`
 	// (Required String) The type of the attribute, it always returns `string`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -19563,6 +19624,8 @@ func (o GetBusinessMetadataAttributeDefinitionOutput) Name() pulumi.StringOutput
 }
 
 // (Optional Map) Block for the attribute options:
+// - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\"cf_entity\"]`.
+// - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
 func (o GetBusinessMetadataAttributeDefinitionOutput) Options() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetBusinessMetadataAttributeDefinition) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }

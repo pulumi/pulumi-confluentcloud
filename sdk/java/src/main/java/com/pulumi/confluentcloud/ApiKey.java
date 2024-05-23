@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var app_manager_kafka_api_key = new ApiKey("app-manager-kafka-api-key", ApiKeyArgs.builder()        
+ *         var app_manager_kafka_api_key = new ApiKey("app-manager-kafka-api-key", ApiKeyArgs.builder()
  *             .displayName("app-manager-kafka-api-key")
  *             .description("Kafka API Key that is owned by 'app-manager' service account")
  *             .owner(ApiKeyOwnerArgs.builder()
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ksqldb_api_key = new ApiKey("ksqldb-api-key", ApiKeyArgs.builder()        
+ *         var ksqldb_api_key = new ApiKey("ksqldb-api-key", ApiKeyArgs.builder()
  *             .displayName("ksqldb-api-key")
  *             .description("KsqlDB API Key that is owned by 'app-manager' service account")
  *             .owner(ApiKeyOwnerArgs.builder()
@@ -150,7 +150,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var env_manager_schema_registry_api_key = new ApiKey("env-manager-schema-registry-api-key", ApiKeyArgs.builder()        
+ *         var env_manager_schema_registry_api_key = new ApiKey("env-manager-schema-registry-api-key", ApiKeyArgs.builder()
  *             .displayName("env-manager-schema-registry-api-key")
  *             .description("Schema Registry API Key that is owned by 'env-manager' service account")
  *             .owner(ApiKeyOwnerArgs.builder()
@@ -201,7 +201,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var env_manager_flink_api_key = new ApiKey("env-manager-flink-api-key", ApiKeyArgs.builder()        
+ *         var env_manager_flink_api_key = new ApiKey("env-manager-flink-api-key", ApiKeyArgs.builder()
  *             .displayName("env-manager-flink-api-key")
  *             .description("Flink API Key that is owned by 'env-manager' service account")
  *             .owner(ApiKeyOwnerArgs.builder()
@@ -250,7 +250,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var env_manager_cloud_api_key = new ApiKey("env-manager-cloud-api-key", ApiKeyArgs.builder()        
+ *         var env_manager_cloud_api_key = new ApiKey("env-manager-cloud-api-key", ApiKeyArgs.builder()
  *             .displayName("env-manager-cloud-api-key")
  *             .description("Cloud API Key that is owned by 'env-manager' service account")
  *             .owner(ApiKeyOwnerArgs.builder()

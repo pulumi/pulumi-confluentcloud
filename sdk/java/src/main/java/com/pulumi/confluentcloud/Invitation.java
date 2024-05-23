@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Invitation("main", InvitationArgs.builder()        
+ *         var main = new Invitation("main", InvitationArgs.builder()
  *             .email("")
  *             .build());
  * 
- *         var main2 = new Invitation("main2", InvitationArgs.builder()        
+ *         var main2 = new Invitation("main2", InvitationArgs.builder()
  *             .email("")
  *             .authType("AUTH_TYPE_LOCAL")
  *             .build());

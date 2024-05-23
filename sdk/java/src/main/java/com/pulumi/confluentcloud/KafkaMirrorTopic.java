@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KafkaMirrorTopic("example", KafkaMirrorTopicArgs.builder()        
+ *         var example = new KafkaMirrorTopic("example", KafkaMirrorTopicArgs.builder()
  *             .sourceKafkaTopic(KafkaMirrorTopicSourceKafkaTopicArgs.builder()
  *                 .topicName("orders")
  *                 .build())

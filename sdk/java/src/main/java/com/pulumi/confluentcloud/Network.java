@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var aws_private_link = new Network("aws-private-link", NetworkArgs.builder()        
+ *         var aws_private_link = new Network("aws-private-link", NetworkArgs.builder()
  *             .displayName("AWS Private Link Network")
  *             .cloud("AWS")
  *             .region("us-east-1")
@@ -103,11 +103,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var azure_peering = new Network("azure-peering", NetworkArgs.builder()        
+ *         var azure_peering = new Network("azure-peering", NetworkArgs.builder()
  *             .displayName("Azure Peering Network")
  *             .cloud("AZURE")
  *             .region("eastus2")
@@ -152,11 +152,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var gcp_private_service_connect = new Network("gcp-private-service-connect", NetworkArgs.builder()        
+ *         var gcp_private_service_connect = new Network("gcp-private-service-connect", NetworkArgs.builder()
  *             .displayName("GCP Private Service Connect Network")
  *             .cloud("GCP")
  *             .region("us-central1")
@@ -206,11 +206,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var aws_transit_gateway_attachment = new Network("aws-transit-gateway-attachment", NetworkArgs.builder()        
+ *         var aws_transit_gateway_attachment = new Network("aws-transit-gateway-attachment", NetworkArgs.builder()
  *             .displayName("AWS Transit Gateway Attachment Network")
  *             .cloud("AWS")
  *             .region("us-east-1")

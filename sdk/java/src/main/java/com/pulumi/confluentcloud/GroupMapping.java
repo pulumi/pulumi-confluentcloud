@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var application_developers = new GroupMapping("application-developers", GroupMappingArgs.builder()        
+ *         var application_developers = new GroupMapping("application-developers", GroupMappingArgs.builder()
  *             .displayName("Application Developers")
  *             .description("Admin access to production environment for Engineering")
  *             .filter("\"engineering\" in groups")
  *             .build());
  * 
- *         var envadmin = new RoleBinding("envadmin", RoleBindingArgs.builder()        
+ *         var envadmin = new RoleBinding("envadmin", RoleBindingArgs.builder()
  *             .principal(application_developers.id().applyValue(id -> String.format("User:%s", id)))
  *             .roleName("EnvironmentAdmin")
  *             .crnPattern(prod.resourceName())

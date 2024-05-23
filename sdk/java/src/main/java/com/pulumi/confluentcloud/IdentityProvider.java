@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var azure = new IdentityProvider("azure", IdentityProviderArgs.builder()        
+ *         var azure = new IdentityProvider("azure", IdentityProviderArgs.builder()
  *             .displayName("My OIDC Provider: Azure AD")
  *             .description("My description")
  *             .issuer("https://login.microsoftonline.com/{tenant_id}/v2.0")
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var okta = new IdentityProvider("okta", IdentityProviderArgs.builder()        
+ *         var okta = new IdentityProvider("okta", IdentityProviderArgs.builder()
  *             .displayName("My OIDC Provider: Okta")
  *             .description("My description")
  *             .issuer("https://mycompany.okta.com/oauth2/default")
