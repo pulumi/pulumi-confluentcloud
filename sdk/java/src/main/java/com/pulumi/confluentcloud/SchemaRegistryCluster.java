@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .package_("ESSENTIALS")
  *             .build());
  * 
- *         var essentials = new SchemaRegistryCluster("essentials", SchemaRegistryClusterArgs.builder()        
+ *         var essentials = new SchemaRegistryCluster("essentials", SchemaRegistryClusterArgs.builder()
  *             .package_(example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult.package()))
  *             .environment(SchemaRegistryClusterEnvironmentArgs.builder()
  *                 .id(development.id())

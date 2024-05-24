@@ -25,7 +25,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         public Input<Inputs.ApiKeyManagedResourceEnvironmentGetArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+        /// The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

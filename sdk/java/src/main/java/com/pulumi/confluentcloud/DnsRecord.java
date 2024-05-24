@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var main = new DnsRecord("main", DnsRecordArgs.builder()        
+ *         var main = new DnsRecord("main", DnsRecordArgs.builder()
  *             .displayName("dns_record")
  *             .environment(DnsRecordEnvironmentArgs.builder()
  *                 .id(development.id())

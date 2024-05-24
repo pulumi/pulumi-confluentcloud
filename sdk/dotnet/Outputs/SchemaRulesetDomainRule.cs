@@ -13,15 +13,50 @@ namespace Pulumi.ConfluentCloud.Outputs
     [OutputType]
     public sealed class SchemaRulesetDomainRule
     {
+        /// <summary>
+        /// An optional description of the rule.
+        /// </summary>
         public readonly string? Doc;
+        /// <summary>
+        /// The body of the rule, which is optional.
+        /// </summary>
         public readonly string? Expr;
+        /// <summary>
+        /// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        /// </summary>
         public readonly string? Mode;
+        /// <summary>
+        /// A user-defined name that can be used to reference the rule.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        /// </summary>
         public readonly string? OnFailure;
+        /// <summary>
+        /// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        /// </summary>
         public readonly string? OnSuccess;
+        /// <summary>
+        /// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+        /// 
+        /// &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+        /// 
+        /// &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+        /// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Params;
+        /// <summary>
+        /// The tags to which the rule applies, if any.
+        /// </summary>
         public readonly ImmutableArray<string> Tags;
+        /// <summary>
+        /// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

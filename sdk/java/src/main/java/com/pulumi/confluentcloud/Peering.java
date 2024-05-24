@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var aws_peering = new Network("aws-peering", NetworkArgs.builder()        
+ *         var aws_peering = new Network("aws-peering", NetworkArgs.builder()
  *             .displayName("AWS Peering Network")
  *             .cloud("AWS")
  *             .region("us-east-2")
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var aws = new Peering("aws", PeeringArgs.builder()        
+ *         var aws = new Peering("aws", PeeringArgs.builder()
  *             .displayName("AWS Peering")
  *             .aws(PeeringAwsArgs.builder()
  *                 .account("012345678901")
@@ -125,11 +125,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var azure_peering = new Network("azure-peering", NetworkArgs.builder()        
+ *         var azure_peering = new Network("azure-peering", NetworkArgs.builder()
  *             .displayName("Azure Peering Network")
  *             .cloud("AZURE")
  *             .region("centralus")
@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var azure = new Peering("azure", PeeringArgs.builder()        
+ *         var azure = new Peering("azure", PeeringArgs.builder()
  *             .displayName("Azure Peering")
  *             .azure(PeeringAzureArgs.builder()
  *                 .tenant("1111tttt-1111-1111-1111-111111tttttt")
@@ -194,11 +194,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *         var development = new Environment("development", EnvironmentArgs.builder()
  *             .displayName("Development")
  *             .build());
  * 
- *         var gcp_peering = new Network("gcp-peering", NetworkArgs.builder()        
+ *         var gcp_peering = new Network("gcp-peering", NetworkArgs.builder()
  *             .displayName("GCP Peering Network")
  *             .cloud("GCP")
  *             .region("us-west4")
@@ -209,7 +209,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var gcp = new Peering("gcp", PeeringArgs.builder()        
+ *         var gcp = new Peering("gcp", PeeringArgs.builder()
  *             .displayName("GCP Peering")
  *             .gcp(PeeringGcpArgs.builder()
  *                 .project("temp-gear-123456")

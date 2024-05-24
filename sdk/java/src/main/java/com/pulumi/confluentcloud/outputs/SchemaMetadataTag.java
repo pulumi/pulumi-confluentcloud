@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SchemaMetadataTag {
+    /**
+     * @return The setting name.
+     * 
+     */
     private @Nullable String key;
+    /**
+     * @return The list of tags.
+     * 
+     */
     private @Nullable List<String> values;
 
     private SchemaMetadataTag() {}
+    /**
+     * @return The setting name.
+     * 
+     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
+    /**
+     * @return The list of tags.
+     * 
+     */
     public List<String> values() {
         return this.values == null ? List.of() : this.values;
     }

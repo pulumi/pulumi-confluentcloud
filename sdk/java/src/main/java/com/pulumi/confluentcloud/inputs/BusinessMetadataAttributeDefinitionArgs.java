@@ -80,6 +80,8 @@ public final class BusinessMetadataAttributeDefinitionArgs extends com.pulumi.re
 
     /**
      * (Optional Map) Block for the attribute options:
+     * - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\&#34;cf_entity\&#34;]`.
+     * - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
      * 
      */
     @Import(name="options")
@@ -87,6 +89,8 @@ public final class BusinessMetadataAttributeDefinitionArgs extends com.pulumi.re
 
     /**
      * @return (Optional Map) Block for the attribute options:
+     * - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\&#34;cf_entity\&#34;]`.
+     * - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
      * 
      */
     public Optional<Output<Map<String,String>>> options() {
@@ -223,6 +227,8 @@ public final class BusinessMetadataAttributeDefinitionArgs extends com.pulumi.re
 
         /**
          * @param options (Optional Map) Block for the attribute options:
+         * - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\&#34;cf_entity\&#34;]`.
+         * - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
          * 
          * @return builder
          * 
@@ -234,6 +240,8 @@ public final class BusinessMetadataAttributeDefinitionArgs extends com.pulumi.re
 
         /**
          * @param options (Optional Map) Block for the attribute options:
+         * - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\&#34;cf_entity\&#34;]`.
+         * - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
          * 
          * @return builder
          * 

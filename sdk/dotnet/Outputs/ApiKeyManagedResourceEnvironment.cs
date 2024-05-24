@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class ApiKeyManagedResourceEnvironment
     {
         /// <summary>
-        /// (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
+        /// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
         /// </summary>
         public readonly string Id;
 

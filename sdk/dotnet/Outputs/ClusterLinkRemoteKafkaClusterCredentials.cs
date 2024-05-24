@@ -14,11 +14,11 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class ClusterLinkRemoteKafkaClusterCredentials
     {
         /// <summary>
-        /// The Kafka API Key for your Confluent Cloud cluster.
+        /// The Kafka API Key.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The Kafka API Secret for your Confluent Cloud cluster.
+        /// The Kafka API Secret.
         /// </summary>
         public readonly string Secret;
 
