@@ -48,6 +48,19 @@ import * as utilities from "./utilities";
  *         id: development.id,
  *     },
  * });
+ * const freight = new confluentcloud.KafkaCluster("freight", {
+ *     freights: [{}],
+ *     displayName: "freight_kafka_cluster",
+ *     availability: "HIGH",
+ *     cloud: "AWS",
+ *     region: "us-east-1",
+ *     environment: {
+ *         id: staging.id,
+ *     },
+ *     network: {
+ *         id: peering.id,
+ *     },
+ * });
  * ```
  *
  * ### Example Kafka clusters on Azure
@@ -238,6 +251,10 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<outputs.KafkaClusterEnvironment>;
     /**
+     * The configuration of the Freight Kafka cluster.
+     */
+    public readonly freights!: pulumi.Output<outputs.KafkaClusterFreight[] | undefined>;
+    /**
      * (Required String) A kind of the Kafka cluster, for example, `Cluster`.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
@@ -286,6 +303,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["enterprises"] = state ? state.enterprises : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["freights"] = state ? state.freights : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["network"] = state ? state.network : undefined;
             resourceInputs["rbacCrn"] = state ? state.rbacCrn : undefined;
@@ -314,6 +332,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enterprises"] = args ? args.enterprises : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["freights"] = args ? args.freights : undefined;
             resourceInputs["network"] = args ? args.network : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["standard"] = args ? args.standard : undefined;
@@ -369,6 +388,10 @@ export interface KafkaClusterState {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment?: pulumi.Input<inputs.KafkaClusterEnvironment>;
+    /**
+     * The configuration of the Freight Kafka cluster.
+     */
+    freights?: pulumi.Input<pulumi.Input<inputs.KafkaClusterFreight>[]>;
     /**
      * (Required String) A kind of the Kafka cluster, for example, `Cluster`.
      */
@@ -429,6 +452,10 @@ export interface KafkaClusterArgs {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.KafkaClusterEnvironment>;
+    /**
+     * The configuration of the Freight Kafka cluster.
+     */
+    freights?: pulumi.Input<pulumi.Input<inputs.KafkaClusterFreight>[]>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
      * accounts.

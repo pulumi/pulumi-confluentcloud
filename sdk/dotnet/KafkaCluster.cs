@@ -69,6 +69,26 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
+    ///     var freight = new ConfluentCloud.KafkaCluster("freight", new()
+    ///     {
+    ///         Freights = new[]
+    ///         {
+    ///             null,
+    ///         },
+    ///         DisplayName = "freight_kafka_cluster",
+    ///         Availability = "HIGH",
+    ///         Cloud = "AWS",
+    ///         Region = "us-east-1",
+    ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+    ///         {
+    ///             Id = staging.Id,
+    ///         },
+    ///         Network = new ConfluentCloud.Inputs.KafkaClusterNetworkArgs
+    ///         {
+    ///             Id = peering.Id,
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -293,6 +313,12 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.KafkaClusterEnvironment> Environment { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration of the Freight Kafka cluster.
+        /// </summary>
+        [Output("freights")]
+        public Output<ImmutableArray<Outputs.KafkaClusterFreight>> Freights { get; private set; } = null!;
+
+        /// <summary>
         /// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
         /// </summary>
         [Output("kind")]
@@ -426,6 +452,18 @@ namespace Pulumi.ConfluentCloud
         [Input("environment", required: true)]
         public Input<Inputs.KafkaClusterEnvironmentArgs> Environment { get; set; } = null!;
 
+        [Input("freights")]
+        private InputList<Inputs.KafkaClusterFreightArgs>? _freights;
+
+        /// <summary>
+        /// The configuration of the Freight Kafka cluster.
+        /// </summary>
+        public InputList<Inputs.KafkaClusterFreightArgs> Freights
+        {
+            get => _freights ?? (_freights = new InputList<Inputs.KafkaClusterFreightArgs>());
+            set => _freights = value;
+        }
+
         /// <summary>
         /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
         /// accounts.
@@ -515,6 +553,18 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("environment")]
         public Input<Inputs.KafkaClusterEnvironmentGetArgs>? Environment { get; set; }
+
+        [Input("freights")]
+        private InputList<Inputs.KafkaClusterFreightGetArgs>? _freights;
+
+        /// <summary>
+        /// The configuration of the Freight Kafka cluster.
+        /// </summary>
+        public InputList<Inputs.KafkaClusterFreightGetArgs> Freights
+        {
+            get => _freights ?? (_freights = new InputList<Inputs.KafkaClusterFreightGetArgs>());
+            set => _freights = value;
+        }
 
         /// <summary>
         /// (Required String) A kind of the Kafka cluster, for example, `Cluster`.

@@ -66,6 +66,7 @@ __all__ = [
     'KafkaClusterDedicated',
     'KafkaClusterEnterprise',
     'KafkaClusterEnvironment',
+    'KafkaClusterFreight',
     'KafkaClusterNetwork',
     'KafkaClusterStandard',
     'KafkaMirrorTopicClusterLink',
@@ -177,6 +178,7 @@ __all__ = [
     'GetKafkaClusterDedicatedResult',
     'GetKafkaClusterEnterpriseResult',
     'GetKafkaClusterEnvironmentResult',
+    'GetKafkaClusterFreightResult',
     'GetKafkaClusterNetworkResult',
     'GetKafkaClusterStandardResult',
     'GetKafkaTopicCredentialsResult',
@@ -2030,16 +2032,18 @@ class KafkaClusterDedicated(dict):
         """
         :param int cku: The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
                
-               > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+               > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
+               
+               > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+               
+               > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
                
                !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
                
                > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
         :param str encryption_key: The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
         :param Sequence[str] zones: (Required List of String) The list of zones the cluster is in.
-               On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-               On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-               On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+               - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         """
         pulumi.set(__self__, "cku", cku)
         if encryption_key is not None:
@@ -2053,7 +2057,11 @@ class KafkaClusterDedicated(dict):
         """
         The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 
-        > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+        > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
+
+        > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+
+        > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
 
         !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 
@@ -2074,9 +2082,7 @@ class KafkaClusterDedicated(dict):
     def zones(self) -> Optional[Sequence[str]]:
         """
         (Required List of String) The list of zones the cluster is in.
-        On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-        On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-        On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         """
         return pulumi.get(self, "zones")
 
@@ -2103,6 +2109,27 @@ class KafkaClusterEnvironment(dict):
         The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class KafkaClusterFreight(dict):
+    def __init__(__self__, *,
+                 zones: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] zones: (Required List of String) The list of zones the cluster is in.
+               - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+        """
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        (Required List of String) The list of zones the cluster is in.
+        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+        """
+        return pulumi.get(self, "zones")
 
 
 @pulumi.output_type
@@ -5474,9 +5501,9 @@ class GetKafkaClusterDedicatedResult(dict):
         :param int cku: (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
         :param str encryption_key: The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
         :param Sequence[str] zones: (Required List of String) The list of zones the cluster is in.
-               On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-               On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-               On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+               - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+               - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+               - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
         """
         pulumi.set(__self__, "cku", cku)
         pulumi.set(__self__, "encryption_key", encryption_key)
@@ -5503,9 +5530,9 @@ class GetKafkaClusterDedicatedResult(dict):
     def zones(self) -> Sequence[str]:
         """
         (Required List of String) The list of zones the cluster is in.
-        On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-        On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-        On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+        - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+        - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
         """
         return pulumi.get(self, "zones")
 
@@ -5536,6 +5563,30 @@ class GetKafkaClusterEnvironmentResult(dict):
         > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetKafkaClusterFreightResult(dict):
+    def __init__(__self__, *,
+                 zones: Sequence[str]):
+        """
+        :param Sequence[str] zones: (Required List of String) The list of zones the cluster is in.
+               - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+               - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+               - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        """
+        pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Sequence[str]:
+        """
+        (Required List of String) The list of zones the cluster is in.
+        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+        - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+        - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        """
+        return pulumi.get(self, "zones")
 
 
 @pulumi.output_type

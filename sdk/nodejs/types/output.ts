@@ -824,9 +824,9 @@ export interface GetKafkaClusterDedicated {
     encryptionKey: string;
     /**
      * (Required List of String) The list of zones the cluster is in.
-     * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-     * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-     * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+     * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+     * - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+     * - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
      */
     zones: string[];
 }
@@ -841,6 +841,16 @@ export interface GetKafkaClusterEnvironment {
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: string;
+}
+
+export interface GetKafkaClusterFreight {
+    /**
+     * (Required List of String) The list of zones the cluster is in.
+     * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+     * - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+     * - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+     */
+    zones: string[];
 }
 
 export interface GetKafkaClusterNetwork {
@@ -1766,7 +1776,11 @@ export interface KafkaClusterDedicated {
     /**
      * The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
      *
-     * > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+     * > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
+     *
+     * > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+     *
+     * > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
      *
      * !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
      *
@@ -1779,9 +1793,7 @@ export interface KafkaClusterDedicated {
     encryptionKey?: string;
     /**
      * (Required List of String) The list of zones the cluster is in.
-     * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-     * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-     * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+     * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      */
     zones: string[];
 }
@@ -1794,6 +1806,14 @@ export interface KafkaClusterEnvironment {
      * The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
      */
     id: string;
+}
+
+export interface KafkaClusterFreight {
+    /**
+     * (Required List of String) The list of zones the cluster is in.
+     * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+     */
+    zones: string[];
 }
 
 export interface KafkaClusterNetwork {
