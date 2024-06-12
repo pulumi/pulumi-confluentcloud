@@ -309,6 +309,16 @@
                     "environment": {
                         "maxItemsOne": true
                     },
+                    "freight": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "zones": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "network": {
                         "maxItemsOne": true
                     },
@@ -976,6 +986,16 @@
                     },
                     "environment": {
                         "maxItemsOne": true
+                    },
+                    "freight": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "zones": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "network": {
                         "maxItemsOne": false

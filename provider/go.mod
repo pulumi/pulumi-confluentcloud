@@ -73,7 +73,7 @@ require (
 	github.com/cloudflare/circl v1.3.7 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/apikeys v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/byok v0.0.2 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/cmk v0.10.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/cmk v0.21.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/connect v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/connect-custom-plugin v0.0.2 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/data-catalog v0.2.0 // indirect
