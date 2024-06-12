@@ -83,6 +83,8 @@ type LookupKafkaClusterArgs struct {
 	// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
 	Enterprises []GetKafkaClusterEnterprise `pulumi:"enterprises"`
 	Environment GetKafkaClusterEnvironment  `pulumi:"environment"`
+	// (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+	Freights []GetKafkaClusterFreight `pulumi:"freights"`
 	// The ID of the Kafka cluster, for example, `lkc-abc123`.
 	Id *string `pulumi:"id"`
 	// (Optional Configuration Block) The configuration of the Standard Kafka cluster.
@@ -110,6 +112,8 @@ type LookupKafkaClusterResult struct {
 	// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
 	Enterprises []GetKafkaClusterEnterprise `pulumi:"enterprises"`
 	Environment GetKafkaClusterEnvironment  `pulumi:"environment"`
+	// (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+	Freights []GetKafkaClusterFreight `pulumi:"freights"`
 	// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 	Id string `pulumi:"id"`
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
@@ -150,6 +154,8 @@ type LookupKafkaClusterOutputArgs struct {
 	// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
 	Enterprises GetKafkaClusterEnterpriseArrayInput `pulumi:"enterprises"`
 	Environment GetKafkaClusterEnvironmentInput     `pulumi:"environment"`
+	// (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+	Freights GetKafkaClusterFreightArrayInput `pulumi:"freights"`
 	// The ID of the Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional Configuration Block) The configuration of the Standard Kafka cluster.
@@ -222,6 +228,11 @@ func (o LookupKafkaClusterResultOutput) Enterprises() GetKafkaClusterEnterpriseA
 
 func (o LookupKafkaClusterResultOutput) Environment() GetKafkaClusterEnvironmentOutput {
 	return o.ApplyT(func(v LookupKafkaClusterResult) GetKafkaClusterEnvironment { return v.Environment }).(GetKafkaClusterEnvironmentOutput)
+}
+
+// (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+func (o LookupKafkaClusterResultOutput) Freights() GetKafkaClusterFreightArrayOutput {
+	return o.ApplyT(func(v LookupKafkaClusterResult) []GetKafkaClusterFreight { return v.Freights }).(GetKafkaClusterFreightArrayOutput)
 }
 
 // (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.

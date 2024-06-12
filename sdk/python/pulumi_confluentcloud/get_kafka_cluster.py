@@ -23,7 +23,7 @@ class GetKafkaClusterResult:
     """
     A collection of values returned by getKafkaCluster.
     """
-    def __init__(__self__, api_version=None, availability=None, basics=None, bootstrap_endpoint=None, byok_keys=None, cloud=None, dedicated=None, display_name=None, enterprises=None, environment=None, id=None, kind=None, networks=None, rbac_crn=None, region=None, rest_endpoint=None, standards=None):
+    def __init__(__self__, api_version=None, availability=None, basics=None, bootstrap_endpoint=None, byok_keys=None, cloud=None, dedicated=None, display_name=None, enterprises=None, environment=None, freights=None, id=None, kind=None, networks=None, rbac_crn=None, region=None, rest_endpoint=None, standards=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
@@ -54,6 +54,9 @@ class GetKafkaClusterResult:
         if environment and not isinstance(environment, dict):
             raise TypeError("Expected argument 'environment' to be a dict")
         pulumi.set(__self__, "environment", environment)
+        if freights and not isinstance(freights, list):
+            raise TypeError("Expected argument 'freights' to be a list")
+        pulumi.set(__self__, "freights", freights)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -155,6 +158,14 @@ class GetKafkaClusterResult:
 
     @property
     @pulumi.getter
+    def freights(self) -> Optional[Sequence['outputs.GetKafkaClusterFreightResult']]:
+        """
+        (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+        """
+        return pulumi.get(self, "freights")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
@@ -226,6 +237,7 @@ class AwaitableGetKafkaClusterResult(GetKafkaClusterResult):
             display_name=self.display_name,
             enterprises=self.enterprises,
             environment=self.environment,
+            freights=self.freights,
             id=self.id,
             kind=self.kind,
             networks=self.networks,
@@ -240,6 +252,7 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
                       display_name: Optional[str] = None,
                       enterprises: Optional[Sequence[pulumi.InputType['GetKafkaClusterEnterpriseArgs']]] = None,
                       environment: Optional[pulumi.InputType['GetKafkaClusterEnvironmentArgs']] = None,
+                      freights: Optional[Sequence[pulumi.InputType['GetKafkaClusterFreightArgs']]] = None,
                       id: Optional[str] = None,
                       standards: Optional[Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaClusterResult:
@@ -273,6 +286,7 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
     :param pulumi.InputType['GetKafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
     :param str display_name: A human-readable name for the Kafka cluster.
     :param Sequence[pulumi.InputType['GetKafkaClusterEnterpriseArgs']] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+    :param Sequence[pulumi.InputType['GetKafkaClusterFreightArgs']] freights: (Optional Configuration Block) The configuration of the Freight Kafka cluster.
     :param str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
     :param Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
     """
@@ -282,6 +296,7 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
     __args__['displayName'] = display_name
     __args__['enterprises'] = enterprises
     __args__['environment'] = environment
+    __args__['freights'] = freights
     __args__['id'] = id
     __args__['standards'] = standards
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -298,6 +313,7 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
         display_name=pulumi.get(__ret__, 'display_name'),
         enterprises=pulumi.get(__ret__, 'enterprises'),
         environment=pulumi.get(__ret__, 'environment'),
+        freights=pulumi.get(__ret__, 'freights'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         networks=pulumi.get(__ret__, 'networks'),
@@ -313,6 +329,7 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[pul
                              display_name: Optional[pulumi.Input[Optional[str]]] = None,
                              enterprises: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKafkaClusterEnterpriseArgs']]]]] = None,
                              environment: Optional[pulumi.Input[pulumi.InputType['GetKafkaClusterEnvironmentArgs']]] = None,
+                             freights: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKafkaClusterFreightArgs']]]]] = None,
                              id: Optional[pulumi.Input[Optional[str]]] = None,
                              standards: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaClusterResult]:
@@ -346,6 +363,7 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[pul
     :param pulumi.InputType['GetKafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
     :param str display_name: A human-readable name for the Kafka cluster.
     :param Sequence[pulumi.InputType['GetKafkaClusterEnterpriseArgs']] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+    :param Sequence[pulumi.InputType['GetKafkaClusterFreightArgs']] freights: (Optional Configuration Block) The configuration of the Freight Kafka cluster.
     :param str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
     :param Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
     """

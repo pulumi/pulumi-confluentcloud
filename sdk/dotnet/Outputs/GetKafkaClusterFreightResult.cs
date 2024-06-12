@@ -11,16 +11,8 @@ namespace Pulumi.ConfluentCloud.Outputs
 {
 
     [OutputType]
-    public sealed class GetKafkaClusterDedicatedResult
+    public sealed class GetKafkaClusterFreightResult
     {
-        /// <summary>
-        /// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
-        /// </summary>
-        public readonly int Cku;
-        /// <summary>
-        /// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
-        /// </summary>
-        public readonly string EncryptionKey;
         /// <summary>
         /// (Required List of String) The list of zones the cluster is in.
         /// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -30,15 +22,8 @@ namespace Pulumi.ConfluentCloud.Outputs
         public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
-        private GetKafkaClusterDedicatedResult(
-            int cku,
-
-            string encryptionKey,
-
-            ImmutableArray<string> zones)
+        private GetKafkaClusterFreightResult(ImmutableArray<string> zones)
         {
-            Cku = cku;
-            EncryptionKey = encryptionKey;
             Zones = zones;
         }
     }

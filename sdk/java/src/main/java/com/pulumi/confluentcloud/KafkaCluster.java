@@ -11,6 +11,7 @@ import com.pulumi.confluentcloud.outputs.KafkaClusterByokKey;
 import com.pulumi.confluentcloud.outputs.KafkaClusterDedicated;
 import com.pulumi.confluentcloud.outputs.KafkaClusterEnterprise;
 import com.pulumi.confluentcloud.outputs.KafkaClusterEnvironment;
+import com.pulumi.confluentcloud.outputs.KafkaClusterFreight;
 import com.pulumi.confluentcloud.outputs.KafkaClusterNetwork;
 import com.pulumi.confluentcloud.outputs.KafkaClusterStandard;
 import com.pulumi.core.Output;
@@ -43,6 +44,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterDedicatedArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaClusterFreightArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaClusterNetworkArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -92,6 +95,20 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .environment(KafkaClusterEnvironmentArgs.builder()
  *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var freight = new KafkaCluster("freight", KafkaClusterArgs.builder()
+ *             .freights()
+ *             .displayName("freight_kafka_cluster")
+ *             .availability("HIGH")
+ *             .cloud("AWS")
+ *             .region("us-east-1")
+ *             .environment(KafkaClusterEnvironmentArgs.builder()
+ *                 .id(staging.id())
+ *                 .build())
+ *             .network(KafkaClusterNetworkArgs.builder()
+ *                 .id(peering.id())
  *                 .build())
  *             .build());
  * 
@@ -427,6 +444,20 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<KafkaClusterEnvironment> environment() {
         return this.environment;
+    }
+    /**
+     * The configuration of the Freight Kafka cluster.
+     * 
+     */
+    @Export(name="freights", refs={List.class,KafkaClusterFreight.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<KafkaClusterFreight>> freights;
+
+    /**
+     * @return The configuration of the Freight Kafka cluster.
+     * 
+     */
+    public Output<Optional<List<KafkaClusterFreight>>> freights() {
+        return Codegen.optional(this.freights);
     }
     /**
      * (Required String) A kind of the Kafka cluster, for example, `Cluster`.

@@ -7862,7 +7862,11 @@ func (o KafkaClusterConfigKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 type KafkaClusterDedicated struct {
 	// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 	//
-	// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+	// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
+	//
+	// > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+	//
+	// > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
 	//
 	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 	//
@@ -7871,9 +7875,7 @@ type KafkaClusterDedicated struct {
 	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
-	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-	// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-	// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -7891,7 +7893,11 @@ type KafkaClusterDedicatedInput interface {
 type KafkaClusterDedicatedArgs struct {
 	// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 	//
-	// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+	// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
+	//
+	// > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+	//
+	// > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
 	//
 	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 	//
@@ -7900,9 +7906,7 @@ type KafkaClusterDedicatedArgs struct {
 	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 	EncryptionKey pulumi.StringPtrInput `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
-	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-	// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-	// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
@@ -7985,7 +7989,11 @@ func (o KafkaClusterDedicatedOutput) ToKafkaClusterDedicatedPtrOutputWithContext
 
 // The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 //
-// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
+//
+// > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+//
+// > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
 //
 // !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 //
@@ -8000,9 +8008,7 @@ func (o KafkaClusterDedicatedOutput) EncryptionKey() pulumi.StringPtrOutput {
 }
 
 // (Required List of String) The list of zones the cluster is in.
-// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
 func (o KafkaClusterDedicatedOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KafkaClusterDedicated) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
@@ -8033,7 +8039,11 @@ func (o KafkaClusterDedicatedPtrOutput) Elem() KafkaClusterDedicatedOutput {
 
 // The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 //
-// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
+//
+// > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+//
+// > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
 //
 // !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 //
@@ -8058,9 +8068,7 @@ func (o KafkaClusterDedicatedPtrOutput) EncryptionKey() pulumi.StringPtrOutput {
 }
 
 // (Required List of String) The list of zones the cluster is in.
-// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
 func (o KafkaClusterDedicatedPtrOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterDedicated) []string {
 		if v == nil {
@@ -8293,6 +8301,106 @@ func (o KafkaClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+type KafkaClusterFreight struct {
+	// (Required List of String) The list of zones the cluster is in.
+	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	Zones []string `pulumi:"zones"`
+}
+
+// KafkaClusterFreightInput is an input type that accepts KafkaClusterFreightArgs and KafkaClusterFreightOutput values.
+// You can construct a concrete instance of `KafkaClusterFreightInput` via:
+//
+//	KafkaClusterFreightArgs{...}
+type KafkaClusterFreightInput interface {
+	pulumi.Input
+
+	ToKafkaClusterFreightOutput() KafkaClusterFreightOutput
+	ToKafkaClusterFreightOutputWithContext(context.Context) KafkaClusterFreightOutput
+}
+
+type KafkaClusterFreightArgs struct {
+	// (Required List of String) The list of zones the cluster is in.
+	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (KafkaClusterFreightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterFreight)(nil)).Elem()
+}
+
+func (i KafkaClusterFreightArgs) ToKafkaClusterFreightOutput() KafkaClusterFreightOutput {
+	return i.ToKafkaClusterFreightOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterFreightArgs) ToKafkaClusterFreightOutputWithContext(ctx context.Context) KafkaClusterFreightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterFreightOutput)
+}
+
+// KafkaClusterFreightArrayInput is an input type that accepts KafkaClusterFreightArray and KafkaClusterFreightArrayOutput values.
+// You can construct a concrete instance of `KafkaClusterFreightArrayInput` via:
+//
+//	KafkaClusterFreightArray{ KafkaClusterFreightArgs{...} }
+type KafkaClusterFreightArrayInput interface {
+	pulumi.Input
+
+	ToKafkaClusterFreightArrayOutput() KafkaClusterFreightArrayOutput
+	ToKafkaClusterFreightArrayOutputWithContext(context.Context) KafkaClusterFreightArrayOutput
+}
+
+type KafkaClusterFreightArray []KafkaClusterFreightInput
+
+func (KafkaClusterFreightArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterFreight)(nil)).Elem()
+}
+
+func (i KafkaClusterFreightArray) ToKafkaClusterFreightArrayOutput() KafkaClusterFreightArrayOutput {
+	return i.ToKafkaClusterFreightArrayOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterFreightArray) ToKafkaClusterFreightArrayOutputWithContext(ctx context.Context) KafkaClusterFreightArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterFreightArrayOutput)
+}
+
+type KafkaClusterFreightOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterFreightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterFreight)(nil)).Elem()
+}
+
+func (o KafkaClusterFreightOutput) ToKafkaClusterFreightOutput() KafkaClusterFreightOutput {
+	return o
+}
+
+func (o KafkaClusterFreightOutput) ToKafkaClusterFreightOutputWithContext(ctx context.Context) KafkaClusterFreightOutput {
+	return o
+}
+
+// (Required List of String) The list of zones the cluster is in.
+// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+func (o KafkaClusterFreightOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KafkaClusterFreight) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+type KafkaClusterFreightArrayOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterFreightArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterFreight)(nil)).Elem()
+}
+
+func (o KafkaClusterFreightArrayOutput) ToKafkaClusterFreightArrayOutput() KafkaClusterFreightArrayOutput {
+	return o
+}
+
+func (o KafkaClusterFreightArrayOutput) ToKafkaClusterFreightArrayOutputWithContext(ctx context.Context) KafkaClusterFreightArrayOutput {
+	return o
+}
+
+func (o KafkaClusterFreightArrayOutput) Index(i pulumi.IntInput) KafkaClusterFreightOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KafkaClusterFreight {
+		return vs[0].([]KafkaClusterFreight)[vs[1].(int)]
+	}).(KafkaClusterFreightOutput)
 }
 
 type KafkaClusterNetwork struct {
@@ -22572,9 +22680,9 @@ type GetKafkaClusterDedicated struct {
 	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 	EncryptionKey string `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
-	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-	// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-	// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+	// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -22595,9 +22703,9 @@ type GetKafkaClusterDedicatedArgs struct {
 	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 	EncryptionKey pulumi.StringInput `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
-	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-	// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-	// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+	// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
@@ -22689,9 +22797,9 @@ func (o GetKafkaClusterDedicatedOutput) EncryptionKey() pulumi.StringOutput {
 }
 
 // (Required List of String) The list of zones the cluster is in.
-// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
 func (o GetKafkaClusterDedicatedOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetKafkaClusterDedicated) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
@@ -22741,9 +22849,9 @@ func (o GetKafkaClusterDedicatedPtrOutput) EncryptionKey() pulumi.StringPtrOutpu
 }
 
 // (Required List of String) The list of zones the cluster is in.
-// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
 func (o GetKafkaClusterDedicatedPtrOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetKafkaClusterDedicated) []string {
 		if v == nil {
@@ -22897,6 +23005,112 @@ func (o GetKafkaClusterEnvironmentOutput) ToGetKafkaClusterEnvironmentOutputWith
 // > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 func (o GetKafkaClusterEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetKafkaClusterFreight struct {
+	// (Required List of String) The list of zones the cluster is in.
+	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+	// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	Zones []string `pulumi:"zones"`
+}
+
+// GetKafkaClusterFreightInput is an input type that accepts GetKafkaClusterFreightArgs and GetKafkaClusterFreightOutput values.
+// You can construct a concrete instance of `GetKafkaClusterFreightInput` via:
+//
+//	GetKafkaClusterFreightArgs{...}
+type GetKafkaClusterFreightInput interface {
+	pulumi.Input
+
+	ToGetKafkaClusterFreightOutput() GetKafkaClusterFreightOutput
+	ToGetKafkaClusterFreightOutputWithContext(context.Context) GetKafkaClusterFreightOutput
+}
+
+type GetKafkaClusterFreightArgs struct {
+	// (Required List of String) The list of zones the cluster is in.
+	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+	// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (GetKafkaClusterFreightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClusterFreight)(nil)).Elem()
+}
+
+func (i GetKafkaClusterFreightArgs) ToGetKafkaClusterFreightOutput() GetKafkaClusterFreightOutput {
+	return i.ToGetKafkaClusterFreightOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClusterFreightArgs) ToGetKafkaClusterFreightOutputWithContext(ctx context.Context) GetKafkaClusterFreightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterFreightOutput)
+}
+
+// GetKafkaClusterFreightArrayInput is an input type that accepts GetKafkaClusterFreightArray and GetKafkaClusterFreightArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClusterFreightArrayInput` via:
+//
+//	GetKafkaClusterFreightArray{ GetKafkaClusterFreightArgs{...} }
+type GetKafkaClusterFreightArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClusterFreightArrayOutput() GetKafkaClusterFreightArrayOutput
+	ToGetKafkaClusterFreightArrayOutputWithContext(context.Context) GetKafkaClusterFreightArrayOutput
+}
+
+type GetKafkaClusterFreightArray []GetKafkaClusterFreightInput
+
+func (GetKafkaClusterFreightArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClusterFreight)(nil)).Elem()
+}
+
+func (i GetKafkaClusterFreightArray) ToGetKafkaClusterFreightArrayOutput() GetKafkaClusterFreightArrayOutput {
+	return i.ToGetKafkaClusterFreightArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClusterFreightArray) ToGetKafkaClusterFreightArrayOutputWithContext(ctx context.Context) GetKafkaClusterFreightArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterFreightArrayOutput)
+}
+
+type GetKafkaClusterFreightOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClusterFreightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClusterFreight)(nil)).Elem()
+}
+
+func (o GetKafkaClusterFreightOutput) ToGetKafkaClusterFreightOutput() GetKafkaClusterFreightOutput {
+	return o
+}
+
+func (o GetKafkaClusterFreightOutput) ToGetKafkaClusterFreightOutputWithContext(ctx context.Context) GetKafkaClusterFreightOutput {
+	return o
+}
+
+// (Required List of String) The list of zones the cluster is in.
+// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+func (o GetKafkaClusterFreightOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetKafkaClusterFreight) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+type GetKafkaClusterFreightArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClusterFreightArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClusterFreight)(nil)).Elem()
+}
+
+func (o GetKafkaClusterFreightArrayOutput) ToGetKafkaClusterFreightArrayOutput() GetKafkaClusterFreightArrayOutput {
+	return o
+}
+
+func (o GetKafkaClusterFreightArrayOutput) ToGetKafkaClusterFreightArrayOutputWithContext(ctx context.Context) GetKafkaClusterFreightArrayOutput {
+	return o
+}
+
+func (o GetKafkaClusterFreightArrayOutput) Index(i pulumi.IntInput) GetKafkaClusterFreightOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClusterFreight {
+		return vs[0].([]GetKafkaClusterFreight)[vs[1].(int)]
+	}).(GetKafkaClusterFreightOutput)
 }
 
 type GetKafkaClusterNetwork struct {
@@ -31760,6 +31974,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEnterpriseArrayInput)(nil)).Elem(), KafkaClusterEnterpriseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEnvironmentInput)(nil)).Elem(), KafkaClusterEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEnvironmentPtrInput)(nil)).Elem(), KafkaClusterEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterFreightInput)(nil)).Elem(), KafkaClusterFreightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterFreightArrayInput)(nil)).Elem(), KafkaClusterFreightArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterNetworkInput)(nil)).Elem(), KafkaClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterNetworkPtrInput)(nil)).Elem(), KafkaClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterStandardInput)(nil)).Elem(), KafkaClusterStandardArgs{})
@@ -31976,6 +32192,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterEnterpriseInput)(nil)).Elem(), GetKafkaClusterEnterpriseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterEnterpriseArrayInput)(nil)).Elem(), GetKafkaClusterEnterpriseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterEnvironmentInput)(nil)).Elem(), GetKafkaClusterEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterFreightInput)(nil)).Elem(), GetKafkaClusterFreightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterFreightArrayInput)(nil)).Elem(), GetKafkaClusterFreightArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterNetworkInput)(nil)).Elem(), GetKafkaClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterNetworkArrayInput)(nil)).Elem(), GetKafkaClusterNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterStandardInput)(nil)).Elem(), GetKafkaClusterStandardArgs{})
@@ -32227,6 +32445,8 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterEnterpriseArrayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterEnvironmentOutput{})
 	pulumi.RegisterOutputType(KafkaClusterEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterFreightOutput{})
+	pulumi.RegisterOutputType(KafkaClusterFreightArrayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterNetworkOutput{})
 	pulumi.RegisterOutputType(KafkaClusterNetworkPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterStandardOutput{})
@@ -32443,6 +32663,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKafkaClusterEnterpriseOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterEnterpriseArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetKafkaClusterFreightOutput{})
+	pulumi.RegisterOutputType(GetKafkaClusterFreightArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterNetworkOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterStandardOutput{})

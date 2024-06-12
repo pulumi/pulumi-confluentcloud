@@ -49,6 +49,7 @@ export function getKafkaCluster(args: GetKafkaClusterArgs, opts?: pulumi.InvokeO
         "displayName": args.displayName,
         "enterprises": args.enterprises,
         "environment": args.environment,
+        "freights": args.freights,
         "id": args.id,
         "standards": args.standards,
     }, opts);
@@ -75,6 +76,10 @@ export interface GetKafkaClusterArgs {
      */
     enterprises?: inputs.GetKafkaClusterEnterprise[];
     environment: inputs.GetKafkaClusterEnvironment;
+    /**
+     * (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+     */
+    freights?: inputs.GetKafkaClusterFreight[];
     /**
      * The ID of the Kafka cluster, for example, `lkc-abc123`.
      */
@@ -126,6 +131,10 @@ export interface GetKafkaClusterResult {
      */
     readonly enterprises?: outputs.GetKafkaClusterEnterprise[];
     readonly environment: outputs.GetKafkaClusterEnvironment;
+    /**
+     * (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+     */
+    readonly freights?: outputs.GetKafkaClusterFreight[];
     /**
      * (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
      */
@@ -214,6 +223,10 @@ export interface GetKafkaClusterOutputArgs {
      */
     enterprises?: pulumi.Input<pulumi.Input<inputs.GetKafkaClusterEnterpriseArgs>[]>;
     environment: pulumi.Input<inputs.GetKafkaClusterEnvironmentArgs>;
+    /**
+     * (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+     */
+    freights?: pulumi.Input<pulumi.Input<inputs.GetKafkaClusterFreightArgs>[]>;
     /**
      * The ID of the Kafka cluster, for example, `lkc-abc123`.
      */

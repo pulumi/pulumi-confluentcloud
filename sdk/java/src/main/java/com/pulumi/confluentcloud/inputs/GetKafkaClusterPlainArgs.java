@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.GetKafkaClusterBasic;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterDedicated;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterEnterprise;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterEnvironment;
+import com.pulumi.confluentcloud.inputs.GetKafkaClusterFreight;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterStandard;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -89,6 +90,21 @@ public final class GetKafkaClusterPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
+     * (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+     * 
+     */
+    @Import(name="freights")
+    private @Nullable List<GetKafkaClusterFreight> freights;
+
+    /**
+     * @return (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+     * 
+     */
+    public Optional<List<GetKafkaClusterFreight>> freights() {
+        return Optional.ofNullable(this.freights);
+    }
+
+    /**
      * The ID of the Kafka cluster, for example, `lkc-abc123`.
      * 
      */
@@ -126,6 +142,7 @@ public final class GetKafkaClusterPlainArgs extends com.pulumi.resources.InvokeA
         this.displayName = $.displayName;
         this.enterprises = $.enterprises;
         this.environment = $.environment;
+        this.freights = $.freights;
         this.id = $.id;
         this.standards = $.standards;
     }
@@ -215,6 +232,27 @@ public final class GetKafkaClusterPlainArgs extends com.pulumi.resources.InvokeA
         public Builder environment(GetKafkaClusterEnvironment environment) {
             $.environment = environment;
             return this;
+        }
+
+        /**
+         * @param freights (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder freights(@Nullable List<GetKafkaClusterFreight> freights) {
+            $.freights = freights;
+            return this;
+        }
+
+        /**
+         * @param freights (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder freights(GetKafkaClusterFreight... freights) {
+            return freights(List.of(freights));
         }
 
         /**

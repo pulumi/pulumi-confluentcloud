@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.outputs.GetKafkaClusterByokKey;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterDedicated;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterEnterprise;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterEnvironment;
+import com.pulumi.confluentcloud.outputs.GetKafkaClusterFreight;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterNetwork;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterStandard;
 import com.pulumi.core.annotations.CustomType;
@@ -66,6 +67,11 @@ public final class GetKafkaClusterResult {
      */
     private @Nullable List<GetKafkaClusterEnterprise> enterprises;
     private GetKafkaClusterEnvironment environment;
+    /**
+     * @return (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+     * 
+     */
+    private @Nullable List<GetKafkaClusterFreight> freights;
     /**
      * @return (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
      * 
@@ -170,6 +176,13 @@ public final class GetKafkaClusterResult {
         return this.environment;
     }
     /**
+     * @return (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+     * 
+     */
+    public List<GetKafkaClusterFreight> freights() {
+        return this.freights == null ? List.of() : this.freights;
+    }
+    /**
      * @return (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
      * 
      */
@@ -238,6 +251,7 @@ public final class GetKafkaClusterResult {
         private String displayName;
         private @Nullable List<GetKafkaClusterEnterprise> enterprises;
         private GetKafkaClusterEnvironment environment;
+        private @Nullable List<GetKafkaClusterFreight> freights;
         private String id;
         private String kind;
         private List<GetKafkaClusterNetwork> networks;
@@ -258,6 +272,7 @@ public final class GetKafkaClusterResult {
     	      this.displayName = defaults.displayName;
     	      this.enterprises = defaults.enterprises;
     	      this.environment = defaults.environment;
+    	      this.freights = defaults.freights;
     	      this.id = defaults.id;
     	      this.kind = defaults.kind;
     	      this.networks = defaults.networks;
@@ -351,6 +366,15 @@ public final class GetKafkaClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder freights(@Nullable List<GetKafkaClusterFreight> freights) {
+
+            this.freights = freights;
+            return this;
+        }
+        public Builder freights(GetKafkaClusterFreight... freights) {
+            return freights(List.of(freights));
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetKafkaClusterResult", "id");
@@ -422,6 +446,7 @@ public final class GetKafkaClusterResult {
             _resultValue.displayName = displayName;
             _resultValue.enterprises = enterprises;
             _resultValue.environment = environment;
+            _resultValue.freights = freights;
             _resultValue.id = id;
             _resultValue.kind = kind;
             _resultValue.networks = networks;

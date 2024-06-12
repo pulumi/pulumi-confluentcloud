@@ -25,6 +25,7 @@ class KafkaClusterArgs:
                  dedicated: Optional[pulumi.Input['KafkaClusterDedicatedArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enterprises: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]] = None,
+                 freights: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]]] = None,
                  network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
                  standard: Optional[pulumi.Input['KafkaClusterStandardArgs']] = None):
         """
@@ -37,6 +38,7 @@ class KafkaClusterArgs:
         :param pulumi.Input['KafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]] enterprises: The configuration of the Enterprise Kafka cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]] freights: The configuration of the Freight Kafka cluster.
         :param pulumi.Input['KafkaClusterNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         :param pulumi.Input['KafkaClusterStandardArgs'] standard: The configuration of the Standard Kafka cluster.
@@ -55,6 +57,8 @@ class KafkaClusterArgs:
             pulumi.set(__self__, "display_name", display_name)
         if enterprises is not None:
             pulumi.set(__self__, "enterprises", enterprises)
+        if freights is not None:
+            pulumi.set(__self__, "freights", freights)
         if network is not None:
             pulumi.set(__self__, "network", network)
         if standard is not None:
@@ -167,6 +171,18 @@ class KafkaClusterArgs:
 
     @property
     @pulumi.getter
+    def freights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]]]:
+        """
+        The configuration of the Freight Kafka cluster.
+        """
+        return pulumi.get(self, "freights")
+
+    @freights.setter
+    def freights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]]]):
+        pulumi.set(self, "freights", value)
+
+    @property
+    @pulumi.getter
     def network(self) -> Optional[pulumi.Input['KafkaClusterNetworkArgs']]:
         """
         Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -204,6 +220,7 @@ class _KafkaClusterState:
                  display_name: Optional[pulumi.Input[str]] = None,
                  enterprises: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]] = None,
                  environment: Optional[pulumi.Input['KafkaClusterEnvironmentArgs']] = None,
+                 freights: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
                  rbac_crn: Optional[pulumi.Input[str]] = None,
@@ -221,6 +238,7 @@ class _KafkaClusterState:
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input['KafkaClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]] freights: The configuration of the Freight Kafka cluster.
         :param pulumi.Input[str] kind: (Required String) A kind of the Kafka cluster, for example, `Cluster`.
         :param pulumi.Input['KafkaClusterNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
@@ -249,6 +267,8 @@ class _KafkaClusterState:
             pulumi.set(__self__, "enterprises", enterprises)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if freights is not None:
+            pulumi.set(__self__, "freights", freights)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if network is not None:
@@ -381,6 +401,18 @@ class _KafkaClusterState:
 
     @property
     @pulumi.getter
+    def freights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]]]:
+        """
+        The configuration of the Freight Kafka cluster.
+        """
+        return pulumi.get(self, "freights")
+
+    @freights.setter
+    def freights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]]]):
+        pulumi.set(self, "freights", value)
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
         (Required String) A kind of the Kafka cluster, for example, `Cluster`.
@@ -466,6 +498,7 @@ class KafkaCluster(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  enterprises: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterEnterpriseArgs']]]]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']]] = None,
+                 freights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterFreightArgs']]]]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  standard: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']]] = None,
@@ -508,6 +541,18 @@ class KafkaCluster(pulumi.CustomResource):
             ),
             environment=confluentcloud.KafkaClusterEnvironmentArgs(
                 id=development.id,
+            ))
+        freight = confluentcloud.KafkaCluster("freight",
+            freights=[confluentcloud.KafkaClusterFreightArgs()],
+            display_name="freight_kafka_cluster",
+            availability="HIGH",
+            cloud="AWS",
+            region="us-east-1",
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=staging["id"],
+            ),
+            network=confluentcloud.KafkaClusterNetworkArgs(
+                id=peering["id"],
             ))
         ```
 
@@ -636,6 +681,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterEnterpriseArgs']]]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterFreightArgs']]]] freights: The configuration of the Freight Kafka cluster.
         :param pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         :param pulumi.Input[str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
@@ -685,6 +731,18 @@ class KafkaCluster(pulumi.CustomResource):
             ),
             environment=confluentcloud.KafkaClusterEnvironmentArgs(
                 id=development.id,
+            ))
+        freight = confluentcloud.KafkaCluster("freight",
+            freights=[confluentcloud.KafkaClusterFreightArgs()],
+            display_name="freight_kafka_cluster",
+            availability="HIGH",
+            cloud="AWS",
+            region="us-east-1",
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=staging["id"],
+            ),
+            network=confluentcloud.KafkaClusterNetworkArgs(
+                id=peering["id"],
             ))
         ```
 
@@ -827,6 +885,7 @@ class KafkaCluster(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  enterprises: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterEnterpriseArgs']]]]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']]] = None,
+                 freights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterFreightArgs']]]]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  standard: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']]] = None,
@@ -853,6 +912,7 @@ class KafkaCluster(pulumi.CustomResource):
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            __props__.__dict__["freights"] = freights
             __props__.__dict__["network"] = network
             if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
@@ -883,6 +943,7 @@ class KafkaCluster(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[str]] = None,
             enterprises: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterEnterpriseArgs']]]]] = None,
             environment: Optional[pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']]] = None,
+            freights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterFreightArgs']]]]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
             rbac_crn: Optional[pulumi.Input[str]] = None,
@@ -905,6 +966,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterEnterpriseArgs']]]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterFreightArgs']]]] freights: The configuration of the Freight Kafka cluster.
         :param pulumi.Input[str] kind: (Required String) A kind of the Kafka cluster, for example, `Cluster`.
         :param pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
@@ -927,6 +989,7 @@ class KafkaCluster(pulumi.CustomResource):
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["enterprises"] = enterprises
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["freights"] = freights
         __props__.__dict__["kind"] = kind
         __props__.__dict__["network"] = network
         __props__.__dict__["rbac_crn"] = rbac_crn
@@ -1011,6 +1074,14 @@ class KafkaCluster(pulumi.CustomResource):
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def freights(self) -> pulumi.Output[Optional[Sequence['outputs.KafkaClusterFreight']]]:
+        """
+        The configuration of the Freight Kafka cluster.
+        """
+        return pulumi.get(self, "freights")
 
     @property
     @pulumi.getter

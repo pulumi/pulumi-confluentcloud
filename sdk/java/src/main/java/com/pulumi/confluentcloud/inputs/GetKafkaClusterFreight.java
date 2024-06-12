@@ -5,45 +5,14 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
 
-public final class GetKafkaClusterDedicated extends com.pulumi.resources.InvokeArgs {
+public final class GetKafkaClusterFreight extends com.pulumi.resources.InvokeArgs {
 
-    public static final GetKafkaClusterDedicated Empty = new GetKafkaClusterDedicated();
-
-    /**
-     * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
-     * 
-     */
-    @Import(name="cku", required=true)
-    private Integer cku;
-
-    /**
-     * @return (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
-     * 
-     */
-    public Integer cku() {
-        return this.cku;
-    }
-
-    /**
-     * The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
-     * 
-     */
-    @Import(name="encryptionKey", required=true)
-    private String encryptionKey;
-
-    /**
-     * @return The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
-     * 
-     */
-    public String encryptionKey() {
-        return this.encryptionKey;
-    }
+    public static final GetKafkaClusterFreight Empty = new GetKafkaClusterFreight();
 
     /**
      * (Required List of String) The list of zones the cluster is in.
@@ -66,52 +35,28 @@ public final class GetKafkaClusterDedicated extends com.pulumi.resources.InvokeA
         return this.zones;
     }
 
-    private GetKafkaClusterDedicated() {}
+    private GetKafkaClusterFreight() {}
 
-    private GetKafkaClusterDedicated(GetKafkaClusterDedicated $) {
-        this.cku = $.cku;
-        this.encryptionKey = $.encryptionKey;
+    private GetKafkaClusterFreight(GetKafkaClusterFreight $) {
         this.zones = $.zones;
     }
 
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(GetKafkaClusterDedicated defaults) {
+    public static Builder builder(GetKafkaClusterFreight defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private GetKafkaClusterDedicated $;
+        private GetKafkaClusterFreight $;
 
         public Builder() {
-            $ = new GetKafkaClusterDedicated();
+            $ = new GetKafkaClusterFreight();
         }
 
-        public Builder(GetKafkaClusterDedicated defaults) {
-            $ = new GetKafkaClusterDedicated(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param cku (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cku(Integer cku) {
-            $.cku = cku;
-            return this;
-        }
-
-        /**
-         * @param encryptionKey The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder encryptionKey(String encryptionKey) {
-            $.encryptionKey = encryptionKey;
-            return this;
+        public Builder(GetKafkaClusterFreight defaults) {
+            $ = new GetKafkaClusterFreight(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -141,15 +86,9 @@ public final class GetKafkaClusterDedicated extends com.pulumi.resources.InvokeA
             return zones(List.of(zones));
         }
 
-        public GetKafkaClusterDedicated build() {
-            if ($.cku == null) {
-                throw new MissingRequiredPropertyException("GetKafkaClusterDedicated", "cku");
-            }
-            if ($.encryptionKey == null) {
-                throw new MissingRequiredPropertyException("GetKafkaClusterDedicated", "encryptionKey");
-            }
+        public GetKafkaClusterFreight build() {
             if ($.zones == null) {
-                throw new MissingRequiredPropertyException("GetKafkaClusterDedicated", "zones");
+                throw new MissingRequiredPropertyException("GetKafkaClusterFreight", "zones");
             }
             return $;
         }

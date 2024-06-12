@@ -10,20 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class GetKafkaClusterDedicatedInputArgs : global::Pulumi.ResourceArgs
+    public sealed class GetKafkaClusterFreightInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
-        /// </summary>
-        [Input("cku", required: true)]
-        public Input<int> Cku { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
-        /// </summary>
-        [Input("encryptionKey", required: true)]
-        public Input<string> EncryptionKey { get; set; } = null!;
-
         [Input("zones", required: true)]
         private InputList<string>? _zones;
 
@@ -39,9 +27,9 @@ namespace Pulumi.ConfluentCloud.Inputs
             set => _zones = value;
         }
 
-        public GetKafkaClusterDedicatedInputArgs()
+        public GetKafkaClusterFreightInputArgs()
         {
         }
-        public static new GetKafkaClusterDedicatedInputArgs Empty => new GetKafkaClusterDedicatedInputArgs();
+        public static new GetKafkaClusterFreightInputArgs Empty => new GetKafkaClusterFreightInputArgs();
     }
 }

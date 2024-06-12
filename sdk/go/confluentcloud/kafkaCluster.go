@@ -75,6 +75,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "freight", &confluentcloud.KafkaClusterArgs{
+//				Freights: confluentcloud.KafkaClusterFreightArray{
+//					nil,
+//				},
+//				DisplayName:  pulumi.String("freight_kafka_cluster"),
+//				Availability: pulumi.String("HIGH"),
+//				Cloud:        pulumi.String("AWS"),
+//				Region:       pulumi.String("us-east-1"),
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
+//					Id: pulumi.Any(staging.Id),
+//				},
+//				Network: &confluentcloud.KafkaClusterNetworkArgs{
+//					Id: pulumi.Any(peering.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -276,6 +294,8 @@ type KafkaCluster struct {
 	Enterprises KafkaClusterEnterpriseArrayOutput `pulumi:"enterprises"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment KafkaClusterEnvironmentOutput `pulumi:"environment"`
+	// The configuration of the Freight Kafka cluster.
+	Freights KafkaClusterFreightArrayOutput `pulumi:"freights"`
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -352,6 +372,8 @@ type kafkaClusterState struct {
 	Enterprises []KafkaClusterEnterprise `pulumi:"enterprises"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *KafkaClusterEnvironment `pulumi:"environment"`
+	// The configuration of the Freight Kafka cluster.
+	Freights []KafkaClusterFreight `pulumi:"freights"`
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
 	Kind *string `pulumi:"kind"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -387,6 +409,8 @@ type KafkaClusterState struct {
 	Enterprises KafkaClusterEnterpriseArrayInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment KafkaClusterEnvironmentPtrInput
+	// The configuration of the Freight Kafka cluster.
+	Freights KafkaClusterFreightArrayInput
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
 	Kind pulumi.StringPtrInput
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -422,6 +446,8 @@ type kafkaClusterArgs struct {
 	Enterprises []KafkaClusterEnterprise `pulumi:"enterprises"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment KafkaClusterEnvironment `pulumi:"environment"`
+	// The configuration of the Freight Kafka cluster.
+	Freights []KafkaClusterFreight `pulumi:"freights"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
 	// accounts.
 	Network *KafkaClusterNetwork `pulumi:"network"`
@@ -448,6 +474,8 @@ type KafkaClusterArgs struct {
 	Enterprises KafkaClusterEnterpriseArrayInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment KafkaClusterEnvironmentInput
+	// The configuration of the Freight Kafka cluster.
+	Freights KafkaClusterFreightArrayInput
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
 	// accounts.
 	Network KafkaClusterNetworkPtrInput
@@ -591,6 +619,11 @@ func (o KafkaClusterOutput) Enterprises() KafkaClusterEnterpriseArrayOutput {
 // Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 func (o KafkaClusterOutput) Environment() KafkaClusterEnvironmentOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterEnvironmentOutput { return v.Environment }).(KafkaClusterEnvironmentOutput)
+}
+
+// The configuration of the Freight Kafka cluster.
+func (o KafkaClusterOutput) Freights() KafkaClusterFreightArrayOutput {
+	return o.ApplyT(func(v *KafkaCluster) KafkaClusterFreightArrayOutput { return v.Freights }).(KafkaClusterFreightArrayOutput)
 }
 
 // (Required String) A kind of the Kafka cluster, for example, `Cluster`.

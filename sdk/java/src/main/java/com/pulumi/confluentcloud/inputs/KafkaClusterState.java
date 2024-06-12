@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.KafkaClusterByokKeyArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterDedicatedArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterEnterpriseArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
+import com.pulumi.confluentcloud.inputs.KafkaClusterFreightArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterNetworkArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
 import com.pulumi.core.Output;
@@ -166,6 +167,21 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The configuration of the Freight Kafka cluster.
+     * 
+     */
+    @Import(name="freights")
+    private @Nullable Output<List<KafkaClusterFreightArgs>> freights;
+
+    /**
+     * @return The configuration of the Freight Kafka cluster.
+     * 
+     */
+    public Optional<Output<List<KafkaClusterFreightArgs>>> freights() {
+        return Optional.ofNullable(this.freights);
+    }
+
+    /**
      * (Required String) A kind of the Kafka cluster, for example, `Cluster`.
      * 
      */
@@ -270,6 +286,7 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
         this.displayName = $.displayName;
         this.enterprises = $.enterprises;
         this.environment = $.environment;
+        this.freights = $.freights;
         this.kind = $.kind;
         this.network = $.network;
         this.rbacCrn = $.rbacCrn;
@@ -502,6 +519,37 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder environment(KafkaClusterEnvironmentArgs environment) {
             return environment(Output.of(environment));
+        }
+
+        /**
+         * @param freights The configuration of the Freight Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder freights(@Nullable Output<List<KafkaClusterFreightArgs>> freights) {
+            $.freights = freights;
+            return this;
+        }
+
+        /**
+         * @param freights The configuration of the Freight Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder freights(List<KafkaClusterFreightArgs> freights) {
+            return freights(Output.of(freights));
+        }
+
+        /**
+         * @param freights The configuration of the Freight Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder freights(KafkaClusterFreightArgs... freights) {
+            return freights(List.of(freights));
         }
 
         /**

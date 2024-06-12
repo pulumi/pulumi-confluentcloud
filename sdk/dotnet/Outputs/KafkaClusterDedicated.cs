@@ -16,7 +16,11 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// <summary>
         /// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
         /// 
-        /// &gt; **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+        /// &gt; **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
+        /// 
+        /// &gt; **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+        /// 
+        /// &gt; **Note:** The `freight` Kafka cluster type is only available in AWS currently.
         /// 
         /// !&gt; **Warning:** You can only upgrade clusters from `basic` to `standard`.
         /// 
@@ -29,9 +33,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         public readonly string? EncryptionKey;
         /// <summary>
         /// (Required List of String) The list of zones the cluster is in.
-        /// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-        /// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-        /// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        /// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
 
