@@ -15,16 +15,17 @@
 package confluentcloud
 
 import (
-	"fmt"
-	// embed is used to store bridge-metadata.json in the compiled binary
 	"context"
-	_ "embed"
+	"fmt"
 	"path/filepath"
+	"slices"
 
-	tfschema "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	_ "embed" // embed is used to store bridge-metadata.json in the compiled binary
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 
 	"github.com/confluentinc/terraform-provider-confluent/shim"
@@ -65,6 +66,22 @@ func Provider() tfbridge.ProviderInfo {
 		GitHubOrg:        "confluentinc",
 		Config:           map[string]*tfbridge.SchemaInfo{},
 		UpstreamRepoPath: "./upstream",
+		SchemaPostProcessor: func(spec *schema.PackageSpec) {
+			const token = "confluentcloud:index/kafkaTopic:KafkaTopic"
+			const prop = "httpEndpoint"
+			const deprecationMessage = `This property has been deprecated. Please use "restEndpoint" instead.`
+			topic := spec.Resources[token]
+			httpEndpoint := schema.PropertySpec{
+				TypeSpec:           schema.TypeSpec{Type: "string"},
+				DeprecationMessage: deprecationMessage,
+			}
+			topic.Required = append(topic.Required, prop)
+			slices.Sort(topic.Required)
+			topic.Properties[prop] = httpEndpoint
+			topic.InputProperties[prop] = httpEndpoint
+			topic.StateInputs.Properties[prop] = httpEndpoint
+			spec.Resources[token] = topic
+		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"confluent_api_key": {
 				Tok: tfbridge.MakeResource(mainPkg, mainMod, "ApiKey"),
@@ -127,21 +144,6 @@ func Provider() tfbridge.ProviderInfo {
 					config[restEndpoint] = endpoint
 
 					return config, nil
-				},
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"http_endpoint": func() *tfbridge.SchemaInfo {
-						p.ResourcesMap().Get("confluent_kafka_topic").Schema().
-							Set("http_endpoint", shimv2.NewSchema(&tfschema.Schema{
-								Type:     tfschema.TypeString,
-								Optional: true,
-								Computed: true,
-							}))
-						return &tfbridge.SchemaInfo{
-							Name: "httpEndpoint",
-							DeprecationMessage: "This property has been deprecated. " +
-								`Please use "restEndpoint" instead.`,
-						}
-					}(),
 				},
 			},
 			"confluent_network":             {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Network")},
