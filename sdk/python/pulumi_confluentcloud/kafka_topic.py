@@ -86,10 +86,8 @@ class KafkaTopicArgs:
 
     @property
     @pulumi.getter(name="httpEndpoint")
+    @_utilities.deprecated("""This property has been deprecated. Please use \"restEndpoint\" instead.""")
     def http_endpoint(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated. Please use \"restEndpoint\" instead.""", DeprecationWarning)
-        pulumi.log.warn("""http_endpoint is deprecated: This property has been deprecated. Please use \"restEndpoint\" instead.""")
-
         return pulumi.get(self, "http_endpoint")
 
     @http_endpoint.setter
@@ -192,10 +190,8 @@ class _KafkaTopicState:
 
     @property
     @pulumi.getter(name="httpEndpoint")
+    @_utilities.deprecated("""This property has been deprecated. Please use \"restEndpoint\" instead.""")
     def http_endpoint(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated. Please use \"restEndpoint\" instead.""", DeprecationWarning)
-        pulumi.log.warn("""http_endpoint is deprecated: This property has been deprecated. Please use \"restEndpoint\" instead.""")
-
         return pulumi.get(self, "http_endpoint")
 
     @http_endpoint.setter
@@ -544,10 +540,8 @@ class KafkaTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpEndpoint")
+    @_utilities.deprecated("""This property has been deprecated. Please use \"restEndpoint\" instead.""")
     def http_endpoint(self) -> pulumi.Output[str]:
-        warnings.warn("""This property has been deprecated. Please use \"restEndpoint\" instead.""", DeprecationWarning)
-        pulumi.log.warn("""http_endpoint is deprecated: This property has been deprecated. Please use \"restEndpoint\" instead.""")
-
         return pulumi.get(self, "http_endpoint")
 
     @property
