@@ -231,7 +231,7 @@ class Connector(pulumi.CustomResource):
                 "quickstart": "ORDERS",
                 "tasks.max": "1",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     app_connector_describe_on_cluster,
                     app_connector_write_on_target_topic,
                     app_connector_create_on_data_preview_topics,
@@ -268,7 +268,7 @@ class Connector(pulumi.CustomResource):
                 "flush.size": "1000",
                 "tasks.max": "1",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     app_connector_describe_on_cluster,
                     app_connector_read_on_target_topic,
                     app_connector_create_on_dlq_lcc_topics,
@@ -308,7 +308,7 @@ class Connector(pulumi.CustomResource):
                 "aws.dynamodb.pk.sort": "value.pageid",
                 "tasks.max": "1",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     app_connector_describe_on_cluster,
                     app_connector_read_on_target_topic,
                     app_connector_create_on_dlq_lcc_topics,
@@ -351,7 +351,7 @@ class Connector(pulumi.CustomResource):
                 "max.interval": "2000",
                 "tasks.max": "1",
             },
-            opts=pulumi.ResourceOptions(depends_on=[app_manager_kafka_cluster_admin]))
+            opts = pulumi.ResourceOptions(depends_on=[app_manager_kafka_cluster_admin]))
         ```
 
         > **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
@@ -428,7 +428,7 @@ class Connector(pulumi.CustomResource):
                 "quickstart": "ORDERS",
                 "tasks.max": "1",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     app_connector_describe_on_cluster,
                     app_connector_write_on_target_topic,
                     app_connector_create_on_data_preview_topics,
@@ -465,7 +465,7 @@ class Connector(pulumi.CustomResource):
                 "flush.size": "1000",
                 "tasks.max": "1",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     app_connector_describe_on_cluster,
                     app_connector_read_on_target_topic,
                     app_connector_create_on_dlq_lcc_topics,
@@ -505,7 +505,7 @@ class Connector(pulumi.CustomResource):
                 "aws.dynamodb.pk.sort": "value.pageid",
                 "tasks.max": "1",
             },
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     app_connector_describe_on_cluster,
                     app_connector_read_on_target_topic,
                     app_connector_create_on_dlq_lcc_topics,
@@ -548,7 +548,7 @@ class Connector(pulumi.CustomResource):
                 "max.interval": "2000",
                 "tasks.max": "1",
             },
-            opts=pulumi.ResourceOptions(depends_on=[app_manager_kafka_cluster_admin]))
+            opts = pulumi.ResourceOptions(depends_on=[app_manager_kafka_cluster_admin]))
         ```
 
         > **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
