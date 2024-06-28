@@ -107,6 +107,12 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.SchemaSchemaRegistryCluster?> SchemaRegistryCluster { get; private set; } = null!;
 
         /// <summary>
+        /// An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+        /// </summary>
+        [Output("skipValidationDuringPlan")]
+        public Output<bool?> SkipValidationDuringPlan { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         /// </summary>
         [Output("subjectName")]
@@ -242,6 +248,12 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.SchemaSchemaRegistryClusterArgs>? SchemaRegistryCluster { get; set; }
 
         /// <summary>
+        /// An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+        /// </summary>
+        [Input("skipValidationDuringPlan")]
+        public Input<bool>? SkipValidationDuringPlan { get; set; }
+
+        /// <summary>
         /// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         /// </summary>
         [Input("subjectName", required: true)]
@@ -333,6 +345,12 @@ namespace Pulumi.ConfluentCloud
 
         [Input("schemaRegistryCluster")]
         public Input<Inputs.SchemaSchemaRegistryClusterGetArgs>? SchemaRegistryCluster { get; set; }
+
+        /// <summary>
+        /// An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+        /// </summary>
+        [Input("skipValidationDuringPlan")]
+        public Input<bool>? SkipValidationDuringPlan { get; set; }
 
         /// <summary>
         /// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.

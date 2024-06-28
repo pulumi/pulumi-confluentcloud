@@ -19,7 +19,7 @@ type CatalogEntityAttributes struct {
 	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
 	// The Cluster API Credentials.
 	Credentials CatalogEntityAttributesCredentialsPtrOutput `pulumi:"credentials"`
-	// The qualified name of the entity, for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName pulumi.StringOutput `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`, `kafkaTopic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType pulumi.StringOutput `pulumi:"entityType"`
@@ -75,7 +75,7 @@ type catalogEntityAttributesState struct {
 	Attributes map[string]string `pulumi:"attributes"`
 	// The Cluster API Credentials.
 	Credentials *CatalogEntityAttributesCredentials `pulumi:"credentials"`
-	// The qualified name of the entity, for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName *string `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`, `kafkaTopic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType *string `pulumi:"entityType"`
@@ -89,7 +89,7 @@ type CatalogEntityAttributesState struct {
 	Attributes pulumi.StringMapInput
 	// The Cluster API Credentials.
 	Credentials CatalogEntityAttributesCredentialsPtrInput
-	// The qualified name of the entity, for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName pulumi.StringPtrInput
 	// The entity type, for example, `srSchema`, `kafkaTopic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType pulumi.StringPtrInput
@@ -107,7 +107,7 @@ type catalogEntityAttributesArgs struct {
 	Attributes map[string]string `pulumi:"attributes"`
 	// The Cluster API Credentials.
 	Credentials *CatalogEntityAttributesCredentials `pulumi:"credentials"`
-	// The qualified name of the entity, for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName string `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`, `kafkaTopic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType string `pulumi:"entityType"`
@@ -122,7 +122,7 @@ type CatalogEntityAttributesArgs struct {
 	Attributes pulumi.StringMapInput
 	// The Cluster API Credentials.
 	Credentials CatalogEntityAttributesCredentialsPtrInput
-	// The qualified name of the entity, for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName pulumi.StringInput
 	// The entity type, for example, `srSchema`, `kafkaTopic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType pulumi.StringInput
@@ -228,7 +228,7 @@ func (o CatalogEntityAttributesOutput) Credentials() CatalogEntityAttributesCred
 	return o.ApplyT(func(v *CatalogEntityAttributes) CatalogEntityAttributesCredentialsPtrOutput { return v.Credentials }).(CatalogEntityAttributesCredentialsPtrOutput)
 }
 
-// The qualified name of the entity, for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 func (o CatalogEntityAttributesOutput) EntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogEntityAttributes) pulumi.StringOutput { return v.EntityName }).(pulumi.StringOutput)
 }

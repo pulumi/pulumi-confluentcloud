@@ -146,7 +146,7 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
-    `SchemaRegistryCluster` describes a Schema Registry cluster data source.
+    `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
 
     ## Example Usage
 
@@ -202,7 +202,7 @@ def get_schema_registry_cluster_output(display_name: Optional[pulumi.Input[Optio
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
-    `SchemaRegistryCluster` describes a Schema Registry cluster data source.
+    `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
 
     ## Example Usage
 

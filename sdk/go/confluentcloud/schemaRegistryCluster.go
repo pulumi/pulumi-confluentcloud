@@ -14,50 +14,6 @@ import (
 
 // ## Example Usage
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			development, err := confluentcloud.NewEnvironment(ctx, "development", &confluentcloud.EnvironmentArgs{
-//				DisplayName: pulumi.String("Development"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := confluentcloud.GetSchemaRegistryRegion(ctx, &confluentcloud.GetSchemaRegistryRegionArgs{
-//				Cloud:   "AWS",
-//				Region:  "us-east-2",
-//				Package: "ESSENTIALS",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = confluentcloud.NewSchemaRegistryCluster(ctx, "essentials", &confluentcloud.SchemaRegistryClusterArgs{
-//				Package: pulumi.String(example.Package),
-//				Environment: &confluentcloud.SchemaRegistryClusterEnvironmentArgs{
-//					Id: development.ID(),
-//				},
-//				Region: &confluentcloud.SchemaRegistryClusterRegionArgs{
-//					Id: pulumi.String(example.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // You can import a Schema Registry cluster by using Environment ID and Schema Registry cluster ID, in the format `<Environment ID>/<Schema Registry cluster ID>`, for example:

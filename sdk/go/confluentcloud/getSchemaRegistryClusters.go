@@ -13,7 +13,7 @@ import (
 
 // [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 //
-// `getSchemaRegistryClusters` describes a data source for Schema Registry Clusters.
+// `data.confluent_schema_registry_clusters` describes a data source for Schema Registry Clusters.
 //
 // ## Example Usage
 //

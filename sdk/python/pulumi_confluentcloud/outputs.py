@@ -2071,6 +2071,7 @@ class KafkaClusterDedicated(dict):
 
     @property
     @pulumi.getter(name="encryptionKey")
+    @_utilities.deprecated("""The \"encryption_key\" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.""")
     def encryption_key(self) -> Optional[str]:
         """
         The ID of the encryption key that is used to encrypt the data in the Kafka cluster.

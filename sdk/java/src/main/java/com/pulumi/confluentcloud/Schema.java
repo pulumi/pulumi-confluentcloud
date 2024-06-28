@@ -203,6 +203,20 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schemaRegistryCluster);
     }
     /**
+     * An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+     * 
+     */
+    @Export(name="skipValidationDuringPlan", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipValidationDuringPlan;
+
+    /**
+     * @return An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+     * 
+     */
+    public Output<Optional<Boolean>> skipValidationDuringPlan() {
+        return Codegen.optional(this.skipValidationDuringPlan);
+    }
+    /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      * 
      */

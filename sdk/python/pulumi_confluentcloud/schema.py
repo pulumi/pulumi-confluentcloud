@@ -26,7 +26,8 @@ class SchemaArgs:
                  ruleset: Optional[pulumi.Input['SchemaRulesetArgs']] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  schema_references: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']] = None):
+                 schema_registry_cluster: Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']] = None,
+                 skip_validation_during_plan: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input[str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
@@ -39,6 +40,7 @@ class SchemaArgs:
         :param pulumi.Input['SchemaRulesetArgs'] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        :param pulumi.Input[bool] skip_validation_during_plan: An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "subject_name", subject_name)
@@ -60,6 +62,8 @@ class SchemaArgs:
             pulumi.set(__self__, "schema_references", schema_references)
         if schema_registry_cluster is not None:
             pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+        if skip_validation_during_plan is not None:
+            pulumi.set(__self__, "skip_validation_during_plan", skip_validation_during_plan)
 
     @property
     @pulumi.getter
@@ -190,6 +194,18 @@ class SchemaArgs:
     def schema_registry_cluster(self, value: Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']]):
         pulumi.set(self, "schema_registry_cluster", value)
 
+    @property
+    @pulumi.getter(name="skipValidationDuringPlan")
+    def skip_validation_during_plan(self) -> Optional[pulumi.Input[bool]]:
+        """
+        An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+        """
+        return pulumi.get(self, "skip_validation_during_plan")
+
+    @skip_validation_during_plan.setter
+    def skip_validation_during_plan(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_validation_during_plan", value)
+
 
 @pulumi.input_type
 class _SchemaState:
@@ -205,6 +221,7 @@ class _SchemaState:
                  schema_identifier: Optional[pulumi.Input[int]] = None,
                  schema_references: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]] = None,
                  schema_registry_cluster: Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']] = None,
+                 skip_validation_during_plan: Optional[pulumi.Input[bool]] = None,
                  subject_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[int]] = None):
         """
@@ -219,6 +236,7 @@ class _SchemaState:
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        :param pulumi.Input[bool] skip_validation_during_plan: An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
         :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         :param pulumi.Input[int] version: (Required Integer) The version of the Schema, for example, `4`.
         """
@@ -244,6 +262,8 @@ class _SchemaState:
             pulumi.set(__self__, "schema_references", schema_references)
         if schema_registry_cluster is not None:
             pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+        if skip_validation_during_plan is not None:
+            pulumi.set(__self__, "skip_validation_during_plan", skip_validation_during_plan)
         if subject_name is not None:
             pulumi.set(__self__, "subject_name", subject_name)
         if version is not None:
@@ -379,6 +399,18 @@ class _SchemaState:
         pulumi.set(self, "schema_registry_cluster", value)
 
     @property
+    @pulumi.getter(name="skipValidationDuringPlan")
+    def skip_validation_during_plan(self) -> Optional[pulumi.Input[bool]]:
+        """
+        An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+        """
+        return pulumi.get(self, "skip_validation_during_plan")
+
+    @skip_validation_during_plan.setter
+    def skip_validation_during_plan(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_validation_during_plan", value)
+
+    @property
     @pulumi.getter(name="subjectName")
     def subject_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -418,6 +450,7 @@ class Schema(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]]] = None,
                  schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaRegistryClusterArgs']]] = None,
+                 skip_validation_during_plan: Optional[pulumi.Input[bool]] = None,
                  subject_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -462,6 +495,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SchemaRulesetArgs']] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        :param pulumi.Input[bool] skip_validation_during_plan: An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
         :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         """
         ...
@@ -526,6 +560,7 @@ class Schema(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]]] = None,
                  schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaRegistryClusterArgs']]] = None,
+                 skip_validation_during_plan: Optional[pulumi.Input[bool]] = None,
                  subject_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -548,6 +583,7 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["schema"] = schema
             __props__.__dict__["schema_references"] = schema_references
             __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
+            __props__.__dict__["skip_validation_during_plan"] = skip_validation_during_plan
             if subject_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subject_name'")
             __props__.__dict__["subject_name"] = subject_name
@@ -576,6 +612,7 @@ class Schema(pulumi.CustomResource):
             schema_identifier: Optional[pulumi.Input[int]] = None,
             schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]]] = None,
             schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaRegistryClusterArgs']]] = None,
+            skip_validation_during_plan: Optional[pulumi.Input[bool]] = None,
             subject_name: Optional[pulumi.Input[str]] = None,
             version: Optional[pulumi.Input[int]] = None) -> 'Schema':
         """
@@ -595,6 +632,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        :param pulumi.Input[bool] skip_validation_during_plan: An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
         :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         :param pulumi.Input[int] version: (Required Integer) The version of the Schema, for example, `4`.
         """
@@ -613,6 +651,7 @@ class Schema(pulumi.CustomResource):
         __props__.__dict__["schema_identifier"] = schema_identifier
         __props__.__dict__["schema_references"] = schema_references
         __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
+        __props__.__dict__["skip_validation_during_plan"] = skip_validation_during_plan
         __props__.__dict__["subject_name"] = subject_name
         __props__.__dict__["version"] = version
         return Schema(resource_name, opts=opts, __props__=__props__)
@@ -701,6 +740,14 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="schemaRegistryCluster")
     def schema_registry_cluster(self) -> pulumi.Output[Optional['outputs.SchemaSchemaRegistryCluster']]:
         return pulumi.get(self, "schema_registry_cluster")
+
+    @property
+    @pulumi.getter(name="skipValidationDuringPlan")
+    def skip_validation_during_plan(self) -> pulumi.Output[Optional[bool]]:
+        """
+        An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+        """
+        return pulumi.get(self, "skip_validation_during_plan")
 
     @property
     @pulumi.getter(name="subjectName")

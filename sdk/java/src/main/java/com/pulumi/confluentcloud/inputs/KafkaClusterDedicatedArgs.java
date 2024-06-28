@@ -56,14 +56,22 @@ public final class KafkaClusterDedicatedArgs extends com.pulumi.resources.Resour
     /**
      * The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
      * 
+     * @deprecated
+     * The &#34;encryption_key&#34; attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.
+     * 
      */
+    @Deprecated /* The ""encryption_key"" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released. */
     @Import(name="encryptionKey")
     private @Nullable Output<String> encryptionKey;
 
     /**
      * @return The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
      * 
+     * @deprecated
+     * The &#34;encryption_key&#34; attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.
+     * 
      */
+    @Deprecated /* The ""encryption_key"" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released. */
     public Optional<Output<String>> encryptionKey() {
         return Optional.ofNullable(this.encryptionKey);
     }
@@ -157,7 +165,11 @@ public final class KafkaClusterDedicatedArgs extends com.pulumi.resources.Resour
          * 
          * @return builder
          * 
+         * @deprecated
+         * The &#34;encryption_key&#34; attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.
+         * 
          */
+        @Deprecated /* The ""encryption_key"" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released. */
         public Builder encryptionKey(@Nullable Output<String> encryptionKey) {
             $.encryptionKey = encryptionKey;
             return this;
@@ -168,7 +180,11 @@ public final class KafkaClusterDedicatedArgs extends com.pulumi.resources.Resour
          * 
          * @return builder
          * 
+         * @deprecated
+         * The &#34;encryption_key&#34; attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.
+         * 
          */
+        @Deprecated /* The ""encryption_key"" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released. */
         public Builder encryptionKey(String encryptionKey) {
             return encryptionKey(Output.of(encryptionKey));
         }

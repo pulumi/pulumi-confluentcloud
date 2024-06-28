@@ -206,24 +206,6 @@ class SchemaRegistryCluster(pulumi.CustomResource):
         """
         ## Example Usage
 
-        ```python
-        import pulumi
-        import pulumi_confluentcloud as confluentcloud
-
-        development = confluentcloud.Environment("development", display_name="Development")
-        example = confluentcloud.get_schema_registry_region(cloud="AWS",
-            region="us-east-2",
-            package="ESSENTIALS")
-        essentials = confluentcloud.SchemaRegistryCluster("essentials",
-            package=example.package,
-            environment=confluentcloud.SchemaRegistryClusterEnvironmentArgs(
-                id=development.id,
-            ),
-            region=confluentcloud.SchemaRegistryClusterRegionArgs(
-                id=example.id,
-            ))
-        ```
-
         ## Import
 
         You can import a Schema Registry cluster by using Environment ID and Schema Registry cluster ID, in the format `<Environment ID>/<Schema Registry cluster ID>`, for example:
@@ -251,24 +233,6 @@ class SchemaRegistryCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_confluentcloud as confluentcloud
-
-        development = confluentcloud.Environment("development", display_name="Development")
-        example = confluentcloud.get_schema_registry_region(cloud="AWS",
-            region="us-east-2",
-            package="ESSENTIALS")
-        essentials = confluentcloud.SchemaRegistryCluster("essentials",
-            package=example.package,
-            environment=confluentcloud.SchemaRegistryClusterEnvironmentArgs(
-                id=development.id,
-            ),
-            region=confluentcloud.SchemaRegistryClusterRegionArgs(
-                id=example.id,
-            ))
-        ```
 
         ## Import
 

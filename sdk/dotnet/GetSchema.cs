@@ -159,6 +159,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSchemaSchemaReferenceResult> SchemaReferences;
         public readonly Outputs.GetSchemaSchemaRegistryClusterResult? SchemaRegistryCluster;
+        public readonly bool SkipValidationDuringPlan;
         /// <summary>
         /// (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
         /// </summary>
@@ -194,6 +195,8 @@ namespace Pulumi.ConfluentCloud
 
             Outputs.GetSchemaSchemaRegistryClusterResult? schemaRegistryCluster,
 
+            bool skipValidationDuringPlan,
+
             string subjectName,
 
             int version)
@@ -210,6 +213,7 @@ namespace Pulumi.ConfluentCloud
             SchemaIdentifier = schemaIdentifier;
             SchemaReferences = schemaReferences;
             SchemaRegistryCluster = schemaRegistryCluster;
+            SkipValidationDuringPlan = skipValidationDuringPlan;
             SubjectName = subjectName;
             Version = version;
         }

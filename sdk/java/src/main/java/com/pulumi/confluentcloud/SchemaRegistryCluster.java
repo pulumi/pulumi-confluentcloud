@@ -18,61 +18,6 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.confluentcloud.Environment;
- * import com.pulumi.confluentcloud.EnvironmentArgs;
- * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
- * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;
- * import com.pulumi.confluentcloud.SchemaRegistryCluster;
- * import com.pulumi.confluentcloud.SchemaRegistryClusterArgs;
- * import com.pulumi.confluentcloud.inputs.SchemaRegistryClusterEnvironmentArgs;
- * import com.pulumi.confluentcloud.inputs.SchemaRegistryClusterRegionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var development = new Environment("development", EnvironmentArgs.builder()
- *             .displayName("Development")
- *             .build());
- * 
- *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
- *             .cloud("AWS")
- *             .region("us-east-2")
- *             .package_("ESSENTIALS")
- *             .build());
- * 
- *         var essentials = new SchemaRegistryCluster("essentials", SchemaRegistryClusterArgs.builder()
- *             .package_(example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult.package()))
- *             .environment(SchemaRegistryClusterEnvironmentArgs.builder()
- *                 .id(development.id())
- *                 .build())
- *             .region(SchemaRegistryClusterRegionArgs.builder()
- *                 .id(example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult.id()))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * You can import a Schema Registry cluster by using Environment ID and Schema Registry cluster ID, in the format `&lt;Environment ID&gt;/&lt;Schema Registry cluster ID&gt;`, for example:

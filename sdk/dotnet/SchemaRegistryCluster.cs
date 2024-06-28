@@ -12,42 +12,6 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Example Usage
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using ConfluentCloud = Pulumi.ConfluentCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
-    ///     {
-    ///         DisplayName = "Development",
-    ///     });
-    /// 
-    ///     var example = ConfluentCloud.GetSchemaRegistryRegion.Invoke(new()
-    ///     {
-    ///         Cloud = "AWS",
-    ///         Region = "us-east-2",
-    ///         Package = "ESSENTIALS",
-    ///     });
-    /// 
-    ///     var essentials = new ConfluentCloud.SchemaRegistryCluster("essentials", new()
-    ///     {
-    ///         Package = example.Apply(getSchemaRegistryRegionResult =&gt; getSchemaRegistryRegionResult.Package),
-    ///         Environment = new ConfluentCloud.Inputs.SchemaRegistryClusterEnvironmentArgs
-    ///         {
-    ///             Id = development.Id,
-    ///         },
-    ///         Region = new ConfluentCloud.Inputs.SchemaRegistryClusterRegionArgs
-    ///         {
-    ///             Id = example.Apply(getSchemaRegistryRegionResult =&gt; getSchemaRegistryRegionResult.Id),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// You can import a Schema Registry cluster by using Environment ID and Schema Registry cluster ID, in the format `&lt;Environment ID&gt;/&lt;Schema Registry cluster ID&gt;`, for example:

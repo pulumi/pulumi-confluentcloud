@@ -57,8 +57,9 @@ type LookupSchemaResult struct {
 	Schema           string `pulumi:"schema"`
 	SchemaIdentifier int    `pulumi:"schemaIdentifier"`
 	// (Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
-	SchemaReferences      []GetSchemaSchemaReference      `pulumi:"schemaReferences"`
-	SchemaRegistryCluster *GetSchemaSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
+	SchemaReferences         []GetSchemaSchemaReference      `pulumi:"schemaReferences"`
+	SchemaRegistryCluster    *GetSchemaSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
+	SkipValidationDuringPlan bool                            `pulumi:"skipValidationDuringPlan"`
 	// (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
 	SubjectName string `pulumi:"subjectName"`
 	// (Required Integer) The version of the Schema, for example, `4`.
@@ -167,6 +168,10 @@ func (o LookupSchemaResultOutput) SchemaReferences() GetSchemaSchemaReferenceArr
 
 func (o LookupSchemaResultOutput) SchemaRegistryCluster() GetSchemaSchemaRegistryClusterPtrOutput {
 	return o.ApplyT(func(v LookupSchemaResult) *GetSchemaSchemaRegistryCluster { return v.SchemaRegistryCluster }).(GetSchemaSchemaRegistryClusterPtrOutput)
+}
+
+func (o LookupSchemaResultOutput) SkipValidationDuringPlan() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSchemaResult) bool { return v.SkipValidationDuringPlan }).(pulumi.BoolOutput)
 }
 
 // (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
