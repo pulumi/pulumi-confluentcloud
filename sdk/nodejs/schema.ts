@@ -107,6 +107,10 @@ export class Schema extends pulumi.CustomResource {
     public readonly schemaReferences!: pulumi.Output<outputs.SchemaSchemaReference[] | undefined>;
     public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaSchemaRegistryCluster | undefined>;
     /**
+     * An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+     */
+    public readonly skipValidationDuringPlan!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */
     public readonly subjectName!: pulumi.Output<string>;
@@ -139,6 +143,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["schemaIdentifier"] = state ? state.schemaIdentifier : undefined;
             resourceInputs["schemaReferences"] = state ? state.schemaReferences : undefined;
             resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
+            resourceInputs["skipValidationDuringPlan"] = state ? state.skipValidationDuringPlan : undefined;
             resourceInputs["subjectName"] = state ? state.subjectName : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
@@ -159,6 +164,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["schemaReferences"] = args ? args.schemaReferences : undefined;
             resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
+            resourceInputs["skipValidationDuringPlan"] = args ? args.skipValidationDuringPlan : undefined;
             resourceInputs["subjectName"] = args ? args.subjectName : undefined;
             resourceInputs["schemaIdentifier"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -216,6 +222,10 @@ export interface SchemaState {
     schemaReferences?: pulumi.Input<pulumi.Input<inputs.SchemaSchemaReference>[]>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaSchemaRegistryCluster>;
     /**
+     * An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+     */
+    skipValidationDuringPlan?: pulumi.Input<boolean>;
+    /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */
     subjectName?: pulumi.Input<string>;
@@ -266,6 +276,10 @@ export interface SchemaArgs {
      */
     schemaReferences?: pulumi.Input<pulumi.Input<inputs.SchemaSchemaReference>[]>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaSchemaRegistryCluster>;
+    /**
+     * An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+     */
+    skipValidationDuringPlan?: pulumi.Input<boolean>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */

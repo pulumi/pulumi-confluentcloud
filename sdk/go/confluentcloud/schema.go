@@ -65,6 +65,8 @@ type Schema struct {
 	// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
 	SchemaReferences      SchemaSchemaReferenceArrayOutput     `pulumi:"schemaReferences"`
 	SchemaRegistryCluster SchemaSchemaRegistryClusterPtrOutput `pulumi:"schemaRegistryCluster"`
+	// An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+	SkipValidationDuringPlan pulumi.BoolPtrOutput `pulumi:"skipValidationDuringPlan"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName pulumi.StringOutput `pulumi:"subjectName"`
 	// (Required Integer) The version of the Schema, for example, `4`.
@@ -135,6 +137,8 @@ type schemaState struct {
 	// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
 	SchemaReferences      []SchemaSchemaReference      `pulumi:"schemaReferences"`
 	SchemaRegistryCluster *SchemaSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
+	// An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+	SkipValidationDuringPlan *bool `pulumi:"skipValidationDuringPlan"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName *string `pulumi:"subjectName"`
 	// (Required Integer) The version of the Schema, for example, `4`.
@@ -163,6 +167,8 @@ type SchemaState struct {
 	// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
 	SchemaReferences      SchemaSchemaReferenceArrayInput
 	SchemaRegistryCluster SchemaSchemaRegistryClusterPtrInput
+	// An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+	SkipValidationDuringPlan pulumi.BoolPtrInput
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName pulumi.StringPtrInput
 	// (Required Integer) The version of the Schema, for example, `4`.
@@ -193,6 +199,8 @@ type schemaArgs struct {
 	// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
 	SchemaReferences      []SchemaSchemaReference      `pulumi:"schemaReferences"`
 	SchemaRegistryCluster *SchemaSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
+	// An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+	SkipValidationDuringPlan *bool `pulumi:"skipValidationDuringPlan"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName string `pulumi:"subjectName"`
 }
@@ -218,6 +226,8 @@ type SchemaArgs struct {
 	// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
 	SchemaReferences      SchemaSchemaReferenceArrayInput
 	SchemaRegistryCluster SchemaSchemaRegistryClusterPtrInput
+	// An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+	SkipValidationDuringPlan pulumi.BoolPtrInput
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName pulumi.StringInput
 }
@@ -361,6 +371,11 @@ func (o SchemaOutput) SchemaReferences() SchemaSchemaReferenceArrayOutput {
 
 func (o SchemaOutput) SchemaRegistryCluster() SchemaSchemaRegistryClusterPtrOutput {
 	return o.ApplyT(func(v *Schema) SchemaSchemaRegistryClusterPtrOutput { return v.SchemaRegistryCluster }).(SchemaSchemaRegistryClusterPtrOutput)
+}
+
+// An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+func (o SchemaOutput) SkipValidationDuringPlan() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.BoolPtrOutput { return v.SkipValidationDuringPlan }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.

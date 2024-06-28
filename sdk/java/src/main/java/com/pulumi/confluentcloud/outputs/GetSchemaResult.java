@@ -56,6 +56,7 @@ public final class GetSchemaResult {
      */
     private List<GetSchemaSchemaReference> schemaReferences;
     private @Nullable GetSchemaSchemaRegistryCluster schemaRegistryCluster;
+    private Boolean skipValidationDuringPlan;
     /**
      * @return (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
      * 
@@ -128,6 +129,9 @@ public final class GetSchemaResult {
     public Optional<GetSchemaSchemaRegistryCluster> schemaRegistryCluster() {
         return Optional.ofNullable(this.schemaRegistryCluster);
     }
+    public Boolean skipValidationDuringPlan() {
+        return this.skipValidationDuringPlan;
+    }
     /**
      * @return (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
      * 
@@ -164,6 +168,7 @@ public final class GetSchemaResult {
         private Integer schemaIdentifier;
         private List<GetSchemaSchemaReference> schemaReferences;
         private @Nullable GetSchemaSchemaRegistryCluster schemaRegistryCluster;
+        private Boolean skipValidationDuringPlan;
         private String subjectName;
         private Integer version;
         public Builder() {}
@@ -181,6 +186,7 @@ public final class GetSchemaResult {
     	      this.schemaIdentifier = defaults.schemaIdentifier;
     	      this.schemaReferences = defaults.schemaReferences;
     	      this.schemaRegistryCluster = defaults.schemaRegistryCluster;
+    	      this.skipValidationDuringPlan = defaults.skipValidationDuringPlan;
     	      this.subjectName = defaults.subjectName;
     	      this.version = defaults.version;
         }
@@ -279,6 +285,14 @@ public final class GetSchemaResult {
             return this;
         }
         @CustomType.Setter
+        public Builder skipValidationDuringPlan(Boolean skipValidationDuringPlan) {
+            if (skipValidationDuringPlan == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "skipValidationDuringPlan");
+            }
+            this.skipValidationDuringPlan = skipValidationDuringPlan;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subjectName(String subjectName) {
             if (subjectName == null) {
               throw new MissingRequiredPropertyException("GetSchemaResult", "subjectName");
@@ -308,6 +322,7 @@ public final class GetSchemaResult {
             _resultValue.schemaIdentifier = schemaIdentifier;
             _resultValue.schemaReferences = schemaReferences;
             _resultValue.schemaRegistryCluster = schemaRegistryCluster;
+            _resultValue.skipValidationDuringPlan = skipValidationDuringPlan;
             _resultValue.subjectName = subjectName;
             _resultValue.version = version;
             return _resultValue;

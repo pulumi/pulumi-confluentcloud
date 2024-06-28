@@ -9,27 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as confluentcloud from "@pulumi/confluentcloud";
- *
- * const development = new confluentcloud.Environment("development", {displayName: "Development"});
- * const example = confluentcloud.getSchemaRegistryRegion({
- *     cloud: "AWS",
- *     region: "us-east-2",
- *     "package": "ESSENTIALS",
- * });
- * const essentials = new confluentcloud.SchemaRegistryCluster("essentials", {
- *     "package": example.then(example => example["package"]),
- *     environment: {
- *         id: development.id,
- *     },
- *     region: {
- *         id: example.then(example => example.id),
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * You can import a Schema Registry cluster by using Environment ID and Schema Registry cluster ID, in the format `<Environment ID>/<Schema Registry cluster ID>`, for example:

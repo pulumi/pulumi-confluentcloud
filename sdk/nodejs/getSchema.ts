@@ -84,6 +84,7 @@ export interface GetSchemaResult {
      */
     readonly schemaReferences: outputs.GetSchemaSchemaReference[];
     readonly schemaRegistryCluster?: outputs.GetSchemaSchemaRegistryCluster;
+    readonly skipValidationDuringPlan: boolean;
     /**
      * (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
      */

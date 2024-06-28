@@ -26,14 +26,14 @@ public final class GetTagBindingArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+     * The qualified name of the entity., for example, `${data..main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      * 
      */
     @Import(name="entityName", required=true)
     private Output<String> entityName;
 
     /**
-     * @return The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+     * @return The qualified name of the entity., for example, `${data..main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      * 
      */
     public Output<String> entityName() {
@@ -135,7 +135,7 @@ public final class GetTagBindingArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param entityName The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+         * @param entityName The qualified name of the entity., for example, `${data..main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class GetTagBindingArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param entityName The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+         * @param entityName The qualified name of the entity., for example, `${data..main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
          * 
          * @return builder
          * 

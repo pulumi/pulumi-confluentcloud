@@ -23,7 +23,7 @@ class GetSchemaResult:
     """
     A collection of values returned by getSchema.
     """
-    def __init__(__self__, credentials=None, format=None, hard_delete=None, id=None, metadata=None, recreate_on_update=None, rest_endpoint=None, ruleset=None, schema=None, schema_identifier=None, schema_references=None, schema_registry_cluster=None, subject_name=None, version=None):
+    def __init__(__self__, credentials=None, format=None, hard_delete=None, id=None, metadata=None, recreate_on_update=None, rest_endpoint=None, ruleset=None, schema=None, schema_identifier=None, schema_references=None, schema_registry_cluster=None, skip_validation_during_plan=None, subject_name=None, version=None):
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
@@ -60,6 +60,9 @@ class GetSchemaResult:
         if schema_registry_cluster and not isinstance(schema_registry_cluster, dict):
             raise TypeError("Expected argument 'schema_registry_cluster' to be a dict")
         pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+        if skip_validation_during_plan and not isinstance(skip_validation_during_plan, bool):
+            raise TypeError("Expected argument 'skip_validation_during_plan' to be a bool")
+        pulumi.set(__self__, "skip_validation_during_plan", skip_validation_during_plan)
         if subject_name and not isinstance(subject_name, str):
             raise TypeError("Expected argument 'subject_name' to be a str")
         pulumi.set(__self__, "subject_name", subject_name)
@@ -146,6 +149,11 @@ class GetSchemaResult:
         return pulumi.get(self, "schema_registry_cluster")
 
     @property
+    @pulumi.getter(name="skipValidationDuringPlan")
+    def skip_validation_during_plan(self) -> bool:
+        return pulumi.get(self, "skip_validation_during_plan")
+
+    @property
     @pulumi.getter(name="subjectName")
     def subject_name(self) -> str:
         """
@@ -180,6 +188,7 @@ class AwaitableGetSchemaResult(GetSchemaResult):
             schema_identifier=self.schema_identifier,
             schema_references=self.schema_references,
             schema_registry_cluster=self.schema_registry_cluster,
+            skip_validation_during_plan=self.skip_validation_during_plan,
             subject_name=self.subject_name,
             version=self.version)
 
@@ -227,6 +236,7 @@ def get_schema(credentials: Optional[pulumi.InputType['GetSchemaCredentialsArgs'
         schema_identifier=pulumi.get(__ret__, 'schema_identifier'),
         schema_references=pulumi.get(__ret__, 'schema_references'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
+        skip_validation_during_plan=pulumi.get(__ret__, 'skip_validation_during_plan'),
         subject_name=pulumi.get(__ret__, 'subject_name'),
         version=pulumi.get(__ret__, 'version'))
 

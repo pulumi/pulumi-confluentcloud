@@ -181,6 +181,21 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+     * 
+     */
+    @Import(name="skipValidationDuringPlan")
+    private @Nullable Output<Boolean> skipValidationDuringPlan;
+
+    /**
+     * @return An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+     * 
+     */
+    public Optional<Output<Boolean>> skipValidationDuringPlan() {
+        return Optional.ofNullable(this.skipValidationDuringPlan);
+    }
+
+    /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      * 
      */
@@ -224,6 +239,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         this.schemaIdentifier = $.schemaIdentifier;
         this.schemaReferences = $.schemaReferences;
         this.schemaRegistryCluster = $.schemaRegistryCluster;
+        this.skipValidationDuringPlan = $.skipValidationDuringPlan;
         this.subjectName = $.subjectName;
         this.version = $.version;
     }
@@ -473,6 +489,27 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
 
         public Builder schemaRegistryCluster(SchemaSchemaRegistryClusterArgs schemaRegistryCluster) {
             return schemaRegistryCluster(Output.of(schemaRegistryCluster));
+        }
+
+        /**
+         * @param skipValidationDuringPlan An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipValidationDuringPlan(@Nullable Output<Boolean> skipValidationDuringPlan) {
+            $.skipValidationDuringPlan = skipValidationDuringPlan;
+            return this;
+        }
+
+        /**
+         * @param skipValidationDuringPlan An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipValidationDuringPlan(Boolean skipValidationDuringPlan) {
+            return skipValidationDuringPlan(Output.of(skipValidationDuringPlan));
         }
 
         /**
