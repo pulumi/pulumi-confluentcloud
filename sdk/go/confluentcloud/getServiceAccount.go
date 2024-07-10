@@ -67,7 +67,7 @@ func LookupServiceAccount(ctx *pulumi.Context, args *LookupServiceAccountArgs, o
 
 // A collection of arguments for invoking getServiceAccount.
 type LookupServiceAccountArgs struct {
-	// A human-readable name for the Service Account.
+	// A human-readable name for the Service Account. Limited to 64 characters in length.
 	//
 	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	DisplayName *string `pulumi:"displayName"`
@@ -81,7 +81,7 @@ type LookupServiceAccountResult struct {
 	ApiVersion string `pulumi:"apiVersion"`
 	// (Required String) A free-form description of the Service Account.
 	Description string `pulumi:"description"`
-	// (Required String) A human-readable name for the Service Account.
+	// (Required String) A human-readable name for the Service Account. Limited to 64 characters in length.
 	DisplayName string `pulumi:"displayName"`
 	// (Required String) The ID of the Service Account (e.g., `sa-abc123`).
 	Id string `pulumi:"id"`
@@ -104,7 +104,7 @@ func LookupServiceAccountOutput(ctx *pulumi.Context, args LookupServiceAccountOu
 
 // A collection of arguments for invoking getServiceAccount.
 type LookupServiceAccountOutputArgs struct {
-	// A human-readable name for the Service Account.
+	// A human-readable name for the Service Account. Limited to 64 characters in length.
 	//
 	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
@@ -141,7 +141,7 @@ func (o LookupServiceAccountResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceAccountResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// (Required String) A human-readable name for the Service Account.
+// (Required String) A human-readable name for the Service Account. Limited to 64 characters in length.
 func (o LookupServiceAccountResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceAccountResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }

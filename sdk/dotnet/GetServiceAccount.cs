@@ -96,7 +96,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetServiceAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A human-readable name for the Service Account.
+        /// A human-readable name for the Service Account. Limited to 64 characters in length.
         /// 
         /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetServiceAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A human-readable name for the Service Account.
+        /// A human-readable name for the Service Account. Limited to 64 characters in length.
         /// 
         /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         /// </summary>
@@ -150,7 +150,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// (Required String) A human-readable name for the Service Account.
+        /// (Required String) A human-readable name for the Service Account. Limited to 64 characters in length.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>

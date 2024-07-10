@@ -21,7 +21,7 @@ class GetFlinkRegionResult:
     """
     A collection of values returned by getFlinkRegion.
     """
-    def __init__(__self__, api_version=None, cloud=None, id=None, kind=None, region=None, rest_endpoint=None):
+    def __init__(__self__, api_version=None, cloud=None, id=None, kind=None, private_rest_endpoint=None, region=None, rest_endpoint=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
@@ -34,6 +34,9 @@ class GetFlinkRegionResult:
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
+        if private_rest_endpoint and not isinstance(private_rest_endpoint, str):
+            raise TypeError("Expected argument 'private_rest_endpoint' to be a str")
+        pulumi.set(__self__, "private_rest_endpoint", private_rest_endpoint)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -71,6 +74,14 @@ class GetFlinkRegionResult:
         return pulumi.get(self, "kind")
 
     @property
+    @pulumi.getter(name="privateRestEndpoint")
+    def private_rest_endpoint(self) -> str:
+        """
+        (Required String) The private HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.private.confluent.cloud`.
+        """
+        return pulumi.get(self, "private_rest_endpoint")
+
+    @property
     @pulumi.getter
     def region(self) -> str:
         return pulumi.get(self, "region")
@@ -94,6 +105,7 @@ class AwaitableGetFlinkRegionResult(GetFlinkRegionResult):
             cloud=self.cloud,
             id=self.id,
             kind=self.kind,
+            private_rest_endpoint=self.private_rest_endpoint,
             region=self.region,
             rest_endpoint=self.rest_endpoint)
 
@@ -132,6 +144,7 @@ def get_flink_region(cloud: Optional[str] = None,
         cloud=pulumi.get(__ret__, 'cloud'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
+        private_rest_endpoint=pulumi.get(__ret__, 'private_rest_endpoint'),
         region=pulumi.get(__ret__, 'region'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'))
 

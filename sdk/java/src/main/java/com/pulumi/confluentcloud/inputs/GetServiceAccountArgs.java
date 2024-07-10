@@ -16,7 +16,7 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
     public static final GetServiceAccountArgs Empty = new GetServiceAccountArgs();
 
     /**
-     * A human-readable name for the Service Account.
+     * A human-readable name for the Service Account. Limited to 64 characters in length.
      * 
      * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
      * 
@@ -25,7 +25,7 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
     private @Nullable Output<String> displayName;
 
     /**
-     * @return A human-readable name for the Service Account.
+     * @return A human-readable name for the Service Account. Limited to 64 characters in length.
      * 
      * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
      * 
@@ -75,7 +75,7 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param displayName A human-readable name for the Service Account.
+         * @param displayName A human-readable name for the Service Account. Limited to 64 characters in length.
          * 
          * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
          * 
@@ -88,7 +88,7 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param displayName A human-readable name for the Service Account.
+         * @param displayName A human-readable name for the Service Account. Limited to 64 characters in length.
          * 
          * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
          * 

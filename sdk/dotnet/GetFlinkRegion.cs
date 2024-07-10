@@ -132,6 +132,10 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) A kind of the Flink region, for example, `Region`.
         /// </summary>
         public readonly string Kind;
+        /// <summary>
+        /// (Required String) The private HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.private.confluent.cloud`.
+        /// </summary>
+        public readonly string PrivateRestEndpoint;
         public readonly string Region;
         /// <summary>
         /// (Required String) The HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
@@ -148,6 +152,8 @@ namespace Pulumi.ConfluentCloud
 
             string kind,
 
+            string privateRestEndpoint,
+
             string region,
 
             string restEndpoint)
@@ -156,6 +162,7 @@ namespace Pulumi.ConfluentCloud
             Cloud = cloud;
             Id = id;
             Kind = kind;
+            PrivateRestEndpoint = privateRestEndpoint;
             Region = region;
             RestEndpoint = restEndpoint;
         }

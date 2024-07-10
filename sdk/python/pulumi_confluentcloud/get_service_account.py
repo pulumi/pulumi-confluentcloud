@@ -58,7 +58,7 @@ class GetServiceAccountResult:
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
         """
-        (Required String) A human-readable name for the Service Account.
+        (Required String) A human-readable name for the Service Account. Limited to 64 characters in length.
         """
         return pulumi.get(self, "display_name")
 
@@ -113,7 +113,7 @@ def get_service_account(display_name: Optional[str] = None,
     ```
 
 
-    :param str display_name: A human-readable name for the Service Account.
+    :param str display_name: A human-readable name for the Service Account. Limited to 64 characters in length.
            
            > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param str id: The ID of the Service Account (e.g., `sa-abc123`).
@@ -154,7 +154,7 @@ def get_service_account_output(display_name: Optional[pulumi.Input[Optional[str]
     ```
 
 
-    :param str display_name: A human-readable name for the Service Account.
+    :param str display_name: A human-readable name for the Service Account. Limited to 64 characters in length.
            
            > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param str id: The ID of the Service Account (e.g., `sa-abc123`).

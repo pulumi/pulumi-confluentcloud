@@ -21,7 +21,7 @@ public final class GetServiceAccountResult {
      */
     private String description;
     /**
-     * @return (Required String) A human-readable name for the Service Account.
+     * @return (Required String) A human-readable name for the Service Account. Limited to 64 characters in length.
      * 
      */
     private String displayName;
@@ -52,7 +52,7 @@ public final class GetServiceAccountResult {
         return this.description;
     }
     /**
-     * @return (Required String) A human-readable name for the Service Account.
+     * @return (Required String) A human-readable name for the Service Account. Limited to 64 characters in length.
      * 
      */
     public String displayName() {
