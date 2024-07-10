@@ -10757,6 +10757,10 @@
                         "description": "(Required String) A kind of the Flink region, for example, `Region`.\n",
                         "type": "string"
                     },
+                    "privateRestEndpoint": {
+                        "description": "(Required String) The private HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.private.confluent.cloud`.\n",
+                        "type": "string"
+                    },
                     "region": {
                         "type": "string"
                     },
@@ -10770,6 +10774,7 @@
                     "cloud",
                     "id",
                     "kind",
+                    "privateRestEndpoint",
                     "region",
                     "restEndpoint"
                 ],
@@ -12818,7 +12823,7 @@
                 "properties": {
                     "displayName": {
                         "type": "string",
-                        "description": "A human-readable name for the Service Account.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "A human-readable name for the Service Account. Limited to 64 characters in length.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                     },
                     "id": {
                         "type": "string",
@@ -12839,7 +12844,7 @@
                         "type": "string"
                     },
                     "displayName": {
-                        "description": "(Required String) A human-readable name for the Service Account.\n",
+                        "description": "(Required String) A human-readable name for the Service Account. Limited to 64 characters in length.\n",
                         "type": "string"
                     },
                     "id": {
