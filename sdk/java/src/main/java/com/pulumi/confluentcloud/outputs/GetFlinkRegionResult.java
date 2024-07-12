@@ -26,6 +26,11 @@ public final class GetFlinkRegionResult {
      * 
      */
     private String kind;
+    /**
+     * @return (Required String) The private HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.private.confluent.cloud`.
+     * 
+     */
+    private String privateRestEndpoint;
     private String region;
     /**
      * @return (Required String) The HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
@@ -58,6 +63,13 @@ public final class GetFlinkRegionResult {
     public String kind() {
         return this.kind;
     }
+    /**
+     * @return (Required String) The private HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.private.confluent.cloud`.
+     * 
+     */
+    public String privateRestEndpoint() {
+        return this.privateRestEndpoint;
+    }
     public String region() {
         return this.region;
     }
@@ -82,6 +94,7 @@ public final class GetFlinkRegionResult {
         private String cloud;
         private String id;
         private String kind;
+        private String privateRestEndpoint;
         private String region;
         private String restEndpoint;
         public Builder() {}
@@ -91,6 +104,7 @@ public final class GetFlinkRegionResult {
     	      this.cloud = defaults.cloud;
     	      this.id = defaults.id;
     	      this.kind = defaults.kind;
+    	      this.privateRestEndpoint = defaults.privateRestEndpoint;
     	      this.region = defaults.region;
     	      this.restEndpoint = defaults.restEndpoint;
         }
@@ -128,6 +142,14 @@ public final class GetFlinkRegionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder privateRestEndpoint(String privateRestEndpoint) {
+            if (privateRestEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetFlinkRegionResult", "privateRestEndpoint");
+            }
+            this.privateRestEndpoint = privateRestEndpoint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetFlinkRegionResult", "region");
@@ -149,6 +171,7 @@ public final class GetFlinkRegionResult {
             _resultValue.cloud = cloud;
             _resultValue.id = id;
             _resultValue.kind = kind;
+            _resultValue.privateRestEndpoint = privateRestEndpoint;
             _resultValue.region = region;
             _resultValue.restEndpoint = restEndpoint;
             return _resultValue;

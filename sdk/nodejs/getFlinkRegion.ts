@@ -66,6 +66,10 @@ export interface GetFlinkRegionResult {
      * (Required String) A kind of the Flink region, for example, `Region`.
      */
     readonly kind: string;
+    /**
+     * (Required String) The private HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.private.confluent.cloud`.
+     */
+    readonly privateRestEndpoint: string;
     readonly region: string;
     /**
      * (Required String) The HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.

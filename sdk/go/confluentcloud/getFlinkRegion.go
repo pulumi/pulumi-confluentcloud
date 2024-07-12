@@ -68,8 +68,10 @@ type GetFlinkRegionResult struct {
 	// (Required String) The ID of the Flink region, for example, `aws.us-east-1`.
 	Id string `pulumi:"id"`
 	// (Required String) A kind of the Flink region, for example, `Region`.
-	Kind   string `pulumi:"kind"`
-	Region string `pulumi:"region"`
+	Kind string `pulumi:"kind"`
+	// (Required String) The private HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.private.confluent.cloud`.
+	PrivateRestEndpoint string `pulumi:"privateRestEndpoint"`
+	Region              string `pulumi:"region"`
 	// (Required String) The HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
 	RestEndpoint string `pulumi:"restEndpoint"`
 }
@@ -131,6 +133,11 @@ func (o GetFlinkRegionResultOutput) Id() pulumi.StringOutput {
 // (Required String) A kind of the Flink region, for example, `Region`.
 func (o GetFlinkRegionResultOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFlinkRegionResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// (Required String) The private HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.private.confluent.cloud`.
+func (o GetFlinkRegionResultOutput) PrivateRestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkRegionResult) string { return v.PrivateRestEndpoint }).(pulumi.StringOutput)
 }
 
 func (o GetFlinkRegionResultOutput) Region() pulumi.StringOutput {

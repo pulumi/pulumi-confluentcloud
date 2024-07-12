@@ -44,7 +44,7 @@ export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.In
  */
 export interface GetServiceAccountArgs {
     /**
-     * A human-readable name for the Service Account.
+     * A human-readable name for the Service Account. Limited to 64 characters in length.
      *
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
@@ -68,7 +68,7 @@ export interface GetServiceAccountResult {
      */
     readonly description: string;
     /**
-     * (Required String) A human-readable name for the Service Account.
+     * (Required String) A human-readable name for the Service Account. Limited to 64 characters in length.
      */
     readonly displayName: string;
     /**
@@ -114,7 +114,7 @@ export function getServiceAccountOutput(args?: GetServiceAccountOutputArgs, opts
  */
 export interface GetServiceAccountOutputArgs {
     /**
-     * A human-readable name for the Service Account.
+     * A human-readable name for the Service Account. Limited to 64 characters in length.
      *
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
