@@ -3602,6 +3602,7 @@ class SchemaMetadata(dict):
         """
         :param Mapping[str, str] properties: The custom properties to set:
         :param Sequence[str] sensitives: A list of metadata properties to be encrypted.
+        :param Sequence['SchemaMetadataTagArgs'] tags: The tags to which the rule applies, if any.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -3629,6 +3630,9 @@ class SchemaMetadata(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.SchemaMetadataTag']]:
+        """
+        The tags to which the rule applies, if any.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -4115,6 +4119,22 @@ class SchemaRulesetMigrationRule(dict):
                  params: Optional[Mapping[str, str]] = None,
                  tags: Optional[Sequence[str]] = None,
                  type: Optional[str] = None):
+        """
+        :param str doc: An optional description of the rule.
+        :param str expr: The body of the rule, which is optional.
+        :param str kind: The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        :param str mode: The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        :param str on_failure: An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        :param str on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        :param Mapping[str, str] params: A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+               
+               > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+               
+               > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+               **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+        :param Sequence[str] tags: The tags to which the rule applies, if any.
+        :param str type: The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
         if doc is not None:
             pulumi.set(__self__, "doc", doc)
         if expr is not None:
@@ -4139,21 +4159,33 @@ class SchemaRulesetMigrationRule(dict):
     @property
     @pulumi.getter
     def doc(self) -> Optional[str]:
+        """
+        An optional description of the rule.
+        """
         return pulumi.get(self, "doc")
 
     @property
     @pulumi.getter
     def expr(self) -> Optional[str]:
+        """
+        The body of the rule, which is optional.
+        """
         return pulumi.get(self, "expr")
 
     @property
     @pulumi.getter
     def kind(self) -> Optional[str]:
+        """
+        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        """
         return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
     def mode(self) -> Optional[str]:
+        """
+        The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        """
         return pulumi.get(self, "mode")
 
     @property
@@ -4164,26 +4196,46 @@ class SchemaRulesetMigrationRule(dict):
     @property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[str]:
+        """
+        An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        """
         return pulumi.get(self, "on_failure")
 
     @property
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[str]:
+        """
+        An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        """
         return pulumi.get(self, "on_success")
 
     @property
     @pulumi.getter
     def params(self) -> Optional[Mapping[str, str]]:
+        """
+        A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+
+        > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+
+        > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+        """
         return pulumi.get(self, "params")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence[str]]:
+        """
+        The tags to which the rule applies, if any.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
         return pulumi.get(self, "type")
 
 

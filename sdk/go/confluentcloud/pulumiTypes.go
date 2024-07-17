@@ -15103,8 +15103,9 @@ type SchemaMetadata struct {
 	// The custom properties to set:
 	Properties map[string]string `pulumi:"properties"`
 	// A list of metadata properties to be encrypted.
-	Sensitives []string            `pulumi:"sensitives"`
-	Tags       []SchemaMetadataTag `pulumi:"tags"`
+	Sensitives []string `pulumi:"sensitives"`
+	// The tags to which the rule applies, if any.
+	Tags []SchemaMetadataTag `pulumi:"tags"`
 }
 
 // SchemaMetadataInput is an input type that accepts SchemaMetadataArgs and SchemaMetadataOutput values.
@@ -15122,8 +15123,9 @@ type SchemaMetadataArgs struct {
 	// The custom properties to set:
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// A list of metadata properties to be encrypted.
-	Sensitives pulumi.StringArrayInput     `pulumi:"sensitives"`
-	Tags       SchemaMetadataTagArrayInput `pulumi:"tags"`
+	Sensitives pulumi.StringArrayInput `pulumi:"sensitives"`
+	// The tags to which the rule applies, if any.
+	Tags SchemaMetadataTagArrayInput `pulumi:"tags"`
 }
 
 func (SchemaMetadataArgs) ElementType() reflect.Type {
@@ -15213,6 +15215,7 @@ func (o SchemaMetadataOutput) Sensitives() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaMetadata) []string { return v.Sensitives }).(pulumi.StringArrayOutput)
 }
 
+// The tags to which the rule applies, if any.
 func (o SchemaMetadataOutput) Tags() SchemaMetadataTagArrayOutput {
 	return o.ApplyT(func(v SchemaMetadata) []SchemaMetadataTag { return v.Tags }).(SchemaMetadataTagArrayOutput)
 }
@@ -15261,6 +15264,7 @@ func (o SchemaMetadataPtrOutput) Sensitives() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The tags to which the rule applies, if any.
 func (o SchemaMetadataPtrOutput) Tags() SchemaMetadataTagArrayOutput {
 	return o.ApplyT(func(v *SchemaMetadata) []SchemaMetadataTag {
 		if v == nil {
@@ -17164,16 +17168,30 @@ func (o SchemaRulesetDomainRuleArrayOutput) Index(i pulumi.IntInput) SchemaRules
 }
 
 type SchemaRulesetMigrationRule struct {
-	Doc       *string           `pulumi:"doc"`
-	Expr      *string           `pulumi:"expr"`
-	Kind      *string           `pulumi:"kind"`
-	Mode      *string           `pulumi:"mode"`
-	Name      *string           `pulumi:"name"`
-	OnFailure *string           `pulumi:"onFailure"`
-	OnSuccess *string           `pulumi:"onSuccess"`
-	Params    map[string]string `pulumi:"params"`
-	Tags      []string          `pulumi:"tags"`
-	Type      *string           `pulumi:"type"`
+	// An optional description of the rule.
+	Doc *string `pulumi:"doc"`
+	// The body of the rule, which is optional.
+	Expr *string `pulumi:"expr"`
+	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+	Kind *string `pulumi:"kind"`
+	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+	Mode *string `pulumi:"mode"`
+	Name *string `pulumi:"name"`
+	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure *string `pulumi:"onFailure"`
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess *string `pulumi:"onSuccess"`
+	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	//
+	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+	//
+	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+	Params map[string]string `pulumi:"params"`
+	// The tags to which the rule applies, if any.
+	Tags []string `pulumi:"tags"`
+	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	Type *string `pulumi:"type"`
 }
 
 // SchemaRulesetMigrationRuleInput is an input type that accepts SchemaRulesetMigrationRuleArgs and SchemaRulesetMigrationRuleOutput values.
@@ -17188,16 +17206,30 @@ type SchemaRulesetMigrationRuleInput interface {
 }
 
 type SchemaRulesetMigrationRuleArgs struct {
-	Doc       pulumi.StringPtrInput   `pulumi:"doc"`
-	Expr      pulumi.StringPtrInput   `pulumi:"expr"`
-	Kind      pulumi.StringPtrInput   `pulumi:"kind"`
-	Mode      pulumi.StringPtrInput   `pulumi:"mode"`
-	Name      pulumi.StringPtrInput   `pulumi:"name"`
-	OnFailure pulumi.StringPtrInput   `pulumi:"onFailure"`
-	OnSuccess pulumi.StringPtrInput   `pulumi:"onSuccess"`
-	Params    pulumi.StringMapInput   `pulumi:"params"`
-	Tags      pulumi.StringArrayInput `pulumi:"tags"`
-	Type      pulumi.StringPtrInput   `pulumi:"type"`
+	// An optional description of the rule.
+	Doc pulumi.StringPtrInput `pulumi:"doc"`
+	// The body of the rule, which is optional.
+	Expr pulumi.StringPtrInput `pulumi:"expr"`
+	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
+	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	//
+	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+	//
+	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+	Params pulumi.StringMapInput `pulumi:"params"`
+	// The tags to which the rule applies, if any.
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
+	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (SchemaRulesetMigrationRuleArgs) ElementType() reflect.Type {
@@ -17251,18 +17283,22 @@ func (o SchemaRulesetMigrationRuleOutput) ToSchemaRulesetMigrationRuleOutputWith
 	return o
 }
 
+// An optional description of the rule.
 func (o SchemaRulesetMigrationRuleOutput) Doc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
 }
 
+// The body of the rule, which is optional.
 func (o SchemaRulesetMigrationRuleOutput) Expr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
 }
 
+// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
 func (o SchemaRulesetMigrationRuleOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 func (o SchemaRulesetMigrationRuleOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -17271,22 +17307,32 @@ func (o SchemaRulesetMigrationRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
 func (o SchemaRulesetMigrationRuleOutput) OnFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
+// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
 func (o SchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
 
+// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+//
+// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+//
+// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 func (o SchemaRulesetMigrationRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }
 
+// The tags to which the rule applies, if any.
 func (o SchemaRulesetMigrationRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
+// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
 func (o SchemaRulesetMigrationRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

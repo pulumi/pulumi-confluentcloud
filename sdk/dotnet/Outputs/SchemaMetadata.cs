@@ -21,6 +21,9 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// A list of metadata properties to be encrypted.
         /// </summary>
         public readonly ImmutableArray<string> Sensitives;
+        /// <summary>
+        /// The tags to which the rule applies, if any.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SchemaMetadataTag> Tags;
 
         [OutputConstructor]
