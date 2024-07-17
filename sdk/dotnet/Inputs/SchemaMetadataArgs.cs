@@ -38,6 +38,10 @@ namespace Pulumi.ConfluentCloud.Inputs
 
         [Input("tags")]
         private InputList<Inputs.SchemaMetadataTagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to which the rule applies, if any.
+        /// </summary>
         public InputList<Inputs.SchemaMetadataTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.SchemaMetadataTagArgs>());

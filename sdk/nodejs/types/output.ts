@@ -2270,6 +2270,9 @@ export interface SchemaMetadata {
      * A list of metadata properties to be encrypted.
      */
     sensitives: string[];
+    /**
+     * The tags to which the rule applies, if any.
+     */
     tags: outputs.SchemaMetadataTag[];
 }
 
@@ -2424,15 +2427,47 @@ export interface SchemaRulesetDomainRule {
 }
 
 export interface SchemaRulesetMigrationRule {
+    /**
+     * An optional description of the rule.
+     */
     doc: string;
+    /**
+     * The body of the rule, which is optional.
+     */
     expr: string;
+    /**
+     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     */
     kind: string;
+    /**
+     * The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+     */
     mode: string;
     name: string;
+    /**
+     * An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     */
     onFailure: string;
+    /**
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     */
     onSuccess: string;
+    /**
+     * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     *
+     * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     *
+     * > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     */
     params: {[key: string]: string};
+    /**
+     * The tags to which the rule applies, if any.
+     */
     tags: string[];
+    /**
+     * The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     */
     type: string;
 }
 

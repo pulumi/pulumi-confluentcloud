@@ -23,6 +23,10 @@ public final class SchemaMetadata {
      * 
      */
     private @Nullable List<String> sensitives;
+    /**
+     * @return The tags to which the rule applies, if any.
+     * 
+     */
     private @Nullable List<SchemaMetadataTag> tags;
 
     private SchemaMetadata() {}
@@ -40,6 +44,10 @@ public final class SchemaMetadata {
     public List<String> sensitives() {
         return this.sensitives == null ? List.of() : this.sensitives;
     }
+    /**
+     * @return The tags to which the rule applies, if any.
+     * 
+     */
     public List<SchemaMetadataTag> tags() {
         return this.tags == null ? List.of() : this.tags;
     }
