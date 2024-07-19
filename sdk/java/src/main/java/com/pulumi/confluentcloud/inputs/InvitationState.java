@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.InvitationCreatorArgs;
 import com.pulumi.confluentcloud.inputs.InvitationUserArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -31,6 +32,13 @@ public final class InvitationState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> acceptedAt() {
         return Optional.ofNullable(this.acceptedAt);
+    }
+
+    @Import(name="allowDeletion")
+    private @Nullable Output<Boolean> allowDeletion;
+
+    public Optional<Output<Boolean>> allowDeletion() {
+        return Optional.ofNullable(this.allowDeletion);
     }
 
     /**
@@ -127,6 +135,7 @@ public final class InvitationState extends com.pulumi.resources.ResourceArgs {
 
     private InvitationState(InvitationState $) {
         this.acceptedAt = $.acceptedAt;
+        this.allowDeletion = $.allowDeletion;
         this.authType = $.authType;
         this.creators = $.creators;
         this.email = $.email;
@@ -172,6 +181,15 @@ public final class InvitationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder acceptedAt(String acceptedAt) {
             return acceptedAt(Output.of(acceptedAt));
+        }
+
+        public Builder allowDeletion(@Nullable Output<Boolean> allowDeletion) {
+            $.allowDeletion = allowDeletion;
+            return this;
+        }
+
+        public Builder allowDeletion(Boolean allowDeletion) {
+            return allowDeletion(Output.of(allowDeletion));
         }
 
         /**

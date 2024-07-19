@@ -61,6 +61,9 @@ namespace Pulumi.ConfluentCloud
         [Output("acceptedAt")]
         public Output<string> AcceptedAt { get; private set; } = null!;
 
+        [Output("allowDeletion")]
+        public Output<bool?> AllowDeletion { get; private set; } = null!;
+
         /// <summary>
         /// Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
         /// </summary>
@@ -143,6 +146,9 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class InvitationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowDeletion")]
+        public Input<bool>? AllowDeletion { get; set; }
+
         /// <summary>
         /// Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
         /// </summary>
@@ -168,6 +174,9 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("acceptedAt")]
         public Input<string>? AcceptedAt { get; set; }
+
+        [Input("allowDeletion")]
+        public Input<bool>? AllowDeletion { get; set; }
 
         /// <summary>
         /// Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.

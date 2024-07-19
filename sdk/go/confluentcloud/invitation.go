@@ -66,7 +66,8 @@ type Invitation struct {
 	pulumi.CustomResourceState
 
 	// (Optional String) The timestamp that the invitation was accepted.
-	AcceptedAt pulumi.StringOutput `pulumi:"acceptedAt"`
+	AcceptedAt    pulumi.StringOutput  `pulumi:"acceptedAt"`
+	AllowDeletion pulumi.BoolPtrOutput `pulumi:"allowDeletion"`
 	// Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's authType is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's authType is `AUTH_TYPE_LOCAL` by default.
 	AuthType pulumi.StringOutput `pulumi:"authType"`
 	// (Required Configuration Block) supports the following:
@@ -115,7 +116,8 @@ func GetInvitation(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Invitation resources.
 type invitationState struct {
 	// (Optional String) The timestamp that the invitation was accepted.
-	AcceptedAt *string `pulumi:"acceptedAt"`
+	AcceptedAt    *string `pulumi:"acceptedAt"`
+	AllowDeletion *bool   `pulumi:"allowDeletion"`
 	// Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's authType is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's authType is `AUTH_TYPE_LOCAL` by default.
 	AuthType *string `pulumi:"authType"`
 	// (Required Configuration Block) supports the following:
@@ -132,7 +134,8 @@ type invitationState struct {
 
 type InvitationState struct {
 	// (Optional String) The timestamp that the invitation was accepted.
-	AcceptedAt pulumi.StringPtrInput
+	AcceptedAt    pulumi.StringPtrInput
+	AllowDeletion pulumi.BoolPtrInput
 	// Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's authType is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's authType is `AUTH_TYPE_LOCAL` by default.
 	AuthType pulumi.StringPtrInput
 	// (Required Configuration Block) supports the following:
@@ -152,6 +155,7 @@ func (InvitationState) ElementType() reflect.Type {
 }
 
 type invitationArgs struct {
+	AllowDeletion *bool `pulumi:"allowDeletion"`
 	// Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's authType is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's authType is `AUTH_TYPE_LOCAL` by default.
 	AuthType *string `pulumi:"authType"`
 	// The user/invitee's email address.
@@ -160,6 +164,7 @@ type invitationArgs struct {
 
 // The set of arguments for constructing a Invitation resource.
 type InvitationArgs struct {
+	AllowDeletion pulumi.BoolPtrInput
 	// Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's authType is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's authType is `AUTH_TYPE_LOCAL` by default.
 	AuthType pulumi.StringPtrInput
 	// The user/invitee's email address.
@@ -256,6 +261,10 @@ func (o InvitationOutput) ToInvitationOutputWithContext(ctx context.Context) Inv
 // (Optional String) The timestamp that the invitation was accepted.
 func (o InvitationOutput) AcceptedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Invitation) pulumi.StringOutput { return v.AcceptedAt }).(pulumi.StringOutput)
+}
+
+func (o InvitationOutput) AllowDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.BoolPtrOutput { return v.AllowDeletion }).(pulumi.BoolPtrOutput)
 }
 
 // Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's authType is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's authType is `AUTH_TYPE_LOCAL` by default.

@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,6 +16,13 @@ import javax.annotation.Nullable;
 public final class InvitationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final InvitationArgs Empty = new InvitationArgs();
+
+    @Import(name="allowDeletion")
+    private @Nullable Output<Boolean> allowDeletion;
+
+    public Optional<Output<Boolean>> allowDeletion() {
+        return Optional.ofNullable(this.allowDeletion);
+    }
 
     /**
      * Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee&#39;s authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user&#39;s auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user&#39;s auth_type is `AUTH_TYPE_LOCAL` by default.
@@ -49,6 +57,7 @@ public final class InvitationArgs extends com.pulumi.resources.ResourceArgs {
     private InvitationArgs() {}
 
     private InvitationArgs(InvitationArgs $) {
+        this.allowDeletion = $.allowDeletion;
         this.authType = $.authType;
         this.email = $.email;
     }
@@ -69,6 +78,15 @@ public final class InvitationArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(InvitationArgs defaults) {
             $ = new InvitationArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder allowDeletion(@Nullable Output<Boolean> allowDeletion) {
+            $.allowDeletion = allowDeletion;
+            return this;
+        }
+
+        public Builder allowDeletion(Boolean allowDeletion) {
+            return allowDeletion(Output.of(allowDeletion));
         }
 
         /**

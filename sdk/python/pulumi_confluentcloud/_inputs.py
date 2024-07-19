@@ -2580,6 +2580,7 @@ class NetworkDnsConfigArgs:
         :param pulumi.Input[str] resolution: Network DNS resolution.
                When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
                When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+               The Confluent Cloud Console uses `resolution = PRIVATE`.
         """
         pulumi.set(__self__, "resolution", resolution)
 
@@ -2590,6 +2591,7 @@ class NetworkDnsConfigArgs:
         Network DNS resolution.
         When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
         When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+        The Confluent Cloud Console uses `resolution = PRIVATE`.
         """
         return pulumi.get(self, "resolution")
 

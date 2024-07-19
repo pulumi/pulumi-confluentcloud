@@ -14,6 +14,7 @@ public final class NetworkDnsConfig {
      * @return Network DNS resolution.
      * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
      * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+     * The Confluent Cloud Console uses `resolution = PRIVATE`.
      * 
      */
     private String resolution;
@@ -23,6 +24,7 @@ public final class NetworkDnsConfig {
      * @return Network DNS resolution.
      * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
      * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+     * The Confluent Cloud Console uses `resolution = PRIVATE`.
      * 
      */
     public String resolution() {
