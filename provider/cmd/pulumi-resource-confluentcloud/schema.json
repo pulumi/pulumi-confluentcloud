@@ -1384,7 +1384,7 @@
             "properties": {
                 "resolution": {
                     "type": "string",
-                    "description": "Network DNS resolution.\nWhen resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.\nWhen resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.\n",
+                    "description": "Network DNS resolution.\nWhen resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.\nWhen resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.\nThe Confluent Cloud Console uses `resolution = PRIVATE`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -6668,6 +6668,9 @@
                     "type": "string",
                     "description": "(Optional String) The timestamp that the invitation was accepted.\n"
                 },
+                "allowDeletion": {
+                    "type": "boolean"
+                },
                 "authType": {
                     "type": "string",
                     "description": "Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.\n"
@@ -6709,6 +6712,9 @@
                 "users"
             ],
             "inputProperties": {
+                "allowDeletion": {
+                    "type": "boolean"
+                },
                 "authType": {
                     "type": "string",
                     "description": "Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.\n"
@@ -6728,6 +6734,9 @@
                     "acceptedAt": {
                         "type": "string",
                         "description": "(Optional String) The timestamp that the invitation was accepted.\n"
+                    },
+                    "allowDeletion": {
+                        "type": "boolean"
                     },
                     "authType": {
                         "type": "string",
