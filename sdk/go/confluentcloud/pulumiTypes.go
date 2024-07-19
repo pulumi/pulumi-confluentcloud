@@ -10207,6 +10207,7 @@ type NetworkDnsConfig struct {
 	// Network DNS resolution.
 	// When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
 	// When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+	// The Confluent Cloud Console uses `resolution = PRIVATE`.
 	Resolution string `pulumi:"resolution"`
 }
 
@@ -10225,6 +10226,7 @@ type NetworkDnsConfigArgs struct {
 	// Network DNS resolution.
 	// When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
 	// When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+	// The Confluent Cloud Console uses `resolution = PRIVATE`.
 	Resolution pulumi.StringInput `pulumi:"resolution"`
 }
 
@@ -10308,6 +10310,7 @@ func (o NetworkDnsConfigOutput) ToNetworkDnsConfigPtrOutputWithContext(ctx conte
 // Network DNS resolution.
 // When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
 // When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+// The Confluent Cloud Console uses `resolution = PRIVATE`.
 func (o NetworkDnsConfigOutput) Resolution() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkDnsConfig) string { return v.Resolution }).(pulumi.StringOutput)
 }
@@ -10339,6 +10342,7 @@ func (o NetworkDnsConfigPtrOutput) Elem() NetworkDnsConfigOutput {
 // Network DNS resolution.
 // When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
 // When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+// The Confluent Cloud Console uses `resolution = PRIVATE`.
 func (o NetworkDnsConfigPtrOutput) Resolution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkDnsConfig) *string {
 		if v == nil {

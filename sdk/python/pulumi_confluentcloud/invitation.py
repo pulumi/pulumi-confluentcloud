@@ -17,6 +17,7 @@ __all__ = ['InvitationArgs', 'Invitation']
 class InvitationArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
+                 allow_deletion: Optional[pulumi.Input[bool]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Invitation resource.
@@ -24,6 +25,8 @@ class InvitationArgs:
         :param pulumi.Input[str] auth_type: Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
         """
         pulumi.set(__self__, "email", email)
+        if allow_deletion is not None:
+            pulumi.set(__self__, "allow_deletion", allow_deletion)
         if auth_type is not None:
             pulumi.set(__self__, "auth_type", auth_type)
 
@@ -38,6 +41,15 @@ class InvitationArgs:
     @email.setter
     def email(self, value: pulumi.Input[str]):
         pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter(name="allowDeletion")
+    def allow_deletion(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_deletion")
+
+    @allow_deletion.setter
+    def allow_deletion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_deletion", value)
 
     @property
     @pulumi.getter(name="authType")
@@ -56,6 +68,7 @@ class InvitationArgs:
 class _InvitationState:
     def __init__(__self__, *,
                  accepted_at: Optional[pulumi.Input[str]] = None,
+                 allow_deletion: Optional[pulumi.Input[bool]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
                  creators: Optional[pulumi.Input[Sequence[pulumi.Input['InvitationCreatorArgs']]]] = None,
                  email: Optional[pulumi.Input[str]] = None,
@@ -74,6 +87,8 @@ class _InvitationState:
         """
         if accepted_at is not None:
             pulumi.set(__self__, "accepted_at", accepted_at)
+        if allow_deletion is not None:
+            pulumi.set(__self__, "allow_deletion", allow_deletion)
         if auth_type is not None:
             pulumi.set(__self__, "auth_type", auth_type)
         if creators is not None:
@@ -98,6 +113,15 @@ class _InvitationState:
     @accepted_at.setter
     def accepted_at(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "accepted_at", value)
+
+    @property
+    @pulumi.getter(name="allowDeletion")
+    def allow_deletion(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_deletion")
+
+    @allow_deletion.setter
+    def allow_deletion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_deletion", value)
 
     @property
     @pulumi.getter(name="authType")
@@ -177,6 +201,7 @@ class Invitation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_deletion: Optional[pulumi.Input[bool]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -268,6 +293,7 @@ class Invitation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_deletion: Optional[pulumi.Input[bool]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -279,6 +305,7 @@ class Invitation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InvitationArgs.__new__(InvitationArgs)
 
+            __props__.__dict__["allow_deletion"] = allow_deletion
             __props__.__dict__["auth_type"] = auth_type
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
@@ -299,6 +326,7 @@ class Invitation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             accepted_at: Optional[pulumi.Input[str]] = None,
+            allow_deletion: Optional[pulumi.Input[bool]] = None,
             auth_type: Optional[pulumi.Input[str]] = None,
             creators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InvitationCreatorArgs']]]]] = None,
             email: Optional[pulumi.Input[str]] = None,
@@ -325,6 +353,7 @@ class Invitation(pulumi.CustomResource):
         __props__ = _InvitationState.__new__(_InvitationState)
 
         __props__.__dict__["accepted_at"] = accepted_at
+        __props__.__dict__["allow_deletion"] = allow_deletion
         __props__.__dict__["auth_type"] = auth_type
         __props__.__dict__["creators"] = creators
         __props__.__dict__["email"] = email
@@ -340,6 +369,11 @@ class Invitation(pulumi.CustomResource):
         (Optional String) The timestamp that the invitation was accepted.
         """
         return pulumi.get(self, "accepted_at")
+
+    @property
+    @pulumi.getter(name="allowDeletion")
+    def allow_deletion(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "allow_deletion")
 
     @property
     @pulumi.getter(name="authType")

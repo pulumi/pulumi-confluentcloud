@@ -16,6 +16,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         /// Network DNS resolution.
         /// When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
         /// When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+        /// The Confluent Cloud Console uses `resolution = PRIVATE`.
         /// </summary>
         [Input("resolution", required: true)]
         public Input<string> Resolution { get; set; } = null!;

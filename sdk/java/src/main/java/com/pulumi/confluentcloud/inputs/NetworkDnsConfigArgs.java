@@ -18,6 +18,7 @@ public final class NetworkDnsConfigArgs extends com.pulumi.resources.ResourceArg
      * Network DNS resolution.
      * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
      * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+     * The Confluent Cloud Console uses `resolution = PRIVATE`.
      * 
      */
     @Import(name="resolution", required=true)
@@ -27,6 +28,7 @@ public final class NetworkDnsConfigArgs extends com.pulumi.resources.ResourceArg
      * @return Network DNS resolution.
      * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
      * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+     * The Confluent Cloud Console uses `resolution = PRIVATE`.
      * 
      */
     public Output<String> resolution() {
@@ -61,6 +63,7 @@ public final class NetworkDnsConfigArgs extends com.pulumi.resources.ResourceArg
          * @param resolution Network DNS resolution.
          * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
          * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+         * The Confluent Cloud Console uses `resolution = PRIVATE`.
          * 
          * @return builder
          * 
@@ -74,6 +77,7 @@ public final class NetworkDnsConfigArgs extends com.pulumi.resources.ResourceArg
          * @param resolution Network DNS resolution.
          * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
          * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+         * The Confluent Cloud Console uses `resolution = PRIVATE`.
          * 
          * @return builder
          * 

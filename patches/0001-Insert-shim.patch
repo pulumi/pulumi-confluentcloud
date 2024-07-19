@@ -1,16 +1,12 @@
-From 84980b38abac2616149d8218d59b61687a580fb9 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Thu, 9 Mar 2023 18:22:25 +0100
 Subject: [PATCH] Insert shim
 
----
- shim/shim.go | 10 ++++++++++
- 1 file changed, 10 insertions(+)
- create mode 100644 shim/shim.go
 
 diff --git a/shim/shim.go b/shim/shim.go
 new file mode 100644
-index 0000000..ac43027
+index 00000000..ac430274
 --- /dev/null
 +++ b/shim/shim.go
 @@ -0,0 +1,10 @@
@@ -24,6 +20,3 @@ index 0000000..ac43027
 +func NewProvider(version, customUserAgent string) *schema.Provider {
 +	return provider.New(version, customUserAgent)()
 +}
--- 
-2.41.0
-

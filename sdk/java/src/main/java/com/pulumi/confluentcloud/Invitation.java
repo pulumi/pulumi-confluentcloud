@@ -12,8 +12,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -91,6 +93,12 @@ public class Invitation extends com.pulumi.resources.CustomResource {
      */
     public Output<String> acceptedAt() {
         return this.acceptedAt;
+    }
+    @Export(name="allowDeletion", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> allowDeletion;
+
+    public Output<Optional<Boolean>> allowDeletion() {
+        return Codegen.optional(this.allowDeletion);
     }
     /**
      * Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee&#39;s authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user&#39;s auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user&#39;s auth_type is `AUTH_TYPE_LOCAL` by default.
