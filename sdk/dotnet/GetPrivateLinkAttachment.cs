@@ -151,7 +151,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+        /// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
         /// </summary>
         public readonly string DnsDomain;
         public readonly Outputs.GetPrivateLinkAttachmentEnvironmentResult Environment;

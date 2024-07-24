@@ -14,6 +14,8 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Schema Exporter name&gt;`, for example:
     /// 
+    /// $ export IMPORT_SCHEMA_REGISTRY_ID="&lt;schema_registry_cluster_id&gt;"
+    /// 
     /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
     /// 
     /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"

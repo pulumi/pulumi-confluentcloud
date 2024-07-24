@@ -78,7 +78,7 @@ type LookupPrivateLinkAttachmentResult struct {
 	Cloud string `pulumi:"cloud"`
 	// (Optional String) The name of the Private Link Attachment.
 	DisplayName string `pulumi:"displayName"`
-	// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+	// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
 	DnsDomain   string                              `pulumi:"dnsDomain"`
 	Environment GetPrivateLinkAttachmentEnvironment `pulumi:"environment"`
 	Gcps        []GetPrivateLinkAttachmentGcp       `pulumi:"gcps"`
@@ -149,7 +149,7 @@ func (o LookupPrivateLinkAttachmentResultOutput) DisplayName() pulumi.StringOutp
 	return o.ApplyT(func(v LookupPrivateLinkAttachmentResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
 func (o LookupPrivateLinkAttachmentResultOutput) DnsDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateLinkAttachmentResult) string { return v.DnsDomain }).(pulumi.StringOutput)
 }

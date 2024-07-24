@@ -79,7 +79,7 @@ type PrivateLinkAttachment struct {
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
 	// The name of the Private Link Attachment.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+	// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
 	DnsDomain pulumi.StringOutput `pulumi:"dnsDomain"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAttachmentEnvironmentOutput `pulumi:"environment"`
@@ -138,7 +138,7 @@ type privateLinkAttachmentState struct {
 	Cloud *string `pulumi:"cloud"`
 	// The name of the Private Link Attachment.
 	DisplayName *string `pulumi:"displayName"`
-	// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+	// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
 	DnsDomain *string `pulumi:"dnsDomain"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *PrivateLinkAttachmentEnvironment `pulumi:"environment"`
@@ -159,7 +159,7 @@ type PrivateLinkAttachmentState struct {
 	Cloud pulumi.StringPtrInput
 	// The name of the Private Link Attachment.
 	DisplayName pulumi.StringPtrInput
-	// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+	// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
 	DnsDomain pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAttachmentEnvironmentPtrInput
@@ -305,7 +305,7 @@ func (o PrivateLinkAttachmentOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachment) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
 func (o PrivateLinkAttachmentOutput) DnsDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachment) pulumi.StringOutput { return v.DnsDomain }).(pulumi.StringOutput)
 }

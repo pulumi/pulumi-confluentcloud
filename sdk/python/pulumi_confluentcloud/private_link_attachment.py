@@ -101,7 +101,7 @@ class _PrivateLinkAttachmentState:
                - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
         :param pulumi.Input[str] cloud: The cloud service provider that hosts the resources to access with the Private Link Attachment.
         :param pulumi.Input[str] display_name: The name of the Private Link Attachment.
-        :param pulumi.Input[str] dns_domain: (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+        :param pulumi.Input[str] dns_domain: (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
         :param pulumi.Input['PrivateLinkAttachmentEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] region: The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
@@ -178,7 +178,7 @@ class _PrivateLinkAttachmentState:
     @pulumi.getter(name="dnsDomain")
     def dns_domain(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+        (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
         """
         return pulumi.get(self, "dns_domain")
 
@@ -411,7 +411,7 @@ class PrivateLinkAttachment(pulumi.CustomResource):
                - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
         :param pulumi.Input[str] cloud: The cloud service provider that hosts the resources to access with the Private Link Attachment.
         :param pulumi.Input[str] display_name: The name of the Private Link Attachment.
-        :param pulumi.Input[str] dns_domain: (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+        :param pulumi.Input[str] dns_domain: (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
         :param pulumi.Input[pulumi.InputType['PrivateLinkAttachmentEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] region: The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
         :param pulumi.Input[str] resource_name_: (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
@@ -468,7 +468,7 @@ class PrivateLinkAttachment(pulumi.CustomResource):
     @pulumi.getter(name="dnsDomain")
     def dns_domain(self) -> pulumi.Output[str]:
         """
-        (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+        (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
         """
         return pulumi.get(self, "dns_domain")
 

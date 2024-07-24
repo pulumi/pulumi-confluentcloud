@@ -94,7 +94,7 @@ export class PrivateLinkAttachment extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+     * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
      */
     public /*out*/ readonly dnsDomain!: pulumi.Output<string>;
     /**
@@ -181,7 +181,7 @@ export interface PrivateLinkAttachmentState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+     * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
      */
     dnsDomain?: pulumi.Input<string>;
     /**

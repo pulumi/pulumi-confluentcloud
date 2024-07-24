@@ -32,11 +32,7 @@ public final class KafkaClusterDedicated {
     /**
      * @return The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
      * 
-     * @deprecated
-     * The &#34;encryption_key&#34; attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.
-     * 
      */
-    @Deprecated /* The ""encryption_key"" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released. */
     private @Nullable String encryptionKey;
     /**
      * @return (Required List of String) The list of zones the cluster is in.
@@ -66,11 +62,7 @@ public final class KafkaClusterDedicated {
     /**
      * @return The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
      * 
-     * @deprecated
-     * The &#34;encryption_key&#34; attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.
-     * 
      */
-    @Deprecated /* The ""encryption_key"" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released. */
     public Optional<String> encryptionKey() {
         return Optional.ofNullable(this.encryptionKey);
     }

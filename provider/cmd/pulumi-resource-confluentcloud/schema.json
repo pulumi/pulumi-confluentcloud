@@ -1121,8 +1121,7 @@
                 },
                 "encryptionKey": {
                     "type": "string",
-                    "description": "The ID of the encryption key that is used to encrypt the data in the Kafka cluster.\n",
-                    "deprecationMessage": "The \"encryption_key\" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released."
+                    "description": "The ID of the encryption key that is used to encrypt the data in the Kafka cluster.\n"
                 },
                 "zones": {
                     "type": "array",
@@ -8445,7 +8444,7 @@
                 },
                 "dnsDomain": {
                     "type": "string",
-                    "description": "(Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.\n"
+                    "description": "(Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.\n"
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentEnvironment:PrivateLinkAttachmentEnvironment",
@@ -8531,7 +8530,7 @@
                     },
                     "dnsDomain": {
                         "type": "string",
-                        "description": "(Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.\n"
+                        "description": "(Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.\n"
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentEnvironment:PrivateLinkAttachmentEnvironment",
@@ -8947,7 +8946,7 @@
             }
         },
         "confluentcloud:index/schemaExporter:SchemaExporter": {
-            "description": "\n\n## Import\n\nYou can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `\u003cSchema Registry cluster ID\u003e/\u003cSchema Exporter name\u003e`, for example:\n\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/schemaExporter:SchemaExporter main lsrc-8wrx70/test-exporter\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "description": "\n\n## Import\n\nYou can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `\u003cSchema Registry cluster ID\u003e/\u003cSchema Exporter name\u003e`, for example:\n\n$ export IMPORT_SCHEMA_REGISTRY_ID=\"\u003cschema_registry_cluster_id\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/schemaExporter:SchemaExporter main lsrc-8wrx70/test-exporter\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "config": {
                     "type": "object",
@@ -12074,7 +12073,7 @@
                         "type": "string"
                     },
                     "dnsDomain": {
-                        "description": "(Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.\n",
+                        "description": "(Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.\n",
                         "type": "string"
                     },
                     "environment": {

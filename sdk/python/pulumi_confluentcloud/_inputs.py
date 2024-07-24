@@ -2089,9 +2089,6 @@ class KafkaClusterDedicatedArgs:
         """
         pulumi.set(__self__, "cku", cku)
         if encryption_key is not None:
-            warnings.warn("""The \"encryption_key\" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.""", DeprecationWarning)
-            pulumi.log.warn("""encryption_key is deprecated: The \"encryption_key\" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.""")
-        if encryption_key is not None:
             pulumi.set(__self__, "encryption_key", encryption_key)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
@@ -2120,7 +2117,6 @@ class KafkaClusterDedicatedArgs:
 
     @property
     @pulumi.getter(name="encryptionKey")
-    @_utilities.deprecated("""The \"encryption_key\" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.""")
     def encryption_key(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the encryption key that is used to encrypt the data in the Kafka cluster.

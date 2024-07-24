@@ -147,14 +147,14 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+     * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
      * 
      */
     @Export(name="dnsDomain", refs={String.class}, tree="[0]")
     private Output<String> dnsDomain;
 
     /**
-     * @return (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+     * @return (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
      * 
      */
     public Output<String> dnsDomain() {

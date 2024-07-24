@@ -7873,8 +7873,6 @@ type KafkaClusterDedicated struct {
 	// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
 	Cku int `pulumi:"cku"`
 	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
-	//
-	// Deprecated: The "encryptionKey" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
 	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -7906,8 +7904,6 @@ type KafkaClusterDedicatedArgs struct {
 	// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
 	Cku pulumi.IntInput `pulumi:"cku"`
 	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
-	//
-	// Deprecated: The "encryptionKey" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.
 	EncryptionKey pulumi.StringPtrInput `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
 	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -8007,8 +8003,6 @@ func (o KafkaClusterDedicatedOutput) Cku() pulumi.IntOutput {
 }
 
 // The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
-//
-// Deprecated: The "encryptionKey" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.
 func (o KafkaClusterDedicatedOutput) EncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterDedicated) *string { return v.EncryptionKey }).(pulumi.StringPtrOutput)
 }
@@ -8064,8 +8058,6 @@ func (o KafkaClusterDedicatedPtrOutput) Cku() pulumi.IntPtrOutput {
 }
 
 // The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
-//
-// Deprecated: The "encryptionKey" attribute has been deprecated and will be removed in the next major version of the provider (2.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-2-upgrade for more details. The guide will be published once version 2.0.0 is released.
 func (o KafkaClusterDedicatedPtrOutput) EncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterDedicated) *string {
 		if v == nil {

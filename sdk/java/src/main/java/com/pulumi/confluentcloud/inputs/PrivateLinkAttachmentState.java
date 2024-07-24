@@ -83,14 +83,14 @@ public final class PrivateLinkAttachmentState extends com.pulumi.resources.Resou
     }
 
     /**
-     * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+     * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
      * 
      */
     @Import(name="dnsDomain")
     private @Nullable Output<String> dnsDomain;
 
     /**
-     * @return (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+     * @return (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
      * 
      */
     public Optional<Output<String>> dnsDomain() {
@@ -289,7 +289,7 @@ public final class PrivateLinkAttachmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dnsDomain (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+         * @param dnsDomain (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class PrivateLinkAttachmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dnsDomain (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+         * @param dnsDomain (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
          * 
          * @return builder
          * 

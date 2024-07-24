@@ -11,6 +11,8 @@ import * as utilities from "./utilities";
  *
  * You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `<Schema Registry cluster ID>/<Schema Exporter name>`, for example:
  *
+ * $ export IMPORT_SCHEMA_REGISTRY_ID="<schema_registry_cluster_id>"
+ *
  * $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
  *
  * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
