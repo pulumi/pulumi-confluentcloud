@@ -92,7 +92,7 @@ class GetPrivateLinkAttachmentResult:
     @pulumi.getter(name="dnsDomain")
     def dns_domain(self) -> str:
         """
-        (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+        (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
         """
         return pulumi.get(self, "dns_domain")
 

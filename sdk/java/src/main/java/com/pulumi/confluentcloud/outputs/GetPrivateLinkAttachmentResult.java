@@ -37,7 +37,7 @@ public final class GetPrivateLinkAttachmentResult {
      */
     private String displayName;
     /**
-     * @return (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+     * @return (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
      * 
      */
     private String dnsDomain;
@@ -86,7 +86,7 @@ public final class GetPrivateLinkAttachmentResult {
         return this.displayName;
     }
     /**
-     * @return (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+     * @return (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
      * 
      */
     public String dnsDomain() {

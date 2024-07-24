@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * 
  * You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Schema Exporter name&gt;`, for example:
  * 
+ * $ export IMPORT_SCHEMA_REGISTRY_ID=&#34;&lt;schema_registry_cluster_id&gt;&#34;
+ * 
  * $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
  * 
  * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;

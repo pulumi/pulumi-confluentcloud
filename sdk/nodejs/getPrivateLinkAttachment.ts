@@ -74,7 +74,7 @@ export interface GetPrivateLinkAttachmentResult {
      */
     readonly displayName: string;
     /**
-     * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
+     * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
      */
     readonly dnsDomain: string;
     readonly environment: outputs.GetPrivateLinkAttachmentEnvironment;
