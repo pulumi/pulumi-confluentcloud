@@ -217,11 +217,18 @@ public class SchemaExporter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SchemaExporter(String name, SchemaExporterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/schemaExporter:SchemaExporter", name, args == null ? SchemaExporterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/schemaExporter:SchemaExporter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SchemaExporter(String name, Output<String> id, @Nullable SchemaExporterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/schemaExporter:SchemaExporter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SchemaExporterArgs makeArgs(SchemaExporterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SchemaExporterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

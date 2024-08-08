@@ -108,11 +108,18 @@ public class SchemaRegistryClusterConfig extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public SchemaRegistryClusterConfig(String name, @Nullable SchemaRegistryClusterConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig", name, args == null ? SchemaRegistryClusterConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SchemaRegistryClusterConfig(String name, Output<String> id, @Nullable SchemaRegistryClusterConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SchemaRegistryClusterConfigArgs makeArgs(@Nullable SchemaRegistryClusterConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SchemaRegistryClusterConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

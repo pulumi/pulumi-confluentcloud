@@ -206,11 +206,18 @@ public class PrivateLinkAttachmentConnection extends com.pulumi.resources.Custom
      * @param options A bag of options that control this resource's behavior.
      */
     public PrivateLinkAttachmentConnection(String name, PrivateLinkAttachmentConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection", name, args == null ? PrivateLinkAttachmentConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PrivateLinkAttachmentConnection(String name, Output<String> id, @Nullable PrivateLinkAttachmentConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PrivateLinkAttachmentConnectionArgs makeArgs(PrivateLinkAttachmentConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PrivateLinkAttachmentConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

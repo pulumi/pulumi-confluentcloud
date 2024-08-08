@@ -122,11 +122,18 @@ public class SubjectMode extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SubjectMode(String name, SubjectModeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/subjectMode:SubjectMode", name, args == null ? SubjectModeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/subjectMode:SubjectMode", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SubjectMode(String name, Output<String> id, @Nullable SubjectModeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/subjectMode:SubjectMode", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SubjectModeArgs makeArgs(SubjectModeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubjectModeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

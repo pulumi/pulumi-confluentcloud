@@ -176,11 +176,18 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServiceAccount(String name, @Nullable ServiceAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/serviceAccount:ServiceAccount", name, args == null ? ServiceAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/serviceAccount:ServiceAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServiceAccount(String name, Output<String> id, @Nullable ServiceAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/serviceAccount:ServiceAccount", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServiceAccountArgs makeArgs(@Nullable ServiceAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceAccountArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -175,11 +175,18 @@ public class DnsForwarder extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DnsForwarder(String name, DnsForwarderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/dnsForwarder:DnsForwarder", name, args == null ? DnsForwarderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/dnsForwarder:DnsForwarder", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DnsForwarder(String name, Output<String> id, @Nullable DnsForwarderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/dnsForwarder:DnsForwarder", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DnsForwarderArgs makeArgs(DnsForwarderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DnsForwarderArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

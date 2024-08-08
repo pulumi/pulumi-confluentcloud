@@ -135,11 +135,18 @@ public class TfImporter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TfImporter(String name, @Nullable TfImporterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/tfImporter:TfImporter", name, args == null ? TfImporterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/tfImporter:TfImporter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TfImporter(String name, Output<String> id, @Nullable TfImporterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/tfImporter:TfImporter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TfImporterArgs makeArgs(@Nullable TfImporterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TfImporterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
