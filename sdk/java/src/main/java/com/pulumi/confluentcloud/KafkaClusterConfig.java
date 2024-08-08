@@ -117,11 +117,18 @@ public class KafkaClusterConfig extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public KafkaClusterConfig(String name, KafkaClusterConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig", name, args == null ? KafkaClusterConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private KafkaClusterConfig(String name, Output<String> id, @Nullable KafkaClusterConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static KafkaClusterConfigArgs makeArgs(KafkaClusterConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KafkaClusterConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

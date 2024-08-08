@@ -148,11 +148,18 @@ public class GroupMapping extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GroupMapping(String name, GroupMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/groupMapping:GroupMapping", name, args == null ? GroupMappingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/groupMapping:GroupMapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GroupMapping(String name, Output<String> id, @Nullable GroupMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/groupMapping:GroupMapping", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GroupMappingArgs makeArgs(GroupMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GroupMappingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

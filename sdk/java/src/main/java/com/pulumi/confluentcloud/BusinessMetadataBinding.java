@@ -151,11 +151,18 @@ public class BusinessMetadataBinding extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public BusinessMetadataBinding(String name, BusinessMetadataBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding", name, args == null ? BusinessMetadataBindingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BusinessMetadataBinding(String name, Output<String> id, @Nullable BusinessMetadataBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BusinessMetadataBindingArgs makeArgs(BusinessMetadataBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BusinessMetadataBindingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

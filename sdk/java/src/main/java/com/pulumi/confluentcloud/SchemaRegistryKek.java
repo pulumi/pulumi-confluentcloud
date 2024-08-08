@@ -202,11 +202,18 @@ public class SchemaRegistryKek extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SchemaRegistryKek(String name, SchemaRegistryKekArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/schemaRegistryKek:SchemaRegistryKek", name, args == null ? SchemaRegistryKekArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/schemaRegistryKek:SchemaRegistryKek", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SchemaRegistryKek(String name, Output<String> id, @Nullable SchemaRegistryKekState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/schemaRegistryKek:SchemaRegistryKek", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SchemaRegistryKekArgs makeArgs(SchemaRegistryKekArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SchemaRegistryKekArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

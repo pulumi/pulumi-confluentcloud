@@ -216,11 +216,18 @@ public class FlinkComputePool extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FlinkComputePool(String name, FlinkComputePoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/flinkComputePool:FlinkComputePool", name, args == null ? FlinkComputePoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/flinkComputePool:FlinkComputePool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FlinkComputePool(String name, Output<String> id, @Nullable FlinkComputePoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/flinkComputePool:FlinkComputePool", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FlinkComputePoolArgs makeArgs(FlinkComputePoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FlinkComputePoolArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

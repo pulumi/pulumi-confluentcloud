@@ -157,11 +157,18 @@ public class KafkaMirrorTopic extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public KafkaMirrorTopic(String name, KafkaMirrorTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic", name, args == null ? KafkaMirrorTopicArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private KafkaMirrorTopic(String name, Output<String> id, @Nullable KafkaMirrorTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic", name, state, makeResourceOptions(options, id));
+    }
+
+    private static KafkaMirrorTopicArgs makeArgs(KafkaMirrorTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KafkaMirrorTopicArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -190,11 +190,18 @@ public class ByokKey extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ByokKey(String name, @Nullable ByokKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/byokKey:ByokKey", name, args == null ? ByokKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/byokKey:ByokKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ByokKey(String name, Output<String> id, @Nullable ByokKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/byokKey:ByokKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ByokKeyArgs makeArgs(@Nullable ByokKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ByokKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

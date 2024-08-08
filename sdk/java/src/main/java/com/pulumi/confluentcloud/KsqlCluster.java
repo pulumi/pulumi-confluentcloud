@@ -220,11 +220,18 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public KsqlCluster(String name, KsqlClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/ksqlCluster:KsqlCluster", name, args == null ? KsqlClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("confluentcloud:index/ksqlCluster:KsqlCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private KsqlCluster(String name, Output<String> id, @Nullable KsqlClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/ksqlCluster:KsqlCluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static KsqlClusterArgs makeArgs(KsqlClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KsqlClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
