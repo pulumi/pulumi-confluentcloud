@@ -185,7 +185,7 @@ class AwaitableGetKsqlClusterResult(GetKsqlClusterResult):
 
 
 def get_ksql_cluster(display_name: Optional[str] = None,
-                     environment: Optional[pulumi.InputType['GetKsqlClusterEnvironmentArgs']] = None,
+                     environment: Optional[Union['GetKsqlClusterEnvironmentArgs', 'GetKsqlClusterEnvironmentArgsDict']] = None,
                      id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKsqlClusterResult:
     """
@@ -202,14 +202,14 @@ def get_ksql_cluster(display_name: Optional[str] = None,
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_ksql_cluster(id="lksqlc-abc123",
-        environment=confluentcloud.GetKsqlClusterEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_ksql_cluster(display_name="ksqldb_cluster",
-        environment=confluentcloud.GetKsqlClusterEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
@@ -242,7 +242,7 @@ def get_ksql_cluster(display_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_ksql_cluster)
 def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
-                            environment: Optional[pulumi.Input[pulumi.InputType['GetKsqlClusterEnvironmentArgs']]] = None,
+                            environment: Optional[pulumi.Input[Union['GetKsqlClusterEnvironmentArgs', 'GetKsqlClusterEnvironmentArgsDict']]] = None,
                             id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKsqlClusterResult]:
     """
@@ -259,14 +259,14 @@ def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] 
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_ksql_cluster(id="lksqlc-abc123",
-        environment=confluentcloud.GetKsqlClusterEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_ksql_cluster(display_name="ksqldb_cluster",
-        environment=confluentcloud.GetKsqlClusterEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 

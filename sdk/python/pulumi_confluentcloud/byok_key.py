@@ -130,9 +130,9 @@ class ByokKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[pulumi.InputType['ByokKeyAwsArgs']]] = None,
-                 azure: Optional[pulumi.Input[pulumi.InputType['ByokKeyAzureArgs']]] = None,
-                 gcp: Optional[pulumi.Input[pulumi.InputType['ByokKeyGcpArgs']]] = None,
+                 aws: Optional[pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']]] = None,
+                 azure: Optional[pulumi.Input[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']]] = None,
+                 gcp: Optional[pulumi.Input[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -147,11 +147,11 @@ class ByokKey(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        azure_key = confluentcloud.ByokKey("azure_key", azure=confluentcloud.ByokKeyAzureArgs(
-            tenant_id="11111111-1111-1111-1111-111111111111",
-            key_vault_id="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault",
-            key_identifier="https://test-vault.vault.azure.net/keys/test-key",
-        ))
+        azure_key = confluentcloud.ByokKey("azure_key", azure={
+            "tenant_id": "11111111-1111-1111-1111-111111111111",
+            "key_vault_id": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault",
+            "key_identifier": "https://test-vault.vault.azure.net/keys/test-key",
+        })
         ```
 
         ### Example BYOK Key on GCP
@@ -160,9 +160,9 @@ class ByokKey(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        gcp_key = confluentcloud.ByokKey("gcp_key", gcp=confluentcloud.ByokKeyGcpArgs(
-            key_id="projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test",
-        ))
+        gcp_key = confluentcloud.ByokKey("gcp_key", gcp={
+            "key_id": "projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test",
+        })
         ```
 
         ## Getting Started
@@ -189,9 +189,9 @@ class ByokKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ByokKeyAwsArgs']] aws: (Optional Configuration Block) supports the following:
-        :param pulumi.Input[pulumi.InputType['ByokKeyAzureArgs']] azure: (Optional Configuration Block) supports the following:
-        :param pulumi.Input[pulumi.InputType['ByokKeyGcpArgs']] gcp: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']] aws: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']] azure: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']] gcp: (Optional Configuration Block) supports the following:
         """
         ...
     @overload
@@ -212,11 +212,11 @@ class ByokKey(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        azure_key = confluentcloud.ByokKey("azure_key", azure=confluentcloud.ByokKeyAzureArgs(
-            tenant_id="11111111-1111-1111-1111-111111111111",
-            key_vault_id="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault",
-            key_identifier="https://test-vault.vault.azure.net/keys/test-key",
-        ))
+        azure_key = confluentcloud.ByokKey("azure_key", azure={
+            "tenant_id": "11111111-1111-1111-1111-111111111111",
+            "key_vault_id": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault",
+            "key_identifier": "https://test-vault.vault.azure.net/keys/test-key",
+        })
         ```
 
         ### Example BYOK Key on GCP
@@ -225,9 +225,9 @@ class ByokKey(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        gcp_key = confluentcloud.ByokKey("gcp_key", gcp=confluentcloud.ByokKeyGcpArgs(
-            key_id="projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test",
-        ))
+        gcp_key = confluentcloud.ByokKey("gcp_key", gcp={
+            "key_id": "projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test",
+        })
         ```
 
         ## Getting Started
@@ -267,9 +267,9 @@ class ByokKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[pulumi.InputType['ByokKeyAwsArgs']]] = None,
-                 azure: Optional[pulumi.Input[pulumi.InputType['ByokKeyAzureArgs']]] = None,
-                 gcp: Optional[pulumi.Input[pulumi.InputType['ByokKeyGcpArgs']]] = None,
+                 aws: Optional[pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']]] = None,
+                 azure: Optional[pulumi.Input[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']]] = None,
+                 gcp: Optional[pulumi.Input[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -292,9 +292,9 @@ class ByokKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[pulumi.InputType['ByokKeyAwsArgs']]] = None,
-            azure: Optional[pulumi.Input[pulumi.InputType['ByokKeyAzureArgs']]] = None,
-            gcp: Optional[pulumi.Input[pulumi.InputType['ByokKeyGcpArgs']]] = None) -> 'ByokKey':
+            aws: Optional[pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']]] = None,
+            azure: Optional[pulumi.Input[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']]] = None,
+            gcp: Optional[pulumi.Input[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']]] = None) -> 'ByokKey':
         """
         Get an existing ByokKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -302,9 +302,9 @@ class ByokKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ByokKeyAwsArgs']] aws: (Optional Configuration Block) supports the following:
-        :param pulumi.Input[pulumi.InputType['ByokKeyAzureArgs']] azure: (Optional Configuration Block) supports the following:
-        :param pulumi.Input[pulumi.InputType['ByokKeyGcpArgs']] gcp: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']] aws: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['ByokKeyAzureArgs', 'ByokKeyAzureArgsDict']] azure: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['ByokKeyGcpArgs', 'ByokKeyGcpArgsDict']] gcp: (Optional Configuration Block) supports the following:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -234,12 +234,12 @@ class BusinessMetadata(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BusinessMetadataAttributeDefinitionArgs']]]]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['BusinessMetadataCredentialsArgs']]] = None,
+                 attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BusinessMetadataAttributeDefinitionArgs', 'BusinessMetadataAttributeDefinitionArgsDict']]]]] = None,
+                 credentials: Optional[pulumi.Input[Union['BusinessMetadataCredentialsArgs', 'BusinessMetadataCredentialsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['BusinessMetadataSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['BusinessMetadataSchemaRegistryClusterArgs', 'BusinessMetadataSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
         """
         ## Import
@@ -260,8 +260,8 @@ class BusinessMetadata(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BusinessMetadataAttributeDefinitionArgs']]]] attribute_definitions: The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
-        :param pulumi.Input[pulumi.InputType['BusinessMetadataCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BusinessMetadataAttributeDefinitionArgs', 'BusinessMetadataAttributeDefinitionArgsDict']]]] attribute_definitions: The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
+        :param pulumi.Input[Union['BusinessMetadataCredentialsArgs', 'BusinessMetadataCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] description: The description of the Business Metadata.
         :param pulumi.Input[str] name: The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -304,12 +304,12 @@ class BusinessMetadata(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BusinessMetadataAttributeDefinitionArgs']]]]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['BusinessMetadataCredentialsArgs']]] = None,
+                 attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BusinessMetadataAttributeDefinitionArgs', 'BusinessMetadataAttributeDefinitionArgsDict']]]]] = None,
+                 credentials: Optional[pulumi.Input[Union['BusinessMetadataCredentialsArgs', 'BusinessMetadataCredentialsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['BusinessMetadataSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['BusinessMetadataSchemaRegistryClusterArgs', 'BusinessMetadataSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -338,12 +338,12 @@ class BusinessMetadata(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BusinessMetadataAttributeDefinitionArgs']]]]] = None,
-            credentials: Optional[pulumi.Input[pulumi.InputType['BusinessMetadataCredentialsArgs']]] = None,
+            attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BusinessMetadataAttributeDefinitionArgs', 'BusinessMetadataAttributeDefinitionArgsDict']]]]] = None,
+            credentials: Optional[pulumi.Input[Union['BusinessMetadataCredentialsArgs', 'BusinessMetadataCredentialsArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['BusinessMetadataSchemaRegistryClusterArgs']]] = None,
+            schema_registry_cluster: Optional[pulumi.Input[Union['BusinessMetadataSchemaRegistryClusterArgs', 'BusinessMetadataSchemaRegistryClusterArgsDict']]] = None,
             version: Optional[pulumi.Input[int]] = None) -> 'BusinessMetadata':
         """
         Get an existing BusinessMetadata resource's state with the given name, id, and optional extra
@@ -352,8 +352,8 @@ class BusinessMetadata(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BusinessMetadataAttributeDefinitionArgs']]]] attribute_definitions: The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
-        :param pulumi.Input[pulumi.InputType['BusinessMetadataCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BusinessMetadataAttributeDefinitionArgs', 'BusinessMetadataAttributeDefinitionArgsDict']]]] attribute_definitions: The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
+        :param pulumi.Input[Union['BusinessMetadataCredentialsArgs', 'BusinessMetadataCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] description: The description of the Business Metadata.
         :param pulumi.Input[str] name: The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

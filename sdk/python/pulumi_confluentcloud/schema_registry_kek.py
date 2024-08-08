@@ -360,7 +360,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryKekCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']]] = None,
                  doc: Optional[pulumi.Input[str]] = None,
                  hard_delete: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -368,7 +368,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryKekSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryKekSchemaRegistryClusterArgs', 'SchemaRegistryKekSchemaRegistryClusterArgsDict']]] = None,
                  shared: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -390,7 +390,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SchemaRegistryKekCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] doc: The optional description for the KEK.
         :param pulumi.Input[bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
                on destroy. Defaults to `false` (soft delete).
@@ -442,7 +442,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryKekCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']]] = None,
                  doc: Optional[pulumi.Input[str]] = None,
                  hard_delete: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -450,7 +450,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryKekSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryKekSchemaRegistryClusterArgs', 'SchemaRegistryKekSchemaRegistryClusterArgsDict']]] = None,
                  shared: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -487,7 +487,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryKekCredentialsArgs']]] = None,
+            credentials: Optional[pulumi.Input[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']]] = None,
             doc: Optional[pulumi.Input[str]] = None,
             hard_delete: Optional[pulumi.Input[bool]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -495,7 +495,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryKekSchemaRegistryClusterArgs']]] = None,
+            schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryKekSchemaRegistryClusterArgs', 'SchemaRegistryKekSchemaRegistryClusterArgsDict']]] = None,
             shared: Optional[pulumi.Input[bool]] = None) -> 'SchemaRegistryKek':
         """
         Get an existing SchemaRegistryKek resource's state with the given name, id, and optional extra
@@ -504,7 +504,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SchemaRegistryKekCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] doc: The optional description for the KEK.
         :param pulumi.Input[bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
                on destroy. Defaults to `false` (soft delete).

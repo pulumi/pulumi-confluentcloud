@@ -143,7 +143,7 @@ class AwaitableGetFlinkComputePoolResult(GetFlinkComputePoolResult):
 
 
 def get_flink_compute_pool(display_name: Optional[str] = None,
-                           environment: Optional[pulumi.InputType['GetFlinkComputePoolEnvironmentArgs']] = None,
+                           environment: Optional[Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict']] = None,
                            id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlinkComputePoolResult:
     """
@@ -158,20 +158,20 @@ def get_flink_compute_pool(display_name: Optional[str] = None,
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_flink_compute_pool(id="lfcp-abc123",
-        environment=confluentcloud.GetFlinkComputePoolEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_flink_compute_pool(display_name="my_compute_pool",
-        environment=confluentcloud.GetFlinkComputePoolEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
     :param str display_name: A human-readable name for the Flink Compute Pool.
-    :param pulumi.InputType['GetFlinkComputePoolEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
     """
     __args__ = dict()
@@ -195,7 +195,7 @@ def get_flink_compute_pool(display_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_flink_compute_pool)
 def get_flink_compute_pool_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
-                                  environment: Optional[pulumi.Input[pulumi.InputType['GetFlinkComputePoolEnvironmentArgs']]] = None,
+                                  environment: Optional[pulumi.Input[Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict']]] = None,
                                   id: Optional[pulumi.Input[Optional[str]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlinkComputePoolResult]:
     """
@@ -210,20 +210,20 @@ def get_flink_compute_pool_output(display_name: Optional[pulumi.Input[Optional[s
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_flink_compute_pool(id="lfcp-abc123",
-        environment=confluentcloud.GetFlinkComputePoolEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_flink_compute_pool(display_name="my_compute_pool",
-        environment=confluentcloud.GetFlinkComputePoolEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
     :param str display_name: A human-readable name for the Flink Compute Pool.
-    :param pulumi.InputType['GetFlinkComputePoolEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
     """
     ...

@@ -190,7 +190,7 @@ public class CustomConnectorPlugin extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomConnectorPlugin(String name) {
+    public CustomConnectorPlugin(java.lang.String name) {
         this(name, CustomConnectorPluginArgs.Empty);
     }
     /**
@@ -198,7 +198,7 @@ public class CustomConnectorPlugin extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomConnectorPlugin(String name, CustomConnectorPluginArgs args) {
+    public CustomConnectorPlugin(java.lang.String name, CustomConnectorPluginArgs args) {
         this(name, args, null);
     }
     /**
@@ -207,12 +207,12 @@ public class CustomConnectorPlugin extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomConnectorPlugin(String name, CustomConnectorPluginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CustomConnectorPlugin(java.lang.String name, CustomConnectorPluginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CustomConnectorPlugin(String name, Output<String> id, @Nullable CustomConnectorPluginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin", name, state, makeResourceOptions(options, id));
+    private CustomConnectorPlugin(java.lang.String name, Output<java.lang.String> id, @Nullable CustomConnectorPluginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CustomConnectorPluginArgs makeArgs(CustomConnectorPluginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -222,7 +222,7 @@ public class CustomConnectorPlugin extends com.pulumi.resources.CustomResource {
         return args == null ? CustomConnectorPluginArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -238,7 +238,7 @@ public class CustomConnectorPlugin extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomConnectorPlugin get(String name, Output<String> id, @Nullable CustomConnectorPluginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CustomConnectorPlugin get(java.lang.String name, Output<java.lang.String> id, @Nullable CustomConnectorPluginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CustomConnectorPlugin(name, id, state, options);
     }
 }

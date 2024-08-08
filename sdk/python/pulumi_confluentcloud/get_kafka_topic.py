@@ -106,8 +106,8 @@ class AwaitableGetKafkaTopicResult(GetKafkaTopicResult):
             topic_name=self.topic_name)
 
 
-def get_kafka_topic(credentials: Optional[pulumi.InputType['GetKafkaTopicCredentialsArgs']] = None,
-                    kafka_cluster: Optional[pulumi.InputType['GetKafkaTopicKafkaClusterArgs']] = None,
+def get_kafka_topic(credentials: Optional[Union['GetKafkaTopicCredentialsArgs', 'GetKafkaTopicCredentialsArgsDict']] = None,
+                    kafka_cluster: Optional[Union['GetKafkaTopicKafkaClusterArgs', 'GetKafkaTopicKafkaClusterArgsDict']] = None,
                     rest_endpoint: Optional[str] = None,
                     topic_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaTopicResult:
@@ -136,8 +136,8 @@ def get_kafka_topic(credentials: Optional[pulumi.InputType['GetKafkaTopicCredent
 
 
 @_utilities.lift_output_func(get_kafka_topic)
-def get_kafka_topic_output(credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetKafkaTopicCredentialsArgs']]]] = None,
-                           kafka_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetKafkaTopicKafkaClusterArgs']]]] = None,
+def get_kafka_topic_output(credentials: Optional[pulumi.Input[Optional[Union['GetKafkaTopicCredentialsArgs', 'GetKafkaTopicCredentialsArgsDict']]]] = None,
+                           kafka_cluster: Optional[pulumi.Input[Optional[Union['GetKafkaTopicKafkaClusterArgs', 'GetKafkaTopicKafkaClusterArgsDict']]]] = None,
                            rest_endpoint: Optional[pulumi.Input[str]] = None,
                            topic_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaTopicResult]:
