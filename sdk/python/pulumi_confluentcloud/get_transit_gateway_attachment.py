@@ -95,7 +95,7 @@ class AwaitableGetTransitGatewayAttachmentResult(GetTransitGatewayAttachmentResu
 
 
 def get_transit_gateway_attachment(display_name: Optional[str] = None,
-                                   environment: Optional[pulumi.InputType['GetTransitGatewayAttachmentEnvironmentArgs']] = None,
+                                   environment: Optional[Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict']] = None,
                                    id: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransitGatewayAttachmentResult:
     """
@@ -110,20 +110,20 @@ def get_transit_gateway_attachment(display_name: Optional[str] = None,
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_transit_gateway_attachment(id="tgwa-abc123",
-        environment=confluentcloud.GetTransitGatewayAttachmentEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_transit_gateway_attachment(display_name="my_tgwa",
-        environment=confluentcloud.GetTransitGatewayAttachmentEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
     :param str display_name: A human-readable name for the Transit Gateway Attachment.
-    :param pulumi.InputType['GetTransitGatewayAttachmentEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Peering, for example, `tgwa-abc123`.
     """
     __args__ = dict()
@@ -143,7 +143,7 @@ def get_transit_gateway_attachment(display_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_transit_gateway_attachment)
 def get_transit_gateway_attachment_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
-                                          environment: Optional[pulumi.Input[pulumi.InputType['GetTransitGatewayAttachmentEnvironmentArgs']]] = None,
+                                          environment: Optional[pulumi.Input[Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict']]] = None,
                                           id: Optional[pulumi.Input[Optional[str]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayAttachmentResult]:
     """
@@ -158,20 +158,20 @@ def get_transit_gateway_attachment_output(display_name: Optional[pulumi.Input[Op
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_transit_gateway_attachment(id="tgwa-abc123",
-        environment=confluentcloud.GetTransitGatewayAttachmentEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_transit_gateway_attachment(display_name="my_tgwa",
-        environment=confluentcloud.GetTransitGatewayAttachmentEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
     :param str display_name: A human-readable name for the Transit Gateway Attachment.
-    :param pulumi.InputType['GetTransitGatewayAttachmentEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Peering, for example, `tgwa-abc123`.
     """
     ...

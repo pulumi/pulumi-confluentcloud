@@ -90,7 +90,7 @@ public class SchemaRegistryClusterMode extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SchemaRegistryClusterMode(String name) {
+    public SchemaRegistryClusterMode(java.lang.String name) {
         this(name, SchemaRegistryClusterModeArgs.Empty);
     }
     /**
@@ -98,7 +98,7 @@ public class SchemaRegistryClusterMode extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SchemaRegistryClusterMode(String name, @Nullable SchemaRegistryClusterModeArgs args) {
+    public SchemaRegistryClusterMode(java.lang.String name, @Nullable SchemaRegistryClusterModeArgs args) {
         this(name, args, null);
     }
     /**
@@ -107,12 +107,12 @@ public class SchemaRegistryClusterMode extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SchemaRegistryClusterMode(String name, @Nullable SchemaRegistryClusterModeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SchemaRegistryClusterMode(java.lang.String name, @Nullable SchemaRegistryClusterModeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SchemaRegistryClusterMode(String name, Output<String> id, @Nullable SchemaRegistryClusterModeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode", name, state, makeResourceOptions(options, id));
+    private SchemaRegistryClusterMode(java.lang.String name, Output<java.lang.String> id, @Nullable SchemaRegistryClusterModeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SchemaRegistryClusterModeArgs makeArgs(@Nullable SchemaRegistryClusterModeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -122,7 +122,7 @@ public class SchemaRegistryClusterMode extends com.pulumi.resources.CustomResour
         return args == null ? SchemaRegistryClusterModeArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -141,7 +141,7 @@ public class SchemaRegistryClusterMode extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SchemaRegistryClusterMode get(String name, Output<String> id, @Nullable SchemaRegistryClusterModeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SchemaRegistryClusterMode get(java.lang.String name, Output<java.lang.String> id, @Nullable SchemaRegistryClusterModeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SchemaRegistryClusterMode(name, id, state, options);
     }
 }

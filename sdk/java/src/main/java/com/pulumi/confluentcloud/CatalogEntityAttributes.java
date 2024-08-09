@@ -101,7 +101,7 @@ public class CatalogEntityAttributes extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CatalogEntityAttributes(String name) {
+    public CatalogEntityAttributes(java.lang.String name) {
         this(name, CatalogEntityAttributesArgs.Empty);
     }
     /**
@@ -109,7 +109,7 @@ public class CatalogEntityAttributes extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CatalogEntityAttributes(String name, CatalogEntityAttributesArgs args) {
+    public CatalogEntityAttributes(java.lang.String name, CatalogEntityAttributesArgs args) {
         this(name, args, null);
     }
     /**
@@ -118,12 +118,12 @@ public class CatalogEntityAttributes extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CatalogEntityAttributes(String name, CatalogEntityAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CatalogEntityAttributes(java.lang.String name, CatalogEntityAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CatalogEntityAttributes(String name, Output<String> id, @Nullable CatalogEntityAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes", name, state, makeResourceOptions(options, id));
+    private CatalogEntityAttributes(java.lang.String name, Output<java.lang.String> id, @Nullable CatalogEntityAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CatalogEntityAttributesArgs makeArgs(CatalogEntityAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -133,7 +133,7 @@ public class CatalogEntityAttributes extends com.pulumi.resources.CustomResource
         return args == null ? CatalogEntityAttributesArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -152,7 +152,7 @@ public class CatalogEntityAttributes extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CatalogEntityAttributes get(String name, Output<String> id, @Nullable CatalogEntityAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CatalogEntityAttributes get(java.lang.String name, Output<java.lang.String> id, @Nullable CatalogEntityAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CatalogEntityAttributes(name, id, state, options);
     }
 }

@@ -85,9 +85,9 @@ class AwaitableGetSchemaRegistryClusterConfigResult(GetSchemaRegistryClusterConf
             schema_registry_cluster=self.schema_registry_cluster)
 
 
-def get_schema_registry_cluster_config(credentials: Optional[pulumi.InputType['GetSchemaRegistryClusterConfigCredentialsArgs']] = None,
+def get_schema_registry_cluster_config(credentials: Optional[Union['GetSchemaRegistryClusterConfigCredentialsArgs', 'GetSchemaRegistryClusterConfigCredentialsArgsDict']] = None,
                                        rest_endpoint: Optional[str] = None,
-                                       schema_registry_cluster: Optional[pulumi.InputType['GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs']] = None,
+                                       schema_registry_cluster: Optional[Union['GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'GetSchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryClusterConfigResult:
     """
     Use this data source to access information about an existing resource.
@@ -110,9 +110,9 @@ def get_schema_registry_cluster_config(credentials: Optional[pulumi.InputType['G
 
 
 @_utilities.lift_output_func(get_schema_registry_cluster_config)
-def get_schema_registry_cluster_config_output(credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemaRegistryClusterConfigCredentialsArgs']]]] = None,
+def get_schema_registry_cluster_config_output(credentials: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryClusterConfigCredentialsArgs', 'GetSchemaRegistryClusterConfigCredentialsArgsDict']]]] = None,
                                               rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
-                                              schema_registry_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs']]]] = None,
+                                              schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'GetSchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryClusterConfigResult]:
     """
     Use this data source to access information about an existing resource.

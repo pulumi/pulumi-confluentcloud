@@ -113,11 +113,11 @@ class AwaitableGetBusinessMetadataBindingResult(GetBusinessMetadataBindingResult
 
 
 def get_business_metadata_binding(business_metadata_name: Optional[str] = None,
-                                  credentials: Optional[pulumi.InputType['GetBusinessMetadataBindingCredentialsArgs']] = None,
+                                  credentials: Optional[Union['GetBusinessMetadataBindingCredentialsArgs', 'GetBusinessMetadataBindingCredentialsArgsDict']] = None,
                                   entity_name: Optional[str] = None,
                                   entity_type: Optional[str] = None,
                                   rest_endpoint: Optional[str] = None,
-                                  schema_registry_cluster: Optional[pulumi.InputType['GetBusinessMetadataBindingSchemaRegistryClusterArgs']] = None,
+                                  schema_registry_cluster: Optional[Union['GetBusinessMetadataBindingSchemaRegistryClusterArgs', 'GetBusinessMetadataBindingSchemaRegistryClusterArgsDict']] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBusinessMetadataBindingResult:
     """
     Use this data source to access information about an existing resource.
@@ -150,11 +150,11 @@ def get_business_metadata_binding(business_metadata_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_business_metadata_binding)
 def get_business_metadata_binding_output(business_metadata_name: Optional[pulumi.Input[str]] = None,
-                                         credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetBusinessMetadataBindingCredentialsArgs']]]] = None,
+                                         credentials: Optional[pulumi.Input[Optional[Union['GetBusinessMetadataBindingCredentialsArgs', 'GetBusinessMetadataBindingCredentialsArgsDict']]]] = None,
                                          entity_name: Optional[pulumi.Input[str]] = None,
                                          entity_type: Optional[pulumi.Input[str]] = None,
                                          rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
-                                         schema_registry_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetBusinessMetadataBindingSchemaRegistryClusterArgs']]]] = None,
+                                         schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetBusinessMetadataBindingSchemaRegistryClusterArgs', 'GetBusinessMetadataBindingSchemaRegistryClusterArgsDict']]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBusinessMetadataBindingResult]:
     """
     Use this data source to access information about an existing resource.

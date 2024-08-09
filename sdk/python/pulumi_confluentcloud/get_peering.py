@@ -119,7 +119,7 @@ class AwaitableGetPeeringResult(GetPeeringResult):
 
 
 def get_peering(display_name: Optional[str] = None,
-                environment: Optional[pulumi.InputType['GetPeeringEnvironmentArgs']] = None,
+                environment: Optional[Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict']] = None,
                 id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringResult:
     """
@@ -134,20 +134,20 @@ def get_peering(display_name: Optional[str] = None,
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_peering(id="peer-abc123",
-        environment=confluentcloud.GetPeeringEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_peering(display_name="my_peering",
-        environment=confluentcloud.GetPeeringEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
     :param str display_name: A human-readable name for the Peering.
-    :param pulumi.InputType['GetPeeringEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Peering, for example, `peer-abc123`.
     """
     __args__ = dict()
@@ -169,7 +169,7 @@ def get_peering(display_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_peering)
 def get_peering_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
-                       environment: Optional[pulumi.Input[pulumi.InputType['GetPeeringEnvironmentArgs']]] = None,
+                       environment: Optional[pulumi.Input[Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict']]] = None,
                        id: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringResult]:
     """
@@ -184,20 +184,20 @@ def get_peering_output(display_name: Optional[pulumi.Input[Optional[str]]] = Non
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_peering(id="peer-abc123",
-        environment=confluentcloud.GetPeeringEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_peering(display_name="my_peering",
-        environment=confluentcloud.GetPeeringEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
     :param str display_name: A human-readable name for the Peering.
-    :param pulumi.InputType['GetPeeringEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Peering, for example, `peer-abc123`.
     """
     ...

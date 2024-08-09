@@ -185,10 +185,10 @@ class SubjectMode(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['SubjectModeCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SubjectModeSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['SubjectModeSchemaRegistryClusterArgs', 'SubjectModeSchemaRegistryClusterArgsDict']]] = None,
                  subject_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -210,7 +210,7 @@ class SubjectMode(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SubjectModeCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] mode: The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
@@ -253,10 +253,10 @@ class SubjectMode(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['SubjectModeCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SubjectModeSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['SubjectModeSchemaRegistryClusterArgs', 'SubjectModeSchemaRegistryClusterArgsDict']]] = None,
                  subject_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -286,10 +286,10 @@ class SubjectMode(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: Optional[pulumi.Input[pulumi.InputType['SubjectModeCredentialsArgs']]] = None,
+            credentials: Optional[pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SubjectModeSchemaRegistryClusterArgs']]] = None,
+            schema_registry_cluster: Optional[pulumi.Input[Union['SubjectModeSchemaRegistryClusterArgs', 'SubjectModeSchemaRegistryClusterArgsDict']]] = None,
             subject_name: Optional[pulumi.Input[str]] = None) -> 'SubjectMode':
         """
         Get an existing SubjectMode resource's state with the given name, id, and optional extra
@@ -298,7 +298,7 @@ class SubjectMode(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SubjectModeCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] mode: The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.

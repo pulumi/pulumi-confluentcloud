@@ -404,12 +404,12 @@ class SchemaExporter(pulumi.CustomResource):
                  config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  context_type: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['SchemaExporterCredentialsArgs']]] = None,
-                 destination_schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaExporterDestinationSchemaRegistryClusterArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']]] = None,
+                 destination_schema_registry_cluster: Optional[pulumi.Input[Union['SchemaExporterDestinationSchemaRegistryClusterArgs', 'SchemaExporterDestinationSchemaRegistryClusterArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reset_on_update: Optional[pulumi.Input[bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaExporterSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaExporterSchemaRegistryClusterArgs', 'SchemaExporterSchemaRegistryClusterArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_rename_format: Optional[pulumi.Input[str]] = None,
                  subjects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -438,7 +438,7 @@ class SchemaExporter(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: Block for custom *nonsensitive* configuration properties:
         :param pulumi.Input[str] context: Customized context of the exporter if `context_type` is set to `CUSTOM`.
         :param pulumi.Input[str] context_type: Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
-        :param pulumi.Input[pulumi.InputType['SchemaExporterCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] name: Name of the Schema Exporter.
         :param pulumi.Input[bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -489,12 +489,12 @@ class SchemaExporter(pulumi.CustomResource):
                  config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  context_type: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['SchemaExporterCredentialsArgs']]] = None,
-                 destination_schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaExporterDestinationSchemaRegistryClusterArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']]] = None,
+                 destination_schema_registry_cluster: Optional[pulumi.Input[Union['SchemaExporterDestinationSchemaRegistryClusterArgs', 'SchemaExporterDestinationSchemaRegistryClusterArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reset_on_update: Optional[pulumi.Input[bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaExporterSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaExporterSchemaRegistryClusterArgs', 'SchemaExporterSchemaRegistryClusterArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subject_rename_format: Optional[pulumi.Input[str]] = None,
                  subjects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -536,12 +536,12 @@ class SchemaExporter(pulumi.CustomResource):
             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             context: Optional[pulumi.Input[str]] = None,
             context_type: Optional[pulumi.Input[str]] = None,
-            credentials: Optional[pulumi.Input[pulumi.InputType['SchemaExporterCredentialsArgs']]] = None,
-            destination_schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaExporterDestinationSchemaRegistryClusterArgs']]] = None,
+            credentials: Optional[pulumi.Input[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']]] = None,
+            destination_schema_registry_cluster: Optional[pulumi.Input[Union['SchemaExporterDestinationSchemaRegistryClusterArgs', 'SchemaExporterDestinationSchemaRegistryClusterArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             reset_on_update: Optional[pulumi.Input[bool]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaExporterSchemaRegistryClusterArgs']]] = None,
+            schema_registry_cluster: Optional[pulumi.Input[Union['SchemaExporterSchemaRegistryClusterArgs', 'SchemaExporterSchemaRegistryClusterArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             subject_rename_format: Optional[pulumi.Input[str]] = None,
             subjects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'SchemaExporter':
@@ -555,7 +555,7 @@ class SchemaExporter(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: Block for custom *nonsensitive* configuration properties:
         :param pulumi.Input[str] context: Customized context of the exporter if `context_type` is set to `CUSTOM`.
         :param pulumi.Input[str] context_type: Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
-        :param pulumi.Input[pulumi.InputType['SchemaExporterCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] name: Name of the Schema Exporter.
         :param pulumi.Input[bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

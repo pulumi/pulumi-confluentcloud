@@ -215,11 +215,11 @@ class TagBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['TagBindingCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
                  entity_name: Optional[pulumi.Input[str]] = None,
                  entity_type: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['TagBindingSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict']]] = None,
                  tag_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -241,7 +241,7 @@ class TagBinding(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TagBindingCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] entity_name: The qualified name of the entity., for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
         :param pulumi.Input[str] entity_type: The entity type.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -285,11 +285,11 @@ class TagBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['TagBindingCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
                  entity_name: Optional[pulumi.Input[str]] = None,
                  entity_type: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['TagBindingSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict']]] = None,
                  tag_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -324,11 +324,11 @@ class TagBinding(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: Optional[pulumi.Input[pulumi.InputType['TagBindingCredentialsArgs']]] = None,
+            credentials: Optional[pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
             entity_name: Optional[pulumi.Input[str]] = None,
             entity_type: Optional[pulumi.Input[str]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['TagBindingSchemaRegistryClusterArgs']]] = None,
+            schema_registry_cluster: Optional[pulumi.Input[Union['TagBindingSchemaRegistryClusterArgs', 'TagBindingSchemaRegistryClusterArgsDict']]] = None,
             tag_name: Optional[pulumi.Input[str]] = None) -> 'TagBinding':
         """
         Get an existing TagBinding resource's state with the given name, id, and optional extra
@@ -337,7 +337,7 @@ class TagBinding(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TagBindingCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] entity_name: The qualified name of the entity., for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
         :param pulumi.Input[str] entity_type: The entity type.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

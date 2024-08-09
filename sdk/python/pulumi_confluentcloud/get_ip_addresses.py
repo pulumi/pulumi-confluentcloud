@@ -67,7 +67,7 @@ class AwaitableGetIpAddressesResult(GetIpAddressesResult):
             ip_addresses=self.ip_addresses)
 
 
-def get_ip_addresses(filter: Optional[pulumi.InputType['GetIpAddressesFilterArgs']] = None,
+def get_ip_addresses(filter: Optional[Union['GetIpAddressesFilterArgs', 'GetIpAddressesFilterArgsDict']] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpAddressesResult:
     """
     [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -83,15 +83,15 @@ def get_ip_addresses(filter: Optional[pulumi.InputType['GetIpAddressesFilterArgs
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    main = confluentcloud.get_ip_addresses(filter=confluentcloud.GetIpAddressesFilterArgs(
-        clouds=["AWS"],
-        regions=[
+    main = confluentcloud.get_ip_addresses(filter={
+        "clouds": ["AWS"],
+        "regions": [
             "us-east-1",
             "us-east-2",
         ],
-        services=["KAFKA"],
-        address_types=["EGRESS"],
-    ))
+        "services": ["KAFKA"],
+        "address_types": ["EGRESS"],
+    })
     pulumi.export("ipAddresses", main.ip_addresses)
     ```
     """
@@ -107,7 +107,7 @@ def get_ip_addresses(filter: Optional[pulumi.InputType['GetIpAddressesFilterArgs
 
 
 @_utilities.lift_output_func(get_ip_addresses)
-def get_ip_addresses_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['GetIpAddressesFilterArgs']]]] = None,
+def get_ip_addresses_output(filter: Optional[pulumi.Input[Optional[Union['GetIpAddressesFilterArgs', 'GetIpAddressesFilterArgsDict']]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpAddressesResult]:
     """
     [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -123,15 +123,15 @@ def get_ip_addresses_output(filter: Optional[pulumi.Input[Optional[pulumi.InputT
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    main = confluentcloud.get_ip_addresses(filter=confluentcloud.GetIpAddressesFilterArgs(
-        clouds=["AWS"],
-        regions=[
+    main = confluentcloud.get_ip_addresses(filter={
+        "clouds": ["AWS"],
+        "regions": [
             "us-east-1",
             "us-east-2",
         ],
-        services=["KAFKA"],
-        address_types=["EGRESS"],
-    ))
+        "services": ["KAFKA"],
+        "address_types": ["EGRESS"],
+    })
     pulumi.export("ipAddresses", main.ip_addresses)
     ```
     """

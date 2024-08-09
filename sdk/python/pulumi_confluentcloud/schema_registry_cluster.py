@@ -199,9 +199,9 @@ class SchemaRegistryCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryClusterEnvironmentArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['SchemaRegistryClusterEnvironmentArgs', 'SchemaRegistryClusterEnvironmentArgsDict']]] = None,
                  package: Optional[pulumi.Input[str]] = None,
-                 region: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryClusterRegionArgs']]] = None,
+                 region: Optional[pulumi.Input[Union['SchemaRegistryClusterRegionArgs', 'SchemaRegistryClusterRegionArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -222,7 +222,7 @@ class SchemaRegistryCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SchemaRegistryClusterEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['SchemaRegistryClusterEnvironmentArgs', 'SchemaRegistryClusterEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] package: The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
         """
         ...
@@ -263,9 +263,9 @@ class SchemaRegistryCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryClusterEnvironmentArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['SchemaRegistryClusterEnvironmentArgs', 'SchemaRegistryClusterEnvironmentArgsDict']]] = None,
                  package: Optional[pulumi.Input[str]] = None,
-                 region: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryClusterRegionArgs']]] = None,
+                 region: Optional[pulumi.Input[Union['SchemaRegistryClusterRegionArgs', 'SchemaRegistryClusterRegionArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -301,10 +301,10 @@ class SchemaRegistryCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_version: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            environment: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryClusterEnvironmentArgs']]] = None,
+            environment: Optional[pulumi.Input[Union['SchemaRegistryClusterEnvironmentArgs', 'SchemaRegistryClusterEnvironmentArgsDict']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             package: Optional[pulumi.Input[str]] = None,
-            region: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryClusterRegionArgs']]] = None,
+            region: Optional[pulumi.Input[Union['SchemaRegistryClusterRegionArgs', 'SchemaRegistryClusterRegionArgsDict']]] = None,
             resource_name_: Optional[pulumi.Input[str]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None) -> 'SchemaRegistryCluster':
         """
@@ -316,7 +316,7 @@ class SchemaRegistryCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_version: (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `srcm/v2`.
         :param pulumi.Input[str] display_name: (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
-        :param pulumi.Input[pulumi.InputType['SchemaRegistryClusterEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['SchemaRegistryClusterEnvironmentArgs', 'SchemaRegistryClusterEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
         :param pulumi.Input[str] package: The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
         :param pulumi.Input[str] resource_name_: (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.

@@ -169,7 +169,7 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KafkaClientQuota(String name) {
+    public KafkaClientQuota(java.lang.String name) {
         this(name, KafkaClientQuotaArgs.Empty);
     }
     /**
@@ -177,7 +177,7 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KafkaClientQuota(String name, KafkaClientQuotaArgs args) {
+    public KafkaClientQuota(java.lang.String name, KafkaClientQuotaArgs args) {
         this(name, args, null);
     }
     /**
@@ -186,12 +186,12 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KafkaClientQuota(String name, KafkaClientQuotaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/kafkaClientQuota:KafkaClientQuota", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public KafkaClientQuota(java.lang.String name, KafkaClientQuotaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/kafkaClientQuota:KafkaClientQuota", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KafkaClientQuota(String name, Output<String> id, @Nullable KafkaClientQuotaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/kafkaClientQuota:KafkaClientQuota", name, state, makeResourceOptions(options, id));
+    private KafkaClientQuota(java.lang.String name, Output<java.lang.String> id, @Nullable KafkaClientQuotaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/kafkaClientQuota:KafkaClientQuota", name, state, makeResourceOptions(options, id), false);
     }
 
     private static KafkaClientQuotaArgs makeArgs(KafkaClientQuotaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -201,7 +201,7 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
         return args == null ? KafkaClientQuotaArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -217,7 +217,7 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KafkaClientQuota get(String name, Output<String> id, @Nullable KafkaClientQuotaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KafkaClientQuota get(java.lang.String name, Output<java.lang.String> id, @Nullable KafkaClientQuotaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KafkaClientQuota(name, id, state, options);
     }
 }

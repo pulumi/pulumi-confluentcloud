@@ -121,10 +121,10 @@ class AwaitableGetBusinessMetadataResult(GetBusinessMetadataResult):
             version=self.version)
 
 
-def get_business_metadata(credentials: Optional[pulumi.InputType['GetBusinessMetadataCredentialsArgs']] = None,
+def get_business_metadata(credentials: Optional[Union['GetBusinessMetadataCredentialsArgs', 'GetBusinessMetadataCredentialsArgsDict']] = None,
                           name: Optional[str] = None,
                           rest_endpoint: Optional[str] = None,
-                          schema_registry_cluster: Optional[pulumi.InputType['GetBusinessMetadataSchemaRegistryClusterArgs']] = None,
+                          schema_registry_cluster: Optional[Union['GetBusinessMetadataSchemaRegistryClusterArgs', 'GetBusinessMetadataSchemaRegistryClusterArgsDict']] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBusinessMetadataResult:
     """
     Use this data source to access information about an existing resource.
@@ -154,10 +154,10 @@ def get_business_metadata(credentials: Optional[pulumi.InputType['GetBusinessMet
 
 
 @_utilities.lift_output_func(get_business_metadata)
-def get_business_metadata_output(credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetBusinessMetadataCredentialsArgs']]]] = None,
+def get_business_metadata_output(credentials: Optional[pulumi.Input[Optional[Union['GetBusinessMetadataCredentialsArgs', 'GetBusinessMetadataCredentialsArgsDict']]]] = None,
                                  name: Optional[pulumi.Input[str]] = None,
                                  rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
-                                 schema_registry_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetBusinessMetadataSchemaRegistryClusterArgs']]]] = None,
+                                 schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetBusinessMetadataSchemaRegistryClusterArgs', 'GetBusinessMetadataSchemaRegistryClusterArgsDict']]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBusinessMetadataResult]:
     """
     Use this data source to access information about an existing resource.

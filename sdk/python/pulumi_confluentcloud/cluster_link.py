@@ -260,12 +260,12 @@ class ClusterLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
-                 destination_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkDestinationKafkaClusterArgs']]] = None,
+                 destination_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkDestinationKafkaClusterArgs', 'ClusterLinkDestinationKafkaClusterArgsDict']]] = None,
                  link: Optional[pulumi.Input[str]] = None,
                  link_mode: Optional[pulumi.Input[str]] = None,
-                 local_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkLocalKafkaClusterArgs']]] = None,
-                 remote_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkRemoteKafkaClusterArgs']]] = None,
-                 source_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkSourceKafkaClusterArgs']]] = None,
+                 local_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkLocalKafkaClusterArgs', 'ClusterLinkLocalKafkaClusterArgsDict']]] = None,
+                 remote_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkRemoteKafkaClusterArgs', 'ClusterLinkRemoteKafkaClusterArgsDict']]] = None,
+                 source_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkSourceKafkaClusterArgs', 'ClusterLinkSourceKafkaClusterArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -278,41 +278,41 @@ class ClusterLink(pulumi.CustomResource):
         east_to_west = confluentcloud.ClusterLink("east-to-west",
             link="bidirectional-link",
             link_mode="BIDIRECTIONAL",
-            local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(
-                id=east["id"],
-                rest_endpoint=east["restEndpoint"],
-                credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(
-                    key=app_manager_east_cluster_api_key["id"],
-                    secret=app_manager_east_cluster_api_key["secret"],
-                ),
-            ),
-            remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(
-                id=west["id"],
-                bootstrap_endpoint=west["bootstrapEndpoint"],
-                credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(
-                    key=app_manager_west_cluster_api_key["id"],
-                    secret=app_manager_west_cluster_api_key["secret"],
-                ),
-            ))
+            local_kafka_cluster={
+                "id": east["id"],
+                "rest_endpoint": east["restEndpoint"],
+                "credentials": {
+                    "key": app_manager_east_cluster_api_key["id"],
+                    "secret": app_manager_east_cluster_api_key["secret"],
+                },
+            },
+            remote_kafka_cluster={
+                "id": west["id"],
+                "bootstrap_endpoint": west["bootstrapEndpoint"],
+                "credentials": {
+                    "key": app_manager_west_cluster_api_key["id"],
+                    "secret": app_manager_west_cluster_api_key["secret"],
+                },
+            })
         west_to_east = confluentcloud.ClusterLink("west-to-east",
             link="bidirectional-link",
             link_mode="BIDIRECTIONAL",
-            local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(
-                id=west["id"],
-                rest_endpoint=west["restEndpoint"],
-                credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(
-                    key=app_manager_west_cluster_api_key["id"],
-                    secret=app_manager_west_cluster_api_key["secret"],
-                ),
-            ),
-            remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(
-                id=east["id"],
-                bootstrap_endpoint=east["bootstrapEndpoint"],
-                credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(
-                    key=app_manager_east_cluster_api_key["id"],
-                    secret=app_manager_east_cluster_api_key["secret"],
-                ),
-            ))
+            local_kafka_cluster={
+                "id": west["id"],
+                "rest_endpoint": west["restEndpoint"],
+                "credentials": {
+                    "key": app_manager_west_cluster_api_key["id"],
+                    "secret": app_manager_west_cluster_api_key["secret"],
+                },
+            },
+            remote_kafka_cluster={
+                "id": east["id"],
+                "bootstrap_endpoint": east["bootstrapEndpoint"],
+                "credentials": {
+                    "key": app_manager_east_cluster_api_key["id"],
+                    "secret": app_manager_east_cluster_api_key["secret"],
+                },
+            })
         ```
 
         ## Getting Started
@@ -393,41 +393,41 @@ class ClusterLink(pulumi.CustomResource):
         east_to_west = confluentcloud.ClusterLink("east-to-west",
             link="bidirectional-link",
             link_mode="BIDIRECTIONAL",
-            local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(
-                id=east["id"],
-                rest_endpoint=east["restEndpoint"],
-                credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(
-                    key=app_manager_east_cluster_api_key["id"],
-                    secret=app_manager_east_cluster_api_key["secret"],
-                ),
-            ),
-            remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(
-                id=west["id"],
-                bootstrap_endpoint=west["bootstrapEndpoint"],
-                credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(
-                    key=app_manager_west_cluster_api_key["id"],
-                    secret=app_manager_west_cluster_api_key["secret"],
-                ),
-            ))
+            local_kafka_cluster={
+                "id": east["id"],
+                "rest_endpoint": east["restEndpoint"],
+                "credentials": {
+                    "key": app_manager_east_cluster_api_key["id"],
+                    "secret": app_manager_east_cluster_api_key["secret"],
+                },
+            },
+            remote_kafka_cluster={
+                "id": west["id"],
+                "bootstrap_endpoint": west["bootstrapEndpoint"],
+                "credentials": {
+                    "key": app_manager_west_cluster_api_key["id"],
+                    "secret": app_manager_west_cluster_api_key["secret"],
+                },
+            })
         west_to_east = confluentcloud.ClusterLink("west-to-east",
             link="bidirectional-link",
             link_mode="BIDIRECTIONAL",
-            local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(
-                id=west["id"],
-                rest_endpoint=west["restEndpoint"],
-                credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(
-                    key=app_manager_west_cluster_api_key["id"],
-                    secret=app_manager_west_cluster_api_key["secret"],
-                ),
-            ),
-            remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(
-                id=east["id"],
-                bootstrap_endpoint=east["bootstrapEndpoint"],
-                credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(
-                    key=app_manager_east_cluster_api_key["id"],
-                    secret=app_manager_east_cluster_api_key["secret"],
-                ),
-            ))
+            local_kafka_cluster={
+                "id": west["id"],
+                "rest_endpoint": west["restEndpoint"],
+                "credentials": {
+                    "key": app_manager_west_cluster_api_key["id"],
+                    "secret": app_manager_west_cluster_api_key["secret"],
+                },
+            },
+            remote_kafka_cluster={
+                "id": east["id"],
+                "bootstrap_endpoint": east["bootstrapEndpoint"],
+                "credentials": {
+                    "key": app_manager_east_cluster_api_key["id"],
+                    "secret": app_manager_east_cluster_api_key["secret"],
+                },
+            })
         ```
 
         ## Getting Started
@@ -501,12 +501,12 @@ class ClusterLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
-                 destination_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkDestinationKafkaClusterArgs']]] = None,
+                 destination_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkDestinationKafkaClusterArgs', 'ClusterLinkDestinationKafkaClusterArgsDict']]] = None,
                  link: Optional[pulumi.Input[str]] = None,
                  link_mode: Optional[pulumi.Input[str]] = None,
-                 local_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkLocalKafkaClusterArgs']]] = None,
-                 remote_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkRemoteKafkaClusterArgs']]] = None,
-                 source_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkSourceKafkaClusterArgs']]] = None,
+                 local_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkLocalKafkaClusterArgs', 'ClusterLinkLocalKafkaClusterArgsDict']]] = None,
+                 remote_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkRemoteKafkaClusterArgs', 'ClusterLinkRemoteKafkaClusterArgsDict']]] = None,
+                 source_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkSourceKafkaClusterArgs', 'ClusterLinkSourceKafkaClusterArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -536,12 +536,12 @@ class ClusterLink(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             connection_mode: Optional[pulumi.Input[str]] = None,
-            destination_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkDestinationKafkaClusterArgs']]] = None,
+            destination_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkDestinationKafkaClusterArgs', 'ClusterLinkDestinationKafkaClusterArgsDict']]] = None,
             link: Optional[pulumi.Input[str]] = None,
             link_mode: Optional[pulumi.Input[str]] = None,
-            local_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkLocalKafkaClusterArgs']]] = None,
-            remote_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkRemoteKafkaClusterArgs']]] = None,
-            source_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkSourceKafkaClusterArgs']]] = None) -> 'ClusterLink':
+            local_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkLocalKafkaClusterArgs', 'ClusterLinkLocalKafkaClusterArgsDict']]] = None,
+            remote_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkRemoteKafkaClusterArgs', 'ClusterLinkRemoteKafkaClusterArgsDict']]] = None,
+            source_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkSourceKafkaClusterArgs', 'ClusterLinkSourceKafkaClusterArgsDict']]] = None) -> 'ClusterLink':
         """
         Get an existing ClusterLink resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

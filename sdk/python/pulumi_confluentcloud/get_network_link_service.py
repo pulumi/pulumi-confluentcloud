@@ -115,8 +115,8 @@ class AwaitableGetNetworkLinkServiceResult(GetNetworkLinkServiceResult):
             resource_name=self.resource_name)
 
 
-def get_network_link_service(accept: Optional[pulumi.InputType['GetNetworkLinkServiceAcceptArgs']] = None,
-                             environment: Optional[pulumi.InputType['GetNetworkLinkServiceEnvironmentArgs']] = None,
+def get_network_link_service(accept: Optional[Union['GetNetworkLinkServiceAcceptArgs', 'GetNetworkLinkServiceAcceptArgsDict']] = None,
+                             environment: Optional[Union['GetNetworkLinkServiceEnvironmentArgs', 'GetNetworkLinkServiceEnvironmentArgsDict']] = None,
                              id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkLinkServiceResult:
     """
@@ -131,14 +131,14 @@ def get_network_link_service(accept: Optional[pulumi.InputType['GetNetworkLinkSe
     import pulumi_confluentcloud as confluentcloud
 
     nls = confluentcloud.get_network_link_service(id="nls-zyw30",
-        environment=confluentcloud.GetNetworkLinkServiceEnvironmentArgs(
-            id="env-1234",
-        ))
+        environment={
+            "id": "env-1234",
+        })
     pulumi.export("networkLinkService", nls)
     ```
 
 
-    :param pulumi.InputType['GetNetworkLinkServiceAcceptArgs'] accept: (Optional Configuration Block) supports the following:
+    :param Union['GetNetworkLinkServiceAcceptArgs', 'GetNetworkLinkServiceAcceptArgsDict'] accept: (Optional Configuration Block) supports the following:
     :param str id: The ID of the Network Link Service, for example, `nls-zyw30`.
     """
     __args__ = dict()
@@ -159,8 +159,8 @@ def get_network_link_service(accept: Optional[pulumi.InputType['GetNetworkLinkSe
 
 
 @_utilities.lift_output_func(get_network_link_service)
-def get_network_link_service_output(accept: Optional[pulumi.Input[Optional[pulumi.InputType['GetNetworkLinkServiceAcceptArgs']]]] = None,
-                                    environment: Optional[pulumi.Input[pulumi.InputType['GetNetworkLinkServiceEnvironmentArgs']]] = None,
+def get_network_link_service_output(accept: Optional[pulumi.Input[Optional[Union['GetNetworkLinkServiceAcceptArgs', 'GetNetworkLinkServiceAcceptArgsDict']]]] = None,
+                                    environment: Optional[pulumi.Input[Union['GetNetworkLinkServiceEnvironmentArgs', 'GetNetworkLinkServiceEnvironmentArgsDict']]] = None,
                                     id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkLinkServiceResult]:
     """
@@ -175,14 +175,14 @@ def get_network_link_service_output(accept: Optional[pulumi.Input[Optional[pulum
     import pulumi_confluentcloud as confluentcloud
 
     nls = confluentcloud.get_network_link_service(id="nls-zyw30",
-        environment=confluentcloud.GetNetworkLinkServiceEnvironmentArgs(
-            id="env-1234",
-        ))
+        environment={
+            "id": "env-1234",
+        })
     pulumi.export("networkLinkService", nls)
     ```
 
 
-    :param pulumi.InputType['GetNetworkLinkServiceAcceptArgs'] accept: (Optional Configuration Block) supports the following:
+    :param Union['GetNetworkLinkServiceAcceptArgs', 'GetNetworkLinkServiceAcceptArgsDict'] accept: (Optional Configuration Block) supports the following:
     :param str id: The ID of the Network Link Service, for example, `nls-zyw30`.
     """
     ...

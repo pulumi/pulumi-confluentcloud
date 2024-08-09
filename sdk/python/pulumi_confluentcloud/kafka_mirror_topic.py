@@ -159,10 +159,10 @@ class KafkaMirrorTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_link: Optional[pulumi.Input[pulumi.InputType['KafkaMirrorTopicClusterLinkArgs']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KafkaMirrorTopicKafkaClusterArgs']]] = None,
+                 cluster_link: Optional[pulumi.Input[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict']]] = None,
+                 kafka_cluster: Optional[pulumi.Input[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict']]] = None,
                  mirror_topic_name: Optional[pulumi.Input[str]] = None,
-                 source_kafka_topic: Optional[pulumi.Input[pulumi.InputType['KafkaMirrorTopicSourceKafkaTopicArgs']]] = None,
+                 source_kafka_topic: Optional[pulumi.Input[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -173,20 +173,20 @@ class KafkaMirrorTopic(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         example = confluentcloud.KafkaMirrorTopic("example",
-            source_kafka_topic=confluentcloud.KafkaMirrorTopicSourceKafkaTopicArgs(
-                topic_name="orders",
-            ),
-            cluster_link=confluentcloud.KafkaMirrorTopicClusterLinkArgs(
-                link_name=source_outbound["linkName"],
-            ),
-            kafka_cluster=confluentcloud.KafkaMirrorTopicKafkaClusterArgs(
-                id=destination["id"],
-                rest_endpoint=destination["restEndpoint"],
-                credentials=confluentcloud.KafkaMirrorTopicKafkaClusterCredentialsArgs(
-                    key=app_manager_destination_cluster_api_key["id"],
-                    secret=app_manager_destination_cluster_api_key["secret"],
-                ),
-            ))
+            source_kafka_topic={
+                "topic_name": "orders",
+            },
+            cluster_link={
+                "link_name": source_outbound["linkName"],
+            },
+            kafka_cluster={
+                "id": destination["id"],
+                "rest_endpoint": destination["restEndpoint"],
+                "credentials": {
+                    "key": app_manager_destination_cluster_api_key["id"],
+                    "secret": app_manager_destination_cluster_api_key["secret"],
+                },
+            })
         ```
 
         ## Getting Started
@@ -231,20 +231,20 @@ class KafkaMirrorTopic(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         example = confluentcloud.KafkaMirrorTopic("example",
-            source_kafka_topic=confluentcloud.KafkaMirrorTopicSourceKafkaTopicArgs(
-                topic_name="orders",
-            ),
-            cluster_link=confluentcloud.KafkaMirrorTopicClusterLinkArgs(
-                link_name=source_outbound["linkName"],
-            ),
-            kafka_cluster=confluentcloud.KafkaMirrorTopicKafkaClusterArgs(
-                id=destination["id"],
-                rest_endpoint=destination["restEndpoint"],
-                credentials=confluentcloud.KafkaMirrorTopicKafkaClusterCredentialsArgs(
-                    key=app_manager_destination_cluster_api_key["id"],
-                    secret=app_manager_destination_cluster_api_key["secret"],
-                ),
-            ))
+            source_kafka_topic={
+                "topic_name": "orders",
+            },
+            cluster_link={
+                "link_name": source_outbound["linkName"],
+            },
+            kafka_cluster={
+                "id": destination["id"],
+                "rest_endpoint": destination["restEndpoint"],
+                "credentials": {
+                    "key": app_manager_destination_cluster_api_key["id"],
+                    "secret": app_manager_destination_cluster_api_key["secret"],
+                },
+            })
         ```
 
         ## Getting Started
@@ -286,10 +286,10 @@ class KafkaMirrorTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_link: Optional[pulumi.Input[pulumi.InputType['KafkaMirrorTopicClusterLinkArgs']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KafkaMirrorTopicKafkaClusterArgs']]] = None,
+                 cluster_link: Optional[pulumi.Input[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict']]] = None,
+                 kafka_cluster: Optional[pulumi.Input[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict']]] = None,
                  mirror_topic_name: Optional[pulumi.Input[str]] = None,
-                 source_kafka_topic: Optional[pulumi.Input[pulumi.InputType['KafkaMirrorTopicSourceKafkaTopicArgs']]] = None,
+                 source_kafka_topic: Optional[pulumi.Input[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -321,10 +321,10 @@ class KafkaMirrorTopic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_link: Optional[pulumi.Input[pulumi.InputType['KafkaMirrorTopicClusterLinkArgs']]] = None,
-            kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KafkaMirrorTopicKafkaClusterArgs']]] = None,
+            cluster_link: Optional[pulumi.Input[Union['KafkaMirrorTopicClusterLinkArgs', 'KafkaMirrorTopicClusterLinkArgsDict']]] = None,
+            kafka_cluster: Optional[pulumi.Input[Union['KafkaMirrorTopicKafkaClusterArgs', 'KafkaMirrorTopicKafkaClusterArgsDict']]] = None,
             mirror_topic_name: Optional[pulumi.Input[str]] = None,
-            source_kafka_topic: Optional[pulumi.Input[pulumi.InputType['KafkaMirrorTopicSourceKafkaTopicArgs']]] = None,
+            source_kafka_topic: Optional[pulumi.Input[Union['KafkaMirrorTopicSourceKafkaTopicArgs', 'KafkaMirrorTopicSourceKafkaTopicArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None) -> 'KafkaMirrorTopic':
         """
         Get an existing KafkaMirrorTopic resource's state with the given name, id, and optional extra

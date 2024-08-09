@@ -246,12 +246,12 @@ class AwaitableGetNetworkResult(GetNetworkResult):
             zones=self.zones)
 
 
-def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = None,
-                azures: Optional[Sequence[pulumi.InputType['GetNetworkAzureArgs']]] = None,
+def get_network(aws: Optional[Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwArgsDict']]] = None,
+                azures: Optional[Sequence[Union['GetNetworkAzureArgs', 'GetNetworkAzureArgsDict']]] = None,
                 display_name: Optional[str] = None,
-                dns_configs: Optional[Sequence[pulumi.InputType['GetNetworkDnsConfigArgs']]] = None,
-                environment: Optional[pulumi.InputType['GetNetworkEnvironmentArgs']] = None,
-                gcps: Optional[Sequence[pulumi.InputType['GetNetworkGcpArgs']]] = None,
+                dns_configs: Optional[Sequence[Union['GetNetworkDnsConfigArgs', 'GetNetworkDnsConfigArgsDict']]] = None,
+                environment: Optional[Union['GetNetworkEnvironmentArgs', 'GetNetworkEnvironmentArgsDict']] = None,
+                gcps: Optional[Sequence[Union['GetNetworkGcpArgs', 'GetNetworkGcpArgsDict']]] = None,
                 id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkResult:
     """
@@ -262,25 +262,25 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_network(id="n-abc123",
-        environment=confluentcloud.GetNetworkEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     test_sa = confluentcloud.ServiceAccount("test-sa",
         display_name="test_sa",
         description=f"test_sa for {example_using_id.display_name}")
     example_using_name = confluentcloud.get_network(display_name="my_network",
-        environment=confluentcloud.GetNetworkEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNetworkAwArgs']] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-    :param Sequence[pulumi.InputType['GetNetworkAzureArgs']] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
+    :param Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwArgsDict']] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
+    :param Sequence[Union['GetNetworkAzureArgs', 'GetNetworkAzureArgsDict']] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
     :param str display_name: A human-readable name for the Network.
-    :param Sequence[pulumi.InputType['GetNetworkDnsConfigArgs']] dns_configs: (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-    :param Sequence[pulumi.InputType['GetNetworkGcpArgs']] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
+    :param Sequence[Union['GetNetworkDnsConfigArgs', 'GetNetworkDnsConfigArgsDict']] dns_configs: (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+    :param Sequence[Union['GetNetworkGcpArgs', 'GetNetworkGcpArgsDict']] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
     :param str id: The ID of the Network, for example, `n-abc123`.
     """
     __args__ = dict()
@@ -316,12 +316,12 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
 
 
 @_utilities.lift_output_func(get_network)
-def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]]]] = None,
-                       azures: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkAzureArgs']]]]] = None,
+def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwArgsDict']]]]] = None,
+                       azures: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkAzureArgs', 'GetNetworkAzureArgsDict']]]]] = None,
                        display_name: Optional[pulumi.Input[Optional[str]]] = None,
-                       dns_configs: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkDnsConfigArgs']]]]] = None,
-                       environment: Optional[pulumi.Input[pulumi.InputType['GetNetworkEnvironmentArgs']]] = None,
-                       gcps: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkGcpArgs']]]]] = None,
+                       dns_configs: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkDnsConfigArgs', 'GetNetworkDnsConfigArgsDict']]]]] = None,
+                       environment: Optional[pulumi.Input[Union['GetNetworkEnvironmentArgs', 'GetNetworkEnvironmentArgsDict']]] = None,
+                       gcps: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkGcpArgs', 'GetNetworkGcpArgsDict']]]]] = None,
                        id: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkResult]:
     """
@@ -332,25 +332,25 @@ def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[pulumi.Input
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_network(id="n-abc123",
-        environment=confluentcloud.GetNetworkEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     test_sa = confluentcloud.ServiceAccount("test-sa",
         display_name="test_sa",
         description=f"test_sa for {example_using_id.display_name}")
     example_using_name = confluentcloud.get_network(display_name="my_network",
-        environment=confluentcloud.GetNetworkEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNetworkAwArgs']] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
-    :param Sequence[pulumi.InputType['GetNetworkAzureArgs']] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
+    :param Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwArgsDict']] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
+    :param Sequence[Union['GetNetworkAzureArgs', 'GetNetworkAzureArgsDict']] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
     :param str display_name: A human-readable name for the Network.
-    :param Sequence[pulumi.InputType['GetNetworkDnsConfigArgs']] dns_configs: (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-    :param Sequence[pulumi.InputType['GetNetworkGcpArgs']] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
+    :param Sequence[Union['GetNetworkDnsConfigArgs', 'GetNetworkDnsConfigArgsDict']] dns_configs: (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+    :param Sequence[Union['GetNetworkGcpArgs', 'GetNetworkGcpArgsDict']] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
     :param str id: The ID of the Network, for example, `n-abc123`.
     """
     ...

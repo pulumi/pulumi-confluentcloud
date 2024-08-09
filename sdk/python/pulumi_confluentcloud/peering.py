@@ -204,12 +204,12 @@ class Peering(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[pulumi.InputType['PeeringAwsArgs']]] = None,
-                 azure: Optional[pulumi.Input[pulumi.InputType['PeeringAzureArgs']]] = None,
+                 aws: Optional[pulumi.Input[Union['PeeringAwsArgs', 'PeeringAwsArgsDict']]] = None,
+                 azure: Optional[pulumi.Input[Union['PeeringAzureArgs', 'PeeringAzureArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['PeeringEnvironmentArgs']]] = None,
-                 gcp: Optional[pulumi.Input[pulumi.InputType['PeeringGcpArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['PeeringNetworkArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']]] = None,
+                 gcp: Optional[pulumi.Input[Union['PeeringGcpArgs', 'PeeringGcpArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -227,23 +227,23 @@ class Peering(pulumi.CustomResource):
             region="us-east-2",
             cidr="10.10.0.0/16",
             connection_types=["PEERING"],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         aws = confluentcloud.Peering("aws",
             display_name="AWS Peering",
-            aws=confluentcloud.PeeringAwsArgs(
-                account="012345678901",
-                vpc="vpc-abcdef0123456789a",
-                routes=["172.31.0.0/16"],
-                customer_region="us-east-2",
-            ),
-            environment=confluentcloud.PeeringEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.PeeringNetworkArgs(
-                id=aws_peering.id,
-            ))
+            aws={
+                "account": "012345678901",
+                "vpc": "vpc-abcdef0123456789a",
+                "routes": ["172.31.0.0/16"],
+                "customer_region": "us-east-2",
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": aws_peering.id,
+            })
         ```
 
         ### Example Peering on Azure
@@ -259,22 +259,22 @@ class Peering(pulumi.CustomResource):
             region="centralus",
             cidr="10.10.0.0/16",
             connection_types=["PEERING"],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         azure = confluentcloud.Peering("azure",
             display_name="Azure Peering",
-            azure=confluentcloud.PeeringAzureArgs(
-                tenant="1111tttt-1111-1111-1111-111111tttttt",
-                vnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet",
-                customer_region="centralus",
-            ),
-            environment=confluentcloud.PeeringEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.PeeringNetworkArgs(
-                id=azure_peering.id,
-            ))
+            azure={
+                "tenant": "1111tttt-1111-1111-1111-111111tttttt",
+                "vnet": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet",
+                "customer_region": "centralus",
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": azure_peering.id,
+            })
         ```
 
         ## Import
@@ -294,8 +294,8 @@ class Peering(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The name of the Peering.
-        :param pulumi.Input[pulumi.InputType['PeeringEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[pulumi.InputType['PeeringNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
+        :param pulumi.Input[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         """
         ...
@@ -320,23 +320,23 @@ class Peering(pulumi.CustomResource):
             region="us-east-2",
             cidr="10.10.0.0/16",
             connection_types=["PEERING"],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         aws = confluentcloud.Peering("aws",
             display_name="AWS Peering",
-            aws=confluentcloud.PeeringAwsArgs(
-                account="012345678901",
-                vpc="vpc-abcdef0123456789a",
-                routes=["172.31.0.0/16"],
-                customer_region="us-east-2",
-            ),
-            environment=confluentcloud.PeeringEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.PeeringNetworkArgs(
-                id=aws_peering.id,
-            ))
+            aws={
+                "account": "012345678901",
+                "vpc": "vpc-abcdef0123456789a",
+                "routes": ["172.31.0.0/16"],
+                "customer_region": "us-east-2",
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": aws_peering.id,
+            })
         ```
 
         ### Example Peering on Azure
@@ -352,22 +352,22 @@ class Peering(pulumi.CustomResource):
             region="centralus",
             cidr="10.10.0.0/16",
             connection_types=["PEERING"],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         azure = confluentcloud.Peering("azure",
             display_name="Azure Peering",
-            azure=confluentcloud.PeeringAzureArgs(
-                tenant="1111tttt-1111-1111-1111-111111tttttt",
-                vnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet",
-                customer_region="centralus",
-            ),
-            environment=confluentcloud.PeeringEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.PeeringNetworkArgs(
-                id=azure_peering.id,
-            ))
+            azure={
+                "tenant": "1111tttt-1111-1111-1111-111111tttttt",
+                "vnet": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet",
+                "customer_region": "centralus",
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": azure_peering.id,
+            })
         ```
 
         ## Import
@@ -399,12 +399,12 @@ class Peering(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[pulumi.InputType['PeeringAwsArgs']]] = None,
-                 azure: Optional[pulumi.Input[pulumi.InputType['PeeringAzureArgs']]] = None,
+                 aws: Optional[pulumi.Input[Union['PeeringAwsArgs', 'PeeringAwsArgsDict']]] = None,
+                 azure: Optional[pulumi.Input[Union['PeeringAzureArgs', 'PeeringAzureArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['PeeringEnvironmentArgs']]] = None,
-                 gcp: Optional[pulumi.Input[pulumi.InputType['PeeringGcpArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['PeeringNetworkArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']]] = None,
+                 gcp: Optional[pulumi.Input[Union['PeeringGcpArgs', 'PeeringGcpArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -434,12 +434,12 @@ class Peering(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[pulumi.InputType['PeeringAwsArgs']]] = None,
-            azure: Optional[pulumi.Input[pulumi.InputType['PeeringAzureArgs']]] = None,
+            aws: Optional[pulumi.Input[Union['PeeringAwsArgs', 'PeeringAwsArgsDict']]] = None,
+            azure: Optional[pulumi.Input[Union['PeeringAzureArgs', 'PeeringAzureArgsDict']]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            environment: Optional[pulumi.Input[pulumi.InputType['PeeringEnvironmentArgs']]] = None,
-            gcp: Optional[pulumi.Input[pulumi.InputType['PeeringGcpArgs']]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['PeeringNetworkArgs']]] = None) -> 'Peering':
+            environment: Optional[pulumi.Input[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']]] = None,
+            gcp: Optional[pulumi.Input[Union['PeeringGcpArgs', 'PeeringGcpArgsDict']]] = None,
+            network: Optional[pulumi.Input[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']]] = None) -> 'Peering':
         """
         Get an existing Peering resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -448,8 +448,8 @@ class Peering(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The name of the Peering.
-        :param pulumi.Input[pulumi.InputType['PeeringEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[pulumi.InputType['PeeringNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
+        :param pulumi.Input[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

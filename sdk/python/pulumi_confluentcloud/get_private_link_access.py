@@ -119,7 +119,7 @@ class AwaitableGetPrivateLinkAccessResult(GetPrivateLinkAccessResult):
 
 
 def get_private_link_access(display_name: Optional[str] = None,
-                            environment: Optional[pulumi.InputType['GetPrivateLinkAccessEnvironmentArgs']] = None,
+                            environment: Optional[Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict']] = None,
                             id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkAccessResult:
     """
@@ -134,20 +134,20 @@ def get_private_link_access(display_name: Optional[str] = None,
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_private_link_access(id="pla-abc123",
-        environment=confluentcloud.GetPrivateLinkAccessEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_private_link_access(display_name="my_pla",
-        environment=confluentcloud.GetPrivateLinkAccessEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
     :param str display_name: A human-readable name for the Private Link Access.
-    :param pulumi.InputType['GetPrivateLinkAccessEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Private Link Access, for example, `pla-abc123`.
     """
     __args__ = dict()
@@ -169,7 +169,7 @@ def get_private_link_access(display_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_private_link_access)
 def get_private_link_access_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
-                                   environment: Optional[pulumi.Input[pulumi.InputType['GetPrivateLinkAccessEnvironmentArgs']]] = None,
+                                   environment: Optional[pulumi.Input[Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict']]] = None,
                                    id: Optional[pulumi.Input[Optional[str]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkAccessResult]:
     """
@@ -184,20 +184,20 @@ def get_private_link_access_output(display_name: Optional[pulumi.Input[Optional[
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_private_link_access(id="pla-abc123",
-        environment=confluentcloud.GetPrivateLinkAccessEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_private_link_access(display_name="my_pla",
-        environment=confluentcloud.GetPrivateLinkAccessEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
     :param str display_name: A human-readable name for the Private Link Access.
-    :param pulumi.InputType['GetPrivateLinkAccessEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
+    :param Union['GetPrivateLinkAccessEnvironmentArgs', 'GetPrivateLinkAccessEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Private Link Access, for example, `pla-abc123`.
     """
     ...

@@ -205,9 +205,9 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['NetworkLinkEndpointEnvironmentArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['NetworkLinkEndpointNetworkArgs']]] = None,
-                 network_link_service: Optional[pulumi.Input[pulumi.InputType['NetworkLinkEndpointNetworkLinkServiceArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']]] = None,
+                 network_link_service: Optional[pulumi.Input[Union['NetworkLinkEndpointNetworkLinkServiceArgs', 'NetworkLinkEndpointNetworkLinkServiceArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -219,15 +219,15 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
         nle = confluentcloud.NetworkLinkEndpoint("nle",
             display_name="nle1",
             description="TEST-NLE1",
-            environment=confluentcloud.NetworkLinkEndpointEnvironmentArgs(
-                id="env-xyz456",
-            ),
-            network=confluentcloud.NetworkLinkEndpointNetworkArgs(
-                id="n-abc123",
-            ),
-            network_link_service=confluentcloud.NetworkLinkEndpointNetworkLinkServiceArgs(
-                id="nls-g3e1ox",
-            ))
+            environment={
+                "id": "env-xyz456",
+            },
+            network={
+                "id": "n-abc123",
+            },
+            network_link_service={
+                "id": "nls-g3e1ox",
+            })
         pulumi.export("networkLinkEndpoint", nle)
         ```
 
@@ -254,8 +254,8 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Network Link Endpoint.
         :param pulumi.Input[str] display_name: The name of the Network Link Endpoint.
-        :param pulumi.Input[pulumi.InputType['NetworkLinkEndpointEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[pulumi.InputType['NetworkLinkEndpointNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
+        :param pulumi.Input[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         """
         ...
@@ -274,15 +274,15 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
         nle = confluentcloud.NetworkLinkEndpoint("nle",
             display_name="nle1",
             description="TEST-NLE1",
-            environment=confluentcloud.NetworkLinkEndpointEnvironmentArgs(
-                id="env-xyz456",
-            ),
-            network=confluentcloud.NetworkLinkEndpointNetworkArgs(
-                id="n-abc123",
-            ),
-            network_link_service=confluentcloud.NetworkLinkEndpointNetworkLinkServiceArgs(
-                id="nls-g3e1ox",
-            ))
+            environment={
+                "id": "env-xyz456",
+            },
+            network={
+                "id": "n-abc123",
+            },
+            network_link_service={
+                "id": "nls-g3e1ox",
+            })
         pulumi.export("networkLinkEndpoint", nle)
         ```
 
@@ -322,9 +322,9 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['NetworkLinkEndpointEnvironmentArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['NetworkLinkEndpointNetworkArgs']]] = None,
-                 network_link_service: Optional[pulumi.Input[pulumi.InputType['NetworkLinkEndpointNetworkLinkServiceArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']]] = None,
+                 network_link_service: Optional[pulumi.Input[Union['NetworkLinkEndpointNetworkLinkServiceArgs', 'NetworkLinkEndpointNetworkLinkServiceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -358,9 +358,9 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            environment: Optional[pulumi.Input[pulumi.InputType['NetworkLinkEndpointEnvironmentArgs']]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['NetworkLinkEndpointNetworkArgs']]] = None,
-            network_link_service: Optional[pulumi.Input[pulumi.InputType['NetworkLinkEndpointNetworkLinkServiceArgs']]] = None,
+            environment: Optional[pulumi.Input[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']]] = None,
+            network: Optional[pulumi.Input[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']]] = None,
+            network_link_service: Optional[pulumi.Input[Union['NetworkLinkEndpointNetworkLinkServiceArgs', 'NetworkLinkEndpointNetworkLinkServiceArgsDict']]] = None,
             resource_name_: Optional[pulumi.Input[str]] = None) -> 'NetworkLinkEndpoint':
         """
         Get an existing NetworkLinkEndpoint resource's state with the given name, id, and optional extra
@@ -371,8 +371,8 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Network Link Endpoint.
         :param pulumi.Input[str] display_name: The name of the Network Link Endpoint.
-        :param pulumi.Input[pulumi.InputType['NetworkLinkEndpointEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[pulumi.InputType['NetworkLinkEndpointNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
+        :param pulumi.Input[Union['NetworkLinkEndpointEnvironmentArgs', 'NetworkLinkEndpointEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['NetworkLinkEndpointNetworkArgs', 'NetworkLinkEndpointNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         :param pulumi.Input[str] resource_name_: (Required String) The Confluent Resource Name of the Network Link Endpoint.
         """

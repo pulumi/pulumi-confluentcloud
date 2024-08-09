@@ -164,10 +164,10 @@ class TransitGatewayAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[pulumi.InputType['TransitGatewayAttachmentAwsArgs']]] = None,
+                 aws: Optional[pulumi.Input[Union['TransitGatewayAttachmentAwsArgs', 'TransitGatewayAttachmentAwsArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['TransitGatewayAttachmentEnvironmentArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['TransitGatewayAttachmentNetworkArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['TransitGatewayAttachmentEnvironmentArgs', 'TransitGatewayAttachmentEnvironmentArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['TransitGatewayAttachmentNetworkArgs', 'TransitGatewayAttachmentNetworkArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -185,27 +185,27 @@ class TransitGatewayAttachment(pulumi.CustomResource):
             region="us-east-2",
             cidr="10.10.0.0/16",
             connection_types=["TRANSITGATEWAY"],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         aws = confluentcloud.TransitGatewayAttachment("aws",
             display_name="AWS Transit Gateway Attachment",
-            aws=confluentcloud.TransitGatewayAttachmentAwsArgs(
-                ram_resource_share_arn="arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-                transit_gateway_id="tgw-xxxxxxxxxxxxxxxxx",
-                routes=[
+            aws={
+                "ram_resource_share_arn": "arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+                "transit_gateway_id": "tgw-xxxxxxxxxxxxxxxxx",
+                "routes": [
                     "192.168.0.0/16",
                     "172.16.0.0/12",
                     "100.64.0.0/10",
                     "10.0.0.0/8",
                 ],
-            ),
-            environment=confluentcloud.TransitGatewayAttachmentEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.TransitGatewayAttachmentNetworkArgs(
-                id=aws_transit_gateway_attachment.id,
-            ))
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": aws_transit_gateway_attachment.id,
+            })
         ```
 
         ## Getting Started
@@ -230,10 +230,10 @@ class TransitGatewayAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TransitGatewayAttachmentAwsArgs']] aws: (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
+        :param pulumi.Input[Union['TransitGatewayAttachmentAwsArgs', 'TransitGatewayAttachmentAwsArgsDict']] aws: (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
         :param pulumi.Input[str] display_name: The name of the Transit Gateway Attachment.
-        :param pulumi.Input[pulumi.InputType['TransitGatewayAttachmentEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[pulumi.InputType['TransitGatewayAttachmentNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
+        :param pulumi.Input[Union['TransitGatewayAttachmentEnvironmentArgs', 'TransitGatewayAttachmentEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['TransitGatewayAttachmentNetworkArgs', 'TransitGatewayAttachmentNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         """
         ...
@@ -258,27 +258,27 @@ class TransitGatewayAttachment(pulumi.CustomResource):
             region="us-east-2",
             cidr="10.10.0.0/16",
             connection_types=["TRANSITGATEWAY"],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         aws = confluentcloud.TransitGatewayAttachment("aws",
             display_name="AWS Transit Gateway Attachment",
-            aws=confluentcloud.TransitGatewayAttachmentAwsArgs(
-                ram_resource_share_arn="arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-                transit_gateway_id="tgw-xxxxxxxxxxxxxxxxx",
-                routes=[
+            aws={
+                "ram_resource_share_arn": "arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+                "transit_gateway_id": "tgw-xxxxxxxxxxxxxxxxx",
+                "routes": [
                     "192.168.0.0/16",
                     "172.16.0.0/12",
                     "100.64.0.0/10",
                     "10.0.0.0/8",
                 ],
-            ),
-            environment=confluentcloud.TransitGatewayAttachmentEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.TransitGatewayAttachmentNetworkArgs(
-                id=aws_transit_gateway_attachment.id,
-            ))
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": aws_transit_gateway_attachment.id,
+            })
         ```
 
         ## Getting Started
@@ -316,10 +316,10 @@ class TransitGatewayAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[pulumi.InputType['TransitGatewayAttachmentAwsArgs']]] = None,
+                 aws: Optional[pulumi.Input[Union['TransitGatewayAttachmentAwsArgs', 'TransitGatewayAttachmentAwsArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['TransitGatewayAttachmentEnvironmentArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['TransitGatewayAttachmentNetworkArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['TransitGatewayAttachmentEnvironmentArgs', 'TransitGatewayAttachmentEnvironmentArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['TransitGatewayAttachmentNetworkArgs', 'TransitGatewayAttachmentNetworkArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -347,10 +347,10 @@ class TransitGatewayAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[pulumi.InputType['TransitGatewayAttachmentAwsArgs']]] = None,
+            aws: Optional[pulumi.Input[Union['TransitGatewayAttachmentAwsArgs', 'TransitGatewayAttachmentAwsArgsDict']]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            environment: Optional[pulumi.Input[pulumi.InputType['TransitGatewayAttachmentEnvironmentArgs']]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['TransitGatewayAttachmentNetworkArgs']]] = None) -> 'TransitGatewayAttachment':
+            environment: Optional[pulumi.Input[Union['TransitGatewayAttachmentEnvironmentArgs', 'TransitGatewayAttachmentEnvironmentArgsDict']]] = None,
+            network: Optional[pulumi.Input[Union['TransitGatewayAttachmentNetworkArgs', 'TransitGatewayAttachmentNetworkArgsDict']]] = None) -> 'TransitGatewayAttachment':
         """
         Get an existing TransitGatewayAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -358,10 +358,10 @@ class TransitGatewayAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TransitGatewayAttachmentAwsArgs']] aws: (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
+        :param pulumi.Input[Union['TransitGatewayAttachmentAwsArgs', 'TransitGatewayAttachmentAwsArgsDict']] aws: (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
         :param pulumi.Input[str] display_name: The name of the Transit Gateway Attachment.
-        :param pulumi.Input[pulumi.InputType['TransitGatewayAttachmentEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[pulumi.InputType['TransitGatewayAttachmentNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
+        :param pulumi.Input[Union['TransitGatewayAttachmentEnvironmentArgs', 'TransitGatewayAttachmentEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['TransitGatewayAttachmentNetworkArgs', 'TransitGatewayAttachmentNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

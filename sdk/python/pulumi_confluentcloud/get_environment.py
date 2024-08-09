@@ -81,7 +81,7 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
 
 def get_environment(display_name: Optional[str] = None,
                     id: Optional[str] = None,
-                    stream_governance: Optional[pulumi.InputType['GetEnvironmentStreamGovernanceArgs']] = None,
+                    stream_governance: Optional[Union['GetEnvironmentStreamGovernanceArgs', 'GetEnvironmentStreamGovernanceArgsDict']] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -127,7 +127,7 @@ def get_environment(display_name: Optional[str] = None,
 @_utilities.lift_output_func(get_environment)
 def get_environment_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                            id: Optional[pulumi.Input[Optional[str]]] = None,
-                           stream_governance: Optional[pulumi.Input[Optional[pulumi.InputType['GetEnvironmentStreamGovernanceArgs']]]] = None,
+                           stream_governance: Optional[pulumi.Input[Optional[Union['GetEnvironmentStreamGovernanceArgs', 'GetEnvironmentStreamGovernanceArgsDict']]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

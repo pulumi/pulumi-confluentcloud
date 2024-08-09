@@ -212,8 +212,8 @@ class ApiKey(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  disable_wait_for_ready: Optional[pulumi.Input[bool]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 managed_resource: Optional[pulumi.Input[pulumi.InputType['ApiKeyManagedResourceArgs']]] = None,
-                 owner: Optional[pulumi.Input[pulumi.InputType['ApiKeyOwnerArgs']]] = None,
+                 managed_resource: Optional[pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']]] = None,
+                 owner: Optional[pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -226,19 +226,19 @@ class ApiKey(pulumi.CustomResource):
         app_manager_kafka_api_key = confluentcloud.ApiKey("app-manager-kafka-api-key",
             display_name="app-manager-kafka-api-key",
             description="Kafka API Key that is owned by 'app-manager' service account",
-            owner=confluentcloud.ApiKeyOwnerArgs(
-                id=app_manager["id"],
-                api_version=app_manager["apiVersion"],
-                kind=app_manager["kind"],
-            ),
-            managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=basic["id"],
-                api_version=basic["apiVersion"],
-                kind=basic["kind"],
-                environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=staging["id"],
-                ),
-            ))
+            owner={
+                "id": app_manager["id"],
+                "api_version": app_manager["apiVersion"],
+                "kind": app_manager["kind"],
+            },
+            managed_resource={
+                "id": basic["id"],
+                "api_version": basic["apiVersion"],
+                "kind": basic["kind"],
+                "environment": {
+                    "id": staging["id"],
+                },
+            })
         ```
 
         ### Example ksqlDB API Key
@@ -249,19 +249,19 @@ class ApiKey(pulumi.CustomResource):
         ksqldb_api_key = confluentcloud.ApiKey("ksqldb-api-key",
             display_name="ksqldb-api-key",
             description="KsqlDB API Key that is owned by 'app-manager' service account",
-            owner=confluentcloud.ApiKeyOwnerArgs(
-                id=app_manager["id"],
-                api_version=app_manager["apiVersion"],
-                kind=app_manager["kind"],
-            ),
-            managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=main["id"],
-                api_version=main["apiVersion"],
-                kind=main["kind"],
-                environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=staging["id"],
-                ),
-            ))
+            owner={
+                "id": app_manager["id"],
+                "api_version": app_manager["apiVersion"],
+                "kind": app_manager["kind"],
+            },
+            managed_resource={
+                "id": main["id"],
+                "api_version": main["apiVersion"],
+                "kind": main["kind"],
+                "environment": {
+                    "id": staging["id"],
+                },
+            })
         ```
 
         ### Example Schema Registry API Key
@@ -272,19 +272,19 @@ class ApiKey(pulumi.CustomResource):
         env_manager_schema_registry_api_key = confluentcloud.ApiKey("env-manager-schema-registry-api-key",
             display_name="env-manager-schema-registry-api-key",
             description="Schema Registry API Key that is owned by 'env-manager' service account",
-            owner=confluentcloud.ApiKeyOwnerArgs(
-                id=env_manager["id"],
-                api_version=env_manager["apiVersion"],
-                kind=env_manager["kind"],
-            ),
-            managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=essentials["id"],
-                api_version=essentials["apiVersion"],
-                kind=essentials["kind"],
-                environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=staging["id"],
-                ),
-            ))
+            owner={
+                "id": env_manager["id"],
+                "api_version": env_manager["apiVersion"],
+                "kind": env_manager["kind"],
+            },
+            managed_resource={
+                "id": essentials["id"],
+                "api_version": essentials["apiVersion"],
+                "kind": essentials["kind"],
+                "environment": {
+                    "id": staging["id"],
+                },
+            })
         ```
 
         ### Example Flink API Key
@@ -295,19 +295,19 @@ class ApiKey(pulumi.CustomResource):
         env_manager_flink_api_key = confluentcloud.ApiKey("env-manager-flink-api-key",
             display_name="env-manager-flink-api-key",
             description="Flink API Key that is owned by 'env-manager' service account",
-            owner=confluentcloud.ApiKeyOwnerArgs(
-                id=env_manager["id"],
-                api_version=env_manager["apiVersion"],
-                kind=env_manager["kind"],
-            ),
-            managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=example["id"],
-                api_version=example["apiVersion"],
-                kind=example["kind"],
-                environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=staging["id"],
-                ),
-            ))
+            owner={
+                "id": env_manager["id"],
+                "api_version": env_manager["apiVersion"],
+                "kind": env_manager["kind"],
+            },
+            managed_resource={
+                "id": example["id"],
+                "api_version": example["apiVersion"],
+                "kind": example["kind"],
+                "environment": {
+                    "id": staging["id"],
+                },
+            })
         ```
 
         ### Example Cloud API Key
@@ -318,11 +318,11 @@ class ApiKey(pulumi.CustomResource):
         env_manager_cloud_api_key = confluentcloud.ApiKey("env-manager-cloud-api-key",
             display_name="env-manager-cloud-api-key",
             description="Cloud API Key that is owned by 'env-manager' service account",
-            owner=confluentcloud.ApiKeyOwnerArgs(
-                id=env_manager["id"],
-                api_version=env_manager["apiVersion"],
-                kind=env_manager["kind"],
-            ))
+            owner={
+                "id": env_manager["id"],
+                "api_version": env_manager["apiVersion"],
+                "kind": env_manager["kind"],
+            })
         ```
 
         ## Getting Started
@@ -387,8 +387,8 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[str] description: A free-form description of the API Account.
         :param pulumi.Input[bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[str] display_name: A human-readable name for the API Key.
-        :param pulumi.Input[pulumi.InputType['ApiKeyManagedResourceArgs']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
-        :param pulumi.Input[pulumi.InputType['ApiKeyOwnerArgs']] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
+        :param pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+        :param pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         """
         ...
     @overload
@@ -407,19 +407,19 @@ class ApiKey(pulumi.CustomResource):
         app_manager_kafka_api_key = confluentcloud.ApiKey("app-manager-kafka-api-key",
             display_name="app-manager-kafka-api-key",
             description="Kafka API Key that is owned by 'app-manager' service account",
-            owner=confluentcloud.ApiKeyOwnerArgs(
-                id=app_manager["id"],
-                api_version=app_manager["apiVersion"],
-                kind=app_manager["kind"],
-            ),
-            managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=basic["id"],
-                api_version=basic["apiVersion"],
-                kind=basic["kind"],
-                environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=staging["id"],
-                ),
-            ))
+            owner={
+                "id": app_manager["id"],
+                "api_version": app_manager["apiVersion"],
+                "kind": app_manager["kind"],
+            },
+            managed_resource={
+                "id": basic["id"],
+                "api_version": basic["apiVersion"],
+                "kind": basic["kind"],
+                "environment": {
+                    "id": staging["id"],
+                },
+            })
         ```
 
         ### Example ksqlDB API Key
@@ -430,19 +430,19 @@ class ApiKey(pulumi.CustomResource):
         ksqldb_api_key = confluentcloud.ApiKey("ksqldb-api-key",
             display_name="ksqldb-api-key",
             description="KsqlDB API Key that is owned by 'app-manager' service account",
-            owner=confluentcloud.ApiKeyOwnerArgs(
-                id=app_manager["id"],
-                api_version=app_manager["apiVersion"],
-                kind=app_manager["kind"],
-            ),
-            managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=main["id"],
-                api_version=main["apiVersion"],
-                kind=main["kind"],
-                environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=staging["id"],
-                ),
-            ))
+            owner={
+                "id": app_manager["id"],
+                "api_version": app_manager["apiVersion"],
+                "kind": app_manager["kind"],
+            },
+            managed_resource={
+                "id": main["id"],
+                "api_version": main["apiVersion"],
+                "kind": main["kind"],
+                "environment": {
+                    "id": staging["id"],
+                },
+            })
         ```
 
         ### Example Schema Registry API Key
@@ -453,19 +453,19 @@ class ApiKey(pulumi.CustomResource):
         env_manager_schema_registry_api_key = confluentcloud.ApiKey("env-manager-schema-registry-api-key",
             display_name="env-manager-schema-registry-api-key",
             description="Schema Registry API Key that is owned by 'env-manager' service account",
-            owner=confluentcloud.ApiKeyOwnerArgs(
-                id=env_manager["id"],
-                api_version=env_manager["apiVersion"],
-                kind=env_manager["kind"],
-            ),
-            managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=essentials["id"],
-                api_version=essentials["apiVersion"],
-                kind=essentials["kind"],
-                environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=staging["id"],
-                ),
-            ))
+            owner={
+                "id": env_manager["id"],
+                "api_version": env_manager["apiVersion"],
+                "kind": env_manager["kind"],
+            },
+            managed_resource={
+                "id": essentials["id"],
+                "api_version": essentials["apiVersion"],
+                "kind": essentials["kind"],
+                "environment": {
+                    "id": staging["id"],
+                },
+            })
         ```
 
         ### Example Flink API Key
@@ -476,19 +476,19 @@ class ApiKey(pulumi.CustomResource):
         env_manager_flink_api_key = confluentcloud.ApiKey("env-manager-flink-api-key",
             display_name="env-manager-flink-api-key",
             description="Flink API Key that is owned by 'env-manager' service account",
-            owner=confluentcloud.ApiKeyOwnerArgs(
-                id=env_manager["id"],
-                api_version=env_manager["apiVersion"],
-                kind=env_manager["kind"],
-            ),
-            managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=example["id"],
-                api_version=example["apiVersion"],
-                kind=example["kind"],
-                environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=staging["id"],
-                ),
-            ))
+            owner={
+                "id": env_manager["id"],
+                "api_version": env_manager["apiVersion"],
+                "kind": env_manager["kind"],
+            },
+            managed_resource={
+                "id": example["id"],
+                "api_version": example["apiVersion"],
+                "kind": example["kind"],
+                "environment": {
+                    "id": staging["id"],
+                },
+            })
         ```
 
         ### Example Cloud API Key
@@ -499,11 +499,11 @@ class ApiKey(pulumi.CustomResource):
         env_manager_cloud_api_key = confluentcloud.ApiKey("env-manager-cloud-api-key",
             display_name="env-manager-cloud-api-key",
             description="Cloud API Key that is owned by 'env-manager' service account",
-            owner=confluentcloud.ApiKeyOwnerArgs(
-                id=env_manager["id"],
-                api_version=env_manager["apiVersion"],
-                kind=env_manager["kind"],
-            ))
+            owner={
+                "id": env_manager["id"],
+                "api_version": env_manager["apiVersion"],
+                "kind": env_manager["kind"],
+            })
         ```
 
         ## Getting Started
@@ -581,8 +581,8 @@ class ApiKey(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  disable_wait_for_ready: Optional[pulumi.Input[bool]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 managed_resource: Optional[pulumi.Input[pulumi.InputType['ApiKeyManagedResourceArgs']]] = None,
-                 owner: Optional[pulumi.Input[pulumi.InputType['ApiKeyOwnerArgs']]] = None,
+                 managed_resource: Optional[pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']]] = None,
+                 owner: Optional[pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -615,8 +615,8 @@ class ApiKey(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             disable_wait_for_ready: Optional[pulumi.Input[bool]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            managed_resource: Optional[pulumi.Input[pulumi.InputType['ApiKeyManagedResourceArgs']]] = None,
-            owner: Optional[pulumi.Input[pulumi.InputType['ApiKeyOwnerArgs']]] = None,
+            managed_resource: Optional[pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']]] = None,
+            owner: Optional[pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']]] = None,
             secret: Optional[pulumi.Input[str]] = None) -> 'ApiKey':
         """
         Get an existing ApiKey resource's state with the given name, id, and optional extra
@@ -628,8 +628,8 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[str] description: A free-form description of the API Account.
         :param pulumi.Input[bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[str] display_name: A human-readable name for the API Key.
-        :param pulumi.Input[pulumi.InputType['ApiKeyManagedResourceArgs']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
-        :param pulumi.Input[pulumi.InputType['ApiKeyOwnerArgs']] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
+        :param pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+        :param pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         :param pulumi.Input[str] secret: (Required String, Sensitive) The secret of the API Key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

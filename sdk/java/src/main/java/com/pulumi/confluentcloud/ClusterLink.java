@@ -240,7 +240,7 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ClusterLink(String name) {
+    public ClusterLink(java.lang.String name) {
         this(name, ClusterLinkArgs.Empty);
     }
     /**
@@ -248,7 +248,7 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ClusterLink(String name, @Nullable ClusterLinkArgs args) {
+    public ClusterLink(java.lang.String name, @Nullable ClusterLinkArgs args) {
         this(name, args, null);
     }
     /**
@@ -257,12 +257,12 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ClusterLink(String name, @Nullable ClusterLinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/clusterLink:ClusterLink", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ClusterLink(java.lang.String name, @Nullable ClusterLinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/clusterLink:ClusterLink", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ClusterLink(String name, Output<String> id, @Nullable ClusterLinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/clusterLink:ClusterLink", name, state, makeResourceOptions(options, id));
+    private ClusterLink(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterLinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/clusterLink:ClusterLink", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ClusterLinkArgs makeArgs(@Nullable ClusterLinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -272,7 +272,7 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
         return args == null ? ClusterLinkArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -288,7 +288,7 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ClusterLink get(String name, Output<String> id, @Nullable ClusterLinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ClusterLink get(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterLinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ClusterLink(name, id, state, options);
     }
 }

@@ -204,12 +204,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessAwsArgs']]] = None,
-                 azure: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessAzureArgs']]] = None,
+                 aws: Optional[pulumi.Input[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict']]] = None,
+                 azure: Optional[pulumi.Input[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessEnvironmentArgs']]] = None,
-                 gcp: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessGcpArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessNetworkArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']]] = None,
+                 gcp: Optional[pulumi.Input[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -231,20 +231,20 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 "use1-az2",
                 "use1-az6",
             ],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         aws = confluentcloud.PrivateLinkAccess("aws",
             display_name="AWS Private Link Access",
-            aws=confluentcloud.PrivateLinkAccessAwsArgs(
-                account="012345678901",
-            ),
-            environment=confluentcloud.PrivateLinkAccessEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.PrivateLinkAccessNetworkArgs(
-                id=aws_private_link.id,
-            ))
+            aws={
+                "account": "012345678901",
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": aws_private_link.id,
+            })
         ```
 
         ### Example Private Link Access on Azure
@@ -259,20 +259,20 @@ class PrivateLinkAccess(pulumi.CustomResource):
             cloud="AZURE",
             region="centralus",
             connection_types=["PRIVATELINK"],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         azure = confluentcloud.PrivateLinkAccess("azure",
             display_name="Azure Private Link Access",
-            azure=confluentcloud.PrivateLinkAccessAzureArgs(
-                subscription="1234abcd-12ab-34cd-1234-123456abcdef",
-            ),
-            environment=confluentcloud.PrivateLinkAccessEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.PrivateLinkAccessNetworkArgs(
-                id=azure_private_link.id,
-            ))
+            azure={
+                "subscription": "1234abcd-12ab-34cd-1234-123456abcdef",
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": azure_private_link.id,
+            })
         ```
 
         ### Example Private Service Connect on GCP
@@ -292,20 +292,20 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 "us-central1-b",
                 "us-central1-c",
             ],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         gcp = confluentcloud.PrivateLinkAccess("gcp",
             display_name="GCP Private Service Connect",
-            gcp=confluentcloud.PrivateLinkAccessGcpArgs(
-                project="temp-gear-123456",
-            ),
-            environment=confluentcloud.PrivateLinkAccessEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.PrivateLinkAccessNetworkArgs(
-                id=gcp_private_service_connect.id,
-            ))
+            gcp={
+                "project": "temp-gear-123456",
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": gcp_private_service_connect.id,
+            })
         ```
 
         ## Getting Started
@@ -335,8 +335,8 @@ class PrivateLinkAccess(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The name of the Private Link Access.
-        :param pulumi.Input[pulumi.InputType['PrivateLinkAccessEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[pulumi.InputType['PrivateLinkAccessNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
+        :param pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         """
         ...
@@ -365,20 +365,20 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 "use1-az2",
                 "use1-az6",
             ],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         aws = confluentcloud.PrivateLinkAccess("aws",
             display_name="AWS Private Link Access",
-            aws=confluentcloud.PrivateLinkAccessAwsArgs(
-                account="012345678901",
-            ),
-            environment=confluentcloud.PrivateLinkAccessEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.PrivateLinkAccessNetworkArgs(
-                id=aws_private_link.id,
-            ))
+            aws={
+                "account": "012345678901",
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": aws_private_link.id,
+            })
         ```
 
         ### Example Private Link Access on Azure
@@ -393,20 +393,20 @@ class PrivateLinkAccess(pulumi.CustomResource):
             cloud="AZURE",
             region="centralus",
             connection_types=["PRIVATELINK"],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         azure = confluentcloud.PrivateLinkAccess("azure",
             display_name="Azure Private Link Access",
-            azure=confluentcloud.PrivateLinkAccessAzureArgs(
-                subscription="1234abcd-12ab-34cd-1234-123456abcdef",
-            ),
-            environment=confluentcloud.PrivateLinkAccessEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.PrivateLinkAccessNetworkArgs(
-                id=azure_private_link.id,
-            ))
+            azure={
+                "subscription": "1234abcd-12ab-34cd-1234-123456abcdef",
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": azure_private_link.id,
+            })
         ```
 
         ### Example Private Service Connect on GCP
@@ -426,20 +426,20 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 "us-central1-b",
                 "us-central1-c",
             ],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         gcp = confluentcloud.PrivateLinkAccess("gcp",
             display_name="GCP Private Service Connect",
-            gcp=confluentcloud.PrivateLinkAccessGcpArgs(
-                project="temp-gear-123456",
-            ),
-            environment=confluentcloud.PrivateLinkAccessEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.PrivateLinkAccessNetworkArgs(
-                id=gcp_private_service_connect.id,
-            ))
+            gcp={
+                "project": "temp-gear-123456",
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": gcp_private_service_connect.id,
+            })
         ```
 
         ## Getting Started
@@ -481,12 +481,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessAwsArgs']]] = None,
-                 azure: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessAzureArgs']]] = None,
+                 aws: Optional[pulumi.Input[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict']]] = None,
+                 azure: Optional[pulumi.Input[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessEnvironmentArgs']]] = None,
-                 gcp: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessGcpArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessNetworkArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']]] = None,
+                 gcp: Optional[pulumi.Input[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -516,12 +516,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessAwsArgs']]] = None,
-            azure: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessAzureArgs']]] = None,
+            aws: Optional[pulumi.Input[Union['PrivateLinkAccessAwsArgs', 'PrivateLinkAccessAwsArgsDict']]] = None,
+            azure: Optional[pulumi.Input[Union['PrivateLinkAccessAzureArgs', 'PrivateLinkAccessAzureArgsDict']]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            environment: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessEnvironmentArgs']]] = None,
-            gcp: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessGcpArgs']]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessNetworkArgs']]] = None) -> 'PrivateLinkAccess':
+            environment: Optional[pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']]] = None,
+            gcp: Optional[pulumi.Input[Union['PrivateLinkAccessGcpArgs', 'PrivateLinkAccessGcpArgsDict']]] = None,
+            network: Optional[pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None) -> 'PrivateLinkAccess':
         """
         Get an existing PrivateLinkAccess resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -530,8 +530,8 @@ class PrivateLinkAccess(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The name of the Private Link Access.
-        :param pulumi.Input[pulumi.InputType['PrivateLinkAccessEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[pulumi.InputType['PrivateLinkAccessNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
+        :param pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

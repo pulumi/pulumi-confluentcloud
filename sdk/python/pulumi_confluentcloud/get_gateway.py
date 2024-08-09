@@ -112,7 +112,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             id=self.id)
 
 
-def get_gateway(environment: Optional[pulumi.InputType['GetGatewayEnvironmentArgs']] = None,
+def get_gateway(environment: Optional[Union['GetGatewayEnvironmentArgs', 'GetGatewayEnvironmentArgsDict']] = None,
                 id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
@@ -127,9 +127,9 @@ def get_gateway(environment: Optional[pulumi.InputType['GetGatewayEnvironmentArg
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_gateway(id="gw-abc123",
-        environment=confluentcloud.GetGatewayEnvironmentArgs(
-            id="env-123abc",
-        ))
+        environment={
+            "id": "env-123abc",
+        })
     pulumi.export("gateway", main)
     ```
 
@@ -153,7 +153,7 @@ def get_gateway(environment: Optional[pulumi.InputType['GetGatewayEnvironmentArg
 
 
 @_utilities.lift_output_func(get_gateway)
-def get_gateway_output(environment: Optional[pulumi.Input[pulumi.InputType['GetGatewayEnvironmentArgs']]] = None,
+def get_gateway_output(environment: Optional[pulumi.Input[Union['GetGatewayEnvironmentArgs', 'GetGatewayEnvironmentArgsDict']]] = None,
                        id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
     """
@@ -168,9 +168,9 @@ def get_gateway_output(environment: Optional[pulumi.Input[pulumi.InputType['GetG
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_gateway(id="gw-abc123",
-        environment=confluentcloud.GetGatewayEnvironmentArgs(
-            id="env-123abc",
-        ))
+        environment={
+            "id": "env-123abc",
+        })
     pulumi.export("gateway", main)
     ```
 

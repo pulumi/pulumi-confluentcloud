@@ -217,18 +217,18 @@ class CatalogEntityAttributes(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['CatalogEntityAttributesCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['CatalogEntityAttributesCredentialsArgs', 'CatalogEntityAttributesCredentialsArgsDict']]] = None,
                  entity_name: Optional[pulumi.Input[str]] = None,
                  entity_type: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['CatalogEntityAttributesSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['CatalogEntityAttributesSchemaRegistryClusterArgs', 'CatalogEntityAttributesSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
         """
         Create a CatalogEntityAttributes resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: The attributes.
-        :param pulumi.Input[pulumi.InputType['CatalogEntityAttributesCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['CatalogEntityAttributesCredentialsArgs', 'CatalogEntityAttributesCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
         :param pulumi.Input[str] entity_type: The entity type, for example, `sr_schema`, `kafka_topic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -257,11 +257,11 @@ class CatalogEntityAttributes(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['CatalogEntityAttributesCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['CatalogEntityAttributesCredentialsArgs', 'CatalogEntityAttributesCredentialsArgsDict']]] = None,
                  entity_name: Optional[pulumi.Input[str]] = None,
                  entity_type: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['CatalogEntityAttributesSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['CatalogEntityAttributesSchemaRegistryClusterArgs', 'CatalogEntityAttributesSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -294,11 +294,11 @@ class CatalogEntityAttributes(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            credentials: Optional[pulumi.Input[pulumi.InputType['CatalogEntityAttributesCredentialsArgs']]] = None,
+            credentials: Optional[pulumi.Input[Union['CatalogEntityAttributesCredentialsArgs', 'CatalogEntityAttributesCredentialsArgsDict']]] = None,
             entity_name: Optional[pulumi.Input[str]] = None,
             entity_type: Optional[pulumi.Input[str]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['CatalogEntityAttributesSchemaRegistryClusterArgs']]] = None) -> 'CatalogEntityAttributes':
+            schema_registry_cluster: Optional[pulumi.Input[Union['CatalogEntityAttributesSchemaRegistryClusterArgs', 'CatalogEntityAttributesSchemaRegistryClusterArgsDict']]] = None) -> 'CatalogEntityAttributes':
         """
         Get an existing CatalogEntityAttributes resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -307,7 +307,7 @@ class CatalogEntityAttributes(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: The attributes.
-        :param pulumi.Input[pulumi.InputType['CatalogEntityAttributesCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['CatalogEntityAttributesCredentialsArgs', 'CatalogEntityAttributesCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
         :param pulumi.Input[str] entity_type: The entity type, for example, `sr_schema`, `kafka_topic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

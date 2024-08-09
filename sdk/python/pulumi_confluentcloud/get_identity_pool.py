@@ -108,7 +108,7 @@ class AwaitableGetIdentityPoolResult(GetIdentityPoolResult):
 
 def get_identity_pool(display_name: Optional[str] = None,
                       id: Optional[str] = None,
-                      identity_provider: Optional[pulumi.InputType['GetIdentityPoolIdentityProviderArgs']] = None,
+                      identity_provider: Optional[Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict']] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityPoolResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -122,21 +122,21 @@ def get_identity_pool(display_name: Optional[str] = None,
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_identity_pool(id="pool-xyz456",
-        identity_provider=confluentcloud.GetIdentityPoolIdentityProviderArgs(
-            id="op-abc123",
-        ))
+        identity_provider={
+            "id": "op-abc123",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_identity_pool(display_name="My Identity Pool",
-        identity_provider=confluentcloud.GetIdentityPoolIdentityProviderArgs(
-            id="op-abc123",
-        ))
+        identity_provider={
+            "id": "op-abc123",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
     :param str display_name: A human-readable name for the Identity Pool.
     :param str id: The ID of the Identity Pool, for example, `pool-xyz456`.
-    :param pulumi.InputType['GetIdentityPoolIdentityProviderArgs'] identity_provider: (Required Configuration Block) supports the following:
+    :param Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict'] identity_provider: (Required Configuration Block) supports the following:
     """
     __args__ = dict()
     __args__['displayName'] = display_name
@@ -157,7 +157,7 @@ def get_identity_pool(display_name: Optional[str] = None,
 @_utilities.lift_output_func(get_identity_pool)
 def get_identity_pool_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                              id: Optional[pulumi.Input[Optional[str]]] = None,
-                             identity_provider: Optional[pulumi.Input[pulumi.InputType['GetIdentityPoolIdentityProviderArgs']]] = None,
+                             identity_provider: Optional[pulumi.Input[Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict']]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -171,20 +171,20 @@ def get_identity_pool_output(display_name: Optional[pulumi.Input[Optional[str]]]
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_identity_pool(id="pool-xyz456",
-        identity_provider=confluentcloud.GetIdentityPoolIdentityProviderArgs(
-            id="op-abc123",
-        ))
+        identity_provider={
+            "id": "op-abc123",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_identity_pool(display_name="My Identity Pool",
-        identity_provider=confluentcloud.GetIdentityPoolIdentityProviderArgs(
-            id="op-abc123",
-        ))
+        identity_provider={
+            "id": "op-abc123",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
     :param str display_name: A human-readable name for the Identity Pool.
     :param str id: The ID of the Identity Pool, for example, `pool-xyz456`.
-    :param pulumi.InputType['GetIdentityPoolIdentityProviderArgs'] identity_provider: (Required Configuration Block) supports the following:
+    :param Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict'] identity_provider: (Required Configuration Block) supports the following:
     """
     ...

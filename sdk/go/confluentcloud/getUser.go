@@ -45,7 +45,7 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewEnvironment(ctx, "test-env", &confluentcloud.EnvironmentArgs{
-//				DisplayName: pulumi.String(fmt.Sprintf("env_for_%v", exampleUsingId.FullName)),
+//				DisplayName: pulumi.Sprintf("env_for_%v", exampleUsingId.FullName),
 //			})
 //			if err != nil {
 //				return err
@@ -64,7 +64,7 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewRoleBinding(ctx, "test-role-binding", &confluentcloud.RoleBindingArgs{
-//				Principal:  pulumi.String(fmt.Sprintf("User:%v", exampleUsingEmail.Id)),
+//				Principal:  pulumi.Sprintf("User:%v", exampleUsingEmail.Id),
 //				RoleName:   pulumi.String("CloudClusterAdmin"),
 //				CrnPattern: standard_cluster_on_aws.RbacCrn,
 //			})

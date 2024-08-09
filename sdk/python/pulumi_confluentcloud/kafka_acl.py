@@ -339,9 +339,9 @@ class KafkaAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['KafkaAclCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']]] = None,
                  host: Optional[pulumi.Input[str]] = None,
-                 kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KafkaAclKafkaClusterArgs']]] = None,
+                 kafka_cluster: Optional[pulumi.Input[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict']]] = None,
                  operation: Optional[pulumi.Input[str]] = None,
                  pattern_type: Optional[pulumi.Input[str]] = None,
                  permission: Optional[pulumi.Input[str]] = None,
@@ -381,7 +381,7 @@ class KafkaAcl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KafkaAclCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] host: The host for the ACL.
         :param pulumi.Input[str] operation: The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
@@ -441,9 +441,9 @@ class KafkaAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['KafkaAclCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']]] = None,
                  host: Optional[pulumi.Input[str]] = None,
-                 kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KafkaAclKafkaClusterArgs']]] = None,
+                 kafka_cluster: Optional[pulumi.Input[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict']]] = None,
                  operation: Optional[pulumi.Input[str]] = None,
                  pattern_type: Optional[pulumi.Input[str]] = None,
                  permission: Optional[pulumi.Input[str]] = None,
@@ -496,9 +496,9 @@ class KafkaAcl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: Optional[pulumi.Input[pulumi.InputType['KafkaAclCredentialsArgs']]] = None,
+            credentials: Optional[pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']]] = None,
             host: Optional[pulumi.Input[str]] = None,
-            kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KafkaAclKafkaClusterArgs']]] = None,
+            kafka_cluster: Optional[pulumi.Input[Union['KafkaAclKafkaClusterArgs', 'KafkaAclKafkaClusterArgsDict']]] = None,
             operation: Optional[pulumi.Input[str]] = None,
             pattern_type: Optional[pulumi.Input[str]] = None,
             permission: Optional[pulumi.Input[str]] = None,
@@ -513,7 +513,7 @@ class KafkaAcl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KafkaAclCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] host: The host for the ACL.
         :param pulumi.Input[str] operation: The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.

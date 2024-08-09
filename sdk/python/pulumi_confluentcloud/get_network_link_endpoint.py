@@ -115,7 +115,7 @@ class AwaitableGetNetworkLinkEndpointResult(GetNetworkLinkEndpointResult):
             resource_name=self.resource_name)
 
 
-def get_network_link_endpoint(environment: Optional[pulumi.InputType['GetNetworkLinkEndpointEnvironmentArgs']] = None,
+def get_network_link_endpoint(environment: Optional[Union['GetNetworkLinkEndpointEnvironmentArgs', 'GetNetworkLinkEndpointEnvironmentArgsDict']] = None,
                               id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkLinkEndpointResult:
     """
@@ -130,9 +130,9 @@ def get_network_link_endpoint(environment: Optional[pulumi.InputType['GetNetwork
     import pulumi_confluentcloud as confluentcloud
 
     nle = confluentcloud.get_network_link_endpoint(id="nle-1357",
-        environment=confluentcloud.GetNetworkLinkEndpointEnvironmentArgs(
-            id="env-1234",
-        ))
+        environment={
+            "id": "env-1234",
+        })
     pulumi.export("networkLinkEndpoint", nle)
     ```
 
@@ -156,7 +156,7 @@ def get_network_link_endpoint(environment: Optional[pulumi.InputType['GetNetwork
 
 
 @_utilities.lift_output_func(get_network_link_endpoint)
-def get_network_link_endpoint_output(environment: Optional[pulumi.Input[pulumi.InputType['GetNetworkLinkEndpointEnvironmentArgs']]] = None,
+def get_network_link_endpoint_output(environment: Optional[pulumi.Input[Union['GetNetworkLinkEndpointEnvironmentArgs', 'GetNetworkLinkEndpointEnvironmentArgsDict']]] = None,
                                      id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkLinkEndpointResult]:
     """
@@ -171,9 +171,9 @@ def get_network_link_endpoint_output(environment: Optional[pulumi.Input[pulumi.I
     import pulumi_confluentcloud as confluentcloud
 
     nle = confluentcloud.get_network_link_endpoint(id="nle-1357",
-        environment=confluentcloud.GetNetworkLinkEndpointEnvironmentArgs(
-            id="env-1234",
-        ))
+        environment={
+            "id": "env-1234",
+        })
     pulumi.export("networkLinkEndpoint", nle)
     ```
 

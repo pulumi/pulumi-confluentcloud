@@ -140,7 +140,7 @@ class AwaitableGetSchemaRegistryClusterResult(GetSchemaRegistryClusterResult):
 
 
 def get_schema_registry_cluster(display_name: Optional[str] = None,
-                                environment: Optional[pulumi.InputType['GetSchemaRegistryClusterEnvironmentArgs']] = None,
+                                environment: Optional[Union['GetSchemaRegistryClusterEnvironmentArgs', 'GetSchemaRegistryClusterEnvironmentArgsDict']] = None,
                                 id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryClusterResult:
     """
@@ -155,19 +155,19 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
     import pulumi_confluentcloud as confluentcloud
 
     # Loads the only Schema Registry cluster in the target environment
-    example_using_env_id = confluentcloud.get_schema_registry_cluster(environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
-        id="env-xyz456",
-    ))
+    example_using_env_id = confluentcloud.get_schema_registry_cluster(environment={
+        "id": "env-xyz456",
+    })
     pulumi.export("exampleUsingEnvId", example_using_env_id)
     example_using_id = confluentcloud.get_schema_registry_cluster(id="lsrc-abc123",
-        environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_schema_registry_cluster(display_name="Stream Governance Package",
-        environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
@@ -196,7 +196,7 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_schema_registry_cluster)
 def get_schema_registry_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
-                                       environment: Optional[pulumi.Input[pulumi.InputType['GetSchemaRegistryClusterEnvironmentArgs']]] = None,
+                                       environment: Optional[pulumi.Input[Union['GetSchemaRegistryClusterEnvironmentArgs', 'GetSchemaRegistryClusterEnvironmentArgsDict']]] = None,
                                        id: Optional[pulumi.Input[Optional[str]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryClusterResult]:
     """
@@ -211,19 +211,19 @@ def get_schema_registry_cluster_output(display_name: Optional[pulumi.Input[Optio
     import pulumi_confluentcloud as confluentcloud
 
     # Loads the only Schema Registry cluster in the target environment
-    example_using_env_id = confluentcloud.get_schema_registry_cluster(environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
-        id="env-xyz456",
-    ))
+    example_using_env_id = confluentcloud.get_schema_registry_cluster(environment={
+        "id": "env-xyz456",
+    })
     pulumi.export("exampleUsingEnvId", example_using_env_id)
     example_using_id = confluentcloud.get_schema_registry_cluster(id="lsrc-abc123",
-        environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_schema_registry_cluster(display_name="Stream Governance Package",
-        environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 

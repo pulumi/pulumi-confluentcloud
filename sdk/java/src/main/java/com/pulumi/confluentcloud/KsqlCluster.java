@@ -202,7 +202,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KsqlCluster(String name) {
+    public KsqlCluster(java.lang.String name) {
         this(name, KsqlClusterArgs.Empty);
     }
     /**
@@ -210,7 +210,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KsqlCluster(String name, KsqlClusterArgs args) {
+    public KsqlCluster(java.lang.String name, KsqlClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -219,12 +219,12 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KsqlCluster(String name, KsqlClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/ksqlCluster:KsqlCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public KsqlCluster(java.lang.String name, KsqlClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/ksqlCluster:KsqlCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KsqlCluster(String name, Output<String> id, @Nullable KsqlClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/ksqlCluster:KsqlCluster", name, state, makeResourceOptions(options, id));
+    private KsqlCluster(java.lang.String name, Output<java.lang.String> id, @Nullable KsqlClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/ksqlCluster:KsqlCluster", name, state, makeResourceOptions(options, id), false);
     }
 
     private static KsqlClusterArgs makeArgs(KsqlClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -234,7 +234,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
         return args == null ? KsqlClusterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -250,7 +250,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KsqlCluster get(String name, Output<String> id, @Nullable KsqlClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KsqlCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable KsqlClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KsqlCluster(name, id, state, options);
     }
 }

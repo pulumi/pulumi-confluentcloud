@@ -130,7 +130,7 @@ public class GroupMapping extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GroupMapping(String name) {
+    public GroupMapping(java.lang.String name) {
         this(name, GroupMappingArgs.Empty);
     }
     /**
@@ -138,7 +138,7 @@ public class GroupMapping extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GroupMapping(String name, GroupMappingArgs args) {
+    public GroupMapping(java.lang.String name, GroupMappingArgs args) {
         this(name, args, null);
     }
     /**
@@ -147,12 +147,12 @@ public class GroupMapping extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GroupMapping(String name, GroupMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/groupMapping:GroupMapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GroupMapping(java.lang.String name, GroupMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/groupMapping:GroupMapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GroupMapping(String name, Output<String> id, @Nullable GroupMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/groupMapping:GroupMapping", name, state, makeResourceOptions(options, id));
+    private GroupMapping(java.lang.String name, Output<java.lang.String> id, @Nullable GroupMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/groupMapping:GroupMapping", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GroupMappingArgs makeArgs(GroupMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -162,7 +162,7 @@ public class GroupMapping extends com.pulumi.resources.CustomResource {
         return args == null ? GroupMappingArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -178,7 +178,7 @@ public class GroupMapping extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GroupMapping get(String name, Output<String> id, @Nullable GroupMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GroupMapping get(java.lang.String name, Output<java.lang.String> id, @Nullable GroupMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GroupMapping(name, id, state, options);
     }
 }

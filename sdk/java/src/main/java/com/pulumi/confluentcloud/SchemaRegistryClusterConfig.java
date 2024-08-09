@@ -90,7 +90,7 @@ public class SchemaRegistryClusterConfig extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SchemaRegistryClusterConfig(String name) {
+    public SchemaRegistryClusterConfig(java.lang.String name) {
         this(name, SchemaRegistryClusterConfigArgs.Empty);
     }
     /**
@@ -98,7 +98,7 @@ public class SchemaRegistryClusterConfig extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SchemaRegistryClusterConfig(String name, @Nullable SchemaRegistryClusterConfigArgs args) {
+    public SchemaRegistryClusterConfig(java.lang.String name, @Nullable SchemaRegistryClusterConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -107,12 +107,12 @@ public class SchemaRegistryClusterConfig extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SchemaRegistryClusterConfig(String name, @Nullable SchemaRegistryClusterConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SchemaRegistryClusterConfig(java.lang.String name, @Nullable SchemaRegistryClusterConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SchemaRegistryClusterConfig(String name, Output<String> id, @Nullable SchemaRegistryClusterConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig", name, state, makeResourceOptions(options, id));
+    private SchemaRegistryClusterConfig(java.lang.String name, Output<java.lang.String> id, @Nullable SchemaRegistryClusterConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SchemaRegistryClusterConfigArgs makeArgs(@Nullable SchemaRegistryClusterConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -122,7 +122,7 @@ public class SchemaRegistryClusterConfig extends com.pulumi.resources.CustomReso
         return args == null ? SchemaRegistryClusterConfigArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -141,7 +141,7 @@ public class SchemaRegistryClusterConfig extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SchemaRegistryClusterConfig get(String name, Output<String> id, @Nullable SchemaRegistryClusterConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SchemaRegistryClusterConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable SchemaRegistryClusterConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SchemaRegistryClusterConfig(name, id, state, options);
     }
 }

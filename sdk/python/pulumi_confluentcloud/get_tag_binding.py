@@ -100,11 +100,11 @@ class AwaitableGetTagBindingResult(GetTagBindingResult):
             tag_name=self.tag_name)
 
 
-def get_tag_binding(credentials: Optional[pulumi.InputType['GetTagBindingCredentialsArgs']] = None,
+def get_tag_binding(credentials: Optional[Union['GetTagBindingCredentialsArgs', 'GetTagBindingCredentialsArgsDict']] = None,
                     entity_name: Optional[str] = None,
                     entity_type: Optional[str] = None,
                     rest_endpoint: Optional[str] = None,
-                    schema_registry_cluster: Optional[pulumi.InputType['GetTagBindingSchemaRegistryClusterArgs']] = None,
+                    schema_registry_cluster: Optional[Union['GetTagBindingSchemaRegistryClusterArgs', 'GetTagBindingSchemaRegistryClusterArgsDict']] = None,
                     tag_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagBindingResult:
     """
@@ -138,11 +138,11 @@ def get_tag_binding(credentials: Optional[pulumi.InputType['GetTagBindingCredent
 
 
 @_utilities.lift_output_func(get_tag_binding)
-def get_tag_binding_output(credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetTagBindingCredentialsArgs']]]] = None,
+def get_tag_binding_output(credentials: Optional[pulumi.Input[Optional[Union['GetTagBindingCredentialsArgs', 'GetTagBindingCredentialsArgsDict']]]] = None,
                            entity_name: Optional[pulumi.Input[str]] = None,
                            entity_type: Optional[pulumi.Input[str]] = None,
                            rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
-                           schema_registry_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetTagBindingSchemaRegistryClusterArgs']]]] = None,
+                           schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetTagBindingSchemaRegistryClusterArgs', 'GetTagBindingSchemaRegistryClusterArgsDict']]]] = None,
                            tag_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagBindingResult]:
     """

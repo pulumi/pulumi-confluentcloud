@@ -45,7 +45,7 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewEnvironment(ctx, "test-env", &confluentcloud.EnvironmentArgs{
-//				DisplayName: pulumi.String(fmt.Sprintf("env_for_%v", exampleUsingId.DisplayName)),
+//				DisplayName: pulumi.Sprintf("env_for_%v", exampleUsingId.DisplayName),
 //			})
 //			if err != nil {
 //				return err

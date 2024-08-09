@@ -213,7 +213,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PrivateLinkAttachment(String name) {
+    public PrivateLinkAttachment(java.lang.String name) {
         this(name, PrivateLinkAttachmentArgs.Empty);
     }
     /**
@@ -221,7 +221,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PrivateLinkAttachment(String name, PrivateLinkAttachmentArgs args) {
+    public PrivateLinkAttachment(java.lang.String name, PrivateLinkAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -230,12 +230,12 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PrivateLinkAttachment(String name, PrivateLinkAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PrivateLinkAttachment(java.lang.String name, PrivateLinkAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PrivateLinkAttachment(String name, Output<String> id, @Nullable PrivateLinkAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment", name, state, makeResourceOptions(options, id));
+    private PrivateLinkAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable PrivateLinkAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PrivateLinkAttachmentArgs makeArgs(PrivateLinkAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -245,7 +245,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
         return args == null ? PrivateLinkAttachmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -261,7 +261,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PrivateLinkAttachment get(String name, Output<String> id, @Nullable PrivateLinkAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PrivateLinkAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable PrivateLinkAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PrivateLinkAttachment(name, id, state, options);
     }
 }
