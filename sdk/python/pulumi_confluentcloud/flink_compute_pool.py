@@ -240,7 +240,7 @@ class FlinkComputePool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['FlinkComputePoolEnvironmentArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['FlinkComputePoolEnvironmentArgs', 'FlinkComputePoolEnvironmentArgsDict']]] = None,
                  max_cfu: Optional[pulumi.Input[int]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -257,9 +257,9 @@ class FlinkComputePool(pulumi.CustomResource):
             cloud="AWS",
             region="us-east-1",
             max_cfu=5,
-            environment=confluentcloud.FlinkComputePoolEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         ```
 
         ## Import
@@ -280,7 +280,7 @@ class FlinkComputePool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Flink Compute Pool.
         :param pulumi.Input[str] display_name: The name of the Flink Compute Pool.
-        :param pulumi.Input[pulumi.InputType['FlinkComputePoolEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['FlinkComputePoolEnvironmentArgs', 'FlinkComputePoolEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Compute Pool.
         """
@@ -303,9 +303,9 @@ class FlinkComputePool(pulumi.CustomResource):
             cloud="AWS",
             region="us-east-1",
             max_cfu=5,
-            environment=confluentcloud.FlinkComputePoolEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         ```
 
         ## Import
@@ -339,7 +339,7 @@ class FlinkComputePool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['FlinkComputePoolEnvironmentArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['FlinkComputePoolEnvironmentArgs', 'FlinkComputePoolEnvironmentArgsDict']]] = None,
                  max_cfu: Optional[pulumi.Input[int]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -380,7 +380,7 @@ class FlinkComputePool(pulumi.CustomResource):
             api_version: Optional[pulumi.Input[str]] = None,
             cloud: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            environment: Optional[pulumi.Input[pulumi.InputType['FlinkComputePoolEnvironmentArgs']]] = None,
+            environment: Optional[pulumi.Input[Union['FlinkComputePoolEnvironmentArgs', 'FlinkComputePoolEnvironmentArgsDict']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             max_cfu: Optional[pulumi.Input[int]] = None,
             region: Optional[pulumi.Input[str]] = None,
@@ -395,7 +395,7 @@ class FlinkComputePool(pulumi.CustomResource):
         :param pulumi.Input[str] api_version: (Required String) The API Version of the schema version of the Flink Compute Pool, for example, `fcpm/v2`.
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Flink Compute Pool.
         :param pulumi.Input[str] display_name: The name of the Flink Compute Pool.
-        :param pulumi.Input[pulumi.InputType['FlinkComputePoolEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['FlinkComputePoolEnvironmentArgs', 'FlinkComputePoolEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) The kind of the Flink Compute Pool, for example, `ComputePool`.
         :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Compute Pool.

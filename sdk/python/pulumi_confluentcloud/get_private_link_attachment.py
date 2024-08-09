@@ -146,7 +146,7 @@ class AwaitableGetPrivateLinkAttachmentResult(GetPrivateLinkAttachmentResult):
             resource_name=self.resource_name)
 
 
-def get_private_link_attachment(environment: Optional[pulumi.InputType['GetPrivateLinkAttachmentEnvironmentArgs']] = None,
+def get_private_link_attachment(environment: Optional[Union['GetPrivateLinkAttachmentEnvironmentArgs', 'GetPrivateLinkAttachmentEnvironmentArgsDict']] = None,
                                 id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkAttachmentResult:
     """
@@ -161,9 +161,9 @@ def get_private_link_attachment(environment: Optional[pulumi.InputType['GetPriva
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_private_link_attachment(id="platt-abcde",
-        environment=confluentcloud.GetPrivateLinkAttachmentEnvironmentArgs(
-            id="env-1234",
-        ))
+        environment={
+            "id": "env-1234",
+        })
     pulumi.export("platt", main)
     ```
 
@@ -196,7 +196,7 @@ def get_private_link_attachment(environment: Optional[pulumi.InputType['GetPriva
 
 
 @_utilities.lift_output_func(get_private_link_attachment)
-def get_private_link_attachment_output(environment: Optional[pulumi.Input[pulumi.InputType['GetPrivateLinkAttachmentEnvironmentArgs']]] = None,
+def get_private_link_attachment_output(environment: Optional[pulumi.Input[Union['GetPrivateLinkAttachmentEnvironmentArgs', 'GetPrivateLinkAttachmentEnvironmentArgsDict']]] = None,
                                        id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkAttachmentResult]:
     """
@@ -211,9 +211,9 @@ def get_private_link_attachment_output(environment: Optional[pulumi.Input[pulumi
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_private_link_attachment(id="platt-abcde",
-        environment=confluentcloud.GetPrivateLinkAttachmentEnvironmentArgs(
-            id="env-1234",
-        ))
+        environment={
+            "id": "env-1234",
+        })
     pulumi.export("platt", main)
     ```
 

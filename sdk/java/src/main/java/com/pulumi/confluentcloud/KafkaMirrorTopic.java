@@ -139,7 +139,7 @@ public class KafkaMirrorTopic extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KafkaMirrorTopic(String name) {
+    public KafkaMirrorTopic(java.lang.String name) {
         this(name, KafkaMirrorTopicArgs.Empty);
     }
     /**
@@ -147,7 +147,7 @@ public class KafkaMirrorTopic extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KafkaMirrorTopic(String name, KafkaMirrorTopicArgs args) {
+    public KafkaMirrorTopic(java.lang.String name, KafkaMirrorTopicArgs args) {
         this(name, args, null);
     }
     /**
@@ -156,12 +156,12 @@ public class KafkaMirrorTopic extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KafkaMirrorTopic(String name, KafkaMirrorTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public KafkaMirrorTopic(java.lang.String name, KafkaMirrorTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KafkaMirrorTopic(String name, Output<String> id, @Nullable KafkaMirrorTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic", name, state, makeResourceOptions(options, id));
+    private KafkaMirrorTopic(java.lang.String name, Output<java.lang.String> id, @Nullable KafkaMirrorTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic", name, state, makeResourceOptions(options, id), false);
     }
 
     private static KafkaMirrorTopicArgs makeArgs(KafkaMirrorTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -171,7 +171,7 @@ public class KafkaMirrorTopic extends com.pulumi.resources.CustomResource {
         return args == null ? KafkaMirrorTopicArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -187,7 +187,7 @@ public class KafkaMirrorTopic extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KafkaMirrorTopic get(String name, Output<String> id, @Nullable KafkaMirrorTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KafkaMirrorTopic get(java.lang.String name, Output<java.lang.String> id, @Nullable KafkaMirrorTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KafkaMirrorTopic(name, id, state, options);
     }
 }

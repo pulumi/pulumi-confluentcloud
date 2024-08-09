@@ -103,7 +103,7 @@ class AwaitableGetDnsRecordResult(GetDnsRecordResult):
             private_link_access_points=self.private_link_access_points)
 
 
-def get_dns_record(environment: Optional[pulumi.InputType['GetDnsRecordEnvironmentArgs']] = None,
+def get_dns_record(environment: Optional[Union['GetDnsRecordEnvironmentArgs', 'GetDnsRecordEnvironmentArgsDict']] = None,
                    id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsRecordResult:
     """
@@ -118,9 +118,9 @@ def get_dns_record(environment: Optional[pulumi.InputType['GetDnsRecordEnvironme
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_dns_record(id="dnsrec-abc123",
-        environment=confluentcloud.GetDnsRecordEnvironmentArgs(
-            id="env-123abc",
-        ))
+        environment={
+            "id": "env-123abc",
+        })
     pulumi.export("dnsRecord", main)
     ```
 
@@ -143,7 +143,7 @@ def get_dns_record(environment: Optional[pulumi.InputType['GetDnsRecordEnvironme
 
 
 @_utilities.lift_output_func(get_dns_record)
-def get_dns_record_output(environment: Optional[pulumi.Input[pulumi.InputType['GetDnsRecordEnvironmentArgs']]] = None,
+def get_dns_record_output(environment: Optional[pulumi.Input[Union['GetDnsRecordEnvironmentArgs', 'GetDnsRecordEnvironmentArgsDict']]] = None,
                           id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsRecordResult]:
     """
@@ -158,9 +158,9 @@ def get_dns_record_output(environment: Optional[pulumi.Input[pulumi.InputType['G
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_dns_record(id="dnsrec-abc123",
-        environment=confluentcloud.GetDnsRecordEnvironmentArgs(
-            id="env-123abc",
-        ))
+        environment={
+            "id": "env-123abc",
+        })
     pulumi.export("dnsRecord", main)
     ```
 

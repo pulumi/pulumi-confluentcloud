@@ -118,10 +118,10 @@ class AwaitableGetTagResult(GetTagResult):
             version=self.version)
 
 
-def get_tag(credentials: Optional[pulumi.InputType['GetTagCredentialsArgs']] = None,
+def get_tag(credentials: Optional[Union['GetTagCredentialsArgs', 'GetTagCredentialsArgsDict']] = None,
             name: Optional[str] = None,
             rest_endpoint: Optional[str] = None,
-            schema_registry_cluster: Optional[pulumi.InputType['GetTagSchemaRegistryClusterArgs']] = None,
+            schema_registry_cluster: Optional[Union['GetTagSchemaRegistryClusterArgs', 'GetTagSchemaRegistryClusterArgsDict']] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagResult:
     """
     Use this data source to access information about an existing resource.
@@ -151,10 +151,10 @@ def get_tag(credentials: Optional[pulumi.InputType['GetTagCredentialsArgs']] = N
 
 
 @_utilities.lift_output_func(get_tag)
-def get_tag_output(credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetTagCredentialsArgs']]]] = None,
+def get_tag_output(credentials: Optional[pulumi.Input[Optional[Union['GetTagCredentialsArgs', 'GetTagCredentialsArgsDict']]]] = None,
                    name: Optional[pulumi.Input[str]] = None,
                    rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
-                   schema_registry_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetTagSchemaRegistryClusterArgs']]]] = None,
+                   schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetTagSchemaRegistryClusterArgs', 'GetTagSchemaRegistryClusterArgsDict']]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagResult]:
     """
     Use this data source to access information about an existing resource.

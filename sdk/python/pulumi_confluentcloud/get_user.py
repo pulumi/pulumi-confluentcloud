@@ -116,10 +116,10 @@ def get_user(email: Optional[str] = None,
         availability="SINGLE_ZONE",
         cloud="AWS",
         region="us-west-2",
-        standard=confluentcloud.KafkaClusterStandardArgs(),
-        environment=confluentcloud.KafkaClusterEnvironmentArgs(
-            id=test_env.id,
-        ))
+        standard={},
+        environment={
+            "id": test_env.id,
+        })
     test_role_binding = confluentcloud.RoleBinding("test-role-binding",
         principal=f"User:{example_using_email.id}",
         role_name="CloudClusterAdmin",
@@ -174,10 +174,10 @@ def get_user_output(email: Optional[pulumi.Input[Optional[str]]] = None,
         availability="SINGLE_ZONE",
         cloud="AWS",
         region="us-west-2",
-        standard=confluentcloud.KafkaClusterStandardArgs(),
-        environment=confluentcloud.KafkaClusterEnvironmentArgs(
-            id=test_env.id,
-        ))
+        standard={},
+        environment={
+            "id": test_env.id,
+        })
     test_role_binding = confluentcloud.RoleBinding("test-role-binding",
         principal=f"User:{example_using_email.id}",
         role_name="CloudClusterAdmin",

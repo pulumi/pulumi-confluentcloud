@@ -134,7 +134,7 @@ public class BusinessMetadata extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BusinessMetadata(String name) {
+    public BusinessMetadata(java.lang.String name) {
         this(name, BusinessMetadataArgs.Empty);
     }
     /**
@@ -142,7 +142,7 @@ public class BusinessMetadata extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BusinessMetadata(String name, @Nullable BusinessMetadataArgs args) {
+    public BusinessMetadata(java.lang.String name, @Nullable BusinessMetadataArgs args) {
         this(name, args, null);
     }
     /**
@@ -151,12 +151,12 @@ public class BusinessMetadata extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BusinessMetadata(String name, @Nullable BusinessMetadataArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/businessMetadata:BusinessMetadata", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public BusinessMetadata(java.lang.String name, @Nullable BusinessMetadataArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/businessMetadata:BusinessMetadata", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BusinessMetadata(String name, Output<String> id, @Nullable BusinessMetadataState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/businessMetadata:BusinessMetadata", name, state, makeResourceOptions(options, id));
+    private BusinessMetadata(java.lang.String name, Output<java.lang.String> id, @Nullable BusinessMetadataState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/businessMetadata:BusinessMetadata", name, state, makeResourceOptions(options, id), false);
     }
 
     private static BusinessMetadataArgs makeArgs(@Nullable BusinessMetadataArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -166,7 +166,7 @@ public class BusinessMetadata extends com.pulumi.resources.CustomResource {
         return args == null ? BusinessMetadataArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -185,7 +185,7 @@ public class BusinessMetadata extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BusinessMetadata get(String name, Output<String> id, @Nullable BusinessMetadataState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BusinessMetadata get(java.lang.String name, Output<java.lang.String> id, @Nullable BusinessMetadataState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BusinessMetadata(name, id, state, options);
     }
 }

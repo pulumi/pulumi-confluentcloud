@@ -193,7 +193,7 @@ class IdentityPool(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input[str]] = None,
                  identity_claim: Optional[pulumi.Input[str]] = None,
-                 identity_provider: Optional[pulumi.Input[pulumi.InputType['IdentityPoolIdentityProviderArgs']]] = None,
+                 identity_provider: Optional[pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -214,9 +214,9 @@ class IdentityPool(pulumi.CustomResource):
             issuer="https://login.microsoftonline.com/{tenant_id}/v2.0",
             jwks_uri="https://login.microsoftonline.com/common/discovery/v2.0/keys")
         example = confluentcloud.IdentityPool("example",
-            identity_provider=confluentcloud.IdentityPoolIdentityProviderArgs(
-                id=azure.id,
-            ),
+            identity_provider={
+                "id": azure.id,
+            },
             display_name="My Identity Pool",
             description="Prod Access to Kafka clusters to Release Engineering",
             identity_claim="claims.sub",
@@ -235,9 +235,9 @@ class IdentityPool(pulumi.CustomResource):
             issuer="https://mycompany.okta.com/oauth2/default",
             jwks_uri="https://mycompany.okta.com/oauth2/default/v1/keys")
         example = confluentcloud.IdentityPool("example",
-            identity_provider=confluentcloud.IdentityPoolIdentityProviderArgs(
-                id=okta.id,
-            ),
+            identity_provider={
+                "id": okta.id,
+            },
             display_name="My Identity Pool",
             description="Prod Access to Kafka clusters to Release Engineering",
             identity_claim="claims.sub",
@@ -268,7 +268,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
         :param pulumi.Input[str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
-        :param pulumi.Input[pulumi.InputType['IdentityPoolIdentityProviderArgs']] identity_provider: Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+        :param pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']] identity_provider: Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
         """
         ...
     @overload
@@ -295,9 +295,9 @@ class IdentityPool(pulumi.CustomResource):
             issuer="https://login.microsoftonline.com/{tenant_id}/v2.0",
             jwks_uri="https://login.microsoftonline.com/common/discovery/v2.0/keys")
         example = confluentcloud.IdentityPool("example",
-            identity_provider=confluentcloud.IdentityPoolIdentityProviderArgs(
-                id=azure.id,
-            ),
+            identity_provider={
+                "id": azure.id,
+            },
             display_name="My Identity Pool",
             description="Prod Access to Kafka clusters to Release Engineering",
             identity_claim="claims.sub",
@@ -316,9 +316,9 @@ class IdentityPool(pulumi.CustomResource):
             issuer="https://mycompany.okta.com/oauth2/default",
             jwks_uri="https://mycompany.okta.com/oauth2/default/v1/keys")
         example = confluentcloud.IdentityPool("example",
-            identity_provider=confluentcloud.IdentityPoolIdentityProviderArgs(
-                id=okta.id,
-            ),
+            identity_provider={
+                "id": okta.id,
+            },
             display_name="My Identity Pool",
             description="Prod Access to Kafka clusters to Release Engineering",
             identity_claim="claims.sub",
@@ -362,7 +362,7 @@ class IdentityPool(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input[str]] = None,
                  identity_claim: Optional[pulumi.Input[str]] = None,
-                 identity_provider: Optional[pulumi.Input[pulumi.InputType['IdentityPoolIdentityProviderArgs']]] = None,
+                 identity_provider: Optional[pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -401,7 +401,7 @@ class IdentityPool(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[str]] = None,
             filter: Optional[pulumi.Input[str]] = None,
             identity_claim: Optional[pulumi.Input[str]] = None,
-            identity_provider: Optional[pulumi.Input[pulumi.InputType['IdentityPoolIdentityProviderArgs']]] = None) -> 'IdentityPool':
+            identity_provider: Optional[pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']]] = None) -> 'IdentityPool':
         """
         Get an existing IdentityPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -413,7 +413,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
         :param pulumi.Input[str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
-        :param pulumi.Input[pulumi.InputType['IdentityPoolIdentityProviderArgs']] identity_provider: Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
+        :param pulumi.Input[Union['IdentityPoolIdentityProviderArgs', 'IdentityPoolIdentityProviderArgsDict']] identity_provider: Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -201,8 +201,8 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_nonsensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['ConnectorEnvironmentArgs']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ConnectorKafkaClusterArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
+                 kafka_cluster: Optional[pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -214,12 +214,12 @@ class Connector(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         source = confluentcloud.Connector("source",
-            environment=confluentcloud.ConnectorEnvironmentArgs(
-                id=staging["id"],
-            ),
-            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
-                id=basic["id"],
-            ),
+            environment={
+                "id": staging["id"],
+            },
+            kafka_cluster={
+                "id": basic["id"],
+            },
             config_sensitive={},
             config_nonsensitive={
                 "connector.class": "DatagenSource",
@@ -245,12 +245,12 @@ class Connector(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         sink = confluentcloud.Connector("sink",
-            environment=confluentcloud.ConnectorEnvironmentArgs(
-                id=staging["id"],
-            ),
-            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
-                id=basic["id"],
-            ),
+            environment={
+                "id": staging["id"],
+            },
+            kafka_cluster={
+                "id": basic["id"],
+            },
             config_sensitive={
                 "aws.access.key.id": "***REDACTED***",
                 "aws.secret.access.key": "***REDACTED***",
@@ -287,12 +287,12 @@ class Connector(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         sink = confluentcloud.Connector("sink",
-            environment=confluentcloud.ConnectorEnvironmentArgs(
-                id=staging["id"],
-            ),
-            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
-                id=basic["id"],
-            ),
+            environment={
+                "id": staging["id"],
+            },
+            kafka_cluster={
+                "id": basic["id"],
+            },
             config_sensitive={
                 "aws.access.key.id": "***REDACTED***",
                 "aws.secret.access.key": "***REDACTED***",
@@ -328,12 +328,12 @@ class Connector(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         source = confluentcloud.Connector("source",
-            environment=confluentcloud.ConnectorEnvironmentArgs(
-                id=staging["id"],
-            ),
-            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
-                id=basic["id"],
-            ),
+            environment={
+                "id": staging["id"],
+            },
+            kafka_cluster={
+                "id": basic["id"],
+            },
             config_sensitive={
                 "kafka.api.key": "***REDACTED***",
                 "kafka.api.secret": "***REDACTED***",
@@ -389,7 +389,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
-        :param pulumi.Input[pulumi.InputType['ConnectorEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
                
                > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
@@ -411,12 +411,12 @@ class Connector(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         source = confluentcloud.Connector("source",
-            environment=confluentcloud.ConnectorEnvironmentArgs(
-                id=staging["id"],
-            ),
-            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
-                id=basic["id"],
-            ),
+            environment={
+                "id": staging["id"],
+            },
+            kafka_cluster={
+                "id": basic["id"],
+            },
             config_sensitive={},
             config_nonsensitive={
                 "connector.class": "DatagenSource",
@@ -442,12 +442,12 @@ class Connector(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         sink = confluentcloud.Connector("sink",
-            environment=confluentcloud.ConnectorEnvironmentArgs(
-                id=staging["id"],
-            ),
-            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
-                id=basic["id"],
-            ),
+            environment={
+                "id": staging["id"],
+            },
+            kafka_cluster={
+                "id": basic["id"],
+            },
             config_sensitive={
                 "aws.access.key.id": "***REDACTED***",
                 "aws.secret.access.key": "***REDACTED***",
@@ -484,12 +484,12 @@ class Connector(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         sink = confluentcloud.Connector("sink",
-            environment=confluentcloud.ConnectorEnvironmentArgs(
-                id=staging["id"],
-            ),
-            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
-                id=basic["id"],
-            ),
+            environment={
+                "id": staging["id"],
+            },
+            kafka_cluster={
+                "id": basic["id"],
+            },
             config_sensitive={
                 "aws.access.key.id": "***REDACTED***",
                 "aws.secret.access.key": "***REDACTED***",
@@ -525,12 +525,12 @@ class Connector(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         source = confluentcloud.Connector("source",
-            environment=confluentcloud.ConnectorEnvironmentArgs(
-                id=staging["id"],
-            ),
-            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
-                id=basic["id"],
-            ),
+            environment={
+                "id": staging["id"],
+            },
+            kafka_cluster={
+                "id": basic["id"],
+            },
             config_sensitive={
                 "kafka.api.key": "***REDACTED***",
                 "kafka.api.secret": "***REDACTED***",
@@ -599,8 +599,8 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_nonsensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['ConnectorEnvironmentArgs']]] = None,
-                 kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ConnectorKafkaClusterArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
+                 kafka_cluster: Optional[pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -636,8 +636,8 @@ class Connector(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             config_nonsensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            environment: Optional[pulumi.Input[pulumi.InputType['ConnectorEnvironmentArgs']]] = None,
-            kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ConnectorKafkaClusterArgs']]] = None,
+            environment: Optional[pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
+            kafka_cluster: Optional[pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None) -> 'Connector':
         """
         Get an existing Connector resource's state with the given name, id, and optional extra
@@ -648,7 +648,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
-        :param pulumi.Input[pulumi.InputType['ConnectorEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
                
                > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.

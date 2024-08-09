@@ -160,10 +160,10 @@ class AwaitableGetSchemaRegistryKekResult(GetSchemaRegistryKekResult):
             shared=self.shared)
 
 
-def get_schema_registry_kek(credentials: Optional[pulumi.InputType['GetSchemaRegistryKekCredentialsArgs']] = None,
+def get_schema_registry_kek(credentials: Optional[Union['GetSchemaRegistryKekCredentialsArgs', 'GetSchemaRegistryKekCredentialsArgsDict']] = None,
                             name: Optional[str] = None,
                             rest_endpoint: Optional[str] = None,
-                            schema_registry_cluster: Optional[pulumi.InputType['GetSchemaRegistryKekSchemaRegistryClusterArgs']] = None,
+                            schema_registry_cluster: Optional[Union['GetSchemaRegistryKekSchemaRegistryClusterArgs', 'GetSchemaRegistryKekSchemaRegistryClusterArgsDict']] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryKekResult:
     """
     Use this data source to access information about an existing resource.
@@ -196,10 +196,10 @@ def get_schema_registry_kek(credentials: Optional[pulumi.InputType['GetSchemaReg
 
 
 @_utilities.lift_output_func(get_schema_registry_kek)
-def get_schema_registry_kek_output(credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemaRegistryKekCredentialsArgs']]]] = None,
+def get_schema_registry_kek_output(credentials: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryKekCredentialsArgs', 'GetSchemaRegistryKekCredentialsArgsDict']]]] = None,
                                    name: Optional[pulumi.Input[str]] = None,
                                    rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
-                                   schema_registry_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemaRegistryKekSchemaRegistryClusterArgs']]]] = None,
+                                   schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryKekSchemaRegistryClusterArgs', 'GetSchemaRegistryKekSchemaRegistryClusterArgsDict']]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryKekResult]:
     """
     Use this data source to access information about an existing resource.
