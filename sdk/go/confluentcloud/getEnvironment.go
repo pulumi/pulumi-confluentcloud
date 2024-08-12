@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewRoleBinding(ctx, "test-role-binding", &confluentcloud.RoleBindingArgs{
-//				Principal:  pulumi.String(fmt.Sprintf("User:%v", exampleUsingNameGetServiceAccount.Id)),
+//				Principal:  pulumi.Sprintf("User:%v", exampleUsingNameGetServiceAccount.Id),
 //				RoleName:   pulumi.String("EnvironmentAdmin"),
 //				CrnPattern: pulumi.String(exampleUsingName.ResourceName),
 //			})

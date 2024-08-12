@@ -103,7 +103,7 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
             id=self.id)
 
 
-def get_access_point(environment: Optional[pulumi.InputType['GetAccessPointEnvironmentArgs']] = None,
+def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict']] = None,
                      id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPointResult:
     """
@@ -118,9 +118,9 @@ def get_access_point(environment: Optional[pulumi.InputType['GetAccessPointEnvir
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_access_point(id="ap-abc123",
-        environment=confluentcloud.GetAccessPointEnvironmentArgs(
-            id="env-123abc",
-        ))
+        environment={
+            "id": "env-123abc",
+        })
     pulumi.export("accessPoint", main)
     ```
 
@@ -143,7 +143,7 @@ def get_access_point(environment: Optional[pulumi.InputType['GetAccessPointEnvir
 
 
 @_utilities.lift_output_func(get_access_point)
-def get_access_point_output(environment: Optional[pulumi.Input[pulumi.InputType['GetAccessPointEnvironmentArgs']]] = None,
+def get_access_point_output(environment: Optional[pulumi.Input[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict']]] = None,
                             id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointResult]:
     """
@@ -158,9 +158,9 @@ def get_access_point_output(environment: Optional[pulumi.Input[pulumi.InputType[
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_access_point(id="ap-abc123",
-        environment=confluentcloud.GetAccessPointEnvironmentArgs(
-            id="env-123abc",
-        ))
+        environment={
+            "id": "env-123abc",
+        })
     pulumi.export("accessPoint", main)
     ```
 

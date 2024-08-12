@@ -104,7 +104,7 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SubjectConfig(String name) {
+    public SubjectConfig(java.lang.String name) {
         this(name, SubjectConfigArgs.Empty);
     }
     /**
@@ -112,7 +112,7 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SubjectConfig(String name, SubjectConfigArgs args) {
+    public SubjectConfig(java.lang.String name, SubjectConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -121,12 +121,12 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SubjectConfig(String name, SubjectConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/subjectConfig:SubjectConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SubjectConfig(java.lang.String name, SubjectConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/subjectConfig:SubjectConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SubjectConfig(String name, Output<String> id, @Nullable SubjectConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/subjectConfig:SubjectConfig", name, state, makeResourceOptions(options, id));
+    private SubjectConfig(java.lang.String name, Output<java.lang.String> id, @Nullable SubjectConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/subjectConfig:SubjectConfig", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SubjectConfigArgs makeArgs(SubjectConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -136,7 +136,7 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
         return args == null ? SubjectConfigArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -155,7 +155,7 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SubjectConfig get(String name, Output<String> id, @Nullable SubjectConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SubjectConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable SubjectConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SubjectConfig(name, id, state, options);
     }
 }

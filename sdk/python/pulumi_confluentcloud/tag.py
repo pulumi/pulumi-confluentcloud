@@ -218,11 +218,11 @@ class Tag(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['TagCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['TagCredentialsArgs', 'TagCredentialsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['TagSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['TagSchemaRegistryClusterArgs', 'TagSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
         """
         ## Import
@@ -243,7 +243,7 @@ class Tag(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TagCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['TagCredentialsArgs', 'TagCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] description: The description of the tag to be created.
         :param pulumi.Input[str] name: The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -286,11 +286,11 @@ class Tag(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['TagCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['TagCredentialsArgs', 'TagCredentialsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['TagSchemaRegistryClusterArgs']]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['TagSchemaRegistryClusterArgs', 'TagSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -319,12 +319,12 @@ class Tag(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: Optional[pulumi.Input[pulumi.InputType['TagCredentialsArgs']]] = None,
+            credentials: Optional[pulumi.Input[Union['TagCredentialsArgs', 'TagCredentialsArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             entity_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['TagSchemaRegistryClusterArgs']]] = None,
+            schema_registry_cluster: Optional[pulumi.Input[Union['TagSchemaRegistryClusterArgs', 'TagSchemaRegistryClusterArgsDict']]] = None,
             version: Optional[pulumi.Input[int]] = None) -> 'Tag':
         """
         Get an existing Tag resource's state with the given name, id, and optional extra
@@ -333,7 +333,7 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TagCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['TagCredentialsArgs', 'TagCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] description: The description of the tag to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_types: (Optional List of String) The entity types of the tag, this always returns `["cf_entity"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         :param pulumi.Input[str] name: The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.

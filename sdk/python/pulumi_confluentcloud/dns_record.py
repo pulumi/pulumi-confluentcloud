@@ -177,9 +177,9 @@ class DnsRecord(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['DnsRecordEnvironmentArgs']]] = None,
-                 gateway: Optional[pulumi.Input[pulumi.InputType['DnsRecordGatewayArgs']]] = None,
-                 private_link_access_point: Optional[pulumi.Input[pulumi.InputType['DnsRecordPrivateLinkAccessPointArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']]] = None,
+                 gateway: Optional[pulumi.Input[Union['DnsRecordGatewayArgs', 'DnsRecordGatewayArgsDict']]] = None,
+                 private_link_access_point: Optional[pulumi.Input[Union['DnsRecordPrivateLinkAccessPointArgs', 'DnsRecordPrivateLinkAccessPointArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -195,16 +195,16 @@ class DnsRecord(pulumi.CustomResource):
         development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.DnsRecord("main",
             display_name="dns_record",
-            environment=confluentcloud.DnsRecordEnvironmentArgs(
-                id=development.id,
-            ),
+            environment={
+                "id": development.id,
+            },
             domain="example.com",
-            gateway=confluentcloud.DnsRecordGatewayArgs(
-                id=main_confluent_network["gateway"][0]["id"],
-            ),
-            private_link_access_point=confluentcloud.DnsRecordPrivateLinkAccessPointArgs(
-                id=main_confluent_access_point["id"],
-            ))
+            gateway={
+                "id": main_confluent_network["gateway"][0]["id"],
+            },
+            private_link_access_point={
+                "id": main_confluent_access_point["id"],
+            })
         ```
 
         ## Import
@@ -225,7 +225,7 @@ class DnsRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The name of the DNS Record.
         :param pulumi.Input[str] domain: The fully qualified domain name of the DNS Record.
-        :param pulumi.Input[pulumi.InputType['DnsRecordEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         ...
     @overload
@@ -247,16 +247,16 @@ class DnsRecord(pulumi.CustomResource):
         development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.DnsRecord("main",
             display_name="dns_record",
-            environment=confluentcloud.DnsRecordEnvironmentArgs(
-                id=development.id,
-            ),
+            environment={
+                "id": development.id,
+            },
             domain="example.com",
-            gateway=confluentcloud.DnsRecordGatewayArgs(
-                id=main_confluent_network["gateway"][0]["id"],
-            ),
-            private_link_access_point=confluentcloud.DnsRecordPrivateLinkAccessPointArgs(
-                id=main_confluent_access_point["id"],
-            ))
+            gateway={
+                "id": main_confluent_network["gateway"][0]["id"],
+            },
+            private_link_access_point={
+                "id": main_confluent_access_point["id"],
+            })
         ```
 
         ## Import
@@ -290,9 +290,9 @@ class DnsRecord(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['DnsRecordEnvironmentArgs']]] = None,
-                 gateway: Optional[pulumi.Input[pulumi.InputType['DnsRecordGatewayArgs']]] = None,
-                 private_link_access_point: Optional[pulumi.Input[pulumi.InputType['DnsRecordPrivateLinkAccessPointArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']]] = None,
+                 gateway: Optional[pulumi.Input[Union['DnsRecordGatewayArgs', 'DnsRecordGatewayArgsDict']]] = None,
+                 private_link_access_point: Optional[pulumi.Input[Union['DnsRecordPrivateLinkAccessPointArgs', 'DnsRecordPrivateLinkAccessPointArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -325,9 +325,9 @@ class DnsRecord(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             domain: Optional[pulumi.Input[str]] = None,
-            environment: Optional[pulumi.Input[pulumi.InputType['DnsRecordEnvironmentArgs']]] = None,
-            gateway: Optional[pulumi.Input[pulumi.InputType['DnsRecordGatewayArgs']]] = None,
-            private_link_access_point: Optional[pulumi.Input[pulumi.InputType['DnsRecordPrivateLinkAccessPointArgs']]] = None) -> 'DnsRecord':
+            environment: Optional[pulumi.Input[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']]] = None,
+            gateway: Optional[pulumi.Input[Union['DnsRecordGatewayArgs', 'DnsRecordGatewayArgsDict']]] = None,
+            private_link_access_point: Optional[pulumi.Input[Union['DnsRecordPrivateLinkAccessPointArgs', 'DnsRecordPrivateLinkAccessPointArgsDict']]] = None) -> 'DnsRecord':
         """
         Get an existing DnsRecord resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -337,7 +337,7 @@ class DnsRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The name of the DNS Record.
         :param pulumi.Input[str] domain: The fully qualified domain name of the DNS Record.
-        :param pulumi.Input[pulumi.InputType['DnsRecordEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['DnsRecordEnvironmentArgs', 'DnsRecordEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

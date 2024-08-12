@@ -440,16 +440,16 @@ class Schema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  hard_delete: Optional[pulumi.Input[bool]] = None,
-                 metadata: Optional[pulumi.Input[pulumi.InputType['SchemaMetadataArgs']]] = None,
+                 metadata: Optional[pulumi.Input[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']]] = None,
                  recreate_on_update: Optional[pulumi.Input[bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 ruleset: Optional[pulumi.Input[pulumi.InputType['SchemaRulesetArgs']]] = None,
+                 ruleset: Optional[pulumi.Input[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaRegistryClusterArgs']]] = None,
+                 schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaSchemaRegistryClusterArgs', 'SchemaSchemaRegistryClusterArgsDict']]] = None,
                  skip_validation_during_plan: Optional[pulumi.Input[bool]] = None,
                  subject_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -486,15 +486,15 @@ class Schema(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
         :param pulumi.Input[bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
-        :param pulumi.Input[pulumi.InputType['SchemaMetadataArgs']] metadata: See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+        :param pulumi.Input[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']] metadata: See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
         :param pulumi.Input[bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-        :param pulumi.Input[pulumi.InputType['SchemaRulesetArgs']] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+        :param pulumi.Input[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
         :param pulumi.Input[bool] skip_validation_during_plan: An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
         :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         """
@@ -550,16 +550,16 @@ class Schema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  hard_delete: Optional[pulumi.Input[bool]] = None,
-                 metadata: Optional[pulumi.Input[pulumi.InputType['SchemaMetadataArgs']]] = None,
+                 metadata: Optional[pulumi.Input[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']]] = None,
                  recreate_on_update: Optional[pulumi.Input[bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 ruleset: Optional[pulumi.Input[pulumi.InputType['SchemaRulesetArgs']]] = None,
+                 ruleset: Optional[pulumi.Input[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]]] = None,
-                 schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaRegistryClusterArgs']]] = None,
+                 schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]]] = None,
+                 schema_registry_cluster: Optional[pulumi.Input[Union['SchemaSchemaRegistryClusterArgs', 'SchemaSchemaRegistryClusterArgsDict']]] = None,
                  skip_validation_during_plan: Optional[pulumi.Input[bool]] = None,
                  subject_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -601,17 +601,17 @@ class Schema(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: Optional[pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']]] = None,
+            credentials: Optional[pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']]] = None,
             format: Optional[pulumi.Input[str]] = None,
             hard_delete: Optional[pulumi.Input[bool]] = None,
-            metadata: Optional[pulumi.Input[pulumi.InputType['SchemaMetadataArgs']]] = None,
+            metadata: Optional[pulumi.Input[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']]] = None,
             recreate_on_update: Optional[pulumi.Input[bool]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
-            ruleset: Optional[pulumi.Input[pulumi.InputType['SchemaRulesetArgs']]] = None,
+            ruleset: Optional[pulumi.Input[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             schema_identifier: Optional[pulumi.Input[int]] = None,
-            schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]]] = None,
-            schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaRegistryClusterArgs']]] = None,
+            schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]]] = None,
+            schema_registry_cluster: Optional[pulumi.Input[Union['SchemaSchemaRegistryClusterArgs', 'SchemaSchemaRegistryClusterArgsDict']]] = None,
             skip_validation_during_plan: Optional[pulumi.Input[bool]] = None,
             subject_name: Optional[pulumi.Input[str]] = None,
             version: Optional[pulumi.Input[int]] = None) -> 'Schema':
@@ -622,16 +622,16 @@ class Schema(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
         :param pulumi.Input[bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
-        :param pulumi.Input[pulumi.InputType['SchemaMetadataArgs']] metadata: See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+        :param pulumi.Input[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']] metadata: See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
         :param pulumi.Input[bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-        :param pulumi.Input[pulumi.InputType['SchemaRulesetArgs']] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+        :param pulumi.Input[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
         :param pulumi.Input[bool] skip_validation_during_plan: An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
         :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         :param pulumi.Input[int] version: (Required Integer) The version of the Schema, for example, `4`.

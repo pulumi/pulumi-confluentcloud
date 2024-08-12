@@ -250,9 +250,9 @@ class KafkaTopic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['KafkaTopicCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['KafkaTopicCredentialsArgs', 'KafkaTopicCredentialsArgsDict']]] = None,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
-                 kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KafkaTopicKafkaClusterArgs']]] = None,
+                 kafka_cluster: Optional[pulumi.Input[Union['KafkaTopicKafkaClusterArgs', 'KafkaTopicKafkaClusterArgsDict']]] = None,
                  partitions_count: Optional[pulumi.Input[int]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
@@ -343,7 +343,7 @@ class KafkaTopic(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The custom topic settings to set:
-        :param pulumi.Input[pulumi.InputType['KafkaTopicCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['KafkaTopicCredentialsArgs', 'KafkaTopicCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[int] partitions_count: The number of partitions to create in the topic. Defaults to `6`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] topic_name: The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
@@ -453,9 +453,9 @@ class KafkaTopic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['KafkaTopicCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[Union['KafkaTopicCredentialsArgs', 'KafkaTopicCredentialsArgsDict']]] = None,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
-                 kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KafkaTopicKafkaClusterArgs']]] = None,
+                 kafka_cluster: Optional[pulumi.Input[Union['KafkaTopicKafkaClusterArgs', 'KafkaTopicKafkaClusterArgsDict']]] = None,
                  partitions_count: Optional[pulumi.Input[int]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
@@ -490,9 +490,9 @@ class KafkaTopic(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            credentials: Optional[pulumi.Input[pulumi.InputType['KafkaTopicCredentialsArgs']]] = None,
+            credentials: Optional[pulumi.Input[Union['KafkaTopicCredentialsArgs', 'KafkaTopicCredentialsArgsDict']]] = None,
             http_endpoint: Optional[pulumi.Input[str]] = None,
-            kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KafkaTopicKafkaClusterArgs']]] = None,
+            kafka_cluster: Optional[pulumi.Input[Union['KafkaTopicKafkaClusterArgs', 'KafkaTopicKafkaClusterArgsDict']]] = None,
             partitions_count: Optional[pulumi.Input[int]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
             topic_name: Optional[pulumi.Input[str]] = None) -> 'KafkaTopic':
@@ -504,7 +504,7 @@ class KafkaTopic(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The custom topic settings to set:
-        :param pulumi.Input[pulumi.InputType['KafkaTopicCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Union['KafkaTopicCredentialsArgs', 'KafkaTopicCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[int] partitions_count: The number of partitions to create in the topic. Defaults to `6`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] topic_name: The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.

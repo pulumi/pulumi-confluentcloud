@@ -322,7 +322,7 @@ public class PrivateLinkAccess extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PrivateLinkAccess(String name) {
+    public PrivateLinkAccess(java.lang.String name) {
         this(name, PrivateLinkAccessArgs.Empty);
     }
     /**
@@ -330,7 +330,7 @@ public class PrivateLinkAccess extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PrivateLinkAccess(String name, PrivateLinkAccessArgs args) {
+    public PrivateLinkAccess(java.lang.String name, PrivateLinkAccessArgs args) {
         this(name, args, null);
     }
     /**
@@ -339,12 +339,12 @@ public class PrivateLinkAccess extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PrivateLinkAccess(String name, PrivateLinkAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/privateLinkAccess:PrivateLinkAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PrivateLinkAccess(java.lang.String name, PrivateLinkAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/privateLinkAccess:PrivateLinkAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PrivateLinkAccess(String name, Output<String> id, @Nullable PrivateLinkAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/privateLinkAccess:PrivateLinkAccess", name, state, makeResourceOptions(options, id));
+    private PrivateLinkAccess(java.lang.String name, Output<java.lang.String> id, @Nullable PrivateLinkAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/privateLinkAccess:PrivateLinkAccess", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PrivateLinkAccessArgs makeArgs(PrivateLinkAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -354,7 +354,7 @@ public class PrivateLinkAccess extends com.pulumi.resources.CustomResource {
         return args == null ? PrivateLinkAccessArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -370,7 +370,7 @@ public class PrivateLinkAccess extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PrivateLinkAccess get(String name, Output<String> id, @Nullable PrivateLinkAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PrivateLinkAccess get(java.lang.String name, Output<java.lang.String> id, @Nullable PrivateLinkAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PrivateLinkAccess(name, id, state, options);
     }
 }

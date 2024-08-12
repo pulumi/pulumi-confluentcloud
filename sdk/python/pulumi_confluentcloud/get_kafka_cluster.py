@@ -247,14 +247,14 @@ class AwaitableGetKafkaClusterResult(GetKafkaClusterResult):
             standards=self.standards)
 
 
-def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaClusterBasicArgs']]] = None,
-                      dedicated: Optional[pulumi.InputType['GetKafkaClusterDedicatedArgs']] = None,
+def get_kafka_cluster(basics: Optional[Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict']]] = None,
+                      dedicated: Optional[Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict']] = None,
                       display_name: Optional[str] = None,
-                      enterprises: Optional[Sequence[pulumi.InputType['GetKafkaClusterEnterpriseArgs']]] = None,
-                      environment: Optional[pulumi.InputType['GetKafkaClusterEnvironmentArgs']] = None,
-                      freights: Optional[Sequence[pulumi.InputType['GetKafkaClusterFreightArgs']]] = None,
+                      enterprises: Optional[Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict']]] = None,
+                      environment: Optional[Union['GetKafkaClusterEnvironmentArgs', 'GetKafkaClusterEnvironmentArgsDict']] = None,
+                      freights: Optional[Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict']]] = None,
                       id: Optional[str] = None,
-                      standards: Optional[Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']]] = None,
+                      standards: Optional[Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict']]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaClusterResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -268,27 +268,27 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_kafka_cluster(id="lkc-abc123",
-        environment=confluentcloud.GetKafkaClusterEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     test_sa = confluentcloud.ServiceAccount("test-sa",
         display_name="app_mgr",
         description=f"app_mgr for {example_using_id.display_name}")
     example_using_name = confluentcloud.get_kafka_cluster(display_name="basic_kafka_cluster",
-        environment=confluentcloud.GetKafkaClusterEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
-    :param Sequence[pulumi.InputType['GetKafkaClusterBasicArgs']] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.
-    :param pulumi.InputType['GetKafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+    :param Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict']] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.
+    :param Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
     :param str display_name: A human-readable name for the Kafka cluster.
-    :param Sequence[pulumi.InputType['GetKafkaClusterEnterpriseArgs']] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
-    :param Sequence[pulumi.InputType['GetKafkaClusterFreightArgs']] freights: (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+    :param Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict']] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+    :param Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict']] freights: (Optional Configuration Block) The configuration of the Freight Kafka cluster.
     :param str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
-    :param Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
+    :param Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
     """
     __args__ = dict()
     __args__['basics'] = basics
@@ -324,14 +324,14 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
 
 
 @_utilities.lift_output_func(get_kafka_cluster)
-def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKafkaClusterBasicArgs']]]]] = None,
-                             dedicated: Optional[pulumi.Input[Optional[pulumi.InputType['GetKafkaClusterDedicatedArgs']]]] = None,
+def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict']]]]] = None,
+                             dedicated: Optional[pulumi.Input[Optional[Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict']]]] = None,
                              display_name: Optional[pulumi.Input[Optional[str]]] = None,
-                             enterprises: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKafkaClusterEnterpriseArgs']]]]] = None,
-                             environment: Optional[pulumi.Input[pulumi.InputType['GetKafkaClusterEnvironmentArgs']]] = None,
-                             freights: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKafkaClusterFreightArgs']]]]] = None,
+                             enterprises: Optional[pulumi.Input[Optional[Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict']]]]] = None,
+                             environment: Optional[pulumi.Input[Union['GetKafkaClusterEnvironmentArgs', 'GetKafkaClusterEnvironmentArgsDict']]] = None,
+                             freights: Optional[pulumi.Input[Optional[Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict']]]]] = None,
                              id: Optional[pulumi.Input[Optional[str]]] = None,
-                             standards: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']]]]] = None,
+                             standards: Optional[pulumi.Input[Optional[Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict']]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaClusterResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -345,26 +345,26 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi_confluentcloud as confluentcloud
 
     example_using_id = confluentcloud.get_kafka_cluster(id="lkc-abc123",
-        environment=confluentcloud.GetKafkaClusterEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     test_sa = confluentcloud.ServiceAccount("test-sa",
         display_name="app_mgr",
         description=f"app_mgr for {example_using_id.display_name}")
     example_using_name = confluentcloud.get_kafka_cluster(display_name="basic_kafka_cluster",
-        environment=confluentcloud.GetKafkaClusterEnvironmentArgs(
-            id="env-xyz456",
-        ))
+        environment={
+            "id": "env-xyz456",
+        })
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
-    :param Sequence[pulumi.InputType['GetKafkaClusterBasicArgs']] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.
-    :param pulumi.InputType['GetKafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+    :param Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict']] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.
+    :param Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
     :param str display_name: A human-readable name for the Kafka cluster.
-    :param Sequence[pulumi.InputType['GetKafkaClusterEnterpriseArgs']] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
-    :param Sequence[pulumi.InputType['GetKafkaClusterFreightArgs']] freights: (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+    :param Sequence[Union['GetKafkaClusterEnterpriseArgs', 'GetKafkaClusterEnterpriseArgsDict']] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+    :param Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict']] freights: (Optional Configuration Block) The configuration of the Freight Kafka cluster.
     :param str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
-    :param Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
+    :param Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
     """
     ...

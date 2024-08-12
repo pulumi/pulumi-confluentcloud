@@ -204,11 +204,11 @@ class NetworkLinkService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept: Optional[pulumi.Input[pulumi.InputType['NetworkLinkServiceAcceptArgs']]] = None,
+                 accept: Optional[pulumi.Input[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['NetworkLinkServiceEnvironmentArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['NetworkLinkServiceNetworkArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -230,25 +230,25 @@ class NetworkLinkService(pulumi.CustomResource):
                 "use1-az2",
                 "use1-az6",
             ],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         aws_nls = confluentcloud.NetworkLinkService("aws_nls",
             display_name="AWS Private Link network link service",
-            environment=confluentcloud.NetworkLinkServiceEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.NetworkLinkServiceNetworkArgs(
-                id=aws_private_link.id,
-            ),
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": aws_private_link.id,
+            },
             description="Test NL service",
-            accept=confluentcloud.NetworkLinkServiceAcceptArgs(
-                environments=[
+            accept={
+                "environments": [
                     "env-5678",
                     "env-0923",
                 ],
-                networks=["n-1234"],
-            ))
+                "networks": ["n-1234"],
+            })
         ```
 
         ## Getting Started
@@ -274,8 +274,8 @@ class NetworkLinkService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Network Link Service.
         :param pulumi.Input[str] display_name: The name of the Network Link Service.
-        :param pulumi.Input[pulumi.InputType['NetworkLinkServiceEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[pulumi.InputType['NetworkLinkServiceNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
+        :param pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         """
         ...
@@ -304,25 +304,25 @@ class NetworkLinkService(pulumi.CustomResource):
                 "use1-az2",
                 "use1-az6",
             ],
-            environment=confluentcloud.NetworkEnvironmentArgs(
-                id=development.id,
-            ))
+            environment={
+                "id": development.id,
+            })
         aws_nls = confluentcloud.NetworkLinkService("aws_nls",
             display_name="AWS Private Link network link service",
-            environment=confluentcloud.NetworkLinkServiceEnvironmentArgs(
-                id=development.id,
-            ),
-            network=confluentcloud.NetworkLinkServiceNetworkArgs(
-                id=aws_private_link.id,
-            ),
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": aws_private_link.id,
+            },
             description="Test NL service",
-            accept=confluentcloud.NetworkLinkServiceAcceptArgs(
-                environments=[
+            accept={
+                "environments": [
                     "env-5678",
                     "env-0923",
                 ],
-                networks=["n-1234"],
-            ))
+                "networks": ["n-1234"],
+            })
         ```
 
         ## Getting Started
@@ -359,11 +359,11 @@ class NetworkLinkService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept: Optional[pulumi.Input[pulumi.InputType['NetworkLinkServiceAcceptArgs']]] = None,
+                 accept: Optional[pulumi.Input[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['NetworkLinkServiceEnvironmentArgs']]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['NetworkLinkServiceNetworkArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']]] = None,
+                 network: Optional[pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -393,11 +393,11 @@ class NetworkLinkService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accept: Optional[pulumi.Input[pulumi.InputType['NetworkLinkServiceAcceptArgs']]] = None,
+            accept: Optional[pulumi.Input[Union['NetworkLinkServiceAcceptArgs', 'NetworkLinkServiceAcceptArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            environment: Optional[pulumi.Input[pulumi.InputType['NetworkLinkServiceEnvironmentArgs']]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['NetworkLinkServiceNetworkArgs']]] = None,
+            environment: Optional[pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']]] = None,
+            network: Optional[pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']]] = None,
             resource_name_: Optional[pulumi.Input[str]] = None) -> 'NetworkLinkService':
         """
         Get an existing NetworkLinkService resource's state with the given name, id, and optional extra
@@ -408,8 +408,8 @@ class NetworkLinkService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Network Link Service.
         :param pulumi.Input[str] display_name: The name of the Network Link Service.
-        :param pulumi.Input[pulumi.InputType['NetworkLinkServiceEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[pulumi.InputType['NetworkLinkServiceNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
+        :param pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         :param pulumi.Input[str] resource_name_: (Required String) The Confluent Resource Name of the Network Link Service.
         """

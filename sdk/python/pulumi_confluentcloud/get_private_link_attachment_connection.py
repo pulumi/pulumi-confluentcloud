@@ -124,7 +124,7 @@ class AwaitableGetPrivateLinkAttachmentConnectionResult(GetPrivateLinkAttachment
             resource_name=self.resource_name)
 
 
-def get_private_link_attachment_connection(environment: Optional[pulumi.InputType['GetPrivateLinkAttachmentConnectionEnvironmentArgs']] = None,
+def get_private_link_attachment_connection(environment: Optional[Union['GetPrivateLinkAttachmentConnectionEnvironmentArgs', 'GetPrivateLinkAttachmentConnectionEnvironmentArgsDict']] = None,
                                            id: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkAttachmentConnectionResult:
     """
@@ -139,9 +139,9 @@ def get_private_link_attachment_connection(environment: Optional[pulumi.InputTyp
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_private_link_attachment_connection(id="plattc-p5j3ov",
-        environment=confluentcloud.GetPrivateLinkAttachmentConnectionEnvironmentArgs(
-            id="env-8gv0v5",
-        ))
+        environment={
+            "id": "env-8gv0v5",
+        })
     pulumi.export("plattc", main)
     ```
 
@@ -172,7 +172,7 @@ def get_private_link_attachment_connection(environment: Optional[pulumi.InputTyp
 
 
 @_utilities.lift_output_func(get_private_link_attachment_connection)
-def get_private_link_attachment_connection_output(environment: Optional[pulumi.Input[pulumi.InputType['GetPrivateLinkAttachmentConnectionEnvironmentArgs']]] = None,
+def get_private_link_attachment_connection_output(environment: Optional[pulumi.Input[Union['GetPrivateLinkAttachmentConnectionEnvironmentArgs', 'GetPrivateLinkAttachmentConnectionEnvironmentArgsDict']]] = None,
                                                   id: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkAttachmentConnectionResult]:
     """
@@ -187,9 +187,9 @@ def get_private_link_attachment_connection_output(environment: Optional[pulumi.I
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_private_link_attachment_connection(id="plattc-p5j3ov",
-        environment=confluentcloud.GetPrivateLinkAttachmentConnectionEnvironmentArgs(
-            id="env-8gv0v5",
-        ))
+        environment={
+            "id": "env-8gv0v5",
+        })
     pulumi.export("plattc", main)
     ```
 

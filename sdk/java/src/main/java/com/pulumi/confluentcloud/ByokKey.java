@@ -172,7 +172,7 @@ public class ByokKey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ByokKey(String name) {
+    public ByokKey(java.lang.String name) {
         this(name, ByokKeyArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class ByokKey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ByokKey(String name, @Nullable ByokKeyArgs args) {
+    public ByokKey(java.lang.String name, @Nullable ByokKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,12 +189,12 @@ public class ByokKey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ByokKey(String name, @Nullable ByokKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/byokKey:ByokKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ByokKey(java.lang.String name, @Nullable ByokKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/byokKey:ByokKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ByokKey(String name, Output<String> id, @Nullable ByokKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/byokKey:ByokKey", name, state, makeResourceOptions(options, id));
+    private ByokKey(java.lang.String name, Output<java.lang.String> id, @Nullable ByokKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/byokKey:ByokKey", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ByokKeyArgs makeArgs(@Nullable ByokKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -204,7 +204,7 @@ public class ByokKey extends com.pulumi.resources.CustomResource {
         return args == null ? ByokKeyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -220,7 +220,7 @@ public class ByokKey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ByokKey get(String name, Output<String> id, @Nullable ByokKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ByokKey get(java.lang.String name, Output<java.lang.String> id, @Nullable ByokKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ByokKey(name, id, state, options);
     }
 }
