@@ -178,7 +178,7 @@ public class SchemaRegistryDek extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SchemaRegistryDek(String name) {
+    public SchemaRegistryDek(java.lang.String name) {
         this(name, SchemaRegistryDekArgs.Empty);
     }
     /**
@@ -186,7 +186,7 @@ public class SchemaRegistryDek extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SchemaRegistryDek(String name, SchemaRegistryDekArgs args) {
+    public SchemaRegistryDek(java.lang.String name, SchemaRegistryDekArgs args) {
         this(name, args, null);
     }
     /**
@@ -195,12 +195,12 @@ public class SchemaRegistryDek extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SchemaRegistryDek(String name, SchemaRegistryDekArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/schemaRegistryDek:SchemaRegistryDek", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SchemaRegistryDek(java.lang.String name, SchemaRegistryDekArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/schemaRegistryDek:SchemaRegistryDek", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SchemaRegistryDek(String name, Output<String> id, @Nullable SchemaRegistryDekState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/schemaRegistryDek:SchemaRegistryDek", name, state, makeResourceOptions(options, id));
+    private SchemaRegistryDek(java.lang.String name, Output<java.lang.String> id, @Nullable SchemaRegistryDekState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/schemaRegistryDek:SchemaRegistryDek", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SchemaRegistryDekArgs makeArgs(SchemaRegistryDekArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -210,7 +210,7 @@ public class SchemaRegistryDek extends com.pulumi.resources.CustomResource {
         return args == null ? SchemaRegistryDekArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -229,7 +229,7 @@ public class SchemaRegistryDek extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SchemaRegistryDek get(String name, Output<String> id, @Nullable SchemaRegistryDekState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SchemaRegistryDek get(java.lang.String name, Output<java.lang.String> id, @Nullable SchemaRegistryDekState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SchemaRegistryDek(name, id, state, options);
     }
 }

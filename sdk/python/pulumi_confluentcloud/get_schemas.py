@@ -94,10 +94,10 @@ class AwaitableGetSchemasResult(GetSchemasResult):
             schemas=self.schemas)
 
 
-def get_schemas(credentials: Optional[pulumi.InputType['GetSchemasCredentialsArgs']] = None,
-                filter: Optional[pulumi.InputType['GetSchemasFilterArgs']] = None,
+def get_schemas(credentials: Optional[Union['GetSchemasCredentialsArgs', 'GetSchemasCredentialsArgsDict']] = None,
+                filter: Optional[Union['GetSchemasFilterArgs', 'GetSchemasFilterArgsDict']] = None,
                 rest_endpoint: Optional[str] = None,
-                schema_registry_cluster: Optional[pulumi.InputType['GetSchemasSchemaRegistryClusterArgs']] = None,
+                schema_registry_cluster: Optional[Union['GetSchemasSchemaRegistryClusterArgs', 'GetSchemasSchemaRegistryClusterArgsDict']] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemasResult:
     """
     Use this data source to access information about an existing resource.
@@ -122,10 +122,10 @@ def get_schemas(credentials: Optional[pulumi.InputType['GetSchemasCredentialsArg
 
 
 @_utilities.lift_output_func(get_schemas)
-def get_schemas_output(credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemasCredentialsArgs']]]] = None,
-                       filter: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemasFilterArgs']]]] = None,
+def get_schemas_output(credentials: Optional[pulumi.Input[Optional[Union['GetSchemasCredentialsArgs', 'GetSchemasCredentialsArgsDict']]]] = None,
+                       filter: Optional[pulumi.Input[Optional[Union['GetSchemasFilterArgs', 'GetSchemasFilterArgsDict']]]] = None,
                        rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
-                       schema_registry_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemasSchemaRegistryClusterArgs']]]] = None,
+                       schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemasSchemaRegistryClusterArgs', 'GetSchemasSchemaRegistryClusterArgsDict']]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemasResult]:
     """
     Use this data source to access information about an existing resource.

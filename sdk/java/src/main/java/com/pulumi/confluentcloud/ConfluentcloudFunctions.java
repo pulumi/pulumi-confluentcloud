@@ -7407,19 +7407,19 @@ public final class ConfluentcloudFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .id("u-abc123")
      *             .build());
      * 
      *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .email("test123{@literal @}gmail.com")
+     *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
@@ -7447,8 +7447,8 @@ public final class ConfluentcloudFunctions {
      *             .fullName("John Doe")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -7489,19 +7489,19 @@ public final class ConfluentcloudFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .id("u-abc123")
      *             .build());
      * 
      *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .email("test123{@literal @}gmail.com")
+     *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
@@ -7529,8 +7529,8 @@ public final class ConfluentcloudFunctions {
      *             .fullName("John Doe")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -7571,19 +7571,19 @@ public final class ConfluentcloudFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .id("u-abc123")
      *             .build());
      * 
      *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .email("test123{@literal @}gmail.com")
+     *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
@@ -7611,8 +7611,8 @@ public final class ConfluentcloudFunctions {
      *             .fullName("John Doe")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -7653,19 +7653,19 @@ public final class ConfluentcloudFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .id("u-abc123")
      *             .build());
      * 
      *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .email("test123{@literal @}gmail.com")
+     *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
@@ -7693,8 +7693,8 @@ public final class ConfluentcloudFunctions {
      *             .fullName("John Doe")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -7735,19 +7735,19 @@ public final class ConfluentcloudFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .id("u-abc123")
      *             .build());
      * 
      *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .email("test123{@literal @}gmail.com")
+     *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
@@ -7775,8 +7775,8 @@ public final class ConfluentcloudFunctions {
      *             .fullName("John Doe")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -7817,19 +7817,19 @@ public final class ConfluentcloudFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .id("u-abc123")
      *             .build());
      * 
      *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .email("test123{@literal @}gmail.com")
+     *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
@@ -7857,8 +7857,8 @@ public final class ConfluentcloudFunctions {
      *             .fullName("John Doe")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;

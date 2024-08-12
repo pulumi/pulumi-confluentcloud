@@ -146,10 +146,10 @@ class AwaitableGetSchemaRegistryDekResult(GetSchemaRegistryDekResult):
 
 
 def get_schema_registry_dek(algorithm: Optional[str] = None,
-                            credentials: Optional[pulumi.InputType['GetSchemaRegistryDekCredentialsArgs']] = None,
+                            credentials: Optional[Union['GetSchemaRegistryDekCredentialsArgs', 'GetSchemaRegistryDekCredentialsArgsDict']] = None,
                             kek_name: Optional[str] = None,
                             rest_endpoint: Optional[str] = None,
-                            schema_registry_cluster: Optional[pulumi.InputType['GetSchemaRegistryDekSchemaRegistryClusterArgs']] = None,
+                            schema_registry_cluster: Optional[Union['GetSchemaRegistryDekSchemaRegistryClusterArgs', 'GetSchemaRegistryDekSchemaRegistryClusterArgsDict']] = None,
                             subject_name: Optional[str] = None,
                             version: Optional[int] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryDekResult:
@@ -191,10 +191,10 @@ def get_schema_registry_dek(algorithm: Optional[str] = None,
 
 @_utilities.lift_output_func(get_schema_registry_dek)
 def get_schema_registry_dek_output(algorithm: Optional[pulumi.Input[Optional[str]]] = None,
-                                   credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemaRegistryDekCredentialsArgs']]]] = None,
+                                   credentials: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryDekCredentialsArgs', 'GetSchemaRegistryDekCredentialsArgsDict']]]] = None,
                                    kek_name: Optional[pulumi.Input[str]] = None,
                                    rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
-                                   schema_registry_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemaRegistryDekSchemaRegistryClusterArgs']]]] = None,
+                                   schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryDekSchemaRegistryClusterArgs', 'GetSchemaRegistryDekSchemaRegistryClusterArgsDict']]]] = None,
                                    subject_name: Optional[pulumi.Input[str]] = None,
                                    version: Optional[pulumi.Input[Optional[int]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryDekResult]:

@@ -188,7 +188,7 @@ public class PrivateLinkAttachmentConnection extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PrivateLinkAttachmentConnection(String name) {
+    public PrivateLinkAttachmentConnection(java.lang.String name) {
         this(name, PrivateLinkAttachmentConnectionArgs.Empty);
     }
     /**
@@ -196,7 +196,7 @@ public class PrivateLinkAttachmentConnection extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PrivateLinkAttachmentConnection(String name, PrivateLinkAttachmentConnectionArgs args) {
+    public PrivateLinkAttachmentConnection(java.lang.String name, PrivateLinkAttachmentConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -205,12 +205,12 @@ public class PrivateLinkAttachmentConnection extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PrivateLinkAttachmentConnection(String name, PrivateLinkAttachmentConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PrivateLinkAttachmentConnection(java.lang.String name, PrivateLinkAttachmentConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PrivateLinkAttachmentConnection(String name, Output<String> id, @Nullable PrivateLinkAttachmentConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection", name, state, makeResourceOptions(options, id));
+    private PrivateLinkAttachmentConnection(java.lang.String name, Output<java.lang.String> id, @Nullable PrivateLinkAttachmentConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PrivateLinkAttachmentConnectionArgs makeArgs(PrivateLinkAttachmentConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -220,7 +220,7 @@ public class PrivateLinkAttachmentConnection extends com.pulumi.resources.Custom
         return args == null ? PrivateLinkAttachmentConnectionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -236,7 +236,7 @@ public class PrivateLinkAttachmentConnection extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PrivateLinkAttachmentConnection get(String name, Output<String> id, @Nullable PrivateLinkAttachmentConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PrivateLinkAttachmentConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable PrivateLinkAttachmentConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PrivateLinkAttachmentConnection(name, id, state, options);
     }
 }

@@ -177,9 +177,9 @@ class DnsForwarder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['DnsForwarderEnvironmentArgs']]] = None,
-                 forward_via_ip: Optional[pulumi.Input[pulumi.InputType['DnsForwarderForwardViaIpArgs']]] = None,
-                 gateway: Optional[pulumi.Input[pulumi.InputType['DnsForwarderGatewayArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']]] = None,
+                 forward_via_ip: Optional[pulumi.Input[Union['DnsForwarderForwardViaIpArgs', 'DnsForwarderForwardViaIpArgsDict']]] = None,
+                 gateway: Optional[pulumi.Input[Union['DnsForwarderGatewayArgs', 'DnsForwarderGatewayArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -195,22 +195,22 @@ class DnsForwarder(pulumi.CustomResource):
         development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.DnsForwarder("main",
             display_name="dns_forwarder",
-            environment=confluentcloud.DnsForwarderEnvironmentArgs(
-                id=development.id,
-            ),
+            environment={
+                "id": development.id,
+            },
             domains=[
                 "example.com",
                 "domainname.com",
             ],
-            gateway=confluentcloud.DnsForwarderGatewayArgs(
-                id=main_confluent_network["gateway"][0]["id"],
-            ),
-            forward_via_ip=confluentcloud.DnsForwarderForwardViaIpArgs(
-                dns_server_ips=[
+            gateway={
+                "id": main_confluent_network["gateway"][0]["id"],
+            },
+            forward_via_ip={
+                "dns_server_ips": [
                     "10.200.0.0",
                     "10.200.0.1",
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -231,7 +231,7 @@ class DnsForwarder(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The name of the DNS Forwarder.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: List of domains for the DNS forwarder to use.
-        :param pulumi.Input[pulumi.InputType['DnsForwarderEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         ...
     @overload
@@ -253,22 +253,22 @@ class DnsForwarder(pulumi.CustomResource):
         development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.DnsForwarder("main",
             display_name="dns_forwarder",
-            environment=confluentcloud.DnsForwarderEnvironmentArgs(
-                id=development.id,
-            ),
+            environment={
+                "id": development.id,
+            },
             domains=[
                 "example.com",
                 "domainname.com",
             ],
-            gateway=confluentcloud.DnsForwarderGatewayArgs(
-                id=main_confluent_network["gateway"][0]["id"],
-            ),
-            forward_via_ip=confluentcloud.DnsForwarderForwardViaIpArgs(
-                dns_server_ips=[
+            gateway={
+                "id": main_confluent_network["gateway"][0]["id"],
+            },
+            forward_via_ip={
+                "dns_server_ips": [
                     "10.200.0.0",
                     "10.200.0.1",
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -302,9 +302,9 @@ class DnsForwarder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['DnsForwarderEnvironmentArgs']]] = None,
-                 forward_via_ip: Optional[pulumi.Input[pulumi.InputType['DnsForwarderForwardViaIpArgs']]] = None,
-                 gateway: Optional[pulumi.Input[pulumi.InputType['DnsForwarderGatewayArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']]] = None,
+                 forward_via_ip: Optional[pulumi.Input[Union['DnsForwarderForwardViaIpArgs', 'DnsForwarderForwardViaIpArgsDict']]] = None,
+                 gateway: Optional[pulumi.Input[Union['DnsForwarderGatewayArgs', 'DnsForwarderGatewayArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -337,9 +337,9 @@ class DnsForwarder(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            environment: Optional[pulumi.Input[pulumi.InputType['DnsForwarderEnvironmentArgs']]] = None,
-            forward_via_ip: Optional[pulumi.Input[pulumi.InputType['DnsForwarderForwardViaIpArgs']]] = None,
-            gateway: Optional[pulumi.Input[pulumi.InputType['DnsForwarderGatewayArgs']]] = None) -> 'DnsForwarder':
+            environment: Optional[pulumi.Input[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']]] = None,
+            forward_via_ip: Optional[pulumi.Input[Union['DnsForwarderForwardViaIpArgs', 'DnsForwarderForwardViaIpArgsDict']]] = None,
+            gateway: Optional[pulumi.Input[Union['DnsForwarderGatewayArgs', 'DnsForwarderGatewayArgsDict']]] = None) -> 'DnsForwarder':
         """
         Get an existing DnsForwarder resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -349,7 +349,7 @@ class DnsForwarder(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The name of the DNS Forwarder.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: List of domains for the DNS forwarder to use.
-        :param pulumi.Input[pulumi.InputType['DnsForwarderEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

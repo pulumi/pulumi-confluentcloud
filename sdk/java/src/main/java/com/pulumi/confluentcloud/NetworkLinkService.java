@@ -198,7 +198,7 @@ public class NetworkLinkService extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkLinkService(String name) {
+    public NetworkLinkService(java.lang.String name) {
         this(name, NetworkLinkServiceArgs.Empty);
     }
     /**
@@ -206,7 +206,7 @@ public class NetworkLinkService extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkLinkService(String name, NetworkLinkServiceArgs args) {
+    public NetworkLinkService(java.lang.String name, NetworkLinkServiceArgs args) {
         this(name, args, null);
     }
     /**
@@ -215,12 +215,12 @@ public class NetworkLinkService extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkLinkService(String name, NetworkLinkServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/networkLinkService:NetworkLinkService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NetworkLinkService(java.lang.String name, NetworkLinkServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/networkLinkService:NetworkLinkService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkLinkService(String name, Output<String> id, @Nullable NetworkLinkServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/networkLinkService:NetworkLinkService", name, state, makeResourceOptions(options, id));
+    private NetworkLinkService(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkLinkServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/networkLinkService:NetworkLinkService", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NetworkLinkServiceArgs makeArgs(NetworkLinkServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -230,7 +230,7 @@ public class NetworkLinkService extends com.pulumi.resources.CustomResource {
         return args == null ? NetworkLinkServiceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -246,7 +246,7 @@ public class NetworkLinkService extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkLinkService get(String name, Output<String> id, @Nullable NetworkLinkServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkLinkService get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkLinkServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkLinkService(name, id, state, options);
     }
 }

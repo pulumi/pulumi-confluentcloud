@@ -42,7 +42,7 @@ import (
 //			}
 //			_, err = confluentcloud.NewServiceAccount(ctx, "test-sa", &confluentcloud.ServiceAccountArgs{
 //				DisplayName: pulumi.String("app_mgr"),
-//				Description: pulumi.String(fmt.Sprintf("app_mgr for %v", exampleUsingId.DisplayName)),
+//				Description: pulumi.Sprintf("app_mgr for %v", exampleUsingId.DisplayName),
 //			})
 //			if err != nil {
 //				return err

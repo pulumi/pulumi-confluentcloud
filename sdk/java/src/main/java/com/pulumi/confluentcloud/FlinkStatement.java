@@ -171,7 +171,7 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FlinkStatement(String name) {
+    public FlinkStatement(java.lang.String name) {
         this(name, FlinkStatementArgs.Empty);
     }
     /**
@@ -179,7 +179,7 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FlinkStatement(String name, FlinkStatementArgs args) {
+    public FlinkStatement(java.lang.String name, FlinkStatementArgs args) {
         this(name, args, null);
     }
     /**
@@ -188,12 +188,12 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FlinkStatement(String name, FlinkStatementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/flinkStatement:FlinkStatement", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FlinkStatement(java.lang.String name, FlinkStatementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/flinkStatement:FlinkStatement", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FlinkStatement(String name, Output<String> id, @Nullable FlinkStatementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("confluentcloud:index/flinkStatement:FlinkStatement", name, state, makeResourceOptions(options, id));
+    private FlinkStatement(java.lang.String name, Output<java.lang.String> id, @Nullable FlinkStatementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("confluentcloud:index/flinkStatement:FlinkStatement", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FlinkStatementArgs makeArgs(FlinkStatementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -203,7 +203,7 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
         return args == null ? FlinkStatementArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -222,7 +222,7 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FlinkStatement get(String name, Output<String> id, @Nullable FlinkStatementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FlinkStatement get(java.lang.String name, Output<java.lang.String> id, @Nullable FlinkStatementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FlinkStatement(name, id, state, options);
     }
 }

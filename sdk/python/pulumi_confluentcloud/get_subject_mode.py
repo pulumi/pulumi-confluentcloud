@@ -94,9 +94,9 @@ class AwaitableGetSubjectModeResult(GetSubjectModeResult):
             subject_name=self.subject_name)
 
 
-def get_subject_mode(credentials: Optional[pulumi.InputType['GetSubjectModeCredentialsArgs']] = None,
+def get_subject_mode(credentials: Optional[Union['GetSubjectModeCredentialsArgs', 'GetSubjectModeCredentialsArgsDict']] = None,
                      rest_endpoint: Optional[str] = None,
-                     schema_registry_cluster: Optional[pulumi.InputType['GetSubjectModeSchemaRegistryClusterArgs']] = None,
+                     schema_registry_cluster: Optional[Union['GetSubjectModeSchemaRegistryClusterArgs', 'GetSubjectModeSchemaRegistryClusterArgsDict']] = None,
                      subject_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubjectModeResult:
     """
@@ -125,9 +125,9 @@ def get_subject_mode(credentials: Optional[pulumi.InputType['GetSubjectModeCrede
 
 
 @_utilities.lift_output_func(get_subject_mode)
-def get_subject_mode_output(credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetSubjectModeCredentialsArgs']]]] = None,
+def get_subject_mode_output(credentials: Optional[pulumi.Input[Optional[Union['GetSubjectModeCredentialsArgs', 'GetSubjectModeCredentialsArgsDict']]]] = None,
                             rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
-                            schema_registry_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetSubjectModeSchemaRegistryClusterArgs']]]] = None,
+                            schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSubjectModeSchemaRegistryClusterArgs', 'GetSubjectModeSchemaRegistryClusterArgsDict']]]] = None,
                             subject_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubjectModeResult]:
     """
