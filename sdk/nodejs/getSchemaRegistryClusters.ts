@@ -17,14 +17,30 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const main = confluentcloud.getSchemaRegistryClusters({});
+ * const main = confluentcloud.getSchemaRegistryClusters({
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
  * ```
  */
-export function getSchemaRegistryClusters(opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryClustersResult> {
+export function getSchemaRegistryClusters(args?: GetSchemaRegistryClustersArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryClustersResult> {
+    args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", {
+        "environment": args.environment,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getSchemaRegistryClusters.
+ */
+export interface GetSchemaRegistryClustersArgs {
+    /**
+     * (Required Object) exports the following attributes:
+     */
+    environment?: inputs.GetSchemaRegistryClustersEnvironment;
 }
 
 /**
@@ -35,6 +51,10 @@ export interface GetSchemaRegistryClustersResult {
      * (Required List of Object) List of Schema Registry clusters. Each Schema Registry cluster object exports the following attributes:
      */
     readonly clusters: outputs.GetSchemaRegistryClustersCluster[];
+    /**
+     * (Required Object) exports the following attributes:
+     */
+    readonly environment: outputs.GetSchemaRegistryClustersEnvironment;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -51,9 +71,23 @@ export interface GetSchemaRegistryClustersResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const main = confluentcloud.getSchemaRegistryClusters({});
+ * const main = confluentcloud.getSchemaRegistryClusters({
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
  * ```
  */
-export function getSchemaRegistryClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryClustersResult> {
-    return pulumi.output(getSchemaRegistryClusters(opts))
+export function getSchemaRegistryClustersOutput(args?: GetSchemaRegistryClustersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryClustersResult> {
+    return pulumi.output(args).apply((a: any) => getSchemaRegistryClusters(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSchemaRegistryClusters.
+ */
+export interface GetSchemaRegistryClustersOutputArgs {
+    /**
+     * (Required Object) exports the following attributes:
+     */
+    environment?: pulumi.Input<inputs.GetSchemaRegistryClustersEnvironmentArgs>;
 }

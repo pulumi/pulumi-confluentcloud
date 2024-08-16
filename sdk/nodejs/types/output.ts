@@ -1278,18 +1278,15 @@ export interface GetSchemaRegistryClusterModeSchemaRegistryCluster {
     id: string;
 }
 
-export interface GetSchemaRegistryClusterRegion {
-    /**
-     * The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
-     */
-    id: string;
-}
-
 export interface GetSchemaRegistryClustersCluster {
     /**
      * (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
      */
     apiVersion: string;
+    /**
+     * (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+     */
+    cloud: string;
     /**
      * (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
      */
@@ -1299,7 +1296,7 @@ export interface GetSchemaRegistryClustersCluster {
      */
     environment: outputs.GetSchemaRegistryClustersClusterEnvironment;
     /**
-     * (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     * (Required String) The id of the environment.
      */
     id: string;
     /**
@@ -1311,9 +1308,9 @@ export interface GetSchemaRegistryClustersCluster {
      */
     package: string;
     /**
-     * (Required Configuration Block) supports the following:
+     * (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
      */
-    regions: outputs.GetSchemaRegistryClustersClusterRegion[];
+    region: string;
     /**
      * (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
      */
@@ -1326,14 +1323,16 @@ export interface GetSchemaRegistryClustersCluster {
 
 export interface GetSchemaRegistryClustersClusterEnvironment {
     /**
-     * (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     * - If no environment id is specified, clusters from all environments will be displayed.
      */
     id: string;
 }
 
-export interface GetSchemaRegistryClustersClusterRegion {
+export interface GetSchemaRegistryClustersEnvironment {
     /**
-     * (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     * - If no environment id is specified, clusters from all environments will be displayed.
      */
     id: string;
 }
@@ -1790,7 +1789,7 @@ export interface KafkaClusterDedicated {
     /**
      * The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
      */
-    encryptionKey?: string;
+    encryptionKey: string;
     /**
      * (Required List of String) The list of zones the cluster is in.
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -2304,13 +2303,6 @@ export interface SchemaRegistryClusterConfigSchemaRegistryCluster {
     id: string;
 }
 
-export interface SchemaRegistryClusterEnvironment {
-    /**
-     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
-     */
-    id: string;
-}
-
 export interface SchemaRegistryClusterModeCredentials {
     /**
      * The Schema Registry API Key.
@@ -2325,13 +2317,6 @@ export interface SchemaRegistryClusterModeCredentials {
 export interface SchemaRegistryClusterModeSchemaRegistryCluster {
     /**
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-     */
-    id: string;
-}
-
-export interface SchemaRegistryClusterRegion {
-    /**
-     * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
      */
     id: string;
 }

@@ -266,7 +266,8 @@ type ApiKey struct {
 	DisableWaitForReady pulumi.BoolPtrOutput `pulumi:"disableWaitForReady"`
 	// A human-readable name for the API Key.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+	// 'srcm.v3.Cluster'.
 	ManagedResource ApiKeyManagedResourcePtrOutput `pulumi:"managedResource"`
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner ApiKeyOwnerOutput `pulumi:"owner"`
@@ -317,7 +318,8 @@ type apiKeyState struct {
 	DisableWaitForReady *bool `pulumi:"disableWaitForReady"`
 	// A human-readable name for the API Key.
 	DisplayName *string `pulumi:"displayName"`
-	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+	// 'srcm.v3.Cluster'.
 	ManagedResource *ApiKeyManagedResource `pulumi:"managedResource"`
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner *ApiKeyOwner `pulumi:"owner"`
@@ -332,7 +334,8 @@ type ApiKeyState struct {
 	DisableWaitForReady pulumi.BoolPtrInput
 	// A human-readable name for the API Key.
 	DisplayName pulumi.StringPtrInput
-	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+	// 'srcm.v3.Cluster'.
 	ManagedResource ApiKeyManagedResourcePtrInput
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner ApiKeyOwnerPtrInput
@@ -351,7 +354,8 @@ type apiKeyArgs struct {
 	DisableWaitForReady *bool `pulumi:"disableWaitForReady"`
 	// A human-readable name for the API Key.
 	DisplayName *string `pulumi:"displayName"`
-	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+	// 'srcm.v3.Cluster'.
 	ManagedResource *ApiKeyManagedResource `pulumi:"managedResource"`
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner ApiKeyOwner `pulumi:"owner"`
@@ -365,7 +369,8 @@ type ApiKeyArgs struct {
 	DisableWaitForReady pulumi.BoolPtrInput
 	// A human-readable name for the API Key.
 	DisplayName pulumi.StringPtrInput
-	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+	// 'srcm.v3.Cluster'.
 	ManagedResource ApiKeyManagedResourcePtrInput
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner ApiKeyOwnerInput
@@ -473,7 +478,8 @@ func (o ApiKeyOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+// 'srcm.v3.Cluster'.
 func (o ApiKeyOutput) ManagedResource() ApiKeyManagedResourcePtrOutput {
 	return o.ApplyT(func(v *ApiKey) ApiKeyManagedResourcePtrOutput { return v.ManagedResource }).(ApiKeyManagedResourcePtrOutput)
 }

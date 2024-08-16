@@ -4,11 +4,9 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClustersClusterEnvironment;
-import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClustersClusterRegion;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -18,6 +16,11 @@ public final class GetSchemaRegistryClustersCluster {
      * 
      */
     private String apiVersion;
+    /**
+     * @return (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+     * 
+     */
+    private String cloud;
     /**
      * @return (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
      * 
@@ -29,7 +32,7 @@ public final class GetSchemaRegistryClustersCluster {
      */
     private GetSchemaRegistryClustersClusterEnvironment environment;
     /**
-     * @return (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     * @return (Required String) The id of the environment.
      * 
      */
     private String id;
@@ -44,10 +47,10 @@ public final class GetSchemaRegistryClustersCluster {
      */
     private String package_;
     /**
-     * @return (Required Configuration Block) supports the following:
+     * @return (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
      * 
      */
-    private List<GetSchemaRegistryClustersClusterRegion> regions;
+    private String region;
     /**
      * @return (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
      * 
@@ -68,6 +71,13 @@ public final class GetSchemaRegistryClustersCluster {
         return this.apiVersion;
     }
     /**
+     * @return (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+     * 
+     */
+    public String cloud() {
+        return this.cloud;
+    }
+    /**
      * @return (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
      * 
      */
@@ -82,7 +92,7 @@ public final class GetSchemaRegistryClustersCluster {
         return this.environment;
     }
     /**
-     * @return (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     * @return (Required String) The id of the environment.
      * 
      */
     public String id() {
@@ -103,11 +113,11 @@ public final class GetSchemaRegistryClustersCluster {
         return this.package_;
     }
     /**
-     * @return (Required Configuration Block) supports the following:
+     * @return (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
      * 
      */
-    public List<GetSchemaRegistryClustersClusterRegion> regions() {
-        return this.regions;
+    public String region() {
+        return this.region;
     }
     /**
      * @return (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
@@ -134,24 +144,26 @@ public final class GetSchemaRegistryClustersCluster {
     @CustomType.Builder
     public static final class Builder {
         private String apiVersion;
+        private String cloud;
         private String displayName;
         private GetSchemaRegistryClustersClusterEnvironment environment;
         private String id;
         private String kind;
         private String package_;
-        private List<GetSchemaRegistryClustersClusterRegion> regions;
+        private String region;
         private String resourceName;
         private String restEndpoint;
         public Builder() {}
         public Builder(GetSchemaRegistryClustersCluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiVersion = defaults.apiVersion;
+    	      this.cloud = defaults.cloud;
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
     	      this.id = defaults.id;
     	      this.kind = defaults.kind;
     	      this.package_ = defaults.package_;
-    	      this.regions = defaults.regions;
+    	      this.region = defaults.region;
     	      this.resourceName = defaults.resourceName;
     	      this.restEndpoint = defaults.restEndpoint;
         }
@@ -162,6 +174,14 @@ public final class GetSchemaRegistryClustersCluster {
               throw new MissingRequiredPropertyException("GetSchemaRegistryClustersCluster", "apiVersion");
             }
             this.apiVersion = apiVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cloud(String cloud) {
+            if (cloud == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClustersCluster", "cloud");
+            }
+            this.cloud = cloud;
             return this;
         }
         @CustomType.Setter
@@ -205,15 +225,12 @@ public final class GetSchemaRegistryClustersCluster {
             return this;
         }
         @CustomType.Setter
-        public Builder regions(List<GetSchemaRegistryClustersClusterRegion> regions) {
-            if (regions == null) {
-              throw new MissingRequiredPropertyException("GetSchemaRegistryClustersCluster", "regions");
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClustersCluster", "region");
             }
-            this.regions = regions;
+            this.region = region;
             return this;
-        }
-        public Builder regions(GetSchemaRegistryClustersClusterRegion... regions) {
-            return regions(List.of(regions));
         }
         @CustomType.Setter
         public Builder resourceName(String resourceName) {
@@ -234,12 +251,13 @@ public final class GetSchemaRegistryClustersCluster {
         public GetSchemaRegistryClustersCluster build() {
             final var _resultValue = new GetSchemaRegistryClustersCluster();
             _resultValue.apiVersion = apiVersion;
+            _resultValue.cloud = cloud;
             _resultValue.displayName = displayName;
             _resultValue.environment = environment;
             _resultValue.id = id;
             _resultValue.kind = kind;
             _resultValue.package_ = package_;
-            _resultValue.regions = regions;
+            _resultValue.region = region;
             _resultValue.resourceName = resourceName;
             _resultValue.restEndpoint = restEndpoint;
             return _resultValue;

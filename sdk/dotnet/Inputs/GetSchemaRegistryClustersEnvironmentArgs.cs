@@ -10,17 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class SchemaRegistryClusterEnvironmentGetArgs : global::Pulumi.ResourceArgs
+    public sealed class GetSchemaRegistryClustersEnvironmentInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
+        /// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        /// - If no environment id is specified, clusters from all environments will be displayed.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        public SchemaRegistryClusterEnvironmentGetArgs()
+        public GetSchemaRegistryClustersEnvironmentInputArgs()
         {
         }
-        public static new SchemaRegistryClusterEnvironmentGetArgs Empty => new SchemaRegistryClusterEnvironmentGetArgs();
+        public static new GetSchemaRegistryClustersEnvironmentInputArgs Empty => new GetSchemaRegistryClustersEnvironmentInputArgs();
     }
 }

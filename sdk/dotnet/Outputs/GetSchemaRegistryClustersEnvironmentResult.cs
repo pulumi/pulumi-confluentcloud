@@ -11,15 +11,16 @@ namespace Pulumi.ConfluentCloud.Outputs
 {
 
     [OutputType]
-    public sealed class GetSchemaRegistryClustersClusterRegionResult
+    public sealed class GetSchemaRegistryClustersEnvironmentResult
     {
         /// <summary>
-        /// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+        /// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        /// - If no environment id is specified, clusters from all environments will be displayed.
         /// </summary>
         public readonly string Id;
 
         [OutputConstructor]
-        private GetSchemaRegistryClustersClusterRegionResult(string id)
+        private GetSchemaRegistryClustersEnvironmentResult(string id)
         {
             Id = id;
         }

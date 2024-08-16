@@ -251,7 +251,8 @@ namespace Pulumi.ConfluentCloud
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+        /// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+        /// 'srcm.v3.Cluster'.
         /// </summary>
         [Output("managedResource")]
         public Output<Outputs.ApiKeyManagedResource?> ManagedResource { get; private set; } = null!;
@@ -337,7 +338,8 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+        /// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+        /// 'srcm.v3.Cluster'.
         /// </summary>
         [Input("managedResource")]
         public Input<Inputs.ApiKeyManagedResourceArgs>? ManagedResource { get; set; }
@@ -375,7 +377,8 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+        /// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+        /// 'srcm.v3.Cluster'.
         /// </summary>
         [Input("managedResource")]
         public Input<Inputs.ApiKeyManagedResourceGetArgs>? ManagedResource { get; set; }

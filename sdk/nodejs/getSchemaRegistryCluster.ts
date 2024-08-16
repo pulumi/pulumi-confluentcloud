@@ -78,12 +78,16 @@ export interface GetSchemaRegistryClusterResult {
      */
     readonly apiVersion: string;
     /**
+     * (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+     */
+    readonly cloud: string;
+    /**
      * (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
      */
     readonly displayName: string;
     readonly environment: outputs.GetSchemaRegistryClusterEnvironment;
     /**
-     * (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     * (Required String) The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     readonly id: string;
     /**
@@ -95,9 +99,9 @@ export interface GetSchemaRegistryClusterResult {
      */
     readonly package: string;
     /**
-     * (Required Configuration Block) supports the following:
+     * (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
      */
-    readonly regions: outputs.GetSchemaRegistryClusterRegion[];
+    readonly region: string;
     /**
      * (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
      */

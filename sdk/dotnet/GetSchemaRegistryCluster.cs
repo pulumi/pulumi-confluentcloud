@@ -176,12 +176,16 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string ApiVersion;
         /// <summary>
+        /// (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+        /// </summary>
+        public readonly string Cloud;
+        /// <summary>
         /// (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
         /// </summary>
         public readonly string DisplayName;
         public readonly Outputs.GetSchemaRegistryClusterEnvironmentResult Environment;
         /// <summary>
-        /// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+        /// (Required String) The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -193,9 +197,9 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Package;
         /// <summary>
-        /// (Required Configuration Block) supports the following:
+        /// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetSchemaRegistryClusterRegionResult> Regions;
+        public readonly string Region;
         /// <summary>
         /// (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
         /// </summary>
@@ -209,6 +213,8 @@ namespace Pulumi.ConfluentCloud
         private GetSchemaRegistryClusterResult(
             string apiVersion,
 
+            string cloud,
+
             string displayName,
 
             Outputs.GetSchemaRegistryClusterEnvironmentResult environment,
@@ -219,19 +225,20 @@ namespace Pulumi.ConfluentCloud
 
             string package,
 
-            ImmutableArray<Outputs.GetSchemaRegistryClusterRegionResult> regions,
+            string region,
 
             string resourceName,
 
             string restEndpoint)
         {
             ApiVersion = apiVersion;
+            Cloud = cloud;
             DisplayName = displayName;
             Environment = environment;
             Id = id;
             Kind = kind;
             Package = package;
-            Regions = regions;
+            Region = region;
             ResourceName = resourceName;
             RestEndpoint = restEndpoint;
         }

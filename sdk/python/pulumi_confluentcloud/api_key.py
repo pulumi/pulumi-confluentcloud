@@ -27,7 +27,8 @@ class ApiKeyArgs:
         :param pulumi.Input[str] description: A free-form description of the API Account.
         :param pulumi.Input[bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[str] display_name: A human-readable name for the API Key.
-        :param pulumi.Input['ApiKeyManagedResourceArgs'] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+        :param pulumi.Input['ApiKeyManagedResourceArgs'] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+               'srcm.v3.Cluster'.
         """
         pulumi.set(__self__, "owner", owner)
         if description is not None:
@@ -91,7 +92,8 @@ class ApiKeyArgs:
     @pulumi.getter(name="managedResource")
     def managed_resource(self) -> Optional[pulumi.Input['ApiKeyManagedResourceArgs']]:
         """
-        The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+        The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+        'srcm.v3.Cluster'.
         """
         return pulumi.get(self, "managed_resource")
 
@@ -114,7 +116,8 @@ class _ApiKeyState:
         :param pulumi.Input[str] description: A free-form description of the API Account.
         :param pulumi.Input[bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[str] display_name: A human-readable name for the API Key.
-        :param pulumi.Input['ApiKeyManagedResourceArgs'] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+        :param pulumi.Input['ApiKeyManagedResourceArgs'] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+               'srcm.v3.Cluster'.
         :param pulumi.Input['ApiKeyOwnerArgs'] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         :param pulumi.Input[str] secret: (Required String, Sensitive) The secret of the API Key.
         """
@@ -171,7 +174,8 @@ class _ApiKeyState:
     @pulumi.getter(name="managedResource")
     def managed_resource(self) -> Optional[pulumi.Input['ApiKeyManagedResourceArgs']]:
         """
-        The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+        The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+        'srcm.v3.Cluster'.
         """
         return pulumi.get(self, "managed_resource")
 
@@ -387,7 +391,8 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[str] description: A free-form description of the API Account.
         :param pulumi.Input[bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[str] display_name: A human-readable name for the API Key.
-        :param pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+        :param pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+               'srcm.v3.Cluster'.
         :param pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         """
         ...
@@ -628,7 +633,8 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[str] description: A free-form description of the API Account.
         :param pulumi.Input[bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[str] display_name: A human-readable name for the API Key.
-        :param pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+        :param pulumi.Input[Union['ApiKeyManagedResourceArgs', 'ApiKeyManagedResourceArgsDict']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+               'srcm.v3.Cluster'.
         :param pulumi.Input[Union['ApiKeyOwnerArgs', 'ApiKeyOwnerArgsDict']] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         :param pulumi.Input[str] secret: (Required String, Sensitive) The secret of the API Key.
         """
@@ -672,7 +678,8 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter(name="managedResource")
     def managed_resource(self) -> pulumi.Output[Optional['outputs.ApiKeyManagedResource']]:
         """
-        The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+        The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+        'srcm.v3.Cluster'.
         """
         return pulumi.get(self, "managed_resource")
 
