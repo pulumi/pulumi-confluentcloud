@@ -15,8 +15,8 @@
 package main
 
 import (
-	confluentcloud "github.com/pulumi/pulumi-confluentcloud/provider"
-	"github.com/pulumi/pulumi-confluentcloud/provider/pkg/version"
+	confluentcloud "github.com/pulumi/pulumi-confluentcloud/provider/v2"
+	"github.com/pulumi/pulumi-confluentcloud/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 )
 
