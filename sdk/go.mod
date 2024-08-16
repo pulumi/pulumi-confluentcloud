@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-confluentcloud/sdk
+module github.com/pulumi/pulumi-confluentcloud/sdk/v2
 
 go 1.21
 

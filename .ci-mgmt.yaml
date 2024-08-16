@@ -1,6 +1,6 @@
 provider: confluentcloud
 lint: false
-major-version: 1
+major-version: 2
 providerDefaultBranch: main
 env:
   CONFLUENT_CLOUD_API_KEY: ${{ secrets.CONFLUENT_CLOUD_API_KEY }}

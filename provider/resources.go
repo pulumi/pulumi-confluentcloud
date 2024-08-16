@@ -29,7 +29,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 
 	"github.com/confluentinc/terraform-provider-confluent/shim"
-	"github.com/pulumi/pulumi-confluentcloud/provider/pkg/version"
+	"github.com/pulumi/pulumi-confluentcloud/provider/v2/pkg/version"
 )
 
 // all of the token components used below.

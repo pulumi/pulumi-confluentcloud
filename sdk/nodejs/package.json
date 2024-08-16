@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/confluentcloud",
-    "version": "1.0.0-alpha.0+dev",
+    "version": "2.0.0-alpha.0+dev",
     "description": "A Pulumi package for creating and managing Confluent cloud resources.",
     "keywords": [
         "pulumi",
@@ -24,6 +24,6 @@
     "pulumi": {
         "resource": true,
         "name": "confluentcloud",
-        "version": "1.0.0-alpha.0+dev"
+        "version": "2.0.0-alpha.0+dev"
     }
 }
