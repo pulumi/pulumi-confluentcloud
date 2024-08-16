@@ -22,14 +22,18 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.GetSchemaRegistryClusters(ctx, nil, nil)
+//			_, err := confluentcloud.GetSchemaRegistryClusters(ctx, &confluentcloud.GetSchemaRegistryClustersArgs{
+//				Environment: confluentcloud.GetSchemaRegistryClustersEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -38,33 +42,53 @@ import (
 //	}
 //
 // ```
-func GetSchemaRegistryClusters(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSchemaRegistryClustersResult, error) {
+func GetSchemaRegistryClusters(ctx *pulumi.Context, args *GetSchemaRegistryClustersArgs, opts ...pulumi.InvokeOption) (*GetSchemaRegistryClustersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSchemaRegistryClustersResult
-	err := ctx.Invoke("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", nil, &rv, opts...)
+	err := ctx.Invoke("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
+// A collection of arguments for invoking getSchemaRegistryClusters.
+type GetSchemaRegistryClustersArgs struct {
+	// (Required Object) exports the following attributes:
+	Environment *GetSchemaRegistryClustersEnvironment `pulumi:"environment"`
+}
+
 // A collection of values returned by getSchemaRegistryClusters.
 type GetSchemaRegistryClustersResult struct {
 	// (Required List of Object) List of Schema Registry clusters. Each Schema Registry cluster object exports the following attributes:
 	Clusters []GetSchemaRegistryClustersCluster `pulumi:"clusters"`
+	// (Required Object) exports the following attributes:
+	Environment GetSchemaRegistryClustersEnvironment `pulumi:"environment"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
 
-func GetSchemaRegistryClustersOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSchemaRegistryClustersResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetSchemaRegistryClustersResult, error) {
-		r, err := GetSchemaRegistryClusters(ctx, opts...)
-		var s GetSchemaRegistryClustersResult
-		if r != nil {
-			s = *r
-		}
-		return s, err
-	}).(GetSchemaRegistryClustersResultOutput)
+func GetSchemaRegistryClustersOutput(ctx *pulumi.Context, args GetSchemaRegistryClustersOutputArgs, opts ...pulumi.InvokeOption) GetSchemaRegistryClustersResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSchemaRegistryClustersResult, error) {
+			args := v.(GetSchemaRegistryClustersArgs)
+			r, err := GetSchemaRegistryClusters(ctx, &args, opts...)
+			var s GetSchemaRegistryClustersResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(GetSchemaRegistryClustersResultOutput)
+}
+
+// A collection of arguments for invoking getSchemaRegistryClusters.
+type GetSchemaRegistryClustersOutputArgs struct {
+	// (Required Object) exports the following attributes:
+	Environment GetSchemaRegistryClustersEnvironmentPtrInput `pulumi:"environment"`
+}
+
+func (GetSchemaRegistryClustersOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClustersArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getSchemaRegistryClusters.
@@ -85,6 +109,11 @@ func (o GetSchemaRegistryClustersResultOutput) ToGetSchemaRegistryClustersResult
 // (Required List of Object) List of Schema Registry clusters. Each Schema Registry cluster object exports the following attributes:
 func (o GetSchemaRegistryClustersResultOutput) Clusters() GetSchemaRegistryClustersClusterArrayOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClustersResult) []GetSchemaRegistryClustersCluster { return v.Clusters }).(GetSchemaRegistryClustersClusterArrayOutput)
+}
+
+// (Required Object) exports the following attributes:
+func (o GetSchemaRegistryClustersResultOutput) Environment() GetSchemaRegistryClustersEnvironmentOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersResult) GetSchemaRegistryClustersEnvironment { return v.Environment }).(GetSchemaRegistryClustersEnvironmentOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

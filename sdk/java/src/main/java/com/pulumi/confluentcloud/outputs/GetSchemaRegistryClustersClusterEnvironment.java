@@ -11,14 +11,16 @@ import java.util.Objects;
 @CustomType
 public final class GetSchemaRegistryClustersClusterEnvironment {
     /**
-     * @return (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     * @return The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     * - If no environment id is specified, clusters from all environments will be displayed.
      * 
      */
     private String id;
 
     private GetSchemaRegistryClustersClusterEnvironment() {}
     /**
-     * @return (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     * @return The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     * - If no environment id is specified, clusters from all environments will be displayed.
      * 
      */
     public String id() {

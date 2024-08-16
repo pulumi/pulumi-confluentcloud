@@ -54,7 +54,6 @@ from .get_schema_registry_cluster_mode import *
 from .get_schema_registry_clusters import *
 from .get_schema_registry_dek import *
 from .get_schema_registry_kek import *
-from .get_schema_registry_region import *
 from .get_schemas import *
 from .get_service_account import *
 from .get_subject_config import *
@@ -86,7 +85,6 @@ from .provider import *
 from .role_binding import *
 from .schema import *
 from .schema_exporter import *
-from .schema_registry_cluster import *
 from .schema_registry_cluster_config import *
 from .schema_registry_cluster_mode import *
 from .schema_registry_dek import *
@@ -389,14 +387,6 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/schemaExporter:SchemaExporter": "SchemaExporter"
-  }
- },
- {
-  "pkg": "confluentcloud",
-  "mod": "index/schemaRegistryCluster",
-  "fqn": "pulumi_confluentcloud",
-  "classes": {
-   "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster": "SchemaRegistryCluster"
   }
  },
  {

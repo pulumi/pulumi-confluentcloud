@@ -235,7 +235,7 @@ export const getSchemaRegistryClusterMode: typeof import("./getSchemaRegistryClu
 export const getSchemaRegistryClusterModeOutput: typeof import("./getSchemaRegistryClusterMode").getSchemaRegistryClusterModeOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemaRegistryClusterMode","getSchemaRegistryClusterModeOutput"], () => require("./getSchemaRegistryClusterMode"));
 
-export { GetSchemaRegistryClustersResult } from "./getSchemaRegistryClusters";
+export { GetSchemaRegistryClustersArgs, GetSchemaRegistryClustersResult, GetSchemaRegistryClustersOutputArgs } from "./getSchemaRegistryClusters";
 export const getSchemaRegistryClusters: typeof import("./getSchemaRegistryClusters").getSchemaRegistryClusters = null as any;
 export const getSchemaRegistryClustersOutput: typeof import("./getSchemaRegistryClusters").getSchemaRegistryClustersOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemaRegistryClusters","getSchemaRegistryClustersOutput"], () => require("./getSchemaRegistryClusters"));
@@ -249,11 +249,6 @@ export { GetSchemaRegistryKekArgs, GetSchemaRegistryKekResult, GetSchemaRegistry
 export const getSchemaRegistryKek: typeof import("./getSchemaRegistryKek").getSchemaRegistryKek = null as any;
 export const getSchemaRegistryKekOutput: typeof import("./getSchemaRegistryKek").getSchemaRegistryKekOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemaRegistryKek","getSchemaRegistryKekOutput"], () => require("./getSchemaRegistryKek"));
-
-export { GetSchemaRegistryRegionArgs, GetSchemaRegistryRegionResult, GetSchemaRegistryRegionOutputArgs } from "./getSchemaRegistryRegion";
-export const getSchemaRegistryRegion: typeof import("./getSchemaRegistryRegion").getSchemaRegistryRegion = null as any;
-export const getSchemaRegistryRegionOutput: typeof import("./getSchemaRegistryRegion").getSchemaRegistryRegionOutput = null as any;
-utilities.lazyLoad(exports, ["getSchemaRegistryRegion","getSchemaRegistryRegionOutput"], () => require("./getSchemaRegistryRegion"));
 
 export { GetSchemasArgs, GetSchemasResult, GetSchemasOutputArgs } from "./getSchemas";
 export const getSchemas: typeof import("./getSchemas").getSchemas = null as any;
@@ -410,11 +405,6 @@ export type SchemaExporter = import("./schemaExporter").SchemaExporter;
 export const SchemaExporter: typeof import("./schemaExporter").SchemaExporter = null as any;
 utilities.lazyLoad(exports, ["SchemaExporter"], () => require("./schemaExporter"));
 
-export { SchemaRegistryClusterArgs, SchemaRegistryClusterState } from "./schemaRegistryCluster";
-export type SchemaRegistryCluster = import("./schemaRegistryCluster").SchemaRegistryCluster;
-export const SchemaRegistryCluster: typeof import("./schemaRegistryCluster").SchemaRegistryCluster = null as any;
-utilities.lazyLoad(exports, ["SchemaRegistryCluster"], () => require("./schemaRegistryCluster"));
-
 export { SchemaRegistryClusterConfigArgs, SchemaRegistryClusterConfigState } from "./schemaRegistryClusterConfig";
 export type SchemaRegistryClusterConfig = import("./schemaRegistryClusterConfig").SchemaRegistryClusterConfig;
 export const SchemaRegistryClusterConfig: typeof import("./schemaRegistryClusterConfig").SchemaRegistryClusterConfig = null as any;
@@ -554,8 +544,6 @@ const _module = {
                 return new Schema(name, <any>undefined, { urn })
             case "confluentcloud:index/schemaExporter:SchemaExporter":
                 return new SchemaExporter(name, <any>undefined, { urn })
-            case "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster":
-                return new SchemaRegistryCluster(name, <any>undefined, { urn })
             case "confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig":
                 return new SchemaRegistryClusterConfig(name, <any>undefined, { urn })
             case "confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode":
@@ -618,7 +606,6 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAttach
 pulumi.runtime.registerResourceModule("confluentcloud", "index/roleBinding", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schema", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaExporter", _module)
-pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryCluster", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryClusterConfig", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryClusterMode", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryDek", _module)

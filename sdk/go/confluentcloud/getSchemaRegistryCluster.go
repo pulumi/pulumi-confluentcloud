@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Loads the only Schema Registry cluster in the target environment
-//			exampleUsingEnvId, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &confluentcloud.LookupSchemaRegistryClusterArgs{
+//			exampleUsingEnvId, err := confluentcloud.GetSchemaRegistryCluster(ctx, &confluentcloud.GetSchemaRegistryClusterArgs{
 //				Environment: confluentcloud.GetSchemaRegistryClusterEnvironment{
 //					Id: "env-xyz456",
 //				},
@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingEnvId", exampleUsingEnvId)
-//			exampleUsingId, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &confluentcloud.LookupSchemaRegistryClusterArgs{
+//			exampleUsingId, err := confluentcloud.GetSchemaRegistryCluster(ctx, &confluentcloud.GetSchemaRegistryClusterArgs{
 //				Id: pulumi.StringRef("lsrc-abc123"),
 //				Environment: confluentcloud.GetSchemaRegistryClusterEnvironment{
 //					Id: "env-xyz456",
@@ -49,7 +49,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingId)
-//			exampleUsingName, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &confluentcloud.LookupSchemaRegistryClusterArgs{
+//			exampleUsingName, err := confluentcloud.GetSchemaRegistryCluster(ctx, &confluentcloud.GetSchemaRegistryClusterArgs{
 //				DisplayName: pulumi.StringRef("Stream Governance Package"),
 //				Environment: confluentcloud.GetSchemaRegistryClusterEnvironment{
 //					Id: "env-xyz456",
@@ -64,9 +64,9 @@ import (
 //	}
 //
 // ```
-func LookupSchemaRegistryCluster(ctx *pulumi.Context, args *LookupSchemaRegistryClusterArgs, opts ...pulumi.InvokeOption) (*LookupSchemaRegistryClusterResult, error) {
+func GetSchemaRegistryCluster(ctx *pulumi.Context, args *GetSchemaRegistryClusterArgs, opts ...pulumi.InvokeOption) (*GetSchemaRegistryClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv LookupSchemaRegistryClusterResult
+	var rv GetSchemaRegistryClusterResult
 	err := ctx.Invoke("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -75,7 +75,7 @@ func LookupSchemaRegistryCluster(ctx *pulumi.Context, args *LookupSchemaRegistry
 }
 
 // A collection of arguments for invoking getSchemaRegistryCluster.
-type LookupSchemaRegistryClusterArgs struct {
+type GetSchemaRegistryClusterArgs struct {
 	// The name for the Schema Registry cluster.
 	DisplayName *string                             `pulumi:"displayName"`
 	Environment GetSchemaRegistryClusterEnvironment `pulumi:"environment"`
@@ -84,41 +84,43 @@ type LookupSchemaRegistryClusterArgs struct {
 }
 
 // A collection of values returned by getSchemaRegistryCluster.
-type LookupSchemaRegistryClusterResult struct {
+type GetSchemaRegistryClusterResult struct {
 	// (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
 	ApiVersion string `pulumi:"apiVersion"`
+	// (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+	Cloud string `pulumi:"cloud"`
 	// (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
 	DisplayName string                              `pulumi:"displayName"`
 	Environment GetSchemaRegistryClusterEnvironment `pulumi:"environment"`
-	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+	// (Required String) The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 	Id string `pulumi:"id"`
 	// (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
 	Kind string `pulumi:"kind"`
 	// (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
 	Package string `pulumi:"package"`
-	// (Required Configuration Block) supports the following:
-	Regions []GetSchemaRegistryClusterRegion `pulumi:"regions"`
+	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
+	Region string `pulumi:"region"`
 	// (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
 	ResourceName string `pulumi:"resourceName"`
 	// (Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.
 	RestEndpoint string `pulumi:"restEndpoint"`
 }
 
-func LookupSchemaRegistryClusterOutput(ctx *pulumi.Context, args LookupSchemaRegistryClusterOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaRegistryClusterResultOutput {
+func GetSchemaRegistryClusterOutput(ctx *pulumi.Context, args GetSchemaRegistryClusterOutputArgs, opts ...pulumi.InvokeOption) GetSchemaRegistryClusterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSchemaRegistryClusterResult, error) {
-			args := v.(LookupSchemaRegistryClusterArgs)
-			r, err := LookupSchemaRegistryCluster(ctx, &args, opts...)
-			var s LookupSchemaRegistryClusterResult
+		ApplyT(func(v interface{}) (GetSchemaRegistryClusterResult, error) {
+			args := v.(GetSchemaRegistryClusterArgs)
+			r, err := GetSchemaRegistryCluster(ctx, &args, opts...)
+			var s GetSchemaRegistryClusterResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(LookupSchemaRegistryClusterResultOutput)
+		}).(GetSchemaRegistryClusterResultOutput)
 }
 
 // A collection of arguments for invoking getSchemaRegistryCluster.
-type LookupSchemaRegistryClusterOutputArgs struct {
+type GetSchemaRegistryClusterOutputArgs struct {
 	// The name for the Schema Registry cluster.
 	DisplayName pulumi.StringPtrInput                    `pulumi:"displayName"`
 	Environment GetSchemaRegistryClusterEnvironmentInput `pulumi:"environment"`
@@ -126,69 +128,74 @@ type LookupSchemaRegistryClusterOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
-func (LookupSchemaRegistryClusterOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LookupSchemaRegistryClusterArgs)(nil)).Elem()
+func (GetSchemaRegistryClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClusterArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getSchemaRegistryCluster.
-type LookupSchemaRegistryClusterResultOutput struct{ *pulumi.OutputState }
+type GetSchemaRegistryClusterResultOutput struct{ *pulumi.OutputState }
 
-func (LookupSchemaRegistryClusterResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LookupSchemaRegistryClusterResult)(nil)).Elem()
+func (GetSchemaRegistryClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClusterResult)(nil)).Elem()
 }
 
-func (o LookupSchemaRegistryClusterResultOutput) ToLookupSchemaRegistryClusterResultOutput() LookupSchemaRegistryClusterResultOutput {
+func (o GetSchemaRegistryClusterResultOutput) ToGetSchemaRegistryClusterResultOutput() GetSchemaRegistryClusterResultOutput {
 	return o
 }
 
-func (o LookupSchemaRegistryClusterResultOutput) ToLookupSchemaRegistryClusterResultOutputWithContext(ctx context.Context) LookupSchemaRegistryClusterResultOutput {
+func (o GetSchemaRegistryClusterResultOutput) ToGetSchemaRegistryClusterResultOutputWithContext(ctx context.Context) GetSchemaRegistryClusterResultOutput {
 	return o
 }
 
 // (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
-func (o LookupSchemaRegistryClusterResultOutput) ApiVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) string { return v.ApiVersion }).(pulumi.StringOutput)
+func (o GetSchemaRegistryClusterResultOutput) ApiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.ApiVersion }).(pulumi.StringOutput)
+}
+
+// (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+func (o GetSchemaRegistryClusterResultOutput) Cloud() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.Cloud }).(pulumi.StringOutput)
 }
 
 // (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
-func (o LookupSchemaRegistryClusterResultOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o GetSchemaRegistryClusterResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-func (o LookupSchemaRegistryClusterResultOutput) Environment() GetSchemaRegistryClusterEnvironmentOutput {
-	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) GetSchemaRegistryClusterEnvironment { return v.Environment }).(GetSchemaRegistryClusterEnvironmentOutput)
+func (o GetSchemaRegistryClusterResultOutput) Environment() GetSchemaRegistryClusterEnvironmentOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) GetSchemaRegistryClusterEnvironment { return v.Environment }).(GetSchemaRegistryClusterEnvironmentOutput)
 }
 
-// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
-func (o LookupSchemaRegistryClusterResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) string { return v.Id }).(pulumi.StringOutput)
+// (Required String) The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSchemaRegistryClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
-func (o LookupSchemaRegistryClusterResultOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) string { return v.Kind }).(pulumi.StringOutput)
+func (o GetSchemaRegistryClusterResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
-func (o LookupSchemaRegistryClusterResultOutput) Package() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) string { return v.Package }).(pulumi.StringOutput)
+func (o GetSchemaRegistryClusterResultOutput) Package() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.Package }).(pulumi.StringOutput)
 }
 
-// (Required Configuration Block) supports the following:
-func (o LookupSchemaRegistryClusterResultOutput) Regions() GetSchemaRegistryClusterRegionArrayOutput {
-	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) []GetSchemaRegistryClusterRegion { return v.Regions }).(GetSchemaRegistryClusterRegionArrayOutput)
+// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
+func (o GetSchemaRegistryClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
-func (o LookupSchemaRegistryClusterResultOutput) ResourceName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) string { return v.ResourceName }).(pulumi.StringOutput)
+func (o GetSchemaRegistryClusterResultOutput) ResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.ResourceName }).(pulumi.StringOutput)
 }
 
 // (Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.
-func (o LookupSchemaRegistryClusterResultOutput) RestEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) string { return v.RestEndpoint }).(pulumi.StringOutput)
+func (o GetSchemaRegistryClusterResultOutput) RestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.RestEndpoint }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(LookupSchemaRegistryClusterResultOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClusterResultOutput{})
 }

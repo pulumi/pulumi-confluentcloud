@@ -23,10 +23,13 @@ class GetSchemaRegistryClusterResult:
     """
     A collection of values returned by getSchemaRegistryCluster.
     """
-    def __init__(__self__, api_version=None, display_name=None, environment=None, id=None, kind=None, package=None, regions=None, resource_name=None, rest_endpoint=None):
+    def __init__(__self__, api_version=None, cloud=None, display_name=None, environment=None, id=None, kind=None, package=None, region=None, resource_name=None, rest_endpoint=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
+        if cloud and not isinstance(cloud, str):
+            raise TypeError("Expected argument 'cloud' to be a str")
+        pulumi.set(__self__, "cloud", cloud)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -42,9 +45,9 @@ class GetSchemaRegistryClusterResult:
         if package and not isinstance(package, str):
             raise TypeError("Expected argument 'package' to be a str")
         pulumi.set(__self__, "package", package)
-        if regions and not isinstance(regions, list):
-            raise TypeError("Expected argument 'regions' to be a list")
-        pulumi.set(__self__, "regions", regions)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_name and not isinstance(resource_name, str):
             raise TypeError("Expected argument 'resource_name' to be a str")
         pulumi.set(__self__, "resource_name", resource_name)
@@ -59,6 +62,14 @@ class GetSchemaRegistryClusterResult:
         (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
         """
         return pulumi.get(self, "api_version")
+
+    @property
+    @pulumi.getter
+    def cloud(self) -> str:
+        """
+        (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+        """
+        return pulumi.get(self, "cloud")
 
     @property
     @pulumi.getter(name="displayName")
@@ -77,7 +88,7 @@ class GetSchemaRegistryClusterResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+        (Required String) The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -99,11 +110,11 @@ class GetSchemaRegistryClusterResult:
 
     @property
     @pulumi.getter
-    def regions(self) -> Sequence['outputs.GetSchemaRegistryClusterRegionResult']:
+    def region(self) -> str:
         """
-        (Required Configuration Block) supports the following:
+        (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
         """
-        return pulumi.get(self, "regions")
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceName")
@@ -129,12 +140,13 @@ class AwaitableGetSchemaRegistryClusterResult(GetSchemaRegistryClusterResult):
             yield self
         return GetSchemaRegistryClusterResult(
             api_version=self.api_version,
+            cloud=self.cloud,
             display_name=self.display_name,
             environment=self.environment,
             id=self.id,
             kind=self.kind,
             package=self.package,
-            regions=self.regions,
+            region=self.region,
             resource_name=self.resource_name,
             rest_endpoint=self.rest_endpoint)
 
@@ -184,12 +196,13 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
 
     return AwaitableGetSchemaRegistryClusterResult(
         api_version=pulumi.get(__ret__, 'api_version'),
+        cloud=pulumi.get(__ret__, 'cloud'),
         display_name=pulumi.get(__ret__, 'display_name'),
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         package=pulumi.get(__ret__, 'package'),
-        regions=pulumi.get(__ret__, 'regions'),
+        region=pulumi.get(__ret__, 'region'),
         resource_name=pulumi.get(__ret__, 'resource_name'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'))
 

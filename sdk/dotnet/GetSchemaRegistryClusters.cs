@@ -26,13 +26,19 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetSchemaRegistryClusters.Invoke();
+        ///     var main = ConfluentCloud.GetSchemaRegistryClusters.Invoke(new()
+        ///     {
+        ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClustersEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
         /// 
         /// });
         /// ```
         /// </summary>
-        public static Task<GetSchemaRegistryClustersResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaRegistryClustersResult>("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetSchemaRegistryClustersResult> InvokeAsync(GetSchemaRegistryClustersArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaRegistryClustersResult>("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", args ?? new GetSchemaRegistryClustersArgs(), options.WithDefaults());
 
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -49,13 +55,48 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetSchemaRegistryClusters.Invoke();
+        ///     var main = ConfluentCloud.GetSchemaRegistryClusters.Invoke(new()
+        ///     {
+        ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClustersEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
         /// 
         /// });
         /// ```
         /// </summary>
-        public static Output<GetSchemaRegistryClustersResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryClustersResult>("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetSchemaRegistryClustersResult> Invoke(GetSchemaRegistryClustersInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryClustersResult>("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", args ?? new GetSchemaRegistryClustersInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetSchemaRegistryClustersArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// (Required Object) exports the following attributes:
+        /// </summary>
+        [Input("environment")]
+        public Inputs.GetSchemaRegistryClustersEnvironmentArgs? Environment { get; set; }
+
+        public GetSchemaRegistryClustersArgs()
+        {
+        }
+        public static new GetSchemaRegistryClustersArgs Empty => new GetSchemaRegistryClustersArgs();
+    }
+
+    public sealed class GetSchemaRegistryClustersInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// (Required Object) exports the following attributes:
+        /// </summary>
+        [Input("environment")]
+        public Input<Inputs.GetSchemaRegistryClustersEnvironmentInputArgs>? Environment { get; set; }
+
+        public GetSchemaRegistryClustersInvokeArgs()
+        {
+        }
+        public static new GetSchemaRegistryClustersInvokeArgs Empty => new GetSchemaRegistryClustersInvokeArgs();
     }
 
 
@@ -67,6 +108,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSchemaRegistryClustersClusterResult> Clusters;
         /// <summary>
+        /// (Required Object) exports the following attributes:
+        /// </summary>
+        public readonly Outputs.GetSchemaRegistryClustersEnvironmentResult Environment;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -75,9 +120,12 @@ namespace Pulumi.ConfluentCloud
         private GetSchemaRegistryClustersResult(
             ImmutableArray<Outputs.GetSchemaRegistryClustersClusterResult> clusters,
 
+            Outputs.GetSchemaRegistryClustersEnvironmentResult environment,
+
             string id)
         {
             Clusters = clusters;
+            Environment = environment;
             Id = id;
         }
     }
