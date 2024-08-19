@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
+	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -91,8 +91,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Schema{}
 	case "confluentcloud:index/schemaExporter:SchemaExporter":
 		r = &SchemaExporter{}
-	case "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster":
-		r = &SchemaRegistryCluster{}
 	case "confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig":
 		r = &SchemaRegistryClusterConfig{}
 	case "confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode":
@@ -319,11 +317,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/schemaExporter",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"confluentcloud",
-		"index/schemaRegistryCluster",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

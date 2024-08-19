@@ -1199,6 +1199,22 @@ export interface GetSchemaRegistryClusterModeSchemaRegistryClusterArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetSchemaRegistryClustersEnvironment {
+    /**
+     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     * - If no environment id is specified, clusters from all environments will be displayed.
+     */
+    id: string;
+}
+
+export interface GetSchemaRegistryClustersEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     * - If no environment id is specified, clusters from all environments will be displayed.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetSchemaRegistryDekCredentials {
     /**
      * The Schema Registry API Key.
@@ -2333,13 +2349,6 @@ export interface SchemaRegistryClusterConfigSchemaRegistryCluster {
     id: pulumi.Input<string>;
 }
 
-export interface SchemaRegistryClusterEnvironment {
-    /**
-     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
-     */
-    id: pulumi.Input<string>;
-}
-
 export interface SchemaRegistryClusterModeCredentials {
     /**
      * The Schema Registry API Key.
@@ -2354,13 +2363,6 @@ export interface SchemaRegistryClusterModeCredentials {
 export interface SchemaRegistryClusterModeSchemaRegistryCluster {
     /**
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-     */
-    id: pulumi.Input<string>;
-}
-
-export interface SchemaRegistryClusterRegion {
-    /**
-     * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
      */
     id: pulumi.Input<string>;
 }

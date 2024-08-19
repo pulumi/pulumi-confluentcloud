@@ -369,14 +369,16 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * The resource associated with this object. The only resource that is supported is &#39;cmk.v2.Cluster&#39;, &#39;srcm.v2.Cluster&#39;.
+     * The resource associated with this object. The only resource that is supported is &#39;cmk.v2.Cluster&#39;, &#39;srcm.v2.Cluster&#39;,
+     * &#39;srcm.v3.Cluster&#39;.
      * 
      */
     @Export(name="managedResource", refs={ApiKeyManagedResource.class}, tree="[0]")
     private Output</* @Nullable */ ApiKeyManagedResource> managedResource;
 
     /**
-     * @return The resource associated with this object. The only resource that is supported is &#39;cmk.v2.Cluster&#39;, &#39;srcm.v2.Cluster&#39;.
+     * @return The resource associated with this object. The only resource that is supported is &#39;cmk.v2.Cluster&#39;, &#39;srcm.v2.Cluster&#39;,
+     * &#39;srcm.v3.Cluster&#39;.
      * 
      */
     public Output<Optional<ApiKeyManagedResource>> managedResource() {

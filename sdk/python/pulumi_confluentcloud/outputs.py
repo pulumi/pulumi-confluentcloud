@@ -119,10 +119,8 @@ __all__ = [
     'SchemaMetadataTag',
     'SchemaRegistryClusterConfigCredentials',
     'SchemaRegistryClusterConfigSchemaRegistryCluster',
-    'SchemaRegistryClusterEnvironment',
     'SchemaRegistryClusterModeCredentials',
     'SchemaRegistryClusterModeSchemaRegistryCluster',
-    'SchemaRegistryClusterRegion',
     'SchemaRegistryDekCredentials',
     'SchemaRegistryDekSchemaRegistryCluster',
     'SchemaRegistryKekCredentials',
@@ -226,10 +224,9 @@ __all__ = [
     'GetSchemaRegistryClusterEnvironmentResult',
     'GetSchemaRegistryClusterModeCredentialsResult',
     'GetSchemaRegistryClusterModeSchemaRegistryClusterResult',
-    'GetSchemaRegistryClusterRegionResult',
     'GetSchemaRegistryClustersClusterResult',
     'GetSchemaRegistryClustersClusterEnvironmentResult',
-    'GetSchemaRegistryClustersClusterRegionResult',
+    'GetSchemaRegistryClustersEnvironmentResult',
     'GetSchemaRegistryDekCredentialsResult',
     'GetSchemaRegistryDekSchemaRegistryClusterResult',
     'GetSchemaRegistryKekCredentialsResult',
@@ -3716,24 +3713,6 @@ class SchemaRegistryClusterConfigSchemaRegistryCluster(dict):
 
 
 @pulumi.output_type
-class SchemaRegistryClusterEnvironment(dict):
-    def __init__(__self__, *,
-                 id: str):
-        """
-        :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
 class SchemaRegistryClusterModeCredentials(dict):
     def __init__(__self__, *,
                  key: str,
@@ -3776,24 +3755,6 @@ class SchemaRegistryClusterModeSchemaRegistryCluster(dict):
     def id(self) -> str:
         """
         The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class SchemaRegistryClusterRegion(dict):
-    def __init__(__self__, *,
-                 id: str):
-        """
-        :param str id: The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
         """
         return pulumi.get(self, "id")
 
@@ -6744,53 +6705,38 @@ class GetSchemaRegistryClusterModeSchemaRegistryClusterResult(dict):
 
 
 @pulumi.output_type
-class GetSchemaRegistryClusterRegionResult(dict):
-    def __init__(__self__, *,
-                 id: str):
-        """
-        :param str id: The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
 class GetSchemaRegistryClustersClusterResult(dict):
     def __init__(__self__, *,
                  api_version: str,
+                 cloud: str,
                  display_name: str,
                  environment: 'outputs.GetSchemaRegistryClustersClusterEnvironmentResult',
                  id: str,
                  kind: str,
                  package: str,
-                 regions: Sequence['outputs.GetSchemaRegistryClustersClusterRegionResult'],
+                 region: str,
                  resource_name: str,
                  rest_endpoint: str):
         """
         :param str api_version: (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
+        :param str cloud: (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
         :param str display_name: (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
         :param 'GetSchemaRegistryClustersClusterEnvironmentArgs' environment: (Required Object) exports the following attributes:
-        :param str id: (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+        :param str id: (Required String) The id of the environment.
         :param str kind: (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
         :param str package: (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
-        :param Sequence['GetSchemaRegistryClustersClusterRegionArgs'] regions: (Required Configuration Block) supports the following:
+        :param str region: (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
         :param str resource_name: (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
         :param str rest_endpoint: (Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.
         """
         pulumi.set(__self__, "api_version", api_version)
+        pulumi.set(__self__, "cloud", cloud)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "package", package)
-        pulumi.set(__self__, "regions", regions)
+        pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "rest_endpoint", rest_endpoint)
 
@@ -6801,6 +6747,14 @@ class GetSchemaRegistryClustersClusterResult(dict):
         (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
         """
         return pulumi.get(self, "api_version")
+
+    @property
+    @pulumi.getter
+    def cloud(self) -> str:
+        """
+        (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+        """
+        return pulumi.get(self, "cloud")
 
     @property
     @pulumi.getter(name="displayName")
@@ -6822,7 +6776,7 @@ class GetSchemaRegistryClustersClusterResult(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+        (Required String) The id of the environment.
         """
         return pulumi.get(self, "id")
 
@@ -6844,11 +6798,11 @@ class GetSchemaRegistryClustersClusterResult(dict):
 
     @property
     @pulumi.getter
-    def regions(self) -> Sequence['outputs.GetSchemaRegistryClustersClusterRegionResult']:
+    def region(self) -> str:
         """
-        (Required Configuration Block) supports the following:
+        (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
         """
-        return pulumi.get(self, "regions")
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceName")
@@ -6872,7 +6826,8 @@ class GetSchemaRegistryClustersClusterEnvironmentResult(dict):
     def __init__(__self__, *,
                  id: str):
         """
-        :param str id: (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+        :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+               - If no environment id is specified, clusters from all environments will be displayed.
         """
         pulumi.set(__self__, "id", id)
 
@@ -6880,17 +6835,19 @@ class GetSchemaRegistryClustersClusterEnvironmentResult(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+        The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        - If no environment id is specified, clusters from all environments will be displayed.
         """
         return pulumi.get(self, "id")
 
 
 @pulumi.output_type
-class GetSchemaRegistryClustersClusterRegionResult(dict):
+class GetSchemaRegistryClustersEnvironmentResult(dict):
     def __init__(__self__, *,
                  id: str):
         """
-        :param str id: (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+        :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+               - If no environment id is specified, clusters from all environments will be displayed.
         """
         pulumi.set(__self__, "id", id)
 
@@ -6898,7 +6855,8 @@ class GetSchemaRegistryClustersClusterRegionResult(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+        The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        - If no environment id is specified, clusters from all environments will be displayed.
         """
         return pulumi.get(self, "id")
 

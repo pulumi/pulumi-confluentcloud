@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClustersCluster;
+import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClustersEnvironment;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -18,6 +19,11 @@ public final class GetSchemaRegistryClustersResult {
      */
     private List<GetSchemaRegistryClustersCluster> clusters;
     /**
+     * @return (Required Object) exports the following attributes:
+     * 
+     */
+    private GetSchemaRegistryClustersEnvironment environment;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -30,6 +36,13 @@ public final class GetSchemaRegistryClustersResult {
      */
     public List<GetSchemaRegistryClustersCluster> clusters() {
         return this.clusters;
+    }
+    /**
+     * @return (Required Object) exports the following attributes:
+     * 
+     */
+    public GetSchemaRegistryClustersEnvironment environment() {
+        return this.environment;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -49,11 +62,13 @@ public final class GetSchemaRegistryClustersResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetSchemaRegistryClustersCluster> clusters;
+        private GetSchemaRegistryClustersEnvironment environment;
         private String id;
         public Builder() {}
         public Builder(GetSchemaRegistryClustersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusters = defaults.clusters;
+    	      this.environment = defaults.environment;
     	      this.id = defaults.id;
         }
 
@@ -69,6 +84,14 @@ public final class GetSchemaRegistryClustersResult {
             return clusters(List.of(clusters));
         }
         @CustomType.Setter
+        public Builder environment(GetSchemaRegistryClustersEnvironment environment) {
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClustersResult", "environment");
+            }
+            this.environment = environment;
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetSchemaRegistryClustersResult", "id");
@@ -79,6 +102,7 @@ public final class GetSchemaRegistryClustersResult {
         public GetSchemaRegistryClustersResult build() {
             final var _resultValue = new GetSchemaRegistryClustersResult();
             _resultValue.clusters = clusters;
+            _resultValue.environment = environment;
             _resultValue.id = id;
             return _resultValue;
         }

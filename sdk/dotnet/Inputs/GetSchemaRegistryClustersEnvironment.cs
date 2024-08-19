@@ -7,22 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.ConfluentCloud.Outputs
+namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    [OutputType]
-    public sealed class GetSchemaRegistryClustersClusterEnvironmentResult
+    public sealed class GetSchemaRegistryClustersEnvironmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
         /// - If no environment id is specified, clusters from all environments will be displayed.
         /// </summary>
-        public readonly string Id;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
-        [OutputConstructor]
-        private GetSchemaRegistryClustersClusterEnvironmentResult(string id)
+        public GetSchemaRegistryClustersEnvironmentArgs()
         {
-            Id = id;
         }
+        public static new GetSchemaRegistryClustersEnvironmentArgs Empty => new GetSchemaRegistryClustersEnvironmentArgs();
     }
 }

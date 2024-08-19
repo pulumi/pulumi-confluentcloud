@@ -64,12 +64,12 @@ import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModePlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekPlainArgs;
-import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;
-import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemasPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
@@ -120,7 +120,6 @@ import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClustersResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryDekResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryKekResult;
-import com.pulumi.confluentcloud.outputs.GetSchemaRegistryRegionResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaResult;
 import com.pulumi.confluentcloud.outputs.GetSchemasResult;
 import com.pulumi.confluentcloud.outputs.GetServiceAccountResult;
@@ -6293,6 +6292,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6306,7 +6307,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters();
+     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters(GetSchemaRegistryClustersArgs.builder()
+     *             .environment(GetSchemaRegistryClustersEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
      * 
      *     }
      * }
@@ -6316,7 +6321,7 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetSchemaRegistryClustersResult> getSchemaRegistryClusters() {
-        return getSchemaRegistryClusters(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getSchemaRegistryClusters(GetSchemaRegistryClustersArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -6334,6 +6339,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6347,7 +6354,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters();
+     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters(GetSchemaRegistryClustersArgs.builder()
+     *             .environment(GetSchemaRegistryClustersEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
      * 
      *     }
      * }
@@ -6357,7 +6368,7 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static CompletableFuture<GetSchemaRegistryClustersResult> getSchemaRegistryClustersPlain() {
-        return getSchemaRegistryClustersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getSchemaRegistryClustersPlain(GetSchemaRegistryClustersPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -6375,6 +6386,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6388,7 +6401,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters();
+     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters(GetSchemaRegistryClustersArgs.builder()
+     *             .environment(GetSchemaRegistryClustersEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
      * 
      *     }
      * }
@@ -6397,7 +6414,7 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSchemaRegistryClustersResult> getSchemaRegistryClusters(InvokeArgs args) {
+    public static Output<GetSchemaRegistryClustersResult> getSchemaRegistryClusters(GetSchemaRegistryClustersArgs args) {
         return getSchemaRegistryClusters(args, InvokeOptions.Empty);
     }
     /**
@@ -6416,6 +6433,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6429,7 +6448,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters();
+     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters(GetSchemaRegistryClustersArgs.builder()
+     *             .environment(GetSchemaRegistryClustersEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
      * 
      *     }
      * }
@@ -6438,7 +6461,7 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetSchemaRegistryClustersResult> getSchemaRegistryClustersPlain(InvokeArgs args) {
+    public static CompletableFuture<GetSchemaRegistryClustersResult> getSchemaRegistryClustersPlain(GetSchemaRegistryClustersPlainArgs args) {
         return getSchemaRegistryClustersPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -6457,6 +6480,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6470,7 +6495,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters();
+     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters(GetSchemaRegistryClustersArgs.builder()
+     *             .environment(GetSchemaRegistryClustersEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
      * 
      *     }
      * }
@@ -6479,7 +6508,7 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSchemaRegistryClustersResult> getSchemaRegistryClusters(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetSchemaRegistryClustersResult> getSchemaRegistryClusters(GetSchemaRegistryClustersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", TypeShape.of(GetSchemaRegistryClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6498,6 +6527,8 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6511,7 +6542,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters();
+     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters(GetSchemaRegistryClustersArgs.builder()
+     *             .environment(GetSchemaRegistryClustersEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
      * 
      *     }
      * }
@@ -6520,7 +6555,7 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetSchemaRegistryClustersResult> getSchemaRegistryClustersPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetSchemaRegistryClustersResult> getSchemaRegistryClustersPlain(GetSchemaRegistryClustersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", TypeShape.of(GetSchemaRegistryClustersResult.class), args, Utilities.withVersion(options));
     }
     public static Output<GetSchemaRegistryDekResult> getSchemaRegistryDek(GetSchemaRegistryDekArgs args) {
@@ -6546,210 +6581,6 @@ public final class ConfluentcloudFunctions {
     }
     public static CompletableFuture<GetSchemaRegistryKekResult> getSchemaRegistryKekPlain(GetSchemaRegistryKekPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek", TypeShape.of(GetSchemaRegistryKekResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
-     * 
-     * !&gt; **Warning:** The `confluentcloud.getSchemaRegistryRegion` data source has been deprecated and will be removed in the next major version of the provider (2.0.0).
-     * Refer to the Upgrade Guide for more details.
-     * The guide will be published once version 2.0.0 is released.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
-     *             .cloud("AWS")
-     *             .region("us-east-2")
-     *             .package_("ESSENTIALS")
-     *             .build());
-     * 
-     *         ctx.export("example", example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetSchemaRegistryRegionResult> getSchemaRegistryRegion(GetSchemaRegistryRegionArgs args) {
-        return getSchemaRegistryRegion(args, InvokeOptions.Empty);
-    }
-    /**
-     * [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
-     * 
-     * !&gt; **Warning:** The `confluentcloud.getSchemaRegistryRegion` data source has been deprecated and will be removed in the next major version of the provider (2.0.0).
-     * Refer to the Upgrade Guide for more details.
-     * The guide will be published once version 2.0.0 is released.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
-     *             .cloud("AWS")
-     *             .region("us-east-2")
-     *             .package_("ESSENTIALS")
-     *             .build());
-     * 
-     *         ctx.export("example", example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static CompletableFuture<GetSchemaRegistryRegionResult> getSchemaRegistryRegionPlain(GetSchemaRegistryRegionPlainArgs args) {
-        return getSchemaRegistryRegionPlain(args, InvokeOptions.Empty);
-    }
-    /**
-     * [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
-     * 
-     * !&gt; **Warning:** The `confluentcloud.getSchemaRegistryRegion` data source has been deprecated and will be removed in the next major version of the provider (2.0.0).
-     * Refer to the Upgrade Guide for more details.
-     * The guide will be published once version 2.0.0 is released.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
-     *             .cloud("AWS")
-     *             .region("us-east-2")
-     *             .package_("ESSENTIALS")
-     *             .build());
-     * 
-     *         ctx.export("example", example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetSchemaRegistryRegionResult> getSchemaRegistryRegion(GetSchemaRegistryRegionArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion", TypeShape.of(GetSchemaRegistryRegionResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
-     * 
-     * !&gt; **Warning:** The `confluentcloud.getSchemaRegistryRegion` data source has been deprecated and will be removed in the next major version of the provider (2.0.0).
-     * Refer to the Upgrade Guide for more details.
-     * The guide will be published once version 2.0.0 is released.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
-     *             .cloud("AWS")
-     *             .region("us-east-2")
-     *             .package_("ESSENTIALS")
-     *             .build());
-     * 
-     *         ctx.export("example", example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static CompletableFuture<GetSchemaRegistryRegionResult> getSchemaRegistryRegionPlain(GetSchemaRegistryRegionPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion", TypeShape.of(GetSchemaRegistryRegionResult.class), args, Utilities.withVersion(options));
     }
     public static Output<GetSchemasResult> getSchemas() {
         return getSchemas(GetSchemasArgs.Empty, InvokeOptions.Empty);

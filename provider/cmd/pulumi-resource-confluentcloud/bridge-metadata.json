@@ -626,17 +626,6 @@
                     }
                 }
             },
-            "confluent_schema_registry_cluster": {
-                "current": "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster",
-                "fields": {
-                    "environment": {
-                        "maxItemsOne": true
-                    },
-                    "region": {
-                        "maxItemsOne": true
-                    }
-                }
-            },
             "confluent_schema_registry_cluster_config": {
                 "current": "confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig",
                 "fields": {
@@ -1256,9 +1245,6 @@
                 "fields": {
                     "environment": {
                         "maxItemsOne": true
-                    },
-                    "region": {
-                        "maxItemsOne": false
                     }
                 }
             },
@@ -1293,12 +1279,12 @@
                             "fields": {
                                 "environment": {
                                     "maxItemsOne": true
-                                },
-                                "region": {
-                                    "maxItemsOne": false
                                 }
                             }
                         }
+                    },
+                    "environment": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -1323,9 +1309,6 @@
                         "maxItemsOne": true
                     }
                 }
-            },
-            "confluent_schema_registry_region": {
-                "current": "confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion"
             },
             "confluent_schemas": {
                 "current": "confluentcloud:index/getSchemas:getSchemas",

@@ -219,7 +219,8 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+     * 'srcm.v3.Cluster'.
      */
     public readonly managedResource!: pulumi.Output<outputs.ApiKeyManagedResource | undefined>;
     /**
@@ -286,7 +287,8 @@ export interface ApiKeyState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+     * 'srcm.v3.Cluster'.
      */
     managedResource?: pulumi.Input<inputs.ApiKeyManagedResource>;
     /**
@@ -316,7 +318,8 @@ export interface ApiKeyArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
+     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
+     * 'srcm.v3.Cluster'.
      */
     managedResource?: pulumi.Input<inputs.ApiKeyManagedResource>;
     /**
