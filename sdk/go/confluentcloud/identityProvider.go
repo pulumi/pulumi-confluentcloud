@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
