@@ -49,14 +49,14 @@ public final class CatalogEntityAttributesState extends com.pulumi.resources.Res
     }
 
     /**
-     * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+     * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      * 
      */
     @Import(name="entityName")
     private @Nullable Output<String> entityName;
 
     /**
-     * @return The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+     * @return The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      * 
      */
     public Optional<Output<String>> entityName() {
@@ -64,14 +64,14 @@ public final class CatalogEntityAttributesState extends com.pulumi.resources.Res
     }
 
     /**
-     * The entity type, for example, `sr_schema`, `kafka_topic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * The entity type, for example, `cf_environment`, `kafka_logical_cluster`, `kafka_topic`, `sr_schema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      * 
      */
     @Import(name="entityType")
     private @Nullable Output<String> entityType;
 
     /**
-     * @return The entity type, for example, `sr_schema`, `kafka_topic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * @return The entity type, for example, `cf_environment`, `kafka_logical_cluster`, `kafka_topic`, `sr_schema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      * 
      */
     public Optional<Output<String>> entityType() {
@@ -172,7 +172,7 @@ public final class CatalogEntityAttributesState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param entityName The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+         * @param entityName The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class CatalogEntityAttributesState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param entityName The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+         * @param entityName The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class CatalogEntityAttributesState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param entityType The entity type, for example, `sr_schema`, `kafka_topic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+         * @param entityType The entity type, for example, `cf_environment`, `kafka_logical_cluster`, `kafka_topic`, `sr_schema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class CatalogEntityAttributesState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param entityType The entity type, for example, `sr_schema`, `kafka_topic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+         * @param entityType The entity type, for example, `cf_environment`, `kafka_logical_cluster`, `kafka_topic`, `sr_schema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
          * 
          * @return builder
          * 

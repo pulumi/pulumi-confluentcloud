@@ -14,6 +14,10 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetAccessPointAzureEgressPrivateLinkEndpointResult
     {
         /// <summary>
+        /// (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateEndpointCustomDnsConfigDomains;
+        /// <summary>
         /// (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
         /// </summary>
         public readonly string PrivateEndpointDomain;
@@ -36,6 +40,8 @@ namespace Pulumi.ConfluentCloud.Outputs
 
         [OutputConstructor]
         private GetAccessPointAzureEgressPrivateLinkEndpointResult(
+            ImmutableArray<string> privateEndpointCustomDnsConfigDomains,
+
             string privateEndpointDomain,
 
             string privateEndpointIpAddress,
@@ -46,6 +52,7 @@ namespace Pulumi.ConfluentCloud.Outputs
 
             string privateLinkSubresourceName)
         {
+            PrivateEndpointCustomDnsConfigDomains = privateEndpointCustomDnsConfigDomains;
             PrivateEndpointDomain = privateEndpointDomain;
             PrivateEndpointIpAddress = privateEndpointIpAddress;
             PrivateEndpointResourceId = privateEndpointResourceId;

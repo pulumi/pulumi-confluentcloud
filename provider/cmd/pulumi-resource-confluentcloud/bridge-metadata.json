@@ -8,7 +8,14 @@
                         "maxItemsOne": true
                     },
                     "azure_egress_private_link_endpoint": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "private_endpoint_custom_dns_config_domains": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "environment": {
                         "maxItemsOne": true
@@ -758,7 +765,14 @@
                         "maxItemsOne": false
                     },
                     "azure_egress_private_link_endpoint": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "private_endpoint_custom_dns_config_domains": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "environment": {
                         "maxItemsOne": true

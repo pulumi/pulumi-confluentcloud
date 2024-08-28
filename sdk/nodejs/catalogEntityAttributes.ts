@@ -43,11 +43,11 @@ export class CatalogEntityAttributes extends pulumi.CustomResource {
      */
     public readonly credentials!: pulumi.Output<outputs.CatalogEntityAttributesCredentials | undefined>;
     /**
-     * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+     * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      */
     public readonly entityName!: pulumi.Output<string>;
     /**
-     * The entity type, for example, `srSchema`, `kafkaTopic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      */
     public readonly entityType!: pulumi.Output<string>;
     /**
@@ -110,11 +110,11 @@ export interface CatalogEntityAttributesState {
      */
     credentials?: pulumi.Input<inputs.CatalogEntityAttributesCredentials>;
     /**
-     * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+     * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      */
     entityName?: pulumi.Input<string>;
     /**
-     * The entity type, for example, `srSchema`, `kafkaTopic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      */
     entityType?: pulumi.Input<string>;
     /**
@@ -137,11 +137,11 @@ export interface CatalogEntityAttributesArgs {
      */
     credentials?: pulumi.Input<inputs.CatalogEntityAttributesCredentials>;
     /**
-     * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+     * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      */
     entityName: pulumi.Input<string>;
     /**
-     * The entity type, for example, `srSchema`, `kafkaTopic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      */
     entityType: pulumi.Input<string>;
     /**

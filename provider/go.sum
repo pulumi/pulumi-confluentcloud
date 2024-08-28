@@ -1364,8 +1364,8 @@ github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 h1:DaipFGVdZjAE8eSztUrA/4b74
 github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0/go.mod h1:ufn9In8kDsyJ7Nru2ygpAaWdGw7DSDTOTtDhQVSmZjs=
 github.com/confluentinc/ccloud-sdk-go-v2/networking v0.12.0 h1:eaIjlpKyjW6WgOKqR2/v1oITgK/m/eg4PdIrmIN8fbc=
 github.com/confluentinc/ccloud-sdk-go-v2/networking v0.12.0/go.mod h1:jL9lLHYwFKzCJE5Fh62UdRqJCMJ9T/xg5QOdnQRYIUg=
-github.com/confluentinc/ccloud-sdk-go-v2/networking-access-point v0.2.0 h1:aRK2GFLzCWms5Nl5OlMtIFwOl/vUgzczsV2D4di0e/4=
-github.com/confluentinc/ccloud-sdk-go-v2/networking-access-point v0.2.0/go.mod h1:HV1xGUwTsGEU3Mgvc+7Ya/0HRpUO69L2rqqxO7LeWMc=
+github.com/confluentinc/ccloud-sdk-go-v2/networking-access-point v0.3.0 h1:8STgb5JDV6QFhZIGzvLuGA3eC1aIUBcqW6zS8pHN6BU=
+github.com/confluentinc/ccloud-sdk-go-v2/networking-access-point v0.3.0/go.mod h1:HV1xGUwTsGEU3Mgvc+7Ya/0HRpUO69L2rqqxO7LeWMc=
 github.com/confluentinc/ccloud-sdk-go-v2/networking-dnsforwarder v0.2.0 h1:OdIeCGfy8iQ2Bm+08CDXYttwZOUme0e9FVGrBjBJGx4=
 github.com/confluentinc/ccloud-sdk-go-v2/networking-dnsforwarder v0.2.0/go.mod h1:472T8ufudvXgXea2BhYxhE/2eowwhoulZzboDh6+ec4=
 github.com/confluentinc/ccloud-sdk-go-v2/networking-ip v0.2.0 h1:ZHNF2DeqVlNPuKGZ41SBMLGj8GBlvvcwOPnfZLZXA/4=
@@ -2015,8 +2015,6 @@ github.com/pulumi/inflector v0.1.1 h1:dvlxlWtXwOJTUUtcYDvwnl6Mpg33prhK+7mzeF+Sob
 github.com/pulumi/inflector v0.1.1/go.mod h1:HUFCjcPTz96YtTuUlwG3i3EZG4WlniBvR9bd+iJxCUY=
 github.com/pulumi/providertest v0.0.14 h1:5QlAPAAs82jkQraHsJvq1xgVfC7xtW8sFJwv2pHgxQ8=
 github.com/pulumi/providertest v0.0.14/go.mod h1:GcsqEGgSngwaNOD+kICJPIUQlnA911fGBU8HDlJvVL0=
-github.com/pulumi/pulumi-confluentcloud/provider v0.0.0-20240816144800-31aed8ac3a1e h1:yeVOVsfSyQbCJxhTO1JbDz5FhYAbAIpC1ZB0nUJQDU4=
-github.com/pulumi/pulumi-confluentcloud/provider v0.0.0-20240816144800-31aed8ac3a1e/go.mod h1:fOziXIAfxvvq+9jfK1Ykk8ZxVUW3g5A42Bpcw+xlCZg=
 github.com/pulumi/pulumi-java/pkg v0.14.0 h1:CKL7lLF81Fq6VRhA5TNFsSMnHraTNCUzIhqCzYX8Wzk=
 github.com/pulumi/pulumi-java/pkg v0.14.0/go.mod h1:VybuJMWJtJc9ZNbt1kcYH4TbpocMx9mEi7YWL2Co99c=
 github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.1 h1:FLQknb6r3r/uaj1XLbouFF88eF1Fk0h4JOVS9kHKDRY=
@@ -2829,6 +2827,7 @@ google.golang.org/genproto v0.0.0-20200212174721-66ed5ce911ce/go.mod h1:55QSHmfG
 google.golang.org/genproto v0.0.0-20200224152610-e50cd9704f63/go.mod h1:55QSHmfGQM9UVYDPBsyGGes0y52j32PQ3BqQfXhyH3c=
 google.golang.org/genproto v0.0.0-20200228133532-8c2c7df3a383/go.mod h1:55QSHmfGQM9UVYDPBsyGGes0y52j32PQ3BqQfXhyH3c=
 google.golang.org/genproto v0.0.0-20200305110556-506484158171/go.mod h1:55QSHmfGQM9UVYDPBsyGGes0y52j32PQ3BqQfXhyH3c=
+google.golang.org/genproto v0.0.0-20200310143817-43be25429f5a/go.mod h1:55QSHmfGQM9UVYDPBsyGGes0y52j32PQ3BqQfXhyH3c=
 google.golang.org/genproto v0.0.0-20200312145019-da6875a35672/go.mod h1:55QSHmfGQM9UVYDPBsyGGes0y52j32PQ3BqQfXhyH3c=
 google.golang.org/genproto v0.0.0-20200331122359-1ee6d9798940/go.mod h1:55QSHmfGQM9UVYDPBsyGGes0y52j32PQ3BqQfXhyH3c=
 google.golang.org/genproto v0.0.0-20200430143042-b979b6f78d84/go.mod h1:55QSHmfGQM9UVYDPBsyGGes0y52j32PQ3BqQfXhyH3c=

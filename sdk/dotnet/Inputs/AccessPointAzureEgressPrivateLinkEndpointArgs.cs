@@ -12,6 +12,18 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class AccessPointAzureEgressPrivateLinkEndpointArgs : global::Pulumi.ResourceArgs
     {
+        [Input("privateEndpointCustomDnsConfigDomains")]
+        private InputList<string>? _privateEndpointCustomDnsConfigDomains;
+
+        /// <summary>
+        /// (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+        /// </summary>
+        public InputList<string> PrivateEndpointCustomDnsConfigDomains
+        {
+            get => _privateEndpointCustomDnsConfigDomains ?? (_privateEndpointCustomDnsConfigDomains = new InputList<string>());
+            set => _privateEndpointCustomDnsConfigDomains = value;
+        }
+
         /// <summary>
         /// (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
         /// </summary>

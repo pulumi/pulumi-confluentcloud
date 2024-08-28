@@ -26,6 +26,10 @@ export interface AccessPointAwsEgressPrivateLinkEndpoint {
 
 export interface AccessPointAzureEgressPrivateLinkEndpoint {
     /**
+     * (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+     */
+    privateEndpointCustomDnsConfigDomains: string[];
+    /**
      * (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
      */
     privateEndpointDomain: string;
@@ -479,6 +483,10 @@ export interface GetAccessPointAwsEgressPrivateLinkEndpoint {
 }
 
 export interface GetAccessPointAzureEgressPrivateLinkEndpoint {
+    /**
+     * (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+     */
+    privateEndpointCustomDnsConfigDomains: string[];
     /**
      * (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
      */

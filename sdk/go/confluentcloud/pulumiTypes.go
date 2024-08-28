@@ -208,6 +208,8 @@ func (o AccessPointAwsEgressPrivateLinkEndpointPtrOutput) VpcEndpointServiceName
 }
 
 type AccessPointAzureEgressPrivateLinkEndpoint struct {
+	// (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+	PrivateEndpointCustomDnsConfigDomains []string `pulumi:"privateEndpointCustomDnsConfigDomains"`
 	// (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
 	PrivateEndpointDomain *string `pulumi:"privateEndpointDomain"`
 	// (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
@@ -232,6 +234,8 @@ type AccessPointAzureEgressPrivateLinkEndpointInput interface {
 }
 
 type AccessPointAzureEgressPrivateLinkEndpointArgs struct {
+	// (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+	PrivateEndpointCustomDnsConfigDomains pulumi.StringArrayInput `pulumi:"privateEndpointCustomDnsConfigDomains"`
 	// (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
 	PrivateEndpointDomain pulumi.StringPtrInput `pulumi:"privateEndpointDomain"`
 	// (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
@@ -321,6 +325,13 @@ func (o AccessPointAzureEgressPrivateLinkEndpointOutput) ToAccessPointAzureEgres
 	}).(AccessPointAzureEgressPrivateLinkEndpointPtrOutput)
 }
 
+// (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+func (o AccessPointAzureEgressPrivateLinkEndpointOutput) PrivateEndpointCustomDnsConfigDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessPointAzureEgressPrivateLinkEndpoint) []string {
+		return v.PrivateEndpointCustomDnsConfigDomains
+	}).(pulumi.StringArrayOutput)
+}
+
 // (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
 func (o AccessPointAzureEgressPrivateLinkEndpointOutput) PrivateEndpointDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPointAzureEgressPrivateLinkEndpoint) *string { return v.PrivateEndpointDomain }).(pulumi.StringPtrOutput)
@@ -368,6 +379,16 @@ func (o AccessPointAzureEgressPrivateLinkEndpointPtrOutput) Elem() AccessPointAz
 		var ret AccessPointAzureEgressPrivateLinkEndpoint
 		return ret
 	}).(AccessPointAzureEgressPrivateLinkEndpointOutput)
+}
+
+// (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+func (o AccessPointAzureEgressPrivateLinkEndpointPtrOutput) PrivateEndpointCustomDnsConfigDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccessPointAzureEgressPrivateLinkEndpoint) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpointCustomDnsConfigDomains
+	}).(pulumi.StringArrayOutput)
 }
 
 // (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
@@ -19104,6 +19125,8 @@ func (o GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput) Index(i pulumi.In
 }
 
 type GetAccessPointAzureEgressPrivateLinkEndpoint struct {
+	// (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+	PrivateEndpointCustomDnsConfigDomains []string `pulumi:"privateEndpointCustomDnsConfigDomains"`
 	// (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
 	PrivateEndpointDomain string `pulumi:"privateEndpointDomain"`
 	// (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
@@ -19128,6 +19151,8 @@ type GetAccessPointAzureEgressPrivateLinkEndpointInput interface {
 }
 
 type GetAccessPointAzureEgressPrivateLinkEndpointArgs struct {
+	// (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+	PrivateEndpointCustomDnsConfigDomains pulumi.StringArrayInput `pulumi:"privateEndpointCustomDnsConfigDomains"`
 	// (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
 	PrivateEndpointDomain pulumi.StringInput `pulumi:"privateEndpointDomain"`
 	// (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
@@ -19189,6 +19214,13 @@ func (o GetAccessPointAzureEgressPrivateLinkEndpointOutput) ToGetAccessPointAzur
 
 func (o GetAccessPointAzureEgressPrivateLinkEndpointOutput) ToGetAccessPointAzureEgressPrivateLinkEndpointOutputWithContext(ctx context.Context) GetAccessPointAzureEgressPrivateLinkEndpointOutput {
 	return o
+}
+
+// (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+func (o GetAccessPointAzureEgressPrivateLinkEndpointOutput) PrivateEndpointCustomDnsConfigDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAccessPointAzureEgressPrivateLinkEndpoint) []string {
+		return v.PrivateEndpointCustomDnsConfigDomains
+	}).(pulumi.StringArrayOutput)
 }
 
 // (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
