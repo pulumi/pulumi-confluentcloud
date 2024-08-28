@@ -1,4 +1,5 @@
 module github.com/pulumi/pulumi-confluentcloud/provider/v2
+
 go 1.22
 
 toolchain go1.22.4
@@ -10,7 +11,6 @@ replace (
 
 require (
 	github.com/confluentinc/terraform-provider-confluent v1.32.0
-	github.com/pulumi/pulumi-confluentcloud/provider v0.0.0-20240816144800-31aed8ac3a1e
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.1
 	github.com/pulumi/pulumi/pkg/v3 v3.129.0
 	github.com/pulumi/pulumi/sdk/v3 v3.129.0
@@ -88,7 +88,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.12.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/networking-access-point v0.2.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/networking-access-point v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-dnsforwarder v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-ip v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-privatelink v0.2.0 // indirect
@@ -163,6 +163,7 @@ require (
 	github.com/hashicorp/terraform-json v0.21.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.23.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
+	github.com/hashicorp/terraform-plugin-sdk v1.9.1 // indirect
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.33.0 // indirect
 	github.com/hashicorp/terraform-registry-address v0.2.3 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
