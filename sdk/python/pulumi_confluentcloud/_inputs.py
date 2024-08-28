@@ -277,18 +277,22 @@ class AccessPointAwsEgressPrivateLinkEndpointArgs:
 class AccessPointAzureEgressPrivateLinkEndpointArgs:
     def __init__(__self__, *,
                  private_link_service_resource_id: pulumi.Input[str],
+                 private_endpoint_custom_dns_config_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_endpoint_domain: Optional[pulumi.Input[str]] = None,
                  private_endpoint_ip_address: Optional[pulumi.Input[str]] = None,
                  private_endpoint_resource_id: Optional[pulumi.Input[str]] = None,
                  private_link_subresource_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] private_link_service_resource_id: Resource ID of the Azure Private Link service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_endpoint_custom_dns_config_domains: (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
         :param pulumi.Input[str] private_endpoint_domain: (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
         :param pulumi.Input[str] private_endpoint_ip_address: (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
         :param pulumi.Input[str] private_endpoint_resource_id: (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
         :param pulumi.Input[str] private_link_subresource_name: Name of the subresource for the Private Endpoint to connect to.
         """
         pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
+        if private_endpoint_custom_dns_config_domains is not None:
+            pulumi.set(__self__, "private_endpoint_custom_dns_config_domains", private_endpoint_custom_dns_config_domains)
         if private_endpoint_domain is not None:
             pulumi.set(__self__, "private_endpoint_domain", private_endpoint_domain)
         if private_endpoint_ip_address is not None:
@@ -309,6 +313,18 @@ class AccessPointAzureEgressPrivateLinkEndpointArgs:
     @private_link_service_resource_id.setter
     def private_link_service_resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "private_link_service_resource_id", value)
+
+    @property
+    @pulumi.getter(name="privateEndpointCustomDnsConfigDomains")
+    def private_endpoint_custom_dns_config_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+        """
+        return pulumi.get(self, "private_endpoint_custom_dns_config_domains")
+
+    @private_endpoint_custom_dns_config_domains.setter
+    def private_endpoint_custom_dns_config_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "private_endpoint_custom_dns_config_domains", value)
 
     @property
     @pulumi.getter(name="privateEndpointDomain")

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class AccessPointAzureEgressPrivateLinkEndpointArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AccessPointAzureEgressPrivateLinkEndpointArgs Empty = new AccessPointAzureEgressPrivateLinkEndpointArgs();
+
+    /**
+     * (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `[&#34;dbname.database.windows.net&#34;, &#34;dbname-region.database.windows.net&#34;]`.
+     * 
+     */
+    @Import(name="privateEndpointCustomDnsConfigDomains")
+    private @Nullable Output<List<String>> privateEndpointCustomDnsConfigDomains;
+
+    /**
+     * @return (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `[&#34;dbname.database.windows.net&#34;, &#34;dbname-region.database.windows.net&#34;]`.
+     * 
+     */
+    public Optional<Output<List<String>>> privateEndpointCustomDnsConfigDomains() {
+        return Optional.ofNullable(this.privateEndpointCustomDnsConfigDomains);
+    }
 
     /**
      * (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
@@ -94,6 +110,7 @@ public final class AccessPointAzureEgressPrivateLinkEndpointArgs extends com.pul
     private AccessPointAzureEgressPrivateLinkEndpointArgs() {}
 
     private AccessPointAzureEgressPrivateLinkEndpointArgs(AccessPointAzureEgressPrivateLinkEndpointArgs $) {
+        this.privateEndpointCustomDnsConfigDomains = $.privateEndpointCustomDnsConfigDomains;
         this.privateEndpointDomain = $.privateEndpointDomain;
         this.privateEndpointIpAddress = $.privateEndpointIpAddress;
         this.privateEndpointResourceId = $.privateEndpointResourceId;
@@ -117,6 +134,37 @@ public final class AccessPointAzureEgressPrivateLinkEndpointArgs extends com.pul
 
         public Builder(AccessPointAzureEgressPrivateLinkEndpointArgs defaults) {
             $ = new AccessPointAzureEgressPrivateLinkEndpointArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param privateEndpointCustomDnsConfigDomains (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `[&#34;dbname.database.windows.net&#34;, &#34;dbname-region.database.windows.net&#34;]`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointCustomDnsConfigDomains(@Nullable Output<List<String>> privateEndpointCustomDnsConfigDomains) {
+            $.privateEndpointCustomDnsConfigDomains = privateEndpointCustomDnsConfigDomains;
+            return this;
+        }
+
+        /**
+         * @param privateEndpointCustomDnsConfigDomains (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `[&#34;dbname.database.windows.net&#34;, &#34;dbname-region.database.windows.net&#34;]`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointCustomDnsConfigDomains(List<String> privateEndpointCustomDnsConfigDomains) {
+            return privateEndpointCustomDnsConfigDomains(Output.of(privateEndpointCustomDnsConfigDomains));
+        }
+
+        /**
+         * @param privateEndpointCustomDnsConfigDomains (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `[&#34;dbname.database.windows.net&#34;, &#34;dbname-region.database.windows.net&#34;]`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointCustomDnsConfigDomains(String... privateEndpointCustomDnsConfigDomains) {
+            return privateEndpointCustomDnsConfigDomains(List.of(privateEndpointCustomDnsConfigDomains));
         }
 
         /**

@@ -6,10 +6,16 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetAccessPointAzureEgressPrivateLinkEndpoint {
+    /**
+     * @return (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `[&#34;dbname.database.windows.net&#34;, &#34;dbname-region.database.windows.net&#34;]`.
+     * 
+     */
+    private List<String> privateEndpointCustomDnsConfigDomains;
     /**
      * @return (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
      * 
@@ -37,6 +43,13 @@ public final class GetAccessPointAzureEgressPrivateLinkEndpoint {
     private String privateLinkSubresourceName;
 
     private GetAccessPointAzureEgressPrivateLinkEndpoint() {}
+    /**
+     * @return (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `[&#34;dbname.database.windows.net&#34;, &#34;dbname-region.database.windows.net&#34;]`.
+     * 
+     */
+    public List<String> privateEndpointCustomDnsConfigDomains() {
+        return this.privateEndpointCustomDnsConfigDomains;
+    }
     /**
      * @return (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
      * 
@@ -82,6 +95,7 @@ public final class GetAccessPointAzureEgressPrivateLinkEndpoint {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<String> privateEndpointCustomDnsConfigDomains;
         private String privateEndpointDomain;
         private String privateEndpointIpAddress;
         private String privateEndpointResourceId;
@@ -90,6 +104,7 @@ public final class GetAccessPointAzureEgressPrivateLinkEndpoint {
         public Builder() {}
         public Builder(GetAccessPointAzureEgressPrivateLinkEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.privateEndpointCustomDnsConfigDomains = defaults.privateEndpointCustomDnsConfigDomains;
     	      this.privateEndpointDomain = defaults.privateEndpointDomain;
     	      this.privateEndpointIpAddress = defaults.privateEndpointIpAddress;
     	      this.privateEndpointResourceId = defaults.privateEndpointResourceId;
@@ -97,6 +112,17 @@ public final class GetAccessPointAzureEgressPrivateLinkEndpoint {
     	      this.privateLinkSubresourceName = defaults.privateLinkSubresourceName;
         }
 
+        @CustomType.Setter
+        public Builder privateEndpointCustomDnsConfigDomains(List<String> privateEndpointCustomDnsConfigDomains) {
+            if (privateEndpointCustomDnsConfigDomains == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointAzureEgressPrivateLinkEndpoint", "privateEndpointCustomDnsConfigDomains");
+            }
+            this.privateEndpointCustomDnsConfigDomains = privateEndpointCustomDnsConfigDomains;
+            return this;
+        }
+        public Builder privateEndpointCustomDnsConfigDomains(String... privateEndpointCustomDnsConfigDomains) {
+            return privateEndpointCustomDnsConfigDomains(List.of(privateEndpointCustomDnsConfigDomains));
+        }
         @CustomType.Setter
         public Builder privateEndpointDomain(String privateEndpointDomain) {
             if (privateEndpointDomain == null) {
@@ -139,6 +165,7 @@ public final class GetAccessPointAzureEgressPrivateLinkEndpoint {
         }
         public GetAccessPointAzureEgressPrivateLinkEndpoint build() {
             final var _resultValue = new GetAccessPointAzureEgressPrivateLinkEndpoint();
+            _resultValue.privateEndpointCustomDnsConfigDomains = privateEndpointCustomDnsConfigDomains;
             _resultValue.privateEndpointDomain = privateEndpointDomain;
             _resultValue.privateEndpointIpAddress = privateEndpointIpAddress;
             _resultValue.privateEndpointResourceId = privateEndpointResourceId;

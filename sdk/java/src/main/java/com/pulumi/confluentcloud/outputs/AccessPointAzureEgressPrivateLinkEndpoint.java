@@ -6,12 +6,18 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class AccessPointAzureEgressPrivateLinkEndpoint {
+    /**
+     * @return (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `[&#34;dbname.database.windows.net&#34;, &#34;dbname-region.database.windows.net&#34;]`.
+     * 
+     */
+    private @Nullable List<String> privateEndpointCustomDnsConfigDomains;
     /**
      * @return (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
      * 
@@ -39,6 +45,13 @@ public final class AccessPointAzureEgressPrivateLinkEndpoint {
     private @Nullable String privateLinkSubresourceName;
 
     private AccessPointAzureEgressPrivateLinkEndpoint() {}
+    /**
+     * @return (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `[&#34;dbname.database.windows.net&#34;, &#34;dbname-region.database.windows.net&#34;]`.
+     * 
+     */
+    public List<String> privateEndpointCustomDnsConfigDomains() {
+        return this.privateEndpointCustomDnsConfigDomains == null ? List.of() : this.privateEndpointCustomDnsConfigDomains;
+    }
     /**
      * @return (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
      * 
@@ -84,6 +97,7 @@ public final class AccessPointAzureEgressPrivateLinkEndpoint {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> privateEndpointCustomDnsConfigDomains;
         private @Nullable String privateEndpointDomain;
         private @Nullable String privateEndpointIpAddress;
         private @Nullable String privateEndpointResourceId;
@@ -92,6 +106,7 @@ public final class AccessPointAzureEgressPrivateLinkEndpoint {
         public Builder() {}
         public Builder(AccessPointAzureEgressPrivateLinkEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.privateEndpointCustomDnsConfigDomains = defaults.privateEndpointCustomDnsConfigDomains;
     	      this.privateEndpointDomain = defaults.privateEndpointDomain;
     	      this.privateEndpointIpAddress = defaults.privateEndpointIpAddress;
     	      this.privateEndpointResourceId = defaults.privateEndpointResourceId;
@@ -99,6 +114,15 @@ public final class AccessPointAzureEgressPrivateLinkEndpoint {
     	      this.privateLinkSubresourceName = defaults.privateLinkSubresourceName;
         }
 
+        @CustomType.Setter
+        public Builder privateEndpointCustomDnsConfigDomains(@Nullable List<String> privateEndpointCustomDnsConfigDomains) {
+
+            this.privateEndpointCustomDnsConfigDomains = privateEndpointCustomDnsConfigDomains;
+            return this;
+        }
+        public Builder privateEndpointCustomDnsConfigDomains(String... privateEndpointCustomDnsConfigDomains) {
+            return privateEndpointCustomDnsConfigDomains(List.of(privateEndpointCustomDnsConfigDomains));
+        }
         @CustomType.Setter
         public Builder privateEndpointDomain(@Nullable String privateEndpointDomain) {
 
@@ -133,6 +157,7 @@ public final class AccessPointAzureEgressPrivateLinkEndpoint {
         }
         public AccessPointAzureEgressPrivateLinkEndpoint build() {
             final var _resultValue = new AccessPointAzureEgressPrivateLinkEndpoint();
+            _resultValue.privateEndpointCustomDnsConfigDomains = privateEndpointCustomDnsConfigDomains;
             _resultValue.privateEndpointDomain = privateEndpointDomain;
             _resultValue.privateEndpointIpAddress = privateEndpointIpAddress;
             _resultValue.privateEndpointResourceId = privateEndpointResourceId;
