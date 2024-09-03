@@ -65,7 +65,7 @@ export class SchemaRegistryKek extends pulumi.CustomResource {
      */
     public readonly hardDelete!: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of the key from KMS. 
+     * The ID of the key from KMS.
      * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
      * - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
      * - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
@@ -160,7 +160,7 @@ export interface SchemaRegistryKekState {
      */
     hardDelete?: pulumi.Input<boolean>;
     /**
-     * The ID of the key from KMS. 
+     * The ID of the key from KMS.
      * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
      * - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
      * - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
@@ -207,7 +207,7 @@ export interface SchemaRegistryKekArgs {
      */
     hardDelete?: pulumi.Input<boolean>;
     /**
-     * The ID of the key from KMS. 
+     * The ID of the key from KMS.
      * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
      * - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
      * - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.

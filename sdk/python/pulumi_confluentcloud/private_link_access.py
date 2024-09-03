@@ -311,12 +311,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
         ## Getting Started
 
         The following end-to-end examples might help to get started with `PrivateLinkAccess` resource:
-          * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-          * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
-          * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
-          * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
-          * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
-          * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+        * `dedicated-privatelink-aws-kafka-acls`: *Dedicated* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+        * `dedicated-privatelink-aws-kafka-rbac`: *Dedicated* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+        * `dedicated-privatelink-azure-kafka-rbac`: *Dedicated* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+        * `dedicated-privatelink-azure-kafka-acls`: *Dedicated* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+        * `dedicated-private-service-connect-gcp-kafka-acls`: *Dedicated* Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+        * `dedicated-private-service-connect-gcp-kafka-rbac`: *Dedicated* Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
 
         ## Import
 
@@ -445,12 +445,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
         ## Getting Started
 
         The following end-to-end examples might help to get started with `PrivateLinkAccess` resource:
-          * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-          * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
-          * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
-          * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
-          * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
-          * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+        * `dedicated-privatelink-aws-kafka-acls`: *Dedicated* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+        * `dedicated-privatelink-aws-kafka-rbac`: *Dedicated* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+        * `dedicated-privatelink-azure-kafka-rbac`: *Dedicated* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+        * `dedicated-privatelink-azure-kafka-acls`: *Dedicated* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+        * `dedicated-private-service-connect-gcp-kafka-acls`: *Dedicated* Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+        * `dedicated-private-service-connect-gcp-kafka-rbac`: *Dedicated* Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
 
         ## Import
 

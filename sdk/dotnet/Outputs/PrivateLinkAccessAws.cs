@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class PrivateLinkAccessAws
     {
         /// <summary>
-        /// The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
+        /// The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (&lt;https://console.aws.amazon.com/billing/home?#/account&gt;) under **My Account** in your AWS Management Console. Must be a **12 character string**.
         /// </summary>
         public readonly string Account;
 

@@ -15,14 +15,14 @@ public final class PrivateLinkAccessAzureArgs extends com.pulumi.resources.Resou
     public static final PrivateLinkAccessAzureArgs Empty = new PrivateLinkAccessAzureArgs();
 
     /**
-     * The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+     * The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (&lt;https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)&gt;. Must be a valid **32 character UUID string**.
      * 
      */
     @Import(name="subscription", required=true)
     private Output<String> subscription;
 
     /**
-     * @return The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+     * @return The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (&lt;https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)&gt;. Must be a valid **32 character UUID string**.
      * 
      */
     public Output<String> subscription() {
@@ -54,7 +54,7 @@ public final class PrivateLinkAccessAzureArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param subscription The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+         * @param subscription The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (&lt;https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)&gt;. Must be a valid **32 character UUID string**.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class PrivateLinkAccessAzureArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param subscription The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+         * @param subscription The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (&lt;https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)&gt;. Must be a valid **32 character UUID string**.
          * 
          * @return builder
          * 

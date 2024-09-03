@@ -56,8 +56,8 @@ import javax.annotation.Nullable;
  * ## Getting Started
  * 
  * The following end-to-end examples might help to get started with the `confluentcloud.TfImporter` resource:
- *   * `cloud-importer`: Export _Cloud_ resources (for example, Service Accounts, Environments)
- *   * `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
+ * * `cloud-importer`: Export *Cloud* resources (for example, Service Accounts, Environments)
+ * * `kafka-importer`: Export *Kafka* resources (for example, ACLs, Topics)
  * 
  */
 @ResourceType(type="confluentcloud:index/tfImporter:TfImporter")

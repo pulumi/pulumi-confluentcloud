@@ -219,8 +219,7 @@ namespace Pulumi.ConfluentCloud
     /// });
     /// ```
     /// 
-    /// &gt; **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-    /// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+    /// &gt; **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
     /// 
     /// ## Getting Started
     /// 
@@ -277,7 +276,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" &gt; "PAUSED"`) and resuming (`"PAUSED" &gt; "RUNNING"`) a connector is supported via an update operation.
         /// 
-        /// &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+        /// &gt; **Note:** If there are no *sensitive* configuration settings for your connector, set `config_sensitive = {}` explicitly.
         /// 
         /// &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
         /// </summary>
@@ -374,7 +373,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" &gt; "PAUSED"`) and resuming (`"PAUSED" &gt; "RUNNING"`) a connector is supported via an update operation.
         /// 
-        /// &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+        /// &gt; **Note:** If there are no *sensitive* configuration settings for your connector, set `config_sensitive = {}` explicitly.
         /// 
         /// &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
         /// </summary>
@@ -429,7 +428,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" &gt; "PAUSED"`) and resuming (`"PAUSED" &gt; "RUNNING"`) a connector is supported via an update operation.
         /// 
-        /// &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+        /// &gt; **Note:** If there are no *sensitive* configuration settings for your connector, set `config_sensitive = {}` explicitly.
         /// 
         /// &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
         /// </summary>

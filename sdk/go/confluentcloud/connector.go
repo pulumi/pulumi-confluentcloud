@@ -222,8 +222,7 @@ import (
 //
 // ```
 //
-// > **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+// > **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 //
 // ## Getting Started
 //
@@ -264,7 +263,7 @@ type Connector struct {
 	KafkaCluster ConnectorKafkaClusterOutput `pulumi:"kafkaCluster"`
 	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
 	//
-	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+	// > **Note:** If there are no *sensitive* configuration settings for your connector, set `configSensitive = {}` explicitly.
 	//
 	// > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -325,7 +324,7 @@ type connectorState struct {
 	KafkaCluster *ConnectorKafkaCluster `pulumi:"kafkaCluster"`
 	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
 	//
-	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+	// > **Note:** If there are no *sensitive* configuration settings for your connector, set `configSensitive = {}` explicitly.
 	//
 	// > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
 	Status *string `pulumi:"status"`
@@ -341,7 +340,7 @@ type ConnectorState struct {
 	KafkaCluster ConnectorKafkaClusterPtrInput
 	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
 	//
-	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+	// > **Note:** If there are no *sensitive* configuration settings for your connector, set `configSensitive = {}` explicitly.
 	//
 	// > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
 	Status pulumi.StringPtrInput
@@ -361,7 +360,7 @@ type connectorArgs struct {
 	KafkaCluster ConnectorKafkaCluster `pulumi:"kafkaCluster"`
 	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
 	//
-	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+	// > **Note:** If there are no *sensitive* configuration settings for your connector, set `configSensitive = {}` explicitly.
 	//
 	// > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
 	Status *string `pulumi:"status"`
@@ -378,7 +377,7 @@ type ConnectorArgs struct {
 	KafkaCluster ConnectorKafkaClusterInput
 	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
 	//
-	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+	// > **Note:** If there are no *sensitive* configuration settings for your connector, set `configSensitive = {}` explicitly.
 	//
 	// > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
 	Status pulumi.StringPtrInput
@@ -492,7 +491,7 @@ func (o ConnectorOutput) KafkaCluster() ConnectorKafkaClusterOutput {
 
 // The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
 //
-// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+// > **Note:** If there are no *sensitive* configuration settings for your connector, set `configSensitive = {}` explicitly.
 //
 // > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
 func (o ConnectorOutput) Status() pulumi.StringOutput {

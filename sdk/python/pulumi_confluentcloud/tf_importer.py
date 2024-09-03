@@ -159,8 +159,8 @@ class TfImporter(pulumi.CustomResource):
         ## Getting Started
 
         The following end-to-end examples might help to get started with the `TfImporter` resource:
-          * `cloud-importer`: Export _Cloud_ resources (for example, Service Accounts, Environments)
-          * `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
+        * `cloud-importer`: Export *Cloud* resources (for example, Service Accounts, Environments)
+        * `kafka-importer`: Export *Kafka* resources (for example, ACLs, Topics)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,8 +200,8 @@ class TfImporter(pulumi.CustomResource):
         ## Getting Started
 
         The following end-to-end examples might help to get started with the `TfImporter` resource:
-          * `cloud-importer`: Export _Cloud_ resources (for example, Service Accounts, Environments)
-          * `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
+        * `cloud-importer`: Export *Cloud* resources (for example, Service Accounts, Environments)
+        * `kafka-importer`: Export *Kafka* resources (for example, ACLs, Topics)
 
         :param str resource_name: The name of the resource.
         :param TfImporterArgs args: The arguments to use to populate this resource's properties.

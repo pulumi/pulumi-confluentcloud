@@ -43,8 +43,8 @@ import (
 // ## Getting Started
 //
 // The following end-to-end examples might help to get started with the `TfImporter` resource:
-//   - `cloud-importer`: Export _Cloud_ resources (for example, Service Accounts, Environments)
-//   - `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
+// * `cloud-importer`: Export *Cloud* resources (for example, Service Accounts, Environments)
+// * `kafka-importer`: Export *Kafka* resources (for example, ACLs, Topics)
 type TfImporter struct {
 	pulumi.CustomResourceState
 
