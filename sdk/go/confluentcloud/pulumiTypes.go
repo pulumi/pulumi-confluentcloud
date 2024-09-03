@@ -12518,7 +12518,7 @@ func (o PeeringNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkAccessAws struct {
-	// The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
+	// The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (<https://console.aws.amazon.com/billing/home?#/account>) under **My Account** in your AWS Management Console. Must be a **12 character string**.
 	Account string `pulumi:"account"`
 }
 
@@ -12534,7 +12534,7 @@ type PrivateLinkAccessAwsInput interface {
 }
 
 type PrivateLinkAccessAwsArgs struct {
-	// The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
+	// The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (<https://console.aws.amazon.com/billing/home?#/account>) under **My Account** in your AWS Management Console. Must be a **12 character string**.
 	Account pulumi.StringInput `pulumi:"account"`
 }
 
@@ -12615,7 +12615,7 @@ func (o PrivateLinkAccessAwsOutput) ToPrivateLinkAccessAwsPtrOutputWithContext(c
 	}).(PrivateLinkAccessAwsPtrOutput)
 }
 
-// The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
+// The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (<https://console.aws.amazon.com/billing/home?#/account>) under **My Account** in your AWS Management Console. Must be a **12 character string**.
 func (o PrivateLinkAccessAwsOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAccessAws) string { return v.Account }).(pulumi.StringOutput)
 }
@@ -12644,7 +12644,7 @@ func (o PrivateLinkAccessAwsPtrOutput) Elem() PrivateLinkAccessAwsOutput {
 	}).(PrivateLinkAccessAwsOutput)
 }
 
-// The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
+// The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (<https://console.aws.amazon.com/billing/home?#/account>) under **My Account** in your AWS Management Console. Must be a **12 character string**.
 func (o PrivateLinkAccessAwsPtrOutput) Account() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkAccessAws) *string {
 		if v == nil {
@@ -12655,7 +12655,7 @@ func (o PrivateLinkAccessAwsPtrOutput) Account() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkAccessAzure struct {
-	// The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+	// The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (<https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)>. Must be a valid **32 character UUID string**.
 	Subscription string `pulumi:"subscription"`
 }
 
@@ -12671,7 +12671,7 @@ type PrivateLinkAccessAzureInput interface {
 }
 
 type PrivateLinkAccessAzureArgs struct {
-	// The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+	// The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (<https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)>. Must be a valid **32 character UUID string**.
 	Subscription pulumi.StringInput `pulumi:"subscription"`
 }
 
@@ -12752,7 +12752,7 @@ func (o PrivateLinkAccessAzureOutput) ToPrivateLinkAccessAzurePtrOutputWithConte
 	}).(PrivateLinkAccessAzurePtrOutput)
 }
 
-// The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+// The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (<https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)>. Must be a valid **32 character UUID string**.
 func (o PrivateLinkAccessAzureOutput) Subscription() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAccessAzure) string { return v.Subscription }).(pulumi.StringOutput)
 }
@@ -12781,7 +12781,7 @@ func (o PrivateLinkAccessAzurePtrOutput) Elem() PrivateLinkAccessAzureOutput {
 	}).(PrivateLinkAccessAzureOutput)
 }
 
-// The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+// The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (<https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)>. Must be a valid **32 character UUID string**.
 func (o PrivateLinkAccessAzurePtrOutput) Subscription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkAccessAzure) *string {
 		if v == nil {
@@ -16736,8 +16736,7 @@ type SchemaRulesetDomainRule struct {
 	//
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
 	//
-	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 	Params map[string]string `pulumi:"params"`
 	// The tags to which the rule applies, if any.
 	Tags []string `pulumi:"tags"`
@@ -16775,8 +16774,7 @@ type SchemaRulesetDomainRuleArgs struct {
 	//
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
 	//
-	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 	Params pulumi.StringMapInput `pulumi:"params"`
 	// The tags to which the rule applies, if any.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
@@ -16874,8 +16872,7 @@ func (o SchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 //
 // > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
 //
-// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 func (o SchemaRulesetDomainRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }
@@ -16928,8 +16925,7 @@ type SchemaRulesetMigrationRule struct {
 	//
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
 	//
-	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 	Params map[string]string `pulumi:"params"`
 	// The tags to which the rule applies, if any.
 	Tags []string `pulumi:"tags"`
@@ -16966,8 +16962,7 @@ type SchemaRulesetMigrationRuleArgs struct {
 	//
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
 	//
-	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 	Params pulumi.StringMapInput `pulumi:"params"`
 	// The tags to which the rule applies, if any.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
@@ -17064,8 +17059,7 @@ func (o SchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 //
 // > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
 //
-// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 func (o SchemaRulesetMigrationRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }

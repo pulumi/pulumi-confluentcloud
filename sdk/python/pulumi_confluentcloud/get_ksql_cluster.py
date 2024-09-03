@@ -189,7 +189,7 @@ def get_ksql_cluster(display_name: Optional[str] = None,
                      id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKsqlClusterResult:
     """
-    ## # KsqlCluster Data Source
+    # KsqlCluster Data Source
 
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -246,7 +246,7 @@ def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] 
                             id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKsqlClusterResult]:
     """
-    ## # KsqlCluster Data Source
+    # KsqlCluster Data Source
 
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 

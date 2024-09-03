@@ -309,7 +309,7 @@ class KsqlCluster(pulumi.CustomResource):
                  use_detailed_processing_log: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # KsqlCluster Resource
+        # KsqlCluster Resource
 
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -345,7 +345,7 @@ class KsqlCluster(pulumi.CustomResource):
                  args: KsqlClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # KsqlCluster Resource
+        # KsqlCluster Resource
 
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 

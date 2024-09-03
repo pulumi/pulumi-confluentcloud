@@ -2983,8 +2983,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
      * 
@@ -3039,8 +3038,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
      * 
@@ -3095,8 +3093,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
      * 
@@ -3151,8 +3148,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
      * 
@@ -3207,8 +3203,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
      * 
@@ -3263,8 +3258,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      * `confluentcloud.getIpAddresses` describes IP Addresses data source.
      * 
@@ -3769,7 +3763,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getKafkaTopic:getKafkaTopic", TypeShape.of(GetKafkaTopicResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # confluentcloud.KsqlCluster Data Source
+     * # confluentcloud.KsqlCluster Data Source
      * 
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
@@ -3828,7 +3822,7 @@ public final class ConfluentcloudFunctions {
         return getKsqlCluster(args, InvokeOptions.Empty);
     }
     /**
-     * ## # confluentcloud.KsqlCluster Data Source
+     * # confluentcloud.KsqlCluster Data Source
      * 
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
@@ -3887,7 +3881,7 @@ public final class ConfluentcloudFunctions {
         return getKsqlClusterPlain(args, InvokeOptions.Empty);
     }
     /**
-     * ## # confluentcloud.KsqlCluster Data Source
+     * # confluentcloud.KsqlCluster Data Source
      * 
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
@@ -3946,7 +3940,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getKsqlCluster:getKsqlCluster", TypeShape.of(GetKsqlClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## # confluentcloud.KsqlCluster Data Source
+     * # confluentcloud.KsqlCluster Data Source
      * 
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
@@ -4005,6 +3999,10 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getKsqlCluster:getKsqlCluster", TypeShape.of(GetKsqlClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Network` describes a Network data source.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -4064,6 +4062,10 @@ public final class ConfluentcloudFunctions {
         return getNetwork(args, InvokeOptions.Empty);
     }
     /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Network` describes a Network data source.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -4123,6 +4125,10 @@ public final class ConfluentcloudFunctions {
         return getNetworkPlain(args, InvokeOptions.Empty);
     }
     /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Network` describes a Network data source.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -4182,6 +4188,10 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Network` describes a Network data source.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -5388,8 +5398,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
-     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: *Enterprise* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: *Enterprise* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static Output<GetPrivateLinkAttachmentResult> getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs args) {
@@ -5443,8 +5453,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
-     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: *Enterprise* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: *Enterprise* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static CompletableFuture<GetPrivateLinkAttachmentResult> getPrivateLinkAttachmentPlain(GetPrivateLinkAttachmentPlainArgs args) {
@@ -5498,8 +5508,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
-     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: *Enterprise* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: *Enterprise* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static Output<GetPrivateLinkAttachmentResult> getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs args, InvokeOptions options) {
@@ -5553,8 +5563,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
-     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: *Enterprise* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: *Enterprise* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static CompletableFuture<GetPrivateLinkAttachmentResult> getPrivateLinkAttachmentPlain(GetPrivateLinkAttachmentPlainArgs args, InvokeOptions options) {
@@ -5608,8 +5618,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
-     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: *Enterprise* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: *Enterprise* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static Output<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs args) {
@@ -5663,8 +5673,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
-     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: *Enterprise* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: *Enterprise* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static CompletableFuture<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnectionPlain(GetPrivateLinkAttachmentConnectionPlainArgs args) {
@@ -5718,8 +5728,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
-     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: *Enterprise* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: *Enterprise* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static Output<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs args, InvokeOptions options) {
@@ -5773,8 +5783,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
-     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: *Enterprise* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: *Enterprise* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static CompletableFuture<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnectionPlain(GetPrivateLinkAttachmentConnectionPlainArgs args, InvokeOptions options) {

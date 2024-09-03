@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class PrivateLinkAccessAzure
     {
         /// <summary>
-        /// The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+        /// The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (&lt;https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)&gt;. Must be a valid **32 character UUID string**.
         /// </summary>
         public readonly string Subscription;
 

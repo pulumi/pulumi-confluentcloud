@@ -29,8 +29,8 @@ import * as utilities from "./utilities";
  * ## Getting Started
  *
  * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
- * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
- * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+ * * `enterprise-privatelinkattachment-aws-kafka-acls`: *Enterprise* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ * * `enterprise-privatelinkattachment-azure-kafka-acls`: *Enterprise* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
  */
 export function getPrivateLinkAttachment(args: GetPrivateLinkAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkAttachmentResult> {
 
@@ -112,8 +112,8 @@ export interface GetPrivateLinkAttachmentResult {
  * ## Getting Started
  *
  * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
- * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
- * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+ * * `enterprise-privatelinkattachment-aws-kafka-acls`: *Enterprise* Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ * * `enterprise-privatelinkattachment-azure-kafka-acls`: *Enterprise* Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
  */
 export function getPrivateLinkAttachmentOutput(args: GetPrivateLinkAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkAttachment(a, opts))

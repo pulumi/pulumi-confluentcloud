@@ -28,7 +28,7 @@ class SchemaRegistryKekArgs:
                  shared: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SchemaRegistryKek resource.
-        :param pulumi.Input[str] kms_key_id: The ID of the key from KMS. 
+        :param pulumi.Input[str] kms_key_id: The ID of the key from KMS.
                - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
                - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
                - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
@@ -65,7 +65,7 @@ class SchemaRegistryKekArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[str]:
         """
-        The ID of the key from KMS. 
+        The ID of the key from KMS.
         - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
         - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
         - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
@@ -202,7 +202,7 @@ class _SchemaRegistryKekState:
         :param pulumi.Input[str] doc: The optional description for the KEK.
         :param pulumi.Input[bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
                on destroy. Defaults to `false` (soft delete).
-        :param pulumi.Input[str] kms_key_id: The ID of the key from KMS. 
+        :param pulumi.Input[str] kms_key_id: The ID of the key from KMS.
                - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
                - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
                - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
@@ -274,7 +274,7 @@ class _SchemaRegistryKekState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the key from KMS. 
+        The ID of the key from KMS.
         - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
         - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
         - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
@@ -394,7 +394,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
         :param pulumi.Input[str] doc: The optional description for the KEK.
         :param pulumi.Input[bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
                on destroy. Defaults to `false` (soft delete).
-        :param pulumi.Input[str] kms_key_id: The ID of the key from KMS. 
+        :param pulumi.Input[str] kms_key_id: The ID of the key from KMS.
                - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
                - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
                - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
@@ -508,7 +508,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
         :param pulumi.Input[str] doc: The optional description for the KEK.
         :param pulumi.Input[bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
                on destroy. Defaults to `false` (soft delete).
-        :param pulumi.Input[str] kms_key_id: The ID of the key from KMS. 
+        :param pulumi.Input[str] kms_key_id: The ID of the key from KMS.
                - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
                - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
                - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
@@ -563,7 +563,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[str]:
         """
-        The ID of the key from KMS. 
+        The ID of the key from KMS.
         - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
         - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
         - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.

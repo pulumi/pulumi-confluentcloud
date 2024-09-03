@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *     
  *     &#34;message.timestamp.after.max.ms&#34;      = &#34;9223372036854775807&#34;
  *     
- *     &#34;message.timestamp.before.max.ms&#34;     = &#34;9223372036854775807&#34;      
+ *     &#34;message.timestamp.before.max.ms&#34;     = &#34;9223372036854775807&#34;
  *     
  *     &#34;message.timestamp.difference.max.ms&#34; = &#34;9223372036854775807&#34;
  *     

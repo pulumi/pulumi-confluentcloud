@@ -80,8 +80,8 @@ import (
 // ## Getting Started
 //
 // The following end-to-end examples might help to get started with `TransitGatewayAttachment` resource:
-//   - `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
-//   - enterprise-privatelinkattachment-aws-kafka-acls
+// * `dedicated-transit-gateway-attachment-aws-kafka-acls`: *Dedicated* Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+// * enterprise-privatelinkattachment-aws-kafka-acls
 //
 // ## Import
 //

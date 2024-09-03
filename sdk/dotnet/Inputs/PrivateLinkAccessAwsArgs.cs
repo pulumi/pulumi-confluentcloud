@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class PrivateLinkAccessAwsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
+        /// The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (&lt;https://console.aws.amazon.com/billing/home?#/account&gt;) under **My Account** in your AWS Management Console. Must be a **12 character string**.
         /// </summary>
         [Input("account", required: true)]
         public Input<string> Account { get; set; } = null!;
