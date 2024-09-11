@@ -172,8 +172,8 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The name of the Private Link Attachment.
         /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
         /// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
