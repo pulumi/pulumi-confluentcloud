@@ -17,6 +17,11 @@ public final class GetSchemaRegistryClustersCluster {
      */
     private String apiVersion;
     /**
+     * @return (Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.
+     * 
+     */
+    private String catalogEndpoint;
+    /**
      * @return (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
      * 
      */
@@ -47,6 +52,11 @@ public final class GetSchemaRegistryClustersCluster {
      */
     private String package_;
     /**
+     * @return (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`.
+     * 
+     */
+    private String privateRestEndpoint;
+    /**
      * @return (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
      * 
      */
@@ -69,6 +79,13 @@ public final class GetSchemaRegistryClustersCluster {
      */
     public String apiVersion() {
         return this.apiVersion;
+    }
+    /**
+     * @return (Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.
+     * 
+     */
+    public String catalogEndpoint() {
+        return this.catalogEndpoint;
     }
     /**
      * @return (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
@@ -113,6 +130,13 @@ public final class GetSchemaRegistryClustersCluster {
         return this.package_;
     }
     /**
+     * @return (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`.
+     * 
+     */
+    public String privateRestEndpoint() {
+        return this.privateRestEndpoint;
+    }
+    /**
      * @return (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
      * 
      */
@@ -144,12 +168,14 @@ public final class GetSchemaRegistryClustersCluster {
     @CustomType.Builder
     public static final class Builder {
         private String apiVersion;
+        private String catalogEndpoint;
         private String cloud;
         private String displayName;
         private GetSchemaRegistryClustersClusterEnvironment environment;
         private String id;
         private String kind;
         private String package_;
+        private String privateRestEndpoint;
         private String region;
         private String resourceName;
         private String restEndpoint;
@@ -157,12 +183,14 @@ public final class GetSchemaRegistryClustersCluster {
         public Builder(GetSchemaRegistryClustersCluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiVersion = defaults.apiVersion;
+    	      this.catalogEndpoint = defaults.catalogEndpoint;
     	      this.cloud = defaults.cloud;
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
     	      this.id = defaults.id;
     	      this.kind = defaults.kind;
     	      this.package_ = defaults.package_;
+    	      this.privateRestEndpoint = defaults.privateRestEndpoint;
     	      this.region = defaults.region;
     	      this.resourceName = defaults.resourceName;
     	      this.restEndpoint = defaults.restEndpoint;
@@ -174,6 +202,14 @@ public final class GetSchemaRegistryClustersCluster {
               throw new MissingRequiredPropertyException("GetSchemaRegistryClustersCluster", "apiVersion");
             }
             this.apiVersion = apiVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder catalogEndpoint(String catalogEndpoint) {
+            if (catalogEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClustersCluster", "catalogEndpoint");
+            }
+            this.catalogEndpoint = catalogEndpoint;
             return this;
         }
         @CustomType.Setter
@@ -225,6 +261,14 @@ public final class GetSchemaRegistryClustersCluster {
             return this;
         }
         @CustomType.Setter
+        public Builder privateRestEndpoint(String privateRestEndpoint) {
+            if (privateRestEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClustersCluster", "privateRestEndpoint");
+            }
+            this.privateRestEndpoint = privateRestEndpoint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetSchemaRegistryClustersCluster", "region");
@@ -251,12 +295,14 @@ public final class GetSchemaRegistryClustersCluster {
         public GetSchemaRegistryClustersCluster build() {
             final var _resultValue = new GetSchemaRegistryClustersCluster();
             _resultValue.apiVersion = apiVersion;
+            _resultValue.catalogEndpoint = catalogEndpoint;
             _resultValue.cloud = cloud;
             _resultValue.displayName = displayName;
             _resultValue.environment = environment;
             _resultValue.id = id;
             _resultValue.kind = kind;
             _resultValue.package_ = package_;
+            _resultValue.privateRestEndpoint = privateRestEndpoint;
             _resultValue.region = region;
             _resultValue.resourceName = resourceName;
             _resultValue.restEndpoint = restEndpoint;

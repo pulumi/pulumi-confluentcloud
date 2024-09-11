@@ -1292,6 +1292,10 @@ export interface GetSchemaRegistryClustersCluster {
      */
     apiVersion: string;
     /**
+     * (Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.
+     */
+    catalogEndpoint: string;
+    /**
      * (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
      */
     cloud: string;
@@ -1315,6 +1319,10 @@ export interface GetSchemaRegistryClustersCluster {
      * (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
      */
     package: string;
+    /**
+     * (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`.
+     */
+    privateRestEndpoint: string;
     /**
      * (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
      */

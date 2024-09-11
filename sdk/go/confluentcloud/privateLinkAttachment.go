@@ -100,6 +100,9 @@ func NewPrivateLinkAttachment(ctx *pulumi.Context,
 	if args.Cloud == nil {
 		return nil, errors.New("invalid value for required argument 'Cloud'")
 	}
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
 	if args.Environment == nil {
 		return nil, errors.New("invalid value for required argument 'Environment'")
 	}
@@ -178,7 +181,7 @@ type privateLinkAttachmentArgs struct {
 	// The cloud service provider that hosts the resources to access with the Private Link Attachment.
 	Cloud string `pulumi:"cloud"`
 	// The name of the Private Link Attachment.
-	DisplayName *string `pulumi:"displayName"`
+	DisplayName string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAttachmentEnvironment `pulumi:"environment"`
 	// The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
@@ -190,7 +193,7 @@ type PrivateLinkAttachmentArgs struct {
 	// The cloud service provider that hosts the resources to access with the Private Link Attachment.
 	Cloud pulumi.StringInput
 	// The name of the Private Link Attachment.
-	DisplayName pulumi.StringPtrInput
+	DisplayName pulumi.StringInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAttachmentEnvironmentInput
 	// The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.

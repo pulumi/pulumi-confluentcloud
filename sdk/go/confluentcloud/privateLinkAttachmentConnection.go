@@ -109,6 +109,9 @@ func NewPrivateLinkAttachmentConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
 	if args.Environment == nil {
 		return nil, errors.New("invalid value for required argument 'Environment'")
 	}
@@ -173,7 +176,7 @@ type privateLinkAttachmentConnectionArgs struct {
 	Aws   *PrivateLinkAttachmentConnectionAws   `pulumi:"aws"`
 	Azure *PrivateLinkAttachmentConnectionAzure `pulumi:"azure"`
 	// The name of the Private Link Attachment Connection.
-	DisplayName *string `pulumi:"displayName"`
+	DisplayName string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAttachmentConnectionEnvironment `pulumi:"environment"`
 	Gcp         *PrivateLinkAttachmentConnectionGcp        `pulumi:"gcp"`
@@ -186,7 +189,7 @@ type PrivateLinkAttachmentConnectionArgs struct {
 	Aws   PrivateLinkAttachmentConnectionAwsPtrInput
 	Azure PrivateLinkAttachmentConnectionAzurePtrInput
 	// The name of the Private Link Attachment Connection.
-	DisplayName pulumi.StringPtrInput
+	DisplayName pulumi.StringInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAttachmentConnectionEnvironmentInput
 	Gcp         PrivateLinkAttachmentConnectionGcpPtrInput

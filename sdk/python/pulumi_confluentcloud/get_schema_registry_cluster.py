@@ -23,10 +23,13 @@ class GetSchemaRegistryClusterResult:
     """
     A collection of values returned by getSchemaRegistryCluster.
     """
-    def __init__(__self__, api_version=None, cloud=None, display_name=None, environment=None, id=None, kind=None, package=None, region=None, resource_name=None, rest_endpoint=None):
+    def __init__(__self__, api_version=None, catalog_endpoint=None, cloud=None, display_name=None, environment=None, id=None, kind=None, package=None, private_rest_endpoint=None, region=None, resource_name=None, rest_endpoint=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
+        if catalog_endpoint and not isinstance(catalog_endpoint, str):
+            raise TypeError("Expected argument 'catalog_endpoint' to be a str")
+        pulumi.set(__self__, "catalog_endpoint", catalog_endpoint)
         if cloud and not isinstance(cloud, str):
             raise TypeError("Expected argument 'cloud' to be a str")
         pulumi.set(__self__, "cloud", cloud)
@@ -45,6 +48,9 @@ class GetSchemaRegistryClusterResult:
         if package and not isinstance(package, str):
             raise TypeError("Expected argument 'package' to be a str")
         pulumi.set(__self__, "package", package)
+        if private_rest_endpoint and not isinstance(private_rest_endpoint, str):
+            raise TypeError("Expected argument 'private_rest_endpoint' to be a str")
+        pulumi.set(__self__, "private_rest_endpoint", private_rest_endpoint)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -62,6 +68,14 @@ class GetSchemaRegistryClusterResult:
         (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
         """
         return pulumi.get(self, "api_version")
+
+    @property
+    @pulumi.getter(name="catalogEndpoint")
+    def catalog_endpoint(self) -> str:
+        """
+        (Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.
+        """
+        return pulumi.get(self, "catalog_endpoint")
 
     @property
     @pulumi.getter
@@ -109,6 +123,14 @@ class GetSchemaRegistryClusterResult:
         return pulumi.get(self, "package")
 
     @property
+    @pulumi.getter(name="privateRestEndpoint")
+    def private_rest_endpoint(self) -> str:
+        """
+        (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`.
+        """
+        return pulumi.get(self, "private_rest_endpoint")
+
+    @property
     @pulumi.getter
     def region(self) -> str:
         """
@@ -140,12 +162,14 @@ class AwaitableGetSchemaRegistryClusterResult(GetSchemaRegistryClusterResult):
             yield self
         return GetSchemaRegistryClusterResult(
             api_version=self.api_version,
+            catalog_endpoint=self.catalog_endpoint,
             cloud=self.cloud,
             display_name=self.display_name,
             environment=self.environment,
             id=self.id,
             kind=self.kind,
             package=self.package,
+            private_rest_endpoint=self.private_rest_endpoint,
             region=self.region,
             resource_name=self.resource_name,
             rest_endpoint=self.rest_endpoint)
@@ -196,12 +220,14 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
 
     return AwaitableGetSchemaRegistryClusterResult(
         api_version=pulumi.get(__ret__, 'api_version'),
+        catalog_endpoint=pulumi.get(__ret__, 'catalog_endpoint'),
         cloud=pulumi.get(__ret__, 'cloud'),
         display_name=pulumi.get(__ret__, 'display_name'),
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         package=pulumi.get(__ret__, 'package'),
+        private_rest_endpoint=pulumi.get(__ret__, 'private_rest_endpoint'),
         region=pulumi.get(__ret__, 'region'),
         resource_name=pulumi.get(__ret__, 'resource_name'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'))

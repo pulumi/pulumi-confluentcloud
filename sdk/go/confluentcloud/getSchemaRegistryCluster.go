@@ -87,6 +87,8 @@ type GetSchemaRegistryClusterArgs struct {
 type GetSchemaRegistryClusterResult struct {
 	// (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
 	ApiVersion string `pulumi:"apiVersion"`
+	// (Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.
+	CatalogEndpoint string `pulumi:"catalogEndpoint"`
 	// (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
 	Cloud string `pulumi:"cloud"`
 	// (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
@@ -98,6 +100,8 @@ type GetSchemaRegistryClusterResult struct {
 	Kind string `pulumi:"kind"`
 	// (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
 	Package string `pulumi:"package"`
+	// (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`.
+	PrivateRestEndpoint string `pulumi:"privateRestEndpoint"`
 	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
 	Region string `pulumi:"region"`
 	// (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
@@ -152,6 +156,11 @@ func (o GetSchemaRegistryClusterResultOutput) ApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.ApiVersion }).(pulumi.StringOutput)
 }
 
+// (Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.
+func (o GetSchemaRegistryClusterResultOutput) CatalogEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.CatalogEndpoint }).(pulumi.StringOutput)
+}
+
 // (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
 func (o GetSchemaRegistryClusterResultOutput) Cloud() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.Cloud }).(pulumi.StringOutput)
@@ -179,6 +188,11 @@ func (o GetSchemaRegistryClusterResultOutput) Kind() pulumi.StringOutput {
 // (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
 func (o GetSchemaRegistryClusterResultOutput) Package() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.Package }).(pulumi.StringOutput)
+}
+
+// (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`.
+func (o GetSchemaRegistryClusterResultOutput) PrivateRestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.PrivateRestEndpoint }).(pulumi.StringOutput)
 }
 
 // (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.

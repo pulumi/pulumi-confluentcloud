@@ -39,15 +39,15 @@ public final class PrivateLinkAttachmentConnectionArgs extends com.pulumi.resour
      * The name of the Private Link Attachment Connection.
      * 
      */
-    @Import(name="displayName")
-    private @Nullable Output<String> displayName;
+    @Import(name="displayName", required=true)
+    private Output<String> displayName;
 
     /**
      * @return The name of the Private Link Attachment Connection.
      * 
      */
-    public Optional<Output<String>> displayName() {
-        return Optional.ofNullable(this.displayName);
+    public Output<String> displayName() {
+        return this.displayName;
     }
 
     /**
@@ -140,7 +140,7 @@ public final class PrivateLinkAttachmentConnectionArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder displayName(@Nullable Output<String> displayName) {
+        public Builder displayName(Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
@@ -207,6 +207,9 @@ public final class PrivateLinkAttachmentConnectionArgs extends com.pulumi.resour
         }
 
         public PrivateLinkAttachmentConnectionArgs build() {
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAttachmentConnectionArgs", "displayName");
+            }
             if ($.environment == null) {
                 throw new MissingRequiredPropertyException("PrivateLinkAttachmentConnectionArgs", "environment");
             }

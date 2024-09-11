@@ -16,28 +16,39 @@ __all__ = ['PrivateLinkAttachmentConnectionArgs', 'PrivateLinkAttachmentConnecti
 @pulumi.input_type
 class PrivateLinkAttachmentConnectionArgs:
     def __init__(__self__, *,
+                 display_name: pulumi.Input[str],
                  environment: pulumi.Input['PrivateLinkAttachmentConnectionEnvironmentArgs'],
                  private_link_attachment: pulumi.Input['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs'],
                  aws: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAwsArgs']] = None,
                  azure: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAzureArgs']] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  gcp: Optional[pulumi.Input['PrivateLinkAttachmentConnectionGcpArgs']] = None):
         """
         The set of arguments for constructing a PrivateLinkAttachmentConnection resource.
+        :param pulumi.Input[str] display_name: The name of the Private Link Attachment Connection.
         :param pulumi.Input['PrivateLinkAttachmentConnectionEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs'] private_link_attachment: The private_link_attachment to which this belongs.
-        :param pulumi.Input[str] display_name: The name of the Private Link Attachment Connection.
         """
+        pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "private_link_attachment", private_link_attachment)
         if aws is not None:
             pulumi.set(__self__, "aws", aws)
         if azure is not None:
             pulumi.set(__self__, "azure", azure)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
         if gcp is not None:
             pulumi.set(__self__, "gcp", gcp)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Private Link Attachment Connection.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
 
     @property
     @pulumi.getter
@@ -80,18 +91,6 @@ class PrivateLinkAttachmentConnectionArgs:
     @azure.setter
     def azure(self, value: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAzureArgs']]):
         pulumi.set(self, "azure", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Private Link Attachment Connection.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
 
     @property
     @pulumi.getter
@@ -379,6 +378,8 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
 
             __props__.__dict__["aws"] = aws
             __props__.__dict__["azure"] = azure
+            if display_name is None and not opts.urn:
+                raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")

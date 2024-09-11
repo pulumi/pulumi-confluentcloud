@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class PrivateLinkAttachmentArgs extends com.pulumi.resources.ResourceArgs {
@@ -36,15 +34,15 @@ public final class PrivateLinkAttachmentArgs extends com.pulumi.resources.Resour
      * The name of the Private Link Attachment.
      * 
      */
-    @Import(name="displayName")
-    private @Nullable Output<String> displayName;
+    @Import(name="displayName", required=true)
+    private Output<String> displayName;
 
     /**
      * @return The name of the Private Link Attachment.
      * 
      */
-    public Optional<Output<String>> displayName() {
-        return Optional.ofNullable(this.displayName);
+    public Output<String> displayName() {
+        return this.displayName;
     }
 
     /**
@@ -131,7 +129,7 @@ public final class PrivateLinkAttachmentArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder displayName(@Nullable Output<String> displayName) {
+        public Builder displayName(Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
@@ -191,6 +189,9 @@ public final class PrivateLinkAttachmentArgs extends com.pulumi.resources.Resour
         public PrivateLinkAttachmentArgs build() {
             if ($.cloud == null) {
                 throw new MissingRequiredPropertyException("PrivateLinkAttachmentArgs", "cloud");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAttachmentArgs", "displayName");
             }
             if ($.environment == null) {
                 throw new MissingRequiredPropertyException("PrivateLinkAttachmentArgs", "environment");

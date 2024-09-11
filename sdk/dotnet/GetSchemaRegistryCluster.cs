@@ -176,6 +176,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string ApiVersion;
         /// <summary>
+        /// (Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.
+        /// </summary>
+        public readonly string CatalogEndpoint;
+        /// <summary>
         /// (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
         /// </summary>
         public readonly string Cloud;
@@ -197,6 +201,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Package;
         /// <summary>
+        /// (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`.
+        /// </summary>
+        public readonly string PrivateRestEndpoint;
+        /// <summary>
         /// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
         /// </summary>
         public readonly string Region;
@@ -213,6 +221,8 @@ namespace Pulumi.ConfluentCloud
         private GetSchemaRegistryClusterResult(
             string apiVersion,
 
+            string catalogEndpoint,
+
             string cloud,
 
             string displayName,
@@ -225,6 +235,8 @@ namespace Pulumi.ConfluentCloud
 
             string package,
 
+            string privateRestEndpoint,
+
             string region,
 
             string resourceName,
@@ -232,12 +244,14 @@ namespace Pulumi.ConfluentCloud
             string restEndpoint)
         {
             ApiVersion = apiVersion;
+            CatalogEndpoint = catalogEndpoint;
             Cloud = cloud;
             DisplayName = displayName;
             Environment = environment;
             Id = id;
             Kind = kind;
             Package = package;
+            PrivateRestEndpoint = privateRestEndpoint;
             Region = region;
             ResourceName = resourceName;
             RestEndpoint = restEndpoint;

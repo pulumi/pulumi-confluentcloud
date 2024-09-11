@@ -17,21 +17,20 @@ __all__ = ['PrivateLinkAttachmentArgs', 'PrivateLinkAttachment']
 class PrivateLinkAttachmentArgs:
     def __init__(__self__, *,
                  cloud: pulumi.Input[str],
+                 display_name: pulumi.Input[str],
                  environment: pulumi.Input['PrivateLinkAttachmentEnvironmentArgs'],
-                 region: pulumi.Input[str],
-                 display_name: Optional[pulumi.Input[str]] = None):
+                 region: pulumi.Input[str]):
         """
         The set of arguments for constructing a PrivateLinkAttachment resource.
         :param pulumi.Input[str] cloud: The cloud service provider that hosts the resources to access with the Private Link Attachment.
+        :param pulumi.Input[str] display_name: The name of the Private Link Attachment.
         :param pulumi.Input['PrivateLinkAttachmentEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] region: The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
-        :param pulumi.Input[str] display_name: The name of the Private Link Attachment.
         """
         pulumi.set(__self__, "cloud", cloud)
+        pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "region", region)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
 
     @property
     @pulumi.getter
@@ -44,6 +43,18 @@ class PrivateLinkAttachmentArgs:
     @cloud.setter
     def cloud(self, value: pulumi.Input[str]):
         pulumi.set(self, "cloud", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Private Link Attachment.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
 
     @property
     @pulumi.getter
@@ -68,18 +79,6 @@ class PrivateLinkAttachmentArgs:
     @region.setter
     def region(self, value: pulumi.Input[str]):
         pulumi.set(self, "region", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Private Link Attachment.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
 
 
 @pulumi.input_type
@@ -368,6 +367,8 @@ class PrivateLinkAttachment(pulumi.CustomResource):
             if cloud is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud'")
             __props__.__dict__["cloud"] = cloud
+            if display_name is None and not opts.urn:
+                raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
