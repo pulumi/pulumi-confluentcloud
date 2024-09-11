@@ -4123,6 +4123,10 @@
                     "type": "string",
                     "description": "(Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.\n"
                 },
+                "catalogEndpoint": {
+                    "type": "string",
+                    "description": "(Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.\n"
+                },
                 "cloud": {
                     "type": "string",
                     "description": "(Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.\n"
@@ -4147,6 +4151,10 @@
                     "type": "string",
                     "description": "(Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.\n"
                 },
+                "privateRestEndpoint": {
+                    "type": "string",
+                    "description": "(Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`.\n"
+                },
                 "region": {
                     "type": "string",
                     "description": "(Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.\n"
@@ -4163,12 +4171,14 @@
             "type": "object",
             "required": [
                 "apiVersion",
+                "catalogEndpoint",
                 "cloud",
                 "displayName",
                 "environment",
                 "id",
                 "kind",
                 "package",
+                "privateRestEndpoint",
                 "region",
                 "resourceName",
                 "restEndpoint"
@@ -8470,6 +8480,7 @@
             },
             "requiredInputs": [
                 "cloud",
+                "displayName",
                 "environment",
                 "region"
             ],
@@ -8591,6 +8602,7 @@
                 }
             },
             "requiredInputs": [
+                "displayName",
                 "environment",
                 "privateLinkAttachment"
             ],
@@ -12245,6 +12257,10 @@
                         "description": "(Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.\n",
                         "type": "string"
                     },
+                    "catalogEndpoint": {
+                        "description": "(Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.\n",
+                        "type": "string"
+                    },
                     "cloud": {
                         "description": "(Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.\n",
                         "type": "string"
@@ -12268,6 +12284,10 @@
                         "description": "(Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.\n",
                         "type": "string"
                     },
+                    "privateRestEndpoint": {
+                        "description": "(Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`.\n",
+                        "type": "string"
+                    },
                     "region": {
                         "description": "(Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.\n",
                         "type": "string"
@@ -12283,12 +12303,14 @@
                 },
                 "required": [
                     "apiVersion",
+                    "catalogEndpoint",
                     "cloud",
                     "displayName",
                     "environment",
                     "id",
                     "kind",
                     "package",
+                    "privateRestEndpoint",
                     "region",
                     "resourceName",
                     "restEndpoint"
