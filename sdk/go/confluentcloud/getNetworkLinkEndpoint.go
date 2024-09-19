@@ -80,14 +80,20 @@ type LookupNetworkLinkEndpointResult struct {
 
 func LookupNetworkLinkEndpointOutput(ctx *pulumi.Context, args LookupNetworkLinkEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkLinkEndpointResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkLinkEndpointResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkLinkEndpointResultOutput, error) {
 			args := v.(LookupNetworkLinkEndpointArgs)
-			r, err := LookupNetworkLinkEndpoint(ctx, &args, opts...)
-			var s LookupNetworkLinkEndpointResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkLinkEndpointResult
+			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkLinkEndpointResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkLinkEndpointResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkLinkEndpointResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkLinkEndpointResultOutput)
 }
 

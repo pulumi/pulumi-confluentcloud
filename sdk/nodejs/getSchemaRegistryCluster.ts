@@ -45,7 +45,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getSchemaRegistryCluster(args: GetSchemaRegistryClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", {
         "displayName": args.displayName,
@@ -158,7 +157,12 @@ export interface GetSchemaRegistryClusterResult {
  * ```
  */
 export function getSchemaRegistryClusterOutput(args: GetSchemaRegistryClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryClusterResult> {
-    return pulumi.output(args).apply((a: any) => getSchemaRegistryCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", {
+        "displayName": args.displayName,
+        "environment": args.environment,
+        "id": args.id,
+    }, opts);
 }
 
 /**

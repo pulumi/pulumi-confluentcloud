@@ -41,7 +41,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getKafkaCluster(args: GetKafkaClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getKafkaCluster:getKafkaCluster", {
         "basics": args.basics,
@@ -199,7 +198,17 @@ export interface GetKafkaClusterResult {
  * ```
  */
 export function getKafkaClusterOutput(args: GetKafkaClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaClusterResult> {
-    return pulumi.output(args).apply((a: any) => getKafkaCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getKafkaCluster:getKafkaCluster", {
+        "basics": args.basics,
+        "dedicated": args.dedicated,
+        "displayName": args.displayName,
+        "enterprises": args.enterprises,
+        "environment": args.environment,
+        "freights": args.freights,
+        "id": args.id,
+        "standards": args.standards,
+    }, opts);
 }
 
 /**

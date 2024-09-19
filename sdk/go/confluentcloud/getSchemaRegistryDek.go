@@ -60,14 +60,20 @@ type LookupSchemaRegistryDekResult struct {
 
 func LookupSchemaRegistryDekOutput(ctx *pulumi.Context, args LookupSchemaRegistryDekOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaRegistryDekResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSchemaRegistryDekResult, error) {
+		ApplyT(func(v interface{}) (LookupSchemaRegistryDekResultOutput, error) {
 			args := v.(LookupSchemaRegistryDekArgs)
-			r, err := LookupSchemaRegistryDek(ctx, &args, opts...)
-			var s LookupSchemaRegistryDekResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSchemaRegistryDekResult
+			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSchemaRegistryDekResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSchemaRegistryDekResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSchemaRegistryDekResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSchemaRegistryDekResultOutput)
 }
 

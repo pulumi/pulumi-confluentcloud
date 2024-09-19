@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getInvitation(args: GetInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvitationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getInvitation:getInvitation", {
         "id": args.id,
@@ -96,7 +95,10 @@ export interface GetInvitationResult {
  * ```
  */
 export function getInvitationOutput(args: GetInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvitationResult> {
-    return pulumi.output(args).apply((a: any) => getInvitation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getInvitation:getInvitation", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

@@ -87,14 +87,20 @@ type LookupPrivateLinkAttachmentConnectionResult struct {
 
 func LookupPrivateLinkAttachmentConnectionOutput(ctx *pulumi.Context, args LookupPrivateLinkAttachmentConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateLinkAttachmentConnectionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPrivateLinkAttachmentConnectionResult, error) {
+		ApplyT(func(v interface{}) (LookupPrivateLinkAttachmentConnectionResultOutput, error) {
 			args := v.(LookupPrivateLinkAttachmentConnectionArgs)
-			r, err := LookupPrivateLinkAttachmentConnection(ctx, &args, opts...)
-			var s LookupPrivateLinkAttachmentConnectionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPrivateLinkAttachmentConnectionResult
+			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPrivateLinkAttachmentConnectionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPrivateLinkAttachmentConnectionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPrivateLinkAttachmentConnectionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPrivateLinkAttachmentConnectionResultOutput)
 }
 
