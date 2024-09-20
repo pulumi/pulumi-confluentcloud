@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getGateway:getGateway", {
         "environment": args.environment,
@@ -94,7 +93,11 @@ export interface GetGatewayResult {
  * ```
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getGateway:getGateway", {
+        "environment": args.environment,
+        "id": args.id,
+    }, opts);
 }
 
 /**

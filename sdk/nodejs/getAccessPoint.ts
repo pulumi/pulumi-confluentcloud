@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getAccessPoint:getAccessPoint", {
         "environment": args.environment,
@@ -93,7 +92,11 @@ export interface GetAccessPointResult {
  * ```
  */
 export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
-    return pulumi.output(args).apply((a: any) => getAccessPoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getAccessPoint:getAccessPoint", {
+        "environment": args.environment,
+        "id": args.id,
+    }, opts);
 }
 
 /**

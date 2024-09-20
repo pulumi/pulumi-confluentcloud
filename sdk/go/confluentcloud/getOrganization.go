@@ -58,13 +58,19 @@ type GetOrganizationResult struct {
 }
 
 func GetOrganizationOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrganizationResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationResult, error) {
-		r, err := GetOrganization(ctx, opts...)
-		var s GetOrganizationResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetOrganizationResult
+		secret, err := ctx.InvokePackageRaw("confluentcloud:index/getOrganization:getOrganization", nil, &rv, "", opts...)
+		if err != nil {
+			return GetOrganizationResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetOrganizationResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetOrganizationResultOutput), nil
+		}
+		return output, nil
 	}).(GetOrganizationResultOutput)
 }
 

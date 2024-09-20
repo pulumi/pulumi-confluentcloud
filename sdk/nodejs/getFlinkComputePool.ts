@@ -38,7 +38,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFlinkComputePool(args: GetFlinkComputePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetFlinkComputePoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", {
         "displayName": args.displayName,
@@ -138,7 +137,12 @@ export interface GetFlinkComputePoolResult {
  * ```
  */
 export function getFlinkComputePoolOutput(args: GetFlinkComputePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlinkComputePoolResult> {
-    return pulumi.output(args).apply((a: any) => getFlinkComputePool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", {
+        "displayName": args.displayName,
+        "environment": args.environment,
+        "id": args.id,
+    }, opts);
 }
 
 /**

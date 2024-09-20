@@ -32,7 +32,6 @@ import * as utilities from "./utilities";
  */
 export function getGroupMapping(args?: GetGroupMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupMappingResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getGroupMapping:getGroupMapping", {
         "displayName": args.displayName,
@@ -104,7 +103,12 @@ export interface GetGroupMappingResult {
  * ```
  */
 export function getGroupMappingOutput(args?: GetGroupMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupMappingResult> {
-    return pulumi.output(args).apply((a: any) => getGroupMapping(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getGroupMapping:getGroupMapping", {
+        "displayName": args.displayName,
+        "id": args.id,
+    }, opts);
 }
 
 /**

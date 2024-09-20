@@ -38,7 +38,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getIdentityPool(args: GetIdentityPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityPoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getIdentityPool:getIdentityPool", {
         "displayName": args.displayName,
@@ -126,7 +125,12 @@ export interface GetIdentityPoolResult {
  * ```
  */
 export function getIdentityPoolOutput(args: GetIdentityPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolResult> {
-    return pulumi.output(args).apply((a: any) => getIdentityPool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getIdentityPool:getIdentityPool", {
+        "displayName": args.displayName,
+        "id": args.id,
+        "identityProvider": args.identityProvider,
+    }, opts);
 }
 
 /**

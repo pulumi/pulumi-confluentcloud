@@ -7,7 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export function getSchemaRegistryKek(args: GetSchemaRegistryKekArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryKekResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek", {
         "credentials": args.credentials,
@@ -79,7 +78,13 @@ export interface GetSchemaRegistryKekResult {
     readonly shared: boolean;
 }
 export function getSchemaRegistryKekOutput(args: GetSchemaRegistryKekOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryKekResult> {
-    return pulumi.output(args).apply((a: any) => getSchemaRegistryKek(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek", {
+        "credentials": args.credentials,
+        "name": args.name,
+        "restEndpoint": args.restEndpoint,
+        "schemaRegistryCluster": args.schemaRegistryCluster,
+    }, opts);
 }
 
 /**

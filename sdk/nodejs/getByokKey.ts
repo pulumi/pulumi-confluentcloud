@@ -24,7 +24,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getByokKey(args: GetByokKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetByokKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getByokKey:getByokKey", {
         "id": args.id,
@@ -80,7 +79,10 @@ export interface GetByokKeyResult {
  * ```
  */
 export function getByokKeyOutput(args: GetByokKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetByokKeyResult> {
-    return pulumi.output(args).apply((a: any) => getByokKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getByokKey:getByokKey", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

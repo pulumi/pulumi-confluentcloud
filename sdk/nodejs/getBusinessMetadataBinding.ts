@@ -7,7 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export function getBusinessMetadataBinding(args: GetBusinessMetadataBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessMetadataBindingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", {
         "businessMetadataName": args.businessMetadataName,
@@ -63,7 +62,15 @@ export interface GetBusinessMetadataBindingResult {
     readonly schemaRegistryCluster?: outputs.GetBusinessMetadataBindingSchemaRegistryCluster;
 }
 export function getBusinessMetadataBindingOutput(args: GetBusinessMetadataBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessMetadataBindingResult> {
-    return pulumi.output(args).apply((a: any) => getBusinessMetadataBinding(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", {
+        "businessMetadataName": args.businessMetadataName,
+        "credentials": args.credentials,
+        "entityName": args.entityName,
+        "entityType": args.entityType,
+        "restEndpoint": args.restEndpoint,
+        "schemaRegistryCluster": args.schemaRegistryCluster,
+    }, opts);
 }
 
 /**

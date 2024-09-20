@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
 
 export function getSchemas(args?: GetSchemasArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemasResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getSchemas:getSchemas", {
         "credentials": args.credentials,
@@ -49,7 +48,14 @@ export interface GetSchemasResult {
     readonly schemas: outputs.GetSchemasSchema[];
 }
 export function getSchemasOutput(args?: GetSchemasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemasResult> {
-    return pulumi.output(args).apply((a: any) => getSchemas(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getSchemas:getSchemas", {
+        "credentials": args.credentials,
+        "filter": args.filter,
+        "restEndpoint": args.restEndpoint,
+        "schemaRegistryCluster": args.schemaRegistryCluster,
+    }, opts);
 }
 
 /**

@@ -40,7 +40,6 @@ import * as utilities from "./utilities";
  */
 export function getEnvironment(args?: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getEnvironment:getEnvironment", {
         "displayName": args.displayName,
@@ -117,7 +116,13 @@ export interface GetEnvironmentResult {
  * ```
  */
 export function getEnvironmentOutput(args?: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getEnvironment:getEnvironment", {
+        "displayName": args.displayName,
+        "id": args.id,
+        "streamGovernance": args.streamGovernance,
+    }, opts);
 }
 
 /**

@@ -45,14 +45,20 @@ type LookupSubjectConfigResult struct {
 
 func LookupSubjectConfigOutput(ctx *pulumi.Context, args LookupSubjectConfigOutputArgs, opts ...pulumi.InvokeOption) LookupSubjectConfigResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSubjectConfigResult, error) {
+		ApplyT(func(v interface{}) (LookupSubjectConfigResultOutput, error) {
 			args := v.(LookupSubjectConfigArgs)
-			r, err := LookupSubjectConfig(ctx, &args, opts...)
-			var s LookupSubjectConfigResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSubjectConfigResult
+			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getSubjectConfig:getSubjectConfig", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSubjectConfigResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSubjectConfigResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSubjectConfigResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSubjectConfigResultOutput)
 }
 

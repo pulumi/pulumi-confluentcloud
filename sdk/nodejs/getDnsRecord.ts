@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getDnsRecord(args: GetDnsRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsRecordResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getDnsRecord:getDnsRecord", {
         "environment": args.environment,
@@ -93,7 +92,11 @@ export interface GetDnsRecordResult {
  * ```
  */
 export function getDnsRecordOutput(args: GetDnsRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsRecordResult> {
-    return pulumi.output(args).apply((a: any) => getDnsRecord(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getDnsRecord:getDnsRecord", {
+        "environment": args.environment,
+        "id": args.id,
+    }, opts);
 }
 
 /**

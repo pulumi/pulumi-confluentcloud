@@ -7,7 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export function getBusinessMetadata(args: GetBusinessMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessMetadataResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getBusinessMetadata:getBusinessMetadata", {
         "credentials": args.credentials,
@@ -64,7 +63,13 @@ export interface GetBusinessMetadataResult {
     readonly version: number;
 }
 export function getBusinessMetadataOutput(args: GetBusinessMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessMetadataResult> {
-    return pulumi.output(args).apply((a: any) => getBusinessMetadata(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getBusinessMetadata:getBusinessMetadata", {
+        "credentials": args.credentials,
+        "name": args.name,
+        "restEndpoint": args.restEndpoint,
+        "schemaRegistryCluster": args.schemaRegistryCluster,
+    }, opts);
 }
 
 /**
