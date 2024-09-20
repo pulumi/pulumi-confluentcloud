@@ -8,7 +8,6 @@ import * as utilities from "./utilities";
 
 export function getSchemaRegistryClusterMode(args?: GetSchemaRegistryClusterModeArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryClusterModeResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode", {
         "credentials": args.credentials,
@@ -46,7 +45,13 @@ export interface GetSchemaRegistryClusterModeResult {
     readonly schemaRegistryCluster?: outputs.GetSchemaRegistryClusterModeSchemaRegistryCluster;
 }
 export function getSchemaRegistryClusterModeOutput(args?: GetSchemaRegistryClusterModeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryClusterModeResult> {
-    return pulumi.output(args).apply((a: any) => getSchemaRegistryClusterMode(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode", {
+        "credentials": args.credentials,
+        "restEndpoint": args.restEndpoint,
+        "schemaRegistryCluster": args.schemaRegistryCluster,
+    }, opts);
 }
 
 /**

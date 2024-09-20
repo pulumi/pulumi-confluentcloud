@@ -105,14 +105,20 @@ type LookupKsqlClusterResult struct {
 
 func LookupKsqlClusterOutput(ctx *pulumi.Context, args LookupKsqlClusterOutputArgs, opts ...pulumi.InvokeOption) LookupKsqlClusterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupKsqlClusterResult, error) {
+		ApplyT(func(v interface{}) (LookupKsqlClusterResultOutput, error) {
 			args := v.(LookupKsqlClusterArgs)
-			r, err := LookupKsqlCluster(ctx, &args, opts...)
-			var s LookupKsqlClusterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupKsqlClusterResult
+			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getKsqlCluster:getKsqlCluster", args, &rv, "", opts...)
+			if err != nil {
+				return LookupKsqlClusterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupKsqlClusterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupKsqlClusterResultOutput), nil
+			}
+			return output, nil
 		}).(LookupKsqlClusterResultOutput)
 }
 

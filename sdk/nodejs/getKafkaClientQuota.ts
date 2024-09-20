@@ -30,7 +30,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getKafkaClientQuota(args: GetKafkaClientQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaClientQuotaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", {
         "id": args.id,
@@ -104,7 +103,10 @@ export interface GetKafkaClientQuotaResult {
  * ```
  */
 export function getKafkaClientQuotaOutput(args: GetKafkaClientQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaClientQuotaResult> {
-    return pulumi.output(args).apply((a: any) => getKafkaClientQuota(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

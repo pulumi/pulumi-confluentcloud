@@ -132,14 +132,20 @@ type LookupKafkaClusterResult struct {
 
 func LookupKafkaClusterOutput(ctx *pulumi.Context, args LookupKafkaClusterOutputArgs, opts ...pulumi.InvokeOption) LookupKafkaClusterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupKafkaClusterResult, error) {
+		ApplyT(func(v interface{}) (LookupKafkaClusterResultOutput, error) {
 			args := v.(LookupKafkaClusterArgs)
-			r, err := LookupKafkaCluster(ctx, &args, opts...)
-			var s LookupKafkaClusterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupKafkaClusterResult
+			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getKafkaCluster:getKafkaCluster", args, &rv, "", opts...)
+			if err != nil {
+				return LookupKafkaClusterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupKafkaClusterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupKafkaClusterResultOutput), nil
+			}
+			return output, nil
 		}).(LookupKafkaClusterResultOutput)
 }
 

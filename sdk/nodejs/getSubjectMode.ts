@@ -7,7 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export function getSubjectMode(args: GetSubjectModeArgs, opts?: pulumi.InvokeOptions): Promise<GetSubjectModeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getSubjectMode:getSubjectMode", {
         "credentials": args.credentials,
@@ -53,7 +52,13 @@ export interface GetSubjectModeResult {
     readonly subjectName: string;
 }
 export function getSubjectModeOutput(args: GetSubjectModeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubjectModeResult> {
-    return pulumi.output(args).apply((a: any) => getSubjectMode(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getSubjectMode:getSubjectMode", {
+        "credentials": args.credentials,
+        "restEndpoint": args.restEndpoint,
+        "schemaRegistryCluster": args.schemaRegistryCluster,
+        "subjectName": args.subjectName,
+    }, opts);
 }
 
 /**

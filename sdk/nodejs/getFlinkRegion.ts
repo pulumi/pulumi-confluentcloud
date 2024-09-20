@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getFlinkRegion(args: GetFlinkRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetFlinkRegionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getFlinkRegion:getFlinkRegion", {
         "cloud": args.cloud,
@@ -99,7 +98,11 @@ export interface GetFlinkRegionResult {
  * ```
  */
 export function getFlinkRegionOutput(args: GetFlinkRegionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlinkRegionResult> {
-    return pulumi.output(args).apply((a: any) => getFlinkRegion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getFlinkRegion:getFlinkRegion", {
+        "cloud": args.cloud,
+        "region": args.region,
+    }, opts);
 }
 
 /**

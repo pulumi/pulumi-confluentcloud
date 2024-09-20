@@ -38,7 +38,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getTransitGatewayAttachment(args: GetTransitGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayAttachmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment", {
         "displayName": args.displayName,
@@ -122,7 +121,12 @@ export interface GetTransitGatewayAttachmentResult {
  * ```
  */
 export function getTransitGatewayAttachmentOutput(args: GetTransitGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayAttachmentResult> {
-    return pulumi.output(args).apply((a: any) => getTransitGatewayAttachment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment", {
+        "displayName": args.displayName,
+        "environment": args.environment,
+        "id": args.id,
+    }, opts);
 }
 
 /**

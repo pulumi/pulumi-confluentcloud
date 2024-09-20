@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getNetworkLinkEndpoint(args: GetNetworkLinkEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkLinkEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", {
         "environment": args.environment,
@@ -97,7 +96,11 @@ export interface GetNetworkLinkEndpointResult {
  * ```
  */
 export function getNetworkLinkEndpointOutput(args: GetNetworkLinkEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkLinkEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkLinkEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", {
+        "environment": args.environment,
+        "id": args.id,
+    }, opts);
 }
 
 /**

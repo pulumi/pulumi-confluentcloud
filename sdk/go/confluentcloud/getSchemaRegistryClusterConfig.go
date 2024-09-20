@@ -42,14 +42,20 @@ type LookupSchemaRegistryClusterConfigResult struct {
 
 func LookupSchemaRegistryClusterConfigOutput(ctx *pulumi.Context, args LookupSchemaRegistryClusterConfigOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaRegistryClusterConfigResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSchemaRegistryClusterConfigResult, error) {
+		ApplyT(func(v interface{}) (LookupSchemaRegistryClusterConfigResultOutput, error) {
 			args := v.(LookupSchemaRegistryClusterConfigArgs)
-			r, err := LookupSchemaRegistryClusterConfig(ctx, &args, opts...)
-			var s LookupSchemaRegistryClusterConfigResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSchemaRegistryClusterConfigResult
+			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSchemaRegistryClusterConfigResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSchemaRegistryClusterConfigResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSchemaRegistryClusterConfigResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSchemaRegistryClusterConfigResultOutput)
 }
 

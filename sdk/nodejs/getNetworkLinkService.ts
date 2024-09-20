@@ -27,7 +27,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getNetworkLinkService(args: GetNetworkLinkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkLinkServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", {
         "accept": args.accept,
@@ -102,7 +101,12 @@ export interface GetNetworkLinkServiceResult {
  * ```
  */
 export function getNetworkLinkServiceOutput(args: GetNetworkLinkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkLinkServiceResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkLinkService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", {
+        "accept": args.accept,
+        "environment": args.environment,
+        "id": args.id,
+    }, opts);
 }
 
 /**

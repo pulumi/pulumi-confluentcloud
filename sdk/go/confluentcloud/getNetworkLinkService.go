@@ -82,14 +82,20 @@ type LookupNetworkLinkServiceResult struct {
 
 func LookupNetworkLinkServiceOutput(ctx *pulumi.Context, args LookupNetworkLinkServiceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkLinkServiceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkLinkServiceResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkLinkServiceResultOutput, error) {
 			args := v.(LookupNetworkLinkServiceArgs)
-			r, err := LookupNetworkLinkService(ctx, &args, opts...)
-			var s LookupNetworkLinkServiceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkLinkServiceResult
+			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkLinkServiceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkLinkServiceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkLinkServiceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkLinkServiceResultOutput)
 }
 

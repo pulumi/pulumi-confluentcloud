@@ -51,14 +51,20 @@ type LookupTagBindingResult struct {
 
 func LookupTagBindingOutput(ctx *pulumi.Context, args LookupTagBindingOutputArgs, opts ...pulumi.InvokeOption) LookupTagBindingResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTagBindingResult, error) {
+		ApplyT(func(v interface{}) (LookupTagBindingResultOutput, error) {
 			args := v.(LookupTagBindingArgs)
-			r, err := LookupTagBinding(ctx, &args, opts...)
-			var s LookupTagBindingResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTagBindingResult
+			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getTagBinding:getTagBinding", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTagBindingResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTagBindingResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTagBindingResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTagBindingResultOutput)
 }
 

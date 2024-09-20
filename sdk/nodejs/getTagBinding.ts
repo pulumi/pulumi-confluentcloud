@@ -7,7 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export function getTagBinding(args: GetTagBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetTagBindingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getTagBinding:getTagBinding", {
         "credentials": args.credentials,
@@ -61,7 +60,15 @@ export interface GetTagBindingResult {
     readonly tagName: string;
 }
 export function getTagBindingOutput(args: GetTagBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagBindingResult> {
-    return pulumi.output(args).apply((a: any) => getTagBinding(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getTagBinding:getTagBinding", {
+        "credentials": args.credentials,
+        "entityName": args.entityName,
+        "entityType": args.entityType,
+        "restEndpoint": args.restEndpoint,
+        "schemaRegistryCluster": args.schemaRegistryCluster,
+        "tagName": args.tagName,
+    }, opts);
 }
 
 /**

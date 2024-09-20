@@ -79,14 +79,20 @@ type LookupKafkaClientQuotaResult struct {
 
 func LookupKafkaClientQuotaOutput(ctx *pulumi.Context, args LookupKafkaClientQuotaOutputArgs, opts ...pulumi.InvokeOption) LookupKafkaClientQuotaResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupKafkaClientQuotaResult, error) {
+		ApplyT(func(v interface{}) (LookupKafkaClientQuotaResultOutput, error) {
 			args := v.(LookupKafkaClientQuotaArgs)
-			r, err := LookupKafkaClientQuota(ctx, &args, opts...)
-			var s LookupKafkaClientQuotaResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupKafkaClientQuotaResult
+			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", args, &rv, "", opts...)
+			if err != nil {
+				return LookupKafkaClientQuotaResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupKafkaClientQuotaResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupKafkaClientQuotaResultOutput), nil
+			}
+			return output, nil
 		}).(LookupKafkaClientQuotaResultOutput)
 }
 

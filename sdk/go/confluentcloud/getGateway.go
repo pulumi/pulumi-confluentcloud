@@ -79,14 +79,20 @@ type GetGatewayResult struct {
 
 func GetGatewayOutput(ctx *pulumi.Context, args GetGatewayOutputArgs, opts ...pulumi.InvokeOption) GetGatewayResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetGatewayResult, error) {
+		ApplyT(func(v interface{}) (GetGatewayResultOutput, error) {
 			args := v.(GetGatewayArgs)
-			r, err := GetGateway(ctx, &args, opts...)
-			var s GetGatewayResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetGatewayResult
+			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getGateway:getGateway", args, &rv, "", opts...)
+			if err != nil {
+				return GetGatewayResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetGatewayResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetGatewayResultOutput), nil
+			}
+			return output, nil
 		}).(GetGatewayResultOutput)
 }
 

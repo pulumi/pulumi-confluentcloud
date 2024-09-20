@@ -38,7 +38,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getPrivateLinkAccess(args: GetPrivateLinkAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkAccessResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", {
         "displayName": args.displayName,
@@ -130,7 +129,12 @@ export interface GetPrivateLinkAccessResult {
  * ```
  */
 export function getPrivateLinkAccessOutput(args: GetPrivateLinkAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAccessResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkAccess(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", {
+        "displayName": args.displayName,
+        "environment": args.environment,
+        "id": args.id,
+    }, opts);
 }
 
 /**

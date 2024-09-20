@@ -51,14 +51,20 @@ type LookupBusinessMetadataBindingResult struct {
 
 func LookupBusinessMetadataBindingOutput(ctx *pulumi.Context, args LookupBusinessMetadataBindingOutputArgs, opts ...pulumi.InvokeOption) LookupBusinessMetadataBindingResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBusinessMetadataBindingResult, error) {
+		ApplyT(func(v interface{}) (LookupBusinessMetadataBindingResultOutput, error) {
 			args := v.(LookupBusinessMetadataBindingArgs)
-			r, err := LookupBusinessMetadataBinding(ctx, &args, opts...)
-			var s LookupBusinessMetadataBindingResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBusinessMetadataBindingResult
+			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBusinessMetadataBindingResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBusinessMetadataBindingResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBusinessMetadataBindingResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBusinessMetadataBindingResultOutput)
 }
 

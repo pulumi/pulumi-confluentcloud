@@ -31,7 +31,6 @@ import * as utilities from "./utilities";
  */
 export function getIdentityProvider(args?: GetIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityProviderResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getIdentityProvider:getIdentityProvider", {
         "displayName": args.displayName,
@@ -106,7 +105,12 @@ export interface GetIdentityProviderResult {
  * ```
  */
 export function getIdentityProviderOutput(args?: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderResult> {
-    return pulumi.output(args).apply((a: any) => getIdentityProvider(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getIdentityProvider:getIdentityProvider", {
+        "displayName": args.displayName,
+        "id": args.id,
+    }, opts);
 }
 
 /**

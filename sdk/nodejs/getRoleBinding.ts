@@ -28,7 +28,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRoleBinding(args: GetRoleBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleBindingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getRoleBinding:getRoleBinding", {
         "id": args.id,
@@ -87,7 +86,10 @@ export interface GetRoleBindingResult {
  * ```
  */
 export function getRoleBindingOutput(args: GetRoleBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleBindingResult> {
-    return pulumi.output(args).apply((a: any) => getRoleBinding(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getRoleBinding:getRoleBinding", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

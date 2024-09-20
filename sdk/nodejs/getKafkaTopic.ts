@@ -7,7 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export function getKafkaTopic(args: GetKafkaTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaTopicResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getKafkaTopic:getKafkaTopic", {
         "credentials": args.credentials,
@@ -55,7 +54,13 @@ export interface GetKafkaTopicResult {
     readonly topicName: string;
 }
 export function getKafkaTopicOutput(args: GetKafkaTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaTopicResult> {
-    return pulumi.output(args).apply((a: any) => getKafkaTopic(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getKafkaTopic:getKafkaTopic", {
+        "credentials": args.credentials,
+        "kafkaCluster": args.kafkaCluster,
+        "restEndpoint": args.restEndpoint,
+        "topicName": args.topicName,
+    }, opts);
 }
 
 /**

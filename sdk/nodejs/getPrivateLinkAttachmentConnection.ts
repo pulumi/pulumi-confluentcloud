@@ -33,7 +33,6 @@ import * as utilities from "./utilities";
  * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
  */
 export function getPrivateLinkAttachmentConnection(args: GetPrivateLinkAttachmentConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkAttachmentConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection", {
         "environment": args.environment,
@@ -110,7 +109,11 @@ export interface GetPrivateLinkAttachmentConnectionResult {
  * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
  */
 export function getPrivateLinkAttachmentConnectionOutput(args: GetPrivateLinkAttachmentConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAttachmentConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateLinkAttachmentConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection", {
+        "environment": args.environment,
+        "id": args.id,
+    }, opts);
 }
 
 /**

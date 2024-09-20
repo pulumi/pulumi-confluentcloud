@@ -38,7 +38,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getPeering(args: GetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getPeering:getPeering", {
         "displayName": args.displayName,
@@ -130,7 +129,12 @@ export interface GetPeeringResult {
  * ```
  */
 export function getPeeringOutput(args: GetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringResult> {
-    return pulumi.output(args).apply((a: any) => getPeering(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getPeering:getPeering", {
+        "displayName": args.displayName,
+        "environment": args.environment,
+        "id": args.id,
+    }, opts);
 }
 
 /**

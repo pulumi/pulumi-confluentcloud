@@ -40,7 +40,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getKsqlCluster(args: GetKsqlClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKsqlClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getKsqlCluster:getKsqlCluster", {
         "displayName": args.displayName,
@@ -149,7 +148,12 @@ export interface GetKsqlClusterResult {
  * ```
  */
 export function getKsqlClusterOutput(args: GetKsqlClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKsqlClusterResult> {
-    return pulumi.output(args).apply((a: any) => getKsqlCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("confluentcloud:index/getKsqlCluster:getKsqlCluster", {
+        "displayName": args.displayName,
+        "environment": args.environment,
+        "id": args.id,
+    }, opts);
 }
 
 /**
