@@ -14357,6 +14357,334 @@ func (o PrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) PrivateLin
 	}).(PrivateLinkAttachmentGcpOutput)
 }
 
+type ProviderIntegrationAws struct {
+	// Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
+	//
+	// > **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
+	//
+	// > **Note:** `customerRoleArn` must be unique in a given environment for creating a new Provider Integration.
+	CustomerRoleArn string `pulumi:"customerRoleArn"`
+	// (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
+	ExternalId *string `pulumi:"externalId"`
+	// (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
+	IamRoleArn *string `pulumi:"iamRoleArn"`
+}
+
+// ProviderIntegrationAwsInput is an input type that accepts ProviderIntegrationAwsArgs and ProviderIntegrationAwsOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAwsInput` via:
+//
+//	ProviderIntegrationAwsArgs{...}
+type ProviderIntegrationAwsInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAwsOutput() ProviderIntegrationAwsOutput
+	ToProviderIntegrationAwsOutputWithContext(context.Context) ProviderIntegrationAwsOutput
+}
+
+type ProviderIntegrationAwsArgs struct {
+	// Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
+	//
+	// > **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
+	//
+	// > **Note:** `customerRoleArn` must be unique in a given environment for creating a new Provider Integration.
+	CustomerRoleArn pulumi.StringInput `pulumi:"customerRoleArn"`
+	// (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
+	IamRoleArn pulumi.StringPtrInput `pulumi:"iamRoleArn"`
+}
+
+func (ProviderIntegrationAwsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAws)(nil)).Elem()
+}
+
+func (i ProviderIntegrationAwsArgs) ToProviderIntegrationAwsOutput() ProviderIntegrationAwsOutput {
+	return i.ToProviderIntegrationAwsOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAwsArgs) ToProviderIntegrationAwsOutputWithContext(ctx context.Context) ProviderIntegrationAwsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAwsOutput)
+}
+
+func (i ProviderIntegrationAwsArgs) ToProviderIntegrationAwsPtrOutput() ProviderIntegrationAwsPtrOutput {
+	return i.ToProviderIntegrationAwsPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAwsArgs) ToProviderIntegrationAwsPtrOutputWithContext(ctx context.Context) ProviderIntegrationAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAwsOutput).ToProviderIntegrationAwsPtrOutputWithContext(ctx)
+}
+
+// ProviderIntegrationAwsPtrInput is an input type that accepts ProviderIntegrationAwsArgs, ProviderIntegrationAwsPtr and ProviderIntegrationAwsPtrOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAwsPtrInput` via:
+//
+//	        ProviderIntegrationAwsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderIntegrationAwsPtrInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAwsPtrOutput() ProviderIntegrationAwsPtrOutput
+	ToProviderIntegrationAwsPtrOutputWithContext(context.Context) ProviderIntegrationAwsPtrOutput
+}
+
+type providerIntegrationAwsPtrType ProviderIntegrationAwsArgs
+
+func ProviderIntegrationAwsPtr(v *ProviderIntegrationAwsArgs) ProviderIntegrationAwsPtrInput {
+	return (*providerIntegrationAwsPtrType)(v)
+}
+
+func (*providerIntegrationAwsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAws)(nil)).Elem()
+}
+
+func (i *providerIntegrationAwsPtrType) ToProviderIntegrationAwsPtrOutput() ProviderIntegrationAwsPtrOutput {
+	return i.ToProviderIntegrationAwsPtrOutputWithContext(context.Background())
+}
+
+func (i *providerIntegrationAwsPtrType) ToProviderIntegrationAwsPtrOutputWithContext(ctx context.Context) ProviderIntegrationAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAwsPtrOutput)
+}
+
+type ProviderIntegrationAwsOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAwsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAws)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAwsOutput) ToProviderIntegrationAwsOutput() ProviderIntegrationAwsOutput {
+	return o
+}
+
+func (o ProviderIntegrationAwsOutput) ToProviderIntegrationAwsOutputWithContext(ctx context.Context) ProviderIntegrationAwsOutput {
+	return o
+}
+
+func (o ProviderIntegrationAwsOutput) ToProviderIntegrationAwsPtrOutput() ProviderIntegrationAwsPtrOutput {
+	return o.ToProviderIntegrationAwsPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderIntegrationAwsOutput) ToProviderIntegrationAwsPtrOutputWithContext(ctx context.Context) ProviderIntegrationAwsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderIntegrationAws) *ProviderIntegrationAws {
+		return &v
+	}).(ProviderIntegrationAwsPtrOutput)
+}
+
+// Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
+//
+// > **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
+//
+// > **Note:** `customerRoleArn` must be unique in a given environment for creating a new Provider Integration.
+func (o ProviderIntegrationAwsOutput) CustomerRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderIntegrationAws) string { return v.CustomerRoleArn }).(pulumi.StringOutput)
+}
+
+// (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
+func (o ProviderIntegrationAwsOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderIntegrationAws) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
+func (o ProviderIntegrationAwsOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderIntegrationAws) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
+}
+
+type ProviderIntegrationAwsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAwsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAws)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAwsPtrOutput) ToProviderIntegrationAwsPtrOutput() ProviderIntegrationAwsPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAwsPtrOutput) ToProviderIntegrationAwsPtrOutputWithContext(ctx context.Context) ProviderIntegrationAwsPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAwsPtrOutput) Elem() ProviderIntegrationAwsOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAws) ProviderIntegrationAws {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderIntegrationAws
+		return ret
+	}).(ProviderIntegrationAwsOutput)
+}
+
+// Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
+//
+// > **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
+//
+// > **Note:** `customerRoleArn` must be unique in a given environment for creating a new Provider Integration.
+func (o ProviderIntegrationAwsPtrOutput) CustomerRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAws) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomerRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
+func (o ProviderIntegrationAwsPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAws) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
+func (o ProviderIntegrationAwsPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAws) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IamRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProviderIntegrationEnvironment struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// ProviderIntegrationEnvironmentInput is an input type that accepts ProviderIntegrationEnvironmentArgs and ProviderIntegrationEnvironmentOutput values.
+// You can construct a concrete instance of `ProviderIntegrationEnvironmentInput` via:
+//
+//	ProviderIntegrationEnvironmentArgs{...}
+type ProviderIntegrationEnvironmentInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationEnvironmentOutput() ProviderIntegrationEnvironmentOutput
+	ToProviderIntegrationEnvironmentOutputWithContext(context.Context) ProviderIntegrationEnvironmentOutput
+}
+
+type ProviderIntegrationEnvironmentArgs struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (ProviderIntegrationEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationEnvironment)(nil)).Elem()
+}
+
+func (i ProviderIntegrationEnvironmentArgs) ToProviderIntegrationEnvironmentOutput() ProviderIntegrationEnvironmentOutput {
+	return i.ToProviderIntegrationEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationEnvironmentArgs) ToProviderIntegrationEnvironmentOutputWithContext(ctx context.Context) ProviderIntegrationEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationEnvironmentOutput)
+}
+
+func (i ProviderIntegrationEnvironmentArgs) ToProviderIntegrationEnvironmentPtrOutput() ProviderIntegrationEnvironmentPtrOutput {
+	return i.ToProviderIntegrationEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationEnvironmentArgs) ToProviderIntegrationEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationEnvironmentOutput).ToProviderIntegrationEnvironmentPtrOutputWithContext(ctx)
+}
+
+// ProviderIntegrationEnvironmentPtrInput is an input type that accepts ProviderIntegrationEnvironmentArgs, ProviderIntegrationEnvironmentPtr and ProviderIntegrationEnvironmentPtrOutput values.
+// You can construct a concrete instance of `ProviderIntegrationEnvironmentPtrInput` via:
+//
+//	        ProviderIntegrationEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderIntegrationEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationEnvironmentPtrOutput() ProviderIntegrationEnvironmentPtrOutput
+	ToProviderIntegrationEnvironmentPtrOutputWithContext(context.Context) ProviderIntegrationEnvironmentPtrOutput
+}
+
+type providerIntegrationEnvironmentPtrType ProviderIntegrationEnvironmentArgs
+
+func ProviderIntegrationEnvironmentPtr(v *ProviderIntegrationEnvironmentArgs) ProviderIntegrationEnvironmentPtrInput {
+	return (*providerIntegrationEnvironmentPtrType)(v)
+}
+
+func (*providerIntegrationEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationEnvironment)(nil)).Elem()
+}
+
+func (i *providerIntegrationEnvironmentPtrType) ToProviderIntegrationEnvironmentPtrOutput() ProviderIntegrationEnvironmentPtrOutput {
+	return i.ToProviderIntegrationEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *providerIntegrationEnvironmentPtrType) ToProviderIntegrationEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationEnvironmentPtrOutput)
+}
+
+type ProviderIntegrationEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationEnvironment)(nil)).Elem()
+}
+
+func (o ProviderIntegrationEnvironmentOutput) ToProviderIntegrationEnvironmentOutput() ProviderIntegrationEnvironmentOutput {
+	return o
+}
+
+func (o ProviderIntegrationEnvironmentOutput) ToProviderIntegrationEnvironmentOutputWithContext(ctx context.Context) ProviderIntegrationEnvironmentOutput {
+	return o
+}
+
+func (o ProviderIntegrationEnvironmentOutput) ToProviderIntegrationEnvironmentPtrOutput() ProviderIntegrationEnvironmentPtrOutput {
+	return o.ToProviderIntegrationEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderIntegrationEnvironmentOutput) ToProviderIntegrationEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderIntegrationEnvironment) *ProviderIntegrationEnvironment {
+		return &v
+	}).(ProviderIntegrationEnvironmentPtrOutput)
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o ProviderIntegrationEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderIntegrationEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type ProviderIntegrationEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationEnvironment)(nil)).Elem()
+}
+
+func (o ProviderIntegrationEnvironmentPtrOutput) ToProviderIntegrationEnvironmentPtrOutput() ProviderIntegrationEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationEnvironmentPtrOutput) ToProviderIntegrationEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationEnvironmentPtrOutput) Elem() ProviderIntegrationEnvironmentOutput {
+	return o.ApplyT(func(v *ProviderIntegrationEnvironment) ProviderIntegrationEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderIntegrationEnvironment
+		return ret
+	}).(ProviderIntegrationEnvironmentOutput)
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o ProviderIntegrationEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type SchemaCredentials struct {
 	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
@@ -26649,6 +26977,179 @@ func (o GetPrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) GetPriv
 	}).(GetPrivateLinkAttachmentGcpOutput)
 }
 
+type GetProviderIntegrationAw struct {
+	// (Required String) Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account, and must be unique in the same environment.
+	CustomerRoleArn string `pulumi:"customerRoleArn"`
+	// (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
+	ExternalId string `pulumi:"externalId"`
+	// (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
+	IamRoleArn string `pulumi:"iamRoleArn"`
+}
+
+// GetProviderIntegrationAwInput is an input type that accepts GetProviderIntegrationAwArgs and GetProviderIntegrationAwOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationAwInput` via:
+//
+//	GetProviderIntegrationAwArgs{...}
+type GetProviderIntegrationAwInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationAwOutput() GetProviderIntegrationAwOutput
+	ToGetProviderIntegrationAwOutputWithContext(context.Context) GetProviderIntegrationAwOutput
+}
+
+type GetProviderIntegrationAwArgs struct {
+	// (Required String) Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account, and must be unique in the same environment.
+	CustomerRoleArn pulumi.StringInput `pulumi:"customerRoleArn"`
+	// (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
+}
+
+func (GetProviderIntegrationAwArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAw)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationAwArgs) ToGetProviderIntegrationAwOutput() GetProviderIntegrationAwOutput {
+	return i.ToGetProviderIntegrationAwOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationAwArgs) ToGetProviderIntegrationAwOutputWithContext(ctx context.Context) GetProviderIntegrationAwOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationAwOutput)
+}
+
+// GetProviderIntegrationAwArrayInput is an input type that accepts GetProviderIntegrationAwArray and GetProviderIntegrationAwArrayOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationAwArrayInput` via:
+//
+//	GetProviderIntegrationAwArray{ GetProviderIntegrationAwArgs{...} }
+type GetProviderIntegrationAwArrayInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationAwArrayOutput() GetProviderIntegrationAwArrayOutput
+	ToGetProviderIntegrationAwArrayOutputWithContext(context.Context) GetProviderIntegrationAwArrayOutput
+}
+
+type GetProviderIntegrationAwArray []GetProviderIntegrationAwInput
+
+func (GetProviderIntegrationAwArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProviderIntegrationAw)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationAwArray) ToGetProviderIntegrationAwArrayOutput() GetProviderIntegrationAwArrayOutput {
+	return i.ToGetProviderIntegrationAwArrayOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationAwArray) ToGetProviderIntegrationAwArrayOutputWithContext(ctx context.Context) GetProviderIntegrationAwArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationAwArrayOutput)
+}
+
+type GetProviderIntegrationAwOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationAwOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAw)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationAwOutput) ToGetProviderIntegrationAwOutput() GetProviderIntegrationAwOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAwOutput) ToGetProviderIntegrationAwOutputWithContext(ctx context.Context) GetProviderIntegrationAwOutput {
+	return o
+}
+
+// (Required String) Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account, and must be unique in the same environment.
+func (o GetProviderIntegrationAwOutput) CustomerRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAw) string { return v.CustomerRoleArn }).(pulumi.StringOutput)
+}
+
+// (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
+func (o GetProviderIntegrationAwOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAw) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
+func (o GetProviderIntegrationAwOutput) IamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAw) string { return v.IamRoleArn }).(pulumi.StringOutput)
+}
+
+type GetProviderIntegrationAwArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationAwArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProviderIntegrationAw)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationAwArrayOutput) ToGetProviderIntegrationAwArrayOutput() GetProviderIntegrationAwArrayOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAwArrayOutput) ToGetProviderIntegrationAwArrayOutputWithContext(ctx context.Context) GetProviderIntegrationAwArrayOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAwArrayOutput) Index(i pulumi.IntInput) GetProviderIntegrationAwOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProviderIntegrationAw {
+		return vs[0].([]GetProviderIntegrationAw)[vs[1].(int)]
+	}).(GetProviderIntegrationAwOutput)
+}
+
+type GetProviderIntegrationEnvironment struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	Id string `pulumi:"id"`
+}
+
+// GetProviderIntegrationEnvironmentInput is an input type that accepts GetProviderIntegrationEnvironmentArgs and GetProviderIntegrationEnvironmentOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationEnvironmentInput` via:
+//
+//	GetProviderIntegrationEnvironmentArgs{...}
+type GetProviderIntegrationEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationEnvironmentOutput() GetProviderIntegrationEnvironmentOutput
+	ToGetProviderIntegrationEnvironmentOutputWithContext(context.Context) GetProviderIntegrationEnvironmentOutput
+}
+
+type GetProviderIntegrationEnvironmentArgs struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetProviderIntegrationEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationEnvironment)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationEnvironmentArgs) ToGetProviderIntegrationEnvironmentOutput() GetProviderIntegrationEnvironmentOutput {
+	return i.ToGetProviderIntegrationEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationEnvironmentArgs) ToGetProviderIntegrationEnvironmentOutputWithContext(ctx context.Context) GetProviderIntegrationEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationEnvironmentOutput)
+}
+
+type GetProviderIntegrationEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationEnvironment)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationEnvironmentOutput) ToGetProviderIntegrationEnvironmentOutput() GetProviderIntegrationEnvironmentOutput {
+	return o
+}
+
+func (o GetProviderIntegrationEnvironmentOutput) ToGetProviderIntegrationEnvironmentOutputWithContext(ctx context.Context) GetProviderIntegrationEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
+//
+// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+func (o GetProviderIntegrationEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
 type GetSchemaCredentials struct {
 	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
@@ -31847,6 +32348,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentEnvironmentPtrInput)(nil)).Elem(), PrivateLinkAttachmentEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentGcpInput)(nil)).Elem(), PrivateLinkAttachmentGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentGcpArrayInput)(nil)).Elem(), PrivateLinkAttachmentGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAwsInput)(nil)).Elem(), ProviderIntegrationAwsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAwsPtrInput)(nil)).Elem(), ProviderIntegrationAwsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationEnvironmentInput)(nil)).Elem(), ProviderIntegrationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationEnvironmentPtrInput)(nil)).Elem(), ProviderIntegrationEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsInput)(nil)).Elem(), SchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsPtrInput)(nil)).Elem(), SchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterCredentialsInput)(nil)).Elem(), SchemaExporterCredentialsArgs{})
@@ -32045,6 +32550,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentEnvironmentInput)(nil)).Elem(), GetPrivateLinkAttachmentEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentGcpInput)(nil)).Elem(), GetPrivateLinkAttachmentGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentGcpArrayInput)(nil)).Elem(), GetPrivateLinkAttachmentGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAwInput)(nil)).Elem(), GetProviderIntegrationAwArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAwArrayInput)(nil)).Elem(), GetProviderIntegrationAwArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationEnvironmentInput)(nil)).Elem(), GetProviderIntegrationEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsPtrInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaMetadataInput)(nil)).Elem(), GetSchemaMetadataArgs{})
@@ -32312,6 +32820,10 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkAttachmentEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAttachmentGcpOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAttachmentGcpArrayOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAwsOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAwsPtrOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationEnvironmentOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(SchemaCredentialsOutput{})
 	pulumi.RegisterOutputType(SchemaCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SchemaExporterCredentialsOutput{})
@@ -32510,6 +33022,9 @@ func init() {
 	pulumi.RegisterOutputType(GetPrivateLinkAttachmentEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAttachmentGcpOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAttachmentGcpArrayOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationAwOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationAwArrayOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetSchemaCredentialsOutput{})
 	pulumi.RegisterOutputType(GetSchemaCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetSchemaMetadataOutput{})

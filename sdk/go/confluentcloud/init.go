@@ -85,6 +85,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PrivateLinkAttachment{}
 	case "confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection":
 		r = &PrivateLinkAttachmentConnection{}
+	case "confluentcloud:index/providerIntegration:ProviderIntegration":
+		r = &ProviderIntegration{}
 	case "confluentcloud:index/roleBinding:RoleBinding":
 		r = &RoleBinding{}
 	case "confluentcloud:index/schema:Schema":
@@ -302,6 +304,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/privateLinkAttachmentConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/providerIntegration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
