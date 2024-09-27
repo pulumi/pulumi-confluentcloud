@@ -1039,6 +1039,24 @@ export interface GetPrivateLinkAttachmentEnvironmentArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetProviderIntegrationEnvironment {
+    /**
+     * The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     */
+    id: string;
+}
+
+export interface GetProviderIntegrationEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetSchemaCredentials {
     /**
      * The Schema Registry API Key.
@@ -2259,6 +2277,32 @@ export interface PrivateLinkAttachmentGcp {
      * Zone associated with the PSC Service attachment.
      */
     zone?: pulumi.Input<string>;
+}
+
+export interface ProviderIntegrationAws {
+    /**
+     * Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
+     *
+     * > **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
+     *
+     * > **Note:** `customerRoleArn` must be unique in a given environment for creating a new Provider Integration.
+     */
+    customerRoleArn: pulumi.Input<string>;
+    /**
+     * (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
+     */
+    externalId?: pulumi.Input<string>;
+    /**
+     * (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
+     */
+    iamRoleArn?: pulumi.Input<string>;
+}
+
+export interface ProviderIntegrationEnvironment {
+    /**
+     * The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface SchemaCredentials {

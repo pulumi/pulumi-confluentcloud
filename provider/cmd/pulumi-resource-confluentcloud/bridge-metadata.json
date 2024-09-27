@@ -545,6 +545,20 @@
                     }
                 }
             },
+            "confluent_provider_integration": {
+                "current": "confluentcloud:index/providerIntegration:ProviderIntegration",
+                "fields": {
+                    "aws": {
+                        "maxItemsOne": true
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "usages": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_role_binding": {
                 "current": "confluentcloud:index/roleBinding:RoleBinding"
             },
@@ -1186,6 +1200,20 @@
                         "maxItemsOne": false
                     },
                     "private_link_attachment": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_provider_integration": {
+                "current": "confluentcloud:index/getProviderIntegration:getProviderIntegration",
+                "fields": {
+                    "aws": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "usages": {
                         "maxItemsOne": false
                     }
                 }

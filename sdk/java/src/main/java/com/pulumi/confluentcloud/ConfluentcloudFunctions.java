@@ -54,6 +54,8 @@ import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
 import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
 import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetProviderIntegrationArgs;
+import com.pulumi.confluentcloud.inputs.GetProviderIntegrationPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;
 import com.pulumi.confluentcloud.inputs.GetRoleBindingPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
@@ -113,6 +115,7 @@ import com.pulumi.confluentcloud.outputs.GetPeeringResult;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessResult;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAttachmentConnectionResult;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAttachmentResult;
+import com.pulumi.confluentcloud.outputs.GetProviderIntegrationResult;
 import com.pulumi.confluentcloud.outputs.GetRoleBindingResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterConfigResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterModeResult;
@@ -5779,6 +5782,234 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnectionPlain(GetPrivateLinkAttachmentConnectionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection", TypeShape.of(GetPrivateLinkAttachmentConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ProviderIntegration` describes a Confluent Provider Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
+     *             .id("cspi-4xg0q")
+     *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
+     *             .displayName("provider_integration_main")
+     *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetProviderIntegrationResult> getProviderIntegration(GetProviderIntegrationArgs args) {
+        return getProviderIntegration(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ProviderIntegration` describes a Confluent Provider Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
+     *             .id("cspi-4xg0q")
+     *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
+     *             .displayName("provider_integration_main")
+     *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetProviderIntegrationResult> getProviderIntegrationPlain(GetProviderIntegrationPlainArgs args) {
+        return getProviderIntegrationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ProviderIntegration` describes a Confluent Provider Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
+     *             .id("cspi-4xg0q")
+     *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
+     *             .displayName("provider_integration_main")
+     *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetProviderIntegrationResult> getProviderIntegration(GetProviderIntegrationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getProviderIntegration:getProviderIntegration", TypeShape.of(GetProviderIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ProviderIntegration` describes a Confluent Provider Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
+     *             .id("cspi-4xg0q")
+     *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
+     *             .displayName("provider_integration_main")
+     *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetProviderIntegrationResult> getProviderIntegrationPlain(GetProviderIntegrationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getProviderIntegration:getProviderIntegration", TypeShape.of(GetProviderIntegrationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

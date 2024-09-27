@@ -210,6 +210,11 @@ export const getPrivateLinkAttachmentConnection: typeof import("./getPrivateLink
 export const getPrivateLinkAttachmentConnectionOutput: typeof import("./getPrivateLinkAttachmentConnection").getPrivateLinkAttachmentConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateLinkAttachmentConnection","getPrivateLinkAttachmentConnectionOutput"], () => require("./getPrivateLinkAttachmentConnection"));
 
+export { GetProviderIntegrationArgs, GetProviderIntegrationResult, GetProviderIntegrationOutputArgs } from "./getProviderIntegration";
+export const getProviderIntegration: typeof import("./getProviderIntegration").getProviderIntegration = null as any;
+export const getProviderIntegrationOutput: typeof import("./getProviderIntegration").getProviderIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getProviderIntegration","getProviderIntegrationOutput"], () => require("./getProviderIntegration"));
+
 export { GetRoleBindingArgs, GetRoleBindingResult, GetRoleBindingOutputArgs } from "./getRoleBinding";
 export const getRoleBinding: typeof import("./getRoleBinding").getRoleBinding = null as any;
 export const getRoleBindingOutput: typeof import("./getRoleBinding").getRoleBindingOutput = null as any;
@@ -390,6 +395,11 @@ export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
+export { ProviderIntegrationArgs, ProviderIntegrationState } from "./providerIntegration";
+export type ProviderIntegration = import("./providerIntegration").ProviderIntegration;
+export const ProviderIntegration: typeof import("./providerIntegration").ProviderIntegration = null as any;
+utilities.lazyLoad(exports, ["ProviderIntegration"], () => require("./providerIntegration"));
+
 export { RoleBindingArgs, RoleBindingState } from "./roleBinding";
 export type RoleBinding = import("./roleBinding").RoleBinding;
 export const RoleBinding: typeof import("./roleBinding").RoleBinding = null as any;
@@ -538,6 +548,8 @@ const _module = {
                 return new PrivateLinkAttachment(name, <any>undefined, { urn })
             case "confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection":
                 return new PrivateLinkAttachmentConnection(name, <any>undefined, { urn })
+            case "confluentcloud:index/providerIntegration:ProviderIntegration":
+                return new ProviderIntegration(name, <any>undefined, { urn })
             case "confluentcloud:index/roleBinding:RoleBinding":
                 return new RoleBinding(name, <any>undefined, { urn })
             case "confluentcloud:index/schema:Schema":
@@ -603,6 +615,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/peering", _module
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAccess", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAttachment", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAttachmentConnection", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/providerIntegration", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/roleBinding", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schema", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaExporter", _module)

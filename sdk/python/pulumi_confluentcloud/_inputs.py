@@ -109,6 +109,8 @@ __all__ = [
     'PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs',
     'PrivateLinkAttachmentEnvironmentArgs',
     'PrivateLinkAttachmentGcpArgs',
+    'ProviderIntegrationAwsArgs',
+    'ProviderIntegrationEnvironmentArgs',
     'SchemaCredentialsArgs',
     'SchemaExporterCredentialsArgs',
     'SchemaExporterDestinationSchemaRegistryClusterArgs',
@@ -172,6 +174,7 @@ __all__ = [
     'GetPrivateLinkAccessEnvironmentArgs',
     'GetPrivateLinkAttachmentConnectionEnvironmentArgs',
     'GetPrivateLinkAttachmentEnvironmentArgs',
+    'GetProviderIntegrationEnvironmentArgs',
     'GetSchemaCredentialsArgs',
     'GetSchemaMetadataArgs',
     'GetSchemaMetadataTagArgs',
@@ -3491,6 +3494,90 @@ class PrivateLinkAttachmentGcpArgs:
 
 
 @pulumi.input_type
+class ProviderIntegrationAwsArgs:
+    def __init__(__self__, *,
+                 customer_role_arn: pulumi.Input[str],
+                 external_id: Optional[pulumi.Input[str]] = None,
+                 iam_role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] customer_role_arn: Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
+               
+               > **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
+               
+               > **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
+        :param pulumi.Input[str] external_id: (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
+        :param pulumi.Input[str] iam_role_arn: (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+        """
+        pulumi.set(__self__, "customer_role_arn", customer_role_arn)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if iam_role_arn is not None:
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+
+    @property
+    @pulumi.getter(name="customerRoleArn")
+    def customer_role_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
+
+        > **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
+
+        > **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
+        """
+        return pulumi.get(self, "customer_role_arn")
+
+    @customer_role_arn.setter
+    def customer_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "customer_role_arn", value)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_id", value)
+
+    @property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @iam_role_arn.setter
+    def iam_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_role_arn", value)
+
+
+@pulumi.input_type
+class ProviderIntegrationEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class SchemaCredentialsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -5686,6 +5773,32 @@ class GetPrivateLinkAttachmentEnvironmentArgs:
     def id(self) -> str:
         """
         The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetProviderIntegrationEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 
