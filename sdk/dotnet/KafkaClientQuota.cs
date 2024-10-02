@@ -86,7 +86,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.KafkaClientQuotaKafkaCluster> KafkaCluster { get; private set; } = null!;
 
         /// <summary>
-        /// The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "&lt;default&gt;", to represent the default quota for all users and service accounts.
+        /// The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"&lt;default&gt;"`, to represent the default quota for all users and service accounts.
         /// </summary>
         [Output("principals")]
         public Output<ImmutableArray<string>> Principals { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<string>? _principals;
 
         /// <summary>
-        /// The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "&lt;default&gt;", to represent the default quota for all users and service accounts.
+        /// The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"&lt;default&gt;"`, to represent the default quota for all users and service accounts.
         /// </summary>
         public InputList<string> Principals
         {
@@ -215,7 +215,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<string>? _principals;
 
         /// <summary>
-        /// The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "&lt;default&gt;", to represent the default quota for all users and service accounts.
+        /// The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"&lt;default&gt;"`, to represent the default quota for all users and service accounts.
         /// </summary>
         public InputList<string> Principals
         {

@@ -89,7 +89,7 @@ export class KafkaClientQuota extends pulumi.CustomResource {
     public readonly environment!: pulumi.Output<outputs.KafkaClientQuotaEnvironment>;
     public readonly kafkaCluster!: pulumi.Output<outputs.KafkaClientQuotaKafkaCluster>;
     /**
-     * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "<default>", to represent the default quota for all users and service accounts.
+     * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
      */
     public readonly principals!: pulumi.Output<string[]>;
     /**
@@ -163,7 +163,7 @@ export interface KafkaClientQuotaState {
     environment?: pulumi.Input<inputs.KafkaClientQuotaEnvironment>;
     kafkaCluster?: pulumi.Input<inputs.KafkaClientQuotaKafkaCluster>;
     /**
-     * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "<default>", to represent the default quota for all users and service accounts.
+     * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
      */
     principals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -190,7 +190,7 @@ export interface KafkaClientQuotaArgs {
     environment: pulumi.Input<inputs.KafkaClientQuotaEnvironment>;
     kafkaCluster: pulumi.Input<inputs.KafkaClientQuotaKafkaCluster>;
     /**
-     * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "<default>", to represent the default quota for all users and service accounts.
+     * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
      */
     principals: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -137,14 +137,14 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
         return this.kafkaCluster;
     }
     /**
-     * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;&lt;default&gt;&#34;, to represent the default quota for all users and service accounts.
+     * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `&#34;&lt;default&gt;&#34;`, to represent the default quota for all users and service accounts.
      * 
      */
     @Export(name="principals", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> principals;
 
     /**
-     * @return The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;&lt;default&gt;&#34;, to represent the default quota for all users and service accounts.
+     * @return The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `&#34;&lt;default&gt;&#34;`, to represent the default quota for all users and service accounts.
      * 
      */
     public Output<List<String>> principals() {
