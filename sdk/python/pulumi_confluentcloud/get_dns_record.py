@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -140,9 +145,6 @@ def get_dns_record(environment: Optional[Union['GetDnsRecordEnvironmentArgs', 'G
         gateways=pulumi.get(__ret__, 'gateways'),
         id=pulumi.get(__ret__, 'id'),
         private_link_access_points=pulumi.get(__ret__, 'private_link_access_points'))
-
-
-@_utilities.lift_output_func(get_dns_record)
 def get_dns_record_output(environment: Optional[pulumi.Input[Union['GetDnsRecordEnvironmentArgs', 'GetDnsRecordEnvironmentArgsDict']]] = None,
                           id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsRecordResult]:
@@ -167,4 +169,15 @@ def get_dns_record_output(environment: Optional[pulumi.Input[Union['GetDnsRecord
 
     :param str id: The ID of the DNS Record, for example, `dnsrec-abc123`.
     """
-    ...
+    __args__ = dict()
+    __args__['environment'] = environment
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getDnsRecord:getDnsRecord', __args__, opts=opts, typ=GetDnsRecordResult)
+    return __ret__.apply(lambda __response__: GetDnsRecordResult(
+        display_name=pulumi.get(__response__, 'display_name'),
+        domain=pulumi.get(__response__, 'domain'),
+        environment=pulumi.get(__response__, 'environment'),
+        gateways=pulumi.get(__response__, 'gateways'),
+        id=pulumi.get(__response__, 'id'),
+        private_link_access_points=pulumi.get(__response__, 'private_link_access_points')))

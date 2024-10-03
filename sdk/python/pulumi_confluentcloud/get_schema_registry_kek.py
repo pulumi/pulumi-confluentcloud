@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -193,9 +198,6 @@ def get_schema_registry_kek(credentials: Optional[Union['GetSchemaRegistryKekCre
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
         shared=pulumi.get(__ret__, 'shared'))
-
-
-@_utilities.lift_output_func(get_schema_registry_kek)
 def get_schema_registry_kek_output(credentials: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryKekCredentialsArgs', 'GetSchemaRegistryKekCredentialsArgsDict']]]] = None,
                                    name: Optional[pulumi.Input[str]] = None,
                                    rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
@@ -209,4 +211,22 @@ def get_schema_registry_kek_output(credentials: Optional[pulumi.Input[Optional[U
            > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """
-    ...
+    __args__ = dict()
+    __args__['credentials'] = credentials
+    __args__['name'] = name
+    __args__['restEndpoint'] = rest_endpoint
+    __args__['schemaRegistryCluster'] = schema_registry_cluster
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek', __args__, opts=opts, typ=GetSchemaRegistryKekResult)
+    return __ret__.apply(lambda __response__: GetSchemaRegistryKekResult(
+        credentials=pulumi.get(__response__, 'credentials'),
+        doc=pulumi.get(__response__, 'doc'),
+        hard_delete=pulumi.get(__response__, 'hard_delete'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        kms_type=pulumi.get(__response__, 'kms_type'),
+        name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__response__, 'schema_registry_cluster'),
+        shared=pulumi.get(__response__, 'shared')))

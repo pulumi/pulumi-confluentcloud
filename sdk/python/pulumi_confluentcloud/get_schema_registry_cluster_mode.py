@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -107,9 +112,6 @@ def get_schema_registry_cluster_mode(credentials: Optional[Union['GetSchemaRegis
         mode=pulumi.get(__ret__, 'mode'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'))
-
-
-@_utilities.lift_output_func(get_schema_registry_cluster_mode)
 def get_schema_registry_cluster_mode_output(credentials: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryClusterModeCredentialsArgs', 'GetSchemaRegistryClusterModeCredentialsArgsDict']]]] = None,
                                             rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                                             schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryClusterModeSchemaRegistryClusterArgs', 'GetSchemaRegistryClusterModeSchemaRegistryClusterArgsDict']]]] = None,
@@ -119,4 +121,15 @@ def get_schema_registry_cluster_mode_output(credentials: Optional[pulumi.Input[O
 
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """
-    ...
+    __args__ = dict()
+    __args__['credentials'] = credentials
+    __args__['restEndpoint'] = rest_endpoint
+    __args__['schemaRegistryCluster'] = schema_registry_cluster
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode', __args__, opts=opts, typ=GetSchemaRegistryClusterModeResult)
+    return __ret__.apply(lambda __response__: GetSchemaRegistryClusterModeResult(
+        credentials=pulumi.get(__response__, 'credentials'),
+        id=pulumi.get(__response__, 'id'),
+        mode=pulumi.get(__response__, 'mode'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__response__, 'schema_registry_cluster')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -147,9 +152,6 @@ def get_user(email: Optional[str] = None,
         full_name=pulumi.get(__ret__, 'full_name'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(email: Optional[pulumi.Input[Optional[str]]] = None,
                     full_name: Optional[pulumi.Input[Optional[str]]] = None,
                     id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -192,4 +194,15 @@ def get_user_output(email: Optional[pulumi.Input[Optional[str]]] = None,
     :param str full_name: The full name of the User.
     :param str id: The ID of the User (e.g., `u-abc123`).
     """
-    ...
+    __args__ = dict()
+    __args__['email'] = email
+    __args__['fullName'] = full_name
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        api_version=pulumi.get(__response__, 'api_version'),
+        email=pulumi.get(__response__, 'email'),
+        full_name=pulumi.get(__response__, 'full_name'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -193,9 +198,6 @@ def get_private_link_attachment(environment: Optional[Union['GetPrivateLinkAttac
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         resource_name=pulumi.get(__ret__, 'resource_name'))
-
-
-@_utilities.lift_output_func(get_private_link_attachment)
 def get_private_link_attachment_output(environment: Optional[pulumi.Input[Union['GetPrivateLinkAttachmentEnvironmentArgs', 'GetPrivateLinkAttachmentEnvironmentArgsDict']]] = None,
                                        id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkAttachmentResult]:
@@ -226,4 +228,19 @@ def get_private_link_attachment_output(environment: Optional[pulumi.Input[Union[
 
     :param str id: The ID of the Private Link Attachment, for example, `platt-61ovvd`.
     """
-    ...
+    __args__ = dict()
+    __args__['environment'] = environment
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment', __args__, opts=opts, typ=GetPrivateLinkAttachmentResult)
+    return __ret__.apply(lambda __response__: GetPrivateLinkAttachmentResult(
+        aws=pulumi.get(__response__, 'aws'),
+        azures=pulumi.get(__response__, 'azures'),
+        cloud=pulumi.get(__response__, 'cloud'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        dns_domain=pulumi.get(__response__, 'dns_domain'),
+        environment=pulumi.get(__response__, 'environment'),
+        gcps=pulumi.get(__response__, 'gcps'),
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
+        resource_name=pulumi.get(__response__, 'resource_name')))

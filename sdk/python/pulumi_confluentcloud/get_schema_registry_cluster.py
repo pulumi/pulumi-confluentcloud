@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -231,9 +236,6 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
         region=pulumi.get(__ret__, 'region'),
         resource_name=pulumi.get(__ret__, 'resource_name'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'))
-
-
-@_utilities.lift_output_func(get_schema_registry_cluster)
 def get_schema_registry_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                        environment: Optional[pulumi.Input[Union['GetSchemaRegistryClusterEnvironmentArgs', 'GetSchemaRegistryClusterEnvironmentArgsDict']]] = None,
                                        id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -270,4 +272,22 @@ def get_schema_registry_cluster_output(display_name: Optional[pulumi.Input[Optio
     :param str display_name: The name for the Schema Registry cluster.
     :param str id: The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
     """
-    ...
+    __args__ = dict()
+    __args__['displayName'] = display_name
+    __args__['environment'] = environment
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster', __args__, opts=opts, typ=GetSchemaRegistryClusterResult)
+    return __ret__.apply(lambda __response__: GetSchemaRegistryClusterResult(
+        api_version=pulumi.get(__response__, 'api_version'),
+        catalog_endpoint=pulumi.get(__response__, 'catalog_endpoint'),
+        cloud=pulumi.get(__response__, 'cloud'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        environment=pulumi.get(__response__, 'environment'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        package=pulumi.get(__response__, 'package'),
+        private_rest_endpoint=pulumi.get(__response__, 'private_rest_endpoint'),
+        region=pulumi.get(__response__, 'region'),
+        resource_name=pulumi.get(__response__, 'resource_name'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint')))

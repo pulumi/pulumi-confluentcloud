@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -79,9 +84,6 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     return AwaitableGetOrganizationResult(
         id=pulumi.get(__ret__, 'id'),
         resource_name=pulumi.get(__ret__, 'resource_name'))
-
-
-@_utilities.lift_output_func(get_organization)
 def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -98,4 +100,9 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     pulumi.export("example", example)
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getOrganization:getOrganization', __args__, opts=opts, typ=GetOrganizationResult)
+    return __ret__.apply(lambda __response__: GetOrganizationResult(
+        id=pulumi.get(__response__, 'id'),
+        resource_name=pulumi.get(__response__, 'resource_name')))
