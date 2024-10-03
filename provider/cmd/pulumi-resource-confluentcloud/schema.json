@@ -7021,7 +7021,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, \"\u003cdefault\u003e\", to represent the default quota for all users and service accounts.\n"
+                    "description": "The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `\"\u003cdefault\u003e\"`, to represent the default quota for all users and service accounts.\n"
                 },
                 "throughput": {
                     "$ref": "#/types/confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput",
@@ -7058,7 +7058,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, \"\u003cdefault\u003e\", to represent the default quota for all users and service accounts.\n"
+                    "description": "The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `\"\u003cdefault\u003e\"`, to represent the default quota for all users and service accounts.\n"
                 },
                 "throughput": {
                     "$ref": "#/types/confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput",
@@ -7097,7 +7097,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, \"\u003cdefault\u003e\", to represent the default quota for all users and service accounts.\n"
+                        "description": "The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `\"\u003cdefault\u003e\"`, to represent the default quota for all users and service accounts.\n"
                     },
                     "throughput": {
                         "$ref": "#/types/confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput",
@@ -11212,7 +11212,7 @@
                         "type": "array"
                     },
                     "principals": {
-                        "description": "(Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, \"\u003cdefault\u003e\", to represent the default quota for all users and service accounts.\n",
+                        "description": "(Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `\"\u003cdefault\u003e\"`, to represent the default quota for all users and service accounts.\n",
                         "items": {
                             "type": "string"
                         },

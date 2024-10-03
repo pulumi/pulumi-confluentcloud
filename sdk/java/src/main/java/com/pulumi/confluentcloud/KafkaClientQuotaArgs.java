@@ -73,14 +73,14 @@ public final class KafkaClientQuotaArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;&lt;default&gt;&#34;, to represent the default quota for all users and service accounts.
+     * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `&#34;&lt;default&gt;&#34;`, to represent the default quota for all users and service accounts.
      * 
      */
     @Import(name="principals", required=true)
     private Output<List<String>> principals;
 
     /**
-     * @return The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;&lt;default&gt;&#34;, to represent the default quota for all users and service accounts.
+     * @return The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `&#34;&lt;default&gt;&#34;`, to represent the default quota for all users and service accounts.
      * 
      */
     public Output<List<String>> principals() {
@@ -204,7 +204,7 @@ public final class KafkaClientQuotaArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param principals The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;&lt;default&gt;&#34;, to represent the default quota for all users and service accounts.
+         * @param principals The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `&#34;&lt;default&gt;&#34;`, to represent the default quota for all users and service accounts.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class KafkaClientQuotaArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param principals The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;&lt;default&gt;&#34;, to represent the default quota for all users and service accounts.
+         * @param principals The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `&#34;&lt;default&gt;&#34;`, to represent the default quota for all users and service accounts.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class KafkaClientQuotaArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param principals The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;&lt;default&gt;&#34;, to represent the default quota for all users and service accounts.
+         * @param principals The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `&#34;&lt;default&gt;&#34;`, to represent the default quota for all users and service accounts.
          * 
          * @return builder
          * 
