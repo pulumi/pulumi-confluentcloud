@@ -12,6 +12,10 @@ import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetBusinessMetadataPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
 import com.pulumi.confluentcloud.inputs.GetByokKeyPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
+import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
+import com.pulumi.confluentcloud.inputs.GetCertificatePoolPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
 import com.pulumi.confluentcloud.inputs.GetDnsRecordPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;
@@ -92,6 +96,8 @@ import com.pulumi.confluentcloud.outputs.GetAccessPointResult;
 import com.pulumi.confluentcloud.outputs.GetBusinessMetadataBindingResult;
 import com.pulumi.confluentcloud.outputs.GetBusinessMetadataResult;
 import com.pulumi.confluentcloud.outputs.GetByokKeyResult;
+import com.pulumi.confluentcloud.outputs.GetCertificateAuthorityResult;
+import com.pulumi.confluentcloud.outputs.GetCertificatePoolResult;
 import com.pulumi.confluentcloud.outputs.GetDnsRecordResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentsResult;
@@ -540,6 +546,382 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetByokKeyResult> getByokKeyPlain(GetByokKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getByokKey:getByokKey", TypeShape.of(GetByokKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CertificateAuthority` describes a Certificate Authority data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
+     *             .id("op-abc123")
+     *             .build());
+     * 
+     *         ctx.export("certificateAuthority", main.applyValue(getCertificateAuthorityResult -> getCertificateAuthorityResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCertificateAuthorityResult> getCertificateAuthority(GetCertificateAuthorityArgs args) {
+        return getCertificateAuthority(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CertificateAuthority` describes a Certificate Authority data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
+     *             .id("op-abc123")
+     *             .build());
+     * 
+     *         ctx.export("certificateAuthority", main.applyValue(getCertificateAuthorityResult -> getCertificateAuthorityResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetCertificateAuthorityResult> getCertificateAuthorityPlain(GetCertificateAuthorityPlainArgs args) {
+        return getCertificateAuthorityPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CertificateAuthority` describes a Certificate Authority data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
+     *             .id("op-abc123")
+     *             .build());
+     * 
+     *         ctx.export("certificateAuthority", main.applyValue(getCertificateAuthorityResult -> getCertificateAuthorityResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCertificateAuthorityResult> getCertificateAuthority(GetCertificateAuthorityArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getCertificateAuthority:getCertificateAuthority", TypeShape.of(GetCertificateAuthorityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CertificateAuthority` describes a Certificate Authority data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
+     *             .id("op-abc123")
+     *             .build());
+     * 
+     *         ctx.export("certificateAuthority", main.applyValue(getCertificateAuthorityResult -> getCertificateAuthorityResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetCertificateAuthorityResult> getCertificateAuthorityPlain(GetCertificateAuthorityPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getCertificateAuthority:getCertificateAuthority", TypeShape.of(GetCertificateAuthorityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CertificatePool` describes a Certificate Pool data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCertificatePoolCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getCertificatePool(GetCertificatePoolArgs.builder()
+     *             .id("pool-def456")
+     *             .certificateAuthority(GetCertificatePoolCertificateAuthorityArgs.builder()
+     *                 .id("op-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("certificatePool", main.applyValue(getCertificatePoolResult -> getCertificatePoolResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCertificatePoolResult> getCertificatePool(GetCertificatePoolArgs args) {
+        return getCertificatePool(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CertificatePool` describes a Certificate Pool data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCertificatePoolCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getCertificatePool(GetCertificatePoolArgs.builder()
+     *             .id("pool-def456")
+     *             .certificateAuthority(GetCertificatePoolCertificateAuthorityArgs.builder()
+     *                 .id("op-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("certificatePool", main.applyValue(getCertificatePoolResult -> getCertificatePoolResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetCertificatePoolResult> getCertificatePoolPlain(GetCertificatePoolPlainArgs args) {
+        return getCertificatePoolPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CertificatePool` describes a Certificate Pool data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCertificatePoolCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getCertificatePool(GetCertificatePoolArgs.builder()
+     *             .id("pool-def456")
+     *             .certificateAuthority(GetCertificatePoolCertificateAuthorityArgs.builder()
+     *                 .id("op-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("certificatePool", main.applyValue(getCertificatePoolResult -> getCertificatePoolResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCertificatePoolResult> getCertificatePool(GetCertificatePoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getCertificatePool:getCertificatePool", TypeShape.of(GetCertificatePoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CertificatePool` describes a Certificate Pool data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCertificatePoolCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getCertificatePool(GetCertificatePoolArgs.builder()
+     *             .id("pool-def456")
+     *             .certificateAuthority(GetCertificatePoolCertificateAuthorityArgs.builder()
+     *                 .id("op-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("certificatePool", main.applyValue(getCertificatePoolResult -> getCertificatePoolResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetCertificatePoolResult> getCertificatePoolPlain(GetCertificatePoolPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getCertificatePool:getCertificatePool", TypeShape.of(GetCertificatePoolResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

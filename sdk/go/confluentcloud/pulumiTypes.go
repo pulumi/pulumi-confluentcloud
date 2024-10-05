@@ -2754,6 +2754,143 @@ func (o CatalogEntityAttributesSchemaRegistryClusterPtrOutput) Id() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type CertificatePoolCertificateAuthority struct {
+	// The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// CertificatePoolCertificateAuthorityInput is an input type that accepts CertificatePoolCertificateAuthorityArgs and CertificatePoolCertificateAuthorityOutput values.
+// You can construct a concrete instance of `CertificatePoolCertificateAuthorityInput` via:
+//
+//	CertificatePoolCertificateAuthorityArgs{...}
+type CertificatePoolCertificateAuthorityInput interface {
+	pulumi.Input
+
+	ToCertificatePoolCertificateAuthorityOutput() CertificatePoolCertificateAuthorityOutput
+	ToCertificatePoolCertificateAuthorityOutputWithContext(context.Context) CertificatePoolCertificateAuthorityOutput
+}
+
+type CertificatePoolCertificateAuthorityArgs struct {
+	// The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (CertificatePoolCertificateAuthorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificatePoolCertificateAuthority)(nil)).Elem()
+}
+
+func (i CertificatePoolCertificateAuthorityArgs) ToCertificatePoolCertificateAuthorityOutput() CertificatePoolCertificateAuthorityOutput {
+	return i.ToCertificatePoolCertificateAuthorityOutputWithContext(context.Background())
+}
+
+func (i CertificatePoolCertificateAuthorityArgs) ToCertificatePoolCertificateAuthorityOutputWithContext(ctx context.Context) CertificatePoolCertificateAuthorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificatePoolCertificateAuthorityOutput)
+}
+
+func (i CertificatePoolCertificateAuthorityArgs) ToCertificatePoolCertificateAuthorityPtrOutput() CertificatePoolCertificateAuthorityPtrOutput {
+	return i.ToCertificatePoolCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (i CertificatePoolCertificateAuthorityArgs) ToCertificatePoolCertificateAuthorityPtrOutputWithContext(ctx context.Context) CertificatePoolCertificateAuthorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificatePoolCertificateAuthorityOutput).ToCertificatePoolCertificateAuthorityPtrOutputWithContext(ctx)
+}
+
+// CertificatePoolCertificateAuthorityPtrInput is an input type that accepts CertificatePoolCertificateAuthorityArgs, CertificatePoolCertificateAuthorityPtr and CertificatePoolCertificateAuthorityPtrOutput values.
+// You can construct a concrete instance of `CertificatePoolCertificateAuthorityPtrInput` via:
+//
+//	        CertificatePoolCertificateAuthorityArgs{...}
+//
+//	or:
+//
+//	        nil
+type CertificatePoolCertificateAuthorityPtrInput interface {
+	pulumi.Input
+
+	ToCertificatePoolCertificateAuthorityPtrOutput() CertificatePoolCertificateAuthorityPtrOutput
+	ToCertificatePoolCertificateAuthorityPtrOutputWithContext(context.Context) CertificatePoolCertificateAuthorityPtrOutput
+}
+
+type certificatePoolCertificateAuthorityPtrType CertificatePoolCertificateAuthorityArgs
+
+func CertificatePoolCertificateAuthorityPtr(v *CertificatePoolCertificateAuthorityArgs) CertificatePoolCertificateAuthorityPtrInput {
+	return (*certificatePoolCertificateAuthorityPtrType)(v)
+}
+
+func (*certificatePoolCertificateAuthorityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificatePoolCertificateAuthority)(nil)).Elem()
+}
+
+func (i *certificatePoolCertificateAuthorityPtrType) ToCertificatePoolCertificateAuthorityPtrOutput() CertificatePoolCertificateAuthorityPtrOutput {
+	return i.ToCertificatePoolCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (i *certificatePoolCertificateAuthorityPtrType) ToCertificatePoolCertificateAuthorityPtrOutputWithContext(ctx context.Context) CertificatePoolCertificateAuthorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificatePoolCertificateAuthorityPtrOutput)
+}
+
+type CertificatePoolCertificateAuthorityOutput struct{ *pulumi.OutputState }
+
+func (CertificatePoolCertificateAuthorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificatePoolCertificateAuthority)(nil)).Elem()
+}
+
+func (o CertificatePoolCertificateAuthorityOutput) ToCertificatePoolCertificateAuthorityOutput() CertificatePoolCertificateAuthorityOutput {
+	return o
+}
+
+func (o CertificatePoolCertificateAuthorityOutput) ToCertificatePoolCertificateAuthorityOutputWithContext(ctx context.Context) CertificatePoolCertificateAuthorityOutput {
+	return o
+}
+
+func (o CertificatePoolCertificateAuthorityOutput) ToCertificatePoolCertificateAuthorityPtrOutput() CertificatePoolCertificateAuthorityPtrOutput {
+	return o.ToCertificatePoolCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (o CertificatePoolCertificateAuthorityOutput) ToCertificatePoolCertificateAuthorityPtrOutputWithContext(ctx context.Context) CertificatePoolCertificateAuthorityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificatePoolCertificateAuthority) *CertificatePoolCertificateAuthority {
+		return &v
+	}).(CertificatePoolCertificateAuthorityPtrOutput)
+}
+
+// The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+func (o CertificatePoolCertificateAuthorityOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePoolCertificateAuthority) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type CertificatePoolCertificateAuthorityPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificatePoolCertificateAuthorityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificatePoolCertificateAuthority)(nil)).Elem()
+}
+
+func (o CertificatePoolCertificateAuthorityPtrOutput) ToCertificatePoolCertificateAuthorityPtrOutput() CertificatePoolCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o CertificatePoolCertificateAuthorityPtrOutput) ToCertificatePoolCertificateAuthorityPtrOutputWithContext(ctx context.Context) CertificatePoolCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o CertificatePoolCertificateAuthorityPtrOutput) Elem() CertificatePoolCertificateAuthorityOutput {
+	return o.ApplyT(func(v *CertificatePoolCertificateAuthority) CertificatePoolCertificateAuthority {
+		if v != nil {
+			return *v
+		}
+		var ret CertificatePoolCertificateAuthority
+		return ret
+	}).(CertificatePoolCertificateAuthorityOutput)
+}
+
+// The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+func (o CertificatePoolCertificateAuthorityPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificatePoolCertificateAuthority) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterLinkDestinationKafkaCluster struct {
 	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
@@ -20829,6 +20966,58 @@ func (o GetByokKeyGcpArrayOutput) Index(i pulumi.IntInput) GetByokKeyGcpOutput {
 	}).(GetByokKeyGcpOutput)
 }
 
+type GetCertificatePoolCertificateAuthority struct {
+	// The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// GetCertificatePoolCertificateAuthorityInput is an input type that accepts GetCertificatePoolCertificateAuthorityArgs and GetCertificatePoolCertificateAuthorityOutput values.
+// You can construct a concrete instance of `GetCertificatePoolCertificateAuthorityInput` via:
+//
+//	GetCertificatePoolCertificateAuthorityArgs{...}
+type GetCertificatePoolCertificateAuthorityInput interface {
+	pulumi.Input
+
+	ToGetCertificatePoolCertificateAuthorityOutput() GetCertificatePoolCertificateAuthorityOutput
+	ToGetCertificatePoolCertificateAuthorityOutputWithContext(context.Context) GetCertificatePoolCertificateAuthorityOutput
+}
+
+type GetCertificatePoolCertificateAuthorityArgs struct {
+	// The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetCertificatePoolCertificateAuthorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificatePoolCertificateAuthority)(nil)).Elem()
+}
+
+func (i GetCertificatePoolCertificateAuthorityArgs) ToGetCertificatePoolCertificateAuthorityOutput() GetCertificatePoolCertificateAuthorityOutput {
+	return i.ToGetCertificatePoolCertificateAuthorityOutputWithContext(context.Background())
+}
+
+func (i GetCertificatePoolCertificateAuthorityArgs) ToGetCertificatePoolCertificateAuthorityOutputWithContext(ctx context.Context) GetCertificatePoolCertificateAuthorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificatePoolCertificateAuthorityOutput)
+}
+
+type GetCertificatePoolCertificateAuthorityOutput struct{ *pulumi.OutputState }
+
+func (GetCertificatePoolCertificateAuthorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificatePoolCertificateAuthority)(nil)).Elem()
+}
+
+func (o GetCertificatePoolCertificateAuthorityOutput) ToGetCertificatePoolCertificateAuthorityOutput() GetCertificatePoolCertificateAuthorityOutput {
+	return o
+}
+
+func (o GetCertificatePoolCertificateAuthorityOutput) ToGetCertificatePoolCertificateAuthorityOutputWithContext(ctx context.Context) GetCertificatePoolCertificateAuthorityOutput {
+	return o
+}
+
+// The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+func (o GetCertificatePoolCertificateAuthorityOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificatePoolCertificateAuthority) string { return v.Id }).(pulumi.StringOutput)
+}
+
 type GetDnsRecordEnvironment struct {
 	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
 	Id string `pulumi:"id"`
@@ -32184,6 +32373,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntityAttributesCredentialsPtrInput)(nil)).Elem(), CatalogEntityAttributesCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntityAttributesSchemaRegistryClusterInput)(nil)).Elem(), CatalogEntityAttributesSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntityAttributesSchemaRegistryClusterPtrInput)(nil)).Elem(), CatalogEntityAttributesSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificatePoolCertificateAuthorityInput)(nil)).Elem(), CertificatePoolCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificatePoolCertificateAuthorityPtrInput)(nil)).Elem(), CertificatePoolCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterPtrInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterCredentialsInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterCredentialsArgs{})
@@ -32437,6 +32628,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAzureArrayInput)(nil)).Elem(), GetByokKeyAzureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpInput)(nil)).Elem(), GetByokKeyGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpArrayInput)(nil)).Elem(), GetByokKeyGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificatePoolCertificateAuthorityInput)(nil)).Elem(), GetCertificatePoolCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordEnvironmentInput)(nil)).Elem(), GetDnsRecordEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordGatewayInput)(nil)).Elem(), GetDnsRecordGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordGatewayArrayInput)(nil)).Elem(), GetDnsRecordGatewayArray{})
@@ -32656,6 +32848,8 @@ func init() {
 	pulumi.RegisterOutputType(CatalogEntityAttributesCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(CatalogEntityAttributesSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(CatalogEntityAttributesSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(CertificatePoolCertificateAuthorityOutput{})
+	pulumi.RegisterOutputType(CertificatePoolCertificateAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterCredentialsOutput{})
@@ -32909,6 +33103,7 @@ func init() {
 	pulumi.RegisterOutputType(GetByokKeyAzureArrayOutput{})
 	pulumi.RegisterOutputType(GetByokKeyGcpOutput{})
 	pulumi.RegisterOutputType(GetByokKeyGcpArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificatePoolCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordGatewayOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordGatewayArrayOutput{})

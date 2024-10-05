@@ -35,6 +35,16 @@ export type CatalogEntityAttributes = import("./catalogEntityAttributes").Catalo
 export const CatalogEntityAttributes: typeof import("./catalogEntityAttributes").CatalogEntityAttributes = null as any;
 utilities.lazyLoad(exports, ["CatalogEntityAttributes"], () => require("./catalogEntityAttributes"));
 
+export { CertificateAuthorityArgs, CertificateAuthorityState } from "./certificateAuthority";
+export type CertificateAuthority = import("./certificateAuthority").CertificateAuthority;
+export const CertificateAuthority: typeof import("./certificateAuthority").CertificateAuthority = null as any;
+utilities.lazyLoad(exports, ["CertificateAuthority"], () => require("./certificateAuthority"));
+
+export { CertificatePoolArgs, CertificatePoolState } from "./certificatePool";
+export type CertificatePool = import("./certificatePool").CertificatePool;
+export const CertificatePool: typeof import("./certificatePool").CertificatePool = null as any;
+utilities.lazyLoad(exports, ["CertificatePool"], () => require("./certificatePool"));
+
 export { ClusterLinkArgs, ClusterLinkState } from "./clusterLink";
 export type ClusterLink = import("./clusterLink").ClusterLink;
 export const ClusterLink: typeof import("./clusterLink").ClusterLink = null as any;
@@ -94,6 +104,16 @@ export { GetByokKeyArgs, GetByokKeyResult, GetByokKeyOutputArgs } from "./getByo
 export const getByokKey: typeof import("./getByokKey").getByokKey = null as any;
 export const getByokKeyOutput: typeof import("./getByokKey").getByokKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getByokKey","getByokKeyOutput"], () => require("./getByokKey"));
+
+export { GetCertificateAuthorityArgs, GetCertificateAuthorityResult, GetCertificateAuthorityOutputArgs } from "./getCertificateAuthority";
+export const getCertificateAuthority: typeof import("./getCertificateAuthority").getCertificateAuthority = null as any;
+export const getCertificateAuthorityOutput: typeof import("./getCertificateAuthority").getCertificateAuthorityOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificateAuthority","getCertificateAuthorityOutput"], () => require("./getCertificateAuthority"));
+
+export { GetCertificatePoolArgs, GetCertificatePoolResult, GetCertificatePoolOutputArgs } from "./getCertificatePool";
+export const getCertificatePool: typeof import("./getCertificatePool").getCertificatePool = null as any;
+export const getCertificatePoolOutput: typeof import("./getCertificatePool").getCertificatePoolOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificatePool","getCertificatePoolOutput"], () => require("./getCertificatePool"));
 
 export { GetDnsRecordArgs, GetDnsRecordResult, GetDnsRecordOutputArgs } from "./getDnsRecord";
 export const getDnsRecord: typeof import("./getDnsRecord").getDnsRecord = null as any;
@@ -496,6 +516,10 @@ const _module = {
                 return new ByokKey(name, <any>undefined, { urn })
             case "confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes":
                 return new CatalogEntityAttributes(name, <any>undefined, { urn })
+            case "confluentcloud:index/certificateAuthority:CertificateAuthority":
+                return new CertificateAuthority(name, <any>undefined, { urn })
+            case "confluentcloud:index/certificatePool:CertificatePool":
+                return new CertificatePool(name, <any>undefined, { urn })
             case "confluentcloud:index/clusterLink:ClusterLink":
                 return new ClusterLink(name, <any>undefined, { urn })
             case "confluentcloud:index/connector:Connector":
@@ -589,6 +613,8 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/businessMetadata"
 pulumi.runtime.registerResourceModule("confluentcloud", "index/businessMetadataBinding", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/byokKey", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/catalogEntityAttributes", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/certificateAuthority", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/certificatePool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/clusterLink", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/connector", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/customConnectorPlugin", _module)

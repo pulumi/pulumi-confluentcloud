@@ -11,6 +11,8 @@ from .business_metadata import *
 from .business_metadata_binding import *
 from .byok_key import *
 from .catalog_entity_attributes import *
+from .certificate_authority import *
+from .certificate_pool import *
 from .cluster_link import *
 from .connector import *
 from .custom_connector_plugin import *
@@ -23,6 +25,8 @@ from .get_access_point import *
 from .get_business_metadata import *
 from .get_business_metadata_binding import *
 from .get_byok_key import *
+from .get_certificate_authority import *
+from .get_certificate_pool import *
 from .get_dns_record import *
 from .get_environment import *
 from .get_environments import *
@@ -157,6 +161,22 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes": "CatalogEntityAttributes"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/certificateAuthority",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/certificateAuthority:CertificateAuthority": "CertificateAuthority"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/certificatePool",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/certificatePool:CertificatePool": "CertificatePool"
   }
  },
  {

@@ -230,6 +230,13 @@ export interface CatalogEntityAttributesSchemaRegistryCluster {
     id: pulumi.Input<string>;
 }
 
+export interface CertificatePoolCertificateAuthority {
+    /**
+     * The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface ClusterLinkDestinationKafkaCluster {
     /**
      * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -549,6 +556,20 @@ export interface GetBusinessMetadataSchemaRegistryCluster {
 export interface GetBusinessMetadataSchemaRegistryClusterArgs {
     /**
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetCertificatePoolCertificateAuthority {
+    /**
+     * The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+     */
+    id: string;
+}
+
+export interface GetCertificatePoolCertificateAuthorityArgs {
+    /**
+     * The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
      */
     id: pulumi.Input<string>;
 }

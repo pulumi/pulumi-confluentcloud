@@ -27,6 +27,7 @@ __all__ = [
     'ByokKeyGcpArgs',
     'CatalogEntityAttributesCredentialsArgs',
     'CatalogEntityAttributesSchemaRegistryClusterArgs',
+    'CertificatePoolCertificateAuthorityArgs',
     'ClusterLinkDestinationKafkaClusterArgs',
     'ClusterLinkDestinationKafkaClusterCredentialsArgs',
     'ClusterLinkLocalKafkaClusterArgs',
@@ -147,6 +148,7 @@ __all__ = [
     'GetBusinessMetadataBindingSchemaRegistryClusterArgs',
     'GetBusinessMetadataCredentialsArgs',
     'GetBusinessMetadataSchemaRegistryClusterArgs',
+    'GetCertificatePoolCertificateAuthorityArgs',
     'GetDnsRecordEnvironmentArgs',
     'GetEnvironmentStreamGovernanceArgs',
     'GetFlinkComputePoolEnvironmentArgs',
@@ -982,6 +984,28 @@ class CatalogEntityAttributesSchemaRegistryClusterArgs:
     def id(self) -> pulumi.Input[str]:
         """
         The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class CertificatePoolCertificateAuthorityArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
         """
         return pulumi.get(self, "id")
 
@@ -5014,6 +5038,28 @@ class GetBusinessMetadataSchemaRegistryClusterArgs:
     def id(self) -> str:
         """
         The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetCertificatePoolCertificateAuthorityArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
         """
         return pulumi.get(self, "id")
 
