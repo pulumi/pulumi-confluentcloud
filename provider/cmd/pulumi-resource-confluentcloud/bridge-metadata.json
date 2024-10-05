@@ -100,6 +100,28 @@
                     }
                 }
             },
+            "confluent_certificate_authority": {
+                "current": "confluentcloud:index/certificateAuthority:CertificateAuthority",
+                "fields": {
+                    "expiration_dates": {
+                        "maxItemsOne": false
+                    },
+                    "fingerprints": {
+                        "maxItemsOne": false
+                    },
+                    "serial_numbers": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_certificate_pool": {
+                "current": "confluentcloud:index/certificatePool:CertificatePool",
+                "fields": {
+                    "certificate_authority": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_cluster_link": {
                 "current": "confluentcloud:index/clusterLink:ClusterLink",
                 "fields": {
@@ -839,6 +861,28 @@
                     },
                     "gcp": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_certificate_authority": {
+                "current": "confluentcloud:index/getCertificateAuthority:getCertificateAuthority",
+                "fields": {
+                    "expiration_dates": {
+                        "maxItemsOne": false
+                    },
+                    "fingerprints": {
+                        "maxItemsOne": false
+                    },
+                    "serial_numbers": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_certificate_pool": {
+                "current": "confluentcloud:index/getCertificatePool:getCertificatePool",
+                "fields": {
+                    "certificate_authority": {
+                        "maxItemsOne": true
                     }
                 }
             },

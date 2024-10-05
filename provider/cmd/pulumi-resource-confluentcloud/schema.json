@@ -554,6 +554,19 @@
                 "id"
             ]
         },
+        "confluentcloud:index/CertificatePoolCertificateAuthority:CertificatePoolCertificateAuthority": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/ClusterLinkDestinationKafkaCluster:ClusterLinkDestinationKafkaCluster": {
             "properties": {
                 "bootstrapEndpoint": {
@@ -2873,6 +2886,18 @@
                     "requiredInputs": []
                 }
             }
+        },
+        "confluentcloud:index/getCertificatePoolCertificateAuthority:getCertificatePoolCertificateAuthority": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
         },
         "confluentcloud:index/getDnsRecordEnvironment:getDnsRecordEnvironment": {
             "properties": {
@@ -5629,6 +5654,258 @@
                     "schemaRegistryCluster": {
                         "$ref": "#/types/confluentcloud:index/CatalogEntityAttributesSchemaRegistryCluster:CatalogEntityAttributesSchemaRegistryCluster",
                         "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/certificateAuthority:CertificateAuthority": {
+            "description": "[![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.CertificateAuthority` provides a Certificate Authority resource that enables creating, editing, and deleting Certificate Authorities on Confluent Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = new confluentcloud.CertificateAuthority(\"main\", {\n    displayName: \"my_certificate_authority\",\n    description: \"description\",\n    certificateChainFilename: \"certificate.pem\",\n    certificateChain: \"***REDACTED***\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.CertificateAuthority(\"main\",\n    display_name=\"my_certificate_authority\",\n    description=\"description\",\n    certificate_chain_filename=\"certificate.pem\",\n    certificate_chain=\"***REDACTED***\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = new ConfluentCloud.CertificateAuthority(\"main\", new()\n    {\n        DisplayName = \"my_certificate_authority\",\n        Description = \"description\",\n        CertificateChainFilename = \"certificate.pem\",\n        CertificateChain = \"***REDACTED***\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewCertificateAuthority(ctx, \"main\", \u0026confluentcloud.CertificateAuthorityArgs{\n\t\t\tDisplayName:              pulumi.String(\"my_certificate_authority\"),\n\t\t\tDescription:              pulumi.String(\"description\"),\n\t\t\tCertificateChainFilename: pulumi.String(\"certificate.pem\"),\n\t\t\tCertificateChain:         pulumi.String(\"***REDACTED***\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.CertificateAuthority;\nimport com.pulumi.confluentcloud.CertificateAuthorityArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var main = new CertificateAuthority(\"main\", CertificateAuthorityArgs.builder()\n            .displayName(\"my_certificate_authority\")\n            .description(\"description\")\n            .certificateChainFilename(\"certificate.pem\")\n            .certificateChain(\"***REDACTED***\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: confluentcloud:CertificateAuthority\n    properties:\n      displayName: my_certificate_authority\n      description: description\n      certificateChainFilename: certificate.pem\n      certificateChain: '***REDACTED***'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Certificate Authority by using Certificate Authority ID, for example:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/certificateAuthority:CertificateAuthority main op-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "certificateChain": {
+                    "type": "string",
+                    "description": "A base64 encoded string containing the signing certificate chain.\n",
+                    "secret": true
+                },
+                "certificateChainFilename": {
+                    "type": "string",
+                    "description": "The name of the certificate file.\n"
+                },
+                "crlChain": {
+                    "type": "string",
+                    "description": "A base64 encoded string containing the CRL for this certificate authority.\n",
+                    "secret": true
+                },
+                "crlSource": {
+                    "type": "string",
+                    "description": "(Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL).\n"
+                },
+                "crlUpdatedAt": {
+                    "type": "string",
+                    "description": "(Optional String) The timestamp for when CRL was last updated.\n"
+                },
+                "crlUrl": {
+                    "type": "string",
+                    "description": "The url from which to fetch the CRL for the certificate authority.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the Certificate Authority.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Certificate Authority.\n"
+                },
+                "expirationDates": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Required List of Strings) The expiration dates of certificates in the chain.\n"
+                },
+                "fingerprints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Required List of Strings) The fingerprints for each certificate in the certificate chain.\n"
+                },
+                "serialNumbers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Required List of Strings) The serial numbers for each certificate in the certificate chain.\n"
+                }
+            },
+            "required": [
+                "certificateChain",
+                "certificateChainFilename",
+                "crlSource",
+                "crlUpdatedAt",
+                "description",
+                "displayName",
+                "expirationDates",
+                "fingerprints",
+                "serialNumbers"
+            ],
+            "inputProperties": {
+                "certificateChain": {
+                    "type": "string",
+                    "description": "A base64 encoded string containing the signing certificate chain.\n",
+                    "secret": true
+                },
+                "certificateChainFilename": {
+                    "type": "string",
+                    "description": "The name of the certificate file.\n"
+                },
+                "crlChain": {
+                    "type": "string",
+                    "description": "A base64 encoded string containing the CRL for this certificate authority.\n",
+                    "secret": true
+                },
+                "crlUrl": {
+                    "type": "string",
+                    "description": "The url from which to fetch the CRL for the certificate authority.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the Certificate Authority.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Certificate Authority.\n"
+                }
+            },
+            "requiredInputs": [
+                "certificateChain",
+                "certificateChainFilename",
+                "description",
+                "displayName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CertificateAuthority resources.\n",
+                "properties": {
+                    "certificateChain": {
+                        "type": "string",
+                        "description": "A base64 encoded string containing the signing certificate chain.\n",
+                        "secret": true
+                    },
+                    "certificateChainFilename": {
+                        "type": "string",
+                        "description": "The name of the certificate file.\n"
+                    },
+                    "crlChain": {
+                        "type": "string",
+                        "description": "A base64 encoded string containing the CRL for this certificate authority.\n",
+                        "secret": true
+                    },
+                    "crlSource": {
+                        "type": "string",
+                        "description": "(Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL).\n"
+                    },
+                    "crlUpdatedAt": {
+                        "type": "string",
+                        "description": "(Optional String) The timestamp for when CRL was last updated.\n"
+                    },
+                    "crlUrl": {
+                        "type": "string",
+                        "description": "The url from which to fetch the CRL for the certificate authority.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the Certificate Authority.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Certificate Authority.\n"
+                    },
+                    "expirationDates": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(Required List of Strings) The expiration dates of certificates in the chain.\n"
+                    },
+                    "fingerprints": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(Required List of Strings) The fingerprints for each certificate in the certificate chain.\n"
+                    },
+                    "serialNumbers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(Required List of Strings) The serial numbers for each certificate in the certificate chain.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/certificatePool:CertificatePool": {
+            "description": "[![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.CertificatePool` provides a Certificate Pool resource that enables creating, editing, and deleting Certificate Pools on Confluent Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = new confluentcloud.CertificatePool(\"main\", {\n    certificateAuthority: {\n        id: mainConfluentCertificateAuthority.id,\n    },\n    displayName: \"my-certificate-pool\",\n    description: \"example description\",\n    externalIdentifier: \"CN\",\n    filter: \"CN == \\\"test\\\"\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.CertificatePool(\"main\",\n    certificate_authority={\n        \"id\": main_confluent_certificate_authority[\"id\"],\n    },\n    display_name=\"my-certificate-pool\",\n    description=\"example description\",\n    external_identifier=\"CN\",\n    filter=\"CN == \\\"test\\\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = new ConfluentCloud.CertificatePool(\"main\", new()\n    {\n        CertificateAuthority = new ConfluentCloud.Inputs.CertificatePoolCertificateAuthorityArgs\n        {\n            Id = mainConfluentCertificateAuthority.Id,\n        },\n        DisplayName = \"my-certificate-pool\",\n        Description = \"example description\",\n        ExternalIdentifier = \"CN\",\n        Filter = \"CN == \\\"test\\\"\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewCertificatePool(ctx, \"main\", \u0026confluentcloud.CertificatePoolArgs{\n\t\t\tCertificateAuthority: \u0026confluentcloud.CertificatePoolCertificateAuthorityArgs{\n\t\t\t\tId: pulumi.Any(mainConfluentCertificateAuthority.Id),\n\t\t\t},\n\t\t\tDisplayName:        pulumi.String(\"my-certificate-pool\"),\n\t\t\tDescription:        pulumi.String(\"example description\"),\n\t\t\tExternalIdentifier: pulumi.String(\"CN\"),\n\t\t\tFilter:             pulumi.String(\"CN == \\\"test\\\"\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.CertificatePool;\nimport com.pulumi.confluentcloud.CertificatePoolArgs;\nimport com.pulumi.confluentcloud.inputs.CertificatePoolCertificateAuthorityArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var main = new CertificatePool(\"main\", CertificatePoolArgs.builder()\n            .certificateAuthority(CertificatePoolCertificateAuthorityArgs.builder()\n                .id(mainConfluentCertificateAuthority.id())\n                .build())\n            .displayName(\"my-certificate-pool\")\n            .description(\"example description\")\n            .externalIdentifier(\"CN\")\n            .filter(\"CN == \\\"test\\\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: confluentcloud:CertificatePool\n    properties:\n      certificateAuthority:\n        id: ${mainConfluentCertificateAuthority.id}\n      displayName: my-certificate-pool\n      description: example description\n      externalIdentifier: CN\n      filter: CN == \"test\"\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Certificate Pool by using Certificate Authority ID and Certificate Pool ID, in the format `\u003cCertificate Authority ID\u003e/\u003cCertificate Pool ID\u003e`. The following example shows how to import a Certificate Pool:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/certificatePool:CertificatePool main op-abc123/pool-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "certificateAuthority": {
+                    "$ref": "#/types/confluentcloud:index/CertificatePoolCertificateAuthority:CertificatePoolCertificateAuthority"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the Certificate Pool.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Certificate Pool.\n"
+                },
+                "externalIdentifier": {
+                    "type": "string",
+                    "description": "The certificate field that will be used to represent the pool's external identity for audit logging.\n"
+                },
+                "filter": {
+                    "type": "string",
+                    "description": "A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/mtls/cel-filters.html) that specifies which identities can authenticate using your certificate pool.\n"
+                }
+            },
+            "required": [
+                "certificateAuthority",
+                "description",
+                "displayName",
+                "externalIdentifier",
+                "filter"
+            ],
+            "inputProperties": {
+                "certificateAuthority": {
+                    "$ref": "#/types/confluentcloud:index/CertificatePoolCertificateAuthority:CertificatePoolCertificateAuthority",
+                    "willReplaceOnChanges": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the Certificate Pool.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Certificate Pool.\n"
+                },
+                "externalIdentifier": {
+                    "type": "string",
+                    "description": "The certificate field that will be used to represent the pool's external identity for audit logging.\n"
+                },
+                "filter": {
+                    "type": "string",
+                    "description": "A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/mtls/cel-filters.html) that specifies which identities can authenticate using your certificate pool.\n"
+                }
+            },
+            "requiredInputs": [
+                "certificateAuthority",
+                "description",
+                "displayName",
+                "externalIdentifier",
+                "filter"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CertificatePool resources.\n",
+                "properties": {
+                    "certificateAuthority": {
+                        "$ref": "#/types/confluentcloud:index/CertificatePoolCertificateAuthority:CertificatePoolCertificateAuthority",
+                        "willReplaceOnChanges": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the Certificate Pool.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Certificate Pool.\n"
+                    },
+                    "externalIdentifier": {
+                        "type": "string",
+                        "description": "The certificate field that will be used to represent the pool's external identity for audit logging.\n"
+                    },
+                    "filter": {
+                        "type": "string",
+                        "description": "A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/mtls/cel-filters.html) that specifies which identities can authenticate using your certificate pool.\n"
                     }
                 },
                 "type": "object"
@@ -10553,6 +10830,156 @@
                     "aws",
                     "azures",
                     "gcps",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getCertificateAuthority:getCertificateAuthority": {
+            "description": "[![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.CertificateAuthority` describes a Certificate Authority data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getCertificateAuthority({\n    id: \"op-abc123\",\n});\nexport const certificateAuthority = main;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_certificate_authority(id=\"op-abc123\")\npulumi.export(\"certificateAuthority\", main)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetCertificateAuthority.Invoke(new()\n    {\n        Id = \"op-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"certificateAuthority\"] = main,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.LookupCertificateAuthority(ctx, \u0026confluentcloud.LookupCertificateAuthorityArgs{\n\t\t\tId: \"op-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"certificateAuthority\", main)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()\n            .id(\"op-abc123\")\n            .build());\n\n        ctx.export(\"certificateAuthority\", main.applyValue(getCertificateAuthorityResult -\u003e getCertificateAuthorityResult));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getCertificateAuthority\n      Arguments:\n        id: op-abc123\noutputs:\n  certificateAuthority: ${main}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getCertificateAuthority.\n",
+                "properties": {
+                    "crlSource": {
+                        "type": "string",
+                        "description": "(Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.\n"
+                    },
+                    "crlUpdatedAt": {
+                        "type": "string",
+                        "description": "(Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.\n"
+                    },
+                    "crlUrl": {
+                        "type": "string",
+                        "description": "(Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Certificate Authority, for example, `op-abc123`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCertificateAuthority.\n",
+                "properties": {
+                    "certificateChainFilename": {
+                        "description": "(Required String) The name of the certificate file, for example, `certificate.pem`.\n",
+                        "type": "string"
+                    },
+                    "crlSource": {
+                        "description": "(Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL). Accepted values are `LOCAL` and `URL`.\n",
+                        "type": "string"
+                    },
+                    "crlUpdatedAt": {
+                        "description": "(Optional String) The timestamp for when CRL was last updated, for example, `2017-07-21T17:32:28Z`.\n",
+                        "type": "string"
+                    },
+                    "crlUrl": {
+                        "description": "(Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "(Required String) A description for the Certificate Authority.\n",
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "description": "(Required String) A human-readable name for the Certificate Authority.\n",
+                        "type": "string"
+                    },
+                    "expirationDates": {
+                        "description": "(Required List of Strings) The expiration dates of certificates in the chain, for example, `[\"2017-07-21T17:32:28Z\"]`.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "fingerprints": {
+                        "description": "(Required List of Strings) The fingerprints for each certificate in the certificate chain, for example, `[\"B1BC968BD4f49D622AA89A81F2150152A41D829C\"]`.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "serialNumbers": {
+                        "description": "(Required List of Strings) The serial numbers for each certificate in the certificate chain.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "certificateChainFilename",
+                    "crlSource",
+                    "crlUpdatedAt",
+                    "crlUrl",
+                    "description",
+                    "displayName",
+                    "expirationDates",
+                    "fingerprints",
+                    "id",
+                    "serialNumbers"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getCertificatePool:getCertificatePool": {
+            "description": "[![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.CertificatePool` describes a Certificate Pool data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getCertificatePool({\n    id: \"pool-def456\",\n    certificateAuthority: {\n        id: \"op-abc123\",\n    },\n});\nexport const certificatePool = main;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_certificate_pool(id=\"pool-def456\",\n    certificate_authority={\n        \"id\": \"op-abc123\",\n    })\npulumi.export(\"certificatePool\", main)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetCertificatePool.Invoke(new()\n    {\n        Id = \"pool-def456\",\n        CertificateAuthority = new ConfluentCloud.Inputs.GetCertificatePoolCertificateAuthorityInputArgs\n        {\n            Id = \"op-abc123\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"certificatePool\"] = main,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.LookupCertificatePool(ctx, \u0026confluentcloud.LookupCertificatePoolArgs{\n\t\t\tId: \"pool-def456\",\n\t\t\tCertificateAuthority: confluentcloud.GetCertificatePoolCertificateAuthority{\n\t\t\t\tId: \"op-abc123\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"certificatePool\", main)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;\nimport com.pulumi.confluentcloud.inputs.GetCertificatePoolCertificateAuthorityArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getCertificatePool(GetCertificatePoolArgs.builder()\n            .id(\"pool-def456\")\n            .certificateAuthority(GetCertificatePoolCertificateAuthorityArgs.builder()\n                .id(\"op-abc123\")\n                .build())\n            .build());\n\n        ctx.export(\"certificatePool\", main.applyValue(getCertificatePoolResult -\u003e getCertificatePoolResult));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getCertificatePool\n      Arguments:\n        id: pool-def456\n        certificateAuthority:\n          id: op-abc123\noutputs:\n  certificatePool: ${main}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getCertificatePool.\n",
+                "properties": {
+                    "certificateAuthority": {
+                        "$ref": "#/types/confluentcloud:index/getCertificatePoolCertificateAuthority:getCertificatePoolCertificateAuthority"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Certificate Pool, for example, `pool-abc123`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "certificateAuthority",
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCertificatePool.\n",
+                "properties": {
+                    "certificateAuthority": {
+                        "$ref": "#/types/confluentcloud:index/getCertificatePoolCertificateAuthority:getCertificatePoolCertificateAuthority"
+                    },
+                    "description": {
+                        "description": "(Required String) A description of the Certificate Pool.\n",
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "description": "(Required String) A human-readable name for the Certificate Pool.\n",
+                        "type": "string"
+                    },
+                    "externalIdentifier": {
+                        "description": "(Required String) The certificate field that will be used to represent the pool's external identity for audit logging, for example, `UID`.\n",
+                        "type": "string"
+                    },
+                    "filter": {
+                        "description": "(Required String) A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/mtls/cel-filters.html) that specifies which identities can authenticate using your certificate pool.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "certificateAuthority",
+                    "description",
+                    "displayName",
+                    "externalIdentifier",
+                    "filter",
                     "id"
                 ],
                 "type": "object"
