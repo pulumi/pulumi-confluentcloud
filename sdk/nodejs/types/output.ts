@@ -230,6 +230,13 @@ export interface CatalogEntityAttributesSchemaRegistryCluster {
     id: string;
 }
 
+export interface CertificatePoolCertificateAuthority {
+    /**
+     * The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+     */
+    id: string;
+}
+
 export interface ClusterLinkDestinationKafkaCluster {
     /**
      * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -631,6 +638,13 @@ export interface GetByokKeyGcp {
      * (Optional String) The Google security group created for this key.
      */
     securityGroup: string;
+}
+
+export interface GetCertificatePoolCertificateAuthority {
+    /**
+     * The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+     */
+    id: string;
 }
 
 export interface GetDnsRecordEnvironment {

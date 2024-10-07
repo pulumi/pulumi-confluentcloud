@@ -28,6 +28,7 @@ __all__ = [
     'ByokKeyGcp',
     'CatalogEntityAttributesCredentials',
     'CatalogEntityAttributesSchemaRegistryCluster',
+    'CertificatePoolCertificateAuthority',
     'ClusterLinkDestinationKafkaCluster',
     'ClusterLinkDestinationKafkaClusterCredentials',
     'ClusterLinkLocalKafkaCluster',
@@ -155,6 +156,7 @@ __all__ = [
     'GetByokKeyAwResult',
     'GetByokKeyAzureResult',
     'GetByokKeyGcpResult',
+    'GetCertificatePoolCertificateAuthorityResult',
     'GetDnsRecordEnvironmentResult',
     'GetDnsRecordGatewayResult',
     'GetDnsRecordPrivateLinkAccessPointResult',
@@ -1028,6 +1030,24 @@ class CatalogEntityAttributesSchemaRegistryCluster(dict):
     def id(self) -> str:
         """
         The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CertificatePoolCertificateAuthority(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
         """
         return pulumi.get(self, "id")
 
@@ -5130,6 +5150,24 @@ class GetByokKeyGcpResult(dict):
         (Optional String) The Google security group created for this key.
         """
         return pulumi.get(self, "security_group")
+
+
+@pulumi.output_type
+class GetCertificatePoolCertificateAuthorityResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
