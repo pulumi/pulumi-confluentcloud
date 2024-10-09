@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -130,9 +135,6 @@ def get_identity_provider(display_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         issuer=pulumi.get(__ret__, 'issuer'),
         jwks_uri=pulumi.get(__ret__, 'jwks_uri'))
-
-
-@_utilities.lift_output_func(get_identity_provider)
 def get_identity_provider_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                  id: Optional[pulumi.Input[Optional[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityProviderResult]:
@@ -159,4 +161,14 @@ def get_identity_provider_output(display_name: Optional[pulumi.Input[Optional[st
            > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param str id: The ID of the Identity Provider, for example, `op-abc123`.
     """
-    ...
+    __args__ = dict()
+    __args__['displayName'] = display_name
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getIdentityProvider:getIdentityProvider', __args__, opts=opts, typ=GetIdentityProviderResult)
+    return __ret__.apply(lambda __response__: GetIdentityProviderResult(
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        issuer=pulumi.get(__response__, 'issuer'),
+        jwks_uri=pulumi.get(__response__, 'jwks_uri')))

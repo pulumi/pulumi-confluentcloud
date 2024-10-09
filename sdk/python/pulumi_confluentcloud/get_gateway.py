@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -150,9 +155,6 @@ def get_gateway(environment: Optional[Union['GetGatewayEnvironmentArgs', 'GetGat
         display_name=pulumi.get(__ret__, 'display_name'),
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_gateway)
 def get_gateway_output(environment: Optional[pulumi.Input[Union['GetGatewayEnvironmentArgs', 'GetGatewayEnvironmentArgsDict']]] = None,
                        id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
@@ -177,4 +179,16 @@ def get_gateway_output(environment: Optional[pulumi.Input[Union['GetGatewayEnvir
 
     :param str id: The ID of the Gateway, for example, `gw-abc123`.
     """
-    ...
+    __args__ = dict()
+    __args__['environment'] = environment
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getGateway:getGateway', __args__, opts=opts, typ=GetGatewayResult)
+    return __ret__.apply(lambda __response__: GetGatewayResult(
+        aws_egress_private_link_gateways=pulumi.get(__response__, 'aws_egress_private_link_gateways'),
+        aws_peering_gateways=pulumi.get(__response__, 'aws_peering_gateways'),
+        azure_egress_private_link_gateways=pulumi.get(__response__, 'azure_egress_private_link_gateways'),
+        azure_peering_gateways=pulumi.get(__response__, 'azure_peering_gateways'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        environment=pulumi.get(__response__, 'environment'),
+        id=pulumi.get(__response__, 'id')))

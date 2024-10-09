@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -153,9 +158,6 @@ def get_network_link_endpoint(environment: Optional[Union['GetNetworkLinkEndpoin
         network_link_services=pulumi.get(__ret__, 'network_link_services'),
         networks=pulumi.get(__ret__, 'networks'),
         resource_name=pulumi.get(__ret__, 'resource_name'))
-
-
-@_utilities.lift_output_func(get_network_link_endpoint)
 def get_network_link_endpoint_output(environment: Optional[pulumi.Input[Union['GetNetworkLinkEndpointEnvironmentArgs', 'GetNetworkLinkEndpointEnvironmentArgsDict']]] = None,
                                      id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkLinkEndpointResult]:
@@ -180,4 +182,16 @@ def get_network_link_endpoint_output(environment: Optional[pulumi.Input[Union['G
 
     :param str id: The ID of the Network Link Endpoint, for example, `nle-zyw30`.
     """
-    ...
+    __args__ = dict()
+    __args__['environment'] = environment
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint', __args__, opts=opts, typ=GetNetworkLinkEndpointResult)
+    return __ret__.apply(lambda __response__: GetNetworkLinkEndpointResult(
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        environment=pulumi.get(__response__, 'environment'),
+        id=pulumi.get(__response__, 'id'),
+        network_link_services=pulumi.get(__response__, 'network_link_services'),
+        networks=pulumi.get(__response__, 'networks'),
+        resource_name=pulumi.get(__response__, 'resource_name')))

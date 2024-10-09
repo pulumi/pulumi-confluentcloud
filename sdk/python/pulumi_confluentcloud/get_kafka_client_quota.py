@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -152,9 +157,6 @@ def get_kafka_client_quota(id: Optional[str] = None,
         kafka_clusters=pulumi.get(__ret__, 'kafka_clusters'),
         principals=pulumi.get(__ret__, 'principals'),
         throughputs=pulumi.get(__ret__, 'throughputs'))
-
-
-@_utilities.lift_output_func(get_kafka_client_quota)
 def get_kafka_client_quota_output(id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaClientQuotaResult]:
     """
@@ -177,4 +179,15 @@ def get_kafka_client_quota_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the Kafka Client Quota (for example, `cq-abc123`).
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota', __args__, opts=opts, typ=GetKafkaClientQuotaResult)
+    return __ret__.apply(lambda __response__: GetKafkaClientQuotaResult(
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        environments=pulumi.get(__response__, 'environments'),
+        id=pulumi.get(__response__, 'id'),
+        kafka_clusters=pulumi.get(__response__, 'kafka_clusters'),
+        principals=pulumi.get(__response__, 'principals'),
+        throughputs=pulumi.get(__response__, 'throughputs')))

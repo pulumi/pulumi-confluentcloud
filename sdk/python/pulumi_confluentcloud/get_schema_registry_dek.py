@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -187,9 +192,6 @@ def get_schema_registry_dek(algorithm: Optional[str] = None,
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
         subject_name=pulumi.get(__ret__, 'subject_name'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_schema_registry_dek)
 def get_schema_registry_dek_output(algorithm: Optional[pulumi.Input[Optional[str]]] = None,
                                    credentials: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryDekCredentialsArgs', 'GetSchemaRegistryDekCredentialsArgsDict']]]] = None,
                                    kek_name: Optional[pulumi.Input[str]] = None,
@@ -209,4 +211,25 @@ def get_schema_registry_dek_output(algorithm: Optional[pulumi.Input[Optional[str
     :param str subject_name: The subject for this DEK.
     :param int version: The version of this DEK. Defaults to `1`.
     """
-    ...
+    __args__ = dict()
+    __args__['algorithm'] = algorithm
+    __args__['credentials'] = credentials
+    __args__['kekName'] = kek_name
+    __args__['restEndpoint'] = rest_endpoint
+    __args__['schemaRegistryCluster'] = schema_registry_cluster
+    __args__['subjectName'] = subject_name
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek', __args__, opts=opts, typ=GetSchemaRegistryDekResult)
+    return __ret__.apply(lambda __response__: GetSchemaRegistryDekResult(
+        algorithm=pulumi.get(__response__, 'algorithm'),
+        credentials=pulumi.get(__response__, 'credentials'),
+        encrypted_key_material=pulumi.get(__response__, 'encrypted_key_material'),
+        hard_delete=pulumi.get(__response__, 'hard_delete'),
+        id=pulumi.get(__response__, 'id'),
+        kek_name=pulumi.get(__response__, 'kek_name'),
+        key_material=pulumi.get(__response__, 'key_material'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__response__, 'schema_registry_cluster'),
+        subject_name=pulumi.get(__response__, 'subject_name'),
+        version=pulumi.get(__response__, 'version')))

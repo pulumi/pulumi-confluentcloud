@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -191,9 +196,6 @@ def get_flink_compute_pool(display_name: Optional[str] = None,
         max_cfu=pulumi.get(__ret__, 'max_cfu'),
         region=pulumi.get(__ret__, 'region'),
         resource_name=pulumi.get(__ret__, 'resource_name'))
-
-
-@_utilities.lift_output_func(get_flink_compute_pool)
 def get_flink_compute_pool_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                   environment: Optional[pulumi.Input[Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict']]] = None,
                                   id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -226,4 +228,19 @@ def get_flink_compute_pool_output(display_name: Optional[pulumi.Input[Optional[s
     :param Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
     """
-    ...
+    __args__ = dict()
+    __args__['displayName'] = display_name
+    __args__['environment'] = environment
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getFlinkComputePool:getFlinkComputePool', __args__, opts=opts, typ=GetFlinkComputePoolResult)
+    return __ret__.apply(lambda __response__: GetFlinkComputePoolResult(
+        api_version=pulumi.get(__response__, 'api_version'),
+        cloud=pulumi.get(__response__, 'cloud'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        environment=pulumi.get(__response__, 'environment'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        max_cfu=pulumi.get(__response__, 'max_cfu'),
+        region=pulumi.get(__response__, 'region'),
+        resource_name=pulumi.get(__response__, 'resource_name')))

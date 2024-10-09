@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -119,9 +124,6 @@ def get_schemas(credentials: Optional[Union['GetSchemasCredentialsArgs', 'GetSch
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
         schemas=pulumi.get(__ret__, 'schemas'))
-
-
-@_utilities.lift_output_func(get_schemas)
 def get_schemas_output(credentials: Optional[pulumi.Input[Optional[Union['GetSchemasCredentialsArgs', 'GetSchemasCredentialsArgsDict']]]] = None,
                        filter: Optional[pulumi.Input[Optional[Union['GetSchemasFilterArgs', 'GetSchemasFilterArgsDict']]]] = None,
                        rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
@@ -132,4 +134,17 @@ def get_schemas_output(credentials: Optional[pulumi.Input[Optional[Union['GetSch
 
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """
-    ...
+    __args__ = dict()
+    __args__['credentials'] = credentials
+    __args__['filter'] = filter
+    __args__['restEndpoint'] = rest_endpoint
+    __args__['schemaRegistryCluster'] = schema_registry_cluster
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSchemas:getSchemas', __args__, opts=opts, typ=GetSchemasResult)
+    return __ret__.apply(lambda __response__: GetSchemasResult(
+        credentials=pulumi.get(__response__, 'credentials'),
+        filter=pulumi.get(__response__, 'filter'),
+        id=pulumi.get(__response__, 'id'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__response__, 'schema_registry_cluster'),
+        schemas=pulumi.get(__response__, 'schemas')))

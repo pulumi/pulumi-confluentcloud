@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -137,9 +142,6 @@ def get_certificate_pool(certificate_authority: Optional[Union['GetCertificatePo
         external_identifier=pulumi.get(__ret__, 'external_identifier'),
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_certificate_pool)
 def get_certificate_pool_output(certificate_authority: Optional[pulumi.Input[Union['GetCertificatePoolCertificateAuthorityArgs', 'GetCertificatePoolCertificateAuthorityArgsDict']]] = None,
                                 id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificatePoolResult]:
@@ -164,4 +166,15 @@ def get_certificate_pool_output(certificate_authority: Optional[pulumi.Input[Uni
 
     :param str id: The ID of the Certificate Pool, for example, `pool-abc123`.
     """
-    ...
+    __args__ = dict()
+    __args__['certificateAuthority'] = certificate_authority
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getCertificatePool:getCertificatePool', __args__, opts=opts, typ=GetCertificatePoolResult)
+    return __ret__.apply(lambda __response__: GetCertificatePoolResult(
+        certificate_authority=pulumi.get(__response__, 'certificate_authority'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        external_identifier=pulumi.get(__response__, 'external_identifier'),
+        filter=pulumi.get(__response__, 'filter'),
+        id=pulumi.get(__response__, 'id')))
