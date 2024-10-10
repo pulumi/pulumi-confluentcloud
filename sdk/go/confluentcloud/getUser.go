@@ -55,7 +55,7 @@ import (
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("AWS"),
 //				Region:       pulumi.String("us-west-2"),
-//				Standard:     nil,
+//				Standard:     &confluentcloud.KafkaClusterStandardArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
 //					Id: test_env.ID(),
 //				},

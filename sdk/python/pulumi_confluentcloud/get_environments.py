@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -79,9 +84,6 @@ def get_environments(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     return AwaitableGetEnvironmentsResult(
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'))
-
-
-@_utilities.lift_output_func(get_environments)
 def get_environments_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentsResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -98,4 +100,9 @@ def get_environments_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     pulumi.export("environments", main.ids)
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getEnvironments:getEnvironments', __args__, opts=opts, typ=GetEnvironmentsResult)
+    return __ret__.apply(lambda __response__: GetEnvironmentsResult(
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids')))

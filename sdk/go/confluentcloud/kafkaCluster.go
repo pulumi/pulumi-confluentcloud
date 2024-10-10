@@ -39,7 +39,7 @@ import (
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("AWS"),
 //				Region:       pulumi.String("us-east-2"),
-//				Basic:        nil,
+//				Basic:        &confluentcloud.KafkaClusterBasicArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
 //					Id: development.ID(),
 //				},
@@ -52,7 +52,7 @@ import (
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("AWS"),
 //				Region:       pulumi.String("us-east-2"),
-//				Standard:     nil,
+//				Standard:     &confluentcloud.KafkaClusterStandardArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
 //					Id: development.ID(),
 //				},
@@ -77,7 +77,7 @@ import (
 //			}
 //			_, err = confluentcloud.NewKafkaCluster(ctx, "freight", &confluentcloud.KafkaClusterArgs{
 //				Freights: confluentcloud.KafkaClusterFreightArray{
-//					nil,
+//					&confluentcloud.KafkaClusterFreightArgs{},
 //				},
 //				DisplayName:  pulumi.String("freight_kafka_cluster"),
 //				Availability: pulumi.String("HIGH"),
@@ -124,7 +124,7 @@ import (
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("AZURE"),
 //				Region:       pulumi.String("centralus"),
-//				Basic:        nil,
+//				Basic:        &confluentcloud.KafkaClusterBasicArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
 //					Id: development.ID(),
 //				},
@@ -137,7 +137,7 @@ import (
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("AZURE"),
 //				Region:       pulumi.String("centralus"),
-//				Standard:     nil,
+//				Standard:     &confluentcloud.KafkaClusterStandardArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
 //					Id: development.ID(),
 //				},
@@ -191,7 +191,7 @@ import (
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("GCP"),
 //				Region:       pulumi.String("us-central1"),
-//				Basic:        nil,
+//				Basic:        &confluentcloud.KafkaClusterBasicArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
 //					Id: development.ID(),
 //				},
@@ -204,7 +204,7 @@ import (
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("GCP"),
 //				Region:       pulumi.String("us-central1"),
-//				Standard:     nil,
+//				Standard:     &confluentcloud.KafkaClusterStandardArgs{},
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
 //					Id: development.ID(),
 //				},

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -146,9 +151,6 @@ def get_business_metadata_binding(business_metadata_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'))
-
-
-@_utilities.lift_output_func(get_business_metadata_binding)
 def get_business_metadata_binding_output(business_metadata_name: Optional[pulumi.Input[str]] = None,
                                          credentials: Optional[pulumi.Input[Optional[Union['GetBusinessMetadataBindingCredentialsArgs', 'GetBusinessMetadataBindingCredentialsArgsDict']]]] = None,
                                          entity_name: Optional[pulumi.Input[str]] = None,
@@ -164,4 +166,21 @@ def get_business_metadata_binding_output(business_metadata_name: Optional[pulumi
     :param str entity_type: The entity type, for example, `sr_schema`.
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """
-    ...
+    __args__ = dict()
+    __args__['businessMetadataName'] = business_metadata_name
+    __args__['credentials'] = credentials
+    __args__['entityName'] = entity_name
+    __args__['entityType'] = entity_type
+    __args__['restEndpoint'] = rest_endpoint
+    __args__['schemaRegistryCluster'] = schema_registry_cluster
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding', __args__, opts=opts, typ=GetBusinessMetadataBindingResult)
+    return __ret__.apply(lambda __response__: GetBusinessMetadataBindingResult(
+        attributes=pulumi.get(__response__, 'attributes'),
+        business_metadata_name=pulumi.get(__response__, 'business_metadata_name'),
+        credentials=pulumi.get(__response__, 'credentials'),
+        entity_name=pulumi.get(__response__, 'entity_name'),
+        entity_type=pulumi.get(__response__, 'entity_type'),
+        id=pulumi.get(__response__, 'id'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__response__, 'schema_registry_cluster')))

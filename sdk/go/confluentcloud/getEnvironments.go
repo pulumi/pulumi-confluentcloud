@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.GetEnvironments(ctx, nil, nil)
+//			main, err := confluentcloud.GetEnvironments(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

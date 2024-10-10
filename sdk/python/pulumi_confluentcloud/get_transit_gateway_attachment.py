@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -139,9 +144,6 @@ def get_transit_gateway_attachment(display_name: Optional[str] = None,
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'),
         networks=pulumi.get(__ret__, 'networks'))
-
-
-@_utilities.lift_output_func(get_transit_gateway_attachment)
 def get_transit_gateway_attachment_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                           environment: Optional[pulumi.Input[Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict']]] = None,
                                           id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -174,4 +176,15 @@ def get_transit_gateway_attachment_output(display_name: Optional[pulumi.Input[Op
     :param Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Peering, for example, `tgwa-abc123`.
     """
-    ...
+    __args__ = dict()
+    __args__['displayName'] = display_name
+    __args__['environment'] = environment
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment', __args__, opts=opts, typ=GetTransitGatewayAttachmentResult)
+    return __ret__.apply(lambda __response__: GetTransitGatewayAttachmentResult(
+        aws=pulumi.get(__response__, 'aws'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        environment=pulumi.get(__response__, 'environment'),
+        id=pulumi.get(__response__, 'id'),
+        networks=pulumi.get(__response__, 'networks')))

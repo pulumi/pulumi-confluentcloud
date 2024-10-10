@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluentcloud.GetOrganization(ctx, nil, nil)
+//			example, err := confluentcloud.GetOrganization(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

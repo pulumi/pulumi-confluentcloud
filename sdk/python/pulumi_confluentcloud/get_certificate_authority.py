@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -194,9 +199,6 @@ def get_certificate_authority(crl_source: Optional[str] = None,
         fingerprints=pulumi.get(__ret__, 'fingerprints'),
         id=pulumi.get(__ret__, 'id'),
         serial_numbers=pulumi.get(__ret__, 'serial_numbers'))
-
-
-@_utilities.lift_output_func(get_certificate_authority)
 def get_certificate_authority_output(crl_source: Optional[pulumi.Input[Optional[str]]] = None,
                                      crl_updated_at: Optional[pulumi.Input[Optional[str]]] = None,
                                      crl_url: Optional[pulumi.Input[Optional[str]]] = None,
@@ -223,4 +225,21 @@ def get_certificate_authority_output(crl_source: Optional[pulumi.Input[Optional[
     :param str crl_url: (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
     :param str id: The ID of the Certificate Authority, for example, `op-abc123`.
     """
-    ...
+    __args__ = dict()
+    __args__['crlSource'] = crl_source
+    __args__['crlUpdatedAt'] = crl_updated_at
+    __args__['crlUrl'] = crl_url
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult)
+    return __ret__.apply(lambda __response__: GetCertificateAuthorityResult(
+        certificate_chain_filename=pulumi.get(__response__, 'certificate_chain_filename'),
+        crl_source=pulumi.get(__response__, 'crl_source'),
+        crl_updated_at=pulumi.get(__response__, 'crl_updated_at'),
+        crl_url=pulumi.get(__response__, 'crl_url'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        expiration_dates=pulumi.get(__response__, 'expiration_dates'),
+        fingerprints=pulumi.get(__response__, 'fingerprints'),
+        id=pulumi.get(__response__, 'id'),
+        serial_numbers=pulumi.get(__response__, 'serial_numbers')))

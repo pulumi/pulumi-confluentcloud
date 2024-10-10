@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -104,9 +109,6 @@ def get_ip_addresses(filter: Optional[Union['GetIpAddressesFilterArgs', 'GetIpAd
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         ip_addresses=pulumi.get(__ret__, 'ip_addresses'))
-
-
-@_utilities.lift_output_func(get_ip_addresses)
 def get_ip_addresses_output(filter: Optional[pulumi.Input[Optional[Union['GetIpAddressesFilterArgs', 'GetIpAddressesFilterArgsDict']]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpAddressesResult]:
     """
@@ -135,4 +137,11 @@ def get_ip_addresses_output(filter: Optional[pulumi.Input[Optional[Union['GetIpA
     pulumi.export("ipAddresses", main.ip_addresses)
     ```
     """
-    ...
+    __args__ = dict()
+    __args__['filter'] = filter
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getIpAddresses:getIpAddresses', __args__, opts=opts, typ=GetIpAddressesResult)
+    return __ret__.apply(lambda __response__: GetIpAddressesResult(
+        filter=pulumi.get(__response__, 'filter'),
+        id=pulumi.get(__response__, 'id'),
+        ip_addresses=pulumi.get(__response__, 'ip_addresses')))

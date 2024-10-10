@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -238,9 +243,6 @@ def get_ksql_cluster(display_name: Optional[str] = None,
         storage=pulumi.get(__ret__, 'storage'),
         topic_prefix=pulumi.get(__ret__, 'topic_prefix'),
         use_detailed_processing_log=pulumi.get(__ret__, 'use_detailed_processing_log'))
-
-
-@_utilities.lift_output_func(get_ksql_cluster)
 def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                             environment: Optional[pulumi.Input[Union['GetKsqlClusterEnvironmentArgs', 'GetKsqlClusterEnvironmentArgsDict']]] = None,
                             id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -274,4 +276,23 @@ def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] 
     :param str display_name: The name of the ksqlDB cluster.
     :param str id: The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
     """
-    ...
+    __args__ = dict()
+    __args__['displayName'] = display_name
+    __args__['environment'] = environment
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getKsqlCluster:getKsqlCluster', __args__, opts=opts, typ=GetKsqlClusterResult)
+    return __ret__.apply(lambda __response__: GetKsqlClusterResult(
+        api_version=pulumi.get(__response__, 'api_version'),
+        credential_identities=pulumi.get(__response__, 'credential_identities'),
+        csu=pulumi.get(__response__, 'csu'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        environment=pulumi.get(__response__, 'environment'),
+        id=pulumi.get(__response__, 'id'),
+        kafka_clusters=pulumi.get(__response__, 'kafka_clusters'),
+        kind=pulumi.get(__response__, 'kind'),
+        resource_name=pulumi.get(__response__, 'resource_name'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
+        storage=pulumi.get(__response__, 'storage'),
+        topic_prefix=pulumi.get(__response__, 'topic_prefix'),
+        use_detailed_processing_log=pulumi.get(__response__, 'use_detailed_processing_log')))

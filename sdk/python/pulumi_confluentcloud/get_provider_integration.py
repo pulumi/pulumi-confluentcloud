@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -139,9 +144,6 @@ def get_provider_integration(display_name: Optional[str] = None,
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'),
         usages=pulumi.get(__ret__, 'usages'))
-
-
-@_utilities.lift_output_func(get_provider_integration)
 def get_provider_integration_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                     environment: Optional[pulumi.Input[Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict']]] = None,
                                     id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -174,4 +176,15 @@ def get_provider_integration_output(display_name: Optional[pulumi.Input[Optional
     :param Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Provider Integration, for example, `cspi-4xg0q`.
     """
-    ...
+    __args__ = dict()
+    __args__['displayName'] = display_name
+    __args__['environment'] = environment
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getProviderIntegration:getProviderIntegration', __args__, opts=opts, typ=GetProviderIntegrationResult)
+    return __ret__.apply(lambda __response__: GetProviderIntegrationResult(
+        aws=pulumi.get(__response__, 'aws'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        environment=pulumi.get(__response__, 'environment'),
+        id=pulumi.get(__response__, 'id'),
+        usages=pulumi.get(__response__, 'usages')))

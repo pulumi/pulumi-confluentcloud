@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -133,9 +138,6 @@ def get_kafka_topic(credentials: Optional[Union['GetKafkaTopicCredentialsArgs', 
         partitions_count=pulumi.get(__ret__, 'partitions_count'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         topic_name=pulumi.get(__ret__, 'topic_name'))
-
-
-@_utilities.lift_output_func(get_kafka_topic)
 def get_kafka_topic_output(credentials: Optional[pulumi.Input[Optional[Union['GetKafkaTopicCredentialsArgs', 'GetKafkaTopicCredentialsArgsDict']]]] = None,
                            kafka_cluster: Optional[pulumi.Input[Optional[Union['GetKafkaTopicKafkaClusterArgs', 'GetKafkaTopicKafkaClusterArgsDict']]]] = None,
                            rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -147,4 +149,18 @@ def get_kafka_topic_output(credentials: Optional[pulumi.Input[Optional[Union['Ge
     :param str rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
     :param str topic_name: The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length and can contain only alphanumeric characters, hyphens, and underscores.
     """
-    ...
+    __args__ = dict()
+    __args__['credentials'] = credentials
+    __args__['kafkaCluster'] = kafka_cluster
+    __args__['restEndpoint'] = rest_endpoint
+    __args__['topicName'] = topic_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getKafkaTopic:getKafkaTopic', __args__, opts=opts, typ=GetKafkaTopicResult)
+    return __ret__.apply(lambda __response__: GetKafkaTopicResult(
+        config=pulumi.get(__response__, 'config'),
+        credentials=pulumi.get(__response__, 'credentials'),
+        id=pulumi.get(__response__, 'id'),
+        kafka_cluster=pulumi.get(__response__, 'kafka_cluster'),
+        partitions_count=pulumi.get(__response__, 'partitions_count'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
+        topic_name=pulumi.get(__response__, 'topic_name')))

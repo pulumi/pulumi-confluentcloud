@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -163,9 +168,6 @@ def get_invitation(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'),
         users=pulumi.get(__ret__, 'users'))
-
-
-@_utilities.lift_output_func(get_invitation)
 def get_invitation_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInvitationResult]:
     """
@@ -186,4 +188,16 @@ def get_invitation_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the Invitation, for example, `i-zyw30`.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getInvitation:getInvitation', __args__, opts=opts, typ=GetInvitationResult)
+    return __ret__.apply(lambda __response__: GetInvitationResult(
+        accepted_at=pulumi.get(__response__, 'accepted_at'),
+        auth_type=pulumi.get(__response__, 'auth_type'),
+        creators=pulumi.get(__response__, 'creators'),
+        email=pulumi.get(__response__, 'email'),
+        expires_at=pulumi.get(__response__, 'expires_at'),
+        id=pulumi.get(__response__, 'id'),
+        status=pulumi.get(__response__, 'status'),
+        users=pulumi.get(__response__, 'users')))

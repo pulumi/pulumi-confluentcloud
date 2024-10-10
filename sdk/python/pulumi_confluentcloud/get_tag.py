@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -148,9 +153,6 @@ def get_tag(credentials: Optional[Union['GetTagCredentialsArgs', 'GetTagCredenti
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_tag)
 def get_tag_output(credentials: Optional[pulumi.Input[Optional[Union['GetTagCredentialsArgs', 'GetTagCredentialsArgsDict']]]] = None,
                    name: Optional[pulumi.Input[str]] = None,
                    rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
@@ -164,4 +166,19 @@ def get_tag_output(credentials: Optional[pulumi.Input[Optional[Union['GetTagCred
            > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """
-    ...
+    __args__ = dict()
+    __args__['credentials'] = credentials
+    __args__['name'] = name
+    __args__['restEndpoint'] = rest_endpoint
+    __args__['schemaRegistryCluster'] = schema_registry_cluster
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getTag:getTag', __args__, opts=opts, typ=GetTagResult)
+    return __ret__.apply(lambda __response__: GetTagResult(
+        credentials=pulumi.get(__response__, 'credentials'),
+        description=pulumi.get(__response__, 'description'),
+        entity_types=pulumi.get(__response__, 'entity_types'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__response__, 'schema_registry_cluster'),
+        version=pulumi.get(__response__, 'version')))
