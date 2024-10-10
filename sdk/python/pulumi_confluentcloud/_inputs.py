@@ -4,209 +4,433 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
     'AccessPointAwsEgressPrivateLinkEndpointArgs',
+    'AccessPointAwsEgressPrivateLinkEndpointArgsDict',
     'AccessPointAzureEgressPrivateLinkEndpointArgs',
+    'AccessPointAzureEgressPrivateLinkEndpointArgsDict',
     'AccessPointEnvironmentArgs',
+    'AccessPointEnvironmentArgsDict',
     'AccessPointGatewayArgs',
+    'AccessPointGatewayArgsDict',
     'ApiKeyManagedResourceArgs',
+    'ApiKeyManagedResourceArgsDict',
     'ApiKeyManagedResourceEnvironmentArgs',
+    'ApiKeyManagedResourceEnvironmentArgsDict',
     'ApiKeyOwnerArgs',
+    'ApiKeyOwnerArgsDict',
     'BusinessMetadataAttributeDefinitionArgs',
+    'BusinessMetadataAttributeDefinitionArgsDict',
     'BusinessMetadataBindingCredentialsArgs',
+    'BusinessMetadataBindingCredentialsArgsDict',
     'BusinessMetadataBindingSchemaRegistryClusterArgs',
+    'BusinessMetadataBindingSchemaRegistryClusterArgsDict',
     'BusinessMetadataCredentialsArgs',
+    'BusinessMetadataCredentialsArgsDict',
     'BusinessMetadataSchemaRegistryClusterArgs',
+    'BusinessMetadataSchemaRegistryClusterArgsDict',
     'ByokKeyAwsArgs',
+    'ByokKeyAwsArgsDict',
     'ByokKeyAzureArgs',
+    'ByokKeyAzureArgsDict',
     'ByokKeyGcpArgs',
+    'ByokKeyGcpArgsDict',
     'CatalogEntityAttributesCredentialsArgs',
+    'CatalogEntityAttributesCredentialsArgsDict',
     'CatalogEntityAttributesSchemaRegistryClusterArgs',
+    'CatalogEntityAttributesSchemaRegistryClusterArgsDict',
     'CertificatePoolCertificateAuthorityArgs',
+    'CertificatePoolCertificateAuthorityArgsDict',
     'ClusterLinkDestinationKafkaClusterArgs',
+    'ClusterLinkDestinationKafkaClusterArgsDict',
     'ClusterLinkDestinationKafkaClusterCredentialsArgs',
+    'ClusterLinkDestinationKafkaClusterCredentialsArgsDict',
     'ClusterLinkLocalKafkaClusterArgs',
+    'ClusterLinkLocalKafkaClusterArgsDict',
     'ClusterLinkLocalKafkaClusterCredentialsArgs',
+    'ClusterLinkLocalKafkaClusterCredentialsArgsDict',
     'ClusterLinkRemoteKafkaClusterArgs',
+    'ClusterLinkRemoteKafkaClusterArgsDict',
     'ClusterLinkRemoteKafkaClusterCredentialsArgs',
+    'ClusterLinkRemoteKafkaClusterCredentialsArgsDict',
     'ClusterLinkSourceKafkaClusterArgs',
+    'ClusterLinkSourceKafkaClusterArgsDict',
     'ClusterLinkSourceKafkaClusterCredentialsArgs',
+    'ClusterLinkSourceKafkaClusterCredentialsArgsDict',
     'ConnectorEnvironmentArgs',
+    'ConnectorEnvironmentArgsDict',
     'ConnectorKafkaClusterArgs',
+    'ConnectorKafkaClusterArgsDict',
     'DnsForwarderEnvironmentArgs',
+    'DnsForwarderEnvironmentArgsDict',
     'DnsForwarderForwardViaIpArgs',
+    'DnsForwarderForwardViaIpArgsDict',
     'DnsForwarderGatewayArgs',
+    'DnsForwarderGatewayArgsDict',
     'DnsRecordEnvironmentArgs',
+    'DnsRecordEnvironmentArgsDict',
     'DnsRecordGatewayArgs',
+    'DnsRecordGatewayArgsDict',
     'DnsRecordPrivateLinkAccessPointArgs',
+    'DnsRecordPrivateLinkAccessPointArgsDict',
     'EnvironmentStreamGovernanceArgs',
+    'EnvironmentStreamGovernanceArgsDict',
     'FlinkComputePoolEnvironmentArgs',
+    'FlinkComputePoolEnvironmentArgsDict',
     'FlinkStatementComputePoolArgs',
+    'FlinkStatementComputePoolArgsDict',
     'FlinkStatementCredentialsArgs',
+    'FlinkStatementCredentialsArgsDict',
     'FlinkStatementEnvironmentArgs',
+    'FlinkStatementEnvironmentArgsDict',
     'FlinkStatementOrganizationArgs',
+    'FlinkStatementOrganizationArgsDict',
     'FlinkStatementPrincipalArgs',
+    'FlinkStatementPrincipalArgsDict',
     'IdentityPoolIdentityProviderArgs',
+    'IdentityPoolIdentityProviderArgsDict',
     'InvitationCreatorArgs',
+    'InvitationCreatorArgsDict',
     'InvitationUserArgs',
+    'InvitationUserArgsDict',
     'KafkaAclCredentialsArgs',
+    'KafkaAclCredentialsArgsDict',
     'KafkaAclKafkaClusterArgs',
+    'KafkaAclKafkaClusterArgsDict',
     'KafkaClientQuotaEnvironmentArgs',
+    'KafkaClientQuotaEnvironmentArgsDict',
     'KafkaClientQuotaKafkaClusterArgs',
+    'KafkaClientQuotaKafkaClusterArgsDict',
     'KafkaClientQuotaThroughputArgs',
+    'KafkaClientQuotaThroughputArgsDict',
     'KafkaClusterBasicArgs',
+    'KafkaClusterBasicArgsDict',
     'KafkaClusterByokKeyArgs',
+    'KafkaClusterByokKeyArgsDict',
     'KafkaClusterConfigCredentialsArgs',
+    'KafkaClusterConfigCredentialsArgsDict',
     'KafkaClusterConfigKafkaClusterArgs',
+    'KafkaClusterConfigKafkaClusterArgsDict',
     'KafkaClusterDedicatedArgs',
+    'KafkaClusterDedicatedArgsDict',
     'KafkaClusterEnterpriseArgs',
+    'KafkaClusterEnterpriseArgsDict',
     'KafkaClusterEnvironmentArgs',
+    'KafkaClusterEnvironmentArgsDict',
     'KafkaClusterFreightArgs',
+    'KafkaClusterFreightArgsDict',
     'KafkaClusterNetworkArgs',
+    'KafkaClusterNetworkArgsDict',
     'KafkaClusterStandardArgs',
+    'KafkaClusterStandardArgsDict',
     'KafkaMirrorTopicClusterLinkArgs',
+    'KafkaMirrorTopicClusterLinkArgsDict',
     'KafkaMirrorTopicKafkaClusterArgs',
+    'KafkaMirrorTopicKafkaClusterArgsDict',
     'KafkaMirrorTopicKafkaClusterCredentialsArgs',
+    'KafkaMirrorTopicKafkaClusterCredentialsArgsDict',
     'KafkaMirrorTopicSourceKafkaTopicArgs',
+    'KafkaMirrorTopicSourceKafkaTopicArgsDict',
     'KafkaTopicCredentialsArgs',
+    'KafkaTopicCredentialsArgsDict',
     'KafkaTopicKafkaClusterArgs',
+    'KafkaTopicKafkaClusterArgsDict',
     'KsqlClusterCredentialIdentityArgs',
+    'KsqlClusterCredentialIdentityArgsDict',
     'KsqlClusterEnvironmentArgs',
+    'KsqlClusterEnvironmentArgsDict',
     'KsqlClusterKafkaClusterArgs',
+    'KsqlClusterKafkaClusterArgsDict',
     'NetworkAwArgs',
+    'NetworkAwArgsDict',
     'NetworkAzureArgs',
+    'NetworkAzureArgsDict',
     'NetworkDnsConfigArgs',
+    'NetworkDnsConfigArgsDict',
     'NetworkEnvironmentArgs',
+    'NetworkEnvironmentArgsDict',
     'NetworkGatewayArgs',
+    'NetworkGatewayArgsDict',
     'NetworkGcpArgs',
+    'NetworkGcpArgsDict',
     'NetworkLinkEndpointEnvironmentArgs',
+    'NetworkLinkEndpointEnvironmentArgsDict',
     'NetworkLinkEndpointNetworkArgs',
+    'NetworkLinkEndpointNetworkArgsDict',
     'NetworkLinkEndpointNetworkLinkServiceArgs',
+    'NetworkLinkEndpointNetworkLinkServiceArgsDict',
     'NetworkLinkServiceAcceptArgs',
+    'NetworkLinkServiceAcceptArgsDict',
     'NetworkLinkServiceEnvironmentArgs',
+    'NetworkLinkServiceEnvironmentArgsDict',
     'NetworkLinkServiceNetworkArgs',
+    'NetworkLinkServiceNetworkArgsDict',
     'NetworkZoneInfoArgs',
+    'NetworkZoneInfoArgsDict',
     'PeeringAwsArgs',
+    'PeeringAwsArgsDict',
     'PeeringAzureArgs',
+    'PeeringAzureArgsDict',
     'PeeringEnvironmentArgs',
+    'PeeringEnvironmentArgsDict',
     'PeeringGcpArgs',
+    'PeeringGcpArgsDict',
     'PeeringNetworkArgs',
+    'PeeringNetworkArgsDict',
     'PrivateLinkAccessAwsArgs',
+    'PrivateLinkAccessAwsArgsDict',
     'PrivateLinkAccessAzureArgs',
+    'PrivateLinkAccessAzureArgsDict',
     'PrivateLinkAccessEnvironmentArgs',
+    'PrivateLinkAccessEnvironmentArgsDict',
     'PrivateLinkAccessGcpArgs',
+    'PrivateLinkAccessGcpArgsDict',
     'PrivateLinkAccessNetworkArgs',
+    'PrivateLinkAccessNetworkArgsDict',
     'PrivateLinkAttachmentAwArgs',
+    'PrivateLinkAttachmentAwArgsDict',
     'PrivateLinkAttachmentAzureArgs',
+    'PrivateLinkAttachmentAzureArgsDict',
     'PrivateLinkAttachmentConnectionAwsArgs',
+    'PrivateLinkAttachmentConnectionAwsArgsDict',
     'PrivateLinkAttachmentConnectionAzureArgs',
+    'PrivateLinkAttachmentConnectionAzureArgsDict',
     'PrivateLinkAttachmentConnectionEnvironmentArgs',
+    'PrivateLinkAttachmentConnectionEnvironmentArgsDict',
     'PrivateLinkAttachmentConnectionGcpArgs',
+    'PrivateLinkAttachmentConnectionGcpArgsDict',
     'PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs',
+    'PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict',
     'PrivateLinkAttachmentEnvironmentArgs',
+    'PrivateLinkAttachmentEnvironmentArgsDict',
     'PrivateLinkAttachmentGcpArgs',
+    'PrivateLinkAttachmentGcpArgsDict',
     'ProviderIntegrationAwsArgs',
+    'ProviderIntegrationAwsArgsDict',
     'ProviderIntegrationEnvironmentArgs',
+    'ProviderIntegrationEnvironmentArgsDict',
     'SchemaCredentialsArgs',
+    'SchemaCredentialsArgsDict',
     'SchemaExporterCredentialsArgs',
+    'SchemaExporterCredentialsArgsDict',
     'SchemaExporterDestinationSchemaRegistryClusterArgs',
+    'SchemaExporterDestinationSchemaRegistryClusterArgsDict',
     'SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs',
+    'SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict',
     'SchemaExporterSchemaRegistryClusterArgs',
+    'SchemaExporterSchemaRegistryClusterArgsDict',
     'SchemaMetadataArgs',
+    'SchemaMetadataArgsDict',
     'SchemaMetadataTagArgs',
+    'SchemaMetadataTagArgsDict',
     'SchemaRegistryClusterConfigCredentialsArgs',
+    'SchemaRegistryClusterConfigCredentialsArgsDict',
     'SchemaRegistryClusterConfigSchemaRegistryClusterArgs',
+    'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict',
     'SchemaRegistryClusterModeCredentialsArgs',
+    'SchemaRegistryClusterModeCredentialsArgsDict',
     'SchemaRegistryClusterModeSchemaRegistryClusterArgs',
+    'SchemaRegistryClusterModeSchemaRegistryClusterArgsDict',
     'SchemaRegistryDekCredentialsArgs',
+    'SchemaRegistryDekCredentialsArgsDict',
     'SchemaRegistryDekSchemaRegistryClusterArgs',
+    'SchemaRegistryDekSchemaRegistryClusterArgsDict',
     'SchemaRegistryKekCredentialsArgs',
+    'SchemaRegistryKekCredentialsArgsDict',
     'SchemaRegistryKekSchemaRegistryClusterArgs',
+    'SchemaRegistryKekSchemaRegistryClusterArgsDict',
     'SchemaRulesetArgs',
+    'SchemaRulesetArgsDict',
     'SchemaRulesetDomainRuleArgs',
+    'SchemaRulesetDomainRuleArgsDict',
     'SchemaRulesetMigrationRuleArgs',
+    'SchemaRulesetMigrationRuleArgsDict',
     'SchemaSchemaReferenceArgs',
+    'SchemaSchemaReferenceArgsDict',
     'SchemaSchemaRegistryClusterArgs',
+    'SchemaSchemaRegistryClusterArgsDict',
     'SubjectConfigCredentialsArgs',
+    'SubjectConfigCredentialsArgsDict',
     'SubjectConfigSchemaRegistryClusterArgs',
+    'SubjectConfigSchemaRegistryClusterArgsDict',
     'SubjectModeCredentialsArgs',
+    'SubjectModeCredentialsArgsDict',
     'SubjectModeSchemaRegistryClusterArgs',
+    'SubjectModeSchemaRegistryClusterArgsDict',
     'TagBindingCredentialsArgs',
+    'TagBindingCredentialsArgsDict',
     'TagBindingSchemaRegistryClusterArgs',
+    'TagBindingSchemaRegistryClusterArgsDict',
     'TagCredentialsArgs',
+    'TagCredentialsArgsDict',
     'TagSchemaRegistryClusterArgs',
+    'TagSchemaRegistryClusterArgsDict',
     'TransitGatewayAttachmentAwsArgs',
+    'TransitGatewayAttachmentAwsArgsDict',
     'TransitGatewayAttachmentEnvironmentArgs',
+    'TransitGatewayAttachmentEnvironmentArgsDict',
     'TransitGatewayAttachmentNetworkArgs',
+    'TransitGatewayAttachmentNetworkArgsDict',
     'GetAccessPointEnvironmentArgs',
+    'GetAccessPointEnvironmentArgsDict',
     'GetBusinessMetadataBindingCredentialsArgs',
+    'GetBusinessMetadataBindingCredentialsArgsDict',
     'GetBusinessMetadataBindingSchemaRegistryClusterArgs',
+    'GetBusinessMetadataBindingSchemaRegistryClusterArgsDict',
     'GetBusinessMetadataCredentialsArgs',
+    'GetBusinessMetadataCredentialsArgsDict',
     'GetBusinessMetadataSchemaRegistryClusterArgs',
+    'GetBusinessMetadataSchemaRegistryClusterArgsDict',
     'GetCertificatePoolCertificateAuthorityArgs',
+    'GetCertificatePoolCertificateAuthorityArgsDict',
     'GetDnsRecordEnvironmentArgs',
+    'GetDnsRecordEnvironmentArgsDict',
     'GetEnvironmentStreamGovernanceArgs',
+    'GetEnvironmentStreamGovernanceArgsDict',
     'GetFlinkComputePoolEnvironmentArgs',
+    'GetFlinkComputePoolEnvironmentArgsDict',
     'GetGatewayEnvironmentArgs',
+    'GetGatewayEnvironmentArgsDict',
     'GetIdentityPoolIdentityProviderArgs',
+    'GetIdentityPoolIdentityProviderArgsDict',
     'GetIpAddressesFilterArgs',
+    'GetIpAddressesFilterArgsDict',
     'GetKafkaClusterBasicArgs',
+    'GetKafkaClusterBasicArgsDict',
     'GetKafkaClusterDedicatedArgs',
+    'GetKafkaClusterDedicatedArgsDict',
     'GetKafkaClusterEnterpriseArgs',
+    'GetKafkaClusterEnterpriseArgsDict',
     'GetKafkaClusterEnvironmentArgs',
+    'GetKafkaClusterEnvironmentArgsDict',
     'GetKafkaClusterFreightArgs',
+    'GetKafkaClusterFreightArgsDict',
     'GetKafkaClusterStandardArgs',
+    'GetKafkaClusterStandardArgsDict',
     'GetKafkaTopicCredentialsArgs',
+    'GetKafkaTopicCredentialsArgsDict',
     'GetKafkaTopicKafkaClusterArgs',
+    'GetKafkaTopicKafkaClusterArgsDict',
     'GetKsqlClusterEnvironmentArgs',
+    'GetKsqlClusterEnvironmentArgsDict',
     'GetNetworkAwArgs',
+    'GetNetworkAwArgsDict',
     'GetNetworkAzureArgs',
+    'GetNetworkAzureArgsDict',
     'GetNetworkDnsConfigArgs',
+    'GetNetworkDnsConfigArgsDict',
     'GetNetworkEnvironmentArgs',
+    'GetNetworkEnvironmentArgsDict',
     'GetNetworkGcpArgs',
+    'GetNetworkGcpArgsDict',
     'GetNetworkLinkEndpointEnvironmentArgs',
+    'GetNetworkLinkEndpointEnvironmentArgsDict',
     'GetNetworkLinkServiceAcceptArgs',
+    'GetNetworkLinkServiceAcceptArgsDict',
     'GetNetworkLinkServiceEnvironmentArgs',
+    'GetNetworkLinkServiceEnvironmentArgsDict',
     'GetPeeringEnvironmentArgs',
+    'GetPeeringEnvironmentArgsDict',
     'GetPrivateLinkAccessEnvironmentArgs',
+    'GetPrivateLinkAccessEnvironmentArgsDict',
     'GetPrivateLinkAttachmentConnectionEnvironmentArgs',
+    'GetPrivateLinkAttachmentConnectionEnvironmentArgsDict',
     'GetPrivateLinkAttachmentEnvironmentArgs',
+    'GetPrivateLinkAttachmentEnvironmentArgsDict',
     'GetProviderIntegrationEnvironmentArgs',
+    'GetProviderIntegrationEnvironmentArgsDict',
     'GetSchemaCredentialsArgs',
+    'GetSchemaCredentialsArgsDict',
     'GetSchemaMetadataArgs',
+    'GetSchemaMetadataArgsDict',
     'GetSchemaMetadataTagArgs',
+    'GetSchemaMetadataTagArgsDict',
     'GetSchemaRegistryClusterConfigCredentialsArgs',
+    'GetSchemaRegistryClusterConfigCredentialsArgsDict',
     'GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs',
+    'GetSchemaRegistryClusterConfigSchemaRegistryClusterArgsDict',
     'GetSchemaRegistryClusterEnvironmentArgs',
+    'GetSchemaRegistryClusterEnvironmentArgsDict',
     'GetSchemaRegistryClusterModeCredentialsArgs',
+    'GetSchemaRegistryClusterModeCredentialsArgsDict',
     'GetSchemaRegistryClusterModeSchemaRegistryClusterArgs',
+    'GetSchemaRegistryClusterModeSchemaRegistryClusterArgsDict',
     'GetSchemaRegistryClustersEnvironmentArgs',
+    'GetSchemaRegistryClustersEnvironmentArgsDict',
     'GetSchemaRegistryDekCredentialsArgs',
+    'GetSchemaRegistryDekCredentialsArgsDict',
     'GetSchemaRegistryDekSchemaRegistryClusterArgs',
+    'GetSchemaRegistryDekSchemaRegistryClusterArgsDict',
     'GetSchemaRegistryKekCredentialsArgs',
+    'GetSchemaRegistryKekCredentialsArgsDict',
     'GetSchemaRegistryKekSchemaRegistryClusterArgs',
+    'GetSchemaRegistryKekSchemaRegistryClusterArgsDict',
     'GetSchemaRulesetArgs',
+    'GetSchemaRulesetArgsDict',
     'GetSchemaRulesetDomainRuleArgs',
+    'GetSchemaRulesetDomainRuleArgsDict',
     'GetSchemaRulesetMigrationRuleArgs',
+    'GetSchemaRulesetMigrationRuleArgsDict',
     'GetSchemaSchemaRegistryClusterArgs',
+    'GetSchemaSchemaRegistryClusterArgsDict',
     'GetSchemasCredentialsArgs',
+    'GetSchemasCredentialsArgsDict',
     'GetSchemasFilterArgs',
+    'GetSchemasFilterArgsDict',
     'GetSchemasSchemaRegistryClusterArgs',
+    'GetSchemasSchemaRegistryClusterArgsDict',
     'GetSubjectConfigCredentialsArgs',
+    'GetSubjectConfigCredentialsArgsDict',
     'GetSubjectConfigSchemaRegistryClusterArgs',
+    'GetSubjectConfigSchemaRegistryClusterArgsDict',
     'GetSubjectModeCredentialsArgs',
+    'GetSubjectModeCredentialsArgsDict',
     'GetSubjectModeSchemaRegistryClusterArgs',
+    'GetSubjectModeSchemaRegistryClusterArgsDict',
     'GetTagBindingCredentialsArgs',
+    'GetTagBindingCredentialsArgsDict',
     'GetTagBindingSchemaRegistryClusterArgs',
+    'GetTagBindingSchemaRegistryClusterArgsDict',
     'GetTagCredentialsArgs',
+    'GetTagCredentialsArgsDict',
     'GetTagSchemaRegistryClusterArgs',
+    'GetTagSchemaRegistryClusterArgsDict',
     'GetTransitGatewayAttachmentEnvironmentArgs',
+    'GetTransitGatewayAttachmentEnvironmentArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccessPointAwsEgressPrivateLinkEndpointArgsDict(TypedDict):
+        vpc_endpoint_service_name: pulumi.Input[str]
+        """
+        AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        """
+        enable_high_availability: NotRequired[pulumi.Input[bool]]
+        """
+        Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+        """
+        vpc_endpoint_dns_name: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+        """
+        vpc_endpoint_id: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+        """
+elif False:
+    AccessPointAwsEgressPrivateLinkEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessPointAwsEgressPrivateLinkEndpointArgs:
@@ -277,6 +501,35 @@ class AccessPointAwsEgressPrivateLinkEndpointArgs:
     def vpc_endpoint_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_endpoint_id", value)
 
+
+if not MYPY:
+    class AccessPointAzureEgressPrivateLinkEndpointArgsDict(TypedDict):
+        private_link_service_resource_id: pulumi.Input[str]
+        """
+        Resource ID of the Azure Private Link service.
+        """
+        private_endpoint_custom_dns_config_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+        """
+        private_endpoint_domain: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
+        """
+        private_endpoint_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
+        """
+        private_endpoint_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+        """
+        private_link_subresource_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the subresource for the Private Endpoint to connect to.
+        """
+elif False:
+    AccessPointAzureEgressPrivateLinkEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessPointAzureEgressPrivateLinkEndpointArgs:
@@ -380,6 +633,15 @@ class AccessPointAzureEgressPrivateLinkEndpointArgs:
         pulumi.set(self, "private_link_subresource_name", value)
 
 
+if not MYPY:
+    class AccessPointEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
+        """
+elif False:
+    AccessPointEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccessPointEnvironmentArgs:
     def __init__(__self__, *,
@@ -402,6 +664,15 @@ class AccessPointEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class AccessPointGatewayArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+        """
+elif False:
+    AccessPointGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccessPointGatewayArgs:
     def __init__(__self__, *,
@@ -423,6 +694,27 @@ class AccessPointGatewayArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ApiKeyManagedResourceArgsDict(TypedDict):
+        api_version: pulumi.Input[str]
+        """
+        The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+        """
+        environment: pulumi.Input['ApiKeyManagedResourceEnvironmentArgsDict']
+        """
+        Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        """
+        id: pulumi.Input[str]
+        """
+        The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
+        """
+        kind: pulumi.Input[str]
+        """
+        The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+        """
+elif False:
+    ApiKeyManagedResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiKeyManagedResourceArgs:
@@ -491,6 +783,15 @@ class ApiKeyManagedResourceArgs:
         pulumi.set(self, "kind", value)
 
 
+if not MYPY:
+    class ApiKeyManagedResourceEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+        """
+elif False:
+    ApiKeyManagedResourceEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApiKeyManagedResourceEnvironmentArgs:
     def __init__(__self__, *,
@@ -512,6 +813,23 @@ class ApiKeyManagedResourceEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ApiKeyOwnerArgsDict(TypedDict):
+        api_version: pulumi.Input[str]
+        """
+        The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
+        """
+        id: pulumi.Input[str]
+        """
+        The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
+        """
+        kind: pulumi.Input[str]
+        """
+        The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
+        """
+elif False:
+    ApiKeyOwnerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiKeyOwnerArgs:
@@ -564,6 +882,37 @@ class ApiKeyOwnerArgs:
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
 
+
+if not MYPY:
+    class BusinessMetadataAttributeDefinitionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the attribute.
+        """
+        default_value: NotRequired[pulumi.Input[str]]
+        """
+        The default value of this attribute.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of this attribute.
+        """
+        is_optional: NotRequired[pulumi.Input[bool]]
+        """
+        An optional flag to control whether the attribute should be optional or required. The default value is `false`.
+        """
+        options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        (Optional Map) Block for the attribute options:
+        - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\"cf_entity\\"]`.
+        - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The type of the attribute, it always returns `string`.
+        """
+elif False:
+    BusinessMetadataAttributeDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BusinessMetadataAttributeDefinitionArgs:
@@ -671,6 +1020,19 @@ class BusinessMetadataAttributeDefinitionArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class BusinessMetadataBindingCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    BusinessMetadataBindingCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BusinessMetadataBindingCredentialsArgs:
     def __init__(__self__, *,
@@ -708,6 +1070,15 @@ class BusinessMetadataBindingCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class BusinessMetadataBindingSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    BusinessMetadataBindingSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BusinessMetadataBindingSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -729,6 +1100,19 @@ class BusinessMetadataBindingSchemaRegistryClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class BusinessMetadataCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    BusinessMetadataCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BusinessMetadataCredentialsArgs:
@@ -767,6 +1151,15 @@ class BusinessMetadataCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class BusinessMetadataSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    BusinessMetadataSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BusinessMetadataSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -788,6 +1181,19 @@ class BusinessMetadataSchemaRegistryClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ByokKeyAwsArgsDict(TypedDict):
+        key_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of an AWS KMS key.
+        """
+        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
+        """
+elif False:
+    ByokKeyAwsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ByokKeyAwsArgs:
@@ -826,6 +1232,27 @@ class ByokKeyAwsArgs:
     def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "roles", value)
 
+
+if not MYPY:
+    class ByokKeyAzureArgsDict(TypedDict):
+        key_identifier: pulumi.Input[str]
+        """
+        The unique Key Object Identifier URL of an Azure Key Vault key.
+        """
+        key_vault_id: pulumi.Input[str]
+        """
+        Key Vault ID containing the key.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        Tenant ID (uuid) hosting the Key Vault containing the key.
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        (Optional String) The Application ID created for this key-environment combination.
+        """
+elif False:
+    ByokKeyAzureArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ByokKeyAzureArgs:
@@ -895,6 +1322,19 @@ class ByokKeyAzureArgs:
         pulumi.set(self, "application_id", value)
 
 
+if not MYPY:
+    class ByokKeyGcpArgsDict(TypedDict):
+        key_id: pulumi.Input[str]
+        """
+        The Google Cloud Platform key ID.
+        """
+        security_group: NotRequired[pulumi.Input[str]]
+        """
+        (Optional String) The Google security group created for this key.
+        """
+elif False:
+    ByokKeyGcpArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ByokKeyGcpArgs:
     def __init__(__self__, *,
@@ -933,6 +1373,19 @@ class ByokKeyGcpArgs:
         pulumi.set(self, "security_group", value)
 
 
+if not MYPY:
+    class CatalogEntityAttributesCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    CatalogEntityAttributesCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CatalogEntityAttributesCredentialsArgs:
     def __init__(__self__, *,
@@ -970,6 +1423,15 @@ class CatalogEntityAttributesCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class CatalogEntityAttributesSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    CatalogEntityAttributesSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CatalogEntityAttributesSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -992,6 +1454,15 @@ class CatalogEntityAttributesSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class CertificatePoolCertificateAuthorityArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+        """
+elif False:
+    CertificatePoolCertificateAuthorityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificatePoolCertificateAuthorityArgs:
     def __init__(__self__, *,
@@ -1013,6 +1484,27 @@ class CertificatePoolCertificateAuthorityArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ClusterLinkDestinationKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        """
+        bootstrap_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        """
+        credentials: NotRequired[pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgsDict']]
+        """
+        The Kafka API Credentials.
+        """
+        rest_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+elif False:
+    ClusterLinkDestinationKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterLinkDestinationKafkaClusterArgs:
@@ -1084,6 +1576,19 @@ class ClusterLinkDestinationKafkaClusterArgs:
         pulumi.set(self, "rest_endpoint", value)
 
 
+if not MYPY:
+    class ClusterLinkDestinationKafkaClusterCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Kafka API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Kafka API Secret.
+        """
+elif False:
+    ClusterLinkDestinationKafkaClusterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterLinkDestinationKafkaClusterCredentialsArgs:
     def __init__(__self__, *,
@@ -1120,6 +1625,27 @@ class ClusterLinkDestinationKafkaClusterCredentialsArgs:
     def secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret", value)
 
+
+if not MYPY:
+    class ClusterLinkLocalKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the local Kafka cluster, for example, `lkc-abc123`.
+        """
+        bootstrap_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        """
+        credentials: NotRequired[pulumi.Input['ClusterLinkLocalKafkaClusterCredentialsArgsDict']]
+        """
+        The Kafka API Credentials.
+        """
+        rest_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+elif False:
+    ClusterLinkLocalKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterLinkLocalKafkaClusterArgs:
@@ -1191,6 +1717,19 @@ class ClusterLinkLocalKafkaClusterArgs:
         pulumi.set(self, "rest_endpoint", value)
 
 
+if not MYPY:
+    class ClusterLinkLocalKafkaClusterCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Kafka API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Kafka API Secret.
+        """
+elif False:
+    ClusterLinkLocalKafkaClusterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterLinkLocalKafkaClusterCredentialsArgs:
     def __init__(__self__, *,
@@ -1227,6 +1766,27 @@ class ClusterLinkLocalKafkaClusterCredentialsArgs:
     def secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret", value)
 
+
+if not MYPY:
+    class ClusterLinkRemoteKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+        """
+        bootstrap_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        """
+        credentials: NotRequired[pulumi.Input['ClusterLinkRemoteKafkaClusterCredentialsArgsDict']]
+        """
+        The Kafka API Credentials.
+        """
+        rest_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+elif False:
+    ClusterLinkRemoteKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterLinkRemoteKafkaClusterArgs:
@@ -1298,6 +1858,19 @@ class ClusterLinkRemoteKafkaClusterArgs:
         pulumi.set(self, "rest_endpoint", value)
 
 
+if not MYPY:
+    class ClusterLinkRemoteKafkaClusterCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Kafka API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Kafka API Secret.
+        """
+elif False:
+    ClusterLinkRemoteKafkaClusterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterLinkRemoteKafkaClusterCredentialsArgs:
     def __init__(__self__, *,
@@ -1334,6 +1907,27 @@ class ClusterLinkRemoteKafkaClusterCredentialsArgs:
     def secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret", value)
 
+
+if not MYPY:
+    class ClusterLinkSourceKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the source Kafka cluster, for example, `lkc-abc123`.
+        """
+        bootstrap_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        """
+        credentials: NotRequired[pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgsDict']]
+        """
+        The Kafka API Credentials.
+        """
+        rest_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+elif False:
+    ClusterLinkSourceKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterLinkSourceKafkaClusterArgs:
@@ -1405,6 +1999,19 @@ class ClusterLinkSourceKafkaClusterArgs:
         pulumi.set(self, "rest_endpoint", value)
 
 
+if not MYPY:
+    class ClusterLinkSourceKafkaClusterCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Kafka API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Kafka API Secret.
+        """
+elif False:
+    ClusterLinkSourceKafkaClusterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterLinkSourceKafkaClusterCredentialsArgs:
     def __init__(__self__, *,
@@ -1442,6 +2049,15 @@ class ClusterLinkSourceKafkaClusterCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class ConnectorEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the connector belongs to, for example, `env-abc123`.
+        """
+elif False:
+    ConnectorEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectorEnvironmentArgs:
     def __init__(__self__, *,
@@ -1463,6 +2079,15 @@ class ConnectorEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class ConnectorKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+        """
+elif False:
+    ConnectorKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectorKafkaClusterArgs:
@@ -1486,6 +2111,15 @@ class ConnectorKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class DnsForwarderEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
+        """
+elif False:
+    DnsForwarderEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DnsForwarderEnvironmentArgs:
     def __init__(__self__, *,
@@ -1507,6 +2141,15 @@ class DnsForwarderEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class DnsForwarderForwardViaIpArgsDict(TypedDict):
+        dns_server_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of IP addresses of the DNS server.
+        """
+elif False:
+    DnsForwarderForwardViaIpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DnsForwarderForwardViaIpArgs:
@@ -1531,6 +2174,15 @@ class DnsForwarderForwardViaIpArgs:
         pulumi.set(self, "dns_server_ips", value)
 
 
+if not MYPY:
+    class DnsForwarderGatewayArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        """
+elif False:
+    DnsForwarderGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DnsForwarderGatewayArgs:
     def __init__(__self__, *,
@@ -1552,6 +2204,15 @@ class DnsForwarderGatewayArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class DnsRecordEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
+        """
+elif False:
+    DnsRecordEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DnsRecordEnvironmentArgs:
@@ -1575,6 +2236,15 @@ class DnsRecordEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class DnsRecordGatewayArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
+        """
+elif False:
+    DnsRecordGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DnsRecordGatewayArgs:
     def __init__(__self__, *,
@@ -1596,6 +2266,15 @@ class DnsRecordGatewayArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class DnsRecordPrivateLinkAccessPointArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+        """
+elif False:
+    DnsRecordPrivateLinkAccessPointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DnsRecordPrivateLinkAccessPointArgs:
@@ -1619,6 +2298,15 @@ class DnsRecordPrivateLinkAccessPointArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class EnvironmentStreamGovernanceArgsDict(TypedDict):
+        package: pulumi.Input[str]
+        """
+        The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+        """
+elif False:
+    EnvironmentStreamGovernanceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentStreamGovernanceArgs:
     def __init__(__self__, *,
@@ -1640,6 +2328,15 @@ class EnvironmentStreamGovernanceArgs:
     def package(self, value: pulumi.Input[str]):
         pulumi.set(self, "package", value)
 
+
+if not MYPY:
+    class FlinkComputePoolEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
+        """
+elif False:
+    FlinkComputePoolEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlinkComputePoolEnvironmentArgs:
@@ -1663,6 +2360,15 @@ class FlinkComputePoolEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class FlinkStatementComputePoolArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+        """
+elif False:
+    FlinkStatementComputePoolArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlinkStatementComputePoolArgs:
     def __init__(__self__, *,
@@ -1684,6 +2390,23 @@ class FlinkStatementComputePoolArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class FlinkStatementCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Flink API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Flink API Secret.
+
+        > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+        """
+elif False:
+    FlinkStatementCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlinkStatementCredentialsArgs:
@@ -1730,6 +2453,15 @@ class FlinkStatementCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class FlinkStatementEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+elif False:
+    FlinkStatementEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlinkStatementEnvironmentArgs:
     def __init__(__self__, *,
@@ -1751,6 +2483,15 @@ class FlinkStatementEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class FlinkStatementOrganizationArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+        """
+elif False:
+    FlinkStatementOrganizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlinkStatementOrganizationArgs:
@@ -1774,6 +2515,15 @@ class FlinkStatementOrganizationArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class FlinkStatementPrincipalArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+elif False:
+    FlinkStatementPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlinkStatementPrincipalArgs:
     def __init__(__self__, *,
@@ -1796,6 +2546,15 @@ class FlinkStatementPrincipalArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class IdentityPoolIdentityProviderArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+        """
+elif False:
+    IdentityPoolIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityPoolIdentityProviderArgs:
     def __init__(__self__, *,
@@ -1817,6 +2576,15 @@ class IdentityPoolIdentityProviderArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class InvitationCreatorArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The id of invitation creator.
+        """
+elif False:
+    InvitationCreatorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InvitationCreatorArgs:
@@ -1841,6 +2609,15 @@ class InvitationCreatorArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class InvitationUserArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The id of invitation creator.
+        """
+elif False:
+    InvitationUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InvitationUserArgs:
     def __init__(__self__, *,
@@ -1863,6 +2640,19 @@ class InvitationUserArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class KafkaAclCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Kafka API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Kafka API Secret.
+        """
+elif False:
+    KafkaAclCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaAclCredentialsArgs:
@@ -1901,6 +2691,15 @@ class KafkaAclCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class KafkaAclKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+elif False:
+    KafkaAclKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaAclKafkaClusterArgs:
     def __init__(__self__, *,
@@ -1922,6 +2721,19 @@ class KafkaAclKafkaClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class KafkaClientQuotaEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+
+        > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
+
+        > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
+        """
+elif False:
+    KafkaClientQuotaEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClientQuotaEnvironmentArgs:
@@ -1953,6 +2765,15 @@ class KafkaClientQuotaEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class KafkaClientQuotaKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.
+        """
+elif False:
+    KafkaClientQuotaKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClientQuotaKafkaClusterArgs:
     def __init__(__self__, *,
@@ -1974,6 +2795,19 @@ class KafkaClientQuotaKafkaClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class KafkaClientQuotaThroughputArgsDict(TypedDict):
+        egress_byte_rate: pulumi.Input[str]
+        """
+        The egress throughput limit in bytes per second.
+        """
+        ingress_byte_rate: pulumi.Input[str]
+        """
+        The ingress throughput limit in bytes per second.
+        """
+elif False:
+    KafkaClientQuotaThroughputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClientQuotaThroughputArgs:
@@ -2012,11 +2846,26 @@ class KafkaClientQuotaThroughputArgs:
         pulumi.set(self, "ingress_byte_rate", value)
 
 
+if not MYPY:
+    class KafkaClusterBasicArgsDict(TypedDict):
+        pass
+elif False:
+    KafkaClusterBasicArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterBasicArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class KafkaClusterByokKeyArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        """
+elif False:
+    KafkaClusterByokKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterByokKeyArgs:
@@ -2039,6 +2888,23 @@ class KafkaClusterByokKeyArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class KafkaClusterConfigCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Kafka API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Kafka API Secret.
+
+        > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_cluster_config.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_cluster_config.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+        """
+elif False:
+    KafkaClusterConfigCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterConfigCredentialsArgs:
@@ -2085,6 +2951,15 @@ class KafkaClusterConfigCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class KafkaClusterConfigKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
+        """
+elif False:
+    KafkaClusterConfigKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterConfigKafkaClusterArgs:
     def __init__(__self__, *,
@@ -2106,6 +2981,34 @@ class KafkaClusterConfigKafkaClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class KafkaClusterDedicatedArgsDict(TypedDict):
+        cku: pulumi.Input[int]
+        """
+        The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
+
+        > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
+
+        > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+
+        > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
+
+        !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
+
+        > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+        """
+        encryption_key: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+        """
+        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        (Required List of String) The list of zones the cluster is in.
+        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+        """
+elif False:
+    KafkaClusterDedicatedArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterDedicatedArgs:
@@ -2183,11 +3086,26 @@ class KafkaClusterDedicatedArgs:
         pulumi.set(self, "zones", value)
 
 
+if not MYPY:
+    class KafkaClusterEnterpriseArgsDict(TypedDict):
+        pass
+elif False:
+    KafkaClusterEnterpriseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterEnterpriseArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class KafkaClusterEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
+        """
+elif False:
+    KafkaClusterEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterEnvironmentArgs:
@@ -2210,6 +3128,16 @@ class KafkaClusterEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class KafkaClusterFreightArgsDict(TypedDict):
+        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        (Required List of String) The list of zones the cluster is in.
+        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+        """
+elif False:
+    KafkaClusterFreightArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterFreightArgs:
@@ -2236,6 +3164,15 @@ class KafkaClusterFreightArgs:
         pulumi.set(self, "zones", value)
 
 
+if not MYPY:
+    class KafkaClusterNetworkArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+        """
+elif False:
+    KafkaClusterNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterNetworkArgs:
     def __init__(__self__, *,
@@ -2258,11 +3195,26 @@ class KafkaClusterNetworkArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class KafkaClusterStandardArgsDict(TypedDict):
+        pass
+elif False:
+    KafkaClusterStandardArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterStandardArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class KafkaMirrorTopicClusterLinkArgsDict(TypedDict):
+        link_name: pulumi.Input[str]
+        """
+        The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
+        """
+elif False:
+    KafkaMirrorTopicClusterLinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaMirrorTopicClusterLinkArgs:
@@ -2285,6 +3237,23 @@ class KafkaMirrorTopicClusterLinkArgs:
     def link_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "link_name", value)
 
+
+if not MYPY:
+    class KafkaMirrorTopicKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        """
+        credentials: NotRequired[pulumi.Input['KafkaMirrorTopicKafkaClusterCredentialsArgsDict']]
+        """
+        The Kafka API Credentials.
+        """
+        rest_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+elif False:
+    KafkaMirrorTopicKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaMirrorTopicKafkaClusterArgs:
@@ -2340,6 +3309,19 @@ class KafkaMirrorTopicKafkaClusterArgs:
         pulumi.set(self, "rest_endpoint", value)
 
 
+if not MYPY:
+    class KafkaMirrorTopicKafkaClusterCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Kafka API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Kafka API Secret.
+        """
+elif False:
+    KafkaMirrorTopicKafkaClusterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaMirrorTopicKafkaClusterCredentialsArgs:
     def __init__(__self__, *,
@@ -2377,6 +3359,15 @@ class KafkaMirrorTopicKafkaClusterCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class KafkaMirrorTopicSourceKafkaTopicArgsDict(TypedDict):
+        topic_name: pulumi.Input[str]
+        """
+        The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+        """
+elif False:
+    KafkaMirrorTopicSourceKafkaTopicArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaMirrorTopicSourceKafkaTopicArgs:
     def __init__(__self__, *,
@@ -2398,6 +3389,23 @@ class KafkaMirrorTopicSourceKafkaTopicArgs:
     def topic_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "topic_name", value)
 
+
+if not MYPY:
+    class KafkaTopicCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Kafka API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Kafka API Secret.
+
+        > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_topic.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_topic.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+        """
+elif False:
+    KafkaTopicCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaTopicCredentialsArgs:
@@ -2444,6 +3452,15 @@ class KafkaTopicCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class KafkaTopicKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+elif False:
+    KafkaTopicKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaTopicKafkaClusterArgs:
     def __init__(__self__, *,
@@ -2465,6 +3482,15 @@ class KafkaTopicKafkaClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class KsqlClusterCredentialIdentityArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the associated service or user account, for example, `sa-abc123`.
+        """
+elif False:
+    KsqlClusterCredentialIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KsqlClusterCredentialIdentityArgs:
@@ -2488,6 +3514,15 @@ class KsqlClusterCredentialIdentityArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class KsqlClusterEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the associated Environment, for example, `env-xyz456`.
+        """
+elif False:
+    KsqlClusterEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KsqlClusterEnvironmentArgs:
     def __init__(__self__, *,
@@ -2510,6 +3545,15 @@ class KsqlClusterEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class KsqlClusterKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the associated Kafka cluster, for example, `lkc-abc123`.
+        """
+elif False:
+    KsqlClusterKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KsqlClusterKafkaClusterArgs:
     def __init__(__self__, *,
@@ -2531,6 +3575,23 @@ class KsqlClusterKafkaClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class NetworkAwArgsDict(TypedDict):
+        account: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+        """
+        private_link_endpoint_service: NotRequired[pulumi.Input[str]]
+        """
+        (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
+        """
+        vpc: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The Confluent Cloud VPC ID.
+        """
+elif False:
+    NetworkAwArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkAwArgs:
@@ -2587,6 +3648,15 @@ class NetworkAwArgs:
         pulumi.set(self, "vpc", value)
 
 
+if not MYPY:
+    class NetworkAzureArgsDict(TypedDict):
+        private_link_service_aliases: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.
+        """
+elif False:
+    NetworkAzureArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkAzureArgs:
     def __init__(__self__, *,
@@ -2609,6 +3679,18 @@ class NetworkAzureArgs:
     def private_link_service_aliases(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "private_link_service_aliases", value)
 
+
+if not MYPY:
+    class NetworkDnsConfigArgsDict(TypedDict):
+        resolution: pulumi.Input[str]
+        """
+        Network DNS resolution.
+        When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+        When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+        The Confluent Cloud Console uses `resolution = PRIVATE`.
+        """
+elif False:
+    NetworkDnsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkDnsConfigArgs:
@@ -2638,6 +3720,15 @@ class NetworkDnsConfigArgs:
         pulumi.set(self, "resolution", value)
 
 
+if not MYPY:
+    class NetworkEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+        """
+elif False:
+    NetworkEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkEnvironmentArgs:
     def __init__(__self__, *,
@@ -2659,6 +3750,15 @@ class NetworkEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class NetworkGatewayArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        (Optional String) The ID of the Gateway, for example, `gw-abc123`.
+        """
+elif False:
+    NetworkGatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkGatewayArgs:
@@ -2682,6 +3782,23 @@ class NetworkGatewayArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class NetworkGcpArgsDict(TypedDict):
+        private_service_connect_service_attachments: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        """
+        project: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
+        """
+        vpc_network: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The network name of the Confluent Cloud VPC.
+        """
+elif False:
+    NetworkGcpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkGcpArgs:
@@ -2738,6 +3855,15 @@ class NetworkGcpArgs:
         pulumi.set(self, "vpc_network", value)
 
 
+if not MYPY:
+    class NetworkLinkEndpointEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        """
+elif False:
+    NetworkLinkEndpointEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkLinkEndpointEnvironmentArgs:
     def __init__(__self__, *,
@@ -2759,6 +3885,15 @@ class NetworkLinkEndpointEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class NetworkLinkEndpointNetworkArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
+        """
+elif False:
+    NetworkLinkEndpointNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkLinkEndpointNetworkArgs:
@@ -2782,6 +3917,15 @@ class NetworkLinkEndpointNetworkArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class NetworkLinkEndpointNetworkLinkServiceArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Network Link Service, for example, `nls-g3e1ox`.
+        """
+elif False:
+    NetworkLinkEndpointNetworkLinkServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkLinkEndpointNetworkLinkServiceArgs:
     def __init__(__self__, *,
@@ -2803,6 +3947,19 @@ class NetworkLinkEndpointNetworkLinkServiceArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class NetworkLinkServiceAcceptArgsDict(TypedDict):
+        environments: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+        """
+        networks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of network ids from which connections can be accepted.
+        """
+elif False:
+    NetworkLinkServiceAcceptArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkLinkServiceAcceptArgs:
@@ -2843,6 +4000,15 @@ class NetworkLinkServiceAcceptArgs:
         pulumi.set(self, "networks", value)
 
 
+if not MYPY:
+    class NetworkLinkServiceEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.
+        """
+elif False:
+    NetworkLinkServiceEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkLinkServiceEnvironmentArgs:
     def __init__(__self__, *,
@@ -2865,6 +4031,15 @@ class NetworkLinkServiceEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class NetworkLinkServiceNetworkArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+        """
+elif False:
+    NetworkLinkServiceNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkLinkServiceNetworkArgs:
     def __init__(__self__, *,
@@ -2886,6 +4061,21 @@ class NetworkLinkServiceNetworkArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class NetworkZoneInfoArgsDict(TypedDict):
+        cidr: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+
+        > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+        """
+        zone_id: NotRequired[pulumi.Input[str]]
+        """
+        Cloud provider zone ID.
+        """
+elif False:
+    NetworkZoneInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkZoneInfoArgs:
@@ -2929,6 +4119,27 @@ class NetworkZoneInfoArgs:
     def zone_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "zone_id", value)
 
+
+if not MYPY:
+    class PeeringAwsArgsDict(TypedDict):
+        account: pulumi.Input[str]
+        """
+        The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
+        """
+        customer_region: pulumi.Input[str]
+        """
+        The region of the AWS peer VPC.
+        """
+        routes: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs > Target VPC > Details** section of the AWS Management Console.
+        """
+        vpc: pulumi.Input[str]
+        """
+        The AWS VPC ID of the peer VPC that you're peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.
+        """
+elif False:
+    PeeringAwsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PeeringAwsArgs:
@@ -2997,6 +4208,23 @@ class PeeringAwsArgs:
         pulumi.set(self, "vpc", value)
 
 
+if not MYPY:
+    class PeeringAzureArgsDict(TypedDict):
+        customer_region: pulumi.Input[str]
+        """
+        The region of the Azure peer VNet.
+        """
+        tenant: pulumi.Input[str]
+        """
+        The Tenant ID that represents an organization in Azure Active Directory. You can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
+        """
+        vnet: pulumi.Input[str]
+        """
+        The resource (composite) ID of the peer Virtual Network that you're peering with Confluent Cloud, in the format `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Network/virtualNetworks/<VNet name>`. You can find Subscription ID, Resource Group Name and your VNet name under **Virtual Networks > Target VNet > Essentials** section of your [Microsoft Azure Portal](https://portal.azure.com/).
+        """
+elif False:
+    PeeringAzureArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PeeringAzureArgs:
     def __init__(__self__, *,
@@ -3049,6 +4277,15 @@ class PeeringAzureArgs:
         pulumi.set(self, "vnet", value)
 
 
+if not MYPY:
+    class PeeringEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
+        """
+elif False:
+    PeeringEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PeeringEnvironmentArgs:
     def __init__(__self__, *,
@@ -3070,6 +4307,31 @@ class PeeringEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PeeringGcpArgsDict(TypedDict):
+        project: pulumi.Input[str]
+        """
+        The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+        """
+        vpc_network: pulumi.Input[str]
+        """
+        The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).
+        """
+        import_custom_routes: NotRequired[pulumi.Input[bool]]
+        """
+        The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
+
+        > **Note:** Exactly one from the `aws`, `azure`, and `gcp` configuration blocks must be specified.
+
+        > **Note:** Learn more about VPC Peering requirements on AWS [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws).
+
+        > **Note:** Learn more about VNet Peering requirements on Azure [here](https://docs.confluent.io/cloud/current/networking/peering/azure-peering.html#vnet-peering-on-az).
+
+        > **Note:** Learn more about VPC Peering requirements on Google Cloud Platform [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#vpc-peering-on-gcp).
+        """
+elif False:
+    PeeringGcpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PeeringGcpArgs:
@@ -3140,6 +4402,15 @@ class PeeringGcpArgs:
         pulumi.set(self, "import_custom_routes", value)
 
 
+if not MYPY:
+    class PeeringNetworkArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+        """
+elif False:
+    PeeringNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PeeringNetworkArgs:
     def __init__(__self__, *,
@@ -3161,6 +4432,15 @@ class PeeringNetworkArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkAccessAwsArgsDict(TypedDict):
+        account: pulumi.Input[str]
+        """
+        The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
+        """
+elif False:
+    PrivateLinkAccessAwsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkAccessAwsArgs:
@@ -3184,6 +4464,15 @@ class PrivateLinkAccessAwsArgs:
         pulumi.set(self, "account", value)
 
 
+if not MYPY:
+    class PrivateLinkAccessAzureArgsDict(TypedDict):
+        subscription: pulumi.Input[str]
+        """
+        The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+        """
+elif False:
+    PrivateLinkAccessAzureArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkAccessAzureArgs:
     def __init__(__self__, *,
@@ -3206,6 +4495,15 @@ class PrivateLinkAccessAzureArgs:
         pulumi.set(self, "subscription", value)
 
 
+if not MYPY:
+    class PrivateLinkAccessEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
+        """
+elif False:
+    PrivateLinkAccessEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkAccessEnvironmentArgs:
     def __init__(__self__, *,
@@ -3227,6 +4525,21 @@ class PrivateLinkAccessEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkAccessGcpArgsDict(TypedDict):
+        project: pulumi.Input[str]
+        """
+        The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+
+        > **Note:** Exactly one from the `aws`, `azure`, `gcp` configuration blocks must be specified.
+
+        > **Note:** Learn more about Private Link Access limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/private-links/aws-privatelink.html#limitations).
+
+        > **Note:** Learn more about Private Link Access limitations on Azure [here](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html#limitations).
+        """
+elif False:
+    PrivateLinkAccessGcpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkAccessGcpArgs:
@@ -3262,6 +4575,15 @@ class PrivateLinkAccessGcpArgs:
         pulumi.set(self, "project", value)
 
 
+if not MYPY:
+    class PrivateLinkAccessNetworkArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+        """
+elif False:
+    PrivateLinkAccessNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkAccessNetworkArgs:
     def __init__(__self__, *,
@@ -3283,6 +4605,15 @@ class PrivateLinkAccessNetworkArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkAttachmentAwArgsDict(TypedDict):
+        vpc_endpoint_service_name: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        """
+elif False:
+    PrivateLinkAttachmentAwArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkAttachmentAwArgs:
@@ -3306,6 +4637,19 @@ class PrivateLinkAttachmentAwArgs:
     def vpc_endpoint_service_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_endpoint_service_name", value)
 
+
+if not MYPY:
+    class PrivateLinkAttachmentAzureArgsDict(TypedDict):
+        private_link_service_alias: NotRequired[pulumi.Input[str]]
+        """
+        Azure PrivateLink service alias for the availability zone.
+        """
+        private_link_service_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) Azure Private Link service resource id for the availability zone.
+        """
+elif False:
+    PrivateLinkAttachmentAzureArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkAttachmentAzureArgs:
@@ -3346,6 +4690,15 @@ class PrivateLinkAttachmentAzureArgs:
         pulumi.set(self, "private_link_service_resource_id", value)
 
 
+if not MYPY:
+    class PrivateLinkAttachmentConnectionAwsArgsDict(TypedDict):
+        vpc_endpoint_id: pulumi.Input[str]
+        """
+        Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        """
+elif False:
+    PrivateLinkAttachmentConnectionAwsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkAttachmentConnectionAwsArgs:
     def __init__(__self__, *,
@@ -3367,6 +4720,15 @@ class PrivateLinkAttachmentConnectionAwsArgs:
     def vpc_endpoint_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "vpc_endpoint_id", value)
 
+
+if not MYPY:
+    class PrivateLinkAttachmentConnectionAzureArgsDict(TypedDict):
+        private_endpoint_resource_id: pulumi.Input[str]
+        """
+        Resource ID of the Private Endpoint that is connected to the Private Link service.
+        """
+elif False:
+    PrivateLinkAttachmentConnectionAzureArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkAttachmentConnectionAzureArgs:
@@ -3390,6 +4752,15 @@ class PrivateLinkAttachmentConnectionAzureArgs:
         pulumi.set(self, "private_endpoint_resource_id", value)
 
 
+if not MYPY:
+    class PrivateLinkAttachmentConnectionEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+        """
+elif False:
+    PrivateLinkAttachmentConnectionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkAttachmentConnectionEnvironmentArgs:
     def __init__(__self__, *,
@@ -3411,6 +4782,15 @@ class PrivateLinkAttachmentConnectionEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkAttachmentConnectionGcpArgsDict(TypedDict):
+        private_service_connect_connection_id: pulumi.Input[str]
+        """
+        Id of the Private Service connection.
+        """
+elif False:
+    PrivateLinkAttachmentConnectionGcpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkAttachmentConnectionGcpArgs:
@@ -3434,6 +4814,15 @@ class PrivateLinkAttachmentConnectionGcpArgs:
         pulumi.set(self, "private_service_connect_connection_id", value)
 
 
+if not MYPY:
+    class PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The unique identifier for the private link attachment.
+        """
+elif False:
+    PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs:
     def __init__(__self__, *,
@@ -3456,6 +4845,15 @@ class PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class PrivateLinkAttachmentEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+        """
+elif False:
+    PrivateLinkAttachmentEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrivateLinkAttachmentEnvironmentArgs:
     def __init__(__self__, *,
@@ -3477,6 +4875,19 @@ class PrivateLinkAttachmentEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class PrivateLinkAttachmentGcpArgsDict(TypedDict):
+        private_service_connect_service_attachment: NotRequired[pulumi.Input[str]]
+        """
+        Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        """
+        zone: NotRequired[pulumi.Input[str]]
+        """
+        Zone associated with the PSC Service attachment.
+        """
+elif False:
+    PrivateLinkAttachmentGcpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkAttachmentGcpArgs:
@@ -3516,6 +4927,27 @@ class PrivateLinkAttachmentGcpArgs:
     def zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "zone", value)
 
+
+if not MYPY:
+    class ProviderIntegrationAwsArgsDict(TypedDict):
+        customer_role_arn: pulumi.Input[str]
+        """
+        Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
+
+        > **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
+
+        > **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
+        """
+        external_id: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
+        """
+        iam_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+        """
+elif False:
+    ProviderIntegrationAwsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderIntegrationAwsArgs:
@@ -3579,6 +5011,15 @@ class ProviderIntegrationAwsArgs:
         pulumi.set(self, "iam_role_arn", value)
 
 
+if not MYPY:
+    class ProviderIntegrationEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+        """
+elif False:
+    ProviderIntegrationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProviderIntegrationEnvironmentArgs:
     def __init__(__self__, *,
@@ -3600,6 +5041,19 @@ class ProviderIntegrationEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SchemaCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    SchemaCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaCredentialsArgs:
@@ -3638,6 +5092,19 @@ class SchemaCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class SchemaExporterCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    SchemaExporterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaExporterCredentialsArgs:
     def __init__(__self__, *,
@@ -3675,6 +5142,16 @@ class SchemaExporterCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class SchemaExporterDestinationSchemaRegistryClusterArgsDict(TypedDict):
+        credentials: pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict']
+        rest_endpoint: pulumi.Input[str]
+        """
+        The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+elif False:
+    SchemaExporterDestinationSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaExporterDestinationSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -3707,6 +5184,19 @@ class SchemaExporterDestinationSchemaRegistryClusterArgs:
     def rest_endpoint(self, value: pulumi.Input[str]):
         pulumi.set(self, "rest_endpoint", value)
 
+
+if not MYPY:
+    class SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs:
@@ -3745,6 +5235,15 @@ class SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class SchemaExporterSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    SchemaExporterSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaExporterSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -3766,6 +5265,23 @@ class SchemaExporterSchemaRegistryClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SchemaMetadataArgsDict(TypedDict):
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The custom properties to set:
+        """
+        sensitives: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of metadata properties to be encrypted.
+        """
+        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgsDict']]]]
+        """
+        The tags to which the rule applies, if any.
+        """
+elif False:
+    SchemaMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaMetadataArgs:
@@ -3822,6 +5338,19 @@ class SchemaMetadataArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class SchemaMetadataTagArgsDict(TypedDict):
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The setting name.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of tags.
+        """
+elif False:
+    SchemaMetadataTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaMetadataTagArgs:
     def __init__(__self__, *,
@@ -3861,6 +5390,19 @@ class SchemaMetadataTagArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class SchemaRegistryClusterConfigCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    SchemaRegistryClusterConfigCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaRegistryClusterConfigCredentialsArgs:
     def __init__(__self__, *,
@@ -3898,6 +5440,15 @@ class SchemaRegistryClusterConfigCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaRegistryClusterConfigSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -3919,6 +5470,19 @@ class SchemaRegistryClusterConfigSchemaRegistryClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SchemaRegistryClusterModeCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    SchemaRegistryClusterModeCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaRegistryClusterModeCredentialsArgs:
@@ -3957,6 +5521,15 @@ class SchemaRegistryClusterModeCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class SchemaRegistryClusterModeSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    SchemaRegistryClusterModeSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaRegistryClusterModeSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -3978,6 +5551,19 @@ class SchemaRegistryClusterModeSchemaRegistryClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SchemaRegistryDekCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    SchemaRegistryDekCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaRegistryDekCredentialsArgs:
@@ -4016,6 +5602,15 @@ class SchemaRegistryDekCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class SchemaRegistryDekSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    SchemaRegistryDekSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaRegistryDekSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -4037,6 +5632,19 @@ class SchemaRegistryDekSchemaRegistryClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SchemaRegistryKekCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    SchemaRegistryKekCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaRegistryKekCredentialsArgs:
@@ -4075,6 +5683,15 @@ class SchemaRegistryKekCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class SchemaRegistryKekSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    SchemaRegistryKekSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaRegistryKekSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -4096,6 +5713,13 @@ class SchemaRegistryKekSchemaRegistryClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SchemaRulesetArgsDict(TypedDict):
+        domain_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgsDict']]]]
+        migration_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgsDict']]]]
+elif False:
+    SchemaRulesetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaRulesetArgs:
@@ -4125,6 +5749,56 @@ class SchemaRulesetArgs:
     def migration_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]]):
         pulumi.set(self, "migration_rules", value)
 
+
+if not MYPY:
+    class SchemaRulesetDomainRuleArgsDict(TypedDict):
+        doc: NotRequired[pulumi.Input[str]]
+        """
+        An optional description of the rule.
+        """
+        expr: NotRequired[pulumi.Input[str]]
+        """
+        The body of the rule, which is optional.
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        """
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A user-defined name that can be used to reference the rule.
+        """
+        on_failure: NotRequired[pulumi.Input[str]]
+        """
+        An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        on_success: NotRequired[pulumi.Input[str]]
+        """
+        An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        """
+        params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+
+        > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+
+        > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+        """
+        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The tags to which the rule applies, if any.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
+elif False:
+    SchemaRulesetDomainRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaRulesetDomainRuleArgs:
@@ -4303,6 +5977,53 @@ class SchemaRulesetDomainRuleArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class SchemaRulesetMigrationRuleArgsDict(TypedDict):
+        doc: NotRequired[pulumi.Input[str]]
+        """
+        An optional description of the rule.
+        """
+        expr: NotRequired[pulumi.Input[str]]
+        """
+        The body of the rule, which is optional.
+        """
+        kind: NotRequired[pulumi.Input[str]]
+        """
+        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        """
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        on_failure: NotRequired[pulumi.Input[str]]
+        """
+        An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        on_success: NotRequired[pulumi.Input[str]]
+        """
+        An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        """
+        params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+
+        > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+
+        > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+        """
+        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The tags to which the rule applies, if any.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
+elif False:
+    SchemaRulesetMigrationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaRulesetMigrationRuleArgs:
     def __init__(__self__, *,
@@ -4476,6 +6197,23 @@ class SchemaRulesetMigrationRuleArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class SchemaSchemaReferenceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the subject, representing the subject under which the referenced schema is registered.
+        """
+        subject_name: pulumi.Input[str]
+        """
+        The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        """
+        version: pulumi.Input[int]
+        """
+        The version, representing the exact version of the schema under the registered subject.
+        """
+elif False:
+    SchemaSchemaReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaSchemaReferenceArgs:
     def __init__(__self__, *,
@@ -4528,6 +6266,15 @@ class SchemaSchemaReferenceArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class SchemaSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    SchemaSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -4549,6 +6296,19 @@ class SchemaSchemaRegistryClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SubjectConfigCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    SubjectConfigCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubjectConfigCredentialsArgs:
@@ -4587,6 +6347,15 @@ class SubjectConfigCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class SubjectConfigSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    SubjectConfigSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubjectConfigSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -4608,6 +6377,19 @@ class SubjectConfigSchemaRegistryClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class SubjectModeCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    SubjectModeCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubjectModeCredentialsArgs:
@@ -4646,6 +6428,15 @@ class SubjectModeCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class SubjectModeSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    SubjectModeSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SubjectModeSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -4667,6 +6458,19 @@ class SubjectModeSchemaRegistryClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class TagBindingCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    TagBindingCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TagBindingCredentialsArgs:
@@ -4705,6 +6509,15 @@ class TagBindingCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class TagBindingSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    TagBindingSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TagBindingSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -4726,6 +6539,19 @@ class TagBindingSchemaRegistryClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class TagCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Schema Registry API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    TagCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TagCredentialsArgs:
@@ -4764,6 +6590,15 @@ class TagCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class TagSchemaRegistryClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    TagSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TagSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -4785,6 +6620,29 @@ class TagSchemaRegistryClusterArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class TransitGatewayAttachmentAwsArgsDict(TypedDict):
+        ram_resource_share_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+        """
+        routes: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+
+        > **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
+        """
+        transit_gateway_id: pulumi.Input[str]
+        """
+        The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+        """
+        transit_gateway_attachment_id: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+        """
+elif False:
+    TransitGatewayAttachmentAwsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransitGatewayAttachmentAwsArgs:
@@ -4858,6 +6716,15 @@ class TransitGatewayAttachmentAwsArgs:
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
 
+if not MYPY:
+    class TransitGatewayAttachmentEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
+        """
+elif False:
+    TransitGatewayAttachmentEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransitGatewayAttachmentEnvironmentArgs:
     def __init__(__self__, *,
@@ -4879,6 +6746,15 @@ class TransitGatewayAttachmentEnvironmentArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class TransitGatewayAttachmentNetworkArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+        """
+elif False:
+    TransitGatewayAttachmentNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransitGatewayAttachmentNetworkArgs:
@@ -4902,6 +6778,15 @@ class TransitGatewayAttachmentNetworkArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class GetAccessPointEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+        """
+elif False:
+    GetAccessPointEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetAccessPointEnvironmentArgs:
     def __init__(__self__, *,
@@ -4923,6 +6808,21 @@ class GetAccessPointEnvironmentArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetBusinessMetadataBindingCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Schema Registry API Key.
+        """
+        secret: str
+        """
+        The Schema Registry API Secret.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+        """
+elif False:
+    GetBusinessMetadataBindingCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetBusinessMetadataBindingCredentialsArgs:
@@ -4965,6 +6865,15 @@ class GetBusinessMetadataBindingCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class GetBusinessMetadataBindingSchemaRegistryClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    GetBusinessMetadataBindingSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetBusinessMetadataBindingSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -4986,6 +6895,19 @@ class GetBusinessMetadataBindingSchemaRegistryClusterArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetBusinessMetadataCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Schema Registry API Key.
+        """
+        secret: str
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    GetBusinessMetadataCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetBusinessMetadataCredentialsArgs:
@@ -5024,6 +6946,15 @@ class GetBusinessMetadataCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class GetBusinessMetadataSchemaRegistryClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    GetBusinessMetadataSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetBusinessMetadataSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -5045,6 +6976,15 @@ class GetBusinessMetadataSchemaRegistryClusterArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetCertificatePoolCertificateAuthorityArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+        """
+elif False:
+    GetCertificatePoolCertificateAuthorityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetCertificatePoolCertificateAuthorityArgs:
@@ -5068,6 +7008,15 @@ class GetCertificatePoolCertificateAuthorityArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class GetDnsRecordEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+        """
+elif False:
+    GetDnsRecordEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetDnsRecordEnvironmentArgs:
     def __init__(__self__, *,
@@ -5090,6 +7039,15 @@ class GetDnsRecordEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class GetEnvironmentStreamGovernanceArgsDict(TypedDict):
+        package: str
+        """
+        Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        """
+elif False:
+    GetEnvironmentStreamGovernanceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetEnvironmentStreamGovernanceArgs:
     def __init__(__self__, *,
@@ -5111,6 +7069,17 @@ class GetEnvironmentStreamGovernanceArgs:
     def package(self, value: str):
         pulumi.set(self, "package", value)
 
+
+if not MYPY:
+    class GetFlinkComputePoolEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+elif False:
+    GetFlinkComputePoolEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFlinkComputePoolEnvironmentArgs:
@@ -5138,6 +7107,15 @@ class GetFlinkComputePoolEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class GetGatewayEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+        """
+elif False:
+    GetGatewayEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetGatewayEnvironmentArgs:
     def __init__(__self__, *,
@@ -5159,6 +7137,17 @@ class GetGatewayEnvironmentArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetIdentityPoolIdentityProviderArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+elif False:
+    GetIdentityPoolIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetIdentityPoolIdentityProviderArgs:
@@ -5185,6 +7174,27 @@ class GetIdentityPoolIdentityProviderArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetIpAddressesFilterArgsDict(TypedDict):
+        address_types: NotRequired[Sequence[str]]
+        """
+        A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+        """
+        clouds: NotRequired[Sequence[str]]
+        """
+        A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+        """
+        regions: NotRequired[Sequence[str]]
+        """
+        A list of regions to filter by.
+        """
+        services: NotRequired[Sequence[str]]
+        """
+        A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+        """
+elif False:
+    GetIpAddressesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetIpAddressesFilterArgs:
@@ -5257,11 +7267,37 @@ class GetIpAddressesFilterArgs:
         pulumi.set(self, "services", value)
 
 
+if not MYPY:
+    class GetKafkaClusterBasicArgsDict(TypedDict):
+        pass
+elif False:
+    GetKafkaClusterBasicArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetKafkaClusterBasicArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class GetKafkaClusterDedicatedArgsDict(TypedDict):
+        cku: int
+        """
+        (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
+        """
+        encryption_key: str
+        """
+        The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+        """
+        zones: Sequence[str]
+        """
+        (Required List of String) The list of zones the cluster is in.
+        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+        - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+        - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        """
+elif False:
+    GetKafkaClusterDedicatedArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetKafkaClusterDedicatedArgs:
@@ -5321,11 +7357,28 @@ class GetKafkaClusterDedicatedArgs:
         pulumi.set(self, "zones", value)
 
 
+if not MYPY:
+    class GetKafkaClusterEnterpriseArgsDict(TypedDict):
+        pass
+elif False:
+    GetKafkaClusterEnterpriseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetKafkaClusterEnterpriseArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class GetKafkaClusterEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+elif False:
+    GetKafkaClusterEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetKafkaClusterEnvironmentArgs:
@@ -5352,6 +7405,18 @@ class GetKafkaClusterEnvironmentArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetKafkaClusterFreightArgsDict(TypedDict):
+        zones: Sequence[str]
+        """
+        (Required List of String) The list of zones the cluster is in.
+        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+        - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+        - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        """
+elif False:
+    GetKafkaClusterFreightArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetKafkaClusterFreightArgs:
@@ -5381,11 +7446,30 @@ class GetKafkaClusterFreightArgs:
         pulumi.set(self, "zones", value)
 
 
+if not MYPY:
+    class GetKafkaClusterStandardArgsDict(TypedDict):
+        pass
+elif False:
+    GetKafkaClusterStandardArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetKafkaClusterStandardArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class GetKafkaTopicCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Kafka API Key.
+        """
+        secret: str
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    GetKafkaTopicCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetKafkaTopicCredentialsArgs:
@@ -5424,6 +7508,15 @@ class GetKafkaTopicCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class GetKafkaTopicKafkaClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+elif False:
+    GetKafkaTopicKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetKafkaTopicKafkaClusterArgs:
     def __init__(__self__, *,
@@ -5445,6 +7538,17 @@ class GetKafkaTopicKafkaClusterArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetKsqlClusterEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+elif False:
+    GetKsqlClusterEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetKsqlClusterEnvironmentArgs:
@@ -5471,6 +7575,23 @@ class GetKsqlClusterEnvironmentArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetNetworkAwArgsDict(TypedDict):
+        account: str
+        """
+        (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+        """
+        private_link_endpoint_service: str
+        """
+        (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
+        """
+        vpc: str
+        """
+        (Required String) The Confluent Cloud VPC ID.
+        """
+elif False:
+    GetNetworkAwArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetNetworkAwArgs:
@@ -5524,6 +7645,15 @@ class GetNetworkAwArgs:
         pulumi.set(self, "vpc", value)
 
 
+if not MYPY:
+    class GetNetworkAzureArgsDict(TypedDict):
+        private_link_service_aliases: Mapping[str, str]
+        """
+        (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
+        """
+elif False:
+    GetNetworkAzureArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetNetworkAzureArgs:
     def __init__(__self__, *,
@@ -5545,6 +7675,17 @@ class GetNetworkAzureArgs:
     def private_link_service_aliases(self, value: Mapping[str, str]):
         pulumi.set(self, "private_link_service_aliases", value)
 
+
+if not MYPY:
+    class GetNetworkDnsConfigArgsDict(TypedDict):
+        resolution: str
+        """
+        (Required String) Network DNS resolution.
+        When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+        When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+        """
+elif False:
+    GetNetworkDnsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetNetworkDnsConfigArgs:
@@ -5572,6 +7713,17 @@ class GetNetworkDnsConfigArgs:
         pulumi.set(self, "resolution", value)
 
 
+if not MYPY:
+    class GetNetworkEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+elif False:
+    GetNetworkEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetNetworkEnvironmentArgs:
     def __init__(__self__, *,
@@ -5597,6 +7749,23 @@ class GetNetworkEnvironmentArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetNetworkGcpArgsDict(TypedDict):
+        private_service_connect_service_attachments: Mapping[str, str]
+        """
+        (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        """
+        project: str
+        """
+        (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
+        """
+        vpc_network: str
+        """
+        (Required String) The network name of the Confluent Cloud VPC.
+        """
+elif False:
+    GetNetworkGcpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetNetworkGcpArgs:
@@ -5650,6 +7819,15 @@ class GetNetworkGcpArgs:
         pulumi.set(self, "vpc_network", value)
 
 
+if not MYPY:
+    class GetNetworkLinkEndpointEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        """
+elif False:
+    GetNetworkLinkEndpointEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetNetworkLinkEndpointEnvironmentArgs:
     def __init__(__self__, *,
@@ -5671,6 +7849,19 @@ class GetNetworkLinkEndpointEnvironmentArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetNetworkLinkServiceAcceptArgsDict(TypedDict):
+        environments: Sequence[str]
+        """
+        (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+        """
+        networks: Sequence[str]
+        """
+        (Optional List of Strings) List of network ids from which connections can be accepted.
+        """
+elif False:
+    GetNetworkLinkServiceAcceptArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetNetworkLinkServiceAcceptArgs:
@@ -5709,6 +7900,15 @@ class GetNetworkLinkServiceAcceptArgs:
         pulumi.set(self, "networks", value)
 
 
+if not MYPY:
+    class GetNetworkLinkServiceEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+        """
+elif False:
+    GetNetworkLinkServiceEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetNetworkLinkServiceEnvironmentArgs:
     def __init__(__self__, *,
@@ -5730,6 +7930,17 @@ class GetNetworkLinkServiceEnvironmentArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetPeeringEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+elif False:
+    GetPeeringEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetPeeringEnvironmentArgs:
@@ -5757,6 +7968,17 @@ class GetPeeringEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class GetPrivateLinkAccessEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+elif False:
+    GetPrivateLinkAccessEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPrivateLinkAccessEnvironmentArgs:
     def __init__(__self__, *,
@@ -5783,6 +8005,15 @@ class GetPrivateLinkAccessEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class GetPrivateLinkAttachmentConnectionEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+        """
+elif False:
+    GetPrivateLinkAttachmentConnectionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPrivateLinkAttachmentConnectionEnvironmentArgs:
     def __init__(__self__, *,
@@ -5805,6 +8036,15 @@ class GetPrivateLinkAttachmentConnectionEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class GetPrivateLinkAttachmentEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+        """
+elif False:
+    GetPrivateLinkAttachmentEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPrivateLinkAttachmentEnvironmentArgs:
     def __init__(__self__, *,
@@ -5826,6 +8066,17 @@ class GetPrivateLinkAttachmentEnvironmentArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetProviderIntegrationEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+elif False:
+    GetProviderIntegrationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetProviderIntegrationEnvironmentArgs:
@@ -5852,6 +8103,19 @@ class GetProviderIntegrationEnvironmentArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetSchemaCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Schema Registry API Key.
+        """
+        secret: str
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    GetSchemaCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSchemaCredentialsArgs:
@@ -5889,6 +8153,23 @@ class GetSchemaCredentialsArgs:
     def secret(self, value: str):
         pulumi.set(self, "secret", value)
 
+
+if not MYPY:
+    class GetSchemaMetadataArgsDict(TypedDict):
+        properties: Mapping[str, str]
+        """
+        (Optional Map) The custom properties to set:
+        """
+        sensitives: Sequence[str]
+        """
+        (Optional List of Strings) A list of metadata properties to be encrypted.
+        """
+        tags: Sequence['GetSchemaMetadataTagArgsDict']
+        """
+        (Optional String List) The tags to which the rule applies, if any.
+        """
+elif False:
+    GetSchemaMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSchemaMetadataArgs:
@@ -5942,6 +8223,19 @@ class GetSchemaMetadataArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class GetSchemaMetadataTagArgsDict(TypedDict):
+        key: str
+        """
+        (Required String) The setting name.
+        """
+        values: Sequence[str]
+        """
+        (Required List of Strings) The list of tags.
+        """
+elif False:
+    GetSchemaMetadataTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSchemaMetadataTagArgs:
     def __init__(__self__, *,
@@ -5978,6 +8272,19 @@ class GetSchemaMetadataTagArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetSchemaRegistryClusterConfigCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Schema Registry API Key.
+        """
+        secret: str
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    GetSchemaRegistryClusterConfigCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSchemaRegistryClusterConfigCredentialsArgs:
@@ -6016,6 +8323,15 @@ class GetSchemaRegistryClusterConfigCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class GetSchemaRegistryClusterConfigSchemaRegistryClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    GetSchemaRegistryClusterConfigSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -6038,6 +8354,15 @@ class GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class GetSchemaRegistryClusterEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        """
+elif False:
+    GetSchemaRegistryClusterEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSchemaRegistryClusterEnvironmentArgs:
     def __init__(__self__, *,
@@ -6059,6 +8384,21 @@ class GetSchemaRegistryClusterEnvironmentArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetSchemaRegistryClusterModeCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Schema Registry API Key.
+        """
+        secret: str
+        """
+        The Schema Registry API Secret.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+        """
+elif False:
+    GetSchemaRegistryClusterModeCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSchemaRegistryClusterModeCredentialsArgs:
@@ -6101,6 +8441,15 @@ class GetSchemaRegistryClusterModeCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class GetSchemaRegistryClusterModeSchemaRegistryClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    GetSchemaRegistryClusterModeSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSchemaRegistryClusterModeSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -6122,6 +8471,16 @@ class GetSchemaRegistryClusterModeSchemaRegistryClusterArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetSchemaRegistryClustersEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        - If no environment id is specified, clusters from all environments will be displayed.
+        """
+elif False:
+    GetSchemaRegistryClustersEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSchemaRegistryClustersEnvironmentArgs:
@@ -6146,6 +8505,19 @@ class GetSchemaRegistryClustersEnvironmentArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetSchemaRegistryDekCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Schema Registry API Key.
+        """
+        secret: str
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    GetSchemaRegistryDekCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSchemaRegistryDekCredentialsArgs:
@@ -6184,6 +8556,15 @@ class GetSchemaRegistryDekCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class GetSchemaRegistryDekSchemaRegistryClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    GetSchemaRegistryDekSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSchemaRegistryDekSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -6205,6 +8586,19 @@ class GetSchemaRegistryDekSchemaRegistryClusterArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetSchemaRegistryKekCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Schema Registry API Key.
+        """
+        secret: str
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    GetSchemaRegistryKekCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSchemaRegistryKekCredentialsArgs:
@@ -6243,6 +8637,15 @@ class GetSchemaRegistryKekCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class GetSchemaRegistryKekSchemaRegistryClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    GetSchemaRegistryKekSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSchemaRegistryKekSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -6264,6 +8667,16 @@ class GetSchemaRegistryKekSchemaRegistryClusterArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetSchemaRulesetArgsDict(TypedDict):
+        domain_rules: Sequence['GetSchemaRulesetDomainRuleArgsDict']
+        """
+        (Optional List of Blocks) supports the following:
+        """
+        migration_rules: Sequence['GetSchemaRulesetMigrationRuleArgsDict']
+elif False:
+    GetSchemaRulesetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSchemaRulesetArgs:
@@ -6297,6 +8710,51 @@ class GetSchemaRulesetArgs:
     def migration_rules(self, value: Sequence['GetSchemaRulesetMigrationRuleArgs']):
         pulumi.set(self, "migration_rules", value)
 
+
+if not MYPY:
+    class GetSchemaRulesetDomainRuleArgsDict(TypedDict):
+        doc: str
+        """
+        (Optional String) An optional description.
+        """
+        expr: str
+        """
+        (Optional String) The body of the rule, which is optional.
+        """
+        kind: str
+        """
+        (Optional String) Either `CONDITION` or `TRANSFORM`.
+        """
+        mode: str
+        """
+        (Optional String) The mode of the rule.
+        """
+        name: str
+        """
+        (Optional String) A user-defined name that can be used to reference the rule.
+        """
+        on_failure: str
+        """
+        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        on_success: str
+        """
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+        """
+        params: Mapping[str, str]
+        """
+        (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+        """
+        tags: Sequence[str]
+        """
+        (Optional String List) The tags to which the rule applies, if any.
+        """
+        type: str
+        """
+        (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
+elif False:
+    GetSchemaRulesetDomainRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSchemaRulesetDomainRuleArgs:
@@ -6455,6 +8913,51 @@ class GetSchemaRulesetDomainRuleArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class GetSchemaRulesetMigrationRuleArgsDict(TypedDict):
+        doc: str
+        """
+        (Optional String) An optional description.
+        """
+        expr: str
+        """
+        (Optional String) The body of the rule, which is optional.
+        """
+        kind: str
+        """
+        (Optional String) Either `CONDITION` or `TRANSFORM`.
+        """
+        mode: str
+        """
+        (Optional String) The mode of the rule.
+        """
+        name: str
+        """
+        (Optional String) A user-defined name that can be used to reference the rule.
+        """
+        on_failure: str
+        """
+        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        on_success: str
+        """
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+        """
+        params: Mapping[str, str]
+        """
+        (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+        """
+        tags: Sequence[str]
+        """
+        (Optional String List) The tags to which the rule applies, if any.
+        """
+        type: str
+        """
+        (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
+elif False:
+    GetSchemaRulesetMigrationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSchemaRulesetMigrationRuleArgs:
     def __init__(__self__, *,
@@ -6612,6 +9115,15 @@ class GetSchemaRulesetMigrationRuleArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class GetSchemaSchemaRegistryClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    GetSchemaSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSchemaSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -6633,6 +9145,19 @@ class GetSchemaSchemaRegistryClusterArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetSchemasCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Schema Registry API Key.
+        """
+        secret: str
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    GetSchemasCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSchemasCredentialsArgs:
@@ -6670,6 +9195,23 @@ class GetSchemasCredentialsArgs:
     def secret(self, value: str):
         pulumi.set(self, "secret", value)
 
+
+if not MYPY:
+    class GetSchemasFilterArgsDict(TypedDict):
+        deleted: NotRequired[bool]
+        """
+        The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+        """
+        latest_only: NotRequired[bool]
+        """
+        The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+        """
+        subject_prefix: NotRequired[str]
+        """
+        The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+        """
+elif False:
+    GetSchemasFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSchemasFilterArgs:
@@ -6726,6 +9268,15 @@ class GetSchemasFilterArgs:
         pulumi.set(self, "subject_prefix", value)
 
 
+if not MYPY:
+    class GetSchemasSchemaRegistryClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    GetSchemasSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSchemasSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -6747,6 +9298,19 @@ class GetSchemasSchemaRegistryClusterArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetSubjectConfigCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Schema Registry API Key.
+        """
+        secret: str
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    GetSubjectConfigCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSubjectConfigCredentialsArgs:
@@ -6785,6 +9349,15 @@ class GetSubjectConfigCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class GetSubjectConfigSchemaRegistryClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    GetSubjectConfigSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSubjectConfigSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -6806,6 +9379,19 @@ class GetSubjectConfigSchemaRegistryClusterArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetSubjectModeCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Schema Registry API Key.
+        """
+        secret: str
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    GetSubjectModeCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSubjectModeCredentialsArgs:
@@ -6844,6 +9430,15 @@ class GetSubjectModeCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class GetSubjectModeSchemaRegistryClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    GetSubjectModeSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSubjectModeSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -6865,6 +9460,19 @@ class GetSubjectModeSchemaRegistryClusterArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetTagBindingCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Schema Registry API Key.
+        """
+        secret: str
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    GetTagBindingCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTagBindingCredentialsArgs:
@@ -6903,6 +9511,15 @@ class GetTagBindingCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class GetTagBindingSchemaRegistryClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    GetTagBindingSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetTagBindingSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -6924,6 +9541,19 @@ class GetTagBindingSchemaRegistryClusterArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetTagCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Schema Registry API Key.
+        """
+        secret: str
+        """
+        The Schema Registry API Secret.
+        """
+elif False:
+    GetTagCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTagCredentialsArgs:
@@ -6962,6 +9592,15 @@ class GetTagCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class GetTagSchemaRegistryClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+elif False:
+    GetTagSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetTagSchemaRegistryClusterArgs:
     def __init__(__self__, *,
@@ -6983,6 +9622,17 @@ class GetTagSchemaRegistryClusterArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetTransitGatewayAttachmentEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+elif False:
+    GetTransitGatewayAttachmentEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTransitGatewayAttachmentEnvironmentArgs:

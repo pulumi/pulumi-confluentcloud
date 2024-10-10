@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -165,9 +170,6 @@ def get_peering(display_name: Optional[str] = None,
         gcps=pulumi.get(__ret__, 'gcps'),
         id=pulumi.get(__ret__, 'id'),
         networks=pulumi.get(__ret__, 'networks'))
-
-
-@_utilities.lift_output_func(get_peering)
 def get_peering_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                        environment: Optional[pulumi.Input[Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict']]] = None,
                        id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -200,4 +202,17 @@ def get_peering_output(display_name: Optional[pulumi.Input[Optional[str]]] = Non
     :param Union['GetPeeringEnvironmentArgs', 'GetPeeringEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Peering, for example, `peer-abc123`.
     """
-    ...
+    __args__ = dict()
+    __args__['displayName'] = display_name
+    __args__['environment'] = environment
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getPeering:getPeering', __args__, opts=opts, typ=GetPeeringResult)
+    return __ret__.apply(lambda __response__: GetPeeringResult(
+        aws=pulumi.get(__response__, 'aws'),
+        azures=pulumi.get(__response__, 'azures'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        environment=pulumi.get(__response__, 'environment'),
+        gcps=pulumi.get(__response__, 'gcps'),
+        id=pulumi.get(__response__, 'id'),
+        networks=pulumi.get(__response__, 'networks')))

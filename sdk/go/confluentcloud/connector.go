@@ -34,7 +34,7 @@ import (
 //				KafkaCluster: &confluentcloud.ConnectorKafkaClusterArgs{
 //					Id: pulumi.Any(basic.Id),
 //				},
-//				ConfigSensitive: nil,
+//				ConfigSensitive: pulumi.StringMap{},
 //				ConfigNonsensitive: pulumi.StringMap{
 //					"connector.class":          pulumi.String("DatagenSource"),
 //					"name":                     pulumi.String("DatagenSourceConnector_0"),

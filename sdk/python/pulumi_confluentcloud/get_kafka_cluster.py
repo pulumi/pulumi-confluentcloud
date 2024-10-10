@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -321,9 +326,6 @@ def get_kafka_cluster(basics: Optional[Sequence[Union['GetKafkaClusterBasicArgs'
         region=pulumi.get(__ret__, 'region'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         standards=pulumi.get(__ret__, 'standards'))
-
-
-@_utilities.lift_output_func(get_kafka_cluster)
 def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[Union['GetKafkaClusterBasicArgs', 'GetKafkaClusterBasicArgsDict']]]]] = None,
                              dedicated: Optional[pulumi.Input[Optional[Union['GetKafkaClusterDedicatedArgs', 'GetKafkaClusterDedicatedArgsDict']]]] = None,
                              display_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -367,4 +369,33 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[Uni
     :param str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
     :param Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['basics'] = basics
+    __args__['dedicated'] = dedicated
+    __args__['displayName'] = display_name
+    __args__['enterprises'] = enterprises
+    __args__['environment'] = environment
+    __args__['freights'] = freights
+    __args__['id'] = id
+    __args__['standards'] = standards
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getKafkaCluster:getKafkaCluster', __args__, opts=opts, typ=GetKafkaClusterResult)
+    return __ret__.apply(lambda __response__: GetKafkaClusterResult(
+        api_version=pulumi.get(__response__, 'api_version'),
+        availability=pulumi.get(__response__, 'availability'),
+        basics=pulumi.get(__response__, 'basics'),
+        bootstrap_endpoint=pulumi.get(__response__, 'bootstrap_endpoint'),
+        byok_keys=pulumi.get(__response__, 'byok_keys'),
+        cloud=pulumi.get(__response__, 'cloud'),
+        dedicated=pulumi.get(__response__, 'dedicated'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        enterprises=pulumi.get(__response__, 'enterprises'),
+        environment=pulumi.get(__response__, 'environment'),
+        freights=pulumi.get(__response__, 'freights'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        networks=pulumi.get(__response__, 'networks'),
+        rbac_crn=pulumi.get(__response__, 'rbac_crn'),
+        region=pulumi.get(__response__, 'region'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
+        standards=pulumi.get(__response__, 'standards')))

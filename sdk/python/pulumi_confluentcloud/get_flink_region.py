@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -147,9 +152,6 @@ def get_flink_region(cloud: Optional[str] = None,
         private_rest_endpoint=pulumi.get(__ret__, 'private_rest_endpoint'),
         region=pulumi.get(__ret__, 'region'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'))
-
-
-@_utilities.lift_output_func(get_flink_region)
 def get_flink_region_output(cloud: Optional[pulumi.Input[str]] = None,
                             region: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlinkRegionResult]:
@@ -173,4 +175,16 @@ def get_flink_region_output(cloud: Optional[pulumi.Input[str]] = None,
     :param str cloud: The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
     :param str region: The cloud service provider region, for example, `us-east-1`.
     """
-    ...
+    __args__ = dict()
+    __args__['cloud'] = cloud
+    __args__['region'] = region
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getFlinkRegion:getFlinkRegion', __args__, opts=opts, typ=GetFlinkRegionResult)
+    return __ret__.apply(lambda __response__: GetFlinkRegionResult(
+        api_version=pulumi.get(__response__, 'api_version'),
+        cloud=pulumi.get(__response__, 'cloud'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
+        private_rest_endpoint=pulumi.get(__response__, 'private_rest_endpoint'),
+        region=pulumi.get(__response__, 'region'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -239,9 +244,6 @@ def get_schema(credentials: Optional[Union['GetSchemaCredentialsArgs', 'GetSchem
         skip_validation_during_plan=pulumi.get(__ret__, 'skip_validation_during_plan'),
         subject_name=pulumi.get(__ret__, 'subject_name'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_schema)
 def get_schema_output(credentials: Optional[pulumi.Input[Optional[Union['GetSchemaCredentialsArgs', 'GetSchemaCredentialsArgsDict']]]] = None,
                       metadata: Optional[pulumi.Input[Optional[Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict']]]] = None,
                       rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
@@ -261,4 +263,29 @@ def get_schema_output(credentials: Optional[pulumi.Input[Optional[Union['GetSche
            > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
     :param str subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
     """
-    ...
+    __args__ = dict()
+    __args__['credentials'] = credentials
+    __args__['metadata'] = metadata
+    __args__['restEndpoint'] = rest_endpoint
+    __args__['ruleset'] = ruleset
+    __args__['schemaIdentifier'] = schema_identifier
+    __args__['schemaRegistryCluster'] = schema_registry_cluster
+    __args__['subjectName'] = subject_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSchema:getSchema', __args__, opts=opts, typ=GetSchemaResult)
+    return __ret__.apply(lambda __response__: GetSchemaResult(
+        credentials=pulumi.get(__response__, 'credentials'),
+        format=pulumi.get(__response__, 'format'),
+        hard_delete=pulumi.get(__response__, 'hard_delete'),
+        id=pulumi.get(__response__, 'id'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        recreate_on_update=pulumi.get(__response__, 'recreate_on_update'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
+        ruleset=pulumi.get(__response__, 'ruleset'),
+        schema=pulumi.get(__response__, 'schema'),
+        schema_identifier=pulumi.get(__response__, 'schema_identifier'),
+        schema_references=pulumi.get(__response__, 'schema_references'),
+        schema_registry_cluster=pulumi.get(__response__, 'schema_registry_cluster'),
+        skip_validation_during_plan=pulumi.get(__response__, 'skip_validation_during_plan'),
+        subject_name=pulumi.get(__response__, 'subject_name'),
+        version=pulumi.get(__response__, 'version')))

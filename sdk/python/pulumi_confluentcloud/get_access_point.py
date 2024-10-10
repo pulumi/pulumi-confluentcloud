@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -140,9 +145,6 @@ def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs'
         environment=pulumi.get(__ret__, 'environment'),
         gateways=pulumi.get(__ret__, 'gateways'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_access_point)
 def get_access_point_output(environment: Optional[pulumi.Input[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict']]] = None,
                             id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointResult]:
@@ -167,4 +169,15 @@ def get_access_point_output(environment: Optional[pulumi.Input[Union['GetAccessP
 
     :param str id: The ID of the Access Point, for example, `ap-abc123`.
     """
-    ...
+    __args__ = dict()
+    __args__['environment'] = environment
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getAccessPoint:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult)
+    return __ret__.apply(lambda __response__: GetAccessPointResult(
+        aws_egress_private_link_endpoints=pulumi.get(__response__, 'aws_egress_private_link_endpoints'),
+        azure_egress_private_link_endpoints=pulumi.get(__response__, 'azure_egress_private_link_endpoints'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        environment=pulumi.get(__response__, 'environment'),
+        gateways=pulumi.get(__response__, 'gateways'),
+        id=pulumi.get(__response__, 'id')))

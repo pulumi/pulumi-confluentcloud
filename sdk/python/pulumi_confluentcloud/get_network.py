@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -313,9 +318,6 @@ def get_network(aws: Optional[Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwAr
         zonal_subdomains=pulumi.get(__ret__, 'zonal_subdomains'),
         zone_infos=pulumi.get(__ret__, 'zone_infos'),
         zones=pulumi.get(__ret__, 'zones'))
-
-
-@_utilities.lift_output_func(get_network)
 def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwArgsDict']]]]] = None,
                        azures: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkAzureArgs', 'GetNetworkAzureArgsDict']]]]] = None,
                        display_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -353,4 +355,32 @@ def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[Union['GetNe
     :param Sequence[Union['GetNetworkGcpArgs', 'GetNetworkGcpArgsDict']] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
     :param str id: The ID of the Network, for example, `n-abc123`.
     """
-    ...
+    __args__ = dict()
+    __args__['aws'] = aws
+    __args__['azures'] = azures
+    __args__['displayName'] = display_name
+    __args__['dnsConfigs'] = dns_configs
+    __args__['environment'] = environment
+    __args__['gcps'] = gcps
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getNetwork:getNetwork', __args__, opts=opts, typ=GetNetworkResult)
+    return __ret__.apply(lambda __response__: GetNetworkResult(
+        aws=pulumi.get(__response__, 'aws'),
+        azures=pulumi.get(__response__, 'azures'),
+        cidr=pulumi.get(__response__, 'cidr'),
+        cloud=pulumi.get(__response__, 'cloud'),
+        connection_types=pulumi.get(__response__, 'connection_types'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        dns_configs=pulumi.get(__response__, 'dns_configs'),
+        dns_domain=pulumi.get(__response__, 'dns_domain'),
+        environment=pulumi.get(__response__, 'environment'),
+        gateways=pulumi.get(__response__, 'gateways'),
+        gcps=pulumi.get(__response__, 'gcps'),
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
+        reserved_cidr=pulumi.get(__response__, 'reserved_cidr'),
+        resource_name=pulumi.get(__response__, 'resource_name'),
+        zonal_subdomains=pulumi.get(__response__, 'zonal_subdomains'),
+        zone_infos=pulumi.get(__response__, 'zone_infos'),
+        zones=pulumi.get(__response__, 'zones')))

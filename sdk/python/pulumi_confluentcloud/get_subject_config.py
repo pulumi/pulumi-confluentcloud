@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -120,9 +125,6 @@ def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsA
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
         subject_name=pulumi.get(__ret__, 'subject_name'))
-
-
-@_utilities.lift_output_func(get_subject_config)
 def get_subject_config_output(credentials: Optional[pulumi.Input[Optional[Union['GetSubjectConfigCredentialsArgs', 'GetSubjectConfigCredentialsArgsDict']]]] = None,
                               rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                               schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSubjectConfigSchemaRegistryClusterArgs', 'GetSubjectConfigSchemaRegistryClusterArgsDict']]]] = None,
@@ -134,4 +136,17 @@ def get_subject_config_output(credentials: Optional[pulumi.Input[Optional[Union[
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     :param str subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
     """
-    ...
+    __args__ = dict()
+    __args__['credentials'] = credentials
+    __args__['restEndpoint'] = rest_endpoint
+    __args__['schemaRegistryCluster'] = schema_registry_cluster
+    __args__['subjectName'] = subject_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSubjectConfig:getSubjectConfig', __args__, opts=opts, typ=GetSubjectConfigResult)
+    return __ret__.apply(lambda __response__: GetSubjectConfigResult(
+        compatibility_level=pulumi.get(__response__, 'compatibility_level'),
+        credentials=pulumi.get(__response__, 'credentials'),
+        id=pulumi.get(__response__, 'id'),
+        rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__response__, 'schema_registry_cluster'),
+        subject_name=pulumi.get(__response__, 'subject_name')))

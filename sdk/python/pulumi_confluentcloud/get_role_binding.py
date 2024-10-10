@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -109,9 +114,6 @@ def get_role_binding(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         principal=pulumi.get(__ret__, 'principal'),
         role_name=pulumi.get(__ret__, 'role_name'))
-
-
-@_utilities.lift_output_func(get_role_binding)
 def get_role_binding_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleBindingResult]:
     """
@@ -134,4 +136,12 @@ def get_role_binding_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the Role Binding (for example, `rb-abc123`).
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getRoleBinding:getRoleBinding', __args__, opts=opts, typ=GetRoleBindingResult)
+    return __ret__.apply(lambda __response__: GetRoleBindingResult(
+        crn_pattern=pulumi.get(__response__, 'crn_pattern'),
+        id=pulumi.get(__response__, 'id'),
+        principal=pulumi.get(__response__, 'principal'),
+        role_name=pulumi.get(__response__, 'role_name')))

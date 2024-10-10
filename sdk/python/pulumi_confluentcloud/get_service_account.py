@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -130,9 +135,6 @@ def get_service_account(display_name: Optional[str] = None,
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'))
-
-
-@_utilities.lift_output_func(get_service_account)
 def get_service_account_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceAccountResult]:
@@ -159,4 +161,14 @@ def get_service_account_output(display_name: Optional[pulumi.Input[Optional[str]
            > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param str id: The ID of the Service Account (e.g., `sa-abc123`).
     """
-    ...
+    __args__ = dict()
+    __args__['displayName'] = display_name
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getServiceAccount:getServiceAccount', __args__, opts=opts, typ=GetServiceAccountResult)
+    return __ret__.apply(lambda __response__: GetServiceAccountResult(
+        api_version=pulumi.get(__response__, 'api_version'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind')))

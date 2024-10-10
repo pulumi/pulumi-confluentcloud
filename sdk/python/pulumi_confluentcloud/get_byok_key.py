@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -111,9 +116,6 @@ def get_byok_key(id: Optional[str] = None,
         azures=pulumi.get(__ret__, 'azures'),
         gcps=pulumi.get(__ret__, 'gcps'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_byok_key)
 def get_byok_key_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetByokKeyResult]:
     """
@@ -134,4 +136,12 @@ def get_byok_key_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the BYOK key, for example, `cck-abcde`.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getByokKey:getByokKey', __args__, opts=opts, typ=GetByokKeyResult)
+    return __ret__.apply(lambda __response__: GetByokKeyResult(
+        aws=pulumi.get(__response__, 'aws'),
+        azures=pulumi.get(__response__, 'azures'),
+        gcps=pulumi.get(__response__, 'gcps'),
+        id=pulumi.get(__response__, 'id')))
