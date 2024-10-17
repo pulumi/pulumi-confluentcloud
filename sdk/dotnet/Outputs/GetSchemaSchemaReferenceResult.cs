@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetSchemaSchemaReferenceResult
     {
         /// <summary>
-        /// (Optional String) A user-defined name that can be used to reference the rule.
+        /// (Required String) A user-defined name that can be used to reference the rule.
         /// </summary>
         public readonly string Name;
         /// <summary>

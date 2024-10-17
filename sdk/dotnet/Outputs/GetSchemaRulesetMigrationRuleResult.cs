@@ -14,33 +14,37 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetSchemaRulesetMigrationRuleResult
     {
         /// <summary>
-        /// (Optional String) An optional description.
+        /// (Optional Boolean) The boolean flag to control whether the rule should be disabled.
         /// </summary>
-        public readonly string Doc;
+        public readonly bool? Disabled;
         /// <summary>
-        /// (Optional String) The body of the rule, which is optional.
+        /// (Optional String) An optional description of the rule.
         /// </summary>
-        public readonly string Expr;
+        public readonly string? Doc;
         /// <summary>
-        /// (Optional String) Either `CONDITION` or `TRANSFORM`.
+        /// (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        /// </summary>
+        public readonly string? Expr;
+        /// <summary>
+        /// (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// (Optional String) The mode of the rule.
+        /// (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
         /// </summary>
         public readonly string Mode;
         /// <summary>
-        /// (Optional String) A user-defined name that can be used to reference the rule.
+        /// (Required String) A user-defined name that can be used to reference the rule.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+        /// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
         /// </summary>
-        public readonly string OnFailure;
+        public readonly string? OnFailure;
         /// <summary>
-        /// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+        /// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
         /// </summary>
-        public readonly string OnSuccess;
+        public readonly string? OnSuccess;
         /// <summary>
         /// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
         /// </summary>
@@ -50,15 +54,17 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Tags;
         /// <summary>
-        /// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        /// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetSchemaRulesetMigrationRuleResult(
-            string doc,
+            bool? disabled,
 
-            string expr,
+            string? doc,
+
+            string? expr,
 
             string kind,
 
@@ -66,9 +72,9 @@ namespace Pulumi.ConfluentCloud.Outputs
 
             string name,
 
-            string onFailure,
+            string? onFailure,
 
-            string onSuccess,
+            string? onSuccess,
 
             ImmutableDictionary<string, string> @params,
 
@@ -76,6 +82,7 @@ namespace Pulumi.ConfluentCloud.Outputs
 
             string type)
         {
+            Disabled = disabled;
             Doc = doc;
             Expr = expr;
             Kind = kind;

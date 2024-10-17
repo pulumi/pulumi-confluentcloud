@@ -232,6 +232,14 @@
                     }
                 }
             },
+            "confluent_flink_artifact": {
+                "current": "confluentcloud:index/flinkArtifact:FlinkArtifact",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_flink_compute_pool": {
                 "current": "confluentcloud:index/flinkComputePool:FlinkComputePool",
                 "fields": {
@@ -913,6 +921,14 @@
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_flink_artifact": {
+                "current": "confluentcloud:index/getFlinkArtifact:getFlinkArtifact",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
                     }
                 }
             },

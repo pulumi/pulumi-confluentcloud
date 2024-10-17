@@ -19,6 +19,7 @@ from .custom_connector_plugin import *
 from .dns_forwarder import *
 from .dns_record import *
 from .environment import *
+from .flink_artifact import *
 from .flink_compute_pool import *
 from .flink_statement import *
 from .get_access_point import *
@@ -30,6 +31,7 @@ from .get_certificate_pool import *
 from .get_dns_record import *
 from .get_environment import *
 from .get_environments import *
+from .get_flink_artifact import *
 from .get_flink_compute_pool import *
 from .get_flink_region import *
 from .get_gateway import *
@@ -225,6 +227,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/environment:Environment": "Environment"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/flinkArtifact",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/flinkArtifact:FlinkArtifact": "FlinkArtifact"
   }
  },
  {

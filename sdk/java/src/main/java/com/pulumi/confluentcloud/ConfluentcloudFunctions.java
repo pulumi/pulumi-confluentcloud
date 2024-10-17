@@ -20,6 +20,8 @@ import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
 import com.pulumi.confluentcloud.inputs.GetDnsRecordPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
+import com.pulumi.confluentcloud.inputs.GetFlinkArtifactPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
@@ -101,6 +103,7 @@ import com.pulumi.confluentcloud.outputs.GetCertificatePoolResult;
 import com.pulumi.confluentcloud.outputs.GetDnsRecordResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentsResult;
+import com.pulumi.confluentcloud.outputs.GetFlinkArtifactResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkComputePoolResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkRegionResult;
 import com.pulumi.confluentcloud.outputs.GetGatewayResult;
@@ -1742,6 +1745,234 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetEnvironmentsResult> getEnvironmentsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getEnvironments:getEnvironments", TypeShape.of(GetEnvironmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkArtifact` describes a Flink Artifact data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
+     *             .id("lfa-abc123")
+     *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
+     *             .displayName("my_artifact")
+     *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFlinkArtifactResult> getFlinkArtifact(GetFlinkArtifactArgs args) {
+        return getFlinkArtifact(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkArtifact` describes a Flink Artifact data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
+     *             .id("lfa-abc123")
+     *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
+     *             .displayName("my_artifact")
+     *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetFlinkArtifactResult> getFlinkArtifactPlain(GetFlinkArtifactPlainArgs args) {
+        return getFlinkArtifactPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkArtifact` describes a Flink Artifact data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
+     *             .id("lfa-abc123")
+     *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
+     *             .displayName("my_artifact")
+     *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFlinkArtifactResult> getFlinkArtifact(GetFlinkArtifactArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", TypeShape.of(GetFlinkArtifactResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkArtifact` describes a Flink Artifact data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
+     *             .id("lfa-abc123")
+     *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
+     *             .displayName("my_artifact")
+     *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetFlinkArtifactResult> getFlinkArtifactPlain(GetFlinkArtifactPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", TypeShape.of(GetFlinkArtifactResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

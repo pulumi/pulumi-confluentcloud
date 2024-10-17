@@ -5,10 +5,13 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.InvokeArgs {
@@ -16,44 +19,59 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
     public static final GetSchemaRulesetDomainRule Empty = new GetSchemaRulesetDomainRule();
 
     /**
-     * (Optional String) An optional description.
+     * (Optional Boolean) The boolean flag to control whether the rule should be disabled.
      * 
      */
-    @Import(name="doc", required=true)
-    private String doc;
+    @Import(name="disabled")
+    private @Nullable Boolean disabled;
 
     /**
-     * @return (Optional String) An optional description.
+     * @return (Optional Boolean) The boolean flag to control whether the rule should be disabled.
      * 
      */
-    public String doc() {
-        return this.doc;
+    public Optional<Boolean> disabled() {
+        return Optional.ofNullable(this.disabled);
     }
 
     /**
-     * (Optional String) The body of the rule, which is optional.
+     * (Optional String) An optional description of the rule.
      * 
      */
-    @Import(name="expr", required=true)
-    private String expr;
+    @Import(name="doc")
+    private @Nullable String doc;
 
     /**
-     * @return (Optional String) The body of the rule, which is optional.
+     * @return (Optional String) An optional description of the rule.
      * 
      */
-    public String expr() {
-        return this.expr;
+    public Optional<String> doc() {
+        return Optional.ofNullable(this.doc);
     }
 
     /**
-     * (Optional String) Either `CONDITION` or `TRANSFORM`.
+     * (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to &#34;&#34;.
+     * 
+     */
+    @Import(name="expr")
+    private @Nullable String expr;
+
+    /**
+     * @return (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to &#34;&#34;.
+     * 
+     */
+    public Optional<String> expr() {
+        return Optional.ofNullable(this.expr);
+    }
+
+    /**
+     * (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      * 
      */
     @Import(name="kind", required=true)
     private String kind;
 
     /**
-     * @return (Optional String) Either `CONDITION` or `TRANSFORM`.
+     * @return (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      * 
      */
     public String kind() {
@@ -61,14 +79,14 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
     }
 
     /**
-     * (Optional String) The mode of the rule.
+     * (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
      * 
      */
     @Import(name="mode", required=true)
     private String mode;
 
     /**
-     * @return (Optional String) The mode of the rule.
+     * @return (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
      * 
      */
     public String mode() {
@@ -76,14 +94,14 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
     }
 
     /**
-     * (Optional String) A user-defined name that can be used to reference the rule.
+     * (Required String) A user-defined name that can be used to reference the rule.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return (Optional String) A user-defined name that can be used to reference the rule.
+     * @return (Required String) A user-defined name that can be used to reference the rule.
      * 
      */
     public String name() {
@@ -91,33 +109,33 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
     }
 
     /**
-     * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+     * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
      * 
      */
-    @Import(name="onFailure", required=true)
-    private String onFailure;
+    @Import(name="onFailure")
+    private @Nullable String onFailure;
 
     /**
-     * @return (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+     * @return (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
      * 
      */
-    public String onFailure() {
-        return this.onFailure;
+    public Optional<String> onFailure() {
+        return Optional.ofNullable(this.onFailure);
     }
 
     /**
-     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      * 
      */
-    @Import(name="onSuccess", required=true)
-    private String onSuccess;
+    @Import(name="onSuccess")
+    private @Nullable String onSuccess;
 
     /**
-     * @return (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+     * @return (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      * 
      */
-    public String onSuccess() {
-        return this.onSuccess;
+    public Optional<String> onSuccess() {
+        return Optional.ofNullable(this.onSuccess);
     }
 
     /**
@@ -151,14 +169,14 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
     }
 
     /**
-     * (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      * 
      */
     @Import(name="type", required=true)
     private String type;
 
     /**
-     * @return (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * @return (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      * 
      */
     public String type() {
@@ -168,6 +186,7 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
     private GetSchemaRulesetDomainRule() {}
 
     private GetSchemaRulesetDomainRule(GetSchemaRulesetDomainRule $) {
+        this.disabled = $.disabled;
         this.doc = $.doc;
         this.expr = $.expr;
         this.kind = $.kind;
@@ -199,29 +218,40 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param doc (Optional String) An optional description.
+         * @param disabled (Optional Boolean) The boolean flag to control whether the rule should be disabled.
          * 
          * @return builder
          * 
          */
-        public Builder doc(String doc) {
+        public Builder disabled(@Nullable Boolean disabled) {
+            $.disabled = disabled;
+            return this;
+        }
+
+        /**
+         * @param doc (Optional String) An optional description of the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder doc(@Nullable String doc) {
             $.doc = doc;
             return this;
         }
 
         /**
-         * @param expr (Optional String) The body of the rule, which is optional.
+         * @param expr (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to &#34;&#34;.
          * 
          * @return builder
          * 
          */
-        public Builder expr(String expr) {
+        public Builder expr(@Nullable String expr) {
             $.expr = expr;
             return this;
         }
 
         /**
-         * @param kind (Optional String) Either `CONDITION` or `TRANSFORM`.
+         * @param kind (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
          * 
          * @return builder
          * 
@@ -232,7 +262,7 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param mode (Optional String) The mode of the rule.
+         * @param mode (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
          * 
          * @return builder
          * 
@@ -243,7 +273,7 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param name (Optional String) A user-defined name that can be used to reference the rule.
+         * @param name (Required String) A user-defined name that can be used to reference the rule.
          * 
          * @return builder
          * 
@@ -254,23 +284,23 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param onFailure (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+         * @param onFailure (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
          * 
          * @return builder
          * 
          */
-        public Builder onFailure(String onFailure) {
+        public Builder onFailure(@Nullable String onFailure) {
             $.onFailure = onFailure;
             return this;
         }
 
         /**
-         * @param onSuccess (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+         * @param onSuccess (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
          * 
          * @return builder
          * 
          */
-        public Builder onSuccess(String onSuccess) {
+        public Builder onSuccess(@Nullable String onSuccess) {
             $.onSuccess = onSuccess;
             return this;
         }
@@ -308,7 +338,7 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param type (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+         * @param type (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
          * 
          * @return builder
          * 
@@ -319,12 +349,6 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
         }
 
         public GetSchemaRulesetDomainRule build() {
-            if ($.doc == null) {
-                throw new MissingRequiredPropertyException("GetSchemaRulesetDomainRule", "doc");
-            }
-            if ($.expr == null) {
-                throw new MissingRequiredPropertyException("GetSchemaRulesetDomainRule", "expr");
-            }
             if ($.kind == null) {
                 throw new MissingRequiredPropertyException("GetSchemaRulesetDomainRule", "kind");
             }
@@ -333,12 +357,6 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
             }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("GetSchemaRulesetDomainRule", "name");
-            }
-            if ($.onFailure == null) {
-                throw new MissingRequiredPropertyException("GetSchemaRulesetDomainRule", "onFailure");
-            }
-            if ($.onSuccess == null) {
-                throw new MissingRequiredPropertyException("GetSchemaRulesetDomainRule", "onSuccess");
             }
             if ($.params == null) {
                 throw new MissingRequiredPropertyException("GetSchemaRulesetDomainRule", "params");

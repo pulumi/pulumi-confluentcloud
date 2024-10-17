@@ -13,40 +13,46 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class SchemaRulesetMigrationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An optional description of the rule.
+        /// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+        /// </summary>
+        [Input("disabled")]
+        public Input<bool>? Disabled { get; set; }
+
+        /// <summary>
+        /// An optional description of the rule. Defaults to "".
         /// </summary>
         [Input("doc")]
         public Input<string>? Doc { get; set; }
 
         /// <summary>
-        /// The body of the rule, which is optional.
+        /// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
         /// </summary>
         [Input("expr")]
         public Input<string>? Expr { get; set; }
 
         /// <summary>
-        /// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        /// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
         /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        [Input("kind", required: true)]
+        public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
         /// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
         /// </summary>
-        [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        [Input("mode", required: true)]
+        public Input<string> Mode { get; set; } = null!;
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        /// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
         /// </summary>
         [Input("onFailure")]
         public Input<string>? OnFailure { get; set; }
 
         /// <summary>
-        /// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        /// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         /// </summary>
         [Input("onSuccess")]
         public Input<string>? OnSuccess { get; set; }
@@ -58,9 +64,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         /// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
         /// 
         /// &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-        /// 
-        /// &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-        /// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
         /// </summary>
         public InputMap<string> Params
         {
@@ -81,10 +84,10 @@ namespace Pulumi.ConfluentCloud.Inputs
         }
 
         /// <summary>
-        /// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        /// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public SchemaRulesetMigrationRuleArgs()
         {

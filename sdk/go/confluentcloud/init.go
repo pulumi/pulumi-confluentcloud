@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DnsRecord{}
 	case "confluentcloud:index/environment:Environment":
 		r = &Environment{}
+	case "confluentcloud:index/flinkArtifact:FlinkArtifact":
+		r = &FlinkArtifact{}
 	case "confluentcloud:index/flinkComputePool:FlinkComputePool":
 		r = &FlinkComputePool{}
 	case "confluentcloud:index/flinkStatement:FlinkStatement":
@@ -218,6 +220,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/environment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/flinkArtifact",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

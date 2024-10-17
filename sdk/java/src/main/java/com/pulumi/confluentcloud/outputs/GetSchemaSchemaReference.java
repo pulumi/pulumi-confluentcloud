@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSchemaSchemaReference {
     /**
-     * @return (Optional String) A user-defined name that can be used to reference the rule.
+     * @return (Required String) A user-defined name that can be used to reference the rule.
      * 
      */
     private String name;
@@ -29,7 +29,7 @@ public final class GetSchemaSchemaReference {
 
     private GetSchemaSchemaReference() {}
     /**
-     * @return (Optional String) A user-defined name that can be used to reference the rule.
+     * @return (Required String) A user-defined name that can be used to reference the rule.
      * 
      */
     public String name() {

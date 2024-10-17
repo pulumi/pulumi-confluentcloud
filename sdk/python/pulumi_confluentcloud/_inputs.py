@@ -85,6 +85,8 @@ __all__ = [
     'DnsRecordPrivateLinkAccessPointArgsDict',
     'EnvironmentStreamGovernanceArgs',
     'EnvironmentStreamGovernanceArgsDict',
+    'FlinkArtifactEnvironmentArgs',
+    'FlinkArtifactEnvironmentArgsDict',
     'FlinkComputePoolEnvironmentArgs',
     'FlinkComputePoolEnvironmentArgsDict',
     'FlinkStatementComputePoolArgs',
@@ -297,6 +299,8 @@ __all__ = [
     'GetDnsRecordEnvironmentArgsDict',
     'GetEnvironmentStreamGovernanceArgs',
     'GetEnvironmentStreamGovernanceArgsDict',
+    'GetFlinkArtifactEnvironmentArgs',
+    'GetFlinkArtifactEnvironmentArgsDict',
     'GetFlinkComputePoolEnvironmentArgs',
     'GetFlinkComputePoolEnvironmentArgsDict',
     'GetGatewayEnvironmentArgs',
@@ -2327,6 +2331,37 @@ class EnvironmentStreamGovernanceArgs:
     @package.setter
     def package(self, value: pulumi.Input[str]):
         pulumi.set(self, "package", value)
+
+
+if not MYPY:
+    class FlinkArtifactEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment that the Flink Artifact Pool belongs to, for example, `env-abc123`.
+        """
+elif False:
+    FlinkArtifactEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlinkArtifactEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Environment that the Flink Artifact Pool belongs to, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Environment that the Flink Artifact Pool belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
 
 
 if not MYPY:
@@ -5752,50 +5787,51 @@ class SchemaRulesetArgs:
 
 if not MYPY:
     class SchemaRulesetDomainRuleArgsDict(TypedDict):
-        doc: NotRequired[pulumi.Input[str]]
+        kind: pulumi.Input[str]
         """
-        An optional description of the rule.
+        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
         """
-        expr: NotRequired[pulumi.Input[str]]
-        """
-        The body of the rule, which is optional.
-        """
-        kind: NotRequired[pulumi.Input[str]]
-        """
-        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-        """
-        mode: NotRequired[pulumi.Input[str]]
+        mode: pulumi.Input[str]
         """
         The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
         """
-        name: NotRequired[pulumi.Input[str]]
+        name: pulumi.Input[str]
         """
         A user-defined name that can be used to reference the rule.
         """
+        type: pulumi.Input[str]
+        """
+        The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        """
+        disabled: NotRequired[pulumi.Input[bool]]
+        """
+        The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+        """
+        doc: NotRequired[pulumi.Input[str]]
+        """
+        An optional description of the rule. Defaults to "".
+        """
+        expr: NotRequired[pulumi.Input[str]]
+        """
+        The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        """
         on_failure: NotRequired[pulumi.Input[str]]
         """
-        An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
         """
         on_success: NotRequired[pulumi.Input[str]]
         """
-        An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         """
         params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 
         > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-
-        > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
         """
         tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         The tags to which the rule applies, if any.
-        """
-        type: NotRequired[pulumi.Input[str]]
-        """
-        The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
         """
 elif False:
     SchemaRulesetDomainRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -5803,43 +5839,42 @@ elif False:
 @pulumi.input_type
 class SchemaRulesetDomainRuleArgs:
     def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 mode: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 disabled: Optional[pulumi.Input[bool]] = None,
                  doc: Optional[pulumi.Input[str]] = None,
                  expr: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
-                 mode: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  on_failure: Optional[pulumi.Input[str]] = None,
                  on_success: Optional[pulumi.Input[str]] = None,
                  params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] doc: An optional description of the rule.
-        :param pulumi.Input[str] expr: The body of the rule, which is optional.
-        :param pulumi.Input[str] kind: The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        :param pulumi.Input[str] kind: The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
         :param pulumi.Input[str] mode: The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
         :param pulumi.Input[str] name: A user-defined name that can be used to reference the rule.
-        :param pulumi.Input[str] on_failure: An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-        :param pulumi.Input[str] on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        :param pulumi.Input[str] type: The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        :param pulumi.Input[bool] disabled: The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+        :param pulumi.Input[str] doc: An optional description of the rule. Defaults to "".
+        :param pulumi.Input[str] expr: The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        :param pulumi.Input[str] on_failure: An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
+        :param pulumi.Input[str] on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] params: A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
                
                > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-               
-               > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-               **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The tags to which the rule applies, if any.
-        :param pulumi.Input[str] type: The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
         """
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
         if doc is not None:
             pulumi.set(__self__, "doc", doc)
         if expr is not None:
             pulumi.set(__self__, "expr", expr)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
         if on_success is not None:
@@ -5848,14 +5883,72 @@ class SchemaRulesetDomainRuleArgs:
             pulumi.set(__self__, "params", params)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A user-defined name that can be used to reference the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disabled", value)
 
     @property
     @pulumi.getter
     def doc(self) -> Optional[pulumi.Input[str]]:
         """
-        An optional description of the rule.
+        An optional description of the rule. Defaults to "".
         """
         return pulumi.get(self, "doc")
 
@@ -5867,7 +5960,7 @@ class SchemaRulesetDomainRuleArgs:
     @pulumi.getter
     def expr(self) -> Optional[pulumi.Input[str]]:
         """
-        The body of the rule, which is optional.
+        The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
         """
         return pulumi.get(self, "expr")
 
@@ -5876,46 +5969,10 @@ class SchemaRulesetDomainRuleArgs:
         pulumi.set(self, "expr", value)
 
     @property
-    @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[str]]:
-        """
-        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-        """
-        return pulumi.get(self, "mode")
-
-    @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "mode", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A user-defined name that can be used to reference the rule.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input[str]]:
         """
-        An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
         """
         return pulumi.get(self, "on_failure")
 
@@ -5927,7 +5984,7 @@ class SchemaRulesetDomainRuleArgs:
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[pulumi.Input[str]]:
         """
-        An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         """
         return pulumi.get(self, "on_success")
 
@@ -5942,9 +5999,6 @@ class SchemaRulesetDomainRuleArgs:
         A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 
         > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-
-        > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
         """
         return pulumi.get(self, "params")
 
@@ -5964,62 +6018,51 @@ class SchemaRulesetDomainRuleArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
 
 if not MYPY:
     class SchemaRulesetMigrationRuleArgsDict(TypedDict):
-        doc: NotRequired[pulumi.Input[str]]
+        kind: pulumi.Input[str]
         """
-        An optional description of the rule.
+        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
         """
-        expr: NotRequired[pulumi.Input[str]]
-        """
-        The body of the rule, which is optional.
-        """
-        kind: NotRequired[pulumi.Input[str]]
-        """
-        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-        """
-        mode: NotRequired[pulumi.Input[str]]
+        mode: pulumi.Input[str]
         """
         The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
         """
-        name: NotRequired[pulumi.Input[str]]
+        name: pulumi.Input[str]
+        type: pulumi.Input[str]
+        """
+        The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        """
+        disabled: NotRequired[pulumi.Input[bool]]
+        """
+        The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+        """
+        doc: NotRequired[pulumi.Input[str]]
+        """
+        An optional description of the rule. Defaults to "".
+        """
+        expr: NotRequired[pulumi.Input[str]]
+        """
+        The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        """
         on_failure: NotRequired[pulumi.Input[str]]
         """
-        An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
         """
         on_success: NotRequired[pulumi.Input[str]]
         """
-        An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         """
         params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 
         > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-
-        > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
         """
         tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         The tags to which the rule applies, if any.
-        """
-        type: NotRequired[pulumi.Input[str]]
-        """
-        The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
         """
 elif False:
     SchemaRulesetMigrationRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -6027,42 +6070,41 @@ elif False:
 @pulumi.input_type
 class SchemaRulesetMigrationRuleArgs:
     def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 mode: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 disabled: Optional[pulumi.Input[bool]] = None,
                  doc: Optional[pulumi.Input[str]] = None,
                  expr: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
-                 mode: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  on_failure: Optional[pulumi.Input[str]] = None,
                  on_success: Optional[pulumi.Input[str]] = None,
                  params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] doc: An optional description of the rule.
-        :param pulumi.Input[str] expr: The body of the rule, which is optional.
-        :param pulumi.Input[str] kind: The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        :param pulumi.Input[str] kind: The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
         :param pulumi.Input[str] mode: The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-        :param pulumi.Input[str] on_failure: An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-        :param pulumi.Input[str] on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        :param pulumi.Input[str] type: The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        :param pulumi.Input[bool] disabled: The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+        :param pulumi.Input[str] doc: An optional description of the rule. Defaults to "".
+        :param pulumi.Input[str] expr: The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        :param pulumi.Input[str] on_failure: An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
+        :param pulumi.Input[str] on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] params: A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
                
                > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-               
-               > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-               **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The tags to which the rule applies, if any.
-        :param pulumi.Input[str] type: The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
         """
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
         if doc is not None:
             pulumi.set(__self__, "doc", doc)
         if expr is not None:
             pulumi.set(__self__, "expr", expr)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
         if on_success is not None:
@@ -6071,14 +6113,69 @@ class SchemaRulesetMigrationRuleArgs:
             pulumi.set(__self__, "params", params)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disabled", value)
 
     @property
     @pulumi.getter
     def doc(self) -> Optional[pulumi.Input[str]]:
         """
-        An optional description of the rule.
+        An optional description of the rule. Defaults to "".
         """
         return pulumi.get(self, "doc")
 
@@ -6090,7 +6187,7 @@ class SchemaRulesetMigrationRuleArgs:
     @pulumi.getter
     def expr(self) -> Optional[pulumi.Input[str]]:
         """
-        The body of the rule, which is optional.
+        The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
         """
         return pulumi.get(self, "expr")
 
@@ -6099,43 +6196,10 @@ class SchemaRulesetMigrationRuleArgs:
         pulumi.set(self, "expr", value)
 
     @property
-    @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[str]]:
-        """
-        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-        """
-        return pulumi.get(self, "mode")
-
-    @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "mode", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input[str]]:
         """
-        An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
         """
         return pulumi.get(self, "on_failure")
 
@@ -6147,7 +6211,7 @@ class SchemaRulesetMigrationRuleArgs:
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[pulumi.Input[str]]:
         """
-        An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         """
         return pulumi.get(self, "on_success")
 
@@ -6162,9 +6226,6 @@ class SchemaRulesetMigrationRuleArgs:
         A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 
         > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-
-        > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
         """
         return pulumi.get(self, "params")
 
@@ -6183,18 +6244,6 @@ class SchemaRulesetMigrationRuleArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
 
 
 if not MYPY:
@@ -7068,6 +7117,37 @@ class GetEnvironmentStreamGovernanceArgs:
     @package.setter
     def package(self, value: str):
         pulumi.set(self, "package", value)
+
+
+if not MYPY:
+    class GetFlinkArtifactEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment that the Flink Artifact belongs to, for example, `env-xyz456`.
+        """
+elif False:
+    GetFlinkArtifactEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetFlinkArtifactEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Flink Artifact belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Flink Artifact belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
 
 
 if not MYPY:
@@ -8713,33 +8793,17 @@ class GetSchemaRulesetArgs:
 
 if not MYPY:
     class GetSchemaRulesetDomainRuleArgsDict(TypedDict):
-        doc: str
-        """
-        (Optional String) An optional description.
-        """
-        expr: str
-        """
-        (Optional String) The body of the rule, which is optional.
-        """
         kind: str
         """
-        (Optional String) Either `CONDITION` or `TRANSFORM`.
+        (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
         """
         mode: str
         """
-        (Optional String) The mode of the rule.
+        (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
         """
         name: str
         """
-        (Optional String) A user-defined name that can be used to reference the rule.
-        """
-        on_failure: str
-        """
-        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
-        """
-        on_success: str
-        """
-        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+        (Required String) A user-defined name that can be used to reference the rule.
         """
         params: Mapping[str, str]
         """
@@ -8751,7 +8815,27 @@ if not MYPY:
         """
         type: str
         """
-        (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        """
+        disabled: NotRequired[bool]
+        """
+        (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+        """
+        doc: NotRequired[str]
+        """
+        (Optional String) An optional description of the rule.
+        """
+        expr: NotRequired[str]
+        """
+        (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        """
+        on_failure: NotRequired[str]
+        """
+        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        on_success: NotRequired[str]
+        """
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
         """
 elif False:
     GetSchemaRulesetDomainRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -8759,68 +8843,52 @@ elif False:
 @pulumi.input_type
 class GetSchemaRulesetDomainRuleArgs:
     def __init__(__self__, *,
-                 doc: str,
-                 expr: str,
                  kind: str,
                  mode: str,
                  name: str,
-                 on_failure: str,
-                 on_success: str,
                  params: Mapping[str, str],
                  tags: Sequence[str],
-                 type: str):
+                 type: str,
+                 disabled: Optional[bool] = None,
+                 doc: Optional[str] = None,
+                 expr: Optional[str] = None,
+                 on_failure: Optional[str] = None,
+                 on_success: Optional[str] = None):
         """
-        :param str doc: (Optional String) An optional description.
-        :param str expr: (Optional String) The body of the rule, which is optional.
-        :param str kind: (Optional String) Either `CONDITION` or `TRANSFORM`.
-        :param str mode: (Optional String) The mode of the rule.
-        :param str name: (Optional String) A user-defined name that can be used to reference the rule.
-        :param str on_failure: (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
-        :param str on_success: (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+        :param str kind: (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+        :param str mode: (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        :param str name: (Required String) A user-defined name that can be used to reference the rule.
         :param Mapping[str, str] params: (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
         :param Sequence[str] tags: (Optional String List) The tags to which the rule applies, if any.
-        :param str type: (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        :param str type: (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        :param bool disabled: (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+        :param str doc: (Optional String) An optional description of the rule.
+        :param str expr: (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        :param str on_failure: (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        :param str on_success: (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
         """
-        pulumi.set(__self__, "doc", doc)
-        pulumi.set(__self__, "expr", expr)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "on_failure", on_failure)
-        pulumi.set(__self__, "on_success", on_success)
         pulumi.set(__self__, "params", params)
         pulumi.set(__self__, "tags", tags)
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def doc(self) -> str:
-        """
-        (Optional String) An optional description.
-        """
-        return pulumi.get(self, "doc")
-
-    @doc.setter
-    def doc(self, value: str):
-        pulumi.set(self, "doc", value)
-
-    @property
-    @pulumi.getter
-    def expr(self) -> str:
-        """
-        (Optional String) The body of the rule, which is optional.
-        """
-        return pulumi.get(self, "expr")
-
-    @expr.setter
-    def expr(self, value: str):
-        pulumi.set(self, "expr", value)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if doc is not None:
+            pulumi.set(__self__, "doc", doc)
+        if expr is not None:
+            pulumi.set(__self__, "expr", expr)
+        if on_failure is not None:
+            pulumi.set(__self__, "on_failure", on_failure)
+        if on_success is not None:
+            pulumi.set(__self__, "on_success", on_success)
 
     @property
     @pulumi.getter
     def kind(self) -> str:
         """
-        (Optional String) Either `CONDITION` or `TRANSFORM`.
+        (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
         """
         return pulumi.get(self, "kind")
 
@@ -8832,7 +8900,7 @@ class GetSchemaRulesetDomainRuleArgs:
     @pulumi.getter
     def mode(self) -> str:
         """
-        (Optional String) The mode of the rule.
+        (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
         """
         return pulumi.get(self, "mode")
 
@@ -8844,37 +8912,13 @@ class GetSchemaRulesetDomainRuleArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        (Optional String) A user-defined name that can be used to reference the rule.
+        (Required String) A user-defined name that can be used to reference the rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: str):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="onFailure")
-    def on_failure(self) -> str:
-        """
-        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
-        """
-        return pulumi.get(self, "on_failure")
-
-    @on_failure.setter
-    def on_failure(self, value: str):
-        pulumi.set(self, "on_failure", value)
-
-    @property
-    @pulumi.getter(name="onSuccess")
-    def on_success(self) -> str:
-        """
-        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
-        """
-        return pulumi.get(self, "on_success")
-
-    @on_success.setter
-    def on_success(self, value: str):
-        pulumi.set(self, "on_success", value)
 
     @property
     @pulumi.getter
@@ -8904,7 +8948,7 @@ class GetSchemaRulesetDomainRuleArgs:
     @pulumi.getter
     def type(self) -> str:
         """
-        (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
         """
         return pulumi.get(self, "type")
 
@@ -8912,36 +8956,80 @@ class GetSchemaRulesetDomainRuleArgs:
     def type(self, value: str):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[bool]:
+        """
+        (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[bool]):
+        pulumi.set(self, "disabled", value)
+
+    @property
+    @pulumi.getter
+    def doc(self) -> Optional[str]:
+        """
+        (Optional String) An optional description of the rule.
+        """
+        return pulumi.get(self, "doc")
+
+    @doc.setter
+    def doc(self, value: Optional[str]):
+        pulumi.set(self, "doc", value)
+
+    @property
+    @pulumi.getter
+    def expr(self) -> Optional[str]:
+        """
+        (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        """
+        return pulumi.get(self, "expr")
+
+    @expr.setter
+    def expr(self, value: Optional[str]):
+        pulumi.set(self, "expr", value)
+
+    @property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> Optional[str]:
+        """
+        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        return pulumi.get(self, "on_failure")
+
+    @on_failure.setter
+    def on_failure(self, value: Optional[str]):
+        pulumi.set(self, "on_failure", value)
+
+    @property
+    @pulumi.getter(name="onSuccess")
+    def on_success(self) -> Optional[str]:
+        """
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        """
+        return pulumi.get(self, "on_success")
+
+    @on_success.setter
+    def on_success(self, value: Optional[str]):
+        pulumi.set(self, "on_success", value)
+
 
 if not MYPY:
     class GetSchemaRulesetMigrationRuleArgsDict(TypedDict):
-        doc: str
-        """
-        (Optional String) An optional description.
-        """
-        expr: str
-        """
-        (Optional String) The body of the rule, which is optional.
-        """
         kind: str
         """
-        (Optional String) Either `CONDITION` or `TRANSFORM`.
+        (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
         """
         mode: str
         """
-        (Optional String) The mode of the rule.
+        (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
         """
         name: str
         """
-        (Optional String) A user-defined name that can be used to reference the rule.
-        """
-        on_failure: str
-        """
-        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
-        """
-        on_success: str
-        """
-        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+        (Required String) A user-defined name that can be used to reference the rule.
         """
         params: Mapping[str, str]
         """
@@ -8953,7 +9041,27 @@ if not MYPY:
         """
         type: str
         """
-        (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        """
+        disabled: NotRequired[bool]
+        """
+        (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+        """
+        doc: NotRequired[str]
+        """
+        (Optional String) An optional description of the rule.
+        """
+        expr: NotRequired[str]
+        """
+        (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        """
+        on_failure: NotRequired[str]
+        """
+        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        on_success: NotRequired[str]
+        """
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
         """
 elif False:
     GetSchemaRulesetMigrationRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -8961,68 +9069,52 @@ elif False:
 @pulumi.input_type
 class GetSchemaRulesetMigrationRuleArgs:
     def __init__(__self__, *,
-                 doc: str,
-                 expr: str,
                  kind: str,
                  mode: str,
                  name: str,
-                 on_failure: str,
-                 on_success: str,
                  params: Mapping[str, str],
                  tags: Sequence[str],
-                 type: str):
+                 type: str,
+                 disabled: Optional[bool] = None,
+                 doc: Optional[str] = None,
+                 expr: Optional[str] = None,
+                 on_failure: Optional[str] = None,
+                 on_success: Optional[str] = None):
         """
-        :param str doc: (Optional String) An optional description.
-        :param str expr: (Optional String) The body of the rule, which is optional.
-        :param str kind: (Optional String) Either `CONDITION` or `TRANSFORM`.
-        :param str mode: (Optional String) The mode of the rule.
-        :param str name: (Optional String) A user-defined name that can be used to reference the rule.
-        :param str on_failure: (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
-        :param str on_success: (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+        :param str kind: (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+        :param str mode: (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        :param str name: (Required String) A user-defined name that can be used to reference the rule.
         :param Mapping[str, str] params: (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
         :param Sequence[str] tags: (Optional String List) The tags to which the rule applies, if any.
-        :param str type: (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        :param str type: (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        :param bool disabled: (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+        :param str doc: (Optional String) An optional description of the rule.
+        :param str expr: (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        :param str on_failure: (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        :param str on_success: (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
         """
-        pulumi.set(__self__, "doc", doc)
-        pulumi.set(__self__, "expr", expr)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "on_failure", on_failure)
-        pulumi.set(__self__, "on_success", on_success)
         pulumi.set(__self__, "params", params)
         pulumi.set(__self__, "tags", tags)
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def doc(self) -> str:
-        """
-        (Optional String) An optional description.
-        """
-        return pulumi.get(self, "doc")
-
-    @doc.setter
-    def doc(self, value: str):
-        pulumi.set(self, "doc", value)
-
-    @property
-    @pulumi.getter
-    def expr(self) -> str:
-        """
-        (Optional String) The body of the rule, which is optional.
-        """
-        return pulumi.get(self, "expr")
-
-    @expr.setter
-    def expr(self, value: str):
-        pulumi.set(self, "expr", value)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if doc is not None:
+            pulumi.set(__self__, "doc", doc)
+        if expr is not None:
+            pulumi.set(__self__, "expr", expr)
+        if on_failure is not None:
+            pulumi.set(__self__, "on_failure", on_failure)
+        if on_success is not None:
+            pulumi.set(__self__, "on_success", on_success)
 
     @property
     @pulumi.getter
     def kind(self) -> str:
         """
-        (Optional String) Either `CONDITION` or `TRANSFORM`.
+        (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
         """
         return pulumi.get(self, "kind")
 
@@ -9034,7 +9126,7 @@ class GetSchemaRulesetMigrationRuleArgs:
     @pulumi.getter
     def mode(self) -> str:
         """
-        (Optional String) The mode of the rule.
+        (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
         """
         return pulumi.get(self, "mode")
 
@@ -9046,37 +9138,13 @@ class GetSchemaRulesetMigrationRuleArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        (Optional String) A user-defined name that can be used to reference the rule.
+        (Required String) A user-defined name that can be used to reference the rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: str):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="onFailure")
-    def on_failure(self) -> str:
-        """
-        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
-        """
-        return pulumi.get(self, "on_failure")
-
-    @on_failure.setter
-    def on_failure(self, value: str):
-        pulumi.set(self, "on_failure", value)
-
-    @property
-    @pulumi.getter(name="onSuccess")
-    def on_success(self) -> str:
-        """
-        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
-        """
-        return pulumi.get(self, "on_success")
-
-    @on_success.setter
-    def on_success(self, value: str):
-        pulumi.set(self, "on_success", value)
 
     @property
     @pulumi.getter
@@ -9106,13 +9174,73 @@ class GetSchemaRulesetMigrationRuleArgs:
     @pulumi.getter
     def type(self) -> str:
         """
-        (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: str):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[bool]:
+        """
+        (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[bool]):
+        pulumi.set(self, "disabled", value)
+
+    @property
+    @pulumi.getter
+    def doc(self) -> Optional[str]:
+        """
+        (Optional String) An optional description of the rule.
+        """
+        return pulumi.get(self, "doc")
+
+    @doc.setter
+    def doc(self, value: Optional[str]):
+        pulumi.set(self, "doc", value)
+
+    @property
+    @pulumi.getter
+    def expr(self) -> Optional[str]:
+        """
+        (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        """
+        return pulumi.get(self, "expr")
+
+    @expr.setter
+    def expr(self, value: Optional[str]):
+        pulumi.set(self, "expr", value)
+
+    @property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> Optional[str]:
+        """
+        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        return pulumi.get(self, "on_failure")
+
+    @on_failure.setter
+    def on_failure(self, value: Optional[str]):
+        pulumi.set(self, "on_failure", value)
+
+    @property
+    @pulumi.getter(name="onSuccess")
+    def on_success(self) -> Optional[str]:
+        """
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        """
+        return pulumi.get(self, "on_success")
+
+    @on_success.setter
+    def on_success(self, value: Optional[str]):
+        pulumi.set(self, "on_success", value)
 
 
 if not MYPY:

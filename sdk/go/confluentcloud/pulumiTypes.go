@@ -5526,6 +5526,143 @@ func (o EnvironmentStreamGovernancePtrOutput) Package() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlinkArtifactEnvironment struct {
+	// The ID of the Environment that the Flink Artifact Pool belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// FlinkArtifactEnvironmentInput is an input type that accepts FlinkArtifactEnvironmentArgs and FlinkArtifactEnvironmentOutput values.
+// You can construct a concrete instance of `FlinkArtifactEnvironmentInput` via:
+//
+//	FlinkArtifactEnvironmentArgs{...}
+type FlinkArtifactEnvironmentInput interface {
+	pulumi.Input
+
+	ToFlinkArtifactEnvironmentOutput() FlinkArtifactEnvironmentOutput
+	ToFlinkArtifactEnvironmentOutputWithContext(context.Context) FlinkArtifactEnvironmentOutput
+}
+
+type FlinkArtifactEnvironmentArgs struct {
+	// The ID of the Environment that the Flink Artifact Pool belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkArtifactEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkArtifactEnvironment)(nil)).Elem()
+}
+
+func (i FlinkArtifactEnvironmentArgs) ToFlinkArtifactEnvironmentOutput() FlinkArtifactEnvironmentOutput {
+	return i.ToFlinkArtifactEnvironmentOutputWithContext(context.Background())
+}
+
+func (i FlinkArtifactEnvironmentArgs) ToFlinkArtifactEnvironmentOutputWithContext(ctx context.Context) FlinkArtifactEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkArtifactEnvironmentOutput)
+}
+
+func (i FlinkArtifactEnvironmentArgs) ToFlinkArtifactEnvironmentPtrOutput() FlinkArtifactEnvironmentPtrOutput {
+	return i.ToFlinkArtifactEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkArtifactEnvironmentArgs) ToFlinkArtifactEnvironmentPtrOutputWithContext(ctx context.Context) FlinkArtifactEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkArtifactEnvironmentOutput).ToFlinkArtifactEnvironmentPtrOutputWithContext(ctx)
+}
+
+// FlinkArtifactEnvironmentPtrInput is an input type that accepts FlinkArtifactEnvironmentArgs, FlinkArtifactEnvironmentPtr and FlinkArtifactEnvironmentPtrOutput values.
+// You can construct a concrete instance of `FlinkArtifactEnvironmentPtrInput` via:
+//
+//	        FlinkArtifactEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkArtifactEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToFlinkArtifactEnvironmentPtrOutput() FlinkArtifactEnvironmentPtrOutput
+	ToFlinkArtifactEnvironmentPtrOutputWithContext(context.Context) FlinkArtifactEnvironmentPtrOutput
+}
+
+type flinkArtifactEnvironmentPtrType FlinkArtifactEnvironmentArgs
+
+func FlinkArtifactEnvironmentPtr(v *FlinkArtifactEnvironmentArgs) FlinkArtifactEnvironmentPtrInput {
+	return (*flinkArtifactEnvironmentPtrType)(v)
+}
+
+func (*flinkArtifactEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkArtifactEnvironment)(nil)).Elem()
+}
+
+func (i *flinkArtifactEnvironmentPtrType) ToFlinkArtifactEnvironmentPtrOutput() FlinkArtifactEnvironmentPtrOutput {
+	return i.ToFlinkArtifactEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkArtifactEnvironmentPtrType) ToFlinkArtifactEnvironmentPtrOutputWithContext(ctx context.Context) FlinkArtifactEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkArtifactEnvironmentPtrOutput)
+}
+
+type FlinkArtifactEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (FlinkArtifactEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkArtifactEnvironment)(nil)).Elem()
+}
+
+func (o FlinkArtifactEnvironmentOutput) ToFlinkArtifactEnvironmentOutput() FlinkArtifactEnvironmentOutput {
+	return o
+}
+
+func (o FlinkArtifactEnvironmentOutput) ToFlinkArtifactEnvironmentOutputWithContext(ctx context.Context) FlinkArtifactEnvironmentOutput {
+	return o
+}
+
+func (o FlinkArtifactEnvironmentOutput) ToFlinkArtifactEnvironmentPtrOutput() FlinkArtifactEnvironmentPtrOutput {
+	return o.ToFlinkArtifactEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkArtifactEnvironmentOutput) ToFlinkArtifactEnvironmentPtrOutputWithContext(ctx context.Context) FlinkArtifactEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkArtifactEnvironment) *FlinkArtifactEnvironment {
+		return &v
+	}).(FlinkArtifactEnvironmentPtrOutput)
+}
+
+// The ID of the Environment that the Flink Artifact Pool belongs to, for example, `env-abc123`.
+func (o FlinkArtifactEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkArtifactEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkArtifactEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkArtifactEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkArtifactEnvironment)(nil)).Elem()
+}
+
+func (o FlinkArtifactEnvironmentPtrOutput) ToFlinkArtifactEnvironmentPtrOutput() FlinkArtifactEnvironmentPtrOutput {
+	return o
+}
+
+func (o FlinkArtifactEnvironmentPtrOutput) ToFlinkArtifactEnvironmentPtrOutputWithContext(ctx context.Context) FlinkArtifactEnvironmentPtrOutput {
+	return o
+}
+
+func (o FlinkArtifactEnvironmentPtrOutput) Elem() FlinkArtifactEnvironmentOutput {
+	return o.ApplyT(func(v *FlinkArtifactEnvironment) FlinkArtifactEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkArtifactEnvironment
+		return ret
+	}).(FlinkArtifactEnvironmentOutput)
+}
+
+// The ID of the Environment that the Flink Artifact Pool belongs to, for example, `env-abc123`.
+func (o FlinkArtifactEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkArtifactEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type FlinkComputePoolEnvironment struct {
 	// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
@@ -17183,31 +17320,30 @@ func (o SchemaRulesetPtrOutput) MigrationRules() SchemaRulesetMigrationRuleArray
 }
 
 type SchemaRulesetDomainRule struct {
-	// An optional description of the rule.
+	// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+	Disabled *bool `pulumi:"disabled"`
+	// An optional description of the rule. Defaults to "".
 	Doc *string `pulumi:"doc"`
-	// The body of the rule, which is optional.
+	// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
 	Expr *string `pulumi:"expr"`
-	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-	Kind *string `pulumi:"kind"`
+	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+	Kind string `pulumi:"kind"`
 	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-	Mode *string `pulumi:"mode"`
+	Mode string `pulumi:"mode"`
 	// A user-defined name that can be used to reference the rule.
-	Name *string `pulumi:"name"`
-	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	Name string `pulumi:"name"`
+	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure *string `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 	OnSuccess *string `pulumi:"onSuccess"`
 	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	//
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-	//
-	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 	Params map[string]string `pulumi:"params"`
 	// The tags to which the rule applies, if any.
 	Tags []string `pulumi:"tags"`
-	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-	Type *string `pulumi:"type"`
+	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+	Type string `pulumi:"type"`
 }
 
 // SchemaRulesetDomainRuleInput is an input type that accepts SchemaRulesetDomainRuleArgs and SchemaRulesetDomainRuleOutput values.
@@ -17222,31 +17358,30 @@ type SchemaRulesetDomainRuleInput interface {
 }
 
 type SchemaRulesetDomainRuleArgs struct {
-	// An optional description of the rule.
+	// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
+	// An optional description of the rule. Defaults to "".
 	Doc pulumi.StringPtrInput `pulumi:"doc"`
-	// The body of the rule, which is optional.
+	// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
 	Expr pulumi.StringPtrInput `pulumi:"expr"`
-	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	Mode pulumi.StringInput `pulumi:"mode"`
 	// A user-defined name that can be used to reference the rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	Name pulumi.StringInput `pulumi:"name"`
+	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
 	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	//
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-	//
-	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 	Params pulumi.StringMapInput `pulumi:"params"`
 	// The tags to which the rule applies, if any.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
-	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (SchemaRulesetDomainRuleArgs) ElementType() reflect.Type {
@@ -17300,37 +17435,42 @@ func (o SchemaRulesetDomainRuleOutput) ToSchemaRulesetDomainRuleOutputWithContex
 	return o
 }
 
-// An optional description of the rule.
+// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+func (o SchemaRulesetDomainRuleOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// An optional description of the rule. Defaults to "".
 func (o SchemaRulesetDomainRuleOutput) Doc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
 }
 
-// The body of the rule, which is optional.
+// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
 func (o SchemaRulesetDomainRuleOutput) Expr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-func (o SchemaRulesetDomainRuleOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Kind }).(pulumi.StringPtrOutput)
+// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+func (o SchemaRulesetDomainRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-func (o SchemaRulesetDomainRuleOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Mode }).(pulumi.StringPtrOutput)
+func (o SchemaRulesetDomainRuleOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) string { return v.Mode }).(pulumi.StringOutput)
 }
 
 // A user-defined name that can be used to reference the rule.
-func (o SchemaRulesetDomainRuleOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SchemaRulesetDomainRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 func (o SchemaRulesetDomainRuleOutput) OnFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
-// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 func (o SchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
@@ -17338,9 +17478,6 @@ func (o SchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 // A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 //
 // > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-//
-// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 func (o SchemaRulesetDomainRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }
@@ -17350,9 +17487,9 @@ func (o SchemaRulesetDomainRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-func (o SchemaRulesetDomainRuleOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Type }).(pulumi.StringPtrOutput)
+// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+func (o SchemaRulesetDomainRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type SchemaRulesetDomainRuleArrayOutput struct{ *pulumi.OutputState }
@@ -17376,30 +17513,29 @@ func (o SchemaRulesetDomainRuleArrayOutput) Index(i pulumi.IntInput) SchemaRules
 }
 
 type SchemaRulesetMigrationRule struct {
-	// An optional description of the rule.
+	// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+	Disabled *bool `pulumi:"disabled"`
+	// An optional description of the rule. Defaults to "".
 	Doc *string `pulumi:"doc"`
-	// The body of the rule, which is optional.
+	// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
 	Expr *string `pulumi:"expr"`
-	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-	Kind *string `pulumi:"kind"`
+	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+	Kind string `pulumi:"kind"`
 	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-	Mode *string `pulumi:"mode"`
-	Name *string `pulumi:"name"`
-	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	Mode string `pulumi:"mode"`
+	Name string `pulumi:"name"`
+	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure *string `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 	OnSuccess *string `pulumi:"onSuccess"`
 	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	//
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-	//
-	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 	Params map[string]string `pulumi:"params"`
 	// The tags to which the rule applies, if any.
 	Tags []string `pulumi:"tags"`
-	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-	Type *string `pulumi:"type"`
+	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+	Type string `pulumi:"type"`
 }
 
 // SchemaRulesetMigrationRuleInput is an input type that accepts SchemaRulesetMigrationRuleArgs and SchemaRulesetMigrationRuleOutput values.
@@ -17414,30 +17550,29 @@ type SchemaRulesetMigrationRuleInput interface {
 }
 
 type SchemaRulesetMigrationRuleArgs struct {
-	// An optional description of the rule.
+	// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
+	// An optional description of the rule. Defaults to "".
 	Doc pulumi.StringPtrInput `pulumi:"doc"`
-	// The body of the rule, which is optional.
+	// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
 	Expr pulumi.StringPtrInput `pulumi:"expr"`
-	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
 	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	//
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-	//
-	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 	Params pulumi.StringMapInput `pulumi:"params"`
 	// The tags to which the rule applies, if any.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
-	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (SchemaRulesetMigrationRuleArgs) ElementType() reflect.Type {
@@ -17491,36 +17626,41 @@ func (o SchemaRulesetMigrationRuleOutput) ToSchemaRulesetMigrationRuleOutputWith
 	return o
 }
 
-// An optional description of the rule.
+// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+func (o SchemaRulesetMigrationRuleOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// An optional description of the rule. Defaults to "".
 func (o SchemaRulesetMigrationRuleOutput) Doc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
 }
 
-// The body of the rule, which is optional.
+// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
 func (o SchemaRulesetMigrationRuleOutput) Expr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-func (o SchemaRulesetMigrationRuleOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Kind }).(pulumi.StringPtrOutput)
+// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+func (o SchemaRulesetMigrationRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-func (o SchemaRulesetMigrationRuleOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Mode }).(pulumi.StringPtrOutput)
+func (o SchemaRulesetMigrationRuleOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-func (o SchemaRulesetMigrationRuleOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SchemaRulesetMigrationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 func (o SchemaRulesetMigrationRuleOutput) OnFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
-// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 func (o SchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
@@ -17528,9 +17668,6 @@ func (o SchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 // A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 //
 // > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-//
-// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 func (o SchemaRulesetMigrationRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }
@@ -17540,9 +17677,9 @@ func (o SchemaRulesetMigrationRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-func (o SchemaRulesetMigrationRuleOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Type }).(pulumi.StringPtrOutput)
+// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+func (o SchemaRulesetMigrationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type SchemaRulesetMigrationRuleArrayOutput struct{ *pulumi.OutputState }
@@ -21399,6 +21536,58 @@ func (o GetEnvironmentStreamGovernancePtrOutput) Package() pulumi.StringPtrOutpu
 		}
 		return &v.Package
 	}).(pulumi.StringPtrOutput)
+}
+
+type GetFlinkArtifactEnvironment struct {
+	// The ID of the Environment that the Flink Artifact belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetFlinkArtifactEnvironmentInput is an input type that accepts GetFlinkArtifactEnvironmentArgs and GetFlinkArtifactEnvironmentOutput values.
+// You can construct a concrete instance of `GetFlinkArtifactEnvironmentInput` via:
+//
+//	GetFlinkArtifactEnvironmentArgs{...}
+type GetFlinkArtifactEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetFlinkArtifactEnvironmentOutput() GetFlinkArtifactEnvironmentOutput
+	ToGetFlinkArtifactEnvironmentOutputWithContext(context.Context) GetFlinkArtifactEnvironmentOutput
+}
+
+type GetFlinkArtifactEnvironmentArgs struct {
+	// The ID of the Environment that the Flink Artifact belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetFlinkArtifactEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkArtifactEnvironment)(nil)).Elem()
+}
+
+func (i GetFlinkArtifactEnvironmentArgs) ToGetFlinkArtifactEnvironmentOutput() GetFlinkArtifactEnvironmentOutput {
+	return i.ToGetFlinkArtifactEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetFlinkArtifactEnvironmentArgs) ToGetFlinkArtifactEnvironmentOutputWithContext(ctx context.Context) GetFlinkArtifactEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkArtifactEnvironmentOutput)
+}
+
+type GetFlinkArtifactEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkArtifactEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkArtifactEnvironment)(nil)).Elem()
+}
+
+func (o GetFlinkArtifactEnvironmentOutput) ToGetFlinkArtifactEnvironmentOutput() GetFlinkArtifactEnvironmentOutput {
+	return o
+}
+
+func (o GetFlinkArtifactEnvironmentOutput) ToGetFlinkArtifactEnvironmentOutputWithContext(ctx context.Context) GetFlinkArtifactEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Flink Artifact belongs to, for example, `env-xyz456`.
+func (o GetFlinkArtifactEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkArtifactEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
 
 type GetFlinkComputePoolEnvironment struct {
@@ -29555,25 +29744,27 @@ func (o GetSchemaRulesetPtrOutput) MigrationRules() GetSchemaRulesetMigrationRul
 }
 
 type GetSchemaRulesetDomainRule struct {
-	// (Optional String) An optional description.
-	Doc string `pulumi:"doc"`
-	// (Optional String) The body of the rule, which is optional.
-	Expr string `pulumi:"expr"`
-	// (Optional String) Either `CONDITION` or `TRANSFORM`.
+	// (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+	Disabled *bool `pulumi:"disabled"`
+	// (Optional String) An optional description of the rule.
+	Doc *string `pulumi:"doc"`
+	// (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+	Expr *string `pulumi:"expr"`
+	// (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
 	Kind string `pulumi:"kind"`
-	// (Optional String) The mode of the rule.
+	// (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 	Mode string `pulumi:"mode"`
-	// (Optional String) A user-defined name that can be used to reference the rule.
+	// (Required String) A user-defined name that can be used to reference the rule.
 	Name string `pulumi:"name"`
-	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
-	OnFailure string `pulumi:"onFailure"`
-	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
-	OnSuccess string `pulumi:"onSuccess"`
+	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure *string `pulumi:"onFailure"`
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess *string `pulumi:"onSuccess"`
 	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	Params map[string]string `pulumi:"params"`
 	// (Optional String List) The tags to which the rule applies, if any.
 	Tags []string `pulumi:"tags"`
-	// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type string `pulumi:"type"`
 }
 
@@ -29589,25 +29780,27 @@ type GetSchemaRulesetDomainRuleInput interface {
 }
 
 type GetSchemaRulesetDomainRuleArgs struct {
-	// (Optional String) An optional description.
-	Doc pulumi.StringInput `pulumi:"doc"`
-	// (Optional String) The body of the rule, which is optional.
-	Expr pulumi.StringInput `pulumi:"expr"`
-	// (Optional String) Either `CONDITION` or `TRANSFORM`.
+	// (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
+	// (Optional String) An optional description of the rule.
+	Doc pulumi.StringPtrInput `pulumi:"doc"`
+	// (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+	Expr pulumi.StringPtrInput `pulumi:"expr"`
+	// (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
 	Kind pulumi.StringInput `pulumi:"kind"`
-	// (Optional String) The mode of the rule.
+	// (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// (Optional String) A user-defined name that can be used to reference the rule.
+	// (Required String) A user-defined name that can be used to reference the rule.
 	Name pulumi.StringInput `pulumi:"name"`
-	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
-	OnFailure pulumi.StringInput `pulumi:"onFailure"`
-	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
-	OnSuccess pulumi.StringInput `pulumi:"onSuccess"`
+	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
 	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	Params pulumi.StringMapInput `pulumi:"params"`
 	// (Optional String List) The tags to which the rule applies, if any.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
-	// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -29662,39 +29855,44 @@ func (o GetSchemaRulesetDomainRuleOutput) ToGetSchemaRulesetDomainRuleOutputWith
 	return o
 }
 
-// (Optional String) An optional description.
-func (o GetSchemaRulesetDomainRuleOutput) Doc() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Doc }).(pulumi.StringOutput)
+// (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+func (o GetSchemaRulesetDomainRuleOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional String) The body of the rule, which is optional.
-func (o GetSchemaRulesetDomainRuleOutput) Expr() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Expr }).(pulumi.StringOutput)
+// (Optional String) An optional description of the rule.
+func (o GetSchemaRulesetDomainRuleOutput) Doc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
 }
 
-// (Optional String) Either `CONDITION` or `TRANSFORM`.
+// (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+func (o GetSchemaRulesetDomainRuleOutput) Expr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
 func (o GetSchemaRulesetDomainRuleOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// (Optional String) The mode of the rule.
+// (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 func (o GetSchemaRulesetDomainRuleOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// (Optional String) A user-defined name that can be used to reference the rule.
+// (Required String) A user-defined name that can be used to reference the rule.
 func (o GetSchemaRulesetDomainRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
-func (o GetSchemaRulesetDomainRuleOutput) OnFailure() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.OnFailure }).(pulumi.StringOutput)
+// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+func (o GetSchemaRulesetDomainRuleOutput) OnFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
-// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
-func (o GetSchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.OnSuccess }).(pulumi.StringOutput)
+// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+func (o GetSchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
 
 // (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
@@ -29707,7 +29905,7 @@ func (o GetSchemaRulesetDomainRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSchemaRulesetDomainRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 func (o GetSchemaRulesetDomainRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -29733,25 +29931,27 @@ func (o GetSchemaRulesetDomainRuleArrayOutput) Index(i pulumi.IntInput) GetSchem
 }
 
 type GetSchemaRulesetMigrationRule struct {
-	// (Optional String) An optional description.
-	Doc string `pulumi:"doc"`
-	// (Optional String) The body of the rule, which is optional.
-	Expr string `pulumi:"expr"`
-	// (Optional String) Either `CONDITION` or `TRANSFORM`.
+	// (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+	Disabled *bool `pulumi:"disabled"`
+	// (Optional String) An optional description of the rule.
+	Doc *string `pulumi:"doc"`
+	// (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+	Expr *string `pulumi:"expr"`
+	// (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
 	Kind string `pulumi:"kind"`
-	// (Optional String) The mode of the rule.
+	// (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 	Mode string `pulumi:"mode"`
-	// (Optional String) A user-defined name that can be used to reference the rule.
+	// (Required String) A user-defined name that can be used to reference the rule.
 	Name string `pulumi:"name"`
-	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
-	OnFailure string `pulumi:"onFailure"`
-	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
-	OnSuccess string `pulumi:"onSuccess"`
+	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure *string `pulumi:"onFailure"`
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess *string `pulumi:"onSuccess"`
 	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	Params map[string]string `pulumi:"params"`
 	// (Optional String List) The tags to which the rule applies, if any.
 	Tags []string `pulumi:"tags"`
-	// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type string `pulumi:"type"`
 }
 
@@ -29767,25 +29967,27 @@ type GetSchemaRulesetMigrationRuleInput interface {
 }
 
 type GetSchemaRulesetMigrationRuleArgs struct {
-	// (Optional String) An optional description.
-	Doc pulumi.StringInput `pulumi:"doc"`
-	// (Optional String) The body of the rule, which is optional.
-	Expr pulumi.StringInput `pulumi:"expr"`
-	// (Optional String) Either `CONDITION` or `TRANSFORM`.
+	// (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
+	// (Optional String) An optional description of the rule.
+	Doc pulumi.StringPtrInput `pulumi:"doc"`
+	// (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+	Expr pulumi.StringPtrInput `pulumi:"expr"`
+	// (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
 	Kind pulumi.StringInput `pulumi:"kind"`
-	// (Optional String) The mode of the rule.
+	// (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// (Optional String) A user-defined name that can be used to reference the rule.
+	// (Required String) A user-defined name that can be used to reference the rule.
 	Name pulumi.StringInput `pulumi:"name"`
-	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
-	OnFailure pulumi.StringInput `pulumi:"onFailure"`
-	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
-	OnSuccess pulumi.StringInput `pulumi:"onSuccess"`
+	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
 	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	Params pulumi.StringMapInput `pulumi:"params"`
 	// (Optional String List) The tags to which the rule applies, if any.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
-	// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -29840,39 +30042,44 @@ func (o GetSchemaRulesetMigrationRuleOutput) ToGetSchemaRulesetMigrationRuleOutp
 	return o
 }
 
-// (Optional String) An optional description.
-func (o GetSchemaRulesetMigrationRuleOutput) Doc() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Doc }).(pulumi.StringOutput)
+// (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+func (o GetSchemaRulesetMigrationRuleOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional String) The body of the rule, which is optional.
-func (o GetSchemaRulesetMigrationRuleOutput) Expr() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Expr }).(pulumi.StringOutput)
+// (Optional String) An optional description of the rule.
+func (o GetSchemaRulesetMigrationRuleOutput) Doc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
 }
 
-// (Optional String) Either `CONDITION` or `TRANSFORM`.
+// (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+func (o GetSchemaRulesetMigrationRuleOutput) Expr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
 func (o GetSchemaRulesetMigrationRuleOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// (Optional String) The mode of the rule.
+// (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 func (o GetSchemaRulesetMigrationRuleOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// (Optional String) A user-defined name that can be used to reference the rule.
+// (Required String) A user-defined name that can be used to reference the rule.
 func (o GetSchemaRulesetMigrationRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
-func (o GetSchemaRulesetMigrationRuleOutput) OnFailure() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.OnFailure }).(pulumi.StringOutput)
+// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+func (o GetSchemaRulesetMigrationRuleOutput) OnFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
-// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
-func (o GetSchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.OnSuccess }).(pulumi.StringOutput)
+// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+func (o GetSchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
 
 // (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
@@ -29885,7 +30092,7 @@ func (o GetSchemaRulesetMigrationRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 func (o GetSchemaRulesetMigrationRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -29911,7 +30118,7 @@ func (o GetSchemaRulesetMigrationRuleArrayOutput) Index(i pulumi.IntInput) GetSc
 }
 
 type GetSchemaSchemaReference struct {
-	// (Optional String) A user-defined name that can be used to reference the rule.
+	// (Required String) A user-defined name that can be used to reference the rule.
 	Name string `pulumi:"name"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName string `pulumi:"subjectName"`
@@ -29931,7 +30138,7 @@ type GetSchemaSchemaReferenceInput interface {
 }
 
 type GetSchemaSchemaReferenceArgs struct {
-	// (Optional String) A user-defined name that can be used to reference the rule.
+	// (Required String) A user-defined name that can be used to reference the rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName pulumi.StringInput `pulumi:"subjectName"`
@@ -29990,7 +30197,7 @@ func (o GetSchemaSchemaReferenceOutput) ToGetSchemaSchemaReferenceOutputWithCont
 	return o
 }
 
-// (Optional String) A user-defined name that can be used to reference the rule.
+// (Required String) A user-defined name that can be used to reference the rule.
 func (o GetSchemaSchemaReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaSchemaReference) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -32409,6 +32616,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsRecordPrivateLinkAccessPointPtrInput)(nil)).Elem(), DnsRecordPrivateLinkAccessPointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStreamGovernanceInput)(nil)).Elem(), EnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStreamGovernancePtrInput)(nil)).Elem(), EnvironmentStreamGovernanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkArtifactEnvironmentInput)(nil)).Elem(), FlinkArtifactEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkArtifactEnvironmentPtrInput)(nil)).Elem(), FlinkArtifactEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentPtrInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementComputePoolInput)(nil)).Elem(), FlinkStatementComputePoolArgs{})
@@ -32636,6 +32845,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordPrivateLinkAccessPointArrayInput)(nil)).Elem(), GetDnsRecordPrivateLinkAccessPointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentStreamGovernanceInput)(nil)).Elem(), GetEnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentStreamGovernancePtrInput)(nil)).Elem(), GetEnvironmentStreamGovernanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkArtifactEnvironmentInput)(nil)).Elem(), GetFlinkArtifactEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkComputePoolEnvironmentInput)(nil)).Elem(), GetFlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayArrayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArray{})
@@ -32884,6 +33094,8 @@ func init() {
 	pulumi.RegisterOutputType(DnsRecordPrivateLinkAccessPointPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentStreamGovernanceOutput{})
 	pulumi.RegisterOutputType(EnvironmentStreamGovernancePtrOutput{})
+	pulumi.RegisterOutputType(FlinkArtifactEnvironmentOutput{})
+	pulumi.RegisterOutputType(FlinkArtifactEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentOutput{})
 	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(FlinkStatementComputePoolOutput{})
@@ -33111,6 +33323,7 @@ func init() {
 	pulumi.RegisterOutputType(GetDnsRecordPrivateLinkAccessPointArrayOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentStreamGovernanceOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentStreamGovernancePtrOutput{})
+	pulumi.RegisterOutputType(GetFlinkArtifactEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetFlinkComputePoolEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayArrayOutput{})
