@@ -876,6 +876,19 @@
                 "package"
             ]
         },
+        "confluentcloud:index/FlinkArtifactEnvironment:FlinkArtifactEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Flink Artifact Pool belongs to, for example, `env-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/FlinkComputePoolEnvironment:FlinkComputePoolEnvironment": {
             "properties": {
                 "id": {
@@ -2233,17 +2246,21 @@
         },
         "confluentcloud:index/SchemaRulesetDomainRule:SchemaRulesetDomainRule": {
             "properties": {
+                "disabled": {
+                    "type": "boolean",
+                    "description": "The boolean flag to control whether the rule should be disabled. Defaults to `false`.\n"
+                },
                 "doc": {
                     "type": "string",
-                    "description": "An optional description of the rule.\n"
+                    "description": "An optional description of the rule. Defaults to \"\".\n"
                 },
                 "expr": {
                     "type": "string",
-                    "description": "The body of the rule, which is optional.\n"
+                    "description": "The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to \"\".\n"
                 },
                 "kind": {
                     "type": "string",
-                    "description": "The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.\n"
+                    "description": "The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.\n"
                 },
                 "mode": {
                     "type": "string",
@@ -2255,18 +2272,18 @@
                 },
                 "onFailure": {
                     "type": "string",
-                    "description": "An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.\n"
+                    "description": "An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.\n"
                 },
                 "onSuccess": {
                     "type": "string",
-                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
+                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.\n"
                 },
                 "params": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n\n\u003e **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).\n\n\u003e **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n"
+                    "description": "A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n\n\u003e **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -2277,20 +2294,22 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.\n"
+                    "description": "The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.\n"
                 }
             },
             "type": "object",
+            "required": [
+                "kind",
+                "mode",
+                "name",
+                "type"
+            ],
             "language": {
                 "nodejs": {
                     "requiredOutputs": [
-                        "doc",
-                        "expr",
                         "kind",
                         "mode",
                         "name",
-                        "onFailure",
-                        "onSuccess",
                         "params",
                         "tags",
                         "type"
@@ -2300,17 +2319,21 @@
         },
         "confluentcloud:index/SchemaRulesetMigrationRule:SchemaRulesetMigrationRule": {
             "properties": {
+                "disabled": {
+                    "type": "boolean",
+                    "description": "The boolean flag to control whether the rule should be disabled. Defaults to `false`.\n"
+                },
                 "doc": {
                     "type": "string",
-                    "description": "An optional description of the rule.\n"
+                    "description": "An optional description of the rule. Defaults to \"\".\n"
                 },
                 "expr": {
                     "type": "string",
-                    "description": "The body of the rule, which is optional.\n"
+                    "description": "The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to \"\".\n"
                 },
                 "kind": {
                     "type": "string",
-                    "description": "The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.\n"
+                    "description": "The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.\n"
                 },
                 "mode": {
                     "type": "string",
@@ -2321,18 +2344,18 @@
                 },
                 "onFailure": {
                     "type": "string",
-                    "description": "An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.\n"
+                    "description": "An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.\n"
                 },
                 "onSuccess": {
                     "type": "string",
-                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
+                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.\n"
                 },
                 "params": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n\n\u003e **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).\n\n\u003e **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n"
+                    "description": "A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n\n\u003e **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).\n"
                 },
                 "tags": {
                     "type": "array",
@@ -2343,20 +2366,22 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.\n"
+                    "description": "The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.\n"
                 }
             },
             "type": "object",
+            "required": [
+                "kind",
+                "mode",
+                "name",
+                "type"
+            ],
             "language": {
                 "nodejs": {
                     "requiredOutputs": [
-                        "doc",
-                        "expr",
                         "kind",
                         "mode",
                         "name",
-                        "onFailure",
-                        "onSuccess",
                         "params",
                         "tags",
                         "type"
@@ -2955,6 +2980,18 @@
             "type": "object",
             "required": [
                 "package"
+            ]
+        },
+        "confluentcloud:index/getFlinkArtifactEnvironment:getFlinkArtifactEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Flink Artifact belongs to, for example, `env-xyz456`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
             ]
         },
         "confluentcloud:index/getFlinkComputePoolEnvironment:getFlinkComputePoolEnvironment": {
@@ -4410,33 +4447,37 @@
         },
         "confluentcloud:index/getSchemaRulesetDomainRule:getSchemaRulesetDomainRule": {
             "properties": {
+                "disabled": {
+                    "type": "boolean",
+                    "description": "(Optional Boolean) The boolean flag to control whether the rule should be disabled.\n"
+                },
                 "doc": {
                     "type": "string",
-                    "description": "(Optional String) An optional description.\n"
+                    "description": "(Optional String) An optional description of the rule.\n"
                 },
                 "expr": {
                     "type": "string",
-                    "description": "(Optional String) The body of the rule, which is optional.\n"
+                    "description": "(Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to \"\".\n"
                 },
                 "kind": {
                     "type": "string",
-                    "description": "(Optional String) Either `CONDITION` or `TRANSFORM`.\n"
+                    "description": "(Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.\n"
                 },
                 "mode": {
                     "type": "string",
-                    "description": "(Optional String) The mode of the rule.\n"
+                    "description": "(Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "(Optional String) A user-defined name that can be used to reference the rule.\n"
+                    "description": "(Required String) A user-defined name that can be used to reference the rule.\n"
                 },
                 "onFailure": {
                     "type": "string",
-                    "description": "(Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.\n"
+                    "description": "(Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.\n"
                 },
                 "onSuccess": {
                     "type": "string",
-                    "description": "(Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.\n"
+                    "description": "(Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
                 },
                 "params": {
                     "type": "object",
@@ -4454,57 +4495,62 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "(Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.\n"
+                    "description": "(Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.\n"
                 }
             },
             "type": "object",
             "required": [
-                "doc",
-                "expr",
                 "kind",
                 "mode",
                 "name",
-                "onFailure",
-                "onSuccess",
                 "params",
                 "tags",
                 "type"
             ],
             "language": {
                 "nodejs": {
-                    "requiredInputs": []
+                    "requiredInputs": [
+                        "kind",
+                        "mode",
+                        "name",
+                        "type"
+                    ]
                 }
             }
         },
         "confluentcloud:index/getSchemaRulesetMigrationRule:getSchemaRulesetMigrationRule": {
             "properties": {
+                "disabled": {
+                    "type": "boolean",
+                    "description": "(Optional Boolean) The boolean flag to control whether the rule should be disabled.\n"
+                },
                 "doc": {
                     "type": "string",
-                    "description": "(Optional String) An optional description.\n"
+                    "description": "(Optional String) An optional description of the rule.\n"
                 },
                 "expr": {
                     "type": "string",
-                    "description": "(Optional String) The body of the rule, which is optional.\n"
+                    "description": "(Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to \"\".\n"
                 },
                 "kind": {
                     "type": "string",
-                    "description": "(Optional String) Either `CONDITION` or `TRANSFORM`.\n"
+                    "description": "(Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.\n"
                 },
                 "mode": {
                     "type": "string",
-                    "description": "(Optional String) The mode of the rule.\n"
+                    "description": "(Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "(Optional String) A user-defined name that can be used to reference the rule.\n"
+                    "description": "(Required String) A user-defined name that can be used to reference the rule.\n"
                 },
                 "onFailure": {
                     "type": "string",
-                    "description": "(Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.\n"
+                    "description": "(Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.\n"
                 },
                 "onSuccess": {
                     "type": "string",
-                    "description": "(Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.\n"
+                    "description": "(Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
                 },
                 "params": {
                     "type": "object",
@@ -4522,25 +4568,26 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "(Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.\n"
+                    "description": "(Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.\n"
                 }
             },
             "type": "object",
             "required": [
-                "doc",
-                "expr",
                 "kind",
                 "mode",
                 "name",
-                "onFailure",
-                "onSuccess",
                 "params",
                 "tags",
                 "type"
             ],
             "language": {
                 "nodejs": {
-                    "requiredInputs": []
+                    "requiredInputs": [
+                        "kind",
+                        "mode",
+                        "name",
+                        "type"
+                    ]
                 }
             }
         },
@@ -4548,7 +4595,7 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "(Optional String) A user-defined name that can be used to reference the rule.\n"
+                    "description": "(Required String) A user-defined name that can be used to reference the rule.\n"
                 },
                 "subjectName": {
                     "type": "string",
@@ -6495,6 +6542,176 @@
                     "streamGovernance": {
                         "$ref": "#/types/confluentcloud:index/EnvironmentStreamGovernance:EnvironmentStreamGovernance",
                         "description": "The stream governance configuration for the Environment. The block supports the following arguments:\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/flinkArtifact:FlinkArtifact": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst main = new confluentcloud.FlinkArtifact(\"main\", {\n    \"class\": \"io.confluent.example.SumScalarFunction\",\n    region: \"us-west-2\",\n    cloud: \"AWS\",\n    displayName: \"flink_sumscalar_artifact\",\n    contentFormat: \"JAR\",\n    environment: {\n        id: development.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\nmain = confluentcloud.FlinkArtifact(\"main\",\n    class_=\"io.confluent.example.SumScalarFunction\",\n    region=\"us-west-2\",\n    cloud=\"AWS\",\n    display_name=\"flink_sumscalar_artifact\",\n    content_format=\"JAR\",\n    environment={\n        \"id\": development.id,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var main = new ConfluentCloud.FlinkArtifact(\"main\", new()\n    {\n        Class = \"io.confluent.example.SumScalarFunction\",\n        Region = \"us-west-2\",\n        Cloud = \"AWS\",\n        DisplayName = \"flink_sumscalar_artifact\",\n        ContentFormat = \"JAR\",\n        Environment = new ConfluentCloud.Inputs.FlinkArtifactEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewFlinkArtifact(ctx, \"main\", \u0026confluentcloud.FlinkArtifactArgs{\n\t\t\tClass:         pulumi.String(\"io.confluent.example.SumScalarFunction\"),\n\t\t\tRegion:        pulumi.String(\"us-west-2\"),\n\t\t\tCloud:         pulumi.String(\"AWS\"),\n\t\t\tDisplayName:   pulumi.String(\"flink_sumscalar_artifact\"),\n\t\t\tContentFormat: pulumi.String(\"JAR\"),\n\t\t\tEnvironment: \u0026confluentcloud.FlinkArtifactEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.FlinkArtifact;\nimport com.pulumi.confluentcloud.FlinkArtifactArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkArtifactEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var main = new FlinkArtifact(\"main\", FlinkArtifactArgs.builder()\n            .class_(\"io.confluent.example.SumScalarFunction\")\n            .region(\"us-west-2\")\n            .cloud(\"AWS\")\n            .displayName(\"flink_sumscalar_artifact\")\n            .contentFormat(\"JAR\")\n            .environment(FlinkArtifactEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  main:\n    type: confluentcloud:FlinkArtifact\n    properties:\n      class: io.confluent.example.SumScalarFunction\n      region: us-west-2\n      cloud: AWS\n      displayName: flink_sumscalar_artifact\n      contentFormat: JAR\n      environment:\n        id: ${development.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Flink Artifact by using cloud, region, Flink Artifact ID and artifact file, in the format `\u003cregion\u003e/\u003ccloud\u003e/\u003cFlink Artifact ID\u003e`. The following example shows how to import a Flink Artifact:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/flinkArtifact:FlinkArtifact main us-east-1/aws/fa-123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "(Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.\n"
+                },
+                "artifactFile": {
+                    "type": "string",
+                    "description": "The artifact file for Flink Artifact.\n"
+                },
+                "class": {
+                    "type": "string",
+                    "description": "Java class or alias for the Flink Artifact as provided by developer.\n"
+                },
+                "cloud": {
+                    "type": "string",
+                    "description": "The cloud service provider that runs the Flink Artifact.\n"
+                },
+                "contentFormat": {
+                    "type": "string",
+                    "description": "(Optional String) Archive format of the Flink Artifact.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "(Optional String) Description of the Flink Artifact.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of Flink Artifact.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/FlinkArtifactEnvironment:FlinkArtifactEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Required String) The kind of the Flink Artifact Pool, for example, `FlinkArtifact`.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The cloud service provider region that hosts the Flink Artifact.\n"
+                },
+                "runtimeLanguage": {
+                    "type": "string",
+                    "description": "(Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.\n"
+                }
+            },
+            "required": [
+                "apiVersion",
+                "class",
+                "cloud",
+                "contentFormat",
+                "displayName",
+                "environment",
+                "kind",
+                "region"
+            ],
+            "inputProperties": {
+                "artifactFile": {
+                    "type": "string",
+                    "description": "The artifact file for Flink Artifact.\n",
+                    "willReplaceOnChanges": true
+                },
+                "class": {
+                    "type": "string",
+                    "description": "Java class or alias for the Flink Artifact as provided by developer.\n",
+                    "willReplaceOnChanges": true
+                },
+                "cloud": {
+                    "type": "string",
+                    "description": "The cloud service provider that runs the Flink Artifact.\n",
+                    "willReplaceOnChanges": true
+                },
+                "contentFormat": {
+                    "type": "string",
+                    "description": "(Optional String) Archive format of the Flink Artifact.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "(Optional String) Description of the Flink Artifact.\n",
+                    "willReplaceOnChanges": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of Flink Artifact.\n",
+                    "willReplaceOnChanges": true
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/FlinkArtifactEnvironment:FlinkArtifactEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The cloud service provider region that hosts the Flink Artifact.\n",
+                    "willReplaceOnChanges": true
+                },
+                "runtimeLanguage": {
+                    "type": "string",
+                    "description": "(Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "class",
+                "cloud",
+                "displayName",
+                "environment",
+                "region"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FlinkArtifact resources.\n",
+                "properties": {
+                    "apiVersion": {
+                        "type": "string",
+                        "description": "(Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.\n"
+                    },
+                    "artifactFile": {
+                        "type": "string",
+                        "description": "The artifact file for Flink Artifact.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "class": {
+                        "type": "string",
+                        "description": "Java class or alias for the Flink Artifact as provided by developer.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "cloud": {
+                        "type": "string",
+                        "description": "The cloud service provider that runs the Flink Artifact.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "contentFormat": {
+                        "type": "string",
+                        "description": "(Optional String) Archive format of the Flink Artifact.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "(Optional String) Description of the Flink Artifact.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The display name of Flink Artifact.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/FlinkArtifactEnvironment:FlinkArtifactEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "(Required String) The kind of the Flink Artifact Pool, for example, `FlinkArtifact`.\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "The cloud service provider region that hosts the Flink Artifact.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "runtimeLanguage": {
+                        "type": "string",
+                        "description": "(Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -11115,6 +11332,97 @@
                 "required": [
                     "ids",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getFlinkArtifact:getFlinkArtifact": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.FlinkArtifact` describes a Flink Artifact data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nexport = async () =\u003e {\n    const exampleUsingId = await confluentcloud.getFlinkArtifact({\n        id: \"lfa-abc123\",\n        environment: {\n            id: \"env-xyz456\",\n        },\n    });\n    const exampleUsingName = await confluentcloud.getFlinkArtifact({\n        displayName: \"my_artifact\",\n        environment: {\n            id: \"env-xyz456\",\n        },\n    });\n    return {\n        exampleUsingId: exampleUsingId,\n        exampleUsingName: exampleUsingName,\n    };\n}\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_using_id = confluentcloud.get_flink_artifact(id=\"lfa-abc123\",\n    environment={\n        \"id\": \"env-xyz456\",\n    })\npulumi.export(\"exampleUsingId\", example_using_id)\nexample_using_name = confluentcloud.get_flink_artifact(display_name=\"my_artifact\",\n    environment={\n        \"id\": \"env-xyz456\",\n    })\npulumi.export(\"exampleUsingName\", example_using_name)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUsingId = ConfluentCloud.GetFlinkArtifact.Invoke(new()\n    {\n        Id = \"lfa-abc123\",\n        Environment = new ConfluentCloud.Inputs.GetFlinkArtifactEnvironmentInputArgs\n        {\n            Id = \"env-xyz456\",\n        },\n    });\n\n    var exampleUsingName = ConfluentCloud.GetFlinkArtifact.Invoke(new()\n    {\n        DisplayName = \"my_artifact\",\n        Environment = new ConfluentCloud.Inputs.GetFlinkArtifactEnvironmentInputArgs\n        {\n            Id = \"env-xyz456\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"exampleUsingId\"] = exampleUsingId,\n        [\"exampleUsingName\"] = exampleUsingName,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUsingId, err := confluentcloud.LookupFlinkArtifact(ctx, \u0026confluentcloud.LookupFlinkArtifactArgs{\n\t\t\tId: pulumi.StringRef(\"lfa-abc123\"),\n\t\t\tEnvironment: confluentcloud.GetFlinkArtifactEnvironment{\n\t\t\t\tId: \"env-xyz456\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingId\", exampleUsingId)\n\t\texampleUsingName, err := confluentcloud.LookupFlinkArtifact(ctx, \u0026confluentcloud.LookupFlinkArtifactArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"my_artifact\"),\n\t\t\tEnvironment: confluentcloud.GetFlinkArtifactEnvironment{\n\t\t\t\tId: \"env-xyz456\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingName\", exampleUsingName)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;\nimport com.pulumi.confluentcloud.inputs.GetFlinkArtifactEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleUsingId = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()\n            .id(\"lfa-abc123\")\n            .environment(GetFlinkArtifactEnvironmentArgs.builder()\n                .id(\"env-xyz456\")\n                .build())\n            .build());\n\n        ctx.export(\"exampleUsingId\", exampleUsingId.applyValue(getFlinkArtifactResult -\u003e getFlinkArtifactResult));\n        final var exampleUsingName = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()\n            .displayName(\"my_artifact\")\n            .environment(GetFlinkArtifactEnvironmentArgs.builder()\n                .id(\"env-xyz456\")\n                .build())\n            .build());\n\n        ctx.export(\"exampleUsingName\", exampleUsingName.applyValue(getFlinkArtifactResult -\u003e getFlinkArtifactResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleUsingId:\n    fn::invoke:\n      Function: confluentcloud:getFlinkArtifact\n      Arguments:\n        id: lfa-abc123\n        environment:\n          id: env-xyz456\n  exampleUsingName:\n    fn::invoke:\n      Function: confluentcloud:getFlinkArtifact\n      Arguments:\n        displayName: my_artifact\n        environment:\n          id: env-xyz456\noutputs:\n  exampleUsingId: ${exampleUsingId}\n  exampleUsingName: ${exampleUsingName}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getFlinkArtifact.\n",
+                "properties": {
+                    "cloud": {
+                        "type": "string",
+                        "description": "The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "A human-readable name for the Flink Artifact.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkArtifactEnvironment:getFlinkArtifactEnvironment"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Flink Artifact, for example, `lfa-abc123`.\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "The cloud service provider region, for example, `us-east-1`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "cloud",
+                    "environment",
+                    "region"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFlinkArtifact.\n",
+                "properties": {
+                    "apiVersion": {
+                        "description": "(Required String) The API Version of the schema version of the Flink Artifact, for example, `fa/v2`.\n",
+                        "type": "string"
+                    },
+                    "class": {
+                        "description": "(Required String) Java class or alias for the Flink Artifact as provided by developer.\n",
+                        "type": "string"
+                    },
+                    "cloud": {
+                        "type": "string"
+                    },
+                    "contentFormat": {
+                        "description": "(Required String) Archive format of the Flink Artifact.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "(Required String) Description of the Flink Artifact.\n",
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkArtifactEnvironment:getFlinkArtifactEnvironment"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "kind": {
+                        "description": "(Required String) The kind of the Flink Artifact, for example, `FlinkArtifact`.\n",
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string"
+                    },
+                    "runtimeLanguage": {
+                        "description": "(Required String) Runtime language of the Flink Artifact. The default runtime language is JAVA.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "apiVersion",
+                    "class",
+                    "cloud",
+                    "contentFormat",
+                    "description",
+                    "displayName",
+                    "environment",
+                    "id",
+                    "kind",
+                    "region",
+                    "runtimeLanguage"
                 ],
                 "type": "object"
             }
