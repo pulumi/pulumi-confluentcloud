@@ -14,40 +14,41 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class SchemaRulesetDomainRule
     {
         /// <summary>
-        /// An optional description of the rule.
+        /// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+        /// </summary>
+        public readonly bool? Disabled;
+        /// <summary>
+        /// An optional description of the rule. Defaults to "".
         /// </summary>
         public readonly string? Doc;
         /// <summary>
-        /// The body of the rule, which is optional.
+        /// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
         /// </summary>
         public readonly string? Expr;
         /// <summary>
-        /// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        /// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
         /// </summary>
-        public readonly string? Kind;
+        public readonly string Kind;
         /// <summary>
         /// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
         /// </summary>
-        public readonly string? Mode;
+        public readonly string Mode;
         /// <summary>
         /// A user-defined name that can be used to reference the rule.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
-        /// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        /// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
         /// </summary>
         public readonly string? OnFailure;
         /// <summary>
-        /// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        /// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         /// </summary>
         public readonly string? OnSuccess;
         /// <summary>
         /// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
         /// 
         /// &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-        /// 
-        /// &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-        /// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Params;
         /// <summary>
@@ -55,21 +56,23 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Tags;
         /// <summary>
-        /// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        /// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private SchemaRulesetDomainRule(
+            bool? disabled,
+
             string? doc,
 
             string? expr,
 
-            string? kind,
+            string kind,
 
-            string? mode,
+            string mode,
 
-            string? name,
+            string name,
 
             string? onFailure,
 
@@ -79,8 +82,9 @@ namespace Pulumi.ConfluentCloud.Outputs
 
             ImmutableArray<string> tags,
 
-            string? type)
+            string type)
         {
+            Disabled = disabled;
             Doc = doc;
             Expr = expr;
             Kind = kind;

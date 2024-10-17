@@ -420,6 +420,13 @@ export interface EnvironmentStreamGovernance {
     package: string;
 }
 
+export interface FlinkArtifactEnvironment {
+    /**
+     * The ID of the Environment that the Flink Artifact Pool belongs to, for example, `env-abc123`.
+     */
+    id: string;
+}
+
 export interface FlinkComputePoolEnvironment {
     /**
      * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
@@ -673,6 +680,13 @@ export interface GetEnvironmentStreamGovernance {
      * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
      */
     package: string;
+}
+
+export interface GetFlinkArtifactEnvironment {
+    /**
+     * The ID of the Environment that the Flink Artifact belongs to, for example, `env-xyz456`.
+     */
+    id: string;
 }
 
 export interface GetFlinkComputePoolEnvironment {
@@ -1437,33 +1451,37 @@ export interface GetSchemaRuleset {
 
 export interface GetSchemaRulesetDomainRule {
     /**
-     * (Optional String) An optional description.
+     * (Optional Boolean) The boolean flag to control whether the rule should be disabled.
      */
-    doc: string;
+    disabled?: boolean;
     /**
-     * (Optional String) The body of the rule, which is optional.
+     * (Optional String) An optional description of the rule.
      */
-    expr: string;
+    doc?: string;
     /**
-     * (Optional String) Either `CONDITION` or `TRANSFORM`.
+     * (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+     */
+    expr?: string;
+    /**
+     * (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      */
     kind: string;
     /**
-     * (Optional String) The mode of the rule.
+     * (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
      */
     mode: string;
     /**
-     * (Optional String) A user-defined name that can be used to reference the rule.
+     * (Required String) A user-defined name that can be used to reference the rule.
      */
     name: string;
     /**
-     * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+     * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
      */
-    onFailure: string;
+    onFailure?: string;
     /**
-     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      */
-    onSuccess: string;
+    onSuccess?: string;
     /**
      * (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      */
@@ -1473,40 +1491,44 @@ export interface GetSchemaRulesetDomainRule {
      */
     tags: string[];
     /**
-     * (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
     type: string;
 }
 
 export interface GetSchemaRulesetMigrationRule {
     /**
-     * (Optional String) An optional description.
+     * (Optional Boolean) The boolean flag to control whether the rule should be disabled.
      */
-    doc: string;
+    disabled?: boolean;
     /**
-     * (Optional String) The body of the rule, which is optional.
+     * (Optional String) An optional description of the rule.
      */
-    expr: string;
+    doc?: string;
     /**
-     * (Optional String) Either `CONDITION` or `TRANSFORM`.
+     * (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+     */
+    expr?: string;
+    /**
+     * (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      */
     kind: string;
     /**
-     * (Optional String) The mode of the rule.
+     * (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
      */
     mode: string;
     /**
-     * (Optional String) A user-defined name that can be used to reference the rule.
+     * (Required String) A user-defined name that can be used to reference the rule.
      */
     name: string;
     /**
-     * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+     * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
      */
-    onFailure: string;
+    onFailure?: string;
     /**
-     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      */
-    onSuccess: string;
+    onSuccess?: string;
     /**
      * (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      */
@@ -1516,14 +1538,14 @@ export interface GetSchemaRulesetMigrationRule {
      */
     tags: string[];
     /**
-     * (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
     type: string;
 }
 
 export interface GetSchemaSchemaReference {
     /**
-     * (Optional String) A user-defined name that can be used to reference the rule.
+     * (Required String) A user-defined name that can be used to reference the rule.
      */
     name: string;
     /**
@@ -2444,15 +2466,19 @@ export interface SchemaRuleset {
 
 export interface SchemaRulesetDomainRule {
     /**
-     * An optional description of the rule.
+     * The boolean flag to control whether the rule should be disabled. Defaults to `false`.
      */
-    doc: string;
+    disabled?: boolean;
     /**
-     * The body of the rule, which is optional.
+     * An optional description of the rule. Defaults to "".
      */
-    expr: string;
+    doc?: string;
     /**
-     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     * The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+     */
+    expr?: string;
+    /**
+     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      */
     kind: string;
     /**
@@ -2464,20 +2490,17 @@ export interface SchemaRulesetDomainRule {
      */
     name: string;
     /**
-     * An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     * An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
      */
-    onFailure: string;
+    onFailure?: string;
     /**
-     * An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      */
-    onSuccess: string;
+    onSuccess?: string;
     /**
      * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      *
      * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     *
-     * > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      */
     params: {[key: string]: string};
     /**
@@ -2485,22 +2508,26 @@ export interface SchemaRulesetDomainRule {
      */
     tags: string[];
     /**
-     * The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
     type: string;
 }
 
 export interface SchemaRulesetMigrationRule {
     /**
-     * An optional description of the rule.
+     * The boolean flag to control whether the rule should be disabled. Defaults to `false`.
      */
-    doc: string;
+    disabled?: boolean;
     /**
-     * The body of the rule, which is optional.
+     * An optional description of the rule. Defaults to "".
      */
-    expr: string;
+    doc?: string;
     /**
-     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     * The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+     */
+    expr?: string;
+    /**
+     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      */
     kind: string;
     /**
@@ -2509,20 +2536,17 @@ export interface SchemaRulesetMigrationRule {
     mode: string;
     name: string;
     /**
-     * An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     * An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
      */
-    onFailure: string;
+    onFailure?: string;
     /**
-     * An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      */
-    onSuccess: string;
+    onSuccess?: string;
     /**
      * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      *
      * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     *
-     * > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      */
     params: {[key: string]: string};
     /**
@@ -2530,7 +2554,7 @@ export interface SchemaRulesetMigrationRule {
      */
     tags: string[];
     /**
-     * The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
     type: string;
 }

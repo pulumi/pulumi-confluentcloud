@@ -5,6 +5,8 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -18,14 +20,29 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
     public static final SchemaRulesetDomainRuleArgs Empty = new SchemaRulesetDomainRuleArgs();
 
     /**
-     * An optional description of the rule.
+     * The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+     * 
+     */
+    @Import(name="disabled")
+    private @Nullable Output<Boolean> disabled;
+
+    /**
+     * @return The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> disabled() {
+        return Optional.ofNullable(this.disabled);
+    }
+
+    /**
+     * An optional description of the rule. Defaults to &#34;&#34;.
      * 
      */
     @Import(name="doc")
     private @Nullable Output<String> doc;
 
     /**
-     * @return An optional description of the rule.
+     * @return An optional description of the rule. Defaults to &#34;&#34;.
      * 
      */
     public Optional<Output<String>> doc() {
@@ -33,14 +50,14 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The body of the rule, which is optional.
+     * The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to &#34;&#34;.
      * 
      */
     @Import(name="expr")
     private @Nullable Output<String> expr;
 
     /**
-     * @return The body of the rule, which is optional.
+     * @return The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to &#34;&#34;.
      * 
      */
     public Optional<Output<String>> expr() {
@@ -48,59 +65,59 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      * 
      */
-    @Import(name="kind")
-    private @Nullable Output<String> kind;
+    @Import(name="kind", required=true)
+    private Output<String> kind;
 
     /**
-     * @return The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     * @return The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      * 
      */
-    public Optional<Output<String>> kind() {
-        return Optional.ofNullable(this.kind);
+    public Output<String> kind() {
+        return this.kind;
     }
 
     /**
      * The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
      * 
      */
-    @Import(name="mode")
-    private @Nullable Output<String> mode;
+    @Import(name="mode", required=true)
+    private Output<String> mode;
 
     /**
      * @return The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
      * 
      */
-    public Optional<Output<String>> mode() {
-        return Optional.ofNullable(this.mode);
+    public Output<String> mode() {
+        return this.mode;
     }
 
     /**
      * A user-defined name that can be used to reference the rule.
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return A user-defined name that can be used to reference the rule.
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Output<String> name() {
+        return this.name;
     }
 
     /**
-     * An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     * An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
      * 
      */
     @Import(name="onFailure")
     private @Nullable Output<String> onFailure;
 
     /**
-     * @return An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     * @return An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
      * 
      */
     public Optional<Output<String>> onFailure() {
@@ -108,14 +125,14 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      * 
      */
     @Import(name="onSuccess")
     private @Nullable Output<String> onSuccess;
 
     /**
-     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      * 
      */
     public Optional<Output<String>> onSuccess() {
@@ -127,9 +144,6 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
      * 
      * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
      * 
-     * &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-     * 
      */
     @Import(name="params")
     private @Nullable Output<Map<String,String>> params;
@@ -138,9 +152,6 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
      * @return A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      * 
      * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     * 
-     * &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      */
     public Optional<Output<Map<String,String>>> params() {
@@ -163,23 +174,24 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      * 
      */
-    @Import(name="type")
-    private @Nullable Output<String> type;
+    @Import(name="type", required=true)
+    private Output<String> type;
 
     /**
-     * @return The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * @return The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      * 
      */
-    public Optional<Output<String>> type() {
-        return Optional.ofNullable(this.type);
+    public Output<String> type() {
+        return this.type;
     }
 
     private SchemaRulesetDomainRuleArgs() {}
 
     private SchemaRulesetDomainRuleArgs(SchemaRulesetDomainRuleArgs $) {
+        this.disabled = $.disabled;
         this.doc = $.doc;
         this.expr = $.expr;
         this.kind = $.kind;
@@ -211,7 +223,28 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param doc An optional description of the rule.
+         * @param disabled The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disabled(@Nullable Output<Boolean> disabled) {
+            $.disabled = disabled;
+            return this;
+        }
+
+        /**
+         * @param disabled The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disabled(Boolean disabled) {
+            return disabled(Output.of(disabled));
+        }
+
+        /**
+         * @param doc An optional description of the rule. Defaults to &#34;&#34;.
          * 
          * @return builder
          * 
@@ -222,7 +255,7 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param doc An optional description of the rule.
+         * @param doc An optional description of the rule. Defaults to &#34;&#34;.
          * 
          * @return builder
          * 
@@ -232,7 +265,7 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param expr The body of the rule, which is optional.
+         * @param expr The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to &#34;&#34;.
          * 
          * @return builder
          * 
@@ -243,7 +276,7 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param expr The body of the rule, which is optional.
+         * @param expr The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to &#34;&#34;.
          * 
          * @return builder
          * 
@@ -253,18 +286,18 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param kind The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+         * @param kind The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
          * 
          * @return builder
          * 
          */
-        public Builder kind(@Nullable Output<String> kind) {
+        public Builder kind(Output<String> kind) {
             $.kind = kind;
             return this;
         }
 
         /**
-         * @param kind The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+         * @param kind The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
          * 
          * @return builder
          * 
@@ -279,7 +312,7 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder mode(@Nullable Output<String> mode) {
+        public Builder mode(Output<String> mode) {
             $.mode = mode;
             return this;
         }
@@ -300,7 +333,7 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
+        public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
@@ -316,7 +349,7 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onFailure An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+         * @param onFailure An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
          * 
          * @return builder
          * 
@@ -327,7 +360,7 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onFailure An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+         * @param onFailure An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
          * 
          * @return builder
          * 
@@ -337,7 +370,7 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onSuccess An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+         * @param onSuccess An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
          * 
          * @return builder
          * 
@@ -348,7 +381,7 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onSuccess An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+         * @param onSuccess An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
          * 
          * @return builder
          * 
@@ -362,9 +395,6 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
          * 
          * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
          * 
-         * &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-         * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-         * 
          * @return builder
          * 
          */
@@ -377,9 +407,6 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
          * @param params A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
          * 
          * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-         * 
-         * &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-         * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
          * 
          * @return builder
          * 
@@ -420,18 +447,18 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+         * @param type The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
          * 
          * @return builder
          * 
          */
-        public Builder type(@Nullable Output<String> type) {
+        public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
         /**
-         * @param type The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+         * @param type The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
          * 
          * @return builder
          * 
@@ -441,6 +468,18 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         }
 
         public SchemaRulesetDomainRuleArgs build() {
+            if ($.kind == null) {
+                throw new MissingRequiredPropertyException("SchemaRulesetDomainRuleArgs", "kind");
+            }
+            if ($.mode == null) {
+                throw new MissingRequiredPropertyException("SchemaRulesetDomainRuleArgs", "mode");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SchemaRulesetDomainRuleArgs", "name");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SchemaRulesetDomainRuleArgs", "type");
+            }
             return $;
         }
     }

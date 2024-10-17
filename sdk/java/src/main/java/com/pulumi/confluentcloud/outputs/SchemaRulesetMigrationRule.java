@@ -4,6 +4,8 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -14,33 +16,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SchemaRulesetMigrationRule {
     /**
-     * @return An optional description of the rule.
+     * @return The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean disabled;
+    /**
+     * @return An optional description of the rule. Defaults to &#34;&#34;.
      * 
      */
     private @Nullable String doc;
     /**
-     * @return The body of the rule, which is optional.
+     * @return The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to &#34;&#34;.
      * 
      */
     private @Nullable String expr;
     /**
-     * @return The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     * @return The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      * 
      */
-    private @Nullable String kind;
+    private String kind;
     /**
      * @return The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
      * 
      */
-    private @Nullable String mode;
-    private @Nullable String name;
+    private String mode;
+    private String name;
     /**
-     * @return An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     * @return An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
      * 
      */
     private @Nullable String onFailure;
     /**
-     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      * 
      */
     private @Nullable String onSuccess;
@@ -48,9 +55,6 @@ public final class SchemaRulesetMigrationRule {
      * @return A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      * 
      * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     * 
-     * &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      */
     private @Nullable Map<String,String> params;
@@ -60,52 +64,59 @@ public final class SchemaRulesetMigrationRule {
      */
     private @Nullable List<String> tags;
     /**
-     * @return The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * @return The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      * 
      */
-    private @Nullable String type;
+    private String type;
 
     private SchemaRulesetMigrationRule() {}
     /**
-     * @return An optional description of the rule.
+     * @return The boolean flag to control whether the rule should be disabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> disabled() {
+        return Optional.ofNullable(this.disabled);
+    }
+    /**
+     * @return An optional description of the rule. Defaults to &#34;&#34;.
      * 
      */
     public Optional<String> doc() {
         return Optional.ofNullable(this.doc);
     }
     /**
-     * @return The body of the rule, which is optional.
+     * @return The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to &#34;&#34;.
      * 
      */
     public Optional<String> expr() {
         return Optional.ofNullable(this.expr);
     }
     /**
-     * @return The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     * @return The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
      * 
      */
-    public Optional<String> kind() {
-        return Optional.ofNullable(this.kind);
+    public String kind() {
+        return this.kind;
     }
     /**
      * @return The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
      * 
      */
-    public Optional<String> mode() {
-        return Optional.ofNullable(this.mode);
+    public String mode() {
+        return this.mode;
     }
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    public String name() {
+        return this.name;
     }
     /**
-     * @return An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     * @return An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
      * 
      */
     public Optional<String> onFailure() {
         return Optional.ofNullable(this.onFailure);
     }
     /**
-     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      * 
      */
     public Optional<String> onSuccess() {
@@ -115,9 +126,6 @@ public final class SchemaRulesetMigrationRule {
      * @return A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      * 
      * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     * 
-     * &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
      * 
      */
     public Map<String,String> params() {
@@ -131,11 +139,11 @@ public final class SchemaRulesetMigrationRule {
         return this.tags == null ? List.of() : this.tags;
     }
     /**
-     * @return The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     * @return The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      * 
      */
-    public Optional<String> type() {
-        return Optional.ofNullable(this.type);
+    public String type() {
+        return this.type;
     }
 
     public static Builder builder() {
@@ -147,19 +155,21 @@ public final class SchemaRulesetMigrationRule {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean disabled;
         private @Nullable String doc;
         private @Nullable String expr;
-        private @Nullable String kind;
-        private @Nullable String mode;
-        private @Nullable String name;
+        private String kind;
+        private String mode;
+        private String name;
         private @Nullable String onFailure;
         private @Nullable String onSuccess;
         private @Nullable Map<String,String> params;
         private @Nullable List<String> tags;
-        private @Nullable String type;
+        private String type;
         public Builder() {}
         public Builder(SchemaRulesetMigrationRule defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.disabled = defaults.disabled;
     	      this.doc = defaults.doc;
     	      this.expr = defaults.expr;
     	      this.kind = defaults.kind;
@@ -173,6 +183,12 @@ public final class SchemaRulesetMigrationRule {
         }
 
         @CustomType.Setter
+        public Builder disabled(@Nullable Boolean disabled) {
+
+            this.disabled = disabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder doc(@Nullable String doc) {
 
             this.doc = doc;
@@ -185,20 +201,26 @@ public final class SchemaRulesetMigrationRule {
             return this;
         }
         @CustomType.Setter
-        public Builder kind(@Nullable String kind) {
-
+        public Builder kind(String kind) {
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("SchemaRulesetMigrationRule", "kind");
+            }
             this.kind = kind;
             return this;
         }
         @CustomType.Setter
-        public Builder mode(@Nullable String mode) {
-
+        public Builder mode(String mode) {
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("SchemaRulesetMigrationRule", "mode");
+            }
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
-        public Builder name(@Nullable String name) {
-
+        public Builder name(String name) {
+            if (name == null) {
+              throw new MissingRequiredPropertyException("SchemaRulesetMigrationRule", "name");
+            }
             this.name = name;
             return this;
         }
@@ -230,13 +252,16 @@ public final class SchemaRulesetMigrationRule {
             return tags(List.of(tags));
         }
         @CustomType.Setter
-        public Builder type(@Nullable String type) {
-
+        public Builder type(String type) {
+            if (type == null) {
+              throw new MissingRequiredPropertyException("SchemaRulesetMigrationRule", "type");
+            }
             this.type = type;
             return this;
         }
         public SchemaRulesetMigrationRule build() {
             final var _resultValue = new SchemaRulesetMigrationRule();
+            _resultValue.disabled = disabled;
             _resultValue.doc = doc;
             _resultValue.expr = expr;
             _resultValue.kind = kind;

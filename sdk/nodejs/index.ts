@@ -75,6 +75,11 @@ export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
 utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
 
+export { FlinkArtifactArgs, FlinkArtifactState } from "./flinkArtifact";
+export type FlinkArtifact = import("./flinkArtifact").FlinkArtifact;
+export const FlinkArtifact: typeof import("./flinkArtifact").FlinkArtifact = null as any;
+utilities.lazyLoad(exports, ["FlinkArtifact"], () => require("./flinkArtifact"));
+
 export { FlinkComputePoolArgs, FlinkComputePoolState } from "./flinkComputePool";
 export type FlinkComputePool = import("./flinkComputePool").FlinkComputePool;
 export const FlinkComputePool: typeof import("./flinkComputePool").FlinkComputePool = null as any;
@@ -129,6 +134,11 @@ export { GetEnvironmentsResult } from "./getEnvironments";
 export const getEnvironments: typeof import("./getEnvironments").getEnvironments = null as any;
 export const getEnvironmentsOutput: typeof import("./getEnvironments").getEnvironmentsOutput = null as any;
 utilities.lazyLoad(exports, ["getEnvironments","getEnvironmentsOutput"], () => require("./getEnvironments"));
+
+export { GetFlinkArtifactArgs, GetFlinkArtifactResult, GetFlinkArtifactOutputArgs } from "./getFlinkArtifact";
+export const getFlinkArtifact: typeof import("./getFlinkArtifact").getFlinkArtifact = null as any;
+export const getFlinkArtifactOutput: typeof import("./getFlinkArtifact").getFlinkArtifactOutput = null as any;
+utilities.lazyLoad(exports, ["getFlinkArtifact","getFlinkArtifactOutput"], () => require("./getFlinkArtifact"));
 
 export { GetFlinkComputePoolArgs, GetFlinkComputePoolResult, GetFlinkComputePoolOutputArgs } from "./getFlinkComputePool";
 export const getFlinkComputePool: typeof import("./getFlinkComputePool").getFlinkComputePool = null as any;
@@ -532,6 +542,8 @@ const _module = {
                 return new DnsRecord(name, <any>undefined, { urn })
             case "confluentcloud:index/environment:Environment":
                 return new Environment(name, <any>undefined, { urn })
+            case "confluentcloud:index/flinkArtifact:FlinkArtifact":
+                return new FlinkArtifact(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkComputePool:FlinkComputePool":
                 return new FlinkComputePool(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkStatement:FlinkStatement":
@@ -621,6 +633,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/customConnectorPl
 pulumi.runtime.registerResourceModule("confluentcloud", "index/dnsForwarder", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/dnsRecord", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkArtifact", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkComputePool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkStatement", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/groupMapping", _module)
