@@ -7,11 +7,13 @@ import com.pulumi.confluentcloud.FlinkArtifactArgs;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.FlinkArtifactState;
 import com.pulumi.confluentcloud.outputs.FlinkArtifactEnvironment;
+import com.pulumi.confluentcloud.outputs.FlinkArtifactVersion;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -235,6 +237,20 @@ public class FlinkArtifact extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> runtimeLanguage() {
         return Codegen.optional(this.runtimeLanguage);
+    }
+    /**
+     * List of versions for this Flink Artifact.
+     * 
+     */
+    @Export(name="versions", refs={List.class,FlinkArtifactVersion.class}, tree="[0,1]")
+    private Output<List<FlinkArtifactVersion>> versions;
+
+    /**
+     * @return List of versions for this Flink Artifact.
+     * 
+     */
+    public Output<List<FlinkArtifactVersion>> versions() {
+        return this.versions;
     }
 
     /**

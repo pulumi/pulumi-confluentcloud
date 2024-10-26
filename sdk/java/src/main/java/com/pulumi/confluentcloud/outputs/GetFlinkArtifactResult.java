@@ -4,9 +4,11 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetFlinkArtifactEnvironment;
+import com.pulumi.confluentcloud.outputs.GetFlinkArtifactVersion;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -46,6 +48,7 @@ public final class GetFlinkArtifactResult {
      * 
      */
     private String runtimeLanguage;
+    private List<GetFlinkArtifactVersion> versions;
 
     private GetFlinkArtifactResult() {}
     /**
@@ -105,6 +108,9 @@ public final class GetFlinkArtifactResult {
     public String runtimeLanguage() {
         return this.runtimeLanguage;
     }
+    public List<GetFlinkArtifactVersion> versions() {
+        return this.versions;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -126,6 +132,7 @@ public final class GetFlinkArtifactResult {
         private String kind;
         private String region;
         private String runtimeLanguage;
+        private List<GetFlinkArtifactVersion> versions;
         public Builder() {}
         public Builder(GetFlinkArtifactResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -140,6 +147,7 @@ public final class GetFlinkArtifactResult {
     	      this.kind = defaults.kind;
     	      this.region = defaults.region;
     	      this.runtimeLanguage = defaults.runtimeLanguage;
+    	      this.versions = defaults.versions;
         }
 
         @CustomType.Setter
@@ -230,6 +238,17 @@ public final class GetFlinkArtifactResult {
             this.runtimeLanguage = runtimeLanguage;
             return this;
         }
+        @CustomType.Setter
+        public Builder versions(List<GetFlinkArtifactVersion> versions) {
+            if (versions == null) {
+              throw new MissingRequiredPropertyException("GetFlinkArtifactResult", "versions");
+            }
+            this.versions = versions;
+            return this;
+        }
+        public Builder versions(GetFlinkArtifactVersion... versions) {
+            return versions(List.of(versions));
+        }
         public GetFlinkArtifactResult build() {
             final var _resultValue = new GetFlinkArtifactResult();
             _resultValue.apiVersion = apiVersion;
@@ -243,6 +262,7 @@ public final class GetFlinkArtifactResult {
             _resultValue.kind = kind;
             _resultValue.region = region;
             _resultValue.runtimeLanguage = runtimeLanguage;
+            _resultValue.versions = versions;
             return _resultValue;
         }
     }

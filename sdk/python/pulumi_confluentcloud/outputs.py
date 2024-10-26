@@ -52,6 +52,7 @@ __all__ = [
     'DnsRecordPrivateLinkAccessPoint',
     'EnvironmentStreamGovernance',
     'FlinkArtifactEnvironment',
+    'FlinkArtifactVersion',
     'FlinkComputePoolEnvironment',
     'FlinkStatementComputePool',
     'FlinkStatementCredentials',
@@ -168,6 +169,7 @@ __all__ = [
     'GetDnsRecordPrivateLinkAccessPointResult',
     'GetEnvironmentStreamGovernanceResult',
     'GetFlinkArtifactEnvironmentResult',
+    'GetFlinkArtifactVersionResult',
     'GetFlinkComputePoolEnvironmentResult',
     'GetGatewayAwsEgressPrivateLinkGatewayResult',
     'GetGatewayAwsPeeringGatewayResult',
@@ -1666,6 +1668,24 @@ class FlinkArtifactEnvironment(dict):
 
 
 @pulumi.output_type
+class FlinkArtifactVersion(dict):
+    def __init__(__self__, *,
+                 version: str):
+        """
+        :param str version: The version of this Flink Artifact.
+        """
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of this Flink Artifact.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class FlinkComputePoolEnvironment(dict):
     def __init__(__self__, *,
                  id: str):
@@ -2096,7 +2116,9 @@ class KafkaClusterDedicated(dict):
                
                > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
                
-               > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
+               > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
+               
+               > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
                
                !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
                
@@ -2121,7 +2143,9 @@ class KafkaClusterDedicated(dict):
 
         > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 
-        > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
+        > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
+
+        > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
 
         !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 
@@ -5287,6 +5311,24 @@ class GetFlinkArtifactEnvironmentResult(dict):
         The ID of the Environment that the Flink Artifact belongs to, for example, `env-xyz456`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetFlinkArtifactVersionResult(dict):
+    def __init__(__self__, *,
+                 version: str):
+        """
+        :param str version: The version of this Flink Artifact.
+        """
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of this Flink Artifact.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

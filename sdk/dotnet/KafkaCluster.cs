@@ -53,6 +53,22 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
+    ///     var enterprise = new ConfluentCloud.KafkaCluster("enterprise", new()
+    ///     {
+    ///         Enterprises = new[]
+    ///         {
+    ///             null,
+    ///         },
+    ///         DisplayName = "enterprise_kafka_cluster",
+    ///         Availability = "HIGH",
+    ///         Cloud = "AWS",
+    ///         Region = "us-east-2",
+    ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
     ///     var dedicated = new ConfluentCloud.KafkaCluster("dedicated", new()
     ///     {
     ///         DisplayName = "dedicated_kafka_cluster",
@@ -127,6 +143,22 @@ namespace Pulumi.ConfluentCloud
     ///         Cloud = "AZURE",
     ///         Region = "centralus",
     ///         Standard = null,
+    ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var enterprise = new ConfluentCloud.KafkaCluster("enterprise", new()
+    ///     {
+    ///         Enterprises = new[]
+    ///         {
+    ///             null,
+    ///         },
+    ///         DisplayName = "enterprise_kafka_cluster",
+    ///         Availability = "HIGH",
+    ///         Cloud = "AZURE",
+    ///         Region = "centralus",
     ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
     ///         {
     ///             Id = development.Id,

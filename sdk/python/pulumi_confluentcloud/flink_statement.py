@@ -175,6 +175,8 @@ class _FlinkStatementState:
                  compute_pool: Optional[pulumi.Input['FlinkStatementComputePoolArgs']] = None,
                  credentials: Optional[pulumi.Input['FlinkStatementCredentialsArgs']] = None,
                  environment: Optional[pulumi.Input['FlinkStatementEnvironmentArgs']] = None,
+                 latest_offsets: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 latest_offsets_timestamp: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input['FlinkStatementOrganizationArgs']] = None,
                  principal: Optional[pulumi.Input['FlinkStatementPrincipalArgs']] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -185,6 +187,14 @@ class _FlinkStatementState:
         """
         Input properties used for looking up and filtering FlinkStatement resources.
         :param pulumi.Input['FlinkStatementCredentialsArgs'] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] latest_offsets: (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+               ```bash
+               "latest_offsets": {
+               "topic-1": "partition:0,offset:100;partition:1,offset:200",
+               "topic-2": "partition:0,offset:50"
+               }
+               ```
+        :param pulumi.Input[str] latest_offsets_timestamp: (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
@@ -197,6 +207,10 @@ class _FlinkStatementState:
             pulumi.set(__self__, "credentials", credentials)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if latest_offsets is not None:
+            pulumi.set(__self__, "latest_offsets", latest_offsets)
+        if latest_offsets_timestamp is not None:
+            pulumi.set(__self__, "latest_offsets_timestamp", latest_offsets_timestamp)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
         if principal is not None:
@@ -241,6 +255,36 @@ class _FlinkStatementState:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input['FlinkStatementEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter(name="latestOffsets")
+    def latest_offsets(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+        ```bash
+        "latest_offsets": {
+        "topic-1": "partition:0,offset:100;partition:1,offset:200",
+        "topic-2": "partition:0,offset:50"
+        }
+        ```
+        """
+        return pulumi.get(self, "latest_offsets")
+
+    @latest_offsets.setter
+    def latest_offsets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "latest_offsets", value)
+
+    @property
+    @pulumi.getter(name="latestOffsetsTimestamp")
+    def latest_offsets_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+        """
+        return pulumi.get(self, "latest_offsets_timestamp")
+
+    @latest_offsets_timestamp.setter
+    def latest_offsets_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "latest_offsets_timestamp", value)
 
     @property
     @pulumi.getter
@@ -464,6 +508,8 @@ class FlinkStatement(pulumi.CustomResource):
             __props__.__dict__["statement"] = statement
             __props__.__dict__["statement_name"] = statement_name
             __props__.__dict__["stopped"] = stopped
+            __props__.__dict__["latest_offsets"] = None
+            __props__.__dict__["latest_offsets_timestamp"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FlinkStatement, __self__).__init__(
@@ -479,6 +525,8 @@ class FlinkStatement(pulumi.CustomResource):
             compute_pool: Optional[pulumi.Input[Union['FlinkStatementComputePoolArgs', 'FlinkStatementComputePoolArgsDict']]] = None,
             credentials: Optional[pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']]] = None,
             environment: Optional[pulumi.Input[Union['FlinkStatementEnvironmentArgs', 'FlinkStatementEnvironmentArgsDict']]] = None,
+            latest_offsets: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            latest_offsets_timestamp: Optional[pulumi.Input[str]] = None,
             organization: Optional[pulumi.Input[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
             principal: Optional[pulumi.Input[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -494,6 +542,14 @@ class FlinkStatement(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] latest_offsets: (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+               ```bash
+               "latest_offsets": {
+               "topic-1": "partition:0,offset:100;partition:1,offset:200",
+               "topic-2": "partition:0,offset:50"
+               }
+               ```
+        :param pulumi.Input[str] latest_offsets_timestamp: (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
@@ -507,6 +563,8 @@ class FlinkStatement(pulumi.CustomResource):
         __props__.__dict__["compute_pool"] = compute_pool
         __props__.__dict__["credentials"] = credentials
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["latest_offsets"] = latest_offsets
+        __props__.__dict__["latest_offsets_timestamp"] = latest_offsets_timestamp
         __props__.__dict__["organization"] = organization
         __props__.__dict__["principal"] = principal
         __props__.__dict__["properties"] = properties
@@ -533,6 +591,28 @@ class FlinkStatement(pulumi.CustomResource):
     @pulumi.getter
     def environment(self) -> pulumi.Output['outputs.FlinkStatementEnvironment']:
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="latestOffsets")
+    def latest_offsets(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+        ```bash
+        "latest_offsets": {
+        "topic-1": "partition:0,offset:100;partition:1,offset:200",
+        "topic-2": "partition:0,offset:50"
+        }
+        ```
+        """
+        return pulumi.get(self, "latest_offsets")
+
+    @property
+    @pulumi.getter(name="latestOffsetsTimestamp")
+    def latest_offsets_timestamp(self) -> pulumi.Output[str]:
+        """
+        (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+        """
+        return pulumi.get(self, "latest_offsets_timestamp")
 
     @property
     @pulumi.getter

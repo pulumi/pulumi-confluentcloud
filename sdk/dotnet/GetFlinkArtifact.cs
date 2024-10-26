@@ -208,6 +208,7 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) Runtime language of the Flink Artifact. The default runtime language is JAVA.
         /// </summary>
         public readonly string RuntimeLanguage;
+        public readonly ImmutableArray<Outputs.GetFlinkArtifactVersionResult> Versions;
 
         [OutputConstructor]
         private GetFlinkArtifactResult(
@@ -231,7 +232,9 @@ namespace Pulumi.ConfluentCloud
 
             string region,
 
-            string runtimeLanguage)
+            string runtimeLanguage,
+
+            ImmutableArray<Outputs.GetFlinkArtifactVersionResult> versions)
         {
             ApiVersion = apiVersion;
             Class = @class;
@@ -244,6 +247,7 @@ namespace Pulumi.ConfluentCloud
             Kind = kind;
             Region = region;
             RuntimeLanguage = runtimeLanguage;
+            Versions = versions;
         }
     }
 }

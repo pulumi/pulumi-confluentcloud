@@ -21,7 +21,9 @@ public final class KafkaClusterDedicated {
      * 
      * &gt; **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      * 
-     * &gt; **Note:** The `freight` Kafka cluster type is only available in AWS currently.
+     * &gt; **Note:** The `freight` Kafka cluster type is currently available only on AWS.
+     * 
+     * &gt; **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
      * 
      * !&gt; **Warning:** You can only upgrade clusters from `basic` to `standard`.
      * 
@@ -49,7 +51,9 @@ public final class KafkaClusterDedicated {
      * 
      * &gt; **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      * 
-     * &gt; **Note:** The `freight` Kafka cluster type is only available in AWS currently.
+     * &gt; **Note:** The `freight` Kafka cluster type is currently available only on AWS.
+     * 
+     * &gt; **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
      * 
      * !&gt; **Warning:** You can only upgrade clusters from `basic` to `standard`.
      * 

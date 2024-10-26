@@ -89,6 +89,8 @@ type FlinkArtifact struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
 	RuntimeLanguage pulumi.StringPtrOutput `pulumi:"runtimeLanguage"`
+	// List of versions for this Flink Artifact.
+	Versions FlinkArtifactVersionArrayOutput `pulumi:"versions"`
 }
 
 // NewFlinkArtifact registers a new resource with the given unique name, arguments, and options.
@@ -158,6 +160,8 @@ type flinkArtifactState struct {
 	Region *string `pulumi:"region"`
 	// (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
 	RuntimeLanguage *string `pulumi:"runtimeLanguage"`
+	// List of versions for this Flink Artifact.
+	Versions []FlinkArtifactVersion `pulumi:"versions"`
 }
 
 type FlinkArtifactState struct {
@@ -183,6 +187,8 @@ type FlinkArtifactState struct {
 	Region pulumi.StringPtrInput
 	// (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
 	RuntimeLanguage pulumi.StringPtrInput
+	// List of versions for this Flink Artifact.
+	Versions FlinkArtifactVersionArrayInput
 }
 
 func (FlinkArtifactState) ElementType() reflect.Type {
@@ -372,6 +378,11 @@ func (o FlinkArtifactOutput) Region() pulumi.StringOutput {
 // (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
 func (o FlinkArtifactOutput) RuntimeLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkArtifact) pulumi.StringPtrOutput { return v.RuntimeLanguage }).(pulumi.StringPtrOutput)
+}
+
+// List of versions for this Flink Artifact.
+func (o FlinkArtifactOutput) Versions() FlinkArtifactVersionArrayOutput {
+	return o.ApplyT(func(v *FlinkArtifact) FlinkArtifactVersionArrayOutput { return v.Versions }).(FlinkArtifactVersionArrayOutput)
 }
 
 type FlinkArtifactArrayOutput struct{ *pulumi.OutputState }

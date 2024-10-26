@@ -73,6 +73,20 @@ export class FlinkStatement extends pulumi.CustomResource {
      */
     public readonly credentials!: pulumi.Output<outputs.FlinkStatementCredentials | undefined>;
     public readonly environment!: pulumi.Output<outputs.FlinkStatementEnvironment>;
+    /**
+     * (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+     * ```bash
+     * "latest_offsets": {
+     * "topic-1": "partition:0,offset:100;partition:1,offset:200",
+     * "topic-2": "partition:0,offset:50"
+     * }
+     * ```
+     */
+    public /*out*/ readonly latestOffsets!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+     */
+    public /*out*/ readonly latestOffsetsTimestamp!: pulumi.Output<string>;
     public readonly organization!: pulumi.Output<outputs.FlinkStatementOrganization>;
     public readonly principal!: pulumi.Output<outputs.FlinkStatementPrincipal>;
     /**
@@ -112,6 +126,8 @@ export class FlinkStatement extends pulumi.CustomResource {
             resourceInputs["computePool"] = state ? state.computePool : undefined;
             resourceInputs["credentials"] = state ? state.credentials : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["latestOffsets"] = state ? state.latestOffsets : undefined;
+            resourceInputs["latestOffsetsTimestamp"] = state ? state.latestOffsetsTimestamp : undefined;
             resourceInputs["organization"] = state ? state.organization : undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
             resourceInputs["properties"] = state ? state.properties : undefined;
@@ -134,6 +150,8 @@ export class FlinkStatement extends pulumi.CustomResource {
             resourceInputs["statement"] = args ? args.statement : undefined;
             resourceInputs["statementName"] = args ? args.statementName : undefined;
             resourceInputs["stopped"] = args ? args.stopped : undefined;
+            resourceInputs["latestOffsets"] = undefined /*out*/;
+            resourceInputs["latestOffsetsTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };
@@ -152,6 +170,20 @@ export interface FlinkStatementState {
      */
     credentials?: pulumi.Input<inputs.FlinkStatementCredentials>;
     environment?: pulumi.Input<inputs.FlinkStatementEnvironment>;
+    /**
+     * (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+     * ```bash
+     * "latest_offsets": {
+     * "topic-1": "partition:0,offset:100;partition:1,offset:200",
+     * "topic-2": "partition:0,offset:50"
+     * }
+     * ```
+     */
+    latestOffsets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+     */
+    latestOffsetsTimestamp?: pulumi.Input<string>;
     organization?: pulumi.Input<inputs.FlinkStatementOrganization>;
     principal?: pulumi.Input<inputs.FlinkStatementPrincipal>;
     /**

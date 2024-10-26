@@ -427,6 +427,13 @@ export interface FlinkArtifactEnvironment {
     id: pulumi.Input<string>;
 }
 
+export interface FlinkArtifactVersion {
+    /**
+     * The version of this Flink Artifact.
+     */
+    version: pulumi.Input<string>;
+}
+
 export interface FlinkComputePoolEnvironment {
     /**
      * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
@@ -1905,7 +1912,9 @@ export interface KafkaClusterDedicated {
      *
      * > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      *
-     * > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
+     * > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
+     *
+     * > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
      *
      * !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
      *

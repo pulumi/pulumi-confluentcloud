@@ -36,6 +36,16 @@ import * as utilities from "./utilities";
  *         id: development.id,
  *     },
  * });
+ * const enterprise = new confluentcloud.KafkaCluster("enterprise", {
+ *     enterprises: [{}],
+ *     displayName: "enterprise_kafka_cluster",
+ *     availability: "HIGH",
+ *     cloud: "AWS",
+ *     region: "us-east-2",
+ *     environment: {
+ *         id: development.id,
+ *     },
+ * });
  * const dedicated = new confluentcloud.KafkaCluster("dedicated", {
  *     displayName: "dedicated_kafka_cluster",
  *     availability: "MULTI_ZONE",
@@ -86,6 +96,16 @@ import * as utilities from "./utilities";
  *     cloud: "AZURE",
  *     region: "centralus",
  *     standard: {},
+ *     environment: {
+ *         id: development.id,
+ *     },
+ * });
+ * const enterprise = new confluentcloud.KafkaCluster("enterprise", {
+ *     enterprises: [{}],
+ *     displayName: "enterprise_kafka_cluster",
+ *     availability: "HIGH",
+ *     cloud: "AZURE",
+ *     region: "centralus",
  *     environment: {
  *         id: development.id,
  *     },

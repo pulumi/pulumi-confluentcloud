@@ -48,10 +48,14 @@ type FlinkStatement struct {
 
 	ComputePool FlinkStatementComputePoolOutput `pulumi:"computePool"`
 	// The Cluster API Credentials.
-	Credentials  FlinkStatementCredentialsPtrOutput `pulumi:"credentials"`
-	Environment  FlinkStatementEnvironmentOutput    `pulumi:"environment"`
-	Organization FlinkStatementOrganizationOutput   `pulumi:"organization"`
-	Principal    FlinkStatementPrincipalOutput      `pulumi:"principal"`
+	Credentials FlinkStatementCredentialsPtrOutput `pulumi:"credentials"`
+	Environment FlinkStatementEnvironmentOutput    `pulumi:"environment"`
+	// (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+	LatestOffsets pulumi.StringMapOutput `pulumi:"latestOffsets"`
+	// (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+	LatestOffsetsTimestamp pulumi.StringOutput              `pulumi:"latestOffsetsTimestamp"`
+	Organization           FlinkStatementOrganizationOutput `pulumi:"organization"`
+	Principal              FlinkStatementPrincipalOutput    `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
@@ -106,10 +110,14 @@ func GetFlinkStatement(ctx *pulumi.Context,
 type flinkStatementState struct {
 	ComputePool *FlinkStatementComputePool `pulumi:"computePool"`
 	// The Cluster API Credentials.
-	Credentials  *FlinkStatementCredentials  `pulumi:"credentials"`
-	Environment  *FlinkStatementEnvironment  `pulumi:"environment"`
-	Organization *FlinkStatementOrganization `pulumi:"organization"`
-	Principal    *FlinkStatementPrincipal    `pulumi:"principal"`
+	Credentials *FlinkStatementCredentials `pulumi:"credentials"`
+	Environment *FlinkStatementEnvironment `pulumi:"environment"`
+	// (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+	LatestOffsets map[string]string `pulumi:"latestOffsets"`
+	// (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+	LatestOffsetsTimestamp *string                     `pulumi:"latestOffsetsTimestamp"`
+	Organization           *FlinkStatementOrganization `pulumi:"organization"`
+	Principal              *FlinkStatementPrincipal    `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties map[string]string `pulumi:"properties"`
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
@@ -125,10 +133,14 @@ type flinkStatementState struct {
 type FlinkStatementState struct {
 	ComputePool FlinkStatementComputePoolPtrInput
 	// The Cluster API Credentials.
-	Credentials  FlinkStatementCredentialsPtrInput
-	Environment  FlinkStatementEnvironmentPtrInput
-	Organization FlinkStatementOrganizationPtrInput
-	Principal    FlinkStatementPrincipalPtrInput
+	Credentials FlinkStatementCredentialsPtrInput
+	Environment FlinkStatementEnvironmentPtrInput
+	// (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+	LatestOffsets pulumi.StringMapInput
+	// (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+	LatestOffsetsTimestamp pulumi.StringPtrInput
+	Organization           FlinkStatementOrganizationPtrInput
+	Principal              FlinkStatementPrincipalPtrInput
 	// The custom topic settings to set:
 	Properties pulumi.StringMapInput
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
@@ -282,6 +294,16 @@ func (o FlinkStatementOutput) Credentials() FlinkStatementCredentialsPtrOutput {
 
 func (o FlinkStatementOutput) Environment() FlinkStatementEnvironmentOutput {
 	return o.ApplyT(func(v *FlinkStatement) FlinkStatementEnvironmentOutput { return v.Environment }).(FlinkStatementEnvironmentOutput)
+}
+
+// (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+func (o FlinkStatementOutput) LatestOffsets() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlinkStatement) pulumi.StringMapOutput { return v.LatestOffsets }).(pulumi.StringMapOutput)
+}
+
+// (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+func (o FlinkStatementOutput) LatestOffsetsTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlinkStatement) pulumi.StringOutput { return v.LatestOffsetsTimestamp }).(pulumi.StringOutput)
 }
 
 func (o FlinkStatementOutput) Organization() FlinkStatementOrganizationOutput {

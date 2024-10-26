@@ -60,6 +60,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "enterprise", &confluentcloud.KafkaClusterArgs{
+//				Enterprises: confluentcloud.KafkaClusterEnterpriseArray{
+//					&confluentcloud.KafkaClusterEnterpriseArgs{},
+//				},
+//				DisplayName:  pulumi.String("enterprise_kafka_cluster"),
+//				Availability: pulumi.String("HIGH"),
+//				Cloud:        pulumi.String("AWS"),
+//				Region:       pulumi.String("us-east-2"),
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = confluentcloud.NewKafkaCluster(ctx, "dedicated", &confluentcloud.KafkaClusterArgs{
 //				DisplayName:  pulumi.String("dedicated_kafka_cluster"),
 //				Availability: pulumi.String("MULTI_ZONE"),
@@ -138,6 +153,21 @@ import (
 //				Cloud:        pulumi.String("AZURE"),
 //				Region:       pulumi.String("centralus"),
 //				Standard:     &confluentcloud.KafkaClusterStandardArgs{},
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "enterprise", &confluentcloud.KafkaClusterArgs{
+//				Enterprises: confluentcloud.KafkaClusterEnterpriseArray{
+//					&confluentcloud.KafkaClusterEnterpriseArgs{},
+//				},
+//				DisplayName:  pulumi.String("enterprise_kafka_cluster"),
+//				Availability: pulumi.String("HIGH"),
+//				Cloud:        pulumi.String("AZURE"),
+//				Region:       pulumi.String("centralus"),
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
 //					Id: development.ID(),
 //				},
