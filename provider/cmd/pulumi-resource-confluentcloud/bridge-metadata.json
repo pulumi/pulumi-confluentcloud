@@ -237,6 +237,9 @@
                 "fields": {
                     "environment": {
                         "maxItemsOne": true
+                    },
+                    "versions": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -929,6 +932,9 @@
                 "fields": {
                     "environment": {
                         "maxItemsOne": true
+                    },
+                    "versions": {
+                        "maxItemsOne": false
                     }
                 }
             },
