@@ -84,6 +84,34 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
     public Output<FlinkStatementEnvironment> environment() {
         return this.environment;
     }
+    /**
+     * (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+     * 
+     */
+    @Export(name="latestOffsets", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> latestOffsets;
+
+    /**
+     * @return (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+     * 
+     */
+    public Output<Map<String,String>> latestOffsets() {
+        return this.latestOffsets;
+    }
+    /**
+     * (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+     * 
+     */
+    @Export(name="latestOffsetsTimestamp", refs={String.class}, tree="[0]")
+    private Output<String> latestOffsetsTimestamp;
+
+    /**
+     * @return (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+     * 
+     */
+    public Output<String> latestOffsetsTimestamp() {
+        return this.latestOffsetsTimestamp;
+    }
     @Export(name="organization", refs={FlinkStatementOrganization.class}, tree="[0]")
     private Output<FlinkStatementOrganization> organization;
 

@@ -536,6 +536,15 @@ class KafkaCluster(pulumi.CustomResource):
             environment={
                 "id": development.id,
             })
+        enterprise = confluentcloud.KafkaCluster("enterprise",
+            enterprises=[{}],
+            display_name="enterprise_kafka_cluster",
+            availability="HIGH",
+            cloud="AWS",
+            region="us-east-2",
+            environment={
+                "id": development.id,
+            })
         dedicated = confluentcloud.KafkaCluster("dedicated",
             display_name="dedicated_kafka_cluster",
             availability="MULTI_ZONE",
@@ -583,6 +592,15 @@ class KafkaCluster(pulumi.CustomResource):
             cloud="AZURE",
             region="centralus",
             standard={},
+            environment={
+                "id": development.id,
+            })
+        enterprise = confluentcloud.KafkaCluster("enterprise",
+            enterprises=[{}],
+            display_name="enterprise_kafka_cluster",
+            availability="HIGH",
+            cloud="AZURE",
+            region="centralus",
             environment={
                 "id": development.id,
             })
@@ -726,6 +744,15 @@ class KafkaCluster(pulumi.CustomResource):
             environment={
                 "id": development.id,
             })
+        enterprise = confluentcloud.KafkaCluster("enterprise",
+            enterprises=[{}],
+            display_name="enterprise_kafka_cluster",
+            availability="HIGH",
+            cloud="AWS",
+            region="us-east-2",
+            environment={
+                "id": development.id,
+            })
         dedicated = confluentcloud.KafkaCluster("dedicated",
             display_name="dedicated_kafka_cluster",
             availability="MULTI_ZONE",
@@ -773,6 +800,15 @@ class KafkaCluster(pulumi.CustomResource):
             cloud="AZURE",
             region="centralus",
             standard={},
+            environment={
+                "id": development.id,
+            })
+        enterprise = confluentcloud.KafkaCluster("enterprise",
+            enterprises=[{}],
+            display_name="enterprise_kafka_cluster",
+            availability="HIGH",
+            cloud="AZURE",
+            region="centralus",
             environment={
                 "id": development.id,
             })

@@ -51,6 +51,36 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.environment);
     }
 
+    /**
+     * (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+     * 
+     */
+    @Import(name="latestOffsets")
+    private @Nullable Output<Map<String,String>> latestOffsets;
+
+    /**
+     * @return (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+     * 
+     */
+    public Optional<Output<Map<String,String>>> latestOffsets() {
+        return Optional.ofNullable(this.latestOffsets);
+    }
+
+    /**
+     * (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+     * 
+     */
+    @Import(name="latestOffsetsTimestamp")
+    private @Nullable Output<String> latestOffsetsTimestamp;
+
+    /**
+     * @return (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+     * 
+     */
+    public Optional<Output<String>> latestOffsetsTimestamp() {
+        return Optional.ofNullable(this.latestOffsetsTimestamp);
+    }
+
     @Import(name="organization")
     private @Nullable Output<FlinkStatementOrganizationArgs> organization;
 
@@ -146,6 +176,8 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         this.computePool = $.computePool;
         this.credentials = $.credentials;
         this.environment = $.environment;
+        this.latestOffsets = $.latestOffsets;
+        this.latestOffsetsTimestamp = $.latestOffsetsTimestamp;
         this.organization = $.organization;
         this.principal = $.principal;
         this.properties = $.properties;
@@ -210,6 +242,48 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
 
         public Builder environment(FlinkStatementEnvironmentArgs environment) {
             return environment(Output.of(environment));
+        }
+
+        /**
+         * @param latestOffsets (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+         * 
+         * @return builder
+         * 
+         */
+        public Builder latestOffsets(@Nullable Output<Map<String,String>> latestOffsets) {
+            $.latestOffsets = latestOffsets;
+            return this;
+        }
+
+        /**
+         * @param latestOffsets (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
+         * 
+         * @return builder
+         * 
+         */
+        public Builder latestOffsets(Map<String,String> latestOffsets) {
+            return latestOffsets(Output.of(latestOffsets));
+        }
+
+        /**
+         * @param latestOffsetsTimestamp (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder latestOffsetsTimestamp(@Nullable Output<String> latestOffsetsTimestamp) {
+            $.latestOffsetsTimestamp = latestOffsetsTimestamp;
+            return this;
+        }
+
+        /**
+         * @param latestOffsetsTimestamp (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder latestOffsetsTimestamp(String latestOffsetsTimestamp) {
+            return latestOffsetsTimestamp(Output.of(latestOffsetsTimestamp));
         }
 
         public Builder organization(@Nullable Output<FlinkStatementOrganizationArgs> organization) {

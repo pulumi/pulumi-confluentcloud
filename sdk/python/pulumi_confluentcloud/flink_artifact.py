@@ -178,7 +178,8 @@ class _FlinkArtifactState:
                  environment: Optional[pulumi.Input['FlinkArtifactEnvironmentArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 runtime_language: Optional[pulumi.Input[str]] = None):
+                 runtime_language: Optional[pulumi.Input[str]] = None,
+                 versions: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkArtifactVersionArgs']]]] = None):
         """
         Input properties used for looking up and filtering FlinkArtifact resources.
         :param pulumi.Input[str] api_version: (Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.
@@ -192,6 +193,7 @@ class _FlinkArtifactState:
         :param pulumi.Input[str] kind: (Required String) The kind of the Flink Artifact Pool, for example, `FlinkArtifact`.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Artifact.
         :param pulumi.Input[str] runtime_language: (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+        :param pulumi.Input[Sequence[pulumi.Input['FlinkArtifactVersionArgs']]] versions: List of versions for this Flink Artifact.
         """
         if api_version is not None:
             pulumi.set(__self__, "api_version", api_version)
@@ -215,6 +217,8 @@ class _FlinkArtifactState:
             pulumi.set(__self__, "region", region)
         if runtime_language is not None:
             pulumi.set(__self__, "runtime_language", runtime_language)
+        if versions is not None:
+            pulumi.set(__self__, "versions", versions)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -347,6 +351,18 @@ class _FlinkArtifactState:
     @runtime_language.setter
     def runtime_language(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "runtime_language", value)
+
+    @property
+    @pulumi.getter
+    def versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlinkArtifactVersionArgs']]]]:
+        """
+        List of versions for this Flink Artifact.
+        """
+        return pulumi.get(self, "versions")
+
+    @versions.setter
+    def versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkArtifactVersionArgs']]]]):
+        pulumi.set(self, "versions", value)
 
 
 class FlinkArtifact(pulumi.CustomResource):
@@ -502,6 +518,7 @@ class FlinkArtifact(pulumi.CustomResource):
             __props__.__dict__["runtime_language"] = runtime_language
             __props__.__dict__["api_version"] = None
             __props__.__dict__["kind"] = None
+            __props__.__dict__["versions"] = None
         super(FlinkArtifact, __self__).__init__(
             'confluentcloud:index/flinkArtifact:FlinkArtifact',
             resource_name,
@@ -522,7 +539,8 @@ class FlinkArtifact(pulumi.CustomResource):
             environment: Optional[pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             region: Optional[pulumi.Input[str]] = None,
-            runtime_language: Optional[pulumi.Input[str]] = None) -> 'FlinkArtifact':
+            runtime_language: Optional[pulumi.Input[str]] = None,
+            versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlinkArtifactVersionArgs', 'FlinkArtifactVersionArgsDict']]]]] = None) -> 'FlinkArtifact':
         """
         Get an existing FlinkArtifact resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -541,6 +559,7 @@ class FlinkArtifact(pulumi.CustomResource):
         :param pulumi.Input[str] kind: (Required String) The kind of the Flink Artifact Pool, for example, `FlinkArtifact`.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Artifact.
         :param pulumi.Input[str] runtime_language: (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlinkArtifactVersionArgs', 'FlinkArtifactVersionArgsDict']]]] versions: List of versions for this Flink Artifact.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -557,6 +576,7 @@ class FlinkArtifact(pulumi.CustomResource):
         __props__.__dict__["kind"] = kind
         __props__.__dict__["region"] = region
         __props__.__dict__["runtime_language"] = runtime_language
+        __props__.__dict__["versions"] = versions
         return FlinkArtifact(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -646,4 +666,12 @@ class FlinkArtifact(pulumi.CustomResource):
         (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
         """
         return pulumi.get(self, "runtime_language")
+
+    @property
+    @pulumi.getter
+    def versions(self) -> pulumi.Output[Sequence['outputs.FlinkArtifactVersion']]:
+        """
+        List of versions for this Flink Artifact.
+        """
+        return pulumi.get(self, "versions")
 

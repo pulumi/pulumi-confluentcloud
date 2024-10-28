@@ -28,7 +28,7 @@ class GetFlinkArtifactResult:
     """
     A collection of values returned by getFlinkArtifact.
     """
-    def __init__(__self__, api_version=None, class_=None, cloud=None, content_format=None, description=None, display_name=None, environment=None, id=None, kind=None, region=None, runtime_language=None):
+    def __init__(__self__, api_version=None, class_=None, cloud=None, content_format=None, description=None, display_name=None, environment=None, id=None, kind=None, region=None, runtime_language=None, versions=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
@@ -62,6 +62,9 @@ class GetFlinkArtifactResult:
         if runtime_language and not isinstance(runtime_language, str):
             raise TypeError("Expected argument 'runtime_language' to be a str")
         pulumi.set(__self__, "runtime_language", runtime_language)
+        if versions and not isinstance(versions, list):
+            raise TypeError("Expected argument 'versions' to be a list")
+        pulumi.set(__self__, "versions", versions)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -136,6 +139,11 @@ class GetFlinkArtifactResult:
         """
         return pulumi.get(self, "runtime_language")
 
+    @property
+    @pulumi.getter
+    def versions(self) -> Sequence['outputs.GetFlinkArtifactVersionResult']:
+        return pulumi.get(self, "versions")
+
 
 class AwaitableGetFlinkArtifactResult(GetFlinkArtifactResult):
     # pylint: disable=using-constant-test
@@ -153,7 +161,8 @@ class AwaitableGetFlinkArtifactResult(GetFlinkArtifactResult):
             id=self.id,
             kind=self.kind,
             region=self.region,
-            runtime_language=self.runtime_language)
+            runtime_language=self.runtime_language,
+            versions=self.versions)
 
 
 def get_flink_artifact(cloud: Optional[str] = None,
@@ -213,7 +222,8 @@ def get_flink_artifact(cloud: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         region=pulumi.get(__ret__, 'region'),
-        runtime_language=pulumi.get(__ret__, 'runtime_language'))
+        runtime_language=pulumi.get(__ret__, 'runtime_language'),
+        versions=pulumi.get(__ret__, 'versions'))
 def get_flink_artifact_output(cloud: Optional[pulumi.Input[str]] = None,
                               display_name: Optional[pulumi.Input[Optional[str]]] = None,
                               environment: Optional[pulumi.Input[Union['GetFlinkArtifactEnvironmentArgs', 'GetFlinkArtifactEnvironmentArgsDict']]] = None,
@@ -270,4 +280,5 @@ def get_flink_artifact_output(cloud: Optional[pulumi.Input[str]] = None,
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),
         region=pulumi.get(__response__, 'region'),
-        runtime_language=pulumi.get(__response__, 'runtime_language')))
+        runtime_language=pulumi.get(__response__, 'runtime_language'),
+        versions=pulumi.get(__response__, 'versions')))

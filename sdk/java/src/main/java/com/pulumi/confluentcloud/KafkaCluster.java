@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterBasicArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaClusterEnterpriseArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterDedicatedArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterFreightArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterNetworkArgs;
@@ -80,6 +81,17 @@ import javax.annotation.Nullable;
  *             .cloud("AWS")
  *             .region("us-east-2")
  *             .standard()
+ *             .environment(KafkaClusterEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var enterprise = new KafkaCluster("enterprise", KafkaClusterArgs.builder()
+ *             .enterprises()
+ *             .displayName("enterprise_kafka_cluster")
+ *             .availability("HIGH")
+ *             .cloud("AWS")
+ *             .region("us-east-2")
  *             .environment(KafkaClusterEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
@@ -135,6 +147,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterBasicArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaClusterEnterpriseArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterDedicatedArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -170,6 +183,17 @@ import javax.annotation.Nullable;
  *             .cloud("AZURE")
  *             .region("centralus")
  *             .standard()
+ *             .environment(KafkaClusterEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var enterprise = new KafkaCluster("enterprise", KafkaClusterArgs.builder()
+ *             .enterprises()
+ *             .displayName("enterprise_kafka_cluster")
+ *             .availability("HIGH")
+ *             .cloud("AZURE")
+ *             .region("centralus")
  *             .environment(KafkaClusterEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())

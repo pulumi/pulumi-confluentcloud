@@ -112,6 +112,10 @@ export class FlinkArtifact extends pulumi.CustomResource {
      * (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
      */
     public readonly runtimeLanguage!: pulumi.Output<string | undefined>;
+    /**
+     * List of versions for this Flink Artifact.
+     */
+    public /*out*/ readonly versions!: pulumi.Output<outputs.FlinkArtifactVersion[]>;
 
     /**
      * Create a FlinkArtifact resource with the given unique name, arguments, and options.
@@ -137,6 +141,7 @@ export class FlinkArtifact extends pulumi.CustomResource {
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["runtimeLanguage"] = state ? state.runtimeLanguage : undefined;
+            resourceInputs["versions"] = state ? state.versions : undefined;
         } else {
             const args = argsOrState as FlinkArtifactArgs | undefined;
             if ((!args || args.class === undefined) && !opts.urn) {
@@ -165,6 +170,7 @@ export class FlinkArtifact extends pulumi.CustomResource {
             resourceInputs["runtimeLanguage"] = args ? args.runtimeLanguage : undefined;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["versions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FlinkArtifact.__pulumiType, name, resourceInputs, opts);
@@ -219,6 +225,10 @@ export interface FlinkArtifactState {
      * (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
      */
     runtimeLanguage?: pulumi.Input<string>;
+    /**
+     * List of versions for this Flink Artifact.
+     */
+    versions?: pulumi.Input<pulumi.Input<inputs.FlinkArtifactVersion>[]>;
 }
 
 /**

@@ -97,7 +97,8 @@ type LookupFlinkArtifactResult struct {
 	Kind   string `pulumi:"kind"`
 	Region string `pulumi:"region"`
 	// (Required String) Runtime language of the Flink Artifact. The default runtime language is JAVA.
-	RuntimeLanguage string `pulumi:"runtimeLanguage"`
+	RuntimeLanguage string                    `pulumi:"runtimeLanguage"`
+	Versions        []GetFlinkArtifactVersion `pulumi:"versions"`
 }
 
 func LookupFlinkArtifactOutput(ctx *pulumi.Context, args LookupFlinkArtifactOutputArgs, opts ...pulumi.InvokeOption) LookupFlinkArtifactResultOutput {
@@ -201,6 +202,10 @@ func (o LookupFlinkArtifactResultOutput) Region() pulumi.StringOutput {
 // (Required String) Runtime language of the Flink Artifact. The default runtime language is JAVA.
 func (o LookupFlinkArtifactResultOutput) RuntimeLanguage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlinkArtifactResult) string { return v.RuntimeLanguage }).(pulumi.StringOutput)
+}
+
+func (o LookupFlinkArtifactResultOutput) Versions() GetFlinkArtifactVersionArrayOutput {
+	return o.ApplyT(func(v LookupFlinkArtifactResult) []GetFlinkArtifactVersion { return v.Versions }).(GetFlinkArtifactVersionArrayOutput)
 }
 
 func init() {

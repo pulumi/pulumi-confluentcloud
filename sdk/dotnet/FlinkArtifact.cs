@@ -124,6 +124,12 @@ namespace Pulumi.ConfluentCloud
         [Output("runtimeLanguage")]
         public Output<string?> RuntimeLanguage { get; private set; } = null!;
 
+        /// <summary>
+        /// List of versions for this Flink Artifact.
+        /// </summary>
+        [Output("versions")]
+        public Output<ImmutableArray<Outputs.FlinkArtifactVersion>> Versions { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a FlinkArtifact resource with the given unique name, arguments, and options.
@@ -297,6 +303,18 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("runtimeLanguage")]
         public Input<string>? RuntimeLanguage { get; set; }
+
+        [Input("versions")]
+        private InputList<Inputs.FlinkArtifactVersionGetArgs>? _versions;
+
+        /// <summary>
+        /// List of versions for this Flink Artifact.
+        /// </summary>
+        public InputList<Inputs.FlinkArtifactVersionGetArgs> Versions
+        {
+            get => _versions ?? (_versions = new InputList<Inputs.FlinkArtifactVersionGetArgs>());
+            set => _versions = value;
+        }
 
         public FlinkArtifactState()
         {

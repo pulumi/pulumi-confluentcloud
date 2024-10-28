@@ -5663,6 +5663,103 @@ func (o FlinkArtifactEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlinkArtifactVersion struct {
+	// The version of this Flink Artifact.
+	Version string `pulumi:"version"`
+}
+
+// FlinkArtifactVersionInput is an input type that accepts FlinkArtifactVersionArgs and FlinkArtifactVersionOutput values.
+// You can construct a concrete instance of `FlinkArtifactVersionInput` via:
+//
+//	FlinkArtifactVersionArgs{...}
+type FlinkArtifactVersionInput interface {
+	pulumi.Input
+
+	ToFlinkArtifactVersionOutput() FlinkArtifactVersionOutput
+	ToFlinkArtifactVersionOutputWithContext(context.Context) FlinkArtifactVersionOutput
+}
+
+type FlinkArtifactVersionArgs struct {
+	// The version of this Flink Artifact.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (FlinkArtifactVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkArtifactVersion)(nil)).Elem()
+}
+
+func (i FlinkArtifactVersionArgs) ToFlinkArtifactVersionOutput() FlinkArtifactVersionOutput {
+	return i.ToFlinkArtifactVersionOutputWithContext(context.Background())
+}
+
+func (i FlinkArtifactVersionArgs) ToFlinkArtifactVersionOutputWithContext(ctx context.Context) FlinkArtifactVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkArtifactVersionOutput)
+}
+
+// FlinkArtifactVersionArrayInput is an input type that accepts FlinkArtifactVersionArray and FlinkArtifactVersionArrayOutput values.
+// You can construct a concrete instance of `FlinkArtifactVersionArrayInput` via:
+//
+//	FlinkArtifactVersionArray{ FlinkArtifactVersionArgs{...} }
+type FlinkArtifactVersionArrayInput interface {
+	pulumi.Input
+
+	ToFlinkArtifactVersionArrayOutput() FlinkArtifactVersionArrayOutput
+	ToFlinkArtifactVersionArrayOutputWithContext(context.Context) FlinkArtifactVersionArrayOutput
+}
+
+type FlinkArtifactVersionArray []FlinkArtifactVersionInput
+
+func (FlinkArtifactVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlinkArtifactVersion)(nil)).Elem()
+}
+
+func (i FlinkArtifactVersionArray) ToFlinkArtifactVersionArrayOutput() FlinkArtifactVersionArrayOutput {
+	return i.ToFlinkArtifactVersionArrayOutputWithContext(context.Background())
+}
+
+func (i FlinkArtifactVersionArray) ToFlinkArtifactVersionArrayOutputWithContext(ctx context.Context) FlinkArtifactVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkArtifactVersionArrayOutput)
+}
+
+type FlinkArtifactVersionOutput struct{ *pulumi.OutputState }
+
+func (FlinkArtifactVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkArtifactVersion)(nil)).Elem()
+}
+
+func (o FlinkArtifactVersionOutput) ToFlinkArtifactVersionOutput() FlinkArtifactVersionOutput {
+	return o
+}
+
+func (o FlinkArtifactVersionOutput) ToFlinkArtifactVersionOutputWithContext(ctx context.Context) FlinkArtifactVersionOutput {
+	return o
+}
+
+// The version of this Flink Artifact.
+func (o FlinkArtifactVersionOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkArtifactVersion) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type FlinkArtifactVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (FlinkArtifactVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlinkArtifactVersion)(nil)).Elem()
+}
+
+func (o FlinkArtifactVersionArrayOutput) ToFlinkArtifactVersionArrayOutput() FlinkArtifactVersionArrayOutput {
+	return o
+}
+
+func (o FlinkArtifactVersionArrayOutput) ToFlinkArtifactVersionArrayOutputWithContext(ctx context.Context) FlinkArtifactVersionArrayOutput {
+	return o
+}
+
+func (o FlinkArtifactVersionArrayOutput) Index(i pulumi.IntInput) FlinkArtifactVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlinkArtifactVersion {
+		return vs[0].([]FlinkArtifactVersion)[vs[1].(int)]
+	}).(FlinkArtifactVersionOutput)
+}
+
 type FlinkComputePoolEnvironment struct {
 	// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
@@ -8161,7 +8258,9 @@ type KafkaClusterDedicated struct {
 	//
 	// > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	//
-	// > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
+	// > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
+	//
+	// > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
 	//
 	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 	//
@@ -8192,7 +8291,9 @@ type KafkaClusterDedicatedArgs struct {
 	//
 	// > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	//
-	// > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
+	// > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
+	//
+	// > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
 	//
 	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 	//
@@ -8288,7 +8389,9 @@ func (o KafkaClusterDedicatedOutput) ToKafkaClusterDedicatedPtrOutputWithContext
 //
 // > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 //
-// > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
+// > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
+//
+// > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
 //
 // !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 //
@@ -8338,7 +8441,9 @@ func (o KafkaClusterDedicatedPtrOutput) Elem() KafkaClusterDedicatedOutput {
 //
 // > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 //
-// > **Note:** The `freight` Kafka cluster type is only available in AWS currently.
+// > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
+//
+// > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
 //
 // !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 //
@@ -21590,6 +21695,103 @@ func (o GetFlinkArtifactEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFlinkArtifactEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
 
+type GetFlinkArtifactVersion struct {
+	// The version of this Flink Artifact.
+	Version string `pulumi:"version"`
+}
+
+// GetFlinkArtifactVersionInput is an input type that accepts GetFlinkArtifactVersionArgs and GetFlinkArtifactVersionOutput values.
+// You can construct a concrete instance of `GetFlinkArtifactVersionInput` via:
+//
+//	GetFlinkArtifactVersionArgs{...}
+type GetFlinkArtifactVersionInput interface {
+	pulumi.Input
+
+	ToGetFlinkArtifactVersionOutput() GetFlinkArtifactVersionOutput
+	ToGetFlinkArtifactVersionOutputWithContext(context.Context) GetFlinkArtifactVersionOutput
+}
+
+type GetFlinkArtifactVersionArgs struct {
+	// The version of this Flink Artifact.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetFlinkArtifactVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkArtifactVersion)(nil)).Elem()
+}
+
+func (i GetFlinkArtifactVersionArgs) ToGetFlinkArtifactVersionOutput() GetFlinkArtifactVersionOutput {
+	return i.ToGetFlinkArtifactVersionOutputWithContext(context.Background())
+}
+
+func (i GetFlinkArtifactVersionArgs) ToGetFlinkArtifactVersionOutputWithContext(ctx context.Context) GetFlinkArtifactVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkArtifactVersionOutput)
+}
+
+// GetFlinkArtifactVersionArrayInput is an input type that accepts GetFlinkArtifactVersionArray and GetFlinkArtifactVersionArrayOutput values.
+// You can construct a concrete instance of `GetFlinkArtifactVersionArrayInput` via:
+//
+//	GetFlinkArtifactVersionArray{ GetFlinkArtifactVersionArgs{...} }
+type GetFlinkArtifactVersionArrayInput interface {
+	pulumi.Input
+
+	ToGetFlinkArtifactVersionArrayOutput() GetFlinkArtifactVersionArrayOutput
+	ToGetFlinkArtifactVersionArrayOutputWithContext(context.Context) GetFlinkArtifactVersionArrayOutput
+}
+
+type GetFlinkArtifactVersionArray []GetFlinkArtifactVersionInput
+
+func (GetFlinkArtifactVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkArtifactVersion)(nil)).Elem()
+}
+
+func (i GetFlinkArtifactVersionArray) ToGetFlinkArtifactVersionArrayOutput() GetFlinkArtifactVersionArrayOutput {
+	return i.ToGetFlinkArtifactVersionArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlinkArtifactVersionArray) ToGetFlinkArtifactVersionArrayOutputWithContext(ctx context.Context) GetFlinkArtifactVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkArtifactVersionArrayOutput)
+}
+
+type GetFlinkArtifactVersionOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkArtifactVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkArtifactVersion)(nil)).Elem()
+}
+
+func (o GetFlinkArtifactVersionOutput) ToGetFlinkArtifactVersionOutput() GetFlinkArtifactVersionOutput {
+	return o
+}
+
+func (o GetFlinkArtifactVersionOutput) ToGetFlinkArtifactVersionOutputWithContext(ctx context.Context) GetFlinkArtifactVersionOutput {
+	return o
+}
+
+// The version of this Flink Artifact.
+func (o GetFlinkArtifactVersionOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkArtifactVersion) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetFlinkArtifactVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkArtifactVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkArtifactVersion)(nil)).Elem()
+}
+
+func (o GetFlinkArtifactVersionArrayOutput) ToGetFlinkArtifactVersionArrayOutput() GetFlinkArtifactVersionArrayOutput {
+	return o
+}
+
+func (o GetFlinkArtifactVersionArrayOutput) ToGetFlinkArtifactVersionArrayOutputWithContext(ctx context.Context) GetFlinkArtifactVersionArrayOutput {
+	return o
+}
+
+func (o GetFlinkArtifactVersionArrayOutput) Index(i pulumi.IntInput) GetFlinkArtifactVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlinkArtifactVersion {
+		return vs[0].([]GetFlinkArtifactVersion)[vs[1].(int)]
+	}).(GetFlinkArtifactVersionOutput)
+}
+
 type GetFlinkComputePoolEnvironment struct {
 	// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
 	//
@@ -32618,6 +32820,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStreamGovernancePtrInput)(nil)).Elem(), EnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkArtifactEnvironmentInput)(nil)).Elem(), FlinkArtifactEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkArtifactEnvironmentPtrInput)(nil)).Elem(), FlinkArtifactEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkArtifactVersionInput)(nil)).Elem(), FlinkArtifactVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkArtifactVersionArrayInput)(nil)).Elem(), FlinkArtifactVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentPtrInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementComputePoolInput)(nil)).Elem(), FlinkStatementComputePoolArgs{})
@@ -32846,6 +33050,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentStreamGovernanceInput)(nil)).Elem(), GetEnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentStreamGovernancePtrInput)(nil)).Elem(), GetEnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkArtifactEnvironmentInput)(nil)).Elem(), GetFlinkArtifactEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkArtifactVersionInput)(nil)).Elem(), GetFlinkArtifactVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkArtifactVersionArrayInput)(nil)).Elem(), GetFlinkArtifactVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkComputePoolEnvironmentInput)(nil)).Elem(), GetFlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayArrayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArray{})
@@ -33096,6 +33302,8 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentStreamGovernancePtrOutput{})
 	pulumi.RegisterOutputType(FlinkArtifactEnvironmentOutput{})
 	pulumi.RegisterOutputType(FlinkArtifactEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(FlinkArtifactVersionOutput{})
+	pulumi.RegisterOutputType(FlinkArtifactVersionArrayOutput{})
 	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentOutput{})
 	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(FlinkStatementComputePoolOutput{})
@@ -33324,6 +33532,8 @@ func init() {
 	pulumi.RegisterOutputType(GetEnvironmentStreamGovernanceOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentStreamGovernancePtrOutput{})
 	pulumi.RegisterOutputType(GetFlinkArtifactEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetFlinkArtifactVersionOutput{})
+	pulumi.RegisterOutputType(GetFlinkArtifactVersionArrayOutput{})
 	pulumi.RegisterOutputType(GetFlinkComputePoolEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayArrayOutput{})

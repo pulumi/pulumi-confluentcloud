@@ -4,9 +4,11 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.FlinkArtifactEnvironmentArgs;
+import com.pulumi.confluentcloud.inputs.FlinkArtifactVersionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -181,6 +183,21 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.runtimeLanguage);
     }
 
+    /**
+     * List of versions for this Flink Artifact.
+     * 
+     */
+    @Import(name="versions")
+    private @Nullable Output<List<FlinkArtifactVersionArgs>> versions;
+
+    /**
+     * @return List of versions for this Flink Artifact.
+     * 
+     */
+    public Optional<Output<List<FlinkArtifactVersionArgs>>> versions() {
+        return Optional.ofNullable(this.versions);
+    }
+
     private FlinkArtifactState() {}
 
     private FlinkArtifactState(FlinkArtifactState $) {
@@ -195,6 +212,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         this.kind = $.kind;
         this.region = $.region;
         this.runtimeLanguage = $.runtimeLanguage;
+        this.versions = $.versions;
     }
 
     public static Builder builder() {
@@ -444,6 +462,37 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder runtimeLanguage(String runtimeLanguage) {
             return runtimeLanguage(Output.of(runtimeLanguage));
+        }
+
+        /**
+         * @param versions List of versions for this Flink Artifact.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versions(@Nullable Output<List<FlinkArtifactVersionArgs>> versions) {
+            $.versions = versions;
+            return this;
+        }
+
+        /**
+         * @param versions List of versions for this Flink Artifact.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versions(List<FlinkArtifactVersionArgs> versions) {
+            return versions(Output.of(versions));
+        }
+
+        /**
+         * @param versions List of versions for this Flink Artifact.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versions(FlinkArtifactVersionArgs... versions) {
+            return versions(List.of(versions));
         }
 
         public FlinkArtifactState build() {

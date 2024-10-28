@@ -106,6 +106,7 @@ export interface GetFlinkArtifactResult {
      * (Required String) Runtime language of the Flink Artifact. The default runtime language is JAVA.
      */
     readonly runtimeLanguage: string;
+    readonly versions: outputs.GetFlinkArtifactVersion[];
 }
 /**
  * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
