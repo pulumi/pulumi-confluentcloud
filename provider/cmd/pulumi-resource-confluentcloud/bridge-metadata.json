@@ -271,6 +271,20 @@
                     }
                 }
             },
+            "confluent_gateway": {
+                "current": "confluentcloud:index/gateway:Gateway",
+                "fields": {
+                    "aws_egress_private_link_gateway": {
+                        "maxItemsOne": true
+                    },
+                    "azure_egress_private_link_gateway": {
+                        "maxItemsOne": true
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_group_mapping": {
                 "current": "confluentcloud:index/groupMapping:GroupMapping"
             },

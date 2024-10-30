@@ -13,7 +13,7 @@ import (
 
 // [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 //
-// `getGateway` describes a Gateway data source.
+// `Gateway` describes a Gateway data source.
 //
 // ## Example Usage
 //
@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.GetGateway(ctx, &confluentcloud.GetGatewayArgs{
+//			main, err := confluentcloud.LookupGateway(ctx, &confluentcloud.LookupGatewayArgs{
 //				Id: "gw-abc123",
 //				Environment: confluentcloud.GetGatewayEnvironment{
 //					Id: "env-123abc",
@@ -44,9 +44,9 @@ import (
 //	}
 //
 // ```
-func GetGateway(ctx *pulumi.Context, args *GetGatewayArgs, opts ...pulumi.InvokeOption) (*GetGatewayResult, error) {
+func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.InvokeOption) (*LookupGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetGatewayResult
+	var rv LookupGatewayResult
 	err := ctx.Invoke("confluentcloud:index/getGateway:getGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -55,14 +55,14 @@ func GetGateway(ctx *pulumi.Context, args *GetGatewayArgs, opts ...pulumi.Invoke
 }
 
 // A collection of arguments for invoking getGateway.
-type GetGatewayArgs struct {
+type LookupGatewayArgs struct {
 	Environment GetGatewayEnvironment `pulumi:"environment"`
 	// The ID of the Gateway, for example, `gw-abc123`.
 	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getGateway.
-type GetGatewayResult struct {
+type LookupGatewayResult struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkGateways []GetGatewayAwsEgressPrivateLinkGateway `pulumi:"awsEgressPrivateLinkGateways"`
 	// (Optional Configuration Block) supports the following:
@@ -77,88 +77,88 @@ type GetGatewayResult struct {
 	Id          string                `pulumi:"id"`
 }
 
-func GetGatewayOutput(ctx *pulumi.Context, args GetGatewayOutputArgs, opts ...pulumi.InvokeOption) GetGatewayResultOutput {
+func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetGatewayResultOutput, error) {
-			args := v.(GetGatewayArgs)
+		ApplyT(func(v interface{}) (LookupGatewayResultOutput, error) {
+			args := v.(LookupGatewayArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetGatewayResult
+			var rv LookupGatewayResult
 			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getGateway:getGateway", args, &rv, "", opts...)
 			if err != nil {
-				return GetGatewayResultOutput{}, err
+				return LookupGatewayResultOutput{}, err
 			}
 
-			output := pulumi.ToOutput(rv).(GetGatewayResultOutput)
+			output := pulumi.ToOutput(rv).(LookupGatewayResultOutput)
 			if secret {
-				return pulumi.ToSecret(output).(GetGatewayResultOutput), nil
+				return pulumi.ToSecret(output).(LookupGatewayResultOutput), nil
 			}
 			return output, nil
-		}).(GetGatewayResultOutput)
+		}).(LookupGatewayResultOutput)
 }
 
 // A collection of arguments for invoking getGateway.
-type GetGatewayOutputArgs struct {
+type LookupGatewayOutputArgs struct {
 	Environment GetGatewayEnvironmentInput `pulumi:"environment"`
 	// The ID of the Gateway, for example, `gw-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
-func (GetGatewayOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetGatewayArgs)(nil)).Elem()
+func (LookupGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGatewayArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getGateway.
-type GetGatewayResultOutput struct{ *pulumi.OutputState }
+type LookupGatewayResultOutput struct{ *pulumi.OutputState }
 
-func (GetGatewayResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetGatewayResult)(nil)).Elem()
+func (LookupGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGatewayResult)(nil)).Elem()
 }
 
-func (o GetGatewayResultOutput) ToGetGatewayResultOutput() GetGatewayResultOutput {
+func (o LookupGatewayResultOutput) ToLookupGatewayResultOutput() LookupGatewayResultOutput {
 	return o
 }
 
-func (o GetGatewayResultOutput) ToGetGatewayResultOutputWithContext(ctx context.Context) GetGatewayResultOutput {
+func (o LookupGatewayResultOutput) ToLookupGatewayResultOutputWithContext(ctx context.Context) LookupGatewayResultOutput {
 	return o
 }
 
 // (Optional Configuration Block) supports the following:
-func (o GetGatewayResultOutput) AwsEgressPrivateLinkGateways() GetGatewayAwsEgressPrivateLinkGatewayArrayOutput {
-	return o.ApplyT(func(v GetGatewayResult) []GetGatewayAwsEgressPrivateLinkGateway {
+func (o LookupGatewayResultOutput) AwsEgressPrivateLinkGateways() GetGatewayAwsEgressPrivateLinkGatewayArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayAwsEgressPrivateLinkGateway {
 		return v.AwsEgressPrivateLinkGateways
 	}).(GetGatewayAwsEgressPrivateLinkGatewayArrayOutput)
 }
 
 // (Optional Configuration Block) supports the following:
-func (o GetGatewayResultOutput) AwsPeeringGateways() GetGatewayAwsPeeringGatewayArrayOutput {
-	return o.ApplyT(func(v GetGatewayResult) []GetGatewayAwsPeeringGateway { return v.AwsPeeringGateways }).(GetGatewayAwsPeeringGatewayArrayOutput)
+func (o LookupGatewayResultOutput) AwsPeeringGateways() GetGatewayAwsPeeringGatewayArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayAwsPeeringGateway { return v.AwsPeeringGateways }).(GetGatewayAwsPeeringGatewayArrayOutput)
 }
 
 // (Optional Configuration Block) supports the following:
-func (o GetGatewayResultOutput) AzureEgressPrivateLinkGateways() GetGatewayAzureEgressPrivateLinkGatewayArrayOutput {
-	return o.ApplyT(func(v GetGatewayResult) []GetGatewayAzureEgressPrivateLinkGateway {
+func (o LookupGatewayResultOutput) AzureEgressPrivateLinkGateways() GetGatewayAzureEgressPrivateLinkGatewayArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayAzureEgressPrivateLinkGateway {
 		return v.AzureEgressPrivateLinkGateways
 	}).(GetGatewayAzureEgressPrivateLinkGatewayArrayOutput)
 }
 
 // (Optional Configuration Block) supports the following:
-func (o GetGatewayResultOutput) AzurePeeringGateways() GetGatewayAzurePeeringGatewayArrayOutput {
-	return o.ApplyT(func(v GetGatewayResult) []GetGatewayAzurePeeringGateway { return v.AzurePeeringGateways }).(GetGatewayAzurePeeringGatewayArrayOutput)
+func (o LookupGatewayResultOutput) AzurePeeringGateways() GetGatewayAzurePeeringGatewayArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayAzurePeeringGateway { return v.AzurePeeringGateways }).(GetGatewayAzurePeeringGatewayArrayOutput)
 }
 
 // (Required String) A human-readable name for the Gateway.
-func (o GetGatewayResultOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayResult) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o LookupGatewayResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-func (o GetGatewayResultOutput) Environment() GetGatewayEnvironmentOutput {
-	return o.ApplyT(func(v GetGatewayResult) GetGatewayEnvironment { return v.Environment }).(GetGatewayEnvironmentOutput)
+func (o LookupGatewayResultOutput) Environment() GetGatewayEnvironmentOutput {
+	return o.ApplyT(func(v LookupGatewayResult) GetGatewayEnvironment { return v.Environment }).(GetGatewayEnvironmentOutput)
 }
 
-func (o GetGatewayResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupGatewayResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetGatewayResultOutput{})
+	pulumi.RegisterOutputType(LookupGatewayResultOutput{})
 }

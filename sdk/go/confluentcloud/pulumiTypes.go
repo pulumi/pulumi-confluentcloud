@@ -6617,6 +6617,455 @@ func (o FlinkStatementPrincipalPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GatewayAwsEgressPrivateLinkGateway struct {
+	// (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
+	PrincipalArn *string `pulumi:"principalArn"`
+	// AWS region of the Gateway, for example, `us-east-1`.
+	Region string `pulumi:"region"`
+}
+
+// GatewayAwsEgressPrivateLinkGatewayInput is an input type that accepts GatewayAwsEgressPrivateLinkGatewayArgs and GatewayAwsEgressPrivateLinkGatewayOutput values.
+// You can construct a concrete instance of `GatewayAwsEgressPrivateLinkGatewayInput` via:
+//
+//	GatewayAwsEgressPrivateLinkGatewayArgs{...}
+type GatewayAwsEgressPrivateLinkGatewayInput interface {
+	pulumi.Input
+
+	ToGatewayAwsEgressPrivateLinkGatewayOutput() GatewayAwsEgressPrivateLinkGatewayOutput
+	ToGatewayAwsEgressPrivateLinkGatewayOutputWithContext(context.Context) GatewayAwsEgressPrivateLinkGatewayOutput
+}
+
+type GatewayAwsEgressPrivateLinkGatewayArgs struct {
+	// (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
+	PrincipalArn pulumi.StringPtrInput `pulumi:"principalArn"`
+	// AWS region of the Gateway, for example, `us-east-1`.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GatewayAwsEgressPrivateLinkGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAwsEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GatewayAwsEgressPrivateLinkGatewayArgs) ToGatewayAwsEgressPrivateLinkGatewayOutput() GatewayAwsEgressPrivateLinkGatewayOutput {
+	return i.ToGatewayAwsEgressPrivateLinkGatewayOutputWithContext(context.Background())
+}
+
+func (i GatewayAwsEgressPrivateLinkGatewayArgs) ToGatewayAwsEgressPrivateLinkGatewayOutputWithContext(ctx context.Context) GatewayAwsEgressPrivateLinkGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAwsEgressPrivateLinkGatewayOutput)
+}
+
+func (i GatewayAwsEgressPrivateLinkGatewayArgs) ToGatewayAwsEgressPrivateLinkGatewayPtrOutput() GatewayAwsEgressPrivateLinkGatewayPtrOutput {
+	return i.ToGatewayAwsEgressPrivateLinkGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayAwsEgressPrivateLinkGatewayArgs) ToGatewayAwsEgressPrivateLinkGatewayPtrOutputWithContext(ctx context.Context) GatewayAwsEgressPrivateLinkGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAwsEgressPrivateLinkGatewayOutput).ToGatewayAwsEgressPrivateLinkGatewayPtrOutputWithContext(ctx)
+}
+
+// GatewayAwsEgressPrivateLinkGatewayPtrInput is an input type that accepts GatewayAwsEgressPrivateLinkGatewayArgs, GatewayAwsEgressPrivateLinkGatewayPtr and GatewayAwsEgressPrivateLinkGatewayPtrOutput values.
+// You can construct a concrete instance of `GatewayAwsEgressPrivateLinkGatewayPtrInput` via:
+//
+//	        GatewayAwsEgressPrivateLinkGatewayArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayAwsEgressPrivateLinkGatewayPtrInput interface {
+	pulumi.Input
+
+	ToGatewayAwsEgressPrivateLinkGatewayPtrOutput() GatewayAwsEgressPrivateLinkGatewayPtrOutput
+	ToGatewayAwsEgressPrivateLinkGatewayPtrOutputWithContext(context.Context) GatewayAwsEgressPrivateLinkGatewayPtrOutput
+}
+
+type gatewayAwsEgressPrivateLinkGatewayPtrType GatewayAwsEgressPrivateLinkGatewayArgs
+
+func GatewayAwsEgressPrivateLinkGatewayPtr(v *GatewayAwsEgressPrivateLinkGatewayArgs) GatewayAwsEgressPrivateLinkGatewayPtrInput {
+	return (*gatewayAwsEgressPrivateLinkGatewayPtrType)(v)
+}
+
+func (*gatewayAwsEgressPrivateLinkGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayAwsEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i *gatewayAwsEgressPrivateLinkGatewayPtrType) ToGatewayAwsEgressPrivateLinkGatewayPtrOutput() GatewayAwsEgressPrivateLinkGatewayPtrOutput {
+	return i.ToGatewayAwsEgressPrivateLinkGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayAwsEgressPrivateLinkGatewayPtrType) ToGatewayAwsEgressPrivateLinkGatewayPtrOutputWithContext(ctx context.Context) GatewayAwsEgressPrivateLinkGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAwsEgressPrivateLinkGatewayPtrOutput)
+}
+
+type GatewayAwsEgressPrivateLinkGatewayOutput struct{ *pulumi.OutputState }
+
+func (GatewayAwsEgressPrivateLinkGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAwsEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GatewayAwsEgressPrivateLinkGatewayOutput) ToGatewayAwsEgressPrivateLinkGatewayOutput() GatewayAwsEgressPrivateLinkGatewayOutput {
+	return o
+}
+
+func (o GatewayAwsEgressPrivateLinkGatewayOutput) ToGatewayAwsEgressPrivateLinkGatewayOutputWithContext(ctx context.Context) GatewayAwsEgressPrivateLinkGatewayOutput {
+	return o
+}
+
+func (o GatewayAwsEgressPrivateLinkGatewayOutput) ToGatewayAwsEgressPrivateLinkGatewayPtrOutput() GatewayAwsEgressPrivateLinkGatewayPtrOutput {
+	return o.ToGatewayAwsEgressPrivateLinkGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayAwsEgressPrivateLinkGatewayOutput) ToGatewayAwsEgressPrivateLinkGatewayPtrOutputWithContext(ctx context.Context) GatewayAwsEgressPrivateLinkGatewayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayAwsEgressPrivateLinkGateway) *GatewayAwsEgressPrivateLinkGateway {
+		return &v
+	}).(GatewayAwsEgressPrivateLinkGatewayPtrOutput)
+}
+
+// (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
+func (o GatewayAwsEgressPrivateLinkGatewayOutput) PrincipalArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayAwsEgressPrivateLinkGateway) *string { return v.PrincipalArn }).(pulumi.StringPtrOutput)
+}
+
+// AWS region of the Gateway, for example, `us-east-1`.
+func (o GatewayAwsEgressPrivateLinkGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayAwsEgressPrivateLinkGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GatewayAwsEgressPrivateLinkGatewayPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayAwsEgressPrivateLinkGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayAwsEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GatewayAwsEgressPrivateLinkGatewayPtrOutput) ToGatewayAwsEgressPrivateLinkGatewayPtrOutput() GatewayAwsEgressPrivateLinkGatewayPtrOutput {
+	return o
+}
+
+func (o GatewayAwsEgressPrivateLinkGatewayPtrOutput) ToGatewayAwsEgressPrivateLinkGatewayPtrOutputWithContext(ctx context.Context) GatewayAwsEgressPrivateLinkGatewayPtrOutput {
+	return o
+}
+
+func (o GatewayAwsEgressPrivateLinkGatewayPtrOutput) Elem() GatewayAwsEgressPrivateLinkGatewayOutput {
+	return o.ApplyT(func(v *GatewayAwsEgressPrivateLinkGateway) GatewayAwsEgressPrivateLinkGateway {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayAwsEgressPrivateLinkGateway
+		return ret
+	}).(GatewayAwsEgressPrivateLinkGatewayOutput)
+}
+
+// (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
+func (o GatewayAwsEgressPrivateLinkGatewayPtrOutput) PrincipalArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAwsEgressPrivateLinkGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS region of the Gateway, for example, `us-east-1`.
+func (o GatewayAwsEgressPrivateLinkGatewayPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAwsEgressPrivateLinkGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayAzureEgressPrivateLinkGateway struct {
+	// Azure region of the Gateway, for example, `eastus`.
+	Region string `pulumi:"region"`
+	// (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
+	Subscription *string `pulumi:"subscription"`
+}
+
+// GatewayAzureEgressPrivateLinkGatewayInput is an input type that accepts GatewayAzureEgressPrivateLinkGatewayArgs and GatewayAzureEgressPrivateLinkGatewayOutput values.
+// You can construct a concrete instance of `GatewayAzureEgressPrivateLinkGatewayInput` via:
+//
+//	GatewayAzureEgressPrivateLinkGatewayArgs{...}
+type GatewayAzureEgressPrivateLinkGatewayInput interface {
+	pulumi.Input
+
+	ToGatewayAzureEgressPrivateLinkGatewayOutput() GatewayAzureEgressPrivateLinkGatewayOutput
+	ToGatewayAzureEgressPrivateLinkGatewayOutputWithContext(context.Context) GatewayAzureEgressPrivateLinkGatewayOutput
+}
+
+type GatewayAzureEgressPrivateLinkGatewayArgs struct {
+	// Azure region of the Gateway, for example, `eastus`.
+	Region pulumi.StringInput `pulumi:"region"`
+	// (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
+	Subscription pulumi.StringPtrInput `pulumi:"subscription"`
+}
+
+func (GatewayAzureEgressPrivateLinkGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAzureEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GatewayAzureEgressPrivateLinkGatewayArgs) ToGatewayAzureEgressPrivateLinkGatewayOutput() GatewayAzureEgressPrivateLinkGatewayOutput {
+	return i.ToGatewayAzureEgressPrivateLinkGatewayOutputWithContext(context.Background())
+}
+
+func (i GatewayAzureEgressPrivateLinkGatewayArgs) ToGatewayAzureEgressPrivateLinkGatewayOutputWithContext(ctx context.Context) GatewayAzureEgressPrivateLinkGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAzureEgressPrivateLinkGatewayOutput)
+}
+
+func (i GatewayAzureEgressPrivateLinkGatewayArgs) ToGatewayAzureEgressPrivateLinkGatewayPtrOutput() GatewayAzureEgressPrivateLinkGatewayPtrOutput {
+	return i.ToGatewayAzureEgressPrivateLinkGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayAzureEgressPrivateLinkGatewayArgs) ToGatewayAzureEgressPrivateLinkGatewayPtrOutputWithContext(ctx context.Context) GatewayAzureEgressPrivateLinkGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAzureEgressPrivateLinkGatewayOutput).ToGatewayAzureEgressPrivateLinkGatewayPtrOutputWithContext(ctx)
+}
+
+// GatewayAzureEgressPrivateLinkGatewayPtrInput is an input type that accepts GatewayAzureEgressPrivateLinkGatewayArgs, GatewayAzureEgressPrivateLinkGatewayPtr and GatewayAzureEgressPrivateLinkGatewayPtrOutput values.
+// You can construct a concrete instance of `GatewayAzureEgressPrivateLinkGatewayPtrInput` via:
+//
+//	        GatewayAzureEgressPrivateLinkGatewayArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayAzureEgressPrivateLinkGatewayPtrInput interface {
+	pulumi.Input
+
+	ToGatewayAzureEgressPrivateLinkGatewayPtrOutput() GatewayAzureEgressPrivateLinkGatewayPtrOutput
+	ToGatewayAzureEgressPrivateLinkGatewayPtrOutputWithContext(context.Context) GatewayAzureEgressPrivateLinkGatewayPtrOutput
+}
+
+type gatewayAzureEgressPrivateLinkGatewayPtrType GatewayAzureEgressPrivateLinkGatewayArgs
+
+func GatewayAzureEgressPrivateLinkGatewayPtr(v *GatewayAzureEgressPrivateLinkGatewayArgs) GatewayAzureEgressPrivateLinkGatewayPtrInput {
+	return (*gatewayAzureEgressPrivateLinkGatewayPtrType)(v)
+}
+
+func (*gatewayAzureEgressPrivateLinkGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayAzureEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i *gatewayAzureEgressPrivateLinkGatewayPtrType) ToGatewayAzureEgressPrivateLinkGatewayPtrOutput() GatewayAzureEgressPrivateLinkGatewayPtrOutput {
+	return i.ToGatewayAzureEgressPrivateLinkGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayAzureEgressPrivateLinkGatewayPtrType) ToGatewayAzureEgressPrivateLinkGatewayPtrOutputWithContext(ctx context.Context) GatewayAzureEgressPrivateLinkGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAzureEgressPrivateLinkGatewayPtrOutput)
+}
+
+type GatewayAzureEgressPrivateLinkGatewayOutput struct{ *pulumi.OutputState }
+
+func (GatewayAzureEgressPrivateLinkGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAzureEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GatewayAzureEgressPrivateLinkGatewayOutput) ToGatewayAzureEgressPrivateLinkGatewayOutput() GatewayAzureEgressPrivateLinkGatewayOutput {
+	return o
+}
+
+func (o GatewayAzureEgressPrivateLinkGatewayOutput) ToGatewayAzureEgressPrivateLinkGatewayOutputWithContext(ctx context.Context) GatewayAzureEgressPrivateLinkGatewayOutput {
+	return o
+}
+
+func (o GatewayAzureEgressPrivateLinkGatewayOutput) ToGatewayAzureEgressPrivateLinkGatewayPtrOutput() GatewayAzureEgressPrivateLinkGatewayPtrOutput {
+	return o.ToGatewayAzureEgressPrivateLinkGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayAzureEgressPrivateLinkGatewayOutput) ToGatewayAzureEgressPrivateLinkGatewayPtrOutputWithContext(ctx context.Context) GatewayAzureEgressPrivateLinkGatewayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayAzureEgressPrivateLinkGateway) *GatewayAzureEgressPrivateLinkGateway {
+		return &v
+	}).(GatewayAzureEgressPrivateLinkGatewayPtrOutput)
+}
+
+// Azure region of the Gateway, for example, `eastus`.
+func (o GatewayAzureEgressPrivateLinkGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayAzureEgressPrivateLinkGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
+func (o GatewayAzureEgressPrivateLinkGatewayOutput) Subscription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayAzureEgressPrivateLinkGateway) *string { return v.Subscription }).(pulumi.StringPtrOutput)
+}
+
+type GatewayAzureEgressPrivateLinkGatewayPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayAzureEgressPrivateLinkGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayAzureEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GatewayAzureEgressPrivateLinkGatewayPtrOutput) ToGatewayAzureEgressPrivateLinkGatewayPtrOutput() GatewayAzureEgressPrivateLinkGatewayPtrOutput {
+	return o
+}
+
+func (o GatewayAzureEgressPrivateLinkGatewayPtrOutput) ToGatewayAzureEgressPrivateLinkGatewayPtrOutputWithContext(ctx context.Context) GatewayAzureEgressPrivateLinkGatewayPtrOutput {
+	return o
+}
+
+func (o GatewayAzureEgressPrivateLinkGatewayPtrOutput) Elem() GatewayAzureEgressPrivateLinkGatewayOutput {
+	return o.ApplyT(func(v *GatewayAzureEgressPrivateLinkGateway) GatewayAzureEgressPrivateLinkGateway {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayAzureEgressPrivateLinkGateway
+		return ret
+	}).(GatewayAzureEgressPrivateLinkGatewayOutput)
+}
+
+// Azure region of the Gateway, for example, `eastus`.
+func (o GatewayAzureEgressPrivateLinkGatewayPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAzureEgressPrivateLinkGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
+func (o GatewayAzureEgressPrivateLinkGatewayPtrOutput) Subscription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAzureEgressPrivateLinkGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subscription
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayEnvironment struct {
+	// The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GatewayEnvironmentInput is an input type that accepts GatewayEnvironmentArgs and GatewayEnvironmentOutput values.
+// You can construct a concrete instance of `GatewayEnvironmentInput` via:
+//
+//	GatewayEnvironmentArgs{...}
+type GatewayEnvironmentInput interface {
+	pulumi.Input
+
+	ToGatewayEnvironmentOutput() GatewayEnvironmentOutput
+	ToGatewayEnvironmentOutputWithContext(context.Context) GatewayEnvironmentOutput
+}
+
+type GatewayEnvironmentArgs struct {
+	// The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GatewayEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayEnvironment)(nil)).Elem()
+}
+
+func (i GatewayEnvironmentArgs) ToGatewayEnvironmentOutput() GatewayEnvironmentOutput {
+	return i.ToGatewayEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GatewayEnvironmentArgs) ToGatewayEnvironmentOutputWithContext(ctx context.Context) GatewayEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayEnvironmentOutput)
+}
+
+func (i GatewayEnvironmentArgs) ToGatewayEnvironmentPtrOutput() GatewayEnvironmentPtrOutput {
+	return i.ToGatewayEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayEnvironmentArgs) ToGatewayEnvironmentPtrOutputWithContext(ctx context.Context) GatewayEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayEnvironmentOutput).ToGatewayEnvironmentPtrOutputWithContext(ctx)
+}
+
+// GatewayEnvironmentPtrInput is an input type that accepts GatewayEnvironmentArgs, GatewayEnvironmentPtr and GatewayEnvironmentPtrOutput values.
+// You can construct a concrete instance of `GatewayEnvironmentPtrInput` via:
+//
+//	        GatewayEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToGatewayEnvironmentPtrOutput() GatewayEnvironmentPtrOutput
+	ToGatewayEnvironmentPtrOutputWithContext(context.Context) GatewayEnvironmentPtrOutput
+}
+
+type gatewayEnvironmentPtrType GatewayEnvironmentArgs
+
+func GatewayEnvironmentPtr(v *GatewayEnvironmentArgs) GatewayEnvironmentPtrInput {
+	return (*gatewayEnvironmentPtrType)(v)
+}
+
+func (*gatewayEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayEnvironment)(nil)).Elem()
+}
+
+func (i *gatewayEnvironmentPtrType) ToGatewayEnvironmentPtrOutput() GatewayEnvironmentPtrOutput {
+	return i.ToGatewayEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayEnvironmentPtrType) ToGatewayEnvironmentPtrOutputWithContext(ctx context.Context) GatewayEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayEnvironmentPtrOutput)
+}
+
+type GatewayEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GatewayEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayEnvironment)(nil)).Elem()
+}
+
+func (o GatewayEnvironmentOutput) ToGatewayEnvironmentOutput() GatewayEnvironmentOutput {
+	return o
+}
+
+func (o GatewayEnvironmentOutput) ToGatewayEnvironmentOutputWithContext(ctx context.Context) GatewayEnvironmentOutput {
+	return o
+}
+
+func (o GatewayEnvironmentOutput) ToGatewayEnvironmentPtrOutput() GatewayEnvironmentPtrOutput {
+	return o.ToGatewayEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayEnvironmentOutput) ToGatewayEnvironmentPtrOutputWithContext(ctx context.Context) GatewayEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayEnvironment) *GatewayEnvironment {
+		return &v
+	}).(GatewayEnvironmentPtrOutput)
+}
+
+// The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
+func (o GatewayEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GatewayEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayEnvironment)(nil)).Elem()
+}
+
+func (o GatewayEnvironmentPtrOutput) ToGatewayEnvironmentPtrOutput() GatewayEnvironmentPtrOutput {
+	return o
+}
+
+func (o GatewayEnvironmentPtrOutput) ToGatewayEnvironmentPtrOutputWithContext(ctx context.Context) GatewayEnvironmentPtrOutput {
+	return o
+}
+
+func (o GatewayEnvironmentPtrOutput) Elem() GatewayEnvironmentOutput {
+	return o.ApplyT(func(v *GatewayEnvironment) GatewayEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayEnvironment
+		return ret
+	}).(GatewayEnvironmentOutput)
+}
+
+// The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
+func (o GatewayEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type IdentityPoolIdentityProvider struct {
 	// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
 	Id string `pulumi:"id"`
@@ -32834,6 +33283,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementOrganizationPtrInput)(nil)).Elem(), FlinkStatementOrganizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementPrincipalInput)(nil)).Elem(), FlinkStatementPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementPrincipalPtrInput)(nil)).Elem(), FlinkStatementPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAwsEgressPrivateLinkGatewayInput)(nil)).Elem(), GatewayAwsEgressPrivateLinkGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAwsEgressPrivateLinkGatewayPtrInput)(nil)).Elem(), GatewayAwsEgressPrivateLinkGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAzureEgressPrivateLinkGatewayInput)(nil)).Elem(), GatewayAzureEgressPrivateLinkGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAzureEgressPrivateLinkGatewayPtrInput)(nil)).Elem(), GatewayAzureEgressPrivateLinkGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayEnvironmentInput)(nil)).Elem(), GatewayEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayEnvironmentPtrInput)(nil)).Elem(), GatewayEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolIdentityProviderInput)(nil)).Elem(), IdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolIdentityProviderPtrInput)(nil)).Elem(), IdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvitationCreatorInput)(nil)).Elem(), InvitationCreatorArgs{})
@@ -33316,6 +33771,12 @@ func init() {
 	pulumi.RegisterOutputType(FlinkStatementOrganizationPtrOutput{})
 	pulumi.RegisterOutputType(FlinkStatementPrincipalOutput{})
 	pulumi.RegisterOutputType(FlinkStatementPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(GatewayAwsEgressPrivateLinkGatewayOutput{})
+	pulumi.RegisterOutputType(GatewayAwsEgressPrivateLinkGatewayPtrOutput{})
+	pulumi.RegisterOutputType(GatewayAzureEgressPrivateLinkGatewayOutput{})
+	pulumi.RegisterOutputType(GatewayAzureEgressPrivateLinkGatewayPtrOutput{})
+	pulumi.RegisterOutputType(GatewayEnvironmentOutput{})
+	pulumi.RegisterOutputType(GatewayEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPoolIdentityProviderOutput{})
 	pulumi.RegisterOutputType(IdentityPoolIdentityProviderPtrOutput{})
 	pulumi.RegisterOutputType(InvitationCreatorOutput{})

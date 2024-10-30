@@ -123,7 +123,7 @@ def get_gateway(environment: Optional[Union['GetGatewayEnvironmentArgs', 'GetGat
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
-    `get_gateway` describes a Gateway data source.
+    `Gateway` describes a Gateway data source.
 
     ## Example Usage
 
@@ -161,7 +161,7 @@ def get_gateway_output(environment: Optional[pulumi.Input[Union['GetGatewayEnvir
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
-    `get_gateway` describes a Gateway data source.
+    `Gateway` describes a Gateway data source.
 
     ## Example Usage
 

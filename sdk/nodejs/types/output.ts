@@ -484,6 +484,35 @@ export interface FlinkStatementPrincipal {
     id: string;
 }
 
+export interface GatewayAwsEgressPrivateLinkGateway {
+    /**
+     * (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
+     */
+    principalArn: string;
+    /**
+     * AWS region of the Gateway, for example, `us-east-1`.
+     */
+    region: string;
+}
+
+export interface GatewayAzureEgressPrivateLinkGateway {
+    /**
+     * Azure region of the Gateway, for example, `eastus`.
+     */
+    region: string;
+    /**
+     * (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
+     */
+    subscription: string;
+}
+
+export interface GatewayEnvironment {
+    /**
+     * The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
+     */
+    id: string;
+}
+
 export interface GetAccessPointAwsEgressPrivateLinkEndpoint {
     /**
      * (Required Boolean) Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.

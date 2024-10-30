@@ -985,6 +985,69 @@
                 "id"
             ]
         },
+        "confluentcloud:index/GatewayAwsEgressPrivateLinkGateway:GatewayAwsEgressPrivateLinkGateway": {
+            "properties": {
+                "principalArn": {
+                    "type": "string",
+                    "description": "(Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "AWS region of the Gateway, for example, `us-east-1`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "principalArn",
+                        "region"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/GatewayAzureEgressPrivateLinkGateway:GatewayAzureEgressPrivateLinkGateway": {
+            "properties": {
+                "region": {
+                    "type": "string",
+                    "description": "Azure region of the Gateway, for example, `eastus`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "subscription": {
+                    "type": "string",
+                    "description": "(Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "region",
+                        "subscription"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/GatewayEnvironment:GatewayEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/IdentityPoolIdentityProvider:IdentityPoolIdentityProvider": {
             "properties": {
                 "id": {
@@ -7054,6 +7117,83 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/gateway:Gateway": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.Gateway` provides a Gateway resource that enables creating, editing, and deleting Gateways on Confluent Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst main = new confluentcloud.Gateway(\"main\", {\n    displayName: \"my_gateway\",\n    environment: {\n        id: development.id,\n    },\n    awsEgressPrivateLinkGateway: {\n        region: \"us-west-2\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\nmain = confluentcloud.Gateway(\"main\",\n    display_name=\"my_gateway\",\n    environment={\n        \"id\": development.id,\n    },\n    aws_egress_private_link_gateway={\n        \"region\": \"us-west-2\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var main = new ConfluentCloud.Gateway(\"main\", new()\n    {\n        DisplayName = \"my_gateway\",\n        Environment = new ConfluentCloud.Inputs.GatewayEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        AwsEgressPrivateLinkGateway = new ConfluentCloud.Inputs.GatewayAwsEgressPrivateLinkGatewayArgs\n        {\n            Region = \"us-west-2\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewGateway(ctx, \"main\", \u0026confluentcloud.GatewayArgs{\n\t\t\tDisplayName: pulumi.String(\"my_gateway\"),\n\t\t\tEnvironment: \u0026confluentcloud.GatewayEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t\tAwsEgressPrivateLinkGateway: \u0026confluentcloud.GatewayAwsEgressPrivateLinkGatewayArgs{\n\t\t\t\tRegion: pulumi.String(\"us-west-2\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.Gateway;\nimport com.pulumi.confluentcloud.GatewayArgs;\nimport com.pulumi.confluentcloud.inputs.GatewayEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.GatewayAwsEgressPrivateLinkGatewayArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var main = new Gateway(\"main\", GatewayArgs.builder()\n            .displayName(\"my_gateway\")\n            .environment(GatewayEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .awsEgressPrivateLinkGateway(GatewayAwsEgressPrivateLinkGatewayArgs.builder()\n                .region(\"us-west-2\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  main:\n    type: confluentcloud:Gateway\n    properties:\n      displayName: my_gateway\n      environment:\n        id: ${development.id}\n      awsEgressPrivateLinkGateway:\n        region: us-west-2\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Gateway by using Environment ID and Gateway ID, in the format `\u003cEnvironment ID\u003e/\u003cGateway ID\u003e`. The following example shows how to import a Gateway:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/gateway:Gateway main env-abc123/gw-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "awsEgressPrivateLinkGateway": {
+                    "$ref": "#/types/confluentcloud:index/GatewayAwsEgressPrivateLinkGateway:GatewayAwsEgressPrivateLinkGateway",
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "azureEgressPrivateLinkGateway": {
+                    "$ref": "#/types/confluentcloud:index/GatewayAzureEgressPrivateLinkGateway:GatewayAzureEgressPrivateLinkGateway",
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Gateway.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/GatewayEnvironment:GatewayEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                }
+            },
+            "required": [
+                "awsEgressPrivateLinkGateway",
+                "azureEgressPrivateLinkGateway",
+                "displayName",
+                "environment"
+            ],
+            "inputProperties": {
+                "awsEgressPrivateLinkGateway": {
+                    "$ref": "#/types/confluentcloud:index/GatewayAwsEgressPrivateLinkGateway:GatewayAwsEgressPrivateLinkGateway",
+                    "description": "(Optional Configuration Block) supports the following:\n",
+                    "willReplaceOnChanges": true
+                },
+                "azureEgressPrivateLinkGateway": {
+                    "$ref": "#/types/confluentcloud:index/GatewayAzureEgressPrivateLinkGateway:GatewayAzureEgressPrivateLinkGateway",
+                    "description": "(Optional Configuration Block) supports the following:\n",
+                    "willReplaceOnChanges": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Gateway.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/GatewayEnvironment:GatewayEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "displayName",
+                "environment"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Gateway resources.\n",
+                "properties": {
+                    "awsEgressPrivateLinkGateway": {
+                        "$ref": "#/types/confluentcloud:index/GatewayAwsEgressPrivateLinkGateway:GatewayAwsEgressPrivateLinkGateway",
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "azureEgressPrivateLinkGateway": {
+                        "$ref": "#/types/confluentcloud:index/GatewayAzureEgressPrivateLinkGateway:GatewayAzureEgressPrivateLinkGateway",
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Gateway.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/GatewayEnvironment:GatewayEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/groupMapping:GroupMapping": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.GroupMapping` provides a Group Mapping resource that enables creating, editing, and deleting group mappings on Confluent Cloud.\n\n\u003e **Note:** See [Group Mapping in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html) for more details.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst application_developers = new confluentcloud.GroupMapping(\"application-developers\", {\n    displayName: \"Application Developers\",\n    description: \"Admin access to production environment for Engineering\",\n    filter: \"\\\"engineering\\\" in groups\",\n});\nconst envadmin = new confluentcloud.RoleBinding(\"envadmin\", {\n    principal: pulumi.interpolate`User:${application_developers.id}`,\n    roleName: \"EnvironmentAdmin\",\n    crnPattern: prod.resourceName,\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\napplication_developers = confluentcloud.GroupMapping(\"application-developers\",\n    display_name=\"Application Developers\",\n    description=\"Admin access to production environment for Engineering\",\n    filter=\"\\\"engineering\\\" in groups\")\nenvadmin = confluentcloud.RoleBinding(\"envadmin\",\n    principal=application_developers.id.apply(lambda id: f\"User:{id}\"),\n    role_name=\"EnvironmentAdmin\",\n    crn_pattern=prod[\"resourceName\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var application_developers = new ConfluentCloud.GroupMapping(\"application-developers\", new()\n    {\n        DisplayName = \"Application Developers\",\n        Description = \"Admin access to production environment for Engineering\",\n        Filter = \"\\\"engineering\\\" in groups\",\n    });\n\n    var envadmin = new ConfluentCloud.RoleBinding(\"envadmin\", new()\n    {\n        Principal = application_developers.Id.Apply(id =\u003e $\"User:{id}\"),\n        RoleName = \"EnvironmentAdmin\",\n        CrnPattern = prod.ResourceName,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewGroupMapping(ctx, \"application-developers\", \u0026confluentcloud.GroupMappingArgs{\n\t\t\tDisplayName: pulumi.String(\"Application Developers\"),\n\t\t\tDescription: pulumi.String(\"Admin access to production environment for Engineering\"),\n\t\t\tFilter:      pulumi.String(\"\\\"engineering\\\" in groups\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewRoleBinding(ctx, \"envadmin\", \u0026confluentcloud.RoleBindingArgs{\n\t\t\tPrincipal: application_developers.ID().ApplyT(func(id string) (string, error) {\n\t\t\t\treturn fmt.Sprintf(\"User:%v\", id), nil\n\t\t\t}).(pulumi.StringOutput),\n\t\t\tRoleName:   pulumi.String(\"EnvironmentAdmin\"),\n\t\t\tCrnPattern: pulumi.Any(prod.ResourceName),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.GroupMapping;\nimport com.pulumi.confluentcloud.GroupMappingArgs;\nimport com.pulumi.confluentcloud.RoleBinding;\nimport com.pulumi.confluentcloud.RoleBindingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var application_developers = new GroupMapping(\"application-developers\", GroupMappingArgs.builder()\n            .displayName(\"Application Developers\")\n            .description(\"Admin access to production environment for Engineering\")\n            .filter(\"\\\"engineering\\\" in groups\")\n            .build());\n\n        var envadmin = new RoleBinding(\"envadmin\", RoleBindingArgs.builder()\n            .principal(application_developers.id().applyValue(id -\u003e String.format(\"User:%s\", id)))\n            .roleName(\"EnvironmentAdmin\")\n            .crnPattern(prod.resourceName())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  application-developers:\n    type: confluentcloud:GroupMapping\n    properties:\n      displayName: Application Developers\n      description: Admin access to production environment for Engineering\n      filter: '\"engineering\" in groups'\n  envadmin:\n    type: confluentcloud:RoleBinding\n    properties:\n      principal: User:${[\"application-developers\"].id}\n      roleName: EnvironmentAdmin\n      crnPattern: ${prod.resourceName}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Group Mapping by using Group Mapping ID, for example:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/groupMapping:GroupMapping application-developers group-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
@@ -11642,7 +11782,7 @@
             }
         },
         "confluentcloud:index/getGateway:getGateway": {
-            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.getGateway` describes a Gateway data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getGateway({\n    id: \"gw-abc123\",\n    environment: {\n        id: \"env-123abc\",\n    },\n});\nexport const gateway = main;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_gateway(id=\"gw-abc123\",\n    environment={\n        \"id\": \"env-123abc\",\n    })\npulumi.export(\"gateway\", main)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetGateway.Invoke(new()\n    {\n        Id = \"gw-abc123\",\n        Environment = new ConfluentCloud.Inputs.GetGatewayEnvironmentInputArgs\n        {\n            Id = \"env-123abc\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"gateway\"] = main,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.GetGateway(ctx, \u0026confluentcloud.GetGatewayArgs{\n\t\t\tId: \"gw-abc123\",\n\t\t\tEnvironment: confluentcloud.GetGatewayEnvironment{\n\t\t\t\tId: \"env-123abc\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"gateway\", main)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetGatewayArgs;\nimport com.pulumi.confluentcloud.inputs.GetGatewayEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getGateway(GetGatewayArgs.builder()\n            .id(\"gw-abc123\")\n            .environment(GetGatewayEnvironmentArgs.builder()\n                .id(\"env-123abc\")\n                .build())\n            .build());\n\n        ctx.export(\"gateway\", main.applyValue(getGatewayResult -\u003e getGatewayResult));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getGateway\n      Arguments:\n        id: gw-abc123\n        environment:\n          id: env-123abc\noutputs:\n  gateway: ${main}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.Gateway` describes a Gateway data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getGateway({\n    id: \"gw-abc123\",\n    environment: {\n        id: \"env-123abc\",\n    },\n});\nexport const gateway = main;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_gateway(id=\"gw-abc123\",\n    environment={\n        \"id\": \"env-123abc\",\n    })\npulumi.export(\"gateway\", main)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetGateway.Invoke(new()\n    {\n        Id = \"gw-abc123\",\n        Environment = new ConfluentCloud.Inputs.GetGatewayEnvironmentInputArgs\n        {\n            Id = \"env-123abc\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"gateway\"] = main,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.LookupGateway(ctx, \u0026confluentcloud.LookupGatewayArgs{\n\t\t\tId: \"gw-abc123\",\n\t\t\tEnvironment: confluentcloud.GetGatewayEnvironment{\n\t\t\t\tId: \"env-123abc\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"gateway\", main)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetGatewayArgs;\nimport com.pulumi.confluentcloud.inputs.GetGatewayEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getGateway(GetGatewayArgs.builder()\n            .id(\"gw-abc123\")\n            .environment(GetGatewayEnvironmentArgs.builder()\n                .id(\"env-123abc\")\n                .build())\n            .build());\n\n        ctx.export(\"gateway\", main.applyValue(getGatewayResult -\u003e getGatewayResult));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getGateway\n      Arguments:\n        id: gw-abc123\n        environment:\n          id: env-123abc\noutputs:\n  gateway: ${main}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getGateway.\n",
                 "properties": {
