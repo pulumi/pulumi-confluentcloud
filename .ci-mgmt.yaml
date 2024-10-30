@@ -16,3 +16,4 @@ plugins:
     version: "4.1.1"
 team: ecosystem
 pulumiConvert: 1
+registryDocs: true
