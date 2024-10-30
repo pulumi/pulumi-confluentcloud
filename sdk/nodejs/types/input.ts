@@ -484,6 +484,35 @@ export interface FlinkStatementPrincipal {
     id: pulumi.Input<string>;
 }
 
+export interface GatewayAwsEgressPrivateLinkGateway {
+    /**
+     * (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
+     */
+    principalArn?: pulumi.Input<string>;
+    /**
+     * AWS region of the Gateway, for example, `us-east-1`.
+     */
+    region: pulumi.Input<string>;
+}
+
+export interface GatewayAzureEgressPrivateLinkGateway {
+    /**
+     * Azure region of the Gateway, for example, `eastus`.
+     */
+    region: pulumi.Input<string>;
+    /**
+     * (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
+     */
+    subscription?: pulumi.Input<string>;
+}
+
+export interface GatewayEnvironment {
+    /**
+     * The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetAccessPointEnvironment {
     /**
      * The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.

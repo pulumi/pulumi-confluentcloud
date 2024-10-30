@@ -90,6 +90,11 @@ export type FlinkStatement = import("./flinkStatement").FlinkStatement;
 export const FlinkStatement: typeof import("./flinkStatement").FlinkStatement = null as any;
 utilities.lazyLoad(exports, ["FlinkStatement"], () => require("./flinkStatement"));
 
+export { GatewayArgs, GatewayState } from "./gateway";
+export type Gateway = import("./gateway").Gateway;
+export const Gateway: typeof import("./gateway").Gateway = null as any;
+utilities.lazyLoad(exports, ["Gateway"], () => require("./gateway"));
+
 export { GetAccessPointArgs, GetAccessPointResult, GetAccessPointOutputArgs } from "./getAccessPoint";
 export const getAccessPoint: typeof import("./getAccessPoint").getAccessPoint = null as any;
 export const getAccessPointOutput: typeof import("./getAccessPoint").getAccessPointOutput = null as any;
@@ -548,6 +553,8 @@ const _module = {
                 return new FlinkComputePool(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkStatement:FlinkStatement":
                 return new FlinkStatement(name, <any>undefined, { urn })
+            case "confluentcloud:index/gateway:Gateway":
+                return new Gateway(name, <any>undefined, { urn })
             case "confluentcloud:index/groupMapping:GroupMapping":
                 return new GroupMapping(name, <any>undefined, { urn })
             case "confluentcloud:index/identityPool:IdentityPool":
@@ -636,6 +643,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _mo
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkArtifact", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkComputePool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkStatement", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/gateway", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/groupMapping", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityPool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityProvider", _module)

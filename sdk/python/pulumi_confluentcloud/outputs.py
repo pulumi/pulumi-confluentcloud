@@ -59,6 +59,9 @@ __all__ = [
     'FlinkStatementEnvironment',
     'FlinkStatementOrganization',
     'FlinkStatementPrincipal',
+    'GatewayAwsEgressPrivateLinkGateway',
+    'GatewayAzureEgressPrivateLinkGateway',
+    'GatewayEnvironment',
     'IdentityPoolIdentityProvider',
     'InvitationCreator',
     'InvitationUser',
@@ -1808,6 +1811,101 @@ class FlinkStatementPrincipal(dict):
     def id(self) -> str:
         """
         The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GatewayAwsEgressPrivateLinkGateway(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalArn":
+            suggest = "principal_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayAwsEgressPrivateLinkGateway. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayAwsEgressPrivateLinkGateway.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayAwsEgressPrivateLinkGateway.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: str,
+                 principal_arn: Optional[str] = None):
+        """
+        :param str region: AWS region of the Gateway, for example, `us-east-1`.
+        :param str principal_arn: (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
+        """
+        pulumi.set(__self__, "region", region)
+        if principal_arn is not None:
+            pulumi.set(__self__, "principal_arn", principal_arn)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        AWS region of the Gateway, for example, `us-east-1`.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="principalArn")
+    def principal_arn(self) -> Optional[str]:
+        """
+        (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
+        """
+        return pulumi.get(self, "principal_arn")
+
+
+@pulumi.output_type
+class GatewayAzureEgressPrivateLinkGateway(dict):
+    def __init__(__self__, *,
+                 region: str,
+                 subscription: Optional[str] = None):
+        """
+        :param str region: Azure region of the Gateway, for example, `eastus`.
+        :param str subscription: (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
+        """
+        pulumi.set(__self__, "region", region)
+        if subscription is not None:
+            pulumi.set(__self__, "subscription", subscription)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        Azure region of the Gateway, for example, `eastus`.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def subscription(self) -> Optional[str]:
+        """
+        (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
+        """
+        return pulumi.get(self, "subscription")
+
+
+@pulumi.output_type
+class GatewayEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 

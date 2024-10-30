@@ -22,6 +22,7 @@ from .environment import *
 from .flink_artifact import *
 from .flink_compute_pool import *
 from .flink_statement import *
+from .gateway import *
 from .get_access_point import *
 from .get_business_metadata import *
 from .get_business_metadata_binding import *
@@ -251,6 +252,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/flinkStatement:FlinkStatement": "FlinkStatement"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/gateway",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/gateway:Gateway": "Gateway"
   }
  },
  {

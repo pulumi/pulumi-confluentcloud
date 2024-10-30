@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
-        /// `confluentcloud.getGateway` describes a Gateway data source.
+        /// `confluentcloud.Gateway` describes a Gateway data source.
         /// 
         /// ## Example Usage
         /// 
@@ -48,7 +48,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
-        /// `confluentcloud.getGateway` describes a Gateway data source.
+        /// `confluentcloud.Gateway` describes a Gateway data source.
         /// 
         /// ## Example Usage
         /// 
