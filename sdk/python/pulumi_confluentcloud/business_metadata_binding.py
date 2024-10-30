@@ -261,6 +261,59 @@ class BusinessMetadataBinding(pulumi.CustomResource):
                  schema_registry_cluster: Optional[pulumi.Input[Union['BusinessMetadataBindingSchemaRegistryClusterArgs', 'BusinessMetadataBindingSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `BusinessMetadataBinding` provides a Business Metadata Binding resource that enables creating, editing, and deleting Business Metadata Bindings on Confluent Cloud.
+
+        ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.get_kafka_topic(topic_name="orders")
+        main_business_metadata_binding = confluentcloud.BusinessMetadataBinding("main",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            business_metadata_name=pii["name"],
+            entity_name=f"{schema_registry_id}:{kafka_id}:{main.topic_name}",
+            entity_type="kafka_topic",
+            attributes={
+                "team": "teamName",
+                "email": "team@company.com",
+            })
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.get_kafka_topic(topic_name="orders")
+        main_business_metadata_binding = confluentcloud.BusinessMetadataBinding("main",
+            business_metadata_name=pii["name"],
+            entity_name=f"{schema_registry_id}:{kafka_id}:{main.topic_name}",
+            entity_type="kafka_topic",
+            attributes={
+                "team": "teamName",
+                "email": "team@company.com",
+            })
+        ```
+
+        ## Getting Started
+
+        The following end-to-end example might help to get started with [Stream Catalog](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html):
+        * stream-catalog
+
         ## Import
 
         You can import a Business Metadata Binding by using the Schema Registry cluster ID, Business Metadata name, entity name and entity type in the format `<Schema Registry Cluster Id>/<Business Metadata Name>/<Entity Name>/<Entity Type>`, for example:
@@ -293,6 +346,59 @@ class BusinessMetadataBinding(pulumi.CustomResource):
                  args: BusinessMetadataBindingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `BusinessMetadataBinding` provides a Business Metadata Binding resource that enables creating, editing, and deleting Business Metadata Bindings on Confluent Cloud.
+
+        ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.get_kafka_topic(topic_name="orders")
+        main_business_metadata_binding = confluentcloud.BusinessMetadataBinding("main",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            business_metadata_name=pii["name"],
+            entity_name=f"{schema_registry_id}:{kafka_id}:{main.topic_name}",
+            entity_type="kafka_topic",
+            attributes={
+                "team": "teamName",
+                "email": "team@company.com",
+            })
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.get_kafka_topic(topic_name="orders")
+        main_business_metadata_binding = confluentcloud.BusinessMetadataBinding("main",
+            business_metadata_name=pii["name"],
+            entity_name=f"{schema_registry_id}:{kafka_id}:{main.topic_name}",
+            entity_type="kafka_topic",
+            attributes={
+                "team": "teamName",
+                "email": "team@company.com",
+            })
+        ```
+
+        ## Getting Started
+
+        The following end-to-end example might help to get started with [Stream Catalog](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html):
+        * stream-catalog
+
         ## Import
 
         You can import a Business Metadata Binding by using the Schema Registry cluster ID, Business Metadata name, entity name and entity type in the format `<Schema Registry Cluster Id>/<Business Metadata Name>/<Entity Name>/<Entity Type>`, for example:

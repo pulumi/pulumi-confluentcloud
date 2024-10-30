@@ -105,7 +105,48 @@ def get_schemas(credentials: Optional[Union['GetSchemasCredentialsArgs', 'GetSch
                 schema_registry_cluster: Optional[Union['GetSchemasSchemaRegistryClusterArgs', 'GetSchemasSchemaRegistryClusterArgsDict']] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemasResult:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `get_schemas` describes a Schema data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    main = confluentcloud.get_schemas(schema_registry_cluster={
+            "id": essentials["id"],
+        },
+        rest_endpoint=essentials["restEndpoint"],
+        filter={
+            "subject_prefix": "examples.record",
+            "latest_only": False,
+            "deleted": True,
+        },
+        credentials={
+            "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+            "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+        })
+    pulumi.export("schemas", main.schemas)
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    main = confluentcloud.get_schemas(filter={
+        "subject_prefix": "examples.record",
+        "latest_only": False,
+        "deleted": True,
+    })
+    pulumi.export("schemas", main.schemas)
+    ```
+
 
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """
@@ -130,7 +171,48 @@ def get_schemas_output(credentials: Optional[pulumi.Input[Optional[Union['GetSch
                        schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemasSchemaRegistryClusterArgs', 'GetSchemasSchemaRegistryClusterArgsDict']]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemasResult]:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `get_schemas` describes a Schema data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    main = confluentcloud.get_schemas(schema_registry_cluster={
+            "id": essentials["id"],
+        },
+        rest_endpoint=essentials["restEndpoint"],
+        filter={
+            "subject_prefix": "examples.record",
+            "latest_only": False,
+            "deleted": True,
+        },
+        credentials={
+            "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+            "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+        })
+    pulumi.export("schemas", main.schemas)
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    main = confluentcloud.get_schemas(filter={
+        "subject_prefix": "examples.record",
+        "latest_only": False,
+        "deleted": True,
+    })
+    pulumi.export("schemas", main.schemas)
+    ```
+
 
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """

@@ -11,9 +11,123 @@ namespace Pulumi.ConfluentCloud
 {
     public static class GetSchemaRegistryClusterConfig
     {
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.SchemaRegistryClusterConfig` describes a Schema Registry Cluster Config data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetSchemaRegistryClusterConfig.Invoke(new()
+        ///     {
+        ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterInputArgs
+        ///         {
+        ///             Id = essentials.Id,
+        ///         },
+        ///         RestEndpoint = essentials.RestEndpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetSchemaRegistryClusterConfigCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["compatibilityLevel"] = example.Apply(getSchemaRegistryClusterConfigResult =&gt; getSchemaRegistryClusterConfigResult.CompatibilityLevel),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetSchemaRegistryClusterConfig.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["compatibilityLevel"] = example.Apply(getSchemaRegistryClusterConfigResult =&gt; getSchemaRegistryClusterConfigResult.CompatibilityLevel),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Task<GetSchemaRegistryClusterConfigResult> InvokeAsync(GetSchemaRegistryClusterConfigArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaRegistryClusterConfigResult>("confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig", args ?? new GetSchemaRegistryClusterConfigArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.SchemaRegistryClusterConfig` describes a Schema Registry Cluster Config data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetSchemaRegistryClusterConfig.Invoke(new()
+        ///     {
+        ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterInputArgs
+        ///         {
+        ///             Id = essentials.Id,
+        ///         },
+        ///         RestEndpoint = essentials.RestEndpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetSchemaRegistryClusterConfigCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["compatibilityLevel"] = example.Apply(getSchemaRegistryClusterConfigResult =&gt; getSchemaRegistryClusterConfigResult.CompatibilityLevel),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetSchemaRegistryClusterConfig.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["compatibilityLevel"] = example.Apply(getSchemaRegistryClusterConfigResult =&gt; getSchemaRegistryClusterConfigResult.CompatibilityLevel),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetSchemaRegistryClusterConfigResult> Invoke(GetSchemaRegistryClusterConfigInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryClusterConfigResult>("confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig", args ?? new GetSchemaRegistryClusterConfigInvokeArgs(), options.WithDefaults());
     }

@@ -132,7 +132,38 @@ def get_business_metadata(credentials: Optional[Union['GetBusinessMetadataCreden
                           schema_registry_cluster: Optional[Union['GetBusinessMetadataSchemaRegistryClusterArgs', 'GetBusinessMetadataSchemaRegistryClusterArgsDict']] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBusinessMetadataResult:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `BusinessMetadata` describes a Business Metadata data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    pii = confluentcloud.get_business_metadata(schema_registry_cluster={
+            "id": essentials["id"],
+        },
+        rest_endpoint=essentials["restEndpoint"],
+        credentials={
+            "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+            "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+        },
+        name="PII")
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    pii = confluentcloud.get_business_metadata(name="PII")
+    ```
+
 
     :param str name: The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
            
@@ -162,7 +193,38 @@ def get_business_metadata_output(credentials: Optional[pulumi.Input[Optional[Uni
                                  schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetBusinessMetadataSchemaRegistryClusterArgs', 'GetBusinessMetadataSchemaRegistryClusterArgsDict']]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBusinessMetadataResult]:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `BusinessMetadata` describes a Business Metadata data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    pii = confluentcloud.get_business_metadata(schema_registry_cluster={
+            "id": essentials["id"],
+        },
+        rest_endpoint=essentials["restEndpoint"],
+        credentials={
+            "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+            "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+        },
+        name="PII")
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    pii = confluentcloud.get_business_metadata(name="PII")
+    ```
+
 
     :param str name: The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
            

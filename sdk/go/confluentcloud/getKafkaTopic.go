@@ -11,6 +11,73 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `KafkaTopic` describes a Kafka Topic data source.
+//
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			orders, err := confluentcloud.LookupKafkaTopic(ctx, &confluentcloud.LookupKafkaTopicArgs{
+//				KafkaCluster: confluentcloud.GetKafkaTopicKafkaCluster{
+//					Id: basic_cluster.Id,
+//				},
+//				TopicName:    "orders",
+//				RestEndpoint: basic_cluster.RestEndpoint,
+//				Credentials: confluentcloud.GetKafkaTopicCredentials{
+//					Key:    "<Kafka API Key for confluent_kafka_cluster.basic-cluster>",
+//					Secret: "<Kafka API Secret for confluent_kafka_cluster.basic-cluster>",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("config", orders.Config)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			orders, err := confluentcloud.LookupKafkaTopic(ctx, &confluentcloud.LookupKafkaTopicArgs{
+//				TopicName: "orders",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("config", orders.Config)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupKafkaTopic(ctx *pulumi.Context, args *LookupKafkaTopicArgs, opts ...pulumi.InvokeOption) (*LookupKafkaTopicResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKafkaTopicResult

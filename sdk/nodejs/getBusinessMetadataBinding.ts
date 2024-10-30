@@ -6,6 +6,47 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.BusinessMetadataBinding` describes a Business Metadata Binding data source.
+ *
+ * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getBusinessMetadataBinding({
+ *     schemaRegistryCluster: {
+ *         id: essentials.id,
+ *     },
+ *     restEndpoint: essentials.restEndpoint,
+ *     credentials: {
+ *         key: "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+ *         secret: "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+ *     },
+ *     businessMetadataName: pii.name,
+ *     entityName: `${schemaRegistryId}:${kafkaId}:${mainConfluentKafkaTopic.topicName}`,
+ *     entityType: "kafka_topic",
+ * });
+ * ```
+ *
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getBusinessMetadataBinding({
+ *     businessMetadataName: pii.name,
+ *     entityName: `${schemaRegistryId}:${kafkaId}:${mainConfluentKafkaTopic.topicName}`,
+ *     entityType: "kafka_topic",
+ * });
+ * ```
+ */
 export function getBusinessMetadataBinding(args: GetBusinessMetadataBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessMetadataBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", {
@@ -61,6 +102,47 @@ export interface GetBusinessMetadataBindingResult {
     readonly restEndpoint?: string;
     readonly schemaRegistryCluster?: outputs.GetBusinessMetadataBindingSchemaRegistryCluster;
 }
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.BusinessMetadataBinding` describes a Business Metadata Binding data source.
+ *
+ * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getBusinessMetadataBinding({
+ *     schemaRegistryCluster: {
+ *         id: essentials.id,
+ *     },
+ *     restEndpoint: essentials.restEndpoint,
+ *     credentials: {
+ *         key: "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+ *         secret: "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+ *     },
+ *     businessMetadataName: pii.name,
+ *     entityName: `${schemaRegistryId}:${kafkaId}:${mainConfluentKafkaTopic.topicName}`,
+ *     entityType: "kafka_topic",
+ * });
+ * ```
+ *
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getBusinessMetadataBinding({
+ *     businessMetadataName: pii.name,
+ *     entityName: `${schemaRegistryId}:${kafkaId}:${mainConfluentKafkaTopic.topicName}`,
+ *     entityType: "kafka_topic",
+ * });
+ * ```
+ */
 export function getBusinessMetadataBindingOutput(args: GetBusinessMetadataBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessMetadataBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", {

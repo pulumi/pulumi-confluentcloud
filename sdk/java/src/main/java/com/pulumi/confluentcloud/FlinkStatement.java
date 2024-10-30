@@ -23,11 +23,119 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * 
+ * ### Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.FlinkStatement;
+ * import com.pulumi.confluentcloud.FlinkStatementArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkStatementOrganizationArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkStatementEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkStatementComputePoolArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkStatementPrincipalArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkStatementCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var randomIntTable = new FlinkStatement("randomIntTable", FlinkStatementArgs.builder()
+ *             .organization(FlinkStatementOrganizationArgs.builder()
+ *                 .id(main.id())
+ *                 .build())
+ *             .environment(FlinkStatementEnvironmentArgs.builder()
+ *                 .id(staging.id())
+ *                 .build())
+ *             .computePool(FlinkStatementComputePoolArgs.builder()
+ *                 .id(example.id())
+ *                 .build())
+ *             .principal(FlinkStatementPrincipalArgs.builder()
+ *                 .id(app_manager_flink.id())
+ *                 .build())
+ *             .statement("CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);")
+ *             .properties(Map.ofEntries(
+ *                 Map.entry("sql.current-catalog", exampleConfluentEnvironment.displayName()),
+ *                 Map.entry("sql.current-database", exampleConfluentKafkaCluster.displayName())
+ *             ))
+ *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+ *             .credentials(FlinkStatementCredentialsArgs.builder()
+ *                 .key(env_admin_flink_api_key.id())
+ *                 .secret(env_admin_flink_api_key.secret())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.FlinkStatement;
+ * import com.pulumi.confluentcloud.FlinkStatementArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new FlinkStatement("example", FlinkStatementArgs.builder()
+ *             .statement("CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);")
+ *             .properties(Map.ofEntries(
+ *                 Map.entry("sql.current-catalog", confluentEnvironmentDisplayName),
+ *                 Map.entry("sql.current-database", confluentKafkaClusterDisplayName)
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end example might help to get started with [Flink Statements](https://docs.confluent.io/cloud/current/flink/get-started/overview.html):
+ *   * flink-quickstart
+ *   * flink-carry-over-offset-between-statements
+ * 
  * ## Import
  * 
  * You can import a Flink statement by using the Flink Statement name, for example:
  * 
- * Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+ * Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
  * 
  * $ export IMPORT_CONFLUENT_ORGANIZATION_ID=&#34;&lt;organization_id&gt;&#34;
  * 
@@ -47,7 +155,7 @@ import javax.annotation.Nullable;
  * $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
  * ```
  * 
- * Option #2: Manage a single Flink Compute Pool in the same Terraform workspace
+ * Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
  * 
  * ```sh
  * $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67

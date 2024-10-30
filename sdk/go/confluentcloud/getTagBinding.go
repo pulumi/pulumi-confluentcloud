@@ -11,6 +11,75 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `TagBinding` describes a Tag Binding data source.
+//
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.LookupTagBinding(ctx, &confluentcloud.LookupTagBindingArgs{
+//				SchemaRegistryCluster: confluentcloud.GetTagBindingSchemaRegistryCluster{
+//					Id: essentials.Id,
+//				},
+//				RestEndpoint: pulumi.StringRef(essentials.RestEndpoint),
+//				Credentials: confluentcloud.GetTagBindingCredentials{
+//					Key:    "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+//					Secret: "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+//				},
+//				TagName:    "PII",
+//				EntityName: "lsrc-8wrx70:.:100001",
+//				EntityType: "sr_schema",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.LookupTagBinding(ctx, &confluentcloud.LookupTagBindingArgs{
+//				TagName:    "PII",
+//				EntityName: "lsrc-8wrx70:.:100001",
+//				EntityType: "sr_schema",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupTagBinding(ctx *pulumi.Context, args *LookupTagBindingArgs, opts ...pulumi.InvokeOption) (*LookupTagBindingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTagBindingResult

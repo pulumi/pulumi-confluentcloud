@@ -11,9 +11,123 @@ namespace Pulumi.ConfluentCloud
 {
     public static class GetBusinessMetadataBinding
     {
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.BusinessMetadataBinding` describes a Business Metadata Binding data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetBusinessMetadataBinding.Invoke(new()
+        ///     {
+        ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetBusinessMetadataBindingSchemaRegistryClusterInputArgs
+        ///         {
+        ///             Id = essentials.Id,
+        ///         },
+        ///         RestEndpoint = essentials.RestEndpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetBusinessMetadataBindingCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///         },
+        ///         BusinessMetadataName = pii.Name,
+        ///         EntityName = $"{schemaRegistryId}:{kafkaId}:{mainConfluentKafkaTopic.TopicName}",
+        ///         EntityType = "kafka_topic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetBusinessMetadataBinding.Invoke(new()
+        ///     {
+        ///         BusinessMetadataName = pii.Name,
+        ///         EntityName = $"{schemaRegistryId}:{kafkaId}:{mainConfluentKafkaTopic.TopicName}",
+        ///         EntityType = "kafka_topic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Task<GetBusinessMetadataBindingResult> InvokeAsync(GetBusinessMetadataBindingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBusinessMetadataBindingResult>("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", args ?? new GetBusinessMetadataBindingArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.BusinessMetadataBinding` describes a Business Metadata Binding data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetBusinessMetadataBinding.Invoke(new()
+        ///     {
+        ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetBusinessMetadataBindingSchemaRegistryClusterInputArgs
+        ///         {
+        ///             Id = essentials.Id,
+        ///         },
+        ///         RestEndpoint = essentials.RestEndpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetBusinessMetadataBindingCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///         },
+        ///         BusinessMetadataName = pii.Name,
+        ///         EntityName = $"{schemaRegistryId}:{kafkaId}:{mainConfluentKafkaTopic.TopicName}",
+        ///         EntityType = "kafka_topic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetBusinessMetadataBinding.Invoke(new()
+        ///     {
+        ///         BusinessMetadataName = pii.Name,
+        ///         EntityName = $"{schemaRegistryId}:{kafkaId}:{mainConfluentKafkaTopic.TopicName}",
+        ///         EntityType = "kafka_topic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetBusinessMetadataBindingResult> Invoke(GetBusinessMetadataBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessMetadataBindingResult>("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", args ?? new GetBusinessMetadataBindingInvokeArgs(), options.WithDefaults());
     }

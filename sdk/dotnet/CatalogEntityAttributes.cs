@@ -9,6 +9,164 @@ using Pulumi.Serialization;
 
 namespace Pulumi.ConfluentCloud
 {
+    /// <summary>
+    /// [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    /// 
+    /// &gt; **Note:** `confluentcloud.CatalogEntityAttributes` resource is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+    /// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var environment = new ConfluentCloud.CatalogEntityAttributes("environment", new()
+    ///     {
+    ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.CatalogEntityAttributesSchemaRegistryClusterArgs
+    ///         {
+    ///             Id = essentials.Id,
+    ///         },
+    ///         RestEndpoint = essentials.RestEndpoint,
+    ///         Credentials = new ConfluentCloud.Inputs.CatalogEntityAttributesCredentialsArgs
+    ///         {
+    ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///         },
+    ///         EntityName = main.Id,
+    ///         EntityType = "cf_environment",
+    ///         Attributes = 
+    ///         {
+    ///             { "description", "Environment description" },
+    ///         },
+    ///     });
+    /// 
+    ///     var kafka_cluster = new ConfluentCloud.CatalogEntityAttributes("kafka-cluster", new()
+    ///     {
+    ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.CatalogEntityAttributesSchemaRegistryClusterArgs
+    ///         {
+    ///             Id = essentials.Id,
+    ///         },
+    ///         RestEndpoint = essentials.RestEndpoint,
+    ///         Credentials = new ConfluentCloud.Inputs.CatalogEntityAttributesCredentialsArgs
+    ///         {
+    ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///         },
+    ///         EntityName = basic.Id,
+    ///         EntityType = "kafka_logical_cluster",
+    ///         Attributes = 
+    ///         {
+    ///             { "description", "Kafka Cluster description" },
+    ///         },
+    ///     });
+    /// 
+    ///     var topic = new ConfluentCloud.CatalogEntityAttributes("topic", new()
+    ///     {
+    ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.CatalogEntityAttributesSchemaRegistryClusterArgs
+    ///         {
+    ///             Id = essentials.Id,
+    ///         },
+    ///         RestEndpoint = essentials.RestEndpoint,
+    ///         Credentials = new ConfluentCloud.Inputs.CatalogEntityAttributesCredentialsArgs
+    ///         {
+    ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///         },
+    ///         EntityName = $"{basic.Id}:{purchase.TopicName}",
+    ///         EntityType = "kafka_topic",
+    ///         Attributes = 
+    ///         {
+    ///             { "owner", "dev" },
+    ///             { "description", "Kafka topic for orders" },
+    ///             { "ownerEmail", "dev@gmail.com" },
+    ///         },
+    ///     });
+    /// 
+    ///     var schema = new ConfluentCloud.CatalogEntityAttributes("schema", new()
+    ///     {
+    ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.CatalogEntityAttributesSchemaRegistryClusterArgs
+    ///         {
+    ///             Id = essentials.Id,
+    ///         },
+    ///         RestEndpoint = essentials.RestEndpoint,
+    ///         Credentials = new ConfluentCloud.Inputs.CatalogEntityAttributesCredentialsArgs
+    ///         {
+    ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///         },
+    ///         EntityName = $"{essentials.Id}:.:{purchaseConfluentSchema.SchemaIdentifier}",
+    ///         EntityType = "sr_schema",
+    ///         Attributes = 
+    ///         {
+    ///             { "description", "Schema description" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var environment = new ConfluentCloud.CatalogEntityAttributes("environment", new()
+    ///     {
+    ///         EntityName = environmentId,
+    ///         EntityType = "cf_environment",
+    ///         Attributes = 
+    ///         {
+    ///             { "description", "Environment description" },
+    ///         },
+    ///     });
+    /// 
+    ///     var kafka_cluster = new ConfluentCloud.CatalogEntityAttributes("kafka-cluster", new()
+    ///     {
+    ///         EntityName = kafkaClusterId,
+    ///         EntityType = "kafka_logical_cluster",
+    ///         Attributes = 
+    ///         {
+    ///             { "description", "Kafka Cluster description" },
+    ///         },
+    ///     });
+    /// 
+    ///     var topic = new ConfluentCloud.CatalogEntityAttributes("topic", new()
+    ///     {
+    ///         EntityName = $"{kafkaClusterId}:{kafkaTopicName}",
+    ///         EntityType = "kafka_topic",
+    ///         Attributes = 
+    ///         {
+    ///             { "owner", "dev" },
+    ///             { "description", "Kafka topic for orders" },
+    ///             { "ownerEmail", "dev@gmail.com" },
+    ///         },
+    ///     });
+    /// 
+    ///     var schema = new ConfluentCloud.CatalogEntityAttributes("schema", new()
+    ///     {
+    ///         EntityName = $"{schemaRegistryClusterId}:.:{purchase.SchemaIdentifier}",
+    ///         EntityType = "sr_schema",
+    ///         Attributes = 
+    ///         {
+    ///             { "description", "Schema description" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes")]
     public partial class CatalogEntityAttributes : global::Pulumi.CustomResource
     {

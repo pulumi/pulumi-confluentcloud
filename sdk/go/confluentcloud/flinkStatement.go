@@ -12,11 +12,96 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewFlinkStatement(ctx, "random_int_table", &confluentcloud.FlinkStatementArgs{
+//				Organization: &confluentcloud.FlinkStatementOrganizationArgs{
+//					Id: pulumi.Any(main.Id),
+//				},
+//				Environment: &confluentcloud.FlinkStatementEnvironmentArgs{
+//					Id: pulumi.Any(staging.Id),
+//				},
+//				ComputePool: &confluentcloud.FlinkStatementComputePoolArgs{
+//					Id: pulumi.Any(example.Id),
+//				},
+//				Principal: &confluentcloud.FlinkStatementPrincipalArgs{
+//					Id: pulumi.Any(app_manager_flink.Id),
+//				},
+//				Statement: pulumi.String("CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);"),
+//				Properties: pulumi.StringMap{
+//					"sql.current-catalog":  pulumi.Any(exampleConfluentEnvironment.DisplayName),
+//					"sql.current-database": pulumi.Any(exampleConfluentKafkaCluster.DisplayName),
+//				},
+//				RestEndpoint: pulumi.Any(mainConfluentFlinkRegion.RestEndpoint),
+//				Credentials: &confluentcloud.FlinkStatementCredentialsArgs{
+//					Key:    pulumi.Any(env_admin_flink_api_key.Id),
+//					Secret: pulumi.Any(env_admin_flink_api_key.Secret),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewFlinkStatement(ctx, "example", &confluentcloud.FlinkStatementArgs{
+//				Statement: pulumi.String("CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);"),
+//				Properties: pulumi.StringMap{
+//					"sql.current-catalog":  pulumi.Any(confluentEnvironmentDisplayName),
+//					"sql.current-database": pulumi.Any(confluentKafkaClusterDisplayName),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Getting Started
+//
+// The following end-to-end example might help to get started with [Flink Statements](https://docs.confluent.io/cloud/current/flink/get-started/overview.html):
+//   - flink-quickstart
+//   - flink-carry-over-offset-between-statements
+//
 // ## Import
 //
 // You can import a Flink statement by using the Flink Statement name, for example:
 //
-// Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+// Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
 //
 // $ export IMPORT_CONFLUENT_ORGANIZATION_ID="<organization_id>"
 //
@@ -36,7 +121,7 @@ import (
 // $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
 // ```
 //
-// Option #2: Manage a single Flink Compute Pool in the same Terraform workspace
+// Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
 //
 // ```sh
 // $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67

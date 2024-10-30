@@ -159,7 +159,40 @@ def get_schema_registry_dek(algorithm: Optional[str] = None,
                             version: Optional[int] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryDekResult:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `SchemaRegistryDek` describes a Schema Registry Data Encryption Key (DEK) data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    my_key = confluentcloud.get_schema_registry_dek(schema_registry_cluster={
+            "id": essentials["id"],
+        },
+        rest_endpoint=essentials["restEndpoint"],
+        credentials={
+            "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+            "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+        },
+        kek_name="my_kek",
+        subject_name="my_subject")
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    my_key = confluentcloud.get_schema_registry_dek(kek_name="my_kek",
+        subject_name="my_subject")
+    ```
+
 
     :param str algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
            
@@ -201,7 +234,40 @@ def get_schema_registry_dek_output(algorithm: Optional[pulumi.Input[Optional[str
                                    version: Optional[pulumi.Input[Optional[int]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryDekResult]:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `SchemaRegistryDek` describes a Schema Registry Data Encryption Key (DEK) data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    my_key = confluentcloud.get_schema_registry_dek(schema_registry_cluster={
+            "id": essentials["id"],
+        },
+        rest_endpoint=essentials["restEndpoint"],
+        credentials={
+            "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+            "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+        },
+        kek_name="my_kek",
+        subject_name="my_subject")
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    my_key = confluentcloud.get_schema_registry_dek(kek_name="my_kek",
+        subject_name="my_subject")
+    ```
+
 
     :param str algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
            

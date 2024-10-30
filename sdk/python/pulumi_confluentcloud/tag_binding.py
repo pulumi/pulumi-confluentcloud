@@ -228,6 +228,51 @@ class TagBinding(pulumi.CustomResource):
                  tag_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `TagBinding` provides a Tag Binding resource that enables creating, editing, and deleting Tag Bindings on Confluent Cloud.
+
+        ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.get_kafka_topic(topic_name="orders")
+        main_tag_binding = confluentcloud.TagBinding("main",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            tag_name="PII",
+            entity_name=f"{schema_registry_id}:{kafka_id}:{main.topic_name}",
+            entity_type="kafka_topic")
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.get_kafka_topic(topic_name="orders")
+        topic_tagging = confluentcloud.TagBinding("topic-tagging",
+            tag_name="PII",
+            entity_name=f"{schema_registry_id}:{kafka_id}:{main.topic_name}",
+            entity_type="kafka_topic")
+        ```
+
+        ## Getting Started
+
+        The following end-to-end example might help to get started with [Stream Catalog](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html):
+        * stream-catalog
+
         ## Import
 
         You can import a Tag Binding by using the Schema Registry cluster ID, Tag name, entity name and entity type in the format `<Schema Registry Cluster Id>/<Tag Name>/<Entity Name>/<Entity Type>`, for example:
@@ -259,6 +304,51 @@ class TagBinding(pulumi.CustomResource):
                  args: TagBindingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `TagBinding` provides a Tag Binding resource that enables creating, editing, and deleting Tag Bindings on Confluent Cloud.
+
+        ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.get_kafka_topic(topic_name="orders")
+        main_tag_binding = confluentcloud.TagBinding("main",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            tag_name="PII",
+            entity_name=f"{schema_registry_id}:{kafka_id}:{main.topic_name}",
+            entity_type="kafka_topic")
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.get_kafka_topic(topic_name="orders")
+        topic_tagging = confluentcloud.TagBinding("topic-tagging",
+            tag_name="PII",
+            entity_name=f"{schema_registry_id}:{kafka_id}:{main.topic_name}",
+            entity_type="kafka_topic")
+        ```
+
+        ## Getting Started
+
+        The following end-to-end example might help to get started with [Stream Catalog](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html):
+        * stream-catalog
+
         ## Import
 
         You can import a Tag Binding by using the Schema Registry cluster ID, Tag name, entity name and entity type in the format `<Schema Registry Cluster Id>/<Tag Name>/<Entity Name>/<Entity Type>`, for example:

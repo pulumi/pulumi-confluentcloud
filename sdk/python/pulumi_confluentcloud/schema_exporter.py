@@ -420,6 +420,56 @@ class SchemaExporter(pulumi.CustomResource):
                  subjects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `SchemaExporter` provides a Schema Exporter resource that enables creating, editing, and deleting Schema Exporters on Confluent Cloud.
+
+        ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.SchemaExporter("main",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            name="test-exporter",
+            subjects=["foo"],
+            destination_schema_registry_cluster={
+                "rest_endpoint": destination["restEndpoint"],
+                "credentials": {
+                    "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.destination>",
+                    "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.destination>",
+                },
+            })
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.SchemaExporter("main",
+            name="test-exporter",
+            subjects=["foo"],
+            destination_schema_registry_cluster={
+                "rest_endpoint": destination["restEndpoint"],
+                "credentials": {
+                    "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.destination>",
+                    "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.destination>",
+                },
+            })
+        ```
+
         ## Import
 
         You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `<Schema Registry cluster ID>/<Schema Exporter name>`, for example:
@@ -458,6 +508,56 @@ class SchemaExporter(pulumi.CustomResource):
                  args: SchemaExporterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `SchemaExporter` provides a Schema Exporter resource that enables creating, editing, and deleting Schema Exporters on Confluent Cloud.
+
+        ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.SchemaExporter("main",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            name="test-exporter",
+            subjects=["foo"],
+            destination_schema_registry_cluster={
+                "rest_endpoint": destination["restEndpoint"],
+                "credentials": {
+                    "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.destination>",
+                    "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.destination>",
+                },
+            })
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.SchemaExporter("main",
+            name="test-exporter",
+            subjects=["foo"],
+            destination_schema_registry_cluster={
+                "rest_endpoint": destination["restEndpoint"],
+                "credentials": {
+                    "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.destination>",
+                    "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.destination>",
+                },
+            })
+        ```
+
         ## Import
 
         You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `<Schema Registry cluster ID>/<Schema Exporter name>`, for example:

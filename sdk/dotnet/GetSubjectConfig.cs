@@ -11,9 +11,23 @@ namespace Pulumi.ConfluentCloud
 {
     public static class GetSubjectConfig
     {
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluent_subject_compatibility_level` describes a Subject Config data source.
+        /// 
+        /// ## Example Usage
+        /// </summary>
         public static Task<GetSubjectConfigResult> InvokeAsync(GetSubjectConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubjectConfigResult>("confluentcloud:index/getSubjectConfig:getSubjectConfig", args ?? new GetSubjectConfigArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluent_subject_compatibility_level` describes a Subject Config data source.
+        /// 
+        /// ## Example Usage
+        /// </summary>
         public static Output<GetSubjectConfigResult> Invoke(GetSubjectConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubjectConfigResult>("confluentcloud:index/getSubjectConfig:getSubjectConfig", args ?? new GetSubjectConfigInvokeArgs(), options.WithDefaults());
     }

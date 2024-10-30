@@ -11,6 +11,73 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `SubjectMode` describes a Subject Mode data source.
+//
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			purchase_v1, err := confluentcloud.LookupSubjectMode(ctx, &confluentcloud.LookupSubjectModeArgs{
+//				SchemaRegistryCluster: confluentcloud.GetSubjectModeSchemaRegistryCluster{
+//					Id: essentials.Id,
+//				},
+//				RestEndpoint: pulumi.StringRef(essentials.RestEndpoint),
+//				SubjectName:  "proto-purchase-value",
+//				Credentials: confluentcloud.GetSubjectModeCredentials{
+//					Key:    "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+//					Secret: "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("mode", purchase_v1.Mode)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			purchase_v1, err := confluentcloud.LookupSubjectMode(ctx, &confluentcloud.LookupSubjectModeArgs{
+//				SubjectName: "proto-purchase-value",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("mode", purchase_v1.Mode)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSubjectMode(ctx *pulumi.Context, args *LookupSubjectModeArgs, opts ...pulumi.InvokeOption) (*LookupSubjectModeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubjectModeResult

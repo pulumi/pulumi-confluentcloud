@@ -11,6 +11,71 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `SchemaRegistryKek` describes a Schema Registry Key Encryption Key (KEK) data source.
+//
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.LookupSchemaRegistryKek(ctx, &confluentcloud.LookupSchemaRegistryKekArgs{
+//				SchemaRegistryCluster: confluentcloud.GetSchemaRegistryKekSchemaRegistryCluster{
+//					Id: essentials.Id,
+//				},
+//				RestEndpoint: pulumi.StringRef(essentials.RestEndpoint),
+//				Credentials: confluentcloud.GetSchemaRegistryKekCredentials{
+//					Key:    "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+//					Secret: "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+//				},
+//				Name: "my_key",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.LookupSchemaRegistryKek(ctx, &confluentcloud.LookupSchemaRegistryKekArgs{
+//				Name: "my_key",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSchemaRegistryKek(ctx *pulumi.Context, args *LookupSchemaRegistryKekArgs, opts ...pulumi.InvokeOption) (*LookupSchemaRegistryKekResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSchemaRegistryKekResult

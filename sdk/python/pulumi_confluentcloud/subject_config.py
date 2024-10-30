@@ -197,6 +197,38 @@ class SubjectConfig(pulumi.CustomResource):
                  subject_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.SubjectConfig("example",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials_confluent_schema_registry_cluster["restEndpoint"],
+            subject_name="proto-purchase-value",
+            compatibility_level="BACKWARD",
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            })
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.SubjectConfig("example",
+            subject_name="proto-purchase-value",
+            compatibility_level="BACKWARD")
+        ```
+
         ## Import
 
         You can import a Subject Config by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>/<Subject name>`, for example:
@@ -227,6 +259,38 @@ class SubjectConfig(pulumi.CustomResource):
                  args: SubjectConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.SubjectConfig("example",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials_confluent_schema_registry_cluster["restEndpoint"],
+            subject_name="proto-purchase-value",
+            compatibility_level="BACKWARD",
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            })
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.SubjectConfig("example",
+            subject_name="proto-purchase-value",
+            compatibility_level="BACKWARD")
+        ```
+
         ## Import
 
         You can import a Subject Config by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>/<Subject name>`, for example:

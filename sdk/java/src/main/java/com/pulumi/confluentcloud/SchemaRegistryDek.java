@@ -20,6 +20,101 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.SchemaRegistryDek` provides a Schema Registry Data Encryption Key (DEK) resource that enables creating, editing, and deleting Schema Registry Data Encryption Keys on Confluent Cloud.
+ * 
+ * ## Example Usage
+ * 
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.SchemaRegistryDek;
+ * import com.pulumi.confluentcloud.SchemaRegistryDekArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaRegistryDekSchemaRegistryClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaRegistryDekCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var myDek = new SchemaRegistryDek("myDek", SchemaRegistryDekArgs.builder()
+ *             .schemaRegistryCluster(SchemaRegistryDekSchemaRegistryClusterArgs.builder()
+ *                 .id(essentials.id())
+ *                 .build())
+ *             .restEndpoint(essentials.restEndpoint())
+ *             .credentials(SchemaRegistryDekCredentialsArgs.builder()
+ *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+ *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+ *                 .build())
+ *             .kekName("my_kek")
+ *             .subjectName("my_subject")
+ *             .hardDelete(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.SchemaRegistryDek;
+ * import com.pulumi.confluentcloud.SchemaRegistryDekArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var myDek = new SchemaRegistryDek("myDek", SchemaRegistryDekArgs.builder()
+ *             .kekName("my_kek")
+ *             .subjectName("my_subject")
+ *             .hardDelete(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end example might help to get started with field-level encryption:
+ *   * field-level-encryption-schema
+ * 
  * ## Import
  * 
  * You can import a Schema Registry Key by using the Schema Registry cluster ID, KEK name, Subject, Version and Algorithm in the format `&lt;Schema Registry Cluster Id&gt;/&lt;Schema Registry KEK Name&gt;/&lt;Subject&gt;/&lt;Version&gt;/&lt;Algorithm&gt;`, for example:

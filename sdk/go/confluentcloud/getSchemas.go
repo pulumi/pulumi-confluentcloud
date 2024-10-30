@@ -11,6 +11,81 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `getSchemas` describes a Schema data source.
+//
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := confluentcloud.GetSchemas(ctx, &confluentcloud.GetSchemasArgs{
+//				SchemaRegistryCluster: confluentcloud.GetSchemasSchemaRegistryCluster{
+//					Id: essentials.Id,
+//				},
+//				RestEndpoint: pulumi.StringRef(essentials.RestEndpoint),
+//				Filter: confluentcloud.GetSchemasFilter{
+//					SubjectPrefix: pulumi.StringRef("examples.record"),
+//					LatestOnly:    pulumi.BoolRef(false),
+//					Deleted:       pulumi.BoolRef(true),
+//				},
+//				Credentials: confluentcloud.GetSchemasCredentials{
+//					Key:    "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+//					Secret: "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("schemas", main.Schemas)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := confluentcloud.GetSchemas(ctx, &confluentcloud.GetSchemasArgs{
+//				Filter: confluentcloud.GetSchemasFilter{
+//					SubjectPrefix: pulumi.StringRef("examples.record"),
+//					LatestOnly:    pulumi.BoolRef(false),
+//					Deleted:       pulumi.BoolRef(true),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("schemas", main.Schemas)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetSchemas(ctx *pulumi.Context, args *GetSchemasArgs, opts ...pulumi.InvokeOption) (*GetSchemasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSchemasResult

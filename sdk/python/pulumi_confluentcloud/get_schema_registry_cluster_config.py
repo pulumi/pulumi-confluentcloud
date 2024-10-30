@@ -95,7 +95,39 @@ def get_schema_registry_cluster_config(credentials: Optional[Union['GetSchemaReg
                                        schema_registry_cluster: Optional[Union['GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'GetSchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryClusterConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `SchemaRegistryClusterConfig` describes a Schema Registry Cluster Config data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    example = confluentcloud.get_schema_registry_cluster_config(schema_registry_cluster={
+            "id": essentials["id"],
+        },
+        rest_endpoint=essentials["restEndpoint"],
+        credentials={
+            "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+            "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+        })
+    pulumi.export("compatibilityLevel", example.compatibility_level)
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    example = confluentcloud.get_schema_registry_cluster_config()
+    pulumi.export("compatibilityLevel", example.compatibility_level)
+    ```
+
 
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """
@@ -117,7 +149,39 @@ def get_schema_registry_cluster_config_output(credentials: Optional[pulumi.Input
                                               schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'GetSchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryClusterConfigResult]:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `SchemaRegistryClusterConfig` describes a Schema Registry Cluster Config data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    example = confluentcloud.get_schema_registry_cluster_config(schema_registry_cluster={
+            "id": essentials["id"],
+        },
+        rest_endpoint=essentials["restEndpoint"],
+        credentials={
+            "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+            "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+        })
+    pulumi.export("compatibilityLevel", example.compatibility_level)
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    example = confluentcloud.get_schema_registry_cluster_config()
+    pulumi.export("compatibilityLevel", example.compatibility_level)
+    ```
+
 
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """

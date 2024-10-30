@@ -6,6 +6,47 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.TagBinding` describes a Tag Binding data source.
+ *
+ * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getTagBinding({
+ *     schemaRegistryCluster: {
+ *         id: essentials.id,
+ *     },
+ *     restEndpoint: essentials.restEndpoint,
+ *     credentials: {
+ *         key: "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+ *         secret: "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+ *     },
+ *     tagName: "PII",
+ *     entityName: "lsrc-8wrx70:.:100001",
+ *     entityType: "sr_schema",
+ * });
+ * ```
+ *
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getTagBinding({
+ *     tagName: "PII",
+ *     entityName: "lsrc-8wrx70:.:100001",
+ *     entityType: "sr_schema",
+ * });
+ * ```
+ */
 export function getTagBinding(args: GetTagBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetTagBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getTagBinding:getTagBinding", {
@@ -59,6 +100,47 @@ export interface GetTagBindingResult {
     readonly schemaRegistryCluster?: outputs.GetTagBindingSchemaRegistryCluster;
     readonly tagName: string;
 }
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.TagBinding` describes a Tag Binding data source.
+ *
+ * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getTagBinding({
+ *     schemaRegistryCluster: {
+ *         id: essentials.id,
+ *     },
+ *     restEndpoint: essentials.restEndpoint,
+ *     credentials: {
+ *         key: "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+ *         secret: "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+ *     },
+ *     tagName: "PII",
+ *     entityName: "lsrc-8wrx70:.:100001",
+ *     entityType: "sr_schema",
+ * });
+ * ```
+ *
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getTagBinding({
+ *     tagName: "PII",
+ *     entityName: "lsrc-8wrx70:.:100001",
+ *     entityType: "sr_schema",
+ * });
+ * ```
+ */
 export function getTagBindingOutput(args: GetTagBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getTagBinding:getTagBinding", {
