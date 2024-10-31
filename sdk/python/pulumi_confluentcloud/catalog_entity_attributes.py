@@ -229,7 +229,113 @@ class CatalogEntityAttributes(pulumi.CustomResource):
                  schema_registry_cluster: Optional[pulumi.Input[Union['CatalogEntityAttributesSchemaRegistryClusterArgs', 'CatalogEntityAttributesSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
         """
-        Create a CatalogEntityAttributes resource with the given unique name, props, and options.
+        [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        > **Note:** `CatalogEntityAttributes` resource is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
+        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+
+        ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        environment = confluentcloud.CatalogEntityAttributes("environment",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            entity_name=main["id"],
+            entity_type="cf_environment",
+            attributes={
+                "description": "Environment description",
+            })
+        kafka_cluster = confluentcloud.CatalogEntityAttributes("kafka-cluster",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            entity_name=basic["id"],
+            entity_type="kafka_logical_cluster",
+            attributes={
+                "description": "Kafka Cluster description",
+            })
+        topic = confluentcloud.CatalogEntityAttributes("topic",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            entity_name=f"{basic['id']}:{purchase['topicName']}",
+            entity_type="kafka_topic",
+            attributes={
+                "owner": "dev",
+                "description": "Kafka topic for orders",
+                "ownerEmail": "dev@gmail.com",
+            })
+        schema = confluentcloud.CatalogEntityAttributes("schema",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            entity_name=f"{essentials['id']}:.:{purchase_confluent_schema['schemaIdentifier']}",
+            entity_type="sr_schema",
+            attributes={
+                "description": "Schema description",
+            })
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        environment = confluentcloud.CatalogEntityAttributes("environment",
+            entity_name=environment_id,
+            entity_type="cf_environment",
+            attributes={
+                "description": "Environment description",
+            })
+        kafka_cluster = confluentcloud.CatalogEntityAttributes("kafka-cluster",
+            entity_name=kafka_cluster_id,
+            entity_type="kafka_logical_cluster",
+            attributes={
+                "description": "Kafka Cluster description",
+            })
+        topic = confluentcloud.CatalogEntityAttributes("topic",
+            entity_name=f"{kafka_cluster_id}:{kafka_topic_name}",
+            entity_type="kafka_topic",
+            attributes={
+                "owner": "dev",
+                "description": "Kafka topic for orders",
+                "ownerEmail": "dev@gmail.com",
+            })
+        schema = confluentcloud.CatalogEntityAttributes("schema",
+            entity_name=f"{schema_registry_cluster_id}:.:{purchase['schemaIdentifier']}",
+            entity_type="sr_schema",
+            attributes={
+                "description": "Schema description",
+            })
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: The attributes.
@@ -245,7 +351,113 @@ class CatalogEntityAttributes(pulumi.CustomResource):
                  args: CatalogEntityAttributesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a CatalogEntityAttributes resource with the given unique name, props, and options.
+        [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        > **Note:** `CatalogEntityAttributes` resource is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
+        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+
+        ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        environment = confluentcloud.CatalogEntityAttributes("environment",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            entity_name=main["id"],
+            entity_type="cf_environment",
+            attributes={
+                "description": "Environment description",
+            })
+        kafka_cluster = confluentcloud.CatalogEntityAttributes("kafka-cluster",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            entity_name=basic["id"],
+            entity_type="kafka_logical_cluster",
+            attributes={
+                "description": "Kafka Cluster description",
+            })
+        topic = confluentcloud.CatalogEntityAttributes("topic",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            entity_name=f"{basic['id']}:{purchase['topicName']}",
+            entity_type="kafka_topic",
+            attributes={
+                "owner": "dev",
+                "description": "Kafka topic for orders",
+                "ownerEmail": "dev@gmail.com",
+            })
+        schema = confluentcloud.CatalogEntityAttributes("schema",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            entity_name=f"{essentials['id']}:.:{purchase_confluent_schema['schemaIdentifier']}",
+            entity_type="sr_schema",
+            attributes={
+                "description": "Schema description",
+            })
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        environment = confluentcloud.CatalogEntityAttributes("environment",
+            entity_name=environment_id,
+            entity_type="cf_environment",
+            attributes={
+                "description": "Environment description",
+            })
+        kafka_cluster = confluentcloud.CatalogEntityAttributes("kafka-cluster",
+            entity_name=kafka_cluster_id,
+            entity_type="kafka_logical_cluster",
+            attributes={
+                "description": "Kafka Cluster description",
+            })
+        topic = confluentcloud.CatalogEntityAttributes("topic",
+            entity_name=f"{kafka_cluster_id}:{kafka_topic_name}",
+            entity_type="kafka_topic",
+            attributes={
+                "owner": "dev",
+                "description": "Kafka topic for orders",
+                "ownerEmail": "dev@gmail.com",
+            })
+        schema = confluentcloud.CatalogEntityAttributes("schema",
+            entity_name=f"{schema_registry_cluster_id}:.:{purchase['schemaIdentifier']}",
+            entity_type="sr_schema",
+            attributes={
+                "description": "Schema description",
+            })
+        ```
+
         :param str resource_name: The name of the resource.
         :param CatalogEntityAttributesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -18,11 +18,169 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.KafkaAcl` provides a Kafka ACL resource that enables creating and deleting Kafka ACLs on Confluent Cloud.
+ * 
+ * ## Example Usage
+ * 
+ * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.KafkaAcl;
+ * import com.pulumi.confluentcloud.KafkaAclArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaAclKafkaClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaAclCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var describe_basic_cluster = new KafkaAcl("describe-basic-cluster", KafkaAclArgs.builder()
+ *             .kafkaCluster(KafkaAclKafkaClusterArgs.builder()
+ *                 .id(basic_cluster.id())
+ *                 .build())
+ *             .resourceType("CLUSTER")
+ *             .resourceName("kafka-cluster")
+ *             .patternType("LITERAL")
+ *             .principal("User:sa-xyz123")
+ *             .host("*")
+ *             .operation("DESCRIBE")
+ *             .permission("ALLOW")
+ *             .restEndpoint(basic_cluster.restEndpoint())
+ *             .credentials(KafkaAclCredentialsArgs.builder()
+ *                 .key(app_manager_kafka_api_key.id())
+ *                 .secret(app_manager_kafka_api_key.secret())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.KafkaAcl;
+ * import com.pulumi.confluentcloud.KafkaAclArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var describe_basic_cluster = new KafkaAcl("describe-basic-cluster", KafkaAclArgs.builder()
+ *             .resourceType("CLUSTER")
+ *             .resourceName("kafka-cluster")
+ *             .patternType("LITERAL")
+ *             .principal("User:sa-xyz123")
+ *             .host("*")
+ *             .operation("DESCRIBE")
+ *             .permission("ALLOW")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.KafkaAcl` resource:
+ *   * `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs
+ *   * `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs
+ *   * `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs
+ *   * `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs
+ *   * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ *   * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+ *   * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+ *   * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+ *   * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+ *   * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+ *   * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ * 
+ * ## Other Example Usages
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.KafkaAcl;
+ * import com.pulumi.confluentcloud.KafkaAclArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // https://github.com/confluentinc/terraform-provider-confluent/issues/241
+ *         var app_producer_write_on_topic = new KafkaAcl("app-producer-write-on-topic", KafkaAclArgs.builder()
+ *             .resourceType("TOPIC")
+ *             .resourceName(orders.topicName())
+ *             .patternType("LITERAL")
+ *             .principal(String.format("User:%s", this_.id()))
+ *             .host("*")
+ *             .operation("WRITE")
+ *             .permission("ALLOW")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka ACL resource type&gt;#&lt;Kafka ACL resource name&gt;#&lt;Kafka ACL pattern type&gt;#&lt;Kafka ACL principal&gt;#&lt;Kafka ACL host&gt;#&lt;Kafka ACL operation&gt;#&lt;Kafka ACL permission&gt;`, for example:
  * 
- * Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+ * Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
  * 
  * $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34;
  * 
@@ -34,7 +192,7 @@ import javax.annotation.Nullable;
  * $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster &#34;lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW&#34;
  * ```
  * 
- * Option #2: Manage a single Kafka cluster in the same Terraform workspace
+ * Option #2: Manage a single Kafka cluster in the same Pulumi Stack
  * 
  * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
  * 

@@ -11,9 +11,131 @@ namespace Pulumi.ConfluentCloud
 {
     public static class GetKafkaTopic
     {
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
+        ///     {
+        ///         KafkaCluster = new ConfluentCloud.Inputs.GetKafkaTopicKafkaClusterInputArgs
+        ///         {
+        ///             Id = basic_cluster.Id,
+        ///         },
+        ///         TopicName = "orders",
+        ///         RestEndpoint = basic_cluster.RestEndpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetKafkaTopicCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;",
+        ///             Secret = "&lt;Kafka API Secret for confluent_kafka_cluster.basic-cluster&gt;",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["config"] = orders.Apply(getKafkaTopicResult =&gt; getKafkaTopicResult.Config),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
+        ///     {
+        ///         TopicName = "orders",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["config"] = orders.Apply(getKafkaTopicResult =&gt; getKafkaTopicResult.Config),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Task<GetKafkaTopicResult> InvokeAsync(GetKafkaTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKafkaTopicResult>("confluentcloud:index/getKafkaTopic:getKafkaTopic", args ?? new GetKafkaTopicArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
+        ///     {
+        ///         KafkaCluster = new ConfluentCloud.Inputs.GetKafkaTopicKafkaClusterInputArgs
+        ///         {
+        ///             Id = basic_cluster.Id,
+        ///         },
+        ///         TopicName = "orders",
+        ///         RestEndpoint = basic_cluster.RestEndpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetKafkaTopicCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;",
+        ///             Secret = "&lt;Kafka API Secret for confluent_kafka_cluster.basic-cluster&gt;",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["config"] = orders.Apply(getKafkaTopicResult =&gt; getKafkaTopicResult.Config),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
+        ///     {
+        ///         TopicName = "orders",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["config"] = orders.Apply(getKafkaTopicResult =&gt; getKafkaTopicResult.Config),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetKafkaTopicResult> Invoke(GetKafkaTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaTopicResult>("confluentcloud:index/getKafkaTopic:getKafkaTopic", args ?? new GetKafkaTopicInvokeArgs(), options.WithDefaults());
     }

@@ -207,7 +207,42 @@ def get_schema(credentials: Optional[Union['GetSchemaCredentialsArgs', 'GetSchem
                subject_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaResult:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `Schema` describes a Schema data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    purchase_v1 = confluentcloud.get_schema(schema_registry_cluster={
+            "id": essentials["id"],
+        },
+        rest_endpoint=essentials["restEndpoint"],
+        subject_name="proto-purchase-value",
+        schema_identifier=10001,
+        credentials={
+            "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+            "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+        })
+    pulumi.export("schema", purchase_v1.schema)
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    purchase_v1 = confluentcloud.get_schema(subject_name="proto-purchase-value",
+        schema_identifier=10001)
+    pulumi.export("schema", purchase_v1.schema)
+    ```
+
 
     :param Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict'] metadata: (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -253,7 +288,42 @@ def get_schema_output(credentials: Optional[pulumi.Input[Optional[Union['GetSche
                       subject_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaResult]:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `Schema` describes a Schema data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    purchase_v1 = confluentcloud.get_schema(schema_registry_cluster={
+            "id": essentials["id"],
+        },
+        rest_endpoint=essentials["restEndpoint"],
+        subject_name="proto-purchase-value",
+        schema_identifier=10001,
+        credentials={
+            "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+            "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+        })
+    pulumi.export("schema", purchase_v1.schema)
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    purchase_v1 = confluentcloud.get_schema(subject_name="proto-purchase-value",
+        schema_identifier=10001)
+    pulumi.export("schema", purchase_v1.schema)
+    ```
+
 
     :param Union['GetSchemaMetadataArgs', 'GetSchemaMetadataArgsDict'] metadata: (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

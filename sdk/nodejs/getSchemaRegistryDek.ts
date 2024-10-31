@@ -6,6 +6,45 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.SchemaRegistryDek` describes a Schema Registry Data Encryption Key (DEK) data source.
+ *
+ * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const myKey = confluentcloud.getSchemaRegistryDek({
+ *     schemaRegistryCluster: {
+ *         id: essentials.id,
+ *     },
+ *     restEndpoint: essentials.restEndpoint,
+ *     credentials: {
+ *         key: "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+ *         secret: "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+ *     },
+ *     kekName: "my_kek",
+ *     subjectName: "my_subject",
+ * });
+ * ```
+ *
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const myKey = confluentcloud.getSchemaRegistryDek({
+ *     kekName: "my_kek",
+ *     subjectName: "my_subject",
+ * });
+ * ```
+ */
 export function getSchemaRegistryDek(args: GetSchemaRegistryDekArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryDekResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek", {
@@ -77,6 +116,45 @@ export interface GetSchemaRegistryDekResult {
     readonly subjectName: string;
     readonly version?: number;
 }
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.SchemaRegistryDek` describes a Schema Registry Data Encryption Key (DEK) data source.
+ *
+ * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const myKey = confluentcloud.getSchemaRegistryDek({
+ *     schemaRegistryCluster: {
+ *         id: essentials.id,
+ *     },
+ *     restEndpoint: essentials.restEndpoint,
+ *     credentials: {
+ *         key: "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+ *         secret: "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+ *     },
+ *     kekName: "my_kek",
+ *     subjectName: "my_subject",
+ * });
+ * ```
+ *
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const myKey = confluentcloud.getSchemaRegistryDek({
+ *     kekName: "my_kek",
+ *     subjectName: "my_subject",
+ * });
+ * ```
+ */
 export function getSchemaRegistryDekOutput(args: GetSchemaRegistryDekOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryDekResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek", {

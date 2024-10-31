@@ -11,6 +11,68 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewSchemaRegistryClusterConfig(ctx, "example", &confluentcloud.SchemaRegistryClusterConfigArgs{
+//				SchemaRegistryCluster: &confluentcloud.SchemaRegistryClusterConfigSchemaRegistryClusterArgs{
+//					Id: pulumi.Any(essentials.Id),
+//				},
+//				RestEndpoint:       pulumi.Any(essentials.RestEndpoint),
+//				CompatibilityLevel: pulumi.String("FULL"),
+//				Credentials: &confluentcloud.SchemaRegistryClusterConfigCredentialsArgs{
+//					Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>"),
+//					Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewSchemaRegistryClusterConfig(ctx, "example", &confluentcloud.SchemaRegistryClusterConfigArgs{
+//				CompatibilityLevel: pulumi.String("FULL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // You can import a Schema Registry Cluster Config by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>`, for example:

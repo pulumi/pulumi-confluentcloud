@@ -10,6 +10,56 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new ConfluentCloud.SubjectConfig("example", new()
+    ///     {
+    ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.SubjectConfigSchemaRegistryClusterArgs
+    ///         {
+    ///             Id = essentials.Id,
+    ///         },
+    ///         RestEndpoint = essentialsConfluentSchemaRegistryCluster.RestEndpoint,
+    ///         SubjectName = "proto-purchase-value",
+    ///         CompatibilityLevel = "BACKWARD",
+    ///         Credentials = new ConfluentCloud.Inputs.SubjectConfigCredentialsArgs
+    ///         {
+    ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new ConfluentCloud.SubjectConfig("example", new()
+    ///     {
+    ///         SubjectName = "proto-purchase-value",
+    ///         CompatibilityLevel = "BACKWARD",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// You can import a Subject Config by using the Schema Registry cluster ID, Subject name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;`, for example:

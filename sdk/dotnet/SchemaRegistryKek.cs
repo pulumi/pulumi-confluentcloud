@@ -10,6 +10,73 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    /// 
+    /// `confluentcloud.SchemaRegistryKek` provides a Schema Registry Key Encryption Key (KEK) resource that enables creating, editing, and deleting Schema Registry Key Encryption Keys on Confluent Cloud.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var awsKey = new ConfluentCloud.SchemaRegistryKek("aws_key", new()
+    ///     {
+    ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.SchemaRegistryKekSchemaRegistryClusterArgs
+    ///         {
+    ///             Id = essentials.Id,
+    ///         },
+    ///         RestEndpoint = essentials.RestEndpoint,
+    ///         Credentials = new ConfluentCloud.Inputs.SchemaRegistryKekCredentialsArgs
+    ///         {
+    ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///         },
+    ///         Name = "my_key",
+    ///         KmsType = "aws-kms",
+    ///         KmsKeyId = "key_id",
+    ///         Doc = "test key",
+    ///         Shared = false,
+    ///         HardDelete = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pii = new ConfluentCloud.SchemaRegistryKek("pii", new()
+    ///     {
+    ///         Name = "my_key",
+    ///         KmsType = "aws-kms",
+    ///         KmsKeyId = "key_id",
+    ///         Doc = "test key",
+    ///         Shared = false,
+    ///         HardDelete = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end example might help to get started with field-level encryption:
+    ///   * field-level-encryption-schema
+    /// 
     /// ## Import
     /// 
     /// You can import a Schema Registry Key by using the Schema Registry cluster ID, Kek name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Kek name&gt;`, for example:

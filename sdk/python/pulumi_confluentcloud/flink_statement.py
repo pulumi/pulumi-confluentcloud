@@ -382,11 +382,64 @@ class FlinkStatement(pulumi.CustomResource):
                  stopped: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ### Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        random_int_table = confluentcloud.FlinkStatement("random_int_table",
+            organization={
+                "id": main["id"],
+            },
+            environment={
+                "id": staging["id"],
+            },
+            compute_pool={
+                "id": example["id"],
+            },
+            principal={
+                "id": app_manager_flink["id"],
+            },
+            statement="CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);",
+            properties={
+                "sql.current-catalog": example_confluent_environment["displayName"],
+                "sql.current-database": example_confluent_kafka_cluster["displayName"],
+            },
+            rest_endpoint=main_confluent_flink_region["restEndpoint"],
+            credentials={
+                "key": env_admin_flink_api_key["id"],
+                "secret": env_admin_flink_api_key["secret"],
+            })
+        ```
+
+        ### Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.FlinkStatement("example",
+            statement="CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);",
+            properties={
+                "sql.current-catalog": confluent_environment_display_name,
+                "sql.current-database": confluent_kafka_cluster_display_name,
+            })
+        ```
+
+        ## Getting Started
+
+        The following end-to-end example might help to get started with [Flink Statements](https://docs.confluent.io/cloud/current/flink/get-started/overview.html):
+          * flink-quickstart
+          * flink-carry-over-offset-between-statements
+
         ## Import
 
         You can import a Flink statement by using the Flink Statement name, for example:
 
-        Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+        Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
 
         $ export IMPORT_CONFLUENT_ORGANIZATION_ID="<organization_id>"
 
@@ -406,7 +459,7 @@ class FlinkStatement(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
         ```
 
-        Option #2: Manage a single Flink Compute Pool in the same Terraform workspace
+        Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
 
         ```sh
         $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
@@ -430,11 +483,64 @@ class FlinkStatement(pulumi.CustomResource):
                  args: FlinkStatementArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ### Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        random_int_table = confluentcloud.FlinkStatement("random_int_table",
+            organization={
+                "id": main["id"],
+            },
+            environment={
+                "id": staging["id"],
+            },
+            compute_pool={
+                "id": example["id"],
+            },
+            principal={
+                "id": app_manager_flink["id"],
+            },
+            statement="CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);",
+            properties={
+                "sql.current-catalog": example_confluent_environment["displayName"],
+                "sql.current-database": example_confluent_kafka_cluster["displayName"],
+            },
+            rest_endpoint=main_confluent_flink_region["restEndpoint"],
+            credentials={
+                "key": env_admin_flink_api_key["id"],
+                "secret": env_admin_flink_api_key["secret"],
+            })
+        ```
+
+        ### Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.FlinkStatement("example",
+            statement="CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);",
+            properties={
+                "sql.current-catalog": confluent_environment_display_name,
+                "sql.current-database": confluent_kafka_cluster_display_name,
+            })
+        ```
+
+        ## Getting Started
+
+        The following end-to-end example might help to get started with [Flink Statements](https://docs.confluent.io/cloud/current/flink/get-started/overview.html):
+          * flink-quickstart
+          * flink-carry-over-offset-between-statements
+
         ## Import
 
         You can import a Flink statement by using the Flink Statement name, for example:
 
-        Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+        Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
 
         $ export IMPORT_CONFLUENT_ORGANIZATION_ID="<organization_id>"
 
@@ -454,7 +560,7 @@ class FlinkStatement(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
         ```
 
-        Option #2: Manage a single Flink Compute Pool in the same Terraform workspace
+        Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
 
         ```sh
         $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67

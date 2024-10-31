@@ -6,6 +6,45 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
+ *
+ * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const orders = confluentcloud.getKafkaTopic({
+ *     kafkaCluster: {
+ *         id: basic_cluster.id,
+ *     },
+ *     topicName: "orders",
+ *     restEndpoint: basic_cluster.restEndpoint,
+ *     credentials: {
+ *         key: "<Kafka API Key for confluent_kafka_cluster.basic-cluster>",
+ *         secret: "<Kafka API Secret for confluent_kafka_cluster.basic-cluster>",
+ *     },
+ * });
+ * export const config = orders.then(orders => orders.config);
+ * ```
+ *
+ * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const orders = confluentcloud.getKafkaTopic({
+ *     topicName: "orders",
+ * });
+ * export const config = orders.then(orders => orders.config);
+ * ```
+ */
 export function getKafkaTopic(args: GetKafkaTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getKafkaTopic:getKafkaTopic", {
@@ -53,6 +92,45 @@ export interface GetKafkaTopicResult {
     readonly restEndpoint: string;
     readonly topicName: string;
 }
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
+ *
+ * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const orders = confluentcloud.getKafkaTopic({
+ *     kafkaCluster: {
+ *         id: basic_cluster.id,
+ *     },
+ *     topicName: "orders",
+ *     restEndpoint: basic_cluster.restEndpoint,
+ *     credentials: {
+ *         key: "<Kafka API Key for confluent_kafka_cluster.basic-cluster>",
+ *         secret: "<Kafka API Secret for confluent_kafka_cluster.basic-cluster>",
+ *     },
+ * });
+ * export const config = orders.then(orders => orders.config);
+ * ```
+ *
+ * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const orders = confluentcloud.getKafkaTopic({
+ *     topicName: "orders",
+ * });
+ * export const config = orders.then(orders => orders.config);
+ * ```
+ */
 export function getKafkaTopicOutput(args: GetKafkaTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getKafkaTopic:getKafkaTopic", {

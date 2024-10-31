@@ -7,11 +7,51 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.KafkaClusterConfig` provides a Kafka cluster config resource that enables updating configs on a Dedicated Kafka cluster on Confluent Cloud.
+ *
+ * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const orders = new confluentcloud.KafkaClusterConfig("orders", {
+ *     kafkaCluster: {
+ *         id: dedicated.id,
+ *     },
+ *     restEndpoint: dedicated.restEndpoint,
+ *     config: {
+ *         "auto.create.topics.enable": "true",
+ *         "log.retention.ms": "604800123",
+ *     },
+ *     credentials: {
+ *         key: app_manager_kafka_api_key.id,
+ *         secret: app_manager_kafka_api_key.secret,
+ *     },
+ * });
+ * ```
+ *
+ * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const orders = new confluentcloud.KafkaClusterConfig("orders", {config: {
+ *     "auto.create.topics.enable": "true",
+ *     "log.retention.ms": "604800123",
+ * }});
+ * ```
+ *
  * ## Import
  *
  * You can import a Kafka cluster config by using the Kafka cluster ID, for example:
  *
- * Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+ * Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
  *
  * $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
  *
@@ -23,7 +63,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
  * ```
  *
- * Option #2: Manage a single Kafka cluster in the same Terraform workspace
+ * Option #2: Manage a single Kafka cluster in the same Pulumi Stack
  *
  * ```sh
  * $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123

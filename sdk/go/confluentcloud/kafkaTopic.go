@@ -12,11 +12,98 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewKafkaTopic(ctx, "orders", &confluentcloud.KafkaTopicArgs{
+//				KafkaCluster: &confluentcloud.KafkaTopicKafkaClusterArgs{
+//					Id: pulumi.Any(basic_cluster.Id),
+//				},
+//				TopicName:    pulumi.String("orders"),
+//				RestEndpoint: pulumi.Any(basic_cluster.RestEndpoint),
+//				Credentials: &confluentcloud.KafkaTopicCredentialsArgs{
+//					Key:    pulumi.Any(app_manager_kafka_api_key.Id),
+//					Secret: pulumi.Any(app_manager_kafka_api_key.Secret),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewKafkaTopic(ctx, "orders", &confluentcloud.KafkaTopicArgs{
+//				TopicName: pulumi.String("orders"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `KafkaTopic` resource:
+//   - `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs
+//   - `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs
+//   - `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs
+//   - `standard-kafka-rbac`: _Standard_ Kafka cluster with authorization using RBAC
+//   - `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs
+//   - `dedicated-public-kafka-rbac`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+//   - `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+//   - `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+//   - `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+//   - `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+//   - `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+//   - `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+//   - `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+//   - `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+//   - `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+//
 // ## Import
 //
 // You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for example:
 //
-// Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+// Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
 //
 // $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
 //
@@ -28,7 +115,7 @@ import (
 // $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
 // ```
 //
-// Option #2: Manage a single Kafka cluster in the same Terraform workspace
+// Option #2: Manage a single Kafka cluster in the same Pulumi Stack
 //
 // ```sh
 // $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123

@@ -346,27 +346,747 @@ public final class ConfluentcloudFunctions {
     public static CompletableFuture<GetAccessPointResult> getAccessPointPlain(GetAccessPointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getAccessPoint:getAccessPoint", TypeShape.of(GetAccessPointResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.BusinessMetadata` describes a Business Metadata data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
+     *             .schemaRegistryCluster(GetBusinessMetadataSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetBusinessMetadataCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args) {
         return getBusinessMetadata(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.BusinessMetadata` describes a Business Metadata data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
+     *             .schemaRegistryCluster(GetBusinessMetadataSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetBusinessMetadataCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetBusinessMetadataResult> getBusinessMetadataPlain(GetBusinessMetadataPlainArgs args) {
         return getBusinessMetadataPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.BusinessMetadata` describes a Business Metadata data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
+     *             .schemaRegistryCluster(GetBusinessMetadataSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetBusinessMetadataCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getBusinessMetadata:getBusinessMetadata", TypeShape.of(GetBusinessMetadataResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.BusinessMetadata` describes a Business Metadata data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
+     *             .schemaRegistryCluster(GetBusinessMetadataSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetBusinessMetadataCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetBusinessMetadataResult> getBusinessMetadataPlain(GetBusinessMetadataPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getBusinessMetadata:getBusinessMetadata", TypeShape.of(GetBusinessMetadataResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.BusinessMetadataBinding` describes a Business Metadata Binding data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
+     *             .schemaRegistryCluster(GetBusinessMetadataBindingSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetBusinessMetadataBindingCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .businessMetadataName(pii.name())
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .entityType("kafka_topic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
+     *             .businessMetadataName(pii.name())
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .entityType("kafka_topic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetBusinessMetadataBindingResult> getBusinessMetadataBinding(GetBusinessMetadataBindingArgs args) {
         return getBusinessMetadataBinding(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.BusinessMetadataBinding` describes a Business Metadata Binding data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
+     *             .schemaRegistryCluster(GetBusinessMetadataBindingSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetBusinessMetadataBindingCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .businessMetadataName(pii.name())
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .entityType("kafka_topic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
+     *             .businessMetadataName(pii.name())
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .entityType("kafka_topic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetBusinessMetadataBindingResult> getBusinessMetadataBindingPlain(GetBusinessMetadataBindingPlainArgs args) {
         return getBusinessMetadataBindingPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.BusinessMetadataBinding` describes a Business Metadata Binding data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
+     *             .schemaRegistryCluster(GetBusinessMetadataBindingSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetBusinessMetadataBindingCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .businessMetadataName(pii.name())
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .entityType("kafka_topic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
+     *             .businessMetadataName(pii.name())
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .entityType("kafka_topic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetBusinessMetadataBindingResult> getBusinessMetadataBinding(GetBusinessMetadataBindingArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", TypeShape.of(GetBusinessMetadataBindingResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.BusinessMetadataBinding` describes a Business Metadata Binding data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
+     *             .schemaRegistryCluster(GetBusinessMetadataBindingSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetBusinessMetadataBindingCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .businessMetadataName(pii.name())
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .entityType("kafka_topic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
+     *             .businessMetadataName(pii.name())
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .entityType("kafka_topic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetBusinessMetadataBindingResult> getBusinessMetadataBindingPlain(GetBusinessMetadataBindingPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", TypeShape.of(GetBusinessMetadataBindingResult.class), args, Utilities.withVersion(options));
     }
@@ -4372,15 +5092,375 @@ public final class ConfluentcloudFunctions {
     public static CompletableFuture<GetKafkaClusterResult> getKafkaClusterPlain(GetKafkaClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getKafkaCluster:getKafkaCluster", TypeShape.of(GetKafkaClusterResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+     *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
+     *                 .id(basic_cluster.id())
+     *                 .build())
+     *             .topicName("orders")
+     *             .restEndpoint(basic_cluster.restEndpoint())
+     *             .credentials(GetKafkaTopicCredentialsArgs.builder()
+     *                 .key("<Kafka API Key for confluent_kafka_cluster.basic-cluster>")
+     *                 .secret("<Kafka API Secret for confluent_kafka_cluster.basic-cluster>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+     *             .topicName("orders")
+     *             .build());
+     * 
+     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetKafkaTopicResult> getKafkaTopic(GetKafkaTopicArgs args) {
         return getKafkaTopic(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+     *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
+     *                 .id(basic_cluster.id())
+     *                 .build())
+     *             .topicName("orders")
+     *             .restEndpoint(basic_cluster.restEndpoint())
+     *             .credentials(GetKafkaTopicCredentialsArgs.builder()
+     *                 .key("<Kafka API Key for confluent_kafka_cluster.basic-cluster>")
+     *                 .secret("<Kafka API Secret for confluent_kafka_cluster.basic-cluster>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+     *             .topicName("orders")
+     *             .build());
+     * 
+     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetKafkaTopicResult> getKafkaTopicPlain(GetKafkaTopicPlainArgs args) {
         return getKafkaTopicPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+     *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
+     *                 .id(basic_cluster.id())
+     *                 .build())
+     *             .topicName("orders")
+     *             .restEndpoint(basic_cluster.restEndpoint())
+     *             .credentials(GetKafkaTopicCredentialsArgs.builder()
+     *                 .key("<Kafka API Key for confluent_kafka_cluster.basic-cluster>")
+     *                 .secret("<Kafka API Secret for confluent_kafka_cluster.basic-cluster>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+     *             .topicName("orders")
+     *             .build());
+     * 
+     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetKafkaTopicResult> getKafkaTopic(GetKafkaTopicArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getKafkaTopic:getKafkaTopic", TypeShape.of(GetKafkaTopicResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+     *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
+     *                 .id(basic_cluster.id())
+     *                 .build())
+     *             .topicName("orders")
+     *             .restEndpoint(basic_cluster.restEndpoint())
+     *             .credentials(GetKafkaTopicCredentialsArgs.builder()
+     *                 .key("<Kafka API Key for confluent_kafka_cluster.basic-cluster>")
+     *                 .secret("<Kafka API Secret for confluent_kafka_cluster.basic-cluster>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+     *             .topicName("orders")
+     *             .build());
+     * 
+     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetKafkaTopicResult> getKafkaTopicPlain(GetKafkaTopicPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getKafkaTopic:getKafkaTopic", TypeShape.of(GetKafkaTopicResult.class), args, Utilities.withVersion(options));
     }
@@ -6812,15 +7892,383 @@ public final class ConfluentcloudFunctions {
     public static CompletableFuture<GetRoleBindingResult> getRoleBindingPlain(GetRoleBindingPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getRoleBinding:getRoleBinding", TypeShape.of(GetRoleBindingResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Schema` describes a Schema data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .schemaIdentifier(10001)
+     *             .credentials(GetSchemaCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schema", purchase_v1.schema());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .schemaIdentifier(10001)
+     *             .build());
+     * 
+     *         ctx.export("schema", purchase_v1.schema());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemaResult> getSchema(GetSchemaArgs args) {
         return getSchema(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Schema` describes a Schema data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .schemaIdentifier(10001)
+     *             .credentials(GetSchemaCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schema", purchase_v1.schema());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .schemaIdentifier(10001)
+     *             .build());
+     * 
+     *         ctx.export("schema", purchase_v1.schema());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaResult> getSchemaPlain(GetSchemaPlainArgs args) {
         return getSchemaPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Schema` describes a Schema data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .schemaIdentifier(10001)
+     *             .credentials(GetSchemaCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schema", purchase_v1.schema());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .schemaIdentifier(10001)
+     *             .build());
+     * 
+     *         ctx.export("schema", purchase_v1.schema());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemaResult> getSchema(GetSchemaArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchema:getSchema", TypeShape.of(GetSchemaResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Schema` describes a Schema data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .schemaIdentifier(10001)
+     *             .credentials(GetSchemaCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schema", purchase_v1.schema());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .schemaIdentifier(10001)
+     *             .build());
+     * 
+     *         ctx.export("schema", purchase_v1.schema());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaResult> getSchemaPlain(GetSchemaPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchema:getSchema", TypeShape.of(GetSchemaResult.class), args, Utilities.withVersion(options));
     }
@@ -7084,39 +8532,1083 @@ public final class ConfluentcloudFunctions {
     public static CompletableFuture<GetSchemaRegistryClusterResult> getSchemaRegistryClusterPlain(GetSchemaRegistryClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", TypeShape.of(GetSchemaRegistryClusterResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterConfig` describes a Schema Registry Cluster Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfig() {
         return getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterConfig` describes a Schema Registry Cluster Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfigPlain() {
         return getSchemaRegistryClusterConfigPlain(GetSchemaRegistryClusterConfigPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterConfig` describes a Schema Registry Cluster Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs args) {
         return getSchemaRegistryClusterConfig(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterConfig` describes a Schema Registry Cluster Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfigPlain(GetSchemaRegistryClusterConfigPlainArgs args) {
         return getSchemaRegistryClusterConfigPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterConfig` describes a Schema Registry Cluster Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig", TypeShape.of(GetSchemaRegistryClusterConfigResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterConfig` describes a Schema Registry Cluster Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfigPlain(GetSchemaRegistryClusterConfigPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig", TypeShape.of(GetSchemaRegistryClusterConfigResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterMode` describes a Mode data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterMode() {
         return getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterMode` describes a Mode data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterModePlain() {
         return getSchemaRegistryClusterModePlain(GetSchemaRegistryClusterModePlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterMode` describes a Mode data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs args) {
         return getSchemaRegistryClusterMode(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterMode` describes a Mode data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterModePlain(GetSchemaRegistryClusterModePlainArgs args) {
         return getSchemaRegistryClusterModePlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterMode` describes a Mode data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode", TypeShape.of(GetSchemaRegistryClusterModeResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterMode` describes a Mode data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterModePlain(GetSchemaRegistryClusterModePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode", TypeShape.of(GetSchemaRegistryClusterModeResult.class), args, Utilities.withVersion(options));
     }
@@ -7402,45 +9894,1357 @@ public final class ConfluentcloudFunctions {
     public static CompletableFuture<GetSchemaRegistryClustersResult> getSchemaRegistryClustersPlain(GetSchemaRegistryClustersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", TypeShape.of(GetSchemaRegistryClustersResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryDek` describes a Schema Registry Data Encryption Key (DEK) data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryDekSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryDekCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .kekName("my_kek")
+     *             .subjectName("my_subject")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
+     *             .kekName("my_kek")
+     *             .subjectName("my_subject")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemaRegistryDekResult> getSchemaRegistryDek(GetSchemaRegistryDekArgs args) {
         return getSchemaRegistryDek(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryDek` describes a Schema Registry Data Encryption Key (DEK) data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryDekSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryDekCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .kekName("my_kek")
+     *             .subjectName("my_subject")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
+     *             .kekName("my_kek")
+     *             .subjectName("my_subject")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaRegistryDekResult> getSchemaRegistryDekPlain(GetSchemaRegistryDekPlainArgs args) {
         return getSchemaRegistryDekPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryDek` describes a Schema Registry Data Encryption Key (DEK) data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryDekSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryDekCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .kekName("my_kek")
+     *             .subjectName("my_subject")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
+     *             .kekName("my_kek")
+     *             .subjectName("my_subject")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemaRegistryDekResult> getSchemaRegistryDek(GetSchemaRegistryDekArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek", TypeShape.of(GetSchemaRegistryDekResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryDek` describes a Schema Registry Data Encryption Key (DEK) data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryDekSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryDekCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .kekName("my_kek")
+     *             .subjectName("my_subject")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
+     *             .kekName("my_kek")
+     *             .subjectName("my_subject")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaRegistryDekResult> getSchemaRegistryDekPlain(GetSchemaRegistryDekPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek", TypeShape.of(GetSchemaRegistryDekResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryKek` describes a Schema Registry Key Encryption Key (KEK) data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryKekSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryKekCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("my_key")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
+     *             .name("my_key")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemaRegistryKekResult> getSchemaRegistryKek(GetSchemaRegistryKekArgs args) {
         return getSchemaRegistryKek(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryKek` describes a Schema Registry Key Encryption Key (KEK) data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryKekSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryKekCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("my_key")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
+     *             .name("my_key")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaRegistryKekResult> getSchemaRegistryKekPlain(GetSchemaRegistryKekPlainArgs args) {
         return getSchemaRegistryKekPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryKek` describes a Schema Registry Key Encryption Key (KEK) data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryKekSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryKekCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("my_key")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
+     *             .name("my_key")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemaRegistryKekResult> getSchemaRegistryKek(GetSchemaRegistryKekArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek", TypeShape.of(GetSchemaRegistryKekResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryKek` describes a Schema Registry Key Encryption Key (KEK) data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryKekSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryKekCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("my_key")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
+     *             .name("my_key")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaRegistryKekResult> getSchemaRegistryKekPlain(GetSchemaRegistryKekPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek", TypeShape.of(GetSchemaRegistryKekResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getSchemas` describes a Schema data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .credentials(GetSchemasCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemasResult> getSchemas() {
         return getSchemas(GetSchemasArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getSchemas` describes a Schema data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .credentials(GetSchemasCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemasResult> getSchemasPlain() {
         return getSchemasPlain(GetSchemasPlainArgs.Empty, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getSchemas` describes a Schema data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .credentials(GetSchemasCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemasResult> getSchemas(GetSchemasArgs args) {
         return getSchemas(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getSchemas` describes a Schema data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .credentials(GetSchemasCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemasResult> getSchemasPlain(GetSchemasPlainArgs args) {
         return getSchemasPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getSchemas` describes a Schema data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .credentials(GetSchemasCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSchemasResult> getSchemas(GetSchemasArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemas:getSchemas", TypeShape.of(GetSchemasResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getSchemas` describes a Schema data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .credentials(GetSchemasCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemasResult> getSchemasPlain(GetSchemasPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemas:getSchemas", TypeShape.of(GetSchemasResult.class), args, Utilities.withVersion(options));
     }
@@ -7774,51 +11578,1163 @@ public final class ConfluentcloudFunctions {
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluent_subject_compatibility_level` describes a Subject Config data source.
+     * 
+     * ## Example Usage
+     * 
+     */
     public static Output<GetSubjectConfigResult> getSubjectConfig(GetSubjectConfigArgs args) {
         return getSubjectConfig(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluent_subject_compatibility_level` describes a Subject Config data source.
+     * 
+     * ## Example Usage
+     * 
+     */
     public static CompletableFuture<GetSubjectConfigResult> getSubjectConfigPlain(GetSubjectConfigPlainArgs args) {
         return getSubjectConfigPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluent_subject_compatibility_level` describes a Subject Config data source.
+     * 
+     * ## Example Usage
+     * 
+     */
     public static Output<GetSubjectConfigResult> getSubjectConfig(GetSubjectConfigArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSubjectConfig:getSubjectConfig", TypeShape.of(GetSubjectConfigResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluent_subject_compatibility_level` describes a Subject Config data source.
+     * 
+     * ## Example Usage
+     * 
+     */
     public static CompletableFuture<GetSubjectConfigResult> getSubjectConfigPlain(GetSubjectConfigPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSubjectConfig:getSubjectConfig", TypeShape.of(GetSubjectConfigResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SubjectMode` describes a Subject Mode data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
+     *             .schemaRegistryCluster(GetSubjectModeSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .credentials(GetSubjectModeCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("mode", purchase_v1.mode());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .build());
+     * 
+     *         ctx.export("mode", purchase_v1.mode());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSubjectModeResult> getSubjectMode(GetSubjectModeArgs args) {
         return getSubjectMode(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SubjectMode` describes a Subject Mode data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
+     *             .schemaRegistryCluster(GetSubjectModeSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .credentials(GetSubjectModeCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("mode", purchase_v1.mode());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .build());
+     * 
+     *         ctx.export("mode", purchase_v1.mode());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSubjectModeResult> getSubjectModePlain(GetSubjectModePlainArgs args) {
         return getSubjectModePlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SubjectMode` describes a Subject Mode data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
+     *             .schemaRegistryCluster(GetSubjectModeSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .credentials(GetSubjectModeCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("mode", purchase_v1.mode());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .build());
+     * 
+     *         ctx.export("mode", purchase_v1.mode());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetSubjectModeResult> getSubjectMode(GetSubjectModeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSubjectMode:getSubjectMode", TypeShape.of(GetSubjectModeResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SubjectMode` describes a Subject Mode data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
+     *             .schemaRegistryCluster(GetSubjectModeSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .credentials(GetSubjectModeCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("mode", purchase_v1.mode());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .build());
+     * 
+     *         ctx.export("mode", purchase_v1.mode());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSubjectModeResult> getSubjectModePlain(GetSubjectModePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSubjectMode:getSubjectMode", TypeShape.of(GetSubjectModeResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Tag` describes a Tag data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
+     *             .schemaRegistryCluster(GetTagSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetTagCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetTagResult> getTag(GetTagArgs args) {
         return getTag(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Tag` describes a Tag data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
+     *             .schemaRegistryCluster(GetTagSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetTagCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTagResult> getTagPlain(GetTagPlainArgs args) {
         return getTagPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Tag` describes a Tag data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
+     *             .schemaRegistryCluster(GetTagSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetTagCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetTagResult> getTag(GetTagArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getTag:getTag", TypeShape.of(GetTagResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Tag` describes a Tag data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
+     *             .schemaRegistryCluster(GetTagSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetTagCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTagResult> getTagPlain(GetTagPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getTag:getTag", TypeShape.of(GetTagResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.TagBinding` describes a Tag Binding data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
+     *             .schemaRegistryCluster(GetTagBindingSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetTagBindingCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .tagName("PII")
+     *             .entityName("lsrc-8wrx70:.:100001")
+     *             .entityType("sr_schema")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
+     *             .tagName("PII")
+     *             .entityName("lsrc-8wrx70:.:100001")
+     *             .entityType("sr_schema")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetTagBindingResult> getTagBinding(GetTagBindingArgs args) {
         return getTagBinding(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.TagBinding` describes a Tag Binding data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
+     *             .schemaRegistryCluster(GetTagBindingSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetTagBindingCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .tagName("PII")
+     *             .entityName("lsrc-8wrx70:.:100001")
+     *             .entityType("sr_schema")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
+     *             .tagName("PII")
+     *             .entityName("lsrc-8wrx70:.:100001")
+     *             .entityType("sr_schema")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTagBindingResult> getTagBindingPlain(GetTagBindingPlainArgs args) {
         return getTagBindingPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.TagBinding` describes a Tag Binding data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
+     *             .schemaRegistryCluster(GetTagBindingSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetTagBindingCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .tagName("PII")
+     *             .entityName("lsrc-8wrx70:.:100001")
+     *             .entityType("sr_schema")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
+     *             .tagName("PII")
+     *             .entityName("lsrc-8wrx70:.:100001")
+     *             .entityType("sr_schema")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetTagBindingResult> getTagBinding(GetTagBindingArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getTagBinding:getTagBinding", TypeShape.of(GetTagBindingResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.TagBinding` describes a Tag Binding data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
+     *             .schemaRegistryCluster(GetTagBindingSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetTagBindingCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .tagName("PII")
+     *             .entityName("lsrc-8wrx70:.:100001")
+     *             .entityType("sr_schema")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
+     *             .tagName("PII")
+     *             .entityName("lsrc-8wrx70:.:100001")
+     *             .entityType("sr_schema")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTagBindingResult> getTagBindingPlain(GetTagBindingPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getTagBinding:getTagBinding", TypeShape.of(GetTagBindingResult.class), args, Utilities.withVersion(options));
     }

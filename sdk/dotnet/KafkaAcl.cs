@@ -10,11 +10,118 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    /// 
+    /// `confluentcloud.KafkaAcl` provides a Kafka ACL resource that enables creating and deleting Kafka ACLs on Confluent Cloud.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var describe_basic_cluster = new ConfluentCloud.KafkaAcl("describe-basic-cluster", new()
+    ///     {
+    ///         KafkaCluster = new ConfluentCloud.Inputs.KafkaAclKafkaClusterArgs
+    ///         {
+    ///             Id = basic_cluster.Id,
+    ///         },
+    ///         ResourceType = "CLUSTER",
+    ///         ResourceName = "kafka-cluster",
+    ///         PatternType = "LITERAL",
+    ///         Principal = "User:sa-xyz123",
+    ///         Host = "*",
+    ///         Operation = "DESCRIBE",
+    ///         Permission = "ALLOW",
+    ///         RestEndpoint = basic_cluster.RestEndpoint,
+    ///         Credentials = new ConfluentCloud.Inputs.KafkaAclCredentialsArgs
+    ///         {
+    ///             Key = app_manager_kafka_api_key.Id,
+    ///             Secret = app_manager_kafka_api_key.Secret,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var describe_basic_cluster = new ConfluentCloud.KafkaAcl("describe-basic-cluster", new()
+    ///     {
+    ///         ResourceType = "CLUSTER",
+    ///         ResourceName = "kafka-cluster",
+    ///         PatternType = "LITERAL",
+    ///         Principal = "User:sa-xyz123",
+    ///         Host = "*",
+    ///         Operation = "DESCRIBE",
+    ///         Permission = "ALLOW",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.KafkaAcl` resource:
+    ///   * `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs
+    ///   * `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs
+    ///   * `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs
+    ///   * `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs
+    ///   * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    ///   * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+    ///   * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+    ///   * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+    ///   * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+    ///   * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+    ///   * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+    ///   * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+    ///   * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+    ///   * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    /// 
+    /// ## Other Example Usages
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // https://github.com/confluentinc/terraform-provider-confluent/issues/241
+    ///     var app_producer_write_on_topic = new ConfluentCloud.KafkaAcl("app-producer-write-on-topic", new()
+    ///     {
+    ///         ResourceType = "TOPIC",
+    ///         ResourceName = orders.TopicName,
+    ///         PatternType = "LITERAL",
+    ///         Principal = $"User:{@this.Id}",
+    ///         Host = "*",
+    ///         Operation = "WRITE",
+    ///         Permission = "ALLOW",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka ACL resource type&gt;#&lt;Kafka ACL resource name&gt;#&lt;Kafka ACL pattern type&gt;#&lt;Kafka ACL principal&gt;#&lt;Kafka ACL host&gt;#&lt;Kafka ACL operation&gt;#&lt;Kafka ACL permission&gt;`, for example:
     /// 
-    /// Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+    /// Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
     /// 
     /// $ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;"
     /// 
@@ -26,7 +133,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
     /// ```
     /// 
-    /// Option #2: Manage a single Kafka cluster in the same Terraform workspace
+    /// Option #2: Manage a single Kafka cluster in the same Pulumi Stack
     /// 
     /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
     /// 

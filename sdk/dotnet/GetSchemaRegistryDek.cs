@@ -11,9 +11,119 @@ namespace Pulumi.ConfluentCloud
 {
     public static class GetSchemaRegistryDek
     {
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.SchemaRegistryDek` describes a Schema Registry Data Encryption Key (DEK) data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myKey = ConfluentCloud.GetSchemaRegistryDek.Invoke(new()
+        ///     {
+        ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaRegistryDekSchemaRegistryClusterInputArgs
+        ///         {
+        ///             Id = essentials.Id,
+        ///         },
+        ///         RestEndpoint = essentials.RestEndpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetSchemaRegistryDekCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///         },
+        ///         KekName = "my_kek",
+        ///         SubjectName = "my_subject",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myKey = ConfluentCloud.GetSchemaRegistryDek.Invoke(new()
+        ///     {
+        ///         KekName = "my_kek",
+        ///         SubjectName = "my_subject",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Task<GetSchemaRegistryDekResult> InvokeAsync(GetSchemaRegistryDekArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaRegistryDekResult>("confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek", args ?? new GetSchemaRegistryDekArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.SchemaRegistryDek` describes a Schema Registry Data Encryption Key (DEK) data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myKey = ConfluentCloud.GetSchemaRegistryDek.Invoke(new()
+        ///     {
+        ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaRegistryDekSchemaRegistryClusterInputArgs
+        ///         {
+        ///             Id = essentials.Id,
+        ///         },
+        ///         RestEndpoint = essentials.RestEndpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetSchemaRegistryDekCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///         },
+        ///         KekName = "my_kek",
+        ///         SubjectName = "my_subject",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myKey = ConfluentCloud.GetSchemaRegistryDek.Invoke(new()
+        ///     {
+        ///         KekName = "my_kek",
+        ///         SubjectName = "my_subject",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetSchemaRegistryDekResult> Invoke(GetSchemaRegistryDekInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryDekResult>("confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek", args ?? new GetSchemaRegistryDekInvokeArgs(), options.WithDefaults());
     }

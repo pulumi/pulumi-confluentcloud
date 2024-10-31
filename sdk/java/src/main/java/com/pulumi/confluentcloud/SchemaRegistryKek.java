@@ -20,6 +20,107 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.SchemaRegistryKek` provides a Schema Registry Key Encryption Key (KEK) resource that enables creating, editing, and deleting Schema Registry Key Encryption Keys on Confluent Cloud.
+ * 
+ * ## Example Usage
+ * 
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.SchemaRegistryKek;
+ * import com.pulumi.confluentcloud.SchemaRegistryKekArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaRegistryKekSchemaRegistryClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaRegistryKekCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var awsKey = new SchemaRegistryKek("awsKey", SchemaRegistryKekArgs.builder()
+ *             .schemaRegistryCluster(SchemaRegistryKekSchemaRegistryClusterArgs.builder()
+ *                 .id(essentials.id())
+ *                 .build())
+ *             .restEndpoint(essentials.restEndpoint())
+ *             .credentials(SchemaRegistryKekCredentialsArgs.builder()
+ *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+ *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+ *                 .build())
+ *             .name("my_key")
+ *             .kmsType("aws-kms")
+ *             .kmsKeyId("key_id")
+ *             .doc("test key")
+ *             .shared(false)
+ *             .hardDelete(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.SchemaRegistryKek;
+ * import com.pulumi.confluentcloud.SchemaRegistryKekArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var pii = new SchemaRegistryKek("pii", SchemaRegistryKekArgs.builder()
+ *             .name("my_key")
+ *             .kmsType("aws-kms")
+ *             .kmsKeyId("key_id")
+ *             .doc("test key")
+ *             .shared(false)
+ *             .hardDelete(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end example might help to get started with field-level encryption:
+ *   * field-level-encryption-schema
+ * 
  * ## Import
  * 
  * You can import a Schema Registry Key by using the Schema Registry cluster ID, Kek name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Kek name&gt;`, for example:

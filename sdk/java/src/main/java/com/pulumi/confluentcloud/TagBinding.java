@@ -18,6 +18,113 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.TagBinding` provides a Tag Binding resource that enables creating, editing, and deleting Tag Bindings on Confluent Cloud.
+ * 
+ * ## Example Usage
+ * 
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+ * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+ * import com.pulumi.confluentcloud.TagBinding;
+ * import com.pulumi.confluentcloud.TagBindingArgs;
+ * import com.pulumi.confluentcloud.inputs.TagBindingSchemaRegistryClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.TagBindingCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var main = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+ *             .topicName("orders")
+ *             .build());
+ * 
+ *         var mainTagBinding = new TagBinding("mainTagBinding", TagBindingArgs.builder()
+ *             .schemaRegistryCluster(TagBindingSchemaRegistryClusterArgs.builder()
+ *                 .id(essentials.id())
+ *                 .build())
+ *             .restEndpoint(essentials.restEndpoint())
+ *             .credentials(TagBindingCredentialsArgs.builder()
+ *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+ *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+ *                 .build())
+ *             .tagName("PII")
+ *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.applyValue(getKafkaTopicResult -> getKafkaTopicResult.topicName())))
+ *             .entityType("kafka_topic")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+ * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+ * import com.pulumi.confluentcloud.TagBinding;
+ * import com.pulumi.confluentcloud.TagBindingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var main = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+ *             .topicName("orders")
+ *             .build());
+ * 
+ *         var topic_tagging = new TagBinding("topic-tagging", TagBindingArgs.builder()
+ *             .tagName("PII")
+ *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.applyValue(getKafkaTopicResult -> getKafkaTopicResult.topicName())))
+ *             .entityType("kafka_topic")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end example might help to get started with [Stream Catalog](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html):
+ * * stream-catalog
+ * 
  * ## Import
  * 
  * You can import a Tag Binding by using the Schema Registry cluster ID, Tag name, entity name and entity type in the format `&lt;Schema Registry Cluster Id&gt;/&lt;Tag Name&gt;/&lt;Entity Name&gt;/&lt;Entity Type&gt;`, for example:

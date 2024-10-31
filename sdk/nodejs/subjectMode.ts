@@ -7,6 +7,40 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const example = new confluentcloud.SubjectMode("example", {
+ *     schemaRegistryCluster: {
+ *         id: essentials.id,
+ *     },
+ *     restEndpoint: essentials.restEndpoint,
+ *     subjectName: "proto-purchase-value",
+ *     mode: "READONLY",
+ *     credentials: {
+ *         key: "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+ *         secret: "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+ *     },
+ * });
+ * ```
+ *
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const example = new confluentcloud.SubjectMode("example", {
+ *     subjectName: "proto-purchase-value",
+ *     mode: "READONLY",
+ * });
+ * ```
+ *
  * ## Import
  *
  * You can import a Subject Mode by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>/<Subject name>`, for example:

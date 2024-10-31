@@ -20,6 +20,115 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.BusinessMetadata` provides a Business Metadata resource that enables creating, editing, and deleting Business Metadata on Confluent Cloud.
+ * 
+ * ## Example Usage
+ * 
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.BusinessMetadata;
+ * import com.pulumi.confluentcloud.BusinessMetadataArgs;
+ * import com.pulumi.confluentcloud.inputs.BusinessMetadataSchemaRegistryClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.BusinessMetadataCredentialsArgs;
+ * import com.pulumi.confluentcloud.inputs.BusinessMetadataAttributeDefinitionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var pii = new BusinessMetadata("pii", BusinessMetadataArgs.builder()
+ *             .schemaRegistryCluster(BusinessMetadataSchemaRegistryClusterArgs.builder()
+ *                 .id(essentials.id())
+ *                 .build())
+ *             .restEndpoint(essentials.restEndpoint())
+ *             .credentials(BusinessMetadataCredentialsArgs.builder()
+ *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+ *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+ *                 .build())
+ *             .name("PII")
+ *             .description("PII metadata")
+ *             .attributeDefinitions(            
+ *                 BusinessMetadataAttributeDefinitionArgs.builder()
+ *                     .name("team")
+ *                     .build(),
+ *                 BusinessMetadataAttributeDefinitionArgs.builder()
+ *                     .name("email")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.BusinessMetadata;
+ * import com.pulumi.confluentcloud.BusinessMetadataArgs;
+ * import com.pulumi.confluentcloud.inputs.BusinessMetadataAttributeDefinitionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var pii = new BusinessMetadata("pii", BusinessMetadataArgs.builder()
+ *             .name("PII")
+ *             .description("PII metadata")
+ *             .attributeDefinitions(            
+ *                 BusinessMetadataAttributeDefinitionArgs.builder()
+ *                     .name("team")
+ *                     .build(),
+ *                 BusinessMetadataAttributeDefinitionArgs.builder()
+ *                     .name("email")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end example might help to get started with [Stream Catalog](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html):
+ * * stream-catalog
+ * 
  * ## Import
  * 
  * You can import a Business Metadata by using the Schema Registry cluster ID, Business Metadata name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Business Metadata name&gt;`, for example:

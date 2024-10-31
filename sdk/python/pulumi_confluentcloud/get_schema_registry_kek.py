@@ -171,7 +171,38 @@ def get_schema_registry_kek(credentials: Optional[Union['GetSchemaRegistryKekCre
                             schema_registry_cluster: Optional[Union['GetSchemaRegistryKekSchemaRegistryClusterArgs', 'GetSchemaRegistryKekSchemaRegistryClusterArgsDict']] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryKekResult:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `SchemaRegistryKek` describes a Schema Registry Key Encryption Key (KEK) data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    my_key = confluentcloud.get_schema_registry_kek(schema_registry_cluster={
+            "id": essentials["id"],
+        },
+        rest_endpoint=essentials["restEndpoint"],
+        credentials={
+            "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+            "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+        },
+        name="my_key")
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    my_key = confluentcloud.get_schema_registry_kek(name="my_key")
+    ```
+
 
     :param str name: The name for the KEK.
            
@@ -204,7 +235,38 @@ def get_schema_registry_kek_output(credentials: Optional[pulumi.Input[Optional[U
                                    schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryKekSchemaRegistryClusterArgs', 'GetSchemaRegistryKekSchemaRegistryClusterArgsDict']]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryKekResult]:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `SchemaRegistryKek` describes a Schema Registry Key Encryption Key (KEK) data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    my_key = confluentcloud.get_schema_registry_kek(schema_registry_cluster={
+            "id": essentials["id"],
+        },
+        rest_endpoint=essentials["restEndpoint"],
+        credentials={
+            "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+            "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+        },
+        name="my_key")
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    my_key = confluentcloud.get_schema_registry_kek(name="my_key")
+    ```
+
 
     :param str name: The name for the KEK.
            

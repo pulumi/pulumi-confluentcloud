@@ -10,6 +10,87 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    /// 
+    /// `confluentcloud.BusinessMetadataBinding` provides a Business Metadata Binding resource that enables creating, editing, and deleting Business Metadata Bindings on Confluent Cloud.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var main = ConfluentCloud.GetKafkaTopic.Invoke(new()
+    ///     {
+    ///         TopicName = "orders",
+    ///     });
+    /// 
+    ///     var mainBusinessMetadataBinding = new ConfluentCloud.BusinessMetadataBinding("main", new()
+    ///     {
+    ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.BusinessMetadataBindingSchemaRegistryClusterArgs
+    ///         {
+    ///             Id = essentials.Id,
+    ///         },
+    ///         RestEndpoint = essentials.RestEndpoint,
+    ///         Credentials = new ConfluentCloud.Inputs.BusinessMetadataBindingCredentialsArgs
+    ///         {
+    ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///         },
+    ///         BusinessMetadataName = pii.Name,
+    ///         EntityName = $"{schemaRegistryId}:{kafkaId}:{main.Apply(getKafkaTopicResult =&gt; getKafkaTopicResult.TopicName)}",
+    ///         EntityType = "kafka_topic",
+    ///         Attributes = 
+    ///         {
+    ///             { "team", "teamName" },
+    ///             { "email", "team@company.com" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var main = ConfluentCloud.GetKafkaTopic.Invoke(new()
+    ///     {
+    ///         TopicName = "orders",
+    ///     });
+    /// 
+    ///     var mainBusinessMetadataBinding = new ConfluentCloud.BusinessMetadataBinding("main", new()
+    ///     {
+    ///         BusinessMetadataName = pii.Name,
+    ///         EntityName = $"{schemaRegistryId}:{kafkaId}:{main.Apply(getKafkaTopicResult =&gt; getKafkaTopicResult.TopicName)}",
+    ///         EntityType = "kafka_topic",
+    ///         Attributes = 
+    ///         {
+    ///             { "team", "teamName" },
+    ///             { "email", "team@company.com" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end example might help to get started with [Stream Catalog](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html):
+    /// * stream-catalog
+    /// 
     /// ## Import
     /// 
     /// You can import a Business Metadata Binding by using the Schema Registry cluster ID, Business Metadata name, entity name and entity type in the format `&lt;Schema Registry Cluster Id&gt;/&lt;Business Metadata Name&gt;/&lt;Entity Name&gt;/&lt;Entity Type&gt;`, for example:

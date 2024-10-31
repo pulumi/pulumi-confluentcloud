@@ -12,6 +12,92 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `SchemaExporter` provides a Schema Exporter resource that enables creating, editing, and deleting Schema Exporters on Confluent Cloud.
+//
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewSchemaExporter(ctx, "main", &confluentcloud.SchemaExporterArgs{
+//				SchemaRegistryCluster: &confluentcloud.SchemaExporterSchemaRegistryClusterArgs{
+//					Id: pulumi.Any(essentials.Id),
+//				},
+//				RestEndpoint: pulumi.Any(essentials.RestEndpoint),
+//				Credentials: &confluentcloud.SchemaExporterCredentialsArgs{
+//					Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>"),
+//					Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>"),
+//				},
+//				Name: pulumi.String("test-exporter"),
+//				Subjects: pulumi.StringArray{
+//					pulumi.String("foo"),
+//				},
+//				DestinationSchemaRegistryCluster: &confluentcloud.SchemaExporterDestinationSchemaRegistryClusterArgs{
+//					RestEndpoint: pulumi.Any(destination.RestEndpoint),
+//					Credentials: &confluentcloud.SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs{
+//						Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.destination>"),
+//						Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.destination>"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewSchemaExporter(ctx, "main", &confluentcloud.SchemaExporterArgs{
+//				Name: pulumi.String("test-exporter"),
+//				Subjects: pulumi.StringArray{
+//					pulumi.String("foo"),
+//				},
+//				DestinationSchemaRegistryCluster: &confluentcloud.SchemaExporterDestinationSchemaRegistryClusterArgs{
+//					RestEndpoint: pulumi.Any(destination.RestEndpoint),
+//					Credentials: &confluentcloud.SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs{
+//						Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.destination>"),
+//						Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.destination>"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `<Schema Registry cluster ID>/<Schema Exporter name>`, for example:

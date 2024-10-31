@@ -18,6 +18,167 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * &gt; **Note:** `confluentcloud.CatalogEntityAttributes` resource is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+ * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+ * 
+ * ## Example Usage
+ * 
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.CatalogEntityAttributes;
+ * import com.pulumi.confluentcloud.CatalogEntityAttributesArgs;
+ * import com.pulumi.confluentcloud.inputs.CatalogEntityAttributesSchemaRegistryClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.CatalogEntityAttributesCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var environment = new CatalogEntityAttributes("environment", CatalogEntityAttributesArgs.builder()
+ *             .schemaRegistryCluster(CatalogEntityAttributesSchemaRegistryClusterArgs.builder()
+ *                 .id(essentials.id())
+ *                 .build())
+ *             .restEndpoint(essentials.restEndpoint())
+ *             .credentials(CatalogEntityAttributesCredentialsArgs.builder()
+ *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+ *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+ *                 .build())
+ *             .entityName(main.id())
+ *             .entityType("cf_environment")
+ *             .attributes(Map.of("description", "Environment description"))
+ *             .build());
+ * 
+ *         var kafka_cluster = new CatalogEntityAttributes("kafka-cluster", CatalogEntityAttributesArgs.builder()
+ *             .schemaRegistryCluster(CatalogEntityAttributesSchemaRegistryClusterArgs.builder()
+ *                 .id(essentials.id())
+ *                 .build())
+ *             .restEndpoint(essentials.restEndpoint())
+ *             .credentials(CatalogEntityAttributesCredentialsArgs.builder()
+ *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+ *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+ *                 .build())
+ *             .entityName(basic.id())
+ *             .entityType("kafka_logical_cluster")
+ *             .attributes(Map.of("description", "Kafka Cluster description"))
+ *             .build());
+ * 
+ *         var topic = new CatalogEntityAttributes("topic", CatalogEntityAttributesArgs.builder()
+ *             .schemaRegistryCluster(CatalogEntityAttributesSchemaRegistryClusterArgs.builder()
+ *                 .id(essentials.id())
+ *                 .build())
+ *             .restEndpoint(essentials.restEndpoint())
+ *             .credentials(CatalogEntityAttributesCredentialsArgs.builder()
+ *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+ *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+ *                 .build())
+ *             .entityName(String.format("%s:%s", basic.id(),purchase.topicName()))
+ *             .entityType("kafka_topic")
+ *             .attributes(Map.ofEntries(
+ *                 Map.entry("owner", "dev"),
+ *                 Map.entry("description", "Kafka topic for orders"),
+ *                 Map.entry("ownerEmail", "dev}{@literal @}{@code gmail.com")
+ *             ))
+ *             .build());
+ * 
+ *         var schema = new CatalogEntityAttributes("schema", CatalogEntityAttributesArgs.builder()
+ *             .schemaRegistryCluster(CatalogEntityAttributesSchemaRegistryClusterArgs.builder()
+ *                 .id(essentials.id())
+ *                 .build())
+ *             .restEndpoint(essentials.restEndpoint())
+ *             .credentials(CatalogEntityAttributesCredentialsArgs.builder()
+ *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+ *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+ *                 .build())
+ *             .entityName(String.format("%s:.:%s", essentials.id(),purchaseConfluentSchema.schemaIdentifier()))
+ *             .entityType("sr_schema")
+ *             .attributes(Map.of("description", "Schema description"))
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.CatalogEntityAttributes;
+ * import com.pulumi.confluentcloud.CatalogEntityAttributesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var environment = new CatalogEntityAttributes("environment", CatalogEntityAttributesArgs.builder()
+ *             .entityName(environmentId)
+ *             .entityType("cf_environment")
+ *             .attributes(Map.of("description", "Environment description"))
+ *             .build());
+ * 
+ *         var kafka_cluster = new CatalogEntityAttributes("kafka-cluster", CatalogEntityAttributesArgs.builder()
+ *             .entityName(kafkaClusterId)
+ *             .entityType("kafka_logical_cluster")
+ *             .attributes(Map.of("description", "Kafka Cluster description"))
+ *             .build());
+ * 
+ *         var topic = new CatalogEntityAttributes("topic", CatalogEntityAttributesArgs.builder()
+ *             .entityName(String.format("%s:%s", kafkaClusterId,kafkaTopicName))
+ *             .entityType("kafka_topic")
+ *             .attributes(Map.ofEntries(
+ *                 Map.entry("owner", "dev"),
+ *                 Map.entry("description", "Kafka topic for orders"),
+ *                 Map.entry("ownerEmail", "dev}{@literal @}{@code gmail.com")
+ *             ))
+ *             .build());
+ * 
+ *         var schema = new CatalogEntityAttributes("schema", CatalogEntityAttributesArgs.builder()
+ *             .entityName(String.format("%s:.:%s", schemaRegistryClusterId,purchase.schemaIdentifier()))
+ *             .entityType("sr_schema")
+ *             .attributes(Map.of("description", "Schema description"))
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ */
 @ResourceType(type="confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes")
 public class CatalogEntityAttributes extends com.pulumi.resources.CustomResource {
     /**

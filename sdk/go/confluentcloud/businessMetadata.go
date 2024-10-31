@@ -11,6 +11,95 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `BusinessMetadata` provides a Business Metadata resource that enables creating, editing, and deleting Business Metadata on Confluent Cloud.
+//
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewBusinessMetadata(ctx, "pii", &confluentcloud.BusinessMetadataArgs{
+//				SchemaRegistryCluster: &confluentcloud.BusinessMetadataSchemaRegistryClusterArgs{
+//					Id: pulumi.Any(essentials.Id),
+//				},
+//				RestEndpoint: pulumi.Any(essentials.RestEndpoint),
+//				Credentials: &confluentcloud.BusinessMetadataCredentialsArgs{
+//					Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>"),
+//					Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>"),
+//				},
+//				Name:        pulumi.String("PII"),
+//				Description: pulumi.String("PII metadata"),
+//				AttributeDefinitions: confluentcloud.BusinessMetadataAttributeDefinitionArray{
+//					&confluentcloud.BusinessMetadataAttributeDefinitionArgs{
+//						Name: pulumi.String("team"),
+//					},
+//					&confluentcloud.BusinessMetadataAttributeDefinitionArgs{
+//						Name: pulumi.String("email"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewBusinessMetadata(ctx, "pii", &confluentcloud.BusinessMetadataArgs{
+//				Name:        pulumi.String("PII"),
+//				Description: pulumi.String("PII metadata"),
+//				AttributeDefinitions: confluentcloud.BusinessMetadataAttributeDefinitionArray{
+//					&confluentcloud.BusinessMetadataAttributeDefinitionArgs{
+//						Name: pulumi.String("team"),
+//					},
+//					&confluentcloud.BusinessMetadataAttributeDefinitionArgs{
+//						Name: pulumi.String("email"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Getting Started
+//
+// The following end-to-end example might help to get started with [Stream Catalog](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html):
+// * stream-catalog
+//
 // ## Import
 //
 // You can import a Business Metadata by using the Schema Registry cluster ID, Business Metadata name in the format `<Schema Registry cluster ID>/<Business Metadata name>`, for example:

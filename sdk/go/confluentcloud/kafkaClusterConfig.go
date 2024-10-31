@@ -12,11 +12,83 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `KafkaClusterConfig` provides a Kafka cluster config resource that enables updating configs on a Dedicated Kafka cluster on Confluent Cloud.
+//
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewKafkaClusterConfig(ctx, "orders", &confluentcloud.KafkaClusterConfigArgs{
+//				KafkaCluster: &confluentcloud.KafkaClusterConfigKafkaClusterArgs{
+//					Id: pulumi.Any(dedicated.Id),
+//				},
+//				RestEndpoint: pulumi.Any(dedicated.RestEndpoint),
+//				Config: pulumi.StringMap{
+//					"auto.create.topics.enable": pulumi.String("true"),
+//					"log.retention.ms":          pulumi.String("604800123"),
+//				},
+//				Credentials: &confluentcloud.KafkaClusterConfigCredentialsArgs{
+//					Key:    pulumi.Any(app_manager_kafka_api_key.Id),
+//					Secret: pulumi.Any(app_manager_kafka_api_key.Secret),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewKafkaClusterConfig(ctx, "orders", &confluentcloud.KafkaClusterConfigArgs{
+//				Config: pulumi.StringMap{
+//					"auto.create.topics.enable": pulumi.String("true"),
+//					"log.retention.ms":          pulumi.String("604800123"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // You can import a Kafka cluster config by using the Kafka cluster ID, for example:
 //
-// Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+// Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
 //
 // $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
 //
@@ -28,7 +100,7 @@ import (
 // $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
 // ```
 //
-// Option #2: Manage a single Kafka cluster in the same Terraform workspace
+// Option #2: Manage a single Kafka cluster in the same Pulumi Stack
 //
 // ```sh
 // $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123

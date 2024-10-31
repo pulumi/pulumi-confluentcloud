@@ -19,6 +19,121 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.BusinessMetadataBinding` provides a Business Metadata Binding resource that enables creating, editing, and deleting Business Metadata Bindings on Confluent Cloud.
+ * 
+ * ## Example Usage
+ * 
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+ * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+ * import com.pulumi.confluentcloud.BusinessMetadataBinding;
+ * import com.pulumi.confluentcloud.BusinessMetadataBindingArgs;
+ * import com.pulumi.confluentcloud.inputs.BusinessMetadataBindingSchemaRegistryClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.BusinessMetadataBindingCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         final var main = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+ *             .topicName("orders")
+ *             .build());
+ * 
+ *         var mainBusinessMetadataBinding = new BusinessMetadataBinding("mainBusinessMetadataBinding", BusinessMetadataBindingArgs.builder()
+ *             .schemaRegistryCluster(BusinessMetadataBindingSchemaRegistryClusterArgs.builder()
+ *                 .id(essentials.id())
+ *                 .build())
+ *             .restEndpoint(essentials.restEndpoint())
+ *             .credentials(BusinessMetadataBindingCredentialsArgs.builder()
+ *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+ *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+ *                 .build())
+ *             .businessMetadataName(pii.name())
+ *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.applyValue(getKafkaTopicResult -> getKafkaTopicResult.topicName())))
+ *             .entityType("kafka_topic")
+ *             .attributes(Map.ofEntries(
+ *                 Map.entry("team", "teamName"),
+ *                 Map.entry("email", "team}{@literal @}{@code company.com")
+ *             ))
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+ * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+ * import com.pulumi.confluentcloud.BusinessMetadataBinding;
+ * import com.pulumi.confluentcloud.BusinessMetadataBindingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         final var main = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+ *             .topicName("orders")
+ *             .build());
+ * 
+ *         var mainBusinessMetadataBinding = new BusinessMetadataBinding("mainBusinessMetadataBinding", BusinessMetadataBindingArgs.builder()
+ *             .businessMetadataName(pii.name())
+ *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.applyValue(getKafkaTopicResult -> getKafkaTopicResult.topicName())))
+ *             .entityType("kafka_topic")
+ *             .attributes(Map.ofEntries(
+ *                 Map.entry("team", "teamName"),
+ *                 Map.entry("email", "team}{@literal @}{@code company.com")
+ *             ))
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end example might help to get started with [Stream Catalog](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html):
+ * * stream-catalog
+ * 
  * ## Import
  * 
  * You can import a Business Metadata Binding by using the Schema Registry cluster ID, Business Metadata name, entity name and entity type in the format `&lt;Schema Registry Cluster Id&gt;/&lt;Business Metadata Name&gt;/&lt;Entity Name&gt;/&lt;Entity Type&gt;`, for example:

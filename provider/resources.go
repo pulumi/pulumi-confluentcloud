@@ -70,6 +70,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:       "https://github.com/pulumi/pulumi-confluentcloud",
 		GitHubOrg:        "confluentinc",
 		Config:           map[string]*tfbridge.SchemaInfo{},
+		DocRules:         &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		UpstreamRepoPath: "./upstream",
 		SchemaPostProcessor: func(spec *schema.PackageSpec) {
 			const token = "confluentcloud:index/kafkaTopic:KafkaTopic"

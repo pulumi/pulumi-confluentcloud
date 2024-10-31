@@ -11,6 +11,68 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewSchemaRegistryClusterMode(ctx, "example", &confluentcloud.SchemaRegistryClusterModeArgs{
+//				SchemaRegistryCluster: &confluentcloud.SchemaRegistryClusterModeSchemaRegistryClusterArgs{
+//					Id: pulumi.Any(essentials.Id),
+//				},
+//				RestEndpoint: pulumi.Any(essentials.RestEndpoint),
+//				Mode:         pulumi.String("READONLY"),
+//				Credentials: &confluentcloud.SchemaRegistryClusterModeCredentialsArgs{
+//					Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>"),
+//					Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewSchemaRegistryClusterMode(ctx, "example", &confluentcloud.SchemaRegistryClusterModeArgs{
+//				Mode: pulumi.String("READONLY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // You can import a Mode by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>`, for example:

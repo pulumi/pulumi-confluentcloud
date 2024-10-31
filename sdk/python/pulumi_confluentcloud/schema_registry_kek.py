@@ -377,6 +377,55 @@ class SchemaRegistryKek(pulumi.CustomResource):
                  shared: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `SchemaRegistryKek` provides a Schema Registry Key Encryption Key (KEK) resource that enables creating, editing, and deleting Schema Registry Key Encryption Keys on Confluent Cloud.
+
+        ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        aws_key = confluentcloud.SchemaRegistryKek("aws_key",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            name="my_key",
+            kms_type="aws-kms",
+            kms_key_id="key_id",
+            doc="test key",
+            shared=False,
+            hard_delete=True)
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        pii = confluentcloud.SchemaRegistryKek("pii",
+            name="my_key",
+            kms_type="aws-kms",
+            kms_key_id="key_id",
+            doc="test key",
+            shared=False,
+            hard_delete=True)
+        ```
+
+        ## Getting Started
+
+        The following end-to-end example might help to get started with field-level encryption:
+          * field-level-encryption-schema
+
         ## Import
 
         You can import a Schema Registry Key by using the Schema Registry cluster ID, Kek name in the format `<Schema Registry cluster ID>/<Kek name>`, for example:
@@ -416,6 +465,55 @@ class SchemaRegistryKek(pulumi.CustomResource):
                  args: SchemaRegistryKekArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `SchemaRegistryKek` provides a Schema Registry Key Encryption Key (KEK) resource that enables creating, editing, and deleting Schema Registry Key Encryption Keys on Confluent Cloud.
+
+        ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        aws_key = confluentcloud.SchemaRegistryKek("aws_key",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            },
+            name="my_key",
+            kms_type="aws-kms",
+            kms_key_id="key_id",
+            doc="test key",
+            shared=False,
+            hard_delete=True)
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        pii = confluentcloud.SchemaRegistryKek("pii",
+            name="my_key",
+            kms_type="aws-kms",
+            kms_key_id="key_id",
+            doc="test key",
+            shared=False,
+            hard_delete=True)
+        ```
+
+        ## Getting Started
+
+        The following end-to-end example might help to get started with field-level encryption:
+          * field-level-encryption-schema
+
         ## Import
 
         You can import a Schema Registry Key by using the Schema Registry cluster ID, Kek name in the format `<Schema Registry cluster ID>/<Kek name>`, for example:

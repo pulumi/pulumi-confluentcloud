@@ -19,11 +19,103 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.KafkaClusterConfig` provides a Kafka cluster config resource that enables updating configs on a Dedicated Kafka cluster on Confluent Cloud.
+ * 
+ * ## Example Usage
+ * 
+ * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.KafkaClusterConfig;
+ * import com.pulumi.confluentcloud.KafkaClusterConfigArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaClusterConfigKafkaClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaClusterConfigCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var orders = new KafkaClusterConfig("orders", KafkaClusterConfigArgs.builder()
+ *             .kafkaCluster(KafkaClusterConfigKafkaClusterArgs.builder()
+ *                 .id(dedicated.id())
+ *                 .build())
+ *             .restEndpoint(dedicated.restEndpoint())
+ *             .config(Map.ofEntries(
+ *                 Map.entry("auto.create.topics.enable", "true"),
+ *                 Map.entry("log.retention.ms", "604800123")
+ *             ))
+ *             .credentials(KafkaClusterConfigCredentialsArgs.builder()
+ *                 .key(app_manager_kafka_api_key.id())
+ *                 .secret(app_manager_kafka_api_key.secret())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.KafkaClusterConfig;
+ * import com.pulumi.confluentcloud.KafkaClusterConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var orders = new KafkaClusterConfig("orders", KafkaClusterConfigArgs.builder()
+ *             .config(Map.ofEntries(
+ *                 Map.entry("auto.create.topics.enable", "true"),
+ *                 Map.entry("log.retention.ms", "604800123")
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * You can import a Kafka cluster config by using the Kafka cluster ID, for example:
  * 
- * Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+ * Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
  * 
  * $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34;
  * 
@@ -35,7 +127,7 @@ import javax.annotation.Nullable;
  * $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
  * ```
  * 
- * Option #2: Manage a single Kafka cluster in the same Terraform workspace
+ * Option #2: Manage a single Kafka cluster in the same Pulumi Stack
  * 
  * ```sh
  * $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123

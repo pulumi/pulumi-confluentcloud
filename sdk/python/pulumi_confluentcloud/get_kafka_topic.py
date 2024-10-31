@@ -117,7 +117,40 @@ def get_kafka_topic(credentials: Optional[Union['GetKafkaTopicCredentialsArgs', 
                     topic_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaTopicResult:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `KafkaTopic` describes a Kafka Topic data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    orders = confluentcloud.get_kafka_topic(kafka_cluster={
+            "id": basic_cluster["id"],
+        },
+        topic_name="orders",
+        rest_endpoint=basic_cluster["restEndpoint"],
+        credentials={
+            "key": "<Kafka API Key for confluent_kafka_cluster.basic-cluster>",
+            "secret": "<Kafka API Secret for confluent_kafka_cluster.basic-cluster>",
+        })
+    pulumi.export("config", orders.config)
+    ```
+
+    ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    orders = confluentcloud.get_kafka_topic(topic_name="orders")
+    pulumi.export("config", orders.config)
+    ```
+
 
     :param str rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
     :param str topic_name: The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length and can contain only alphanumeric characters, hyphens, and underscores.
@@ -144,7 +177,40 @@ def get_kafka_topic_output(credentials: Optional[pulumi.Input[Optional[Union['Ge
                            topic_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaTopicResult]:
     """
-    Use this data source to access information about an existing resource.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `KafkaTopic` describes a Kafka Topic data source.
+
+    ## Example Usage
+
+    ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    orders = confluentcloud.get_kafka_topic(kafka_cluster={
+            "id": basic_cluster["id"],
+        },
+        topic_name="orders",
+        rest_endpoint=basic_cluster["restEndpoint"],
+        credentials={
+            "key": "<Kafka API Key for confluent_kafka_cluster.basic-cluster>",
+            "secret": "<Kafka API Secret for confluent_kafka_cluster.basic-cluster>",
+        })
+    pulumi.export("config", orders.config)
+    ```
+
+    ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    orders = confluentcloud.get_kafka_topic(topic_name="orders")
+    pulumi.export("config", orders.config)
+    ```
+
 
     :param str rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
     :param str topic_name: The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length and can contain only alphanumeric characters, hyphens, and underscores.

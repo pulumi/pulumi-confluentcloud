@@ -10,11 +10,87 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ### Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var randomIntTable = new ConfluentCloud.FlinkStatement("random_int_table", new()
+    ///     {
+    ///         Organization = new ConfluentCloud.Inputs.FlinkStatementOrganizationArgs
+    ///         {
+    ///             Id = main.Id,
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.FlinkStatementEnvironmentArgs
+    ///         {
+    ///             Id = staging.Id,
+    ///         },
+    ///         ComputePool = new ConfluentCloud.Inputs.FlinkStatementComputePoolArgs
+    ///         {
+    ///             Id = example.Id,
+    ///         },
+    ///         Principal = new ConfluentCloud.Inputs.FlinkStatementPrincipalArgs
+    ///         {
+    ///             Id = app_manager_flink.Id,
+    ///         },
+    ///         Statement = "CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);",
+    ///         Properties = 
+    ///         {
+    ///             { "sql.current-catalog", exampleConfluentEnvironment.DisplayName },
+    ///             { "sql.current-database", exampleConfluentKafkaCluster.DisplayName },
+    ///         },
+    ///         RestEndpoint = mainConfluentFlinkRegion.RestEndpoint,
+    ///         Credentials = new ConfluentCloud.Inputs.FlinkStatementCredentialsArgs
+    ///         {
+    ///             Key = env_admin_flink_api_key.Id,
+    ///             Secret = env_admin_flink_api_key.Secret,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new ConfluentCloud.FlinkStatement("example", new()
+    ///     {
+    ///         Statement = "CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);",
+    ///         Properties = 
+    ///         {
+    ///             { "sql.current-catalog", confluentEnvironmentDisplayName },
+    ///             { "sql.current-database", confluentKafkaClusterDisplayName },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end example might help to get started with [Flink Statements](https://docs.confluent.io/cloud/current/flink/get-started/overview.html):
+    ///   * flink-quickstart
+    ///   * flink-carry-over-offset-between-statements
+    /// 
     /// ## Import
     /// 
     /// You can import a Flink statement by using the Flink Statement name, for example:
     /// 
-    /// Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+    /// Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
     /// 
     /// $ export IMPORT_CONFLUENT_ORGANIZATION_ID="&lt;organization_id&gt;"
     /// 
@@ -34,7 +110,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
     /// ```
     /// 
-    /// Option #2: Manage a single Flink Compute Pool in the same Terraform workspace
+    /// Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67

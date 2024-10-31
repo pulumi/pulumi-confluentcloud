@@ -12,6 +12,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// > **Note:** `CatalogEntityAttributes` resource is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+//
+// ## Example Usage
+//
+// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewCatalogEntityAttributes(ctx, "environment", &confluentcloud.CatalogEntityAttributesArgs{
+//				SchemaRegistryCluster: &confluentcloud.CatalogEntityAttributesSchemaRegistryClusterArgs{
+//					Id: pulumi.Any(essentials.Id),
+//				},
+//				RestEndpoint: pulumi.Any(essentials.RestEndpoint),
+//				Credentials: &confluentcloud.CatalogEntityAttributesCredentialsArgs{
+//					Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>"),
+//					Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>"),
+//				},
+//				EntityName: pulumi.Any(main.Id),
+//				EntityType: pulumi.String("cf_environment"),
+//				Attributes: pulumi.StringMap{
+//					"description": pulumi.String("Environment description"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewCatalogEntityAttributes(ctx, "kafka-cluster", &confluentcloud.CatalogEntityAttributesArgs{
+//				SchemaRegistryCluster: &confluentcloud.CatalogEntityAttributesSchemaRegistryClusterArgs{
+//					Id: pulumi.Any(essentials.Id),
+//				},
+//				RestEndpoint: pulumi.Any(essentials.RestEndpoint),
+//				Credentials: &confluentcloud.CatalogEntityAttributesCredentialsArgs{
+//					Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>"),
+//					Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>"),
+//				},
+//				EntityName: pulumi.Any(basic.Id),
+//				EntityType: pulumi.String("kafka_logical_cluster"),
+//				Attributes: pulumi.StringMap{
+//					"description": pulumi.String("Kafka Cluster description"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewCatalogEntityAttributes(ctx, "topic", &confluentcloud.CatalogEntityAttributesArgs{
+//				SchemaRegistryCluster: &confluentcloud.CatalogEntityAttributesSchemaRegistryClusterArgs{
+//					Id: pulumi.Any(essentials.Id),
+//				},
+//				RestEndpoint: pulumi.Any(essentials.RestEndpoint),
+//				Credentials: &confluentcloud.CatalogEntityAttributesCredentialsArgs{
+//					Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>"),
+//					Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>"),
+//				},
+//				EntityName: pulumi.Sprintf("%v:%v", basic.Id, purchase.TopicName),
+//				EntityType: pulumi.String("kafka_topic"),
+//				Attributes: pulumi.StringMap{
+//					"owner":       pulumi.String("dev"),
+//					"description": pulumi.String("Kafka topic for orders"),
+//					"ownerEmail":  pulumi.String("dev@gmail.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewCatalogEntityAttributes(ctx, "schema", &confluentcloud.CatalogEntityAttributesArgs{
+//				SchemaRegistryCluster: &confluentcloud.CatalogEntityAttributesSchemaRegistryClusterArgs{
+//					Id: pulumi.Any(essentials.Id),
+//				},
+//				RestEndpoint: pulumi.Any(essentials.RestEndpoint),
+//				Credentials: &confluentcloud.CatalogEntityAttributesCredentialsArgs{
+//					Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>"),
+//					Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>"),
+//				},
+//				EntityName: pulumi.Sprintf("%v:.:%v", essentials.Id, purchaseConfluentSchema.SchemaIdentifier),
+//				EntityType: pulumi.String("sr_schema"),
+//				Attributes: pulumi.StringMap{
+//					"description": pulumi.String("Schema description"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewCatalogEntityAttributes(ctx, "environment", &confluentcloud.CatalogEntityAttributesArgs{
+//				EntityName: pulumi.Any(environmentId),
+//				EntityType: pulumi.String("cf_environment"),
+//				Attributes: pulumi.StringMap{
+//					"description": pulumi.String("Environment description"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewCatalogEntityAttributes(ctx, "kafka-cluster", &confluentcloud.CatalogEntityAttributesArgs{
+//				EntityName: pulumi.Any(kafkaClusterId),
+//				EntityType: pulumi.String("kafka_logical_cluster"),
+//				Attributes: pulumi.StringMap{
+//					"description": pulumi.String("Kafka Cluster description"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewCatalogEntityAttributes(ctx, "topic", &confluentcloud.CatalogEntityAttributesArgs{
+//				EntityName: pulumi.Sprintf("%v:%v", kafkaClusterId, kafkaTopicName),
+//				EntityType: pulumi.String("kafka_topic"),
+//				Attributes: pulumi.StringMap{
+//					"owner":       pulumi.String("dev"),
+//					"description": pulumi.String("Kafka topic for orders"),
+//					"ownerEmail":  pulumi.String("dev@gmail.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewCatalogEntityAttributes(ctx, "schema", &confluentcloud.CatalogEntityAttributesArgs{
+//				EntityName: pulumi.Sprintf("%v:.:%v", schemaRegistryClusterId, purchase.SchemaIdentifier),
+//				EntityType: pulumi.String("sr_schema"),
+//				Attributes: pulumi.StringMap{
+//					"description": pulumi.String("Schema description"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type CatalogEntityAttributes struct {
 	pulumi.CustomResourceState
 

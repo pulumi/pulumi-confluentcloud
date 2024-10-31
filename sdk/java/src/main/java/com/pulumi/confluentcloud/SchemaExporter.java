@@ -21,6 +21,112 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.SchemaExporter` provides a Schema Exporter resource that enables creating, editing, and deleting Schema Exporters on Confluent Cloud.
+ * 
+ * ## Example Usage
+ * 
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.SchemaExporter;
+ * import com.pulumi.confluentcloud.SchemaExporterArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaExporterSchemaRegistryClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaExporterCredentialsArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaExporterDestinationSchemaRegistryClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var main = new SchemaExporter("main", SchemaExporterArgs.builder()
+ *             .schemaRegistryCluster(SchemaExporterSchemaRegistryClusterArgs.builder()
+ *                 .id(essentials.id())
+ *                 .build())
+ *             .restEndpoint(essentials.restEndpoint())
+ *             .credentials(SchemaExporterCredentialsArgs.builder()
+ *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+ *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+ *                 .build())
+ *             .name("test-exporter")
+ *             .subjects("foo")
+ *             .destinationSchemaRegistryCluster(SchemaExporterDestinationSchemaRegistryClusterArgs.builder()
+ *                 .restEndpoint(destination.restEndpoint())
+ *                 .credentials(SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs.builder()
+ *                     .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.destination>")
+ *                     .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.destination>")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.SchemaExporter;
+ * import com.pulumi.confluentcloud.SchemaExporterArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaExporterDestinationSchemaRegistryClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var main = new SchemaExporter("main", SchemaExporterArgs.builder()
+ *             .name("test-exporter")
+ *             .subjects("foo")
+ *             .destinationSchemaRegistryCluster(SchemaExporterDestinationSchemaRegistryClusterArgs.builder()
+ *                 .restEndpoint(destination.restEndpoint())
+ *                 .credentials(SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs.builder()
+ *                     .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.destination>")
+ *                     .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.destination>")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Schema Exporter name&gt;`, for example:
