@@ -28,7 +28,10 @@ class GetSubjectConfigResult:
     """
     A collection of values returned by getSubjectConfig.
     """
-    def __init__(__self__, compatibility_level=None, credentials=None, id=None, rest_endpoint=None, schema_registry_cluster=None, subject_name=None):
+    def __init__(__self__, compatibility_group=None, compatibility_level=None, credentials=None, id=None, rest_endpoint=None, schema_registry_cluster=None, subject_name=None):
+        if compatibility_group and not isinstance(compatibility_group, str):
+            raise TypeError("Expected argument 'compatibility_group' to be a str")
+        pulumi.set(__self__, "compatibility_group", compatibility_group)
         if compatibility_level and not isinstance(compatibility_level, str):
             raise TypeError("Expected argument 'compatibility_level' to be a str")
         pulumi.set(__self__, "compatibility_level", compatibility_level)
@@ -47,6 +50,14 @@ class GetSubjectConfigResult:
         if subject_name and not isinstance(subject_name, str):
             raise TypeError("Expected argument 'subject_name' to be a str")
         pulumi.set(__self__, "subject_name", subject_name)
+
+    @property
+    @pulumi.getter(name="compatibilityGroup")
+    def compatibility_group(self) -> str:
+        """
+        (Required String) The Compatibility Group of the specified subject.
+        """
+        return pulumi.get(self, "compatibility_group")
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -91,6 +102,7 @@ class AwaitableGetSubjectConfigResult(GetSubjectConfigResult):
         if False:
             yield self
         return GetSubjectConfigResult(
+            compatibility_group=self.compatibility_group,
             compatibility_level=self.compatibility_level,
             credentials=self.credentials,
             id=self.id,
@@ -124,6 +136,7 @@ def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsA
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getSubjectConfig:getSubjectConfig', __args__, opts=opts, typ=GetSubjectConfigResult).value
 
     return AwaitableGetSubjectConfigResult(
+        compatibility_group=pulumi.get(__ret__, 'compatibility_group'),
         compatibility_level=pulumi.get(__ret__, 'compatibility_level'),
         credentials=pulumi.get(__ret__, 'credentials'),
         id=pulumi.get(__ret__, 'id'),
@@ -154,6 +167,7 @@ def get_subject_config_output(credentials: Optional[pulumi.Input[Optional[Union[
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSubjectConfig:getSubjectConfig', __args__, opts=opts, typ=GetSubjectConfigResult)
     return __ret__.apply(lambda __response__: GetSubjectConfigResult(
+        compatibility_group=pulumi.get(__response__, 'compatibility_group'),
         compatibility_level=pulumi.get(__response__, 'compatibility_level'),
         credentials=pulumi.get(__response__, 'credentials'),
         id=pulumi.get(__response__, 'id'),

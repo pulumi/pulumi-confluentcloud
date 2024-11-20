@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.GatewayAwsEgressPrivateLinkGatewayArgs;
+import com.pulumi.confluentcloud.inputs.GatewayAwsPrivateNetworkInterfaceGatewayArgs;
 import com.pulumi.confluentcloud.inputs.GatewayAzureEgressPrivateLinkGatewayArgs;
 import com.pulumi.confluentcloud.inputs.GatewayEnvironmentArgs;
 import com.pulumi.core.Output;
@@ -31,6 +32,21 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<GatewayAwsEgressPrivateLinkGatewayArgs>> awsEgressPrivateLinkGateway() {
         return Optional.ofNullable(this.awsEgressPrivateLinkGateway);
+    }
+
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Import(name="awsPrivateNetworkInterfaceGateway")
+    private @Nullable Output<GatewayAwsPrivateNetworkInterfaceGatewayArgs> awsPrivateNetworkInterfaceGateway;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Optional<Output<GatewayAwsPrivateNetworkInterfaceGatewayArgs>> awsPrivateNetworkInterfaceGateway() {
+        return Optional.ofNullable(this.awsPrivateNetworkInterfaceGateway);
     }
 
     /**
@@ -82,6 +98,7 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
 
     private GatewayState(GatewayState $) {
         this.awsEgressPrivateLinkGateway = $.awsEgressPrivateLinkGateway;
+        this.awsPrivateNetworkInterfaceGateway = $.awsPrivateNetworkInterfaceGateway;
         this.azureEgressPrivateLinkGateway = $.azureEgressPrivateLinkGateway;
         this.displayName = $.displayName;
         this.environment = $.environment;
@@ -124,6 +141,27 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder awsEgressPrivateLinkGateway(GatewayAwsEgressPrivateLinkGatewayArgs awsEgressPrivateLinkGateway) {
             return awsEgressPrivateLinkGateway(Output.of(awsEgressPrivateLinkGateway));
+        }
+
+        /**
+         * @param awsPrivateNetworkInterfaceGateway (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsPrivateNetworkInterfaceGateway(@Nullable Output<GatewayAwsPrivateNetworkInterfaceGatewayArgs> awsPrivateNetworkInterfaceGateway) {
+            $.awsPrivateNetworkInterfaceGateway = awsPrivateNetworkInterfaceGateway;
+            return this;
+        }
+
+        /**
+         * @param awsPrivateNetworkInterfaceGateway (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsPrivateNetworkInterfaceGateway(GatewayAwsPrivateNetworkInterfaceGatewayArgs awsPrivateNetworkInterfaceGateway) {
+            return awsPrivateNetworkInterfaceGateway(Output.of(awsPrivateNetworkInterfaceGateway));
         }
 
         /**

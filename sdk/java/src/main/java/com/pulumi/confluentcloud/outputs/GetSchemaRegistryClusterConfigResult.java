@@ -15,6 +15,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSchemaRegistryClusterConfigResult {
     /**
+     * @return (Required String) The global Schema Registry compatibility group.
+     * 
+     */
+    private String compatibilityGroup;
+    /**
      * @return (Required String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      * 
      */
@@ -29,6 +34,13 @@ public final class GetSchemaRegistryClusterConfigResult {
     private @Nullable GetSchemaRegistryClusterConfigSchemaRegistryCluster schemaRegistryCluster;
 
     private GetSchemaRegistryClusterConfigResult() {}
+    /**
+     * @return (Required String) The global Schema Registry compatibility group.
+     * 
+     */
+    public String compatibilityGroup() {
+        return this.compatibilityGroup;
+    }
     /**
      * @return (Required String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      * 
@@ -62,6 +74,7 @@ public final class GetSchemaRegistryClusterConfigResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String compatibilityGroup;
         private String compatibilityLevel;
         private @Nullable GetSchemaRegistryClusterConfigCredentials credentials;
         private String id;
@@ -70,6 +83,7 @@ public final class GetSchemaRegistryClusterConfigResult {
         public Builder() {}
         public Builder(GetSchemaRegistryClusterConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.compatibilityGroup = defaults.compatibilityGroup;
     	      this.compatibilityLevel = defaults.compatibilityLevel;
     	      this.credentials = defaults.credentials;
     	      this.id = defaults.id;
@@ -77,6 +91,14 @@ public final class GetSchemaRegistryClusterConfigResult {
     	      this.schemaRegistryCluster = defaults.schemaRegistryCluster;
         }
 
+        @CustomType.Setter
+        public Builder compatibilityGroup(String compatibilityGroup) {
+            if (compatibilityGroup == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterConfigResult", "compatibilityGroup");
+            }
+            this.compatibilityGroup = compatibilityGroup;
+            return this;
+        }
         @CustomType.Setter
         public Builder compatibilityLevel(String compatibilityLevel) {
             if (compatibilityLevel == null) {
@@ -113,6 +135,7 @@ public final class GetSchemaRegistryClusterConfigResult {
         }
         public GetSchemaRegistryClusterConfigResult build() {
             final var _resultValue = new GetSchemaRegistryClusterConfigResult();
+            _resultValue.compatibilityGroup = compatibilityGroup;
             _resultValue.compatibilityLevel = compatibilityLevel;
             _resultValue.credentials = credentials;
             _resultValue.id = id;

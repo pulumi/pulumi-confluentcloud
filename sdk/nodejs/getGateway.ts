@@ -60,6 +60,10 @@ export interface GetGatewayResult {
     /**
      * (Optional Configuration Block) supports the following:
      */
+    readonly awsPrivateNetworkInterfaceGateways: outputs.GetGatewayAwsPrivateNetworkInterfaceGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     readonly azureEgressPrivateLinkGateways: outputs.GetGatewayAzureEgressPrivateLinkGateway[];
     /**
      * (Optional Configuration Block) supports the following:

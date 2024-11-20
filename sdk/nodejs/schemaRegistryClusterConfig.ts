@@ -34,7 +34,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const example = new confluentcloud.SchemaRegistryClusterConfig("example", {compatibilityLevel: "FULL"});
+ * const example = new confluentcloud.SchemaRegistryClusterConfig("example", {
+ *     compatibilityLevel: "FULL",
+ *     compatibilityGroup: "abc.cg.version",
+ * });
  * ```
  *
  * ## Import
@@ -82,6 +85,10 @@ export class SchemaRegistryClusterConfig extends pulumi.CustomResource {
     }
 
     /**
+     * The global Schema Registry compatibility group.
+     */
+    public readonly compatibilityGroup!: pulumi.Output<string>;
+    /**
      * The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
     public readonly compatibilityLevel!: pulumi.Output<string>;
@@ -108,12 +115,14 @@ export class SchemaRegistryClusterConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SchemaRegistryClusterConfigState | undefined;
+            resourceInputs["compatibilityGroup"] = state ? state.compatibilityGroup : undefined;
             resourceInputs["compatibilityLevel"] = state ? state.compatibilityLevel : undefined;
             resourceInputs["credentials"] = state ? state.credentials : undefined;
             resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
             resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
         } else {
             const args = argsOrState as SchemaRegistryClusterConfigArgs | undefined;
+            resourceInputs["compatibilityGroup"] = args ? args.compatibilityGroup : undefined;
             resourceInputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
@@ -130,6 +139,10 @@ export class SchemaRegistryClusterConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SchemaRegistryClusterConfig resources.
  */
 export interface SchemaRegistryClusterConfigState {
+    /**
+     * The global Schema Registry compatibility group.
+     */
+    compatibilityGroup?: pulumi.Input<string>;
     /**
      * The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
@@ -149,6 +162,10 @@ export interface SchemaRegistryClusterConfigState {
  * The set of arguments for constructing a SchemaRegistryClusterConfig resource.
  */
 export interface SchemaRegistryClusterConfigArgs {
+    /**
+     * The global Schema Registry compatibility group.
+     */
+    compatibilityGroup?: pulumi.Input<string>;
     /**
      * The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */

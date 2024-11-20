@@ -24,6 +24,17 @@ export interface AccessPointAwsEgressPrivateLinkEndpoint {
     vpcEndpointServiceName: pulumi.Input<string>;
 }
 
+export interface AccessPointAwsPrivateNetworkInterface {
+    /**
+     * (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+     */
+    account: pulumi.Input<string>;
+    /**
+     * (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+     */
+    networkInterfaces: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface AccessPointAzureEgressPrivateLinkEndpoint {
     /**
      * (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
@@ -493,6 +504,21 @@ export interface GatewayAwsEgressPrivateLinkGateway {
      * AWS region of the Gateway, for example, `us-east-1`.
      */
     region: pulumi.Input<string>;
+}
+
+export interface GatewayAwsPrivateNetworkInterfaceGateway {
+    /**
+     * (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+     */
+    account?: pulumi.Input<string>;
+    /**
+     * AWS region of the Private Network Interface Gateway.
+     */
+    region: pulumi.Input<string>;
+    /**
+     * AWS availability zone ids of the Private Network Interface Gateway.
+     */
+    zones: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GatewayAzureEgressPrivateLinkGateway {

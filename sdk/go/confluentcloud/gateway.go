@@ -73,6 +73,8 @@ type Gateway struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkGateway GatewayAwsEgressPrivateLinkGatewayOutput `pulumi:"awsEgressPrivateLinkGateway"`
 	// (Optional Configuration Block) supports the following:
+	AwsPrivateNetworkInterfaceGateway GatewayAwsPrivateNetworkInterfaceGatewayOutput `pulumi:"awsPrivateNetworkInterfaceGateway"`
+	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateway GatewayAzureEgressPrivateLinkGatewayOutput `pulumi:"azureEgressPrivateLinkGateway"`
 	// The name of the Gateway.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
@@ -119,6 +121,8 @@ type gatewayState struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkGateway *GatewayAwsEgressPrivateLinkGateway `pulumi:"awsEgressPrivateLinkGateway"`
 	// (Optional Configuration Block) supports the following:
+	AwsPrivateNetworkInterfaceGateway *GatewayAwsPrivateNetworkInterfaceGateway `pulumi:"awsPrivateNetworkInterfaceGateway"`
+	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateway *GatewayAzureEgressPrivateLinkGateway `pulumi:"azureEgressPrivateLinkGateway"`
 	// The name of the Gateway.
 	DisplayName *string `pulumi:"displayName"`
@@ -129,6 +133,8 @@ type gatewayState struct {
 type GatewayState struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkGateway GatewayAwsEgressPrivateLinkGatewayPtrInput
+	// (Optional Configuration Block) supports the following:
+	AwsPrivateNetworkInterfaceGateway GatewayAwsPrivateNetworkInterfaceGatewayPtrInput
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateway GatewayAzureEgressPrivateLinkGatewayPtrInput
 	// The name of the Gateway.
@@ -145,6 +151,8 @@ type gatewayArgs struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkGateway *GatewayAwsEgressPrivateLinkGateway `pulumi:"awsEgressPrivateLinkGateway"`
 	// (Optional Configuration Block) supports the following:
+	AwsPrivateNetworkInterfaceGateway *GatewayAwsPrivateNetworkInterfaceGateway `pulumi:"awsPrivateNetworkInterfaceGateway"`
+	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateway *GatewayAzureEgressPrivateLinkGateway `pulumi:"azureEgressPrivateLinkGateway"`
 	// The name of the Gateway.
 	DisplayName string `pulumi:"displayName"`
@@ -156,6 +164,8 @@ type gatewayArgs struct {
 type GatewayArgs struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkGateway GatewayAwsEgressPrivateLinkGatewayPtrInput
+	// (Optional Configuration Block) supports the following:
+	AwsPrivateNetworkInterfaceGateway GatewayAwsPrivateNetworkInterfaceGatewayPtrInput
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateway GatewayAzureEgressPrivateLinkGatewayPtrInput
 	// The name of the Gateway.
@@ -254,6 +264,13 @@ func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOu
 // (Optional Configuration Block) supports the following:
 func (o GatewayOutput) AwsEgressPrivateLinkGateway() GatewayAwsEgressPrivateLinkGatewayOutput {
 	return o.ApplyT(func(v *Gateway) GatewayAwsEgressPrivateLinkGatewayOutput { return v.AwsEgressPrivateLinkGateway }).(GatewayAwsEgressPrivateLinkGatewayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GatewayOutput) AwsPrivateNetworkInterfaceGateway() GatewayAwsPrivateNetworkInterfaceGatewayOutput {
+	return o.ApplyT(func(v *Gateway) GatewayAwsPrivateNetworkInterfaceGatewayOutput {
+		return v.AwsPrivateNetworkInterfaceGateway
+	}).(GatewayAwsPrivateNetworkInterfaceGatewayOutput)
 }
 
 // (Optional Configuration Block) supports the following:

@@ -28,7 +28,10 @@ class GetSchemaRegistryClusterConfigResult:
     """
     A collection of values returned by getSchemaRegistryClusterConfig.
     """
-    def __init__(__self__, compatibility_level=None, credentials=None, id=None, rest_endpoint=None, schema_registry_cluster=None):
+    def __init__(__self__, compatibility_group=None, compatibility_level=None, credentials=None, id=None, rest_endpoint=None, schema_registry_cluster=None):
+        if compatibility_group and not isinstance(compatibility_group, str):
+            raise TypeError("Expected argument 'compatibility_group' to be a str")
+        pulumi.set(__self__, "compatibility_group", compatibility_group)
         if compatibility_level and not isinstance(compatibility_level, str):
             raise TypeError("Expected argument 'compatibility_level' to be a str")
         pulumi.set(__self__, "compatibility_level", compatibility_level)
@@ -44,6 +47,14 @@ class GetSchemaRegistryClusterConfigResult:
         if schema_registry_cluster and not isinstance(schema_registry_cluster, dict):
             raise TypeError("Expected argument 'schema_registry_cluster' to be a dict")
         pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+
+    @property
+    @pulumi.getter(name="compatibilityGroup")
+    def compatibility_group(self) -> str:
+        """
+        (Required String) The global Schema Registry compatibility group.
+        """
+        return pulumi.get(self, "compatibility_group")
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -83,6 +94,7 @@ class AwaitableGetSchemaRegistryClusterConfigResult(GetSchemaRegistryClusterConf
         if False:
             yield self
         return GetSchemaRegistryClusterConfigResult(
+            compatibility_group=self.compatibility_group,
             compatibility_level=self.compatibility_level,
             credentials=self.credentials,
             id=self.id,
@@ -139,6 +151,7 @@ def get_schema_registry_cluster_config(credentials: Optional[Union['GetSchemaReg
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig', __args__, opts=opts, typ=GetSchemaRegistryClusterConfigResult).value
 
     return AwaitableGetSchemaRegistryClusterConfigResult(
+        compatibility_group=pulumi.get(__ret__, 'compatibility_group'),
         compatibility_level=pulumi.get(__ret__, 'compatibility_level'),
         credentials=pulumi.get(__ret__, 'credentials'),
         id=pulumi.get(__ret__, 'id'),
@@ -192,6 +205,7 @@ def get_schema_registry_cluster_config_output(credentials: Optional[pulumi.Input
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig', __args__, opts=opts, typ=GetSchemaRegistryClusterConfigResult)
     return __ret__.apply(lambda __response__: GetSchemaRegistryClusterConfigResult(
+        compatibility_group=pulumi.get(__response__, 'compatibility_group'),
         compatibility_level=pulumi.get(__response__, 'compatibility_level'),
         credentials=pulumi.get(__response__, 'credentials'),
         id=pulumi.get(__response__, 'id'),

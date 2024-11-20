@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.AccessPointArgs;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.AccessPointState;
 import com.pulumi.confluentcloud.outputs.AccessPointAwsEgressPrivateLinkEndpoint;
+import com.pulumi.confluentcloud.outputs.AccessPointAwsPrivateNetworkInterface;
 import com.pulumi.confluentcloud.outputs.AccessPointAzureEgressPrivateLinkEndpoint;
 import com.pulumi.confluentcloud.outputs.AccessPointEnvironment;
 import com.pulumi.confluentcloud.outputs.AccessPointGateway;
@@ -121,6 +122,20 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<AccessPointAwsEgressPrivateLinkEndpoint>> awsEgressPrivateLinkEndpoint() {
         return Codegen.optional(this.awsEgressPrivateLinkEndpoint);
+    }
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Export(name="awsPrivateNetworkInterface", refs={AccessPointAwsPrivateNetworkInterface.class}, tree="[0]")
+    private Output</* @Nullable */ AccessPointAwsPrivateNetworkInterface> awsPrivateNetworkInterface;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Output<Optional<AccessPointAwsPrivateNetworkInterface>> awsPrivateNetworkInterface() {
+        return Codegen.optional(this.awsPrivateNetworkInterface);
     }
     /**
      * (Optional Configuration Block) supports the following:

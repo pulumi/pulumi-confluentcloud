@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetAccessPointAwsEgressPrivateLinkEndpoint;
+import com.pulumi.confluentcloud.outputs.GetAccessPointAwsPrivateNetworkInterface;
 import com.pulumi.confluentcloud.outputs.GetAccessPointAzureEgressPrivateLinkEndpoint;
 import com.pulumi.confluentcloud.outputs.GetAccessPointEnvironment;
 import com.pulumi.confluentcloud.outputs.GetAccessPointGateway;
@@ -20,6 +21,11 @@ public final class GetAccessPointResult {
      * 
      */
     private List<GetAccessPointAwsEgressPrivateLinkEndpoint> awsEgressPrivateLinkEndpoints;
+    /**
+     * @return (Optional Configuration Block) Supports the following:
+     * 
+     */
+    private List<GetAccessPointAwsPrivateNetworkInterface> awsPrivateNetworkInterfaces;
     /**
      * @return (Optional Configuration Block) supports the following:
      * 
@@ -49,6 +55,13 @@ public final class GetAccessPointResult {
      */
     public List<GetAccessPointAwsEgressPrivateLinkEndpoint> awsEgressPrivateLinkEndpoints() {
         return this.awsEgressPrivateLinkEndpoints;
+    }
+    /**
+     * @return (Optional Configuration Block) Supports the following:
+     * 
+     */
+    public List<GetAccessPointAwsPrivateNetworkInterface> awsPrivateNetworkInterfaces() {
+        return this.awsPrivateNetworkInterfaces;
     }
     /**
      * @return (Optional Configuration Block) supports the following:
@@ -92,6 +105,7 @@ public final class GetAccessPointResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetAccessPointAwsEgressPrivateLinkEndpoint> awsEgressPrivateLinkEndpoints;
+        private List<GetAccessPointAwsPrivateNetworkInterface> awsPrivateNetworkInterfaces;
         private List<GetAccessPointAzureEgressPrivateLinkEndpoint> azureEgressPrivateLinkEndpoints;
         private String displayName;
         private GetAccessPointEnvironment environment;
@@ -101,6 +115,7 @@ public final class GetAccessPointResult {
         public Builder(GetAccessPointResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsEgressPrivateLinkEndpoints = defaults.awsEgressPrivateLinkEndpoints;
+    	      this.awsPrivateNetworkInterfaces = defaults.awsPrivateNetworkInterfaces;
     	      this.azureEgressPrivateLinkEndpoints = defaults.azureEgressPrivateLinkEndpoints;
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
@@ -118,6 +133,17 @@ public final class GetAccessPointResult {
         }
         public Builder awsEgressPrivateLinkEndpoints(GetAccessPointAwsEgressPrivateLinkEndpoint... awsEgressPrivateLinkEndpoints) {
             return awsEgressPrivateLinkEndpoints(List.of(awsEgressPrivateLinkEndpoints));
+        }
+        @CustomType.Setter
+        public Builder awsPrivateNetworkInterfaces(List<GetAccessPointAwsPrivateNetworkInterface> awsPrivateNetworkInterfaces) {
+            if (awsPrivateNetworkInterfaces == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "awsPrivateNetworkInterfaces");
+            }
+            this.awsPrivateNetworkInterfaces = awsPrivateNetworkInterfaces;
+            return this;
+        }
+        public Builder awsPrivateNetworkInterfaces(GetAccessPointAwsPrivateNetworkInterface... awsPrivateNetworkInterfaces) {
+            return awsPrivateNetworkInterfaces(List.of(awsPrivateNetworkInterfaces));
         }
         @CustomType.Setter
         public Builder azureEgressPrivateLinkEndpoints(List<GetAccessPointAzureEgressPrivateLinkEndpoint> azureEgressPrivateLinkEndpoints) {
@@ -168,6 +194,7 @@ public final class GetAccessPointResult {
         public GetAccessPointResult build() {
             final var _resultValue = new GetAccessPointResult();
             _resultValue.awsEgressPrivateLinkEndpoints = awsEgressPrivateLinkEndpoints;
+            _resultValue.awsPrivateNetworkInterfaces = awsPrivateNetworkInterfaces;
             _resultValue.azureEgressPrivateLinkEndpoints = azureEgressPrivateLinkEndpoints;
             _resultValue.displayName = displayName;
             _resultValue.environment = environment;

@@ -22,6 +22,7 @@ __all__ = ['SubjectConfigArgs', 'SubjectConfig']
 class SubjectConfigArgs:
     def __init__(__self__, *,
                  subject_name: pulumi.Input[str],
+                 compatibility_group: Optional[pulumi.Input[str]] = None,
                  compatibility_level: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input['SubjectConfigCredentialsArgs']] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -29,11 +30,14 @@ class SubjectConfigArgs:
         """
         The set of arguments for constructing a SubjectConfig resource.
         :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+        :param pulumi.Input[str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input['SubjectConfigCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "subject_name", subject_name)
+        if compatibility_group is not None:
+            pulumi.set(__self__, "compatibility_group", compatibility_group)
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
         if credentials is not None:
@@ -54,6 +58,18 @@ class SubjectConfigArgs:
     @subject_name.setter
     def subject_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "subject_name", value)
+
+    @property
+    @pulumi.getter(name="compatibilityGroup")
+    def compatibility_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Compatibility Group of the specified subject.
+        """
+        return pulumi.get(self, "compatibility_group")
+
+    @compatibility_group.setter
+    def compatibility_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compatibility_group", value)
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -104,6 +120,7 @@ class SubjectConfigArgs:
 @pulumi.input_type
 class _SubjectConfigState:
     def __init__(__self__, *,
+                 compatibility_group: Optional[pulumi.Input[str]] = None,
                  compatibility_level: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input['SubjectConfigCredentialsArgs']] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -111,11 +128,14 @@ class _SubjectConfigState:
                  subject_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SubjectConfig resources.
+        :param pulumi.Input[str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input['SubjectConfigCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
         """
+        if compatibility_group is not None:
+            pulumi.set(__self__, "compatibility_group", compatibility_group)
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
         if credentials is not None:
@@ -126,6 +146,18 @@ class _SubjectConfigState:
             pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
         if subject_name is not None:
             pulumi.set(__self__, "subject_name", subject_name)
+
+    @property
+    @pulumi.getter(name="compatibilityGroup")
+    def compatibility_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Compatibility Group of the specified subject.
+        """
+        return pulumi.get(self, "compatibility_group")
+
+    @compatibility_group.setter
+    def compatibility_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compatibility_group", value)
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -190,6 +222,7 @@ class SubjectConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 compatibility_group: Optional[pulumi.Input[str]] = None,
                  compatibility_level: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -212,6 +245,7 @@ class SubjectConfig(pulumi.CustomResource):
             rest_endpoint=essentials_confluent_schema_registry_cluster["restEndpoint"],
             subject_name="proto-purchase-value",
             compatibility_level="BACKWARD",
+            compatibility_group="abc.cg.version",
             credentials={
                 "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
                 "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
@@ -226,7 +260,8 @@ class SubjectConfig(pulumi.CustomResource):
 
         example = confluentcloud.SubjectConfig("example",
             subject_name="proto-purchase-value",
-            compatibility_level="BACKWARD")
+            compatibility_level="BACKWARD",
+            compatibility_group="abc.cg.version")
         ```
 
         ## Import
@@ -247,6 +282,7 @@ class SubjectConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -274,6 +310,7 @@ class SubjectConfig(pulumi.CustomResource):
             rest_endpoint=essentials_confluent_schema_registry_cluster["restEndpoint"],
             subject_name="proto-purchase-value",
             compatibility_level="BACKWARD",
+            compatibility_group="abc.cg.version",
             credentials={
                 "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
                 "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
@@ -288,7 +325,8 @@ class SubjectConfig(pulumi.CustomResource):
 
         example = confluentcloud.SubjectConfig("example",
             subject_name="proto-purchase-value",
-            compatibility_level="BACKWARD")
+            compatibility_level="BACKWARD",
+            compatibility_group="abc.cg.version")
         ```
 
         ## Import
@@ -322,6 +360,7 @@ class SubjectConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 compatibility_group: Optional[pulumi.Input[str]] = None,
                  compatibility_level: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -336,6 +375,7 @@ class SubjectConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SubjectConfigArgs.__new__(SubjectConfigArgs)
 
+            __props__.__dict__["compatibility_group"] = compatibility_group
             __props__.__dict__["compatibility_level"] = compatibility_level
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             __props__.__dict__["rest_endpoint"] = rest_endpoint
@@ -355,6 +395,7 @@ class SubjectConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            compatibility_group: Optional[pulumi.Input[str]] = None,
             compatibility_level: Optional[pulumi.Input[str]] = None,
             credentials: Optional[pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -367,6 +408,7 @@ class SubjectConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -376,12 +418,21 @@ class SubjectConfig(pulumi.CustomResource):
 
         __props__ = _SubjectConfigState.__new__(_SubjectConfigState)
 
+        __props__.__dict__["compatibility_group"] = compatibility_group
         __props__.__dict__["compatibility_level"] = compatibility_level
         __props__.__dict__["credentials"] = credentials
         __props__.__dict__["rest_endpoint"] = rest_endpoint
         __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
         __props__.__dict__["subject_name"] = subject_name
         return SubjectConfig(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="compatibilityGroup")
+    def compatibility_group(self) -> pulumi.Output[str]:
+        """
+        The Compatibility Group of the specified subject.
+        """
+        return pulumi.get(self, "compatibility_group")
 
     @property
     @pulumi.getter(name="compatibilityLevel")

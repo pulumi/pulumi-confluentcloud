@@ -53,6 +53,7 @@ namespace Pulumi.ConfluentCloud
     ///     var example = new ConfluentCloud.SchemaRegistryClusterConfig("example", new()
     ///     {
     ///         CompatibilityLevel = "FULL",
+    ///         CompatibilityGroup = "abc.cg.version",
     ///     });
     /// 
     /// });
@@ -77,6 +78,12 @@ namespace Pulumi.ConfluentCloud
     [ConfluentCloudResourceType("confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig")]
     public partial class SchemaRegistryClusterConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The global Schema Registry compatibility group.
+        /// </summary>
+        [Output("compatibilityGroup")]
+        public Output<string> CompatibilityGroup { get; private set; } = null!;
+
         /// <summary>
         /// The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         /// </summary>
@@ -149,6 +156,12 @@ namespace Pulumi.ConfluentCloud
     public sealed class SchemaRegistryClusterConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The global Schema Registry compatibility group.
+        /// </summary>
+        [Input("compatibilityGroup")]
+        public Input<string>? CompatibilityGroup { get; set; }
+
+        /// <summary>
         /// The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         /// </summary>
         [Input("compatibilityLevel")]
@@ -187,6 +200,12 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class SchemaRegistryClusterConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The global Schema Registry compatibility group.
+        /// </summary>
+        [Input("compatibilityGroup")]
+        public Input<string>? CompatibilityGroup { get; set; }
+
         /// <summary>
         /// The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         /// </summary>

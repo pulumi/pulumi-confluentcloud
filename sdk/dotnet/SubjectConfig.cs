@@ -31,6 +31,7 @@ namespace Pulumi.ConfluentCloud
     ///         RestEndpoint = essentialsConfluentSchemaRegistryCluster.RestEndpoint,
     ///         SubjectName = "proto-purchase-value",
     ///         CompatibilityLevel = "BACKWARD",
+    ///         CompatibilityGroup = "abc.cg.version",
     ///         Credentials = new ConfluentCloud.Inputs.SubjectConfigCredentialsArgs
     ///         {
     ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
@@ -55,6 +56,7 @@ namespace Pulumi.ConfluentCloud
     ///     {
     ///         SubjectName = "proto-purchase-value",
     ///         CompatibilityLevel = "BACKWARD",
+    ///         CompatibilityGroup = "abc.cg.version",
     ///     });
     /// 
     /// });
@@ -79,6 +81,12 @@ namespace Pulumi.ConfluentCloud
     [ConfluentCloudResourceType("confluentcloud:index/subjectConfig:SubjectConfig")]
     public partial class SubjectConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Compatibility Group of the specified subject.
+        /// </summary>
+        [Output("compatibilityGroup")]
+        public Output<string> CompatibilityGroup { get; private set; } = null!;
+
         /// <summary>
         /// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         /// </summary>
@@ -157,6 +165,12 @@ namespace Pulumi.ConfluentCloud
     public sealed class SubjectConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Compatibility Group of the specified subject.
+        /// </summary>
+        [Input("compatibilityGroup")]
+        public Input<string>? CompatibilityGroup { get; set; }
+
+        /// <summary>
         /// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         /// </summary>
         [Input("compatibilityLevel")]
@@ -201,6 +215,12 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class SubjectConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Compatibility Group of the specified subject.
+        /// </summary>
+        [Input("compatibilityGroup")]
+        public Input<string>? CompatibilityGroup { get; set; }
+
         /// <summary>
         /// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         /// </summary>

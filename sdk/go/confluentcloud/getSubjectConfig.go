@@ -38,6 +38,8 @@ type LookupSubjectConfigArgs struct {
 
 // A collection of values returned by getSubjectConfig.
 type LookupSubjectConfigResult struct {
+	// (Required String) The Compatibility Group of the specified subject.
+	CompatibilityGroup string `pulumi:"compatibilityGroup"`
 	// (Required String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel string                       `pulumi:"compatibilityLevel"`
 	Credentials        *GetSubjectConfigCredentials `pulumi:"credentials"`
@@ -94,6 +96,11 @@ func (o LookupSubjectConfigResultOutput) ToLookupSubjectConfigResultOutput() Loo
 
 func (o LookupSubjectConfigResultOutput) ToLookupSubjectConfigResultOutputWithContext(ctx context.Context) LookupSubjectConfigResultOutput {
 	return o
+}
+
+// (Required String) The Compatibility Group of the specified subject.
+func (o LookupSubjectConfigResultOutput) CompatibilityGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubjectConfigResult) string { return v.CompatibilityGroup }).(pulumi.StringOutput)
 }
 
 // (Required String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.

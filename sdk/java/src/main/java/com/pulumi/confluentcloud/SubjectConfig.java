@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  *             .restEndpoint(essentialsConfluentSchemaRegistryCluster.restEndpoint())
  *             .subjectName("proto-purchase-value")
  *             .compatibilityLevel("BACKWARD")
+ *             .compatibilityGroup("abc.cg.version")
  *             .credentials(SubjectConfigCredentialsArgs.builder()
  *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
  *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -94,6 +95,7 @@ import javax.annotation.Nullable;
  *         var example = new SubjectConfig("example", SubjectConfigArgs.builder()
  *             .subjectName("proto-purchase-value")
  *             .compatibilityLevel("BACKWARD")
+ *             .compatibilityGroup("abc.cg.version")
  *             .build());
  * 
  *     }
@@ -121,6 +123,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/subjectConfig:SubjectConfig")
 public class SubjectConfig extends com.pulumi.resources.CustomResource {
+    /**
+     * The Compatibility Group of the specified subject.
+     * 
+     */
+    @Export(name="compatibilityGroup", refs={String.class}, tree="[0]")
+    private Output<String> compatibilityGroup;
+
+    /**
+     * @return The Compatibility Group of the specified subject.
+     * 
+     */
+    public Output<String> compatibilityGroup() {
+        return this.compatibilityGroup;
+    }
     /**
      * The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      * 

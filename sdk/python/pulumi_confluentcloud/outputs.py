@@ -17,6 +17,7 @@ from . import outputs
 
 __all__ = [
     'AccessPointAwsEgressPrivateLinkEndpoint',
+    'AccessPointAwsPrivateNetworkInterface',
     'AccessPointAzureEgressPrivateLinkEndpoint',
     'AccessPointEnvironment',
     'AccessPointGateway',
@@ -60,6 +61,7 @@ __all__ = [
     'FlinkStatementOrganization',
     'FlinkStatementPrincipal',
     'GatewayAwsEgressPrivateLinkGateway',
+    'GatewayAwsPrivateNetworkInterfaceGateway',
     'GatewayAzureEgressPrivateLinkGateway',
     'GatewayEnvironment',
     'IdentityPoolIdentityProvider',
@@ -155,6 +157,7 @@ __all__ = [
     'TransitGatewayAttachmentEnvironment',
     'TransitGatewayAttachmentNetwork',
     'GetAccessPointAwsEgressPrivateLinkEndpointResult',
+    'GetAccessPointAwsPrivateNetworkInterfaceResult',
     'GetAccessPointAzureEgressPrivateLinkEndpointResult',
     'GetAccessPointEnvironmentResult',
     'GetAccessPointGatewayResult',
@@ -176,6 +179,7 @@ __all__ = [
     'GetFlinkComputePoolEnvironmentResult',
     'GetGatewayAwsEgressPrivateLinkGatewayResult',
     'GetGatewayAwsPeeringGatewayResult',
+    'GetGatewayAwsPrivateNetworkInterfaceGatewayResult',
     'GetGatewayAzureEgressPrivateLinkGatewayResult',
     'GetGatewayAzurePeeringGatewayResult',
     'GetGatewayEnvironmentResult',
@@ -347,6 +351,52 @@ class AccessPointAwsEgressPrivateLinkEndpoint(dict):
         (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
         """
         return pulumi.get(self, "vpc_endpoint_id")
+
+
+@pulumi.output_type
+class AccessPointAwsPrivateNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaces":
+            suggest = "network_interfaces"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointAwsPrivateNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointAwsPrivateNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointAwsPrivateNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account: str,
+                 network_interfaces: Sequence[str]):
+        """
+        :param str account: (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+        :param Sequence[str] network_interfaces: (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+        """
+        pulumi.set(__self__, "account", account)
+        pulumi.set(__self__, "network_interfaces", network_interfaces)
+
+    @property
+    @pulumi.getter
+    def account(self) -> str:
+        """
+        (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Sequence[str]:
+        """
+        (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+        """
+        return pulumi.get(self, "network_interfaces")
 
 
 @pulumi.output_type
@@ -1860,6 +1910,47 @@ class GatewayAwsEgressPrivateLinkGateway(dict):
         (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
         """
         return pulumi.get(self, "principal_arn")
+
+
+@pulumi.output_type
+class GatewayAwsPrivateNetworkInterfaceGateway(dict):
+    def __init__(__self__, *,
+                 region: str,
+                 zones: Sequence[str],
+                 account: Optional[str] = None):
+        """
+        :param str region: AWS region of the Private Network Interface Gateway.
+        :param Sequence[str] zones: AWS availability zone ids of the Private Network Interface Gateway.
+        :param str account: (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "zones", zones)
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        AWS region of the Private Network Interface Gateway.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Sequence[str]:
+        """
+        AWS availability zone ids of the Private Network Interface Gateway.
+        """
+        return pulumi.get(self, "zones")
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[str]:
+        """
+        (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+        """
+        return pulumi.get(self, "account")
 
 
 @pulumi.output_type
@@ -4907,6 +4998,35 @@ class GetAccessPointAwsEgressPrivateLinkEndpointResult(dict):
 
 
 @pulumi.output_type
+class GetAccessPointAwsPrivateNetworkInterfaceResult(dict):
+    def __init__(__self__, *,
+                 account: str,
+                 network_interfaces: Sequence[str]):
+        """
+        :param str account: (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+        :param Sequence[str] network_interfaces: (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+        """
+        pulumi.set(__self__, "account", account)
+        pulumi.set(__self__, "network_interfaces", network_interfaces)
+
+    @property
+    @pulumi.getter
+    def account(self) -> str:
+        """
+        (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Sequence[str]:
+        """
+        (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+        """
+        return pulumi.get(self, "network_interfaces")
+
+
+@pulumi.output_type
 class GetAccessPointAzureEgressPrivateLinkEndpointResult(dict):
     def __init__(__self__, *,
                  private_endpoint_custom_dns_config_domains: Sequence[str],
@@ -5496,6 +5616,46 @@ class GetGatewayAwsPeeringGatewayResult(dict):
         (Required String) Azure region of the Peering Gateway.
         """
         return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetGatewayAwsPrivateNetworkInterfaceGatewayResult(dict):
+    def __init__(__self__, *,
+                 account: str,
+                 region: str,
+                 zones: Sequence[str]):
+        """
+        :param str account: (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+        :param str region: (Required String) Azure region of the Peering Gateway.
+        :param Sequence[str] zones: (Required List of Strings) AWS availability zone ids of the Private Network Interface Gateway.
+        """
+        pulumi.set(__self__, "account", account)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def account(self) -> str:
+        """
+        (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        (Required String) Azure region of the Peering Gateway.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Sequence[str]:
+        """
+        (Required List of Strings) AWS availability zone ids of the Private Network Interface Gateway.
+        """
+        return pulumi.get(self, "zones")
 
 
 @pulumi.output_type

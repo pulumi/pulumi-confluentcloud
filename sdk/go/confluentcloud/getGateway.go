@@ -68,6 +68,8 @@ type LookupGatewayResult struct {
 	// (Optional Configuration Block) supports the following:
 	AwsPeeringGateways []GetGatewayAwsPeeringGateway `pulumi:"awsPeeringGateways"`
 	// (Optional Configuration Block) supports the following:
+	AwsPrivateNetworkInterfaceGateways []GetGatewayAwsPrivateNetworkInterfaceGateway `pulumi:"awsPrivateNetworkInterfaceGateways"`
+	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateways []GetGatewayAzureEgressPrivateLinkGateway `pulumi:"azureEgressPrivateLinkGateways"`
 	// (Optional Configuration Block) supports the following:
 	AzurePeeringGateways []GetGatewayAzurePeeringGateway `pulumi:"azurePeeringGateways"`
@@ -132,6 +134,13 @@ func (o LookupGatewayResultOutput) AwsEgressPrivateLinkGateways() GetGatewayAwsE
 // (Optional Configuration Block) supports the following:
 func (o LookupGatewayResultOutput) AwsPeeringGateways() GetGatewayAwsPeeringGatewayArrayOutput {
 	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayAwsPeeringGateway { return v.AwsPeeringGateways }).(GetGatewayAwsPeeringGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupGatewayResultOutput) AwsPrivateNetworkInterfaceGateways() GetGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayAwsPrivateNetworkInterfaceGateway {
+		return v.AwsPrivateNetworkInterfaceGateways
+	}).(GetGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput)
 }
 
 // (Optional Configuration Block) supports the following:

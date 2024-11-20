@@ -19,6 +19,21 @@ public final class SubjectConfigArgs extends com.pulumi.resources.ResourceArgs {
     public static final SubjectConfigArgs Empty = new SubjectConfigArgs();
 
     /**
+     * The Compatibility Group of the specified subject.
+     * 
+     */
+    @Import(name="compatibilityGroup")
+    private @Nullable Output<String> compatibilityGroup;
+
+    /**
+     * @return The Compatibility Group of the specified subject.
+     * 
+     */
+    public Optional<Output<String>> compatibilityGroup() {
+        return Optional.ofNullable(this.compatibilityGroup);
+    }
+
+    /**
      * The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      * 
      */
@@ -88,6 +103,7 @@ public final class SubjectConfigArgs extends com.pulumi.resources.ResourceArgs {
     private SubjectConfigArgs() {}
 
     private SubjectConfigArgs(SubjectConfigArgs $) {
+        this.compatibilityGroup = $.compatibilityGroup;
         this.compatibilityLevel = $.compatibilityLevel;
         this.credentials = $.credentials;
         this.restEndpoint = $.restEndpoint;
@@ -111,6 +127,27 @@ public final class SubjectConfigArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(SubjectConfigArgs defaults) {
             $ = new SubjectConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param compatibilityGroup The Compatibility Group of the specified subject.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compatibilityGroup(@Nullable Output<String> compatibilityGroup) {
+            $.compatibilityGroup = compatibilityGroup;
+            return this;
+        }
+
+        /**
+         * @param compatibilityGroup The Compatibility Group of the specified subject.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compatibilityGroup(String compatibilityGroup) {
+            return compatibilityGroup(Output.of(compatibilityGroup));
         }
 
         /**

@@ -44,6 +44,10 @@ export interface GetSubjectConfigArgs {
  */
 export interface GetSubjectConfigResult {
     /**
+     * (Required String) The Compatibility Group of the specified subject.
+     */
+    readonly compatibilityGroup: string;
+    /**
      * (Required String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
     readonly compatibilityLevel: string;
