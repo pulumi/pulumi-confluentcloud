@@ -193,7 +193,7 @@ class CertificatePool(pulumi.CustomResource):
                  filter: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         `CertificatePool` provides a Certificate Pool resource that enables creating, editing, and deleting Certificate Pools on Confluent Cloud.
 
@@ -241,7 +241,7 @@ class CertificatePool(pulumi.CustomResource):
                  args: CertificatePoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         `CertificatePool` provides a Certificate Pool resource that enables creating, editing, and deleting Certificate Pools on Confluent Cloud.
 

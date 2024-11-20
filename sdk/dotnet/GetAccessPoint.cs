@@ -124,6 +124,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessPointAwsEgressPrivateLinkEndpointResult> AwsEgressPrivateLinkEndpoints;
         /// <summary>
+        /// (Optional Configuration Block) Supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccessPointAwsPrivateNetworkInterfaceResult> AwsPrivateNetworkInterfaces;
+        /// <summary>
         /// (Optional Configuration Block) supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessPointAzureEgressPrivateLinkEndpointResult> AzureEgressPrivateLinkEndpoints;
@@ -145,6 +149,8 @@ namespace Pulumi.ConfluentCloud
         private GetAccessPointResult(
             ImmutableArray<Outputs.GetAccessPointAwsEgressPrivateLinkEndpointResult> awsEgressPrivateLinkEndpoints,
 
+            ImmutableArray<Outputs.GetAccessPointAwsPrivateNetworkInterfaceResult> awsPrivateNetworkInterfaces,
+
             ImmutableArray<Outputs.GetAccessPointAzureEgressPrivateLinkEndpointResult> azureEgressPrivateLinkEndpoints,
 
             string displayName,
@@ -156,6 +162,7 @@ namespace Pulumi.ConfluentCloud
             string id)
         {
             AwsEgressPrivateLinkEndpoints = awsEgressPrivateLinkEndpoints;
+            AwsPrivateNetworkInterfaces = awsPrivateNetworkInterfaces;
             AzureEgressPrivateLinkEndpoints = azureEgressPrivateLinkEndpoints;
             DisplayName = displayName;
             Environment = environment;

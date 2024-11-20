@@ -18,6 +18,21 @@ public final class SchemaRegistryClusterConfigState extends com.pulumi.resources
     public static final SchemaRegistryClusterConfigState Empty = new SchemaRegistryClusterConfigState();
 
     /**
+     * The global Schema Registry compatibility group.
+     * 
+     */
+    @Import(name="compatibilityGroup")
+    private @Nullable Output<String> compatibilityGroup;
+
+    /**
+     * @return The global Schema Registry compatibility group.
+     * 
+     */
+    public Optional<Output<String>> compatibilityGroup() {
+        return Optional.ofNullable(this.compatibilityGroup);
+    }
+
+    /**
      * The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      * 
      */
@@ -72,6 +87,7 @@ public final class SchemaRegistryClusterConfigState extends com.pulumi.resources
     private SchemaRegistryClusterConfigState() {}
 
     private SchemaRegistryClusterConfigState(SchemaRegistryClusterConfigState $) {
+        this.compatibilityGroup = $.compatibilityGroup;
         this.compatibilityLevel = $.compatibilityLevel;
         this.credentials = $.credentials;
         this.restEndpoint = $.restEndpoint;
@@ -94,6 +110,27 @@ public final class SchemaRegistryClusterConfigState extends com.pulumi.resources
 
         public Builder(SchemaRegistryClusterConfigState defaults) {
             $ = new SchemaRegistryClusterConfigState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param compatibilityGroup The global Schema Registry compatibility group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compatibilityGroup(@Nullable Output<String> compatibilityGroup) {
+            $.compatibilityGroup = compatibilityGroup;
+            return this;
+        }
+
+        /**
+         * @param compatibilityGroup The global Schema Registry compatibility group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compatibilityGroup(String compatibilityGroup) {
+            return compatibilityGroup(Output.of(compatibilityGroup));
         }
 
         /**

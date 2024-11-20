@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetGatewayAwsEgressPrivateLinkGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayAwsPeeringGateway;
+import com.pulumi.confluentcloud.outputs.GetGatewayAwsPrivateNetworkInterfaceGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayAzureEgressPrivateLinkGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayAzurePeeringGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayEnvironment;
@@ -26,6 +27,11 @@ public final class GetGatewayResult {
      * 
      */
     private List<GetGatewayAwsPeeringGateway> awsPeeringGateways;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetGatewayAwsPrivateNetworkInterfaceGateway> awsPrivateNetworkInterfaceGateways;
     /**
      * @return (Optional Configuration Block) supports the following:
      * 
@@ -58,6 +64,13 @@ public final class GetGatewayResult {
      */
     public List<GetGatewayAwsPeeringGateway> awsPeeringGateways() {
         return this.awsPeeringGateways;
+    }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetGatewayAwsPrivateNetworkInterfaceGateway> awsPrivateNetworkInterfaceGateways() {
+        return this.awsPrivateNetworkInterfaceGateways;
     }
     /**
      * @return (Optional Configuration Block) supports the following:
@@ -98,6 +111,7 @@ public final class GetGatewayResult {
     public static final class Builder {
         private List<GetGatewayAwsEgressPrivateLinkGateway> awsEgressPrivateLinkGateways;
         private List<GetGatewayAwsPeeringGateway> awsPeeringGateways;
+        private List<GetGatewayAwsPrivateNetworkInterfaceGateway> awsPrivateNetworkInterfaceGateways;
         private List<GetGatewayAzureEgressPrivateLinkGateway> azureEgressPrivateLinkGateways;
         private List<GetGatewayAzurePeeringGateway> azurePeeringGateways;
         private String displayName;
@@ -108,6 +122,7 @@ public final class GetGatewayResult {
     	      Objects.requireNonNull(defaults);
     	      this.awsEgressPrivateLinkGateways = defaults.awsEgressPrivateLinkGateways;
     	      this.awsPeeringGateways = defaults.awsPeeringGateways;
+    	      this.awsPrivateNetworkInterfaceGateways = defaults.awsPrivateNetworkInterfaceGateways;
     	      this.azureEgressPrivateLinkGateways = defaults.azureEgressPrivateLinkGateways;
     	      this.azurePeeringGateways = defaults.azurePeeringGateways;
     	      this.displayName = defaults.displayName;
@@ -136,6 +151,17 @@ public final class GetGatewayResult {
         }
         public Builder awsPeeringGateways(GetGatewayAwsPeeringGateway... awsPeeringGateways) {
             return awsPeeringGateways(List.of(awsPeeringGateways));
+        }
+        @CustomType.Setter
+        public Builder awsPrivateNetworkInterfaceGateways(List<GetGatewayAwsPrivateNetworkInterfaceGateway> awsPrivateNetworkInterfaceGateways) {
+            if (awsPrivateNetworkInterfaceGateways == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "awsPrivateNetworkInterfaceGateways");
+            }
+            this.awsPrivateNetworkInterfaceGateways = awsPrivateNetworkInterfaceGateways;
+            return this;
+        }
+        public Builder awsPrivateNetworkInterfaceGateways(GetGatewayAwsPrivateNetworkInterfaceGateway... awsPrivateNetworkInterfaceGateways) {
+            return awsPrivateNetworkInterfaceGateways(List.of(awsPrivateNetworkInterfaceGateways));
         }
         @CustomType.Setter
         public Builder azureEgressPrivateLinkGateways(List<GetGatewayAzureEgressPrivateLinkGateway> azureEgressPrivateLinkGateways) {
@@ -187,6 +213,7 @@ public final class GetGatewayResult {
             final var _resultValue = new GetGatewayResult();
             _resultValue.awsEgressPrivateLinkGateways = awsEgressPrivateLinkGateways;
             _resultValue.awsPeeringGateways = awsPeeringGateways;
+            _resultValue.awsPrivateNetworkInterfaceGateways = awsPrivateNetworkInterfaceGateways;
             _resultValue.azureEgressPrivateLinkGateways = azureEgressPrivateLinkGateways;
             _resultValue.azurePeeringGateways = azurePeeringGateways;
             _resultValue.displayName = displayName;

@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You can import a Flink Artifact by using cloud, region, Flink Artifact ID and artifact file, in the format `&lt;region&gt;/&lt;cloud&gt;/&lt;Flink Artifact ID&gt;`. The following example shows how to import a Flink Artifact:
+ * You can import a Flink Artifact by using cloud, region, Flink Artifact ID and artifact file, in the format `&lt;Environment ID&gt;/&lt;region&gt;/&lt;cloud&gt;/&lt;Flink Artifact ID&gt;`. The following example shows how to import a Flink Artifact:
  * 
  * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
  * 
  * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * 
  * ```sh
- * $ pulumi import confluentcloud:index/flinkArtifact:FlinkArtifact main us-east-1/aws/fa-123
+ * $ pulumi import confluentcloud:index/flinkArtifact:FlinkArtifact main env-abc123/us-east-1/aws/fa-123
  * ```
  * 
  * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

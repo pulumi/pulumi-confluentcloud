@@ -43,14 +43,14 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
-    /// You can import a Flink Artifact by using cloud, region, Flink Artifact ID and artifact file, in the format `&lt;region&gt;/&lt;cloud&gt;/&lt;Flink Artifact ID&gt;`. The following example shows how to import a Flink Artifact:
+    /// You can import a Flink Artifact by using cloud, region, Flink Artifact ID and artifact file, in the format `&lt;Environment ID&gt;/&lt;region&gt;/&lt;cloud&gt;/&lt;Flink Artifact ID&gt;`. The following example shows how to import a Flink Artifact:
     /// 
     /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
     /// 
     /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// 
     /// ```sh
-    /// $ pulumi import confluentcloud:index/flinkArtifact:FlinkArtifact main us-east-1/aws/fa-123
+    /// $ pulumi import confluentcloud:index/flinkArtifact:FlinkArtifact main env-abc123/us-east-1/aws/fa-123
     /// ```
     /// 
     /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

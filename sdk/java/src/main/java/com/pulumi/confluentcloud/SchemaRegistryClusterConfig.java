@@ -92,6 +92,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SchemaRegistryClusterConfig("example", SchemaRegistryClusterConfigArgs.builder()
  *             .compatibilityLevel("FULL")
+ *             .compatibilityGroup("abc.cg.version")
  *             .build());
  * 
  *     }
@@ -119,6 +120,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig")
 public class SchemaRegistryClusterConfig extends com.pulumi.resources.CustomResource {
+    /**
+     * The global Schema Registry compatibility group.
+     * 
+     */
+    @Export(name="compatibilityGroup", refs={String.class}, tree="[0]")
+    private Output<String> compatibilityGroup;
+
+    /**
+     * @return The global Schema Registry compatibility group.
+     * 
+     */
+    public Output<String> compatibilityGroup() {
+        return this.compatibilityGroup;
+    }
     /**
      * The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      * 

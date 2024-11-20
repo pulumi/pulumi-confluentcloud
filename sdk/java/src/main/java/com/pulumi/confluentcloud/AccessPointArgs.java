@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud;
 
 import com.pulumi.confluentcloud.inputs.AccessPointAwsEgressPrivateLinkEndpointArgs;
+import com.pulumi.confluentcloud.inputs.AccessPointAwsPrivateNetworkInterfaceArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointAzureEgressPrivateLinkEndpointArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointGatewayArgs;
@@ -33,6 +34,21 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<AccessPointAwsEgressPrivateLinkEndpointArgs>> awsEgressPrivateLinkEndpoint() {
         return Optional.ofNullable(this.awsEgressPrivateLinkEndpoint);
+    }
+
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Import(name="awsPrivateNetworkInterface")
+    private @Nullable Output<AccessPointAwsPrivateNetworkInterfaceArgs> awsPrivateNetworkInterface;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Optional<Output<AccessPointAwsPrivateNetworkInterfaceArgs>> awsPrivateNetworkInterface() {
+        return Optional.ofNullable(this.awsPrivateNetworkInterface);
     }
 
     /**
@@ -91,6 +107,7 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
 
     private AccessPointArgs(AccessPointArgs $) {
         this.awsEgressPrivateLinkEndpoint = $.awsEgressPrivateLinkEndpoint;
+        this.awsPrivateNetworkInterface = $.awsPrivateNetworkInterface;
         this.azureEgressPrivateLinkEndpoint = $.azureEgressPrivateLinkEndpoint;
         this.displayName = $.displayName;
         this.environment = $.environment;
@@ -134,6 +151,27 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder awsEgressPrivateLinkEndpoint(AccessPointAwsEgressPrivateLinkEndpointArgs awsEgressPrivateLinkEndpoint) {
             return awsEgressPrivateLinkEndpoint(Output.of(awsEgressPrivateLinkEndpoint));
+        }
+
+        /**
+         * @param awsPrivateNetworkInterface (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsPrivateNetworkInterface(@Nullable Output<AccessPointAwsPrivateNetworkInterfaceArgs> awsPrivateNetworkInterface) {
+            $.awsPrivateNetworkInterface = awsPrivateNetworkInterface;
+            return this;
+        }
+
+        /**
+         * @param awsPrivateNetworkInterface (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsPrivateNetworkInterface(AccessPointAwsPrivateNetworkInterfaceArgs awsPrivateNetworkInterface) {
+            return awsPrivateNetworkInterface(Output.of(awsPrivateNetworkInterface));
         }
 
         /**

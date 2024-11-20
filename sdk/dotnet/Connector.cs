@@ -21,6 +21,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/managed-datagen-source-connector
     ///     var source = new ConfluentCloud.Connector("source", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
@@ -66,6 +67,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector
     ///     var sink = new ConfluentCloud.Connector("sink", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
@@ -114,6 +116,64 @@ namespace Pulumi.ConfluentCloud
     /// });
     /// ```
     /// 
+    /// ### Example Managed [Amazon S3 Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-s3-sink.html) that uses a service account to communicate with your Kafka cluster and IAM Roles for AWS authentication
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector-assume-role
+    ///     var sink = new ConfluentCloud.Connector("sink", new()
+    ///     {
+    ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
+    ///         {
+    ///             Id = staging.Id,
+    ///         },
+    ///         KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs
+    ///         {
+    ///             Id = basic.Id,
+    ///         },
+    ///         ConfigSensitive = null,
+    ///         ConfigNonsensitive = 
+    ///         {
+    ///             { "topics", orders.TopicName },
+    ///             { "input.data.format", "JSON" },
+    ///             { "connector.class", "S3_SINK" },
+    ///             { "name", "S3_SINKConnector_0" },
+    ///             { "kafka.auth.mode", "SERVICE_ACCOUNT" },
+    ///             { "kafka.service.account.id", app_connector.Id },
+    ///             { "s3.bucket.name", "&lt;s3-bucket-name&gt;" },
+    ///             { "output.data.format", "JSON" },
+    ///             { "time.interval", "DAILY" },
+    ///             { "flush.size", "1000" },
+    ///             { "tasks.max", "1" },
+    ///             { "authentication.method", "IAM Roles" },
+    ///             { "provider.integration.id", main.Id },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             app_connector_describe_on_cluster,
+    ///             app_connector_read_on_target_topic,
+    ///             app_connector_create_on_dlq_lcc_topics,
+    ///             app_connector_write_on_dlq_lcc_topics,
+    ///             app_connector_create_on_success_lcc_topics,
+    ///             app_connector_write_on_success_lcc_topics,
+    ///             app_connector_create_on_error_lcc_topics,
+    ///             app_connector_write_on_error_lcc_topics,
+    ///             app_connector_read_on_connect_lcc_group,
+    ///             main,
+    ///             s3AccessRole,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Example Managed [Amazon DynamoDB Connector](https://docs.confluent.io/cloud/current/connectors/cc-amazon-dynamo-db-sink.html) that uses a service account to communicate with your Kafka cluster
     /// ```csharp
     /// using System.Collections.Generic;
@@ -123,6 +183,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/dynamo-db-sink-connector
     ///     var sink = new ConfluentCloud.Connector("sink", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
@@ -170,7 +231,6 @@ namespace Pulumi.ConfluentCloud
     /// ```
     /// 
     /// ### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -179,6 +239,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/custom-datagen-source-connector
     ///     var source = new ConfluentCloud.Connector("source", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
@@ -219,13 +280,11 @@ namespace Pulumi.ConfluentCloud
     /// });
     /// ```
     /// 
-    /// &gt; **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-    /// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-    /// 
     /// ## Getting Started
     /// 
     /// The following end-to-end examples might help to get started with `confluentcloud.Connector` resource:
     /// * `s3-sink-connector`
+    /// * `s3-sink-connector-assume-role`
     /// * `snowflake-sink-connector`
     /// * `managed-datagen-source-connector`
     /// * `elasticsearch-sink-connector`

@@ -35,6 +35,7 @@ import (
 //				RestEndpoint:       pulumi.Any(essentialsConfluentSchemaRegistryCluster.RestEndpoint),
 //				SubjectName:        pulumi.String("proto-purchase-value"),
 //				CompatibilityLevel: pulumi.String("BACKWARD"),
+//				CompatibilityGroup: pulumi.String("abc.cg.version"),
 //				Credentials: &confluentcloud.SubjectConfigCredentialsArgs{
 //					Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>"),
 //					Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>"),
@@ -66,6 +67,7 @@ import (
 //			_, err := confluentcloud.NewSubjectConfig(ctx, "example", &confluentcloud.SubjectConfigArgs{
 //				SubjectName:        pulumi.String("proto-purchase-value"),
 //				CompatibilityLevel: pulumi.String("BACKWARD"),
+//				CompatibilityGroup: pulumi.String("abc.cg.version"),
 //			})
 //			if err != nil {
 //				return err
@@ -94,6 +96,8 @@ import (
 type SubjectConfig struct {
 	pulumi.CustomResourceState
 
+	// The Compatibility Group of the specified subject.
+	CompatibilityGroup pulumi.StringOutput `pulumi:"compatibilityGroup"`
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel pulumi.StringOutput `pulumi:"compatibilityLevel"`
 	// The Cluster API Credentials.
@@ -145,6 +149,8 @@ func GetSubjectConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubjectConfig resources.
 type subjectConfigState struct {
+	// The Compatibility Group of the specified subject.
+	CompatibilityGroup *string `pulumi:"compatibilityGroup"`
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// The Cluster API Credentials.
@@ -157,6 +163,8 @@ type subjectConfigState struct {
 }
 
 type SubjectConfigState struct {
+	// The Compatibility Group of the specified subject.
+	CompatibilityGroup pulumi.StringPtrInput
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel pulumi.StringPtrInput
 	// The Cluster API Credentials.
@@ -173,6 +181,8 @@ func (SubjectConfigState) ElementType() reflect.Type {
 }
 
 type subjectConfigArgs struct {
+	// The Compatibility Group of the specified subject.
+	CompatibilityGroup *string `pulumi:"compatibilityGroup"`
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// The Cluster API Credentials.
@@ -186,6 +196,8 @@ type subjectConfigArgs struct {
 
 // The set of arguments for constructing a SubjectConfig resource.
 type SubjectConfigArgs struct {
+	// The Compatibility Group of the specified subject.
+	CompatibilityGroup pulumi.StringPtrInput
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel pulumi.StringPtrInput
 	// The Cluster API Credentials.
@@ -282,6 +294,11 @@ func (o SubjectConfigOutput) ToSubjectConfigOutput() SubjectConfigOutput {
 
 func (o SubjectConfigOutput) ToSubjectConfigOutputWithContext(ctx context.Context) SubjectConfigOutput {
 	return o
+}
+
+// The Compatibility Group of the specified subject.
+func (o SubjectConfigOutput) CompatibilityGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubjectConfig) pulumi.StringOutput { return v.CompatibilityGroup }).(pulumi.StringOutput)
 }
 
 // The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.

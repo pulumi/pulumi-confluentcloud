@@ -71,6 +71,12 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// (Optional Configuration Block) supports the following:
         /// </summary>
+        [Output("awsPrivateNetworkInterfaceGateway")]
+        public Output<Outputs.GatewayAwsPrivateNetworkInterfaceGateway> AwsPrivateNetworkInterfaceGateway { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         [Output("azureEgressPrivateLinkGateway")]
         public Output<Outputs.GatewayAzureEgressPrivateLinkGateway> AzureEgressPrivateLinkGateway { get; private set; } = null!;
 
@@ -141,6 +147,12 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// (Optional Configuration Block) supports the following:
         /// </summary>
+        [Input("awsPrivateNetworkInterfaceGateway")]
+        public Input<Inputs.GatewayAwsPrivateNetworkInterfaceGatewayArgs>? AwsPrivateNetworkInterfaceGateway { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         [Input("azureEgressPrivateLinkGateway")]
         public Input<Inputs.GatewayAzureEgressPrivateLinkGatewayArgs>? AzureEgressPrivateLinkGateway { get; set; }
 
@@ -169,6 +181,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("awsEgressPrivateLinkGateway")]
         public Input<Inputs.GatewayAwsEgressPrivateLinkGatewayGetArgs>? AwsEgressPrivateLinkGateway { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("awsPrivateNetworkInterfaceGateway")]
+        public Input<Inputs.GatewayAwsPrivateNetworkInterfaceGatewayGetArgs>? AwsPrivateNetworkInterfaceGateway { get; set; }
 
         /// <summary>
         /// (Optional Configuration Block) supports the following:

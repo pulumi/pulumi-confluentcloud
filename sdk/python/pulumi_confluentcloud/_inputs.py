@@ -17,6 +17,8 @@ from . import _utilities
 __all__ = [
     'AccessPointAwsEgressPrivateLinkEndpointArgs',
     'AccessPointAwsEgressPrivateLinkEndpointArgsDict',
+    'AccessPointAwsPrivateNetworkInterfaceArgs',
+    'AccessPointAwsPrivateNetworkInterfaceArgsDict',
     'AccessPointAzureEgressPrivateLinkEndpointArgs',
     'AccessPointAzureEgressPrivateLinkEndpointArgsDict',
     'AccessPointEnvironmentArgs',
@@ -103,6 +105,8 @@ __all__ = [
     'FlinkStatementPrincipalArgsDict',
     'GatewayAwsEgressPrivateLinkGatewayArgs',
     'GatewayAwsEgressPrivateLinkGatewayArgsDict',
+    'GatewayAwsPrivateNetworkInterfaceGatewayArgs',
+    'GatewayAwsPrivateNetworkInterfaceGatewayArgsDict',
     'GatewayAzureEgressPrivateLinkGatewayArgs',
     'GatewayAzureEgressPrivateLinkGatewayArgsDict',
     'GatewayEnvironmentArgs',
@@ -512,6 +516,56 @@ class AccessPointAwsEgressPrivateLinkEndpointArgs:
     @vpc_endpoint_id.setter
     def vpc_endpoint_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_endpoint_id", value)
+
+
+if not MYPY:
+    class AccessPointAwsPrivateNetworkInterfaceArgsDict(TypedDict):
+        account: pulumi.Input[str]
+        """
+        (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+        """
+        network_interfaces: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+        """
+elif False:
+    AccessPointAwsPrivateNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessPointAwsPrivateNetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 account: pulumi.Input[str],
+                 network_interfaces: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] account: (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interfaces: (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+        """
+        pulumi.set(__self__, "account", account)
+        pulumi.set(__self__, "network_interfaces", network_interfaces)
+
+    @property
+    @pulumi.getter
+    def account(self) -> pulumi.Input[str]:
+        """
+        (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @network_interfaces.setter
+    def network_interfaces(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "network_interfaces", value)
 
 
 if not MYPY:
@@ -2669,6 +2723,76 @@ class GatewayAwsEgressPrivateLinkGatewayArgs:
     @principal_arn.setter
     def principal_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_arn", value)
+
+
+if not MYPY:
+    class GatewayAwsPrivateNetworkInterfaceGatewayArgsDict(TypedDict):
+        region: pulumi.Input[str]
+        """
+        AWS region of the Private Network Interface Gateway.
+        """
+        zones: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        AWS availability zone ids of the Private Network Interface Gateway.
+        """
+        account: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+        """
+elif False:
+    GatewayAwsPrivateNetworkInterfaceGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayAwsPrivateNetworkInterfaceGatewayArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[str],
+                 zones: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 account: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] region: AWS region of the Private Network Interface Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: AWS availability zone ids of the Private Network Interface Gateway.
+        :param pulumi.Input[str] account: (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "zones", zones)
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[str]:
+        """
+        AWS region of the Private Network Interface Gateway.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        AWS availability zone ids of the Private Network Interface Gateway.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "zones", value)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account", value)
 
 
 if not MYPY:

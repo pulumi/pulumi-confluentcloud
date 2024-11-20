@@ -54,6 +54,10 @@ export interface GetAccessPointResult {
      */
     readonly awsEgressPrivateLinkEndpoints: outputs.GetAccessPointAwsEgressPrivateLinkEndpoint[];
     /**
+     * (Optional Configuration Block) Supports the following:
+     */
+    readonly awsPrivateNetworkInterfaces: outputs.GetAccessPointAwsPrivateNetworkInterface[];
+    /**
      * (Optional Configuration Block) supports the following:
      */
     readonly azureEgressPrivateLinkEndpoints: outputs.GetAccessPointAzureEgressPrivateLinkEndpoint[];

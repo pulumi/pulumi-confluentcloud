@@ -22,6 +22,7 @@ import * as utilities from "./utilities";
  *     restEndpoint: essentialsConfluentSchemaRegistryCluster.restEndpoint,
  *     subjectName: "proto-purchase-value",
  *     compatibilityLevel: "BACKWARD",
+ *     compatibilityGroup: "abc.cg.version",
  *     credentials: {
  *         key: "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
  *         secret: "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
@@ -38,6 +39,7 @@ import * as utilities from "./utilities";
  * const example = new confluentcloud.SubjectConfig("example", {
  *     subjectName: "proto-purchase-value",
  *     compatibilityLevel: "BACKWARD",
+ *     compatibilityGroup: "abc.cg.version",
  * });
  * ```
  *
@@ -86,6 +88,10 @@ export class SubjectConfig extends pulumi.CustomResource {
     }
 
     /**
+     * The Compatibility Group of the specified subject.
+     */
+    public readonly compatibilityGroup!: pulumi.Output<string>;
+    /**
      * The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
     public readonly compatibilityLevel!: pulumi.Output<string>;
@@ -116,6 +122,7 @@ export class SubjectConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubjectConfigState | undefined;
+            resourceInputs["compatibilityGroup"] = state ? state.compatibilityGroup : undefined;
             resourceInputs["compatibilityLevel"] = state ? state.compatibilityLevel : undefined;
             resourceInputs["credentials"] = state ? state.credentials : undefined;
             resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
@@ -126,6 +133,7 @@ export class SubjectConfig extends pulumi.CustomResource {
             if ((!args || args.subjectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subjectName'");
             }
+            resourceInputs["compatibilityGroup"] = args ? args.compatibilityGroup : undefined;
             resourceInputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
@@ -143,6 +151,10 @@ export class SubjectConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SubjectConfig resources.
  */
 export interface SubjectConfigState {
+    /**
+     * The Compatibility Group of the specified subject.
+     */
+    compatibilityGroup?: pulumi.Input<string>;
     /**
      * The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
@@ -166,6 +178,10 @@ export interface SubjectConfigState {
  * The set of arguments for constructing a SubjectConfig resource.
  */
 export interface SubjectConfigArgs {
+    /**
+     * The Compatibility Group of the specified subject.
+     */
+    compatibilityGroup?: pulumi.Input<string>;
     /**
      * The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */

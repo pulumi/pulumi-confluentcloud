@@ -65,6 +65,8 @@ type LookupAccessPointArgs struct {
 type LookupAccessPointResult struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoints []GetAccessPointAwsEgressPrivateLinkEndpoint `pulumi:"awsEgressPrivateLinkEndpoints"`
+	// (Optional Configuration Block) Supports the following:
+	AwsPrivateNetworkInterfaces []GetAccessPointAwsPrivateNetworkInterface `pulumi:"awsPrivateNetworkInterfaces"`
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkEndpoints []GetAccessPointAzureEgressPrivateLinkEndpoint `pulumi:"azureEgressPrivateLinkEndpoints"`
 	// (Required String) A human-readable name for the Access Point.
@@ -126,6 +128,13 @@ func (o LookupAccessPointResultOutput) AwsEgressPrivateLinkEndpoints() GetAccess
 	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointAwsEgressPrivateLinkEndpoint {
 		return v.AwsEgressPrivateLinkEndpoints
 	}).(GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput)
+}
+
+// (Optional Configuration Block) Supports the following:
+func (o LookupAccessPointResultOutput) AwsPrivateNetworkInterfaces() GetAccessPointAwsPrivateNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointAwsPrivateNetworkInterface {
+		return v.AwsPrivateNetworkInterfaces
+	}).(GetAccessPointAwsPrivateNetworkInterfaceArrayOutput)
 }
 
 // (Optional Configuration Block) supports the following:

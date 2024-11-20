@@ -78,6 +78,10 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * (Optional Configuration Block) supports the following:
      */
+    public readonly awsPrivateNetworkInterfaceGateway!: pulumi.Output<outputs.GatewayAwsPrivateNetworkInterfaceGateway>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     public readonly azureEgressPrivateLinkGateway!: pulumi.Output<outputs.GatewayAzureEgressPrivateLinkGateway>;
     /**
      * The name of the Gateway.
@@ -102,6 +106,7 @@ export class Gateway extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as GatewayState | undefined;
             resourceInputs["awsEgressPrivateLinkGateway"] = state ? state.awsEgressPrivateLinkGateway : undefined;
+            resourceInputs["awsPrivateNetworkInterfaceGateway"] = state ? state.awsPrivateNetworkInterfaceGateway : undefined;
             resourceInputs["azureEgressPrivateLinkGateway"] = state ? state.azureEgressPrivateLinkGateway : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
@@ -114,6 +119,7 @@ export class Gateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'environment'");
             }
             resourceInputs["awsEgressPrivateLinkGateway"] = args ? args.awsEgressPrivateLinkGateway : undefined;
+            resourceInputs["awsPrivateNetworkInterfaceGateway"] = args ? args.awsPrivateNetworkInterfaceGateway : undefined;
             resourceInputs["azureEgressPrivateLinkGateway"] = args ? args.azureEgressPrivateLinkGateway : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
@@ -131,6 +137,10 @@ export interface GatewayState {
      * (Optional Configuration Block) supports the following:
      */
     awsEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsEgressPrivateLinkGateway>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    awsPrivateNetworkInterfaceGateway?: pulumi.Input<inputs.GatewayAwsPrivateNetworkInterfaceGateway>;
     /**
      * (Optional Configuration Block) supports the following:
      */
@@ -153,6 +163,10 @@ export interface GatewayArgs {
      * (Optional Configuration Block) supports the following:
      */
     awsEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsEgressPrivateLinkGateway>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    awsPrivateNetworkInterfaceGateway?: pulumi.Input<inputs.GatewayAwsPrivateNetworkInterfaceGateway>;
     /**
      * (Optional Configuration Block) supports the following:
      */

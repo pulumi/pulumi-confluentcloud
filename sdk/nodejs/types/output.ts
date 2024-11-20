@@ -24,6 +24,17 @@ export interface AccessPointAwsEgressPrivateLinkEndpoint {
     vpcEndpointServiceName: string;
 }
 
+export interface AccessPointAwsPrivateNetworkInterface {
+    /**
+     * (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+     */
+    account: string;
+    /**
+     * (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+     */
+    networkInterfaces: string[];
+}
+
 export interface AccessPointAzureEgressPrivateLinkEndpoint {
     /**
      * (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
@@ -495,6 +506,21 @@ export interface GatewayAwsEgressPrivateLinkGateway {
     region: string;
 }
 
+export interface GatewayAwsPrivateNetworkInterfaceGateway {
+    /**
+     * (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+     */
+    account: string;
+    /**
+     * AWS region of the Private Network Interface Gateway.
+     */
+    region: string;
+    /**
+     * AWS availability zone ids of the Private Network Interface Gateway.
+     */
+    zones: string[];
+}
+
 export interface GatewayAzureEgressPrivateLinkGateway {
     /**
      * Azure region of the Gateway, for example, `eastus`.
@@ -530,6 +556,17 @@ export interface GetAccessPointAwsEgressPrivateLinkEndpoint {
      * (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
      */
     vpcEndpointServiceName: string;
+}
+
+export interface GetAccessPointAwsPrivateNetworkInterface {
+    /**
+     * (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+     */
+    account: string;
+    /**
+     * (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+     */
+    networkInterfaces: string[];
 }
 
 export interface GetAccessPointAzureEgressPrivateLinkEndpoint {
@@ -757,6 +794,21 @@ export interface GetGatewayAwsPeeringGateway {
      * (Required String) Azure region of the Peering Gateway.
      */
     region: string;
+}
+
+export interface GetGatewayAwsPrivateNetworkInterfaceGateway {
+    /**
+     * (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+     */
+    account: string;
+    /**
+     * (Required String) Azure region of the Peering Gateway.
+     */
+    region: string;
+    /**
+     * (Required List of Strings) AWS availability zone ids of the Private Network Interface Gateway.
+     */
+    zones: string[];
 }
 
 export interface GetGatewayAzureEgressPrivateLinkGateway {
