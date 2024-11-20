@@ -7,6 +7,16 @@
                     "aws_egress_private_link_endpoint": {
                         "maxItemsOne": true
                     },
+                    "aws_private_network_interface": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "network_interfaces": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "azure_egress_private_link_endpoint": {
                         "maxItemsOne": true,
                         "elem": {
@@ -276,6 +286,16 @@
                 "fields": {
                     "aws_egress_private_link_gateway": {
                         "maxItemsOne": true
+                    },
+                    "aws_private_network_interface_gateway": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "zones": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "azure_egress_private_link_gateway": {
                         "maxItemsOne": true
@@ -825,6 +845,16 @@
                     "aws_egress_private_link_endpoint": {
                         "maxItemsOne": false
                     },
+                    "aws_private_network_interface": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "network_interfaces": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "azure_egress_private_link_endpoint": {
                         "maxItemsOne": false,
                         "elem": {
@@ -971,6 +1001,16 @@
                     },
                     "aws_peering_gateway": {
                         "maxItemsOne": false
+                    },
+                    "aws_private_network_interface_gateway": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "zones": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "azure_egress_private_link_gateway": {
                         "maxItemsOne": false
