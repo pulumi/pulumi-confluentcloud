@@ -11,9 +11,9 @@ replace (
 
 require (
 	github.com/confluentinc/terraform-provider-confluent v1.32.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.95.0
-	github.com/pulumi/pulumi/pkg/v3 v3.137.0
-	github.com/pulumi/pulumi/sdk/v3 v3.137.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.95.1-0.20241121150815-c7d87ed5f3f3
+	github.com/pulumi/pulumi/pkg/v3 v3.140.0
+	github.com/pulumi/pulumi/sdk/v3 v3.140.0
 )
 
 require (
@@ -125,7 +125,7 @@ require (
 	github.com/hashicorp/go-version v1.6.0 // indirect
 	github.com/hashicorp/hc-install v0.6.3 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/hashicorp/hcl/v2 v2.19.1 // indirect
+	github.com/hashicorp/hcl/v2 v2.22.0 // indirect
 	github.com/hashicorp/hil v0.0.0-20190212132231-97b3a9cdfa93 // indirect
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-exec v0.20.0 // indirect
@@ -191,8 +191,8 @@ require (
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.10.0 // indirect
 	github.com/pulumi/inflector v0.1.1 // indirect
-	github.com/pulumi/pulumi-java/pkg v0.16.1 // indirect
-	github.com/pulumi/pulumi-yaml v1.11.1 // indirect
+	github.com/pulumi/pulumi-java/pkg v0.17.0 // indirect
+	github.com/pulumi/pulumi-yaml v1.11.2 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
@@ -245,6 +245,7 @@ require (
 	golang.org/x/term v0.23.0 // indirect
 	golang.org/x/text v0.17.0 // indirect
 	golang.org/x/time v0.5.0 // indirect
+	golang.org/x/tools v0.22.0 // indirect
 	google.golang.org/api v0.169.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/genproto v0.0.0-20240311173647-c811ad7063a7 // indirect
