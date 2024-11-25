@@ -939,8 +939,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Flink Compute Pool, for example, `lfcp-abc123`.\n",
-                    "willReplaceOnChanges": true
+                    "description": "The ID of the Flink Compute Pool, for example, `lfcp-abc123`.\n"
                 }
             },
             "type": "object",
@@ -997,8 +996,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.\n",
-                    "willReplaceOnChanges": true
+                    "description": "The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.\n"
                 }
             },
             "type": "object",
