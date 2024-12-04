@@ -1,8 +1,8 @@
 module github.com/pulumi/pulumi-confluentcloud/provider/v2
 
-go 1.22.0
+go 1.22.7
 
-toolchain go1.22.4
+toolchain go1.22.10
 
 replace (
 	github.com/confluentinc/terraform-provider-confluent => ../upstream
@@ -58,7 +58,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/flink v0.9.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/flink-artifact v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/flink-gateway v0.17.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/iam v0.10.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/iam v0.14.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/kafka-quotas v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.14.0 // indirect
