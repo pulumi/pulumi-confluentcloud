@@ -175,7 +175,7 @@ def get_kafka_topic_output(credentials: Optional[pulumi.Input[Optional[Union['Ge
                            kafka_cluster: Optional[pulumi.Input[Optional[Union['GetKafkaTopicKafkaClusterArgs', 'GetKafkaTopicKafkaClusterArgsDict']]]] = None,
                            rest_endpoint: Optional[pulumi.Input[str]] = None,
                            topic_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaTopicResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaTopicResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -220,7 +220,7 @@ def get_kafka_topic_output(credentials: Optional[pulumi.Input[Optional[Union['Ge
     __args__['kafkaCluster'] = kafka_cluster
     __args__['restEndpoint'] = rest_endpoint
     __args__['topicName'] = topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getKafkaTopic:getKafkaTopic', __args__, opts=opts, typ=GetKafkaTopicResult)
     return __ret__.apply(lambda __response__: GetKafkaTopicResult(
         config=pulumi.get(__response__, 'config'),

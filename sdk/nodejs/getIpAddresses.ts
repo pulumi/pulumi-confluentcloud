@@ -91,7 +91,7 @@ export interface GetIpAddressesResult {
  * export const ipAddresses = main.then(main => main.ipAddresses);
  * ```
  */
-export function getIpAddressesOutput(args?: GetIpAddressesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpAddressesResult> {
+export function getIpAddressesOutput(args?: GetIpAddressesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpAddressesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getIpAddresses:getIpAddresses", {

@@ -197,7 +197,7 @@ export interface GetKafkaClusterResult {
  * }
  * ```
  */
-export function getKafkaClusterOutput(args: GetKafkaClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaClusterResult> {
+export function getKafkaClusterOutput(args: GetKafkaClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKafkaClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getKafkaCluster:getKafkaCluster", {
         "basics": args.basics,

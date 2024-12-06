@@ -106,7 +106,7 @@ def get_schema_registry_clusters(environment: Optional[Union['GetSchemaRegistryC
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'))
 def get_schema_registry_clusters_output(environment: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryClustersEnvironmentArgs', 'GetSchemaRegistryClustersEnvironmentArgsDict']]]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryClustersResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaRegistryClustersResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -128,7 +128,7 @@ def get_schema_registry_clusters_output(environment: Optional[pulumi.Input[Optio
     """
     __args__ = dict()
     __args__['environment'] = environment
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters', __args__, opts=opts, typ=GetSchemaRegistryClustersResult)
     return __ret__.apply(lambda __response__: GetSchemaRegistryClustersResult(
         clusters=pulumi.get(__response__, 'clusters'),

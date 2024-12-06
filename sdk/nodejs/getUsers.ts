@@ -53,7 +53,7 @@ export interface GetUsersResult {
  * export const users = main.then(main => main.ids);
  * ```
  */
-export function getUsersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
+export function getUsersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getUsers:getUsers", {
     }, opts);

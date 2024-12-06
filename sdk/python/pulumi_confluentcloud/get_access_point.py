@@ -160,7 +160,7 @@ def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs'
         id=pulumi.get(__ret__, 'id'))
 def get_access_point_output(environment: Optional[pulumi.Input[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict']]] = None,
                             id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -185,7 +185,7 @@ def get_access_point_output(environment: Optional[pulumi.Input[Union['GetAccessP
     __args__ = dict()
     __args__['environment'] = environment
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getAccessPoint:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult)
     return __ret__.apply(lambda __response__: GetAccessPointResult(
         aws_egress_private_link_endpoints=pulumi.get(__response__, 'aws_egress_private_link_endpoints'),

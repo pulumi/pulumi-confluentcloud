@@ -128,7 +128,7 @@ export interface GetPrivateLinkAccessResult {
  * }
  * ```
  */
-export function getPrivateLinkAccessOutput(args: GetPrivateLinkAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAccessResult> {
+export function getPrivateLinkAccessOutput(args: GetPrivateLinkAccessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", {
         "displayName": args.displayName,

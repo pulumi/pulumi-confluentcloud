@@ -120,7 +120,7 @@ export interface GetSchemaRegistryClusterConfigResult {
  * export const compatibilityLevel = example.then(example => example.compatibilityLevel);
  * ```
  */
-export function getSchemaRegistryClusterConfigOutput(args?: GetSchemaRegistryClusterConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryClusterConfigResult> {
+export function getSchemaRegistryClusterConfigOutput(args?: GetSchemaRegistryClusterConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaRegistryClusterConfigResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig", {

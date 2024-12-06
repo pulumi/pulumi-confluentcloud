@@ -78,7 +78,7 @@ export interface GetByokKeyResult {
  * export const byok = azureKey;
  * ```
  */
-export function getByokKeyOutput(args: GetByokKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetByokKeyResult> {
+export function getByokKeyOutput(args: GetByokKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetByokKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getByokKey:getByokKey", {
         "id": args.id,

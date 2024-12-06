@@ -143,7 +143,7 @@ export interface GetBusinessMetadataBindingResult {
  * });
  * ```
  */
-export function getBusinessMetadataBindingOutput(args: GetBusinessMetadataBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessMetadataBindingResult> {
+export function getBusinessMetadataBindingOutput(args: GetBusinessMetadataBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBusinessMetadataBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", {
         "businessMetadataName": args.businessMetadataName,

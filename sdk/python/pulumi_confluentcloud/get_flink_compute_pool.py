@@ -199,7 +199,7 @@ def get_flink_compute_pool(display_name: Optional[str] = None,
 def get_flink_compute_pool_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                   environment: Optional[pulumi.Input[Union['GetFlinkComputePoolEnvironmentArgs', 'GetFlinkComputePoolEnvironmentArgsDict']]] = None,
                                   id: Optional[pulumi.Input[Optional[str]]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlinkComputePoolResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlinkComputePoolResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -232,7 +232,7 @@ def get_flink_compute_pool_output(display_name: Optional[pulumi.Input[Optional[s
     __args__['displayName'] = display_name
     __args__['environment'] = environment
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getFlinkComputePool:getFlinkComputePool', __args__, opts=opts, typ=GetFlinkComputePoolResult)
     return __ret__.apply(lambda __response__: GetFlinkComputePoolResult(
         api_version=pulumi.get(__response__, 'api_version'),
