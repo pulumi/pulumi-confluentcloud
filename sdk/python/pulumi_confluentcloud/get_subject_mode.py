@@ -164,7 +164,7 @@ def get_subject_mode_output(credentials: Optional[pulumi.Input[Optional[Union['G
                             rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                             schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSubjectModeSchemaRegistryClusterArgs', 'GetSubjectModeSchemaRegistryClusterArgsDict']]]] = None,
                             subject_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubjectModeResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubjectModeResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -211,7 +211,7 @@ def get_subject_mode_output(credentials: Optional[pulumi.Input[Optional[Union['G
     __args__['restEndpoint'] = rest_endpoint
     __args__['schemaRegistryCluster'] = schema_registry_cluster
     __args__['subjectName'] = subject_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSubjectMode:getSubjectMode', __args__, opts=opts, typ=GetSubjectModeResult)
     return __ret__.apply(lambda __response__: GetSubjectModeResult(
         credentials=pulumi.get(__response__, 'credentials'),

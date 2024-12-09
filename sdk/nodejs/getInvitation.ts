@@ -94,7 +94,7 @@ export interface GetInvitationResult {
  * export const invitation = main;
  * ```
  */
-export function getInvitationOutput(args: GetInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvitationResult> {
+export function getInvitationOutput(args: GetInvitationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInvitationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getInvitation:getInvitation", {
         "id": args.id,

@@ -95,7 +95,7 @@ export interface GetNetworkLinkEndpointResult {
  * export const networkLinkEndpoint = nle;
  * ```
  */
-export function getNetworkLinkEndpointOutput(args: GetNetworkLinkEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkLinkEndpointResult> {
+export function getNetworkLinkEndpointOutput(args: GetNetworkLinkEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkLinkEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", {
         "environment": args.environment,

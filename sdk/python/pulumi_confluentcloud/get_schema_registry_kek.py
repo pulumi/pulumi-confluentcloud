@@ -233,7 +233,7 @@ def get_schema_registry_kek_output(credentials: Optional[pulumi.Input[Optional[U
                                    name: Optional[pulumi.Input[str]] = None,
                                    rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                                    schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryKekSchemaRegistryClusterArgs', 'GetSchemaRegistryKekSchemaRegistryClusterArgsDict']]]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryKekResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaRegistryKekResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -278,7 +278,7 @@ def get_schema_registry_kek_output(credentials: Optional[pulumi.Input[Optional[U
     __args__['name'] = name
     __args__['restEndpoint'] = rest_endpoint
     __args__['schemaRegistryCluster'] = schema_registry_cluster
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek', __args__, opts=opts, typ=GetSchemaRegistryKekResult)
     return __ret__.apply(lambda __response__: GetSchemaRegistryKekResult(
         credentials=pulumi.get(__response__, 'credentials'),

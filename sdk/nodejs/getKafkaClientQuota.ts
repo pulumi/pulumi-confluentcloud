@@ -102,7 +102,7 @@ export interface GetKafkaClientQuotaResult {
  * }
  * ```
  */
-export function getKafkaClientQuotaOutput(args: GetKafkaClientQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaClientQuotaResult> {
+export function getKafkaClientQuotaOutput(args: GetKafkaClientQuotaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKafkaClientQuotaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", {
         "id": args.id,

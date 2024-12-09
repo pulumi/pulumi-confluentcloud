@@ -203,7 +203,7 @@ def get_certificate_authority_output(crl_source: Optional[pulumi.Input[Optional[
                                      crl_updated_at: Optional[pulumi.Input[Optional[str]]] = None,
                                      crl_url: Optional[pulumi.Input[Optional[str]]] = None,
                                      id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -230,7 +230,7 @@ def get_certificate_authority_output(crl_source: Optional[pulumi.Input[Optional[
     __args__['crlUpdatedAt'] = crl_updated_at
     __args__['crlUrl'] = crl_url
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult)
     return __ret__.apply(lambda __response__: GetCertificateAuthorityResult(
         certificate_chain_filename=pulumi.get(__response__, 'certificate_chain_filename'),

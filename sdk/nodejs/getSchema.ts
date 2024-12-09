@@ -175,7 +175,7 @@ export interface GetSchemaResult {
  * export const schema = purchase_v1.then(purchase_v1 => purchase_v1.schema);
  * ```
  */
-export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
+export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getSchema:getSchema", {
         "credentials": args.credentials,

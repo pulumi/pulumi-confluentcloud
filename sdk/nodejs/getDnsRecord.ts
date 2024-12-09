@@ -91,7 +91,7 @@ export interface GetDnsRecordResult {
  * export const dnsRecord = main;
  * ```
  */
-export function getDnsRecordOutput(args: GetDnsRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsRecordResult> {
+export function getDnsRecordOutput(args: GetDnsRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getDnsRecord:getDnsRecord", {
         "environment": args.environment,

@@ -125,7 +125,7 @@ def get_group_mapping(display_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'))
 def get_group_mapping_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                              id: Optional[pulumi.Input[Optional[str]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupMappingResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupMappingResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -153,7 +153,7 @@ def get_group_mapping_output(display_name: Optional[pulumi.Input[Optional[str]]]
     __args__ = dict()
     __args__['displayName'] = display_name
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getGroupMapping:getGroupMapping', __args__, opts=opts, typ=GetGroupMappingResult)
     return __ret__.apply(lambda __response__: GetGroupMappingResult(
         description=pulumi.get(__response__, 'description'),
