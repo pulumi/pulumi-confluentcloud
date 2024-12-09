@@ -100,7 +100,7 @@ export interface GetNetworkLinkServiceResult {
  * export const networkLinkService = nls;
  * ```
  */
-export function getNetworkLinkServiceOutput(args: GetNetworkLinkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkLinkServiceResult> {
+export function getNetworkLinkServiceOutput(args: GetNetworkLinkServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkLinkServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", {
         "accept": args.accept,

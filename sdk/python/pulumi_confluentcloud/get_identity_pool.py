@@ -160,7 +160,7 @@ def get_identity_pool(display_name: Optional[str] = None,
 def get_identity_pool_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                              id: Optional[pulumi.Input[Optional[str]]] = None,
                              identity_provider: Optional[pulumi.Input[Union['GetIdentityPoolIdentityProviderArgs', 'GetIdentityPoolIdentityProviderArgsDict']]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityPoolResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -193,7 +193,7 @@ def get_identity_pool_output(display_name: Optional[pulumi.Input[Optional[str]]]
     __args__['displayName'] = display_name
     __args__['id'] = id
     __args__['identityProvider'] = identity_provider
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getIdentityPool:getIdentityPool', __args__, opts=opts, typ=GetIdentityPoolResult)
     return __ret__.apply(lambda __response__: GetIdentityPoolResult(
         description=pulumi.get(__response__, 'description'),

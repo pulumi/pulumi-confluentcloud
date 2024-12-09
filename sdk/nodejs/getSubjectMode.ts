@@ -129,7 +129,7 @@ export interface GetSubjectModeResult {
  * export const mode = purchase_v1.then(purchase_v1 => purchase_v1.mode);
  * ```
  */
-export function getSubjectModeOutput(args: GetSubjectModeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubjectModeResult> {
+export function getSubjectModeOutput(args: GetSubjectModeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubjectModeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getSubjectMode:getSubjectMode", {
         "credentials": args.credentials,

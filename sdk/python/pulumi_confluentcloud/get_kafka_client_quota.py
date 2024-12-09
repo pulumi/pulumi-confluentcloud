@@ -158,7 +158,7 @@ def get_kafka_client_quota(id: Optional[str] = None,
         principals=pulumi.get(__ret__, 'principals'),
         throughputs=pulumi.get(__ret__, 'throughputs'))
 def get_kafka_client_quota_output(id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaClientQuotaResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaClientQuotaResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -181,7 +181,7 @@ def get_kafka_client_quota_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota', __args__, opts=opts, typ=GetKafkaClientQuotaResult)
     return __ret__.apply(lambda __response__: GetKafkaClientQuotaResult(
         description=pulumi.get(__response__, 'description'),

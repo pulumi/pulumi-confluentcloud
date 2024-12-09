@@ -102,7 +102,7 @@ export interface GetGroupMappingResult {
  * }
  * ```
  */
-export function getGroupMappingOutput(args?: GetGroupMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupMappingResult> {
+export function getGroupMappingOutput(args?: GetGroupMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupMappingResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getGroupMapping:getGroupMapping", {

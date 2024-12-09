@@ -97,7 +97,7 @@ export interface GetFlinkRegionResult {
  * }
  * ```
  */
-export function getFlinkRegionOutput(args: GetFlinkRegionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlinkRegionResult> {
+export function getFlinkRegionOutput(args: GetFlinkRegionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlinkRegionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getFlinkRegion:getFlinkRegion", {
         "cloud": args.cloud,

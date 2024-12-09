@@ -191,7 +191,7 @@ def get_business_metadata_output(credentials: Optional[pulumi.Input[Optional[Uni
                                  name: Optional[pulumi.Input[str]] = None,
                                  rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                                  schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetBusinessMetadataSchemaRegistryClusterArgs', 'GetBusinessMetadataSchemaRegistryClusterArgsDict']]]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBusinessMetadataResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessMetadataResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -236,7 +236,7 @@ def get_business_metadata_output(credentials: Optional[pulumi.Input[Optional[Uni
     __args__['name'] = name
     __args__['restEndpoint'] = rest_endpoint
     __args__['schemaRegistryCluster'] = schema_registry_cluster
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getBusinessMetadata:getBusinessMetadata', __args__, opts=opts, typ=GetBusinessMetadataResult)
     return __ret__.apply(lambda __response__: GetBusinessMetadataResult(
         attribute_definitions=pulumi.get(__response__, 'attribute_definitions'),

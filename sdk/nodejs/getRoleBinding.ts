@@ -85,7 +85,7 @@ export interface GetRoleBindingResult {
  * }
  * ```
  */
-export function getRoleBindingOutput(args: GetRoleBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleBindingResult> {
+export function getRoleBindingOutput(args: GetRoleBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getRoleBinding:getRoleBinding", {
         "id": args.id,

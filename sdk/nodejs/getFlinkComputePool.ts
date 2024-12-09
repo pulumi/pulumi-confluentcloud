@@ -136,7 +136,7 @@ export interface GetFlinkComputePoolResult {
  * }
  * ```
  */
-export function getFlinkComputePoolOutput(args: GetFlinkComputePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlinkComputePoolResult> {
+export function getFlinkComputePoolOutput(args: GetFlinkComputePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlinkComputePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", {
         "displayName": args.displayName,
