@@ -156,7 +156,7 @@ export interface GetSchemaRegistryClusterResult {
  * }
  * ```
  */
-export function getSchemaRegistryClusterOutput(args: GetSchemaRegistryClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryClusterResult> {
+export function getSchemaRegistryClusterOutput(args: GetSchemaRegistryClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaRegistryClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", {
         "displayName": args.displayName,

@@ -131,7 +131,7 @@ export interface GetKafkaTopicResult {
  * export const config = orders.then(orders => orders.config);
  * ```
  */
-export function getKafkaTopicOutput(args: GetKafkaTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaTopicResult> {
+export function getKafkaTopicOutput(args: GetKafkaTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKafkaTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getKafkaTopic:getKafkaTopic", {
         "credentials": args.credentials,

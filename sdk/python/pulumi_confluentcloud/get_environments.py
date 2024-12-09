@@ -84,7 +84,7 @@ def get_environments(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     return AwaitableGetEnvironmentsResult(
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'))
-def get_environments_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentsResult]:
+def get_environments_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentsResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -101,7 +101,7 @@ def get_environments_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getEnvironments:getEnvironments', __args__, opts=opts, typ=GetEnvironmentsResult)
     return __ret__.apply(lambda __response__: GetEnvironmentsResult(
         id=pulumi.get(__response__, 'id'),

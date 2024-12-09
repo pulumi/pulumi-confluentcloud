@@ -104,7 +104,7 @@ export interface GetIdentityProviderResult {
  * }
  * ```
  */
-export function getIdentityProviderOutput(args?: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderResult> {
+export function getIdentityProviderOutput(args?: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentityProviderResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getIdentityProvider:getIdentityProvider", {

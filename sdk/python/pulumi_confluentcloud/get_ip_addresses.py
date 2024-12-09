@@ -110,7 +110,7 @@ def get_ip_addresses(filter: Optional[Union['GetIpAddressesFilterArgs', 'GetIpAd
         id=pulumi.get(__ret__, 'id'),
         ip_addresses=pulumi.get(__ret__, 'ip_addresses'))
 def get_ip_addresses_output(filter: Optional[pulumi.Input[Optional[Union['GetIpAddressesFilterArgs', 'GetIpAddressesFilterArgsDict']]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpAddressesResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpAddressesResult]:
     """
     [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -139,7 +139,7 @@ def get_ip_addresses_output(filter: Optional[pulumi.Input[Optional[Union['GetIpA
     """
     __args__ = dict()
     __args__['filter'] = filter
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getIpAddresses:getIpAddresses', __args__, opts=opts, typ=GetIpAddressesResult)
     return __ret__.apply(lambda __response__: GetIpAddressesResult(
         filter=pulumi.get(__response__, 'filter'),

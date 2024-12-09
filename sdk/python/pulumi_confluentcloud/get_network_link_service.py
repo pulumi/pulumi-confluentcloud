@@ -164,7 +164,7 @@ def get_network_link_service(accept: Optional[Union['GetNetworkLinkServiceAccept
 def get_network_link_service_output(accept: Optional[pulumi.Input[Optional[Union['GetNetworkLinkServiceAcceptArgs', 'GetNetworkLinkServiceAcceptArgsDict']]]] = None,
                                     environment: Optional[pulumi.Input[Union['GetNetworkLinkServiceEnvironmentArgs', 'GetNetworkLinkServiceEnvironmentArgsDict']]] = None,
                                     id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkLinkServiceResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkLinkServiceResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -191,7 +191,7 @@ def get_network_link_service_output(accept: Optional[pulumi.Input[Optional[Union
     __args__['accept'] = accept
     __args__['environment'] = environment
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getNetworkLinkService:getNetworkLinkService', __args__, opts=opts, typ=GetNetworkLinkServiceResult)
     return __ret__.apply(lambda __response__: GetNetworkLinkServiceResult(
         accept=pulumi.get(__response__, 'accept'),

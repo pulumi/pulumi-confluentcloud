@@ -137,7 +137,7 @@ def get_identity_provider(display_name: Optional[str] = None,
         jwks_uri=pulumi.get(__ret__, 'jwks_uri'))
 def get_identity_provider_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                  id: Optional[pulumi.Input[Optional[str]]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityProviderResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityProviderResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -164,7 +164,7 @@ def get_identity_provider_output(display_name: Optional[pulumi.Input[Optional[st
     __args__ = dict()
     __args__['displayName'] = display_name
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getIdentityProvider:getIdentityProvider', __args__, opts=opts, typ=GetIdentityProviderResult)
     return __ret__.apply(lambda __response__: GetIdentityProviderResult(
         description=pulumi.get(__response__, 'description'),

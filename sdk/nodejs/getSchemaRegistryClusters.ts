@@ -77,7 +77,7 @@ export interface GetSchemaRegistryClustersResult {
  * });
  * ```
  */
-export function getSchemaRegistryClustersOutput(args?: GetSchemaRegistryClustersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryClustersResult> {
+export function getSchemaRegistryClustersOutput(args?: GetSchemaRegistryClustersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaRegistryClustersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", {

@@ -53,7 +53,7 @@ export interface GetEnvironmentsResult {
  * export const environments = main.then(main => main.ids);
  * ```
  */
-export function getEnvironmentsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentsResult> {
+export function getEnvironmentsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getEnvironments:getEnvironments", {
     }, opts);

@@ -151,7 +151,7 @@ export interface GetSchemaRegistryKekResult {
  * });
  * ```
  */
-export function getSchemaRegistryKekOutput(args: GetSchemaRegistryKekOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryKekResult> {
+export function getSchemaRegistryKekOutput(args: GetSchemaRegistryKekOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaRegistryKekResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek", {
         "credentials": args.credentials,

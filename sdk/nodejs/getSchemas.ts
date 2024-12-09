@@ -141,7 +141,7 @@ export interface GetSchemasResult {
  * export const schemas = main.then(main => main.schemas);
  * ```
  */
-export function getSchemasOutput(args?: GetSchemasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemasResult> {
+export function getSchemasOutput(args?: GetSchemasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemasResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getSchemas:getSchemas", {

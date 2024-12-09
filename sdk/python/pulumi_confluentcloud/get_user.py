@@ -155,7 +155,7 @@ def get_user(email: Optional[str] = None,
 def get_user_output(email: Optional[pulumi.Input[Optional[str]]] = None,
                     full_name: Optional[pulumi.Input[Optional[str]]] = None,
                     id: Optional[pulumi.Input[Optional[str]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -198,7 +198,7 @@ def get_user_output(email: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['email'] = email
     __args__['fullName'] = full_name
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         api_version=pulumi.get(__response__, 'api_version'),

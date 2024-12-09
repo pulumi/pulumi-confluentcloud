@@ -334,7 +334,7 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[Uni
                              freights: Optional[pulumi.Input[Optional[Sequence[Union['GetKafkaClusterFreightArgs', 'GetKafkaClusterFreightArgsDict']]]]] = None,
                              id: Optional[pulumi.Input[Optional[str]]] = None,
                              standards: Optional[pulumi.Input[Optional[Sequence[Union['GetKafkaClusterStandardArgs', 'GetKafkaClusterStandardArgsDict']]]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaClusterResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaClusterResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -378,7 +378,7 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[Uni
     __args__['freights'] = freights
     __args__['id'] = id
     __args__['standards'] = standards
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getKafkaCluster:getKafkaCluster', __args__, opts=opts, typ=GetKafkaClusterResult)
     return __ret__.apply(lambda __response__: GetKafkaClusterResult(
         api_version=pulumi.get(__response__, 'api_version'),

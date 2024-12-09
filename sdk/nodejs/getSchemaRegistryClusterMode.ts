@@ -116,7 +116,7 @@ export interface GetSchemaRegistryClusterModeResult {
  * export const mode = example.then(example => example.mode);
  * ```
  */
-export function getSchemaRegistryClusterModeOutput(args?: GetSchemaRegistryClusterModeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryClusterModeResult> {
+export function getSchemaRegistryClusterModeOutput(args?: GetSchemaRegistryClusterModeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaRegistryClusterModeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode", {
