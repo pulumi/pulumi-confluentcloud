@@ -114,7 +114,7 @@ export interface GetPrivateLinkAttachmentResult {
  * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
  * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
  */
-export function getPrivateLinkAttachmentOutput(args: GetPrivateLinkAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAttachmentResult> {
+export function getPrivateLinkAttachmentOutput(args: GetPrivateLinkAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", {
         "environment": args.environment,

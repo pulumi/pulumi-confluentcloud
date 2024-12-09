@@ -325,7 +325,7 @@ def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[Union['GetNe
                        environment: Optional[pulumi.Input[Union['GetNetworkEnvironmentArgs', 'GetNetworkEnvironmentArgsDict']]] = None,
                        gcps: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkGcpArgs', 'GetNetworkGcpArgsDict']]]]] = None,
                        id: Optional[pulumi.Input[Optional[str]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkResult]:
     """
     ## Example Usage
 
@@ -363,7 +363,7 @@ def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[Union['GetNe
     __args__['environment'] = environment
     __args__['gcps'] = gcps
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getNetwork:getNetwork', __args__, opts=opts, typ=GetNetworkResult)
     return __ret__.apply(lambda __response__: GetNetworkResult(
         aws=pulumi.get(__response__, 'aws'),

@@ -141,7 +141,7 @@ export interface GetTagBindingResult {
  * });
  * ```
  */
-export function getTagBindingOutput(args: GetTagBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagBindingResult> {
+export function getTagBindingOutput(args: GetTagBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getTagBinding:getTagBinding", {
         "credentials": args.credentials,

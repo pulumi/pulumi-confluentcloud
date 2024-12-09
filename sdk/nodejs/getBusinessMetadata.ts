@@ -136,7 +136,7 @@ export interface GetBusinessMetadataResult {
  * });
  * ```
  */
-export function getBusinessMetadataOutput(args: GetBusinessMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessMetadataResult> {
+export function getBusinessMetadataOutput(args: GetBusinessMetadataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBusinessMetadataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getBusinessMetadata:getBusinessMetadata", {
         "credentials": args.credentials,

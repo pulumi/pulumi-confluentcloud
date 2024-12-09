@@ -246,7 +246,7 @@ def get_ksql_cluster(display_name: Optional[str] = None,
 def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                             environment: Optional[pulumi.Input[Union['GetKsqlClusterEnvironmentArgs', 'GetKsqlClusterEnvironmentArgsDict']]] = None,
                             id: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKsqlClusterResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKsqlClusterResult]:
     """
     ## # KsqlCluster Data Source
 
@@ -280,7 +280,7 @@ def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] 
     __args__['displayName'] = display_name
     __args__['environment'] = environment
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getKsqlCluster:getKsqlCluster', __args__, opts=opts, typ=GetKsqlClusterResult)
     return __ret__.apply(lambda __response__: GetKsqlClusterResult(
         api_version=pulumi.get(__response__, 'api_version'),

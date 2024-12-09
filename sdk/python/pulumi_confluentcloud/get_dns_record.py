@@ -147,7 +147,7 @@ def get_dns_record(environment: Optional[Union['GetDnsRecordEnvironmentArgs', 'G
         private_link_access_points=pulumi.get(__ret__, 'private_link_access_points'))
 def get_dns_record_output(environment: Optional[pulumi.Input[Union['GetDnsRecordEnvironmentArgs', 'GetDnsRecordEnvironmentArgsDict']]] = None,
                           id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsRecordResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsRecordResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -172,7 +172,7 @@ def get_dns_record_output(environment: Optional[pulumi.Input[Union['GetDnsRecord
     __args__ = dict()
     __args__['environment'] = environment
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getDnsRecord:getDnsRecord', __args__, opts=opts, typ=GetDnsRecordResult)
     return __ret__.apply(lambda __response__: GetDnsRecordResult(
         display_name=pulumi.get(__response__, 'display_name'),

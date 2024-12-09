@@ -147,7 +147,7 @@ def get_subject_config_output(credentials: Optional[pulumi.Input[Optional[Union[
                               rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                               schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSubjectConfigSchemaRegistryClusterArgs', 'GetSubjectConfigSchemaRegistryClusterArgsDict']]]] = None,
                               subject_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubjectConfigResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubjectConfigResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -164,7 +164,7 @@ def get_subject_config_output(credentials: Optional[pulumi.Input[Optional[Union[
     __args__['restEndpoint'] = rest_endpoint
     __args__['schemaRegistryCluster'] = schema_registry_cluster
     __args__['subjectName'] = subject_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSubjectConfig:getSubjectConfig', __args__, opts=opts, typ=GetSubjectConfigResult)
     return __ret__.apply(lambda __response__: GetSubjectConfigResult(
         compatibility_group=pulumi.get(__response__, 'compatibility_group'),

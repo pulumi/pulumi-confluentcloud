@@ -139,7 +139,7 @@ export interface GetFlinkArtifactResult {
  * }
  * ```
  */
-export function getFlinkArtifactOutput(args: GetFlinkArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlinkArtifactResult> {
+export function getFlinkArtifactOutput(args: GetFlinkArtifactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlinkArtifactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", {
         "cloud": args.cloud,

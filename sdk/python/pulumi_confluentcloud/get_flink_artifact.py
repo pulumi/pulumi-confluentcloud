@@ -229,7 +229,7 @@ def get_flink_artifact_output(cloud: Optional[pulumi.Input[str]] = None,
                               environment: Optional[pulumi.Input[Union['GetFlinkArtifactEnvironmentArgs', 'GetFlinkArtifactEnvironmentArgsDict']]] = None,
                               id: Optional[pulumi.Input[Optional[str]]] = None,
                               region: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlinkArtifactResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlinkArtifactResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -267,7 +267,7 @@ def get_flink_artifact_output(cloud: Optional[pulumi.Input[str]] = None,
     __args__['environment'] = environment
     __args__['id'] = id
     __args__['region'] = region
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getFlinkArtifact:getFlinkArtifact', __args__, opts=opts, typ=GetFlinkArtifactResult)
     return __ret__.apply(lambda __response__: GetFlinkArtifactResult(
         api_version=pulumi.get(__response__, 'api_version'),

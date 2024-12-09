@@ -147,7 +147,7 @@ def get_provider_integration(display_name: Optional[str] = None,
 def get_provider_integration_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                     environment: Optional[pulumi.Input[Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict']]] = None,
                                     id: Optional[pulumi.Input[Optional[str]]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderIntegrationResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderIntegrationResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -180,7 +180,7 @@ def get_provider_integration_output(display_name: Optional[pulumi.Input[Optional
     __args__['displayName'] = display_name
     __args__['environment'] = environment
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getProviderIntegration:getProviderIntegration', __args__, opts=opts, typ=GetProviderIntegrationResult)
     return __ret__.apply(lambda __response__: GetProviderIntegrationResult(
         aws=pulumi.get(__response__, 'aws'),

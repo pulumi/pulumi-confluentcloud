@@ -88,7 +88,7 @@ export interface GetCertificatePoolResult {
  * export const certificatePool = main;
  * ```
  */
-export function getCertificatePoolOutput(args: GetCertificatePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificatePoolResult> {
+export function getCertificatePoolOutput(args: GetCertificatePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificatePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getCertificatePool:getCertificatePool", {
         "certificateAuthority": args.certificateAuthority,

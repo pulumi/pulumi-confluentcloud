@@ -147,7 +147,7 @@ export interface GetKsqlClusterResult {
  * }
  * ```
  */
-export function getKsqlClusterOutput(args: GetKsqlClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKsqlClusterResult> {
+export function getKsqlClusterOutput(args: GetKsqlClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKsqlClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getKsqlCluster:getKsqlCluster", {
         "displayName": args.displayName,

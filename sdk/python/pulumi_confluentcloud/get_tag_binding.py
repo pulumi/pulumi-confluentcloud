@@ -181,7 +181,7 @@ def get_tag_binding_output(credentials: Optional[pulumi.Input[Optional[Union['Ge
                            rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                            schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetTagBindingSchemaRegistryClusterArgs', 'GetTagBindingSchemaRegistryClusterArgsDict']]]] = None,
                            tag_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagBindingResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagBindingResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -234,7 +234,7 @@ def get_tag_binding_output(credentials: Optional[pulumi.Input[Optional[Union['Ge
     __args__['restEndpoint'] = rest_endpoint
     __args__['schemaRegistryCluster'] = schema_registry_cluster
     __args__['tagName'] = tag_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getTagBinding:getTagBinding', __args__, opts=opts, typ=GetTagBindingResult)
     return __ret__.apply(lambda __response__: GetTagBindingResult(
         credentials=pulumi.get(__response__, 'credentials'),
