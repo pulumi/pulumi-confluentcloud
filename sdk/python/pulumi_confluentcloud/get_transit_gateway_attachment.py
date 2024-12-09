@@ -147,7 +147,7 @@ def get_transit_gateway_attachment(display_name: Optional[str] = None,
 def get_transit_gateway_attachment_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                           environment: Optional[pulumi.Input[Union['GetTransitGatewayAttachmentEnvironmentArgs', 'GetTransitGatewayAttachmentEnvironmentArgsDict']]] = None,
                                           id: Optional[pulumi.Input[Optional[str]]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayAttachmentResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayAttachmentResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -180,7 +180,7 @@ def get_transit_gateway_attachment_output(display_name: Optional[pulumi.Input[Op
     __args__['displayName'] = display_name
     __args__['environment'] = environment
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment', __args__, opts=opts, typ=GetTransitGatewayAttachmentResult)
     return __ret__.apply(lambda __response__: GetTransitGatewayAttachmentResult(
         aws=pulumi.get(__response__, 'aws'),

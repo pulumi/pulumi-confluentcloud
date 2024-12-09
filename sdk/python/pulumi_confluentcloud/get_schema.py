@@ -286,7 +286,7 @@ def get_schema_output(credentials: Optional[pulumi.Input[Optional[Union['GetSche
                       schema_identifier: Optional[pulumi.Input[int]] = None,
                       schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemaSchemaRegistryClusterArgs', 'GetSchemaSchemaRegistryClusterArgsDict']]]] = None,
                       subject_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -341,7 +341,7 @@ def get_schema_output(credentials: Optional[pulumi.Input[Optional[Union['GetSche
     __args__['schemaIdentifier'] = schema_identifier
     __args__['schemaRegistryCluster'] = schema_registry_cluster
     __args__['subjectName'] = subject_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSchema:getSchema', __args__, opts=opts, typ=GetSchemaResult)
     return __ret__.apply(lambda __response__: GetSchemaResult(
         credentials=pulumi.get(__response__, 'credentials'),

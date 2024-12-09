@@ -67,7 +67,7 @@ export interface GetSubjectConfigResult {
  *
  * ## Example Usage
  */
-export function getSubjectConfigOutput(args: GetSubjectConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubjectConfigResult> {
+export function getSubjectConfigOutput(args: GetSubjectConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubjectConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getSubjectConfig:getSubjectConfig", {
         "credentials": args.credentials,

@@ -200,7 +200,7 @@ def get_private_link_attachment(environment: Optional[Union['GetPrivateLinkAttac
         resource_name=pulumi.get(__ret__, 'resource_name'))
 def get_private_link_attachment_output(environment: Optional[pulumi.Input[Union['GetPrivateLinkAttachmentEnvironmentArgs', 'GetPrivateLinkAttachmentEnvironmentArgsDict']]] = None,
                                        id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkAttachmentResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkAttachmentResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -231,7 +231,7 @@ def get_private_link_attachment_output(environment: Optional[pulumi.Input[Union[
     __args__ = dict()
     __args__['environment'] = environment
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment', __args__, opts=opts, typ=GetPrivateLinkAttachmentResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkAttachmentResult(
         aws=pulumi.get(__response__, 'aws'),

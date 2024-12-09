@@ -120,7 +120,7 @@ export interface GetProviderIntegrationResult {
  * }
  * ```
  */
-export function getProviderIntegrationOutput(args: GetProviderIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderIntegrationResult> {
+export function getProviderIntegrationOutput(args: GetProviderIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getProviderIntegration:getProviderIntegration", {
         "displayName": args.displayName,

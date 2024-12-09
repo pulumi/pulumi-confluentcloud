@@ -147,7 +147,7 @@ def get_schema_registry_cluster_mode(credentials: Optional[Union['GetSchemaRegis
 def get_schema_registry_cluster_mode_output(credentials: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryClusterModeCredentialsArgs', 'GetSchemaRegistryClusterModeCredentialsArgsDict']]]] = None,
                                             rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                                             schema_registry_cluster: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryClusterModeSchemaRegistryClusterArgs', 'GetSchemaRegistryClusterModeSchemaRegistryClusterArgsDict']]]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryClusterModeResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaRegistryClusterModeResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
@@ -189,7 +189,7 @@ def get_schema_registry_cluster_mode_output(credentials: Optional[pulumi.Input[O
     __args__['credentials'] = credentials
     __args__['restEndpoint'] = rest_endpoint
     __args__['schemaRegistryCluster'] = schema_registry_cluster
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode', __args__, opts=opts, typ=GetSchemaRegistryClusterModeResult)
     return __ret__.apply(lambda __response__: GetSchemaRegistryClusterModeResult(
         credentials=pulumi.get(__response__, 'credentials'),
