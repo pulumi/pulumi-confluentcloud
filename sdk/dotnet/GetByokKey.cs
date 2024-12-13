@@ -70,6 +70,36 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetByokKeyResult> Invoke(GetByokKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetByokKeyResult>("confluentcloud:index/getByokKey:getByokKey", args ?? new GetByokKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.ByokKey` describes a BYOK Key data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var azureKey = ConfluentCloud.GetByokKey.Invoke(new()
+        ///     {
+        ///         Id = "cck-abcde",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["byok"] = azureKey,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetByokKeyResult> Invoke(GetByokKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetByokKeyResult>("confluentcloud:index/getByokKey:getByokKey", args ?? new GetByokKeyInvokeArgs(), options.WithDefaults());
     }
 
 

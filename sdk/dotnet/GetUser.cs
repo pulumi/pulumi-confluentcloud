@@ -140,6 +140,71 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("confluentcloud:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.getUser` describes a User data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetUser.Invoke(new()
+        ///     {
+        ///         Id = "u-abc123",
+        ///     });
+        /// 
+        ///     var exampleUsingEmail = ConfluentCloud.GetUser.Invoke(new()
+        ///     {
+        ///         Email = "test123@gmail.com",
+        ///     });
+        /// 
+        ///     var test_env = new ConfluentCloud.Environment("test-env", new()
+        ///     {
+        ///         DisplayName = $"env_for_{exampleUsingId.Apply(getUserResult =&gt; getUserResult.FullName)}",
+        ///     });
+        /// 
+        ///     var standard_cluster_on_aws = new ConfluentCloud.KafkaCluster("standard-cluster-on-aws", new()
+        ///     {
+        ///         DisplayName = "standard_kafka_cluster_on_aws",
+        ///         Availability = "SINGLE_ZONE",
+        ///         Cloud = "AWS",
+        ///         Region = "us-west-2",
+        ///         Standard = null,
+        ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+        ///         {
+        ///             Id = test_env.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     var test_role_binding = new ConfluentCloud.RoleBinding("test-role-binding", new()
+        ///     {
+        ///         Principal = $"User:{exampleUsingEmail.Apply(getUserResult =&gt; getUserResult.Id)}",
+        ///         RoleName = "CloudClusterAdmin",
+        ///         CrnPattern = standard_cluster_on_aws.RbacCrn,
+        ///     });
+        /// 
+        ///     var exampleUsingFullName = ConfluentCloud.GetUser.Invoke(new()
+        ///     {
+        ///         FullName = "John Doe",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("confluentcloud:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
 

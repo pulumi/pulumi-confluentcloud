@@ -146,6 +146,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -295,6 +296,55 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetAccessPointResult> getAccessPoint(GetAccessPointArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getAccessPoint:getAccessPoint", TypeShape.of(GetAccessPointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.AccessPoint` describes a Access Point data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetAccessPointArgs;
+     * import com.pulumi.confluentcloud.inputs.GetAccessPointEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getAccessPoint(GetAccessPointArgs.builder()
+     *             .id("ap-abc123")
+     *             .environment(GetAccessPointEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("accessPoint", main.applyValue(getAccessPointResult -> getAccessPointResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAccessPointResult> getAccessPoint(GetAccessPointArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getAccessPoint:getAccessPoint", TypeShape.of(GetAccessPointResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -617,6 +667,97 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getBusinessMetadata:getBusinessMetadata", TypeShape.of(GetBusinessMetadataResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.BusinessMetadata` describes a Business Metadata data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
+     *             .schemaRegistryCluster(GetBusinessMetadataSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetBusinessMetadataCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getBusinessMetadata(GetBusinessMetadataArgs.builder()
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getBusinessMetadata:getBusinessMetadata", TypeShape.of(GetBusinessMetadataResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1087,6 +1228,101 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetBusinessMetadataBindingResult> getBusinessMetadataBinding(GetBusinessMetadataBindingArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", TypeShape.of(GetBusinessMetadataBindingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.BusinessMetadataBinding` describes a Business Metadata Binding data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
+     *             .schemaRegistryCluster(GetBusinessMetadataBindingSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetBusinessMetadataBindingCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .businessMetadataName(pii.name())
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .entityType("kafka_topic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getBusinessMetadataBinding(GetBusinessMetadataBindingArgs.builder()
+     *             .businessMetadataName(pii.name())
+     *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,mainConfluentKafkaTopic.topicName()))
+     *             .entityType("kafka_topic")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetBusinessMetadataBindingResult> getBusinessMetadataBindingPlain(GetBusinessMetadataBindingPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", TypeShape.of(GetBusinessMetadataBindingResult.class), args, Utilities.withVersion(options));
     }
@@ -1267,6 +1503,51 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetByokKeyResult> getByokKey(GetByokKeyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getByokKey:getByokKey", TypeShape.of(GetByokKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ByokKey` describes a BYOK Key data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()
+     *             .id("cck-abcde")
+     *             .build());
+     * 
+     *         ctx.export("byok", azureKey.applyValue(getByokKeyResult -> getByokKeyResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetByokKeyResult> getByokKeyPlain(GetByokKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getByokKey:getByokKey", TypeShape.of(GetByokKeyResult.class), args, Utilities.withVersion(options));
     }
@@ -1403,6 +1684,51 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetCertificateAuthorityResult> getCertificateAuthority(GetCertificateAuthorityArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getCertificateAuthority:getCertificateAuthority", TypeShape.of(GetCertificateAuthorityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CertificateAuthority` describes a Certificate Authority data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
+     *             .id("op-abc123")
+     *             .build());
+     * 
+     *         ctx.export("certificateAuthority", main.applyValue(getCertificateAuthorityResult -> getCertificateAuthorityResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCertificateAuthorityResult> getCertificateAuthority(GetCertificateAuthorityArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getCertificateAuthority:getCertificateAuthority", TypeShape.of(GetCertificateAuthorityResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1643,6 +1969,55 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCertificatePoolResult> getCertificatePool(GetCertificatePoolArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getCertificatePool:getCertificatePool", TypeShape.of(GetCertificatePoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CertificatePool` describes a Certificate Pool data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCertificatePoolCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getCertificatePool(GetCertificatePoolArgs.builder()
+     *             .id("pool-def456")
+     *             .certificateAuthority(GetCertificatePoolCertificateAuthorityArgs.builder()
+     *                 .id("op-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("certificatePool", main.applyValue(getCertificatePoolResult -> getCertificatePoolResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCertificatePoolResult> getCertificatePoolPlain(GetCertificatePoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getCertificatePool:getCertificatePool", TypeShape.of(GetCertificatePoolResult.class), args, Utilities.withVersion(options));
     }
@@ -1791,6 +2166,55 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetDnsRecordResult> getDnsRecord(GetDnsRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getDnsRecord:getDnsRecord", TypeShape.of(GetDnsRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.DnsRecord` describes a DNS Record data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
+     * import com.pulumi.confluentcloud.inputs.GetDnsRecordEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getDnsRecord(GetDnsRecordArgs.builder()
+     *             .id("dnsrec-abc123")
+     *             .environment(GetDnsRecordEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("dnsRecord", main.applyValue(getDnsRecordResult -> getDnsRecordResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDnsRecordResult> getDnsRecord(GetDnsRecordArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getDnsRecord:getDnsRecord", TypeShape.of(GetDnsRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2211,6 +2635,68 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Environment` describes an Environment data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
+     * import com.pulumi.confluentcloud.RoleBinding;
+     * import com.pulumi.confluentcloud.RoleBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .id("env-abc123")
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *             .displayName("stag")
+     *             .build());
+     * 
+     *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .displayName("test_sa")
+     *             .build());
+     * 
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .roleName("EnvironmentAdmin")
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
     }
@@ -2463,6 +2949,48 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetEnvironmentsResult> getEnvironments(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getEnvironments:getEnvironments", TypeShape.of(GetEnvironmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getEnvironments` describes a data source for Environments.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getEnvironments();
+     * 
+     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetEnvironmentsResult> getEnvironmentsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getEnvironments:getEnvironments", TypeShape.of(GetEnvironmentsResult.class), args, Utilities.withVersion(options));
     }
@@ -2635,6 +3163,63 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetFlinkArtifactResult> getFlinkArtifact(GetFlinkArtifactArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", TypeShape.of(GetFlinkArtifactResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkArtifact` describes a Flink Artifact data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkArtifactEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
+     *             .id("lfa-abc123")
+     *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
+     *             .displayName("my_artifact")
+     *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFlinkArtifactResult> getFlinkArtifact(GetFlinkArtifactArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", TypeShape.of(GetFlinkArtifactResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2919,6 +3504,63 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetFlinkComputePoolResult> getFlinkComputePool(GetFlinkComputePoolArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", TypeShape.of(GetFlinkComputePoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkComputePool` describes a Flink Compute Pool data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *             .id("lfcp-abc123")
+     *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *             .displayName("my_compute_pool")
+     *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetFlinkComputePoolResult> getFlinkComputePoolPlain(GetFlinkComputePoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", TypeShape.of(GetFlinkComputePoolResult.class), args, Utilities.withVersion(options));
     }
@@ -3058,6 +3700,52 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetFlinkRegionResult> getFlinkRegion(GetFlinkRegionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getFlinkRegion:getFlinkRegion", TypeShape.of(GetFlinkRegionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getFlinkRegion` describes a Flink cluster data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
+     *             .cloud("AWS")
+     *             .region("us-east-1")
+     *             .build());
+     * 
+     *         ctx.export("example", example.applyValue(getFlinkRegionResult -> getFlinkRegionResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFlinkRegionResult> getFlinkRegion(GetFlinkRegionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getFlinkRegion:getFlinkRegion", TypeShape.of(GetFlinkRegionResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3251,6 +3939,55 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getGateway:getGateway", TypeShape.of(GetGatewayResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Gateway` describes a Gateway data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewayEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getGateway(GetGatewayArgs.builder()
+     *             .id("gw-abc123")
+     *             .environment(GetGatewayEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("gateway", main.applyValue(getGatewayResult -> getGatewayResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetGatewayResult> getGateway(GetGatewayArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getGateway:getGateway", TypeShape.of(GetGatewayResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3605,6 +4342,57 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetGroupMappingResult> getGroupMapping(GetGroupMappingArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getGroupMapping:getGroupMapping", TypeShape.of(GetGroupMappingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.GroupMapping` describes a Group Mapping data source.
+     * 
+     * &gt; **Note:** See [Group Mapping in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html) for more details.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .id("group-abc123")
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .displayName("Default")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetGroupMappingResult> getGroupMappingPlain(GetGroupMappingPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getGroupMapping:getGroupMapping", TypeShape.of(GetGroupMappingResult.class), args, Utilities.withVersion(options));
     }
@@ -3777,6 +4565,63 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetIdentityPoolResult> getIdentityPool(GetIdentityPoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getIdentityPool:getIdentityPool", TypeShape.of(GetIdentityPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.IdentityPool` describes an Identity Pool data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityPoolIdentityProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *             .id("pool-xyz456")
+     *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
+     *                 .id("op-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *             .displayName("My Identity Pool")
+     *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
+     *                 .id("op-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetIdentityPoolResult> getIdentityPool(GetIdentityPoolArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getIdentityPool:getIdentityPool", TypeShape.of(GetIdentityPoolResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4133,6 +4978,56 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetIdentityProviderResult> getIdentityProvider(GetIdentityProviderArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getIdentityProvider:getIdentityProvider", TypeShape.of(GetIdentityProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .id("op-abc123")
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .displayName("My OIDC Provider: Azure AD")
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetIdentityProviderResult> getIdentityProviderPlain(GetIdentityProviderPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getIdentityProvider:getIdentityProvider", TypeShape.of(GetIdentityProviderResult.class), args, Utilities.withVersion(options));
     }
@@ -4269,6 +5164,51 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetInvitationResult> getInvitation(GetInvitationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getInvitation:getInvitation", TypeShape.of(GetInvitationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Invitation` describes an Invitation data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetInvitationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getInvitation(GetInvitationArgs.builder()
+     *             .id("i-gxxn1")
+     *             .build());
+     * 
+     *         ctx.export("invitation", main.applyValue(getInvitationResult -> getInvitationResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetInvitationResult> getInvitation(GetInvitationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getInvitation:getInvitation", TypeShape.of(GetInvitationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4649,6 +5589,62 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetIpAddressesResult> getIpAddresses(GetIpAddressesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getIpAddresses:getIpAddresses", TypeShape.of(GetIpAddressesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.getIpAddresses` describes IP Addresses data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
+     *             .filter(GetIpAddressesFilterArgs.builder()
+     *                 .clouds("AWS")
+     *                 .regions(                
+     *                     "us-east-1",
+     *                     "us-east-2")
+     *                 .services("KAFKA")
+     *                 .addressTypes("EGRESS")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetIpAddressesResult> getIpAddressesPlain(GetIpAddressesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getIpAddresses:getIpAddresses", TypeShape.of(GetIpAddressesResult.class), args, Utilities.withVersion(options));
     }
@@ -4791,6 +5787,53 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetKafkaClientQuotaResult> getKafkaClientQuota(GetKafkaClientQuotaArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", TypeShape.of(GetKafkaClientQuotaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.KafkaClientQuota` describes a Kafka Client Quota.
+     * 
+     * &gt; **Note:** See [Control application usage with Client Quotas](https://docs.confluent.io/cloud/current/clusters/client-quotas.html#control-application-usage-with-client-quotas) for more details.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
+     *             .id("cq-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example.applyValue(getKafkaClientQuotaResult -> getKafkaClientQuotaResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetKafkaClientQuotaResult> getKafkaClientQuota(GetKafkaClientQuotaArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", TypeShape.of(GetKafkaClientQuotaResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5027,6 +6070,69 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetKafkaClusterResult> getKafkaCluster(GetKafkaClusterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getKafkaCluster:getKafkaCluster", TypeShape.of(GetKafkaClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.KafkaCluster` describes a Kafka cluster data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaClusterEnvironmentArgs;
+     * import com.pulumi.confluentcloud.ServiceAccount;
+     * import com.pulumi.confluentcloud.ServiceAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
+     *             .id("lkc-abc123")
+     *             .environment(GetKafkaClusterEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
+     *             .displayName("app_mgr")
+     *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
+     *             .build());
+     * 
+     *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
+     *             .displayName("basic_kafka_cluster")
+     *             .environment(GetKafkaClusterEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKafkaClusterResult -> getKafkaClusterResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetKafkaClusterResult> getKafkaCluster(GetKafkaClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getKafkaCluster:getKafkaCluster", TypeShape.of(GetKafkaClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5461,6 +6567,99 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetKafkaTopicResult> getKafkaTopic(GetKafkaTopicArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getKafkaTopic:getKafkaTopic", TypeShape.of(GetKafkaTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+     *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
+     *                 .id(basic_cluster.id())
+     *                 .build())
+     *             .topicName("orders")
+     *             .restEndpoint(basic_cluster.restEndpoint())
+     *             .credentials(GetKafkaTopicCredentialsArgs.builder()
+     *                 .key("<Kafka API Key for confluent_kafka_cluster.basic-cluster>")
+     *                 .secret("<Kafka API Secret for confluent_kafka_cluster.basic-cluster>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
+     *             .topicName("orders")
+     *             .build());
+     * 
+     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetKafkaTopicResult> getKafkaTopicPlain(GetKafkaTopicPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getKafkaTopic:getKafkaTopic", TypeShape.of(GetKafkaTopicResult.class), args, Utilities.withVersion(options));
     }
@@ -5639,6 +6838,65 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetKsqlClusterResult> getKsqlCluster(GetKsqlClusterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getKsqlCluster:getKsqlCluster", TypeShape.of(GetKsqlClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## # confluentcloud.KsqlCluster Data Source
+     * 
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKsqlClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKsqlClusterEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *             .id("lksqlc-abc123")
+     *             .environment(GetKsqlClusterEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *             .displayName("ksqldb_cluster")
+     *             .environment(GetKsqlClusterEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetKsqlClusterResult> getKsqlCluster(GetKsqlClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getKsqlCluster:getKsqlCluster", TypeShape.of(GetKsqlClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5933,6 +7191,65 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNetworkArgs;
+     * import com.pulumi.confluentcloud.inputs.GetNetworkEnvironmentArgs;
+     * import com.pulumi.confluentcloud.ServiceAccount;
+     * import com.pulumi.confluentcloud.ServiceAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .id("n-abc123")
+     *             .environment(GetNetworkEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
+     *             .displayName("test_sa")
+     *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
+     *             .build());
+     * 
+     *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *             .displayName("my_network")
+     *             .environment(GetNetworkEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getNetworkResult -> getNetworkResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
     }
@@ -6129,6 +7446,55 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetNetworkLinkEndpointResult> getNetworkLinkEndpoint(GetNetworkLinkEndpointArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", TypeShape.of(GetNetworkLinkEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NetworkLinkEndpoint` describes a Network Link Endpoint data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointArgs;
+     * import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var nle = ConfluentcloudFunctions.getNetworkLinkEndpoint(GetNetworkLinkEndpointArgs.builder()
+     *             .id("nle-1357")
+     *             .environment(GetNetworkLinkEndpointEnvironmentArgs.builder()
+     *                 .id("env-1234")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("networkLinkEndpoint", nle.applyValue(getNetworkLinkEndpointResult -> getNetworkLinkEndpointResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetNetworkLinkEndpointResult> getNetworkLinkEndpointPlain(GetNetworkLinkEndpointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", TypeShape.of(GetNetworkLinkEndpointResult.class), args, Utilities.withVersion(options));
     }
@@ -6277,6 +7643,55 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetNetworkLinkServiceResult> getNetworkLinkService(GetNetworkLinkServiceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", TypeShape.of(GetNetworkLinkServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.NetworkLinkService` describes a Network Link Service data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceArgs;
+     * import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var nls = ConfluentcloudFunctions.getNetworkLinkService(GetNetworkLinkServiceArgs.builder()
+     *             .id("nls-zyw30")
+     *             .environment(GetNetworkLinkServiceEnvironmentArgs.builder()
+     *                 .id("env-1234")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("networkLinkService", nls.applyValue(getNetworkLinkServiceResult -> getNetworkLinkServiceResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetNetworkLinkServiceResult> getNetworkLinkService(GetNetworkLinkServiceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", TypeShape.of(GetNetworkLinkServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6577,6 +7992,48 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetOrganizationResult> getOrganization(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getOrganization` describes an Organization data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getOrganization();
+     * 
+     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
@@ -6749,6 +8206,63 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetPeeringResult> getPeering(GetPeeringArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getPeering:getPeering", TypeShape.of(GetPeeringResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Peering` describes a Peering data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPeeringArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPeeringEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
+     *             .id("peer-abc123")
+     *             .environment(GetPeeringEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPeeringResult -> getPeeringResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
+     *             .displayName("my_peering")
+     *             .environment(GetPeeringEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPeeringResult -> getPeeringResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPeeringResult> getPeering(GetPeeringArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getPeering:getPeering", TypeShape.of(GetPeeringResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -7033,6 +8547,63 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetPrivateLinkAccessResult> getPrivateLinkAccess(GetPrivateLinkAccessArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", TypeShape.of(GetPrivateLinkAccessResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.PrivateLinkAccess` describes a Private Link Access data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
+     *             .id("pla-abc123")
+     *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
+     *             .displayName("my_pla")
+     *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetPrivateLinkAccessResult> getPrivateLinkAccessPlain(GetPrivateLinkAccessPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", TypeShape.of(GetPrivateLinkAccessResult.class), args, Utilities.withVersion(options));
     }
@@ -7253,6 +8824,61 @@ public final class ConfluentcloudFunctions {
      * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
+    public static Output<GetPrivateLinkAttachmentResult> getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", TypeShape.of(GetPrivateLinkAttachmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.PrivateLinkAttachment` describes a Private Link Attachment data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs.builder()
+     *             .id("platt-abcde")
+     *             .environment(GetPrivateLinkAttachmentEnvironmentArgs.builder()
+     *                 .id("env-1234")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("platt", main.applyValue(getPrivateLinkAttachmentResult -> getPrivateLinkAttachmentResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+     * 
+     */
     public static CompletableFuture<GetPrivateLinkAttachmentResult> getPrivateLinkAttachmentPlain(GetPrivateLinkAttachmentPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", TypeShape.of(GetPrivateLinkAttachmentResult.class), args, Utilities.withVersion(options));
     }
@@ -7419,6 +9045,61 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection", TypeShape.of(GetPrivateLinkAttachmentConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.PrivateLinkAttachmentConnection` describes a Private Link Attachment Connection data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs.builder()
+     *             .id("plattc-p5j3ov")
+     *             .environment(GetPrivateLinkAttachmentConnectionEnvironmentArgs.builder()
+     *                 .id("env-8gv0v5")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("plattc", main.applyValue(getPrivateLinkAttachmentConnectionResult -> getPrivateLinkAttachmentConnectionResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+     * 
+     */
+    public static Output<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection", TypeShape.of(GetPrivateLinkAttachmentConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -7701,6 +9382,63 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetProviderIntegrationResult> getProviderIntegration(GetProviderIntegrationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getProviderIntegration:getProviderIntegration", TypeShape.of(GetProviderIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ProviderIntegration` describes a Confluent Provider Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
+     *             .id("cspi-4xg0q")
+     *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
+     *             .displayName("provider_integration_main")
+     *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetProviderIntegrationResult> getProviderIntegrationPlain(GetProviderIntegrationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getProviderIntegration:getProviderIntegration", TypeShape.of(GetProviderIntegrationResult.class), args, Utilities.withVersion(options));
     }
@@ -7843,6 +9581,53 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetRoleBindingResult> getRoleBinding(GetRoleBindingArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getRoleBinding:getRoleBinding", TypeShape.of(GetRoleBindingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.RoleBinding` describes a Role Binding.
+     * 
+     * &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
+     *             .id("rb-abc123")
+     *             .build());
+     * 
+     *         ctx.export("example", example.applyValue(getRoleBindingResult -> getRoleBindingResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRoleBindingResult> getRoleBinding(GetRoleBindingArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getRoleBinding:getRoleBinding", TypeShape.of(GetRoleBindingResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -8269,6 +10054,101 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSchemaResult> getSchema(GetSchemaArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSchema:getSchema", TypeShape.of(GetSchemaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Schema` describes a Schema data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .schemaIdentifier(10001)
+     *             .credentials(GetSchemaCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schema", purchase_v1.schema());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSchema(GetSchemaArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .schemaIdentifier(10001)
+     *             .build());
+     * 
+     *         ctx.export("schema", purchase_v1.schema());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaResult> getSchemaPlain(GetSchemaPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchema:getSchema", TypeShape.of(GetSchemaResult.class), args, Utilities.withVersion(options));
     }
@@ -8465,6 +10345,71 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetSchemaRegistryClusterResult> getSchemaRegistryCluster(GetSchemaRegistryClusterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", TypeShape.of(GetSchemaRegistryClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Loads the only Schema Registry cluster in the target environment
+     *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *             .id("lsrc-abc123")
+     *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *             .displayName("Stream Governance Package")
+     *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSchemaRegistryClusterResult> getSchemaRegistryCluster(GetSchemaRegistryClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", TypeShape.of(GetSchemaRegistryClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -8980,6 +10925,96 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig", TypeShape.of(GetSchemaRegistryClusterConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterConfig` describes a Schema Registry Cluster Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterConfigCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     * 
+     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig", TypeShape.of(GetSchemaRegistryClusterConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -9609,6 +11644,96 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode", TypeShape.of(GetSchemaRegistryClusterModeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryClusterMode` describes a Mode data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryClusterModeSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryClusterModeCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     * 
+     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterModePlain(GetSchemaRegistryClusterModePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode", TypeShape.of(GetSchemaRegistryClusterModeResult.class), args, Utilities.withVersion(options));
     }
@@ -9845,6 +11970,53 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetSchemaRegistryClustersResult> getSchemaRegistryClusters(GetSchemaRegistryClustersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", TypeShape.of(GetSchemaRegistryClustersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `data.confluent_schema_registry_clusters` describes a data source for Schema Registry Clusters.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClustersEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemaRegistryClusters(GetSchemaRegistryClustersArgs.builder()
+     *             .environment(GetSchemaRegistryClustersEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSchemaRegistryClustersResult> getSchemaRegistryClusters(GetSchemaRegistryClustersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", TypeShape.of(GetSchemaRegistryClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -10263,6 +12435,99 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSchemaRegistryDekResult> getSchemaRegistryDek(GetSchemaRegistryDekArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek", TypeShape.of(GetSchemaRegistryDekResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryDek` describes a Schema Registry Data Encryption Key (DEK) data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryDekSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryDekCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .kekName("my_kek")
+     *             .subjectName("my_subject")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryDekArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryDek(GetSchemaRegistryDekArgs.builder()
+     *             .kekName("my_kek")
+     *             .subjectName("my_subject")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemaRegistryDekResult> getSchemaRegistryDekPlain(GetSchemaRegistryDekPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek", TypeShape.of(GetSchemaRegistryDekResult.class), args, Utilities.withVersion(options));
     }
@@ -10537,6 +12802,97 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetSchemaRegistryKekResult> getSchemaRegistryKek(GetSchemaRegistryKekArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek", TypeShape.of(GetSchemaRegistryKekResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SchemaRegistryKek` describes a Schema Registry Key Encryption Key (KEK) data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
+     *             .schemaRegistryCluster(GetSchemaRegistryKekSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetSchemaRegistryKekCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("my_key")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryKekArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myKey = ConfluentcloudFunctions.getSchemaRegistryKek(GetSchemaRegistryKekArgs.builder()
+     *             .name("my_key")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSchemaRegistryKekResult> getSchemaRegistryKek(GetSchemaRegistryKekArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek", TypeShape.of(GetSchemaRegistryKekResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -11245,6 +13601,109 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSchemasResult> getSchemas(GetSchemasArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSchemas:getSchemas", TypeShape.of(GetSchemasResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getSchemas` describes a Schema data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .schemaRegistryCluster(GetSchemasSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .credentials(GetSchemasCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSchemasFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getSchemas(GetSchemasArgs.builder()
+     *             .filter(GetSchemasFilterArgs.builder()
+     *                 .subjectPrefix("examples.record")
+     *                 .latestOnly(false)
+     *                 .deleted(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSchemasResult> getSchemasPlain(GetSchemasPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemas:getSchemas", TypeShape.of(GetSchemasResult.class), args, Utilities.withVersion(options));
     }
@@ -11575,6 +14034,61 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ServiceAccount` describes a Service Account data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
+     * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .id("sa-abc123")
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *             .displayName("test_sa")
+     *             .build());
+     * 
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
     }
@@ -11609,6 +14123,17 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetSubjectConfigResult> getSubjectConfig(GetSubjectConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSubjectConfig:getSubjectConfig", TypeShape.of(GetSubjectConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluent_subject_compatibility_level` describes a Subject Config data source.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetSubjectConfigResult> getSubjectConfig(GetSubjectConfigArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSubjectConfig:getSubjectConfig", TypeShape.of(GetSubjectConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -11991,6 +14516,99 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSubjectModeResult> getSubjectMode(GetSubjectModeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSubjectMode:getSubjectMode", TypeShape.of(GetSubjectModeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.SubjectMode` describes a Subject Mode data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
+     *             .schemaRegistryCluster(GetSubjectModeSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .subjectName("proto-purchase-value")
+     *             .credentials(GetSubjectModeCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("mode", purchase_v1.mode());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var purchase-v1 = ConfluentcloudFunctions.getSubjectMode(GetSubjectModeArgs.builder()
+     *             .subjectName("proto-purchase-value")
+     *             .build());
+     * 
+     *         ctx.export("mode", purchase_v1.mode());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSubjectModeResult> getSubjectModePlain(GetSubjectModePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSubjectMode:getSubjectMode", TypeShape.of(GetSubjectModeResult.class), args, Utilities.withVersion(options));
     }
@@ -12265,6 +14883,97 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetTagResult> getTag(GetTagArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getTag:getTag", TypeShape.of(GetTagResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.Tag` describes a Tag data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
+     *             .schemaRegistryCluster(GetTagSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetTagCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pii = ConfluentcloudFunctions.getTag(GetTagArgs.builder()
+     *             .name("PII")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTagResult> getTag(GetTagArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getTag:getTag", TypeShape.of(GetTagResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -12735,6 +15444,101 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetTagBindingResult> getTagBinding(GetTagBindingArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getTagBinding:getTagBinding", TypeShape.of(GetTagBindingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.TagBinding` describes a Tag Binding data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingSchemaRegistryClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
+     *             .schemaRegistryCluster(GetTagBindingSchemaRegistryClusterArgs.builder()
+     *                 .id(essentials.id())
+     *                 .build())
+     *             .restEndpoint(essentials.restEndpoint())
+     *             .credentials(GetTagBindingCredentialsArgs.builder()
+     *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+     *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+     *                 .build())
+     *             .tagName("PII")
+     *             .entityName("lsrc-8wrx70:.:100001")
+     *             .entityType("sr_schema")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getTagBinding(GetTagBindingArgs.builder()
+     *             .tagName("PII")
+     *             .entityName("lsrc-8wrx70:.:100001")
+     *             .entityType("sr_schema")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTagBindingResult> getTagBindingPlain(GetTagBindingPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getTagBinding:getTagBinding", TypeShape.of(GetTagBindingResult.class), args, Utilities.withVersion(options));
     }
@@ -12907,6 +15711,63 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetTransitGatewayAttachmentResult> getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment", TypeShape.of(GetTransitGatewayAttachmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.TransitGatewayAttachment` describes a Transit Gateway Attachment data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingId = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
+     *             .id("tgwa-abc123")
+     *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
+     *             .displayName("my_tgwa")
+     *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTransitGatewayAttachmentResult> getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment", TypeShape.of(GetTransitGatewayAttachmentResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -13455,6 +16316,88 @@ public final class ConfluentcloudFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getUser` describes a User data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetUserArgs;
+     * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
+     * import com.pulumi.confluentcloud.KafkaCluster;
+     * import com.pulumi.confluentcloud.KafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
+     * import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
+     * import com.pulumi.confluentcloud.RoleBinding;
+     * import com.pulumi.confluentcloud.RoleBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
+     *             .id("u-abc123")
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
+     *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
+     *             .email("test123}{@literal @}{@code gmail.com")
+     *             .build());
+     * 
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
+     *             .build());
+     * 
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
+     *             .displayName("standard_kafka_cluster_on_aws")
+     *             .availability("SINGLE_ZONE")
+     *             .cloud("AWS")
+     *             .region("us-west-2")
+     *             .standard()
+     *             .environment(KafkaClusterEnvironmentArgs.builder()
+     *                 .id(test_env.id())
+     *                 .build())
+     *             .build());
+     * 
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
+     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .roleName("CloudClusterAdmin")
+     *             .crnPattern(standard_cluster_on_aws.rbacCrn())
+     *             .build());
+     * 
+     *         final var exampleUsingFullName = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
+     *             .fullName("John Doe")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
@@ -13666,6 +16609,48 @@ public final class ConfluentcloudFunctions {
      * 
      */
     public static Output<GetUsersResult> getUsers(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getUsers` describes a data source for Users.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getUsers();
+     * 
+     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUsersResult> getUsers(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**

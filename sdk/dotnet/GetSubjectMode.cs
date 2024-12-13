@@ -138,6 +138,70 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetSubjectModeResult> Invoke(GetSubjectModeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubjectModeResult>("confluentcloud:index/getSubjectMode:getSubjectMode", args ?? new GetSubjectModeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.SubjectMode` describes a Subject Mode data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var purchase_v1 = ConfluentCloud.GetSubjectMode.Invoke(new()
+        ///     {
+        ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSubjectModeSchemaRegistryClusterInputArgs
+        ///         {
+        ///             Id = essentials.Id,
+        ///         },
+        ///         RestEndpoint = essentials.RestEndpoint,
+        ///         SubjectName = "proto-purchase-value",
+        ///         Credentials = new ConfluentCloud.Inputs.GetSubjectModeCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["mode"] = purchase_v1.Apply(purchase_v1 =&gt; purchase_v1.Apply(getSubjectModeResult =&gt; getSubjectModeResult.Mode)),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var purchase_v1 = ConfluentCloud.GetSubjectMode.Invoke(new()
+        ///     {
+        ///         SubjectName = "proto-purchase-value",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["mode"] = purchase_v1.Apply(purchase_v1 =&gt; purchase_v1.Apply(getSubjectModeResult =&gt; getSubjectModeResult.Mode)),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSubjectModeResult> Invoke(GetSubjectModeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubjectModeResult>("confluentcloud:index/getSubjectMode:getSubjectMode", args ?? new GetSubjectModeInvokeArgs(), options.WithDefaults());
     }
 
 

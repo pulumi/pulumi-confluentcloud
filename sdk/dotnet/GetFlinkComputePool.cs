@@ -98,6 +98,50 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetFlinkComputePoolResult> Invoke(GetFlinkComputePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlinkComputePoolResult>("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", args ?? new GetFlinkComputePoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.FlinkComputePool` describes a Flink Compute Pool data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetFlinkComputePool.Invoke(new()
+        ///     {
+        ///         Id = "lfcp-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetFlinkComputePoolEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetFlinkComputePool.Invoke(new()
+        ///     {
+        ///         DisplayName = "my_compute_pool",
+        ///         Environment = new ConfluentCloud.Inputs.GetFlinkComputePoolEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFlinkComputePoolResult> Invoke(GetFlinkComputePoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlinkComputePoolResult>("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", args ?? new GetFlinkComputePoolInvokeArgs(), options.WithDefaults());
     }
 
 

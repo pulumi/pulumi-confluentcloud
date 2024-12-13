@@ -102,6 +102,52 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetKsqlClusterResult> Invoke(GetKsqlClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKsqlClusterResult>("confluentcloud:index/getKsqlCluster:getKsqlCluster", args ?? new GetKsqlClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## # confluentcloud.KsqlCluster Data Source
+        /// 
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetKsqlCluster.Invoke(new()
+        ///     {
+        ///         Id = "lksqlc-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetKsqlClusterEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetKsqlCluster.Invoke(new()
+        ///     {
+        ///         DisplayName = "ksqldb_cluster",
+        ///         Environment = new ConfluentCloud.Inputs.GetKsqlClusterEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetKsqlClusterResult> Invoke(GetKsqlClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKsqlClusterResult>("confluentcloud:index/getKsqlCluster:getKsqlCluster", args ?? new GetKsqlClusterInvokeArgs(), options.WithDefaults());
     }
 
 

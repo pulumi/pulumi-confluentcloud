@@ -78,6 +78,40 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetCertificatePoolResult> Invoke(GetCertificatePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificatePoolResult>("confluentcloud:index/getCertificatePool:getCertificatePool", args ?? new GetCertificatePoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.CertificatePool` describes a Certificate Pool data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetCertificatePool.Invoke(new()
+        ///     {
+        ///         Id = "pool-def456",
+        ///         CertificateAuthority = new ConfluentCloud.Inputs.GetCertificatePoolCertificateAuthorityInputArgs
+        ///         {
+        ///             Id = "op-abc123",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["certificatePool"] = main,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCertificatePoolResult> Invoke(GetCertificatePoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificatePoolResult>("confluentcloud:index/getCertificatePool:getCertificatePool", args ?? new GetCertificatePoolInvokeArgs(), options.WithDefaults());
     }
 
 

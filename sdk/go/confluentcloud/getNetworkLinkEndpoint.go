@@ -79,21 +79,11 @@ type LookupNetworkLinkEndpointResult struct {
 }
 
 func LookupNetworkLinkEndpointOutput(ctx *pulumi.Context, args LookupNetworkLinkEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkLinkEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkLinkEndpointResultOutput, error) {
 			args := v.(LookupNetworkLinkEndpointArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupNetworkLinkEndpointResult
-			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", args, &rv, "", opts...)
-			if err != nil {
-				return LookupNetworkLinkEndpointResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupNetworkLinkEndpointResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupNetworkLinkEndpointResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", args, LookupNetworkLinkEndpointResultOutput{}, options).(LookupNetworkLinkEndpointResultOutput), nil
 		}).(LookupNetworkLinkEndpointResultOutput)
 }
 

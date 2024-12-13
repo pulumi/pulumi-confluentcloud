@@ -125,21 +125,11 @@ type LookupSchemaRegistryKekResult struct {
 }
 
 func LookupSchemaRegistryKekOutput(ctx *pulumi.Context, args LookupSchemaRegistryKekOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaRegistryKekResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSchemaRegistryKekResultOutput, error) {
 			args := v.(LookupSchemaRegistryKekArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSchemaRegistryKekResult
-			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSchemaRegistryKekResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSchemaRegistryKekResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSchemaRegistryKekResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek", args, LookupSchemaRegistryKekResultOutput{}, options).(LookupSchemaRegistryKekResultOutput), nil
 		}).(LookupSchemaRegistryKekResultOutput)
 }
 

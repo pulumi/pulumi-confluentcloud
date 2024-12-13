@@ -98,6 +98,50 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetProviderIntegrationResult> Invoke(GetProviderIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderIntegrationResult>("confluentcloud:index/getProviderIntegration:getProviderIntegration", args ?? new GetProviderIntegrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.ProviderIntegration` describes a Confluent Provider Integration data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetProviderIntegration.Invoke(new()
+        ///     {
+        ///         Id = "cspi-4xg0q",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetProviderIntegration.Invoke(new()
+        ///     {
+        ///         DisplayName = "provider_integration_main",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetProviderIntegrationResult> Invoke(GetProviderIntegrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProviderIntegrationResult>("confluentcloud:index/getProviderIntegration:getProviderIntegration", args ?? new GetProviderIntegrationInvokeArgs(), options.WithDefaults());
     }
 
 

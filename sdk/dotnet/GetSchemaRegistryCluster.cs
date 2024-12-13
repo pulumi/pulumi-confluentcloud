@@ -118,6 +118,60 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetSchemaRegistryClusterResult> Invoke(GetSchemaRegistryClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryClusterResult>("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", args ?? new GetSchemaRegistryClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `data.confluent_schema_registry_cluster` describes a Schema Registry cluster data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Loads the only Schema Registry cluster in the target environment
+        ///     var exampleUsingEnvId = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
+        ///     {
+        ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleUsingId = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
+        ///     {
+        ///         Id = "lsrc-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
+        ///     {
+        ///         DisplayName = "Stream Governance Package",
+        ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingEnvId"] = exampleUsingEnvId,
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSchemaRegistryClusterResult> Invoke(GetSchemaRegistryClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryClusterResult>("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", args ?? new GetSchemaRegistryClusterInvokeArgs(), options.WithDefaults());
     }
 
 

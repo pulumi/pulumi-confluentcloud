@@ -92,6 +92,47 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetPrivateLinkAttachmentResult> Invoke(GetPrivateLinkAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkAttachmentResult>("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", args ?? new GetPrivateLinkAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.PrivateLinkAttachment` describes a Private Link Attachment data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetPrivateLinkAttachment.Invoke(new()
+        ///     {
+        ///         Id = "platt-abcde",
+        ///         Environment = new ConfluentCloud.Inputs.GetPrivateLinkAttachmentEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-1234",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["platt"] = main,
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// 
+        /// ## Getting Started
+        /// 
+        /// The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
+        /// * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+        /// * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+        /// </summary>
+        public static Output<GetPrivateLinkAttachmentResult> Invoke(GetPrivateLinkAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkAttachmentResult>("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", args ?? new GetPrivateLinkAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -78,6 +78,40 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("confluentcloud:index/getGateway:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.Gateway` describes a Gateway data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetGateway.Invoke(new()
+        ///     {
+        ///         Id = "gw-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetGatewayEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-123abc",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["gateway"] = main,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("confluentcloud:index/getGateway:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 
