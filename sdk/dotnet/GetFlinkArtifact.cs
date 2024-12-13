@@ -98,6 +98,50 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetFlinkArtifactResult> Invoke(GetFlinkArtifactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlinkArtifactResult>("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", args ?? new GetFlinkArtifactInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.FlinkArtifact` describes a Flink Artifact data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetFlinkArtifact.Invoke(new()
+        ///     {
+        ///         Id = "lfa-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetFlinkArtifactEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetFlinkArtifact.Invoke(new()
+        ///     {
+        ///         DisplayName = "my_artifact",
+        ///         Environment = new ConfluentCloud.Inputs.GetFlinkArtifactEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFlinkArtifactResult> Invoke(GetFlinkArtifactInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlinkArtifactResult>("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", args ?? new GetFlinkArtifactInvokeArgs(), options.WithDefaults());
     }
 
 

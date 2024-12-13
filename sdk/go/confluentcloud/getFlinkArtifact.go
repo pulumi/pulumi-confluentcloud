@@ -102,21 +102,11 @@ type LookupFlinkArtifactResult struct {
 }
 
 func LookupFlinkArtifactOutput(ctx *pulumi.Context, args LookupFlinkArtifactOutputArgs, opts ...pulumi.InvokeOption) LookupFlinkArtifactResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFlinkArtifactResultOutput, error) {
 			args := v.(LookupFlinkArtifactArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFlinkArtifactResult
-			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFlinkArtifactResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFlinkArtifactResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFlinkArtifactResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", args, LookupFlinkArtifactResultOutput{}, options).(LookupFlinkArtifactResultOutput), nil
 		}).(LookupFlinkArtifactResultOutput)
 }
 

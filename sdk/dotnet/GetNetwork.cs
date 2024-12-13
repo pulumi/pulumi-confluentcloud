@@ -100,6 +100,51 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("confluentcloud:index/getNetwork:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetNetwork.Invoke(new()
+        ///     {
+        ///         Id = "n-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetNetworkEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new()
+        ///     {
+        ///         DisplayName = "test_sa",
+        ///         Description = $"test_sa for {exampleUsingId.Apply(getNetworkResult =&gt; getNetworkResult.DisplayName)}",
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetNetwork.Invoke(new()
+        ///     {
+        ///         DisplayName = "my_network",
+        ///         Environment = new ConfluentCloud.Inputs.GetNetworkEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingName"] = exampleUsingName,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("confluentcloud:index/getNetwork:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

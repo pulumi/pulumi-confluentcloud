@@ -74,6 +74,38 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetRoleBindingResult> Invoke(GetRoleBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleBindingResult>("confluentcloud:index/getRoleBinding:getRoleBinding", args ?? new GetRoleBindingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.RoleBinding` describes a Role Binding.
+        /// 
+        /// &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetRoleBinding.Invoke(new()
+        ///     {
+        ///         Id = "rb-abc123",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = example,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRoleBindingResult> Invoke(GetRoleBindingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleBindingResult>("confluentcloud:index/getRoleBinding:getRoleBinding", args ?? new GetRoleBindingInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -78,6 +78,40 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetNetworkLinkEndpointResult> Invoke(GetNetworkLinkEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkLinkEndpointResult>("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", args ?? new GetNetworkLinkEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.NetworkLinkEndpoint` describes a Network Link Endpoint data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var nle = ConfluentCloud.GetNetworkLinkEndpoint.Invoke(new()
+        ///     {
+        ///         Id = "nle-1357",
+        ///         Environment = new ConfluentCloud.Inputs.GetNetworkLinkEndpointEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-1234",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["networkLinkEndpoint"] = nle,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNetworkLinkEndpointResult> Invoke(GetNetworkLinkEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkLinkEndpointResult>("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", args ?? new GetNetworkLinkEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

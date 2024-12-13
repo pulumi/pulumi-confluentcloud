@@ -111,21 +111,11 @@ type GetSchemaRegistryClusterResult struct {
 }
 
 func GetSchemaRegistryClusterOutput(ctx *pulumi.Context, args GetSchemaRegistryClusterOutputArgs, opts ...pulumi.InvokeOption) GetSchemaRegistryClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSchemaRegistryClusterResultOutput, error) {
 			args := v.(GetSchemaRegistryClusterArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetSchemaRegistryClusterResult
-			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", args, &rv, "", opts...)
-			if err != nil {
-				return GetSchemaRegistryClusterResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetSchemaRegistryClusterResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetSchemaRegistryClusterResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", args, GetSchemaRegistryClusterResultOutput{}, options).(GetSchemaRegistryClusterResultOutput), nil
 		}).(GetSchemaRegistryClusterResultOutput)
 }
 

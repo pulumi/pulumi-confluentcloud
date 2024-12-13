@@ -64,6 +64,33 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetOrganizationResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("confluentcloud:index/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.getOrganization` describes an Organization data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetOrganization.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = example,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOrganizationResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("confluentcloud:index/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

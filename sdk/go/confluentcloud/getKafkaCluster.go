@@ -131,21 +131,11 @@ type LookupKafkaClusterResult struct {
 }
 
 func LookupKafkaClusterOutput(ctx *pulumi.Context, args LookupKafkaClusterOutputArgs, opts ...pulumi.InvokeOption) LookupKafkaClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupKafkaClusterResultOutput, error) {
 			args := v.(LookupKafkaClusterArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupKafkaClusterResult
-			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getKafkaCluster:getKafkaCluster", args, &rv, "", opts...)
-			if err != nil {
-				return LookupKafkaClusterResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupKafkaClusterResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupKafkaClusterResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("confluentcloud:index/getKafkaCluster:getKafkaCluster", args, LookupKafkaClusterResultOutput{}, options).(LookupKafkaClusterResultOutput), nil
 		}).(LookupKafkaClusterResultOutput)
 }
 

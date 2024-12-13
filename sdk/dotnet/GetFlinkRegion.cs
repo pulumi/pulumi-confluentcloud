@@ -72,6 +72,37 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetFlinkRegionResult> Invoke(GetFlinkRegionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlinkRegionResult>("confluentcloud:index/getFlinkRegion:getFlinkRegion", args ?? new GetFlinkRegionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.getFlinkRegion` describes a Flink cluster data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetFlinkRegion.Invoke(new()
+        ///     {
+        ///         Cloud = "AWS",
+        ///         Region = "us-east-1",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = example,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFlinkRegionResult> Invoke(GetFlinkRegionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlinkRegionResult>("confluentcloud:index/getFlinkRegion:getFlinkRegion", args ?? new GetFlinkRegionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -89,21 +89,11 @@ type LookupProviderIntegrationResult struct {
 }
 
 func LookupProviderIntegrationOutput(ctx *pulumi.Context, args LookupProviderIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupProviderIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupProviderIntegrationResultOutput, error) {
 			args := v.(LookupProviderIntegrationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupProviderIntegrationResult
-			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getProviderIntegration:getProviderIntegration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupProviderIntegrationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupProviderIntegrationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupProviderIntegrationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("confluentcloud:index/getProviderIntegration:getProviderIntegration", args, LookupProviderIntegrationResultOutput{}, options).(LookupProviderIntegrationResultOutput), nil
 		}).(LookupProviderIntegrationResultOutput)
 }
 

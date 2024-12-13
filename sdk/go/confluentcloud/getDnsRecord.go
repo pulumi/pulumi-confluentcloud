@@ -77,21 +77,11 @@ type LookupDnsRecordResult struct {
 }
 
 func LookupDnsRecordOutput(ctx *pulumi.Context, args LookupDnsRecordOutputArgs, opts ...pulumi.InvokeOption) LookupDnsRecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDnsRecordResultOutput, error) {
 			args := v.(LookupDnsRecordArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDnsRecordResult
-			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getDnsRecord:getDnsRecord", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDnsRecordResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDnsRecordResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDnsRecordResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("confluentcloud:index/getDnsRecord:getDnsRecord", args, LookupDnsRecordResultOutput{}, options).(LookupDnsRecordResultOutput), nil
 		}).(LookupDnsRecordResultOutput)
 }
 

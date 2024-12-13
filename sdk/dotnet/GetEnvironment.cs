@@ -104,6 +104,53 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("confluentcloud:index/getEnvironment:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.Environment` describes an Environment data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetEnvironment.Invoke(new()
+        ///     {
+        ///         Id = "env-abc123",
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetEnvironment.Invoke(new()
+        ///     {
+        ///         DisplayName = "stag",
+        ///     });
+        /// 
+        ///     var exampleUsingNameGetServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     {
+        ///         DisplayName = "test_sa",
+        ///     });
+        /// 
+        ///     var test_role_binding = new ConfluentCloud.RoleBinding("test-role-binding", new()
+        ///     {
+        ///         Principal = $"User:{exampleUsingNameGetServiceAccount.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Id)}",
+        ///         RoleName = "EnvironmentAdmin",
+        ///         CrnPattern = exampleUsingName.Apply(getEnvironmentResult =&gt; getEnvironmentResult.ResourceName),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("confluentcloud:index/getEnvironment:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -82,21 +82,11 @@ type LookupGroupMappingResult struct {
 }
 
 func LookupGroupMappingOutput(ctx *pulumi.Context, args LookupGroupMappingOutputArgs, opts ...pulumi.InvokeOption) LookupGroupMappingResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGroupMappingResultOutput, error) {
 			args := v.(LookupGroupMappingArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupGroupMappingResult
-			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getGroupMapping:getGroupMapping", args, &rv, "", opts...)
-			if err != nil {
-				return LookupGroupMappingResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupGroupMappingResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupGroupMappingResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("confluentcloud:index/getGroupMapping:getGroupMapping", args, LookupGroupMappingResultOutput{}, options).(LookupGroupMappingResultOutput), nil
 		}).(LookupGroupMappingResultOutput)
 }
 

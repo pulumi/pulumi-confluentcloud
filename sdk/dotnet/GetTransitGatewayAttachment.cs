@@ -98,6 +98,50 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetTransitGatewayAttachmentResult> Invoke(GetTransitGatewayAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayAttachmentResult>("confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment", args ?? new GetTransitGatewayAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.TransitGatewayAttachment` describes a Transit Gateway Attachment data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
+        ///     {
+        ///         Id = "tgwa-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetTransitGatewayAttachmentEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
+        ///     {
+        ///         DisplayName = "my_tgwa",
+        ///         Environment = new ConfluentCloud.Inputs.GetTransitGatewayAttachmentEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTransitGatewayAttachmentResult> Invoke(GetTransitGatewayAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayAttachmentResult>("confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment", args ?? new GetTransitGatewayAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -77,21 +77,11 @@ type GetFlinkRegionResult struct {
 }
 
 func GetFlinkRegionOutput(ctx *pulumi.Context, args GetFlinkRegionOutputArgs, opts ...pulumi.InvokeOption) GetFlinkRegionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetFlinkRegionResultOutput, error) {
 			args := v.(GetFlinkRegionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetFlinkRegionResult
-			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getFlinkRegion:getFlinkRegion", args, &rv, "", opts...)
-			if err != nil {
-				return GetFlinkRegionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetFlinkRegionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetFlinkRegionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("confluentcloud:index/getFlinkRegion:getFlinkRegion", args, GetFlinkRegionResultOutput{}, options).(GetFlinkRegionResultOutput), nil
 		}).(GetFlinkRegionResultOutput)
 }
 

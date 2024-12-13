@@ -51,21 +51,11 @@ type LookupSubjectConfigResult struct {
 }
 
 func LookupSubjectConfigOutput(ctx *pulumi.Context, args LookupSubjectConfigOutputArgs, opts ...pulumi.InvokeOption) LookupSubjectConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSubjectConfigResultOutput, error) {
 			args := v.(LookupSubjectConfigArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSubjectConfigResult
-			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getSubjectConfig:getSubjectConfig", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSubjectConfigResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSubjectConfigResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSubjectConfigResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("confluentcloud:index/getSubjectConfig:getSubjectConfig", args, LookupSubjectConfigResultOutput{}, options).(LookupSubjectConfigResultOutput), nil
 		}).(LookupSubjectConfigResultOutput)
 }
 

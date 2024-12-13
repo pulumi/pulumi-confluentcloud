@@ -78,6 +78,40 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetNetworkLinkServiceResult> Invoke(GetNetworkLinkServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkLinkServiceResult>("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", args ?? new GetNetworkLinkServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.NetworkLinkService` describes a Network Link Service data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var nls = ConfluentCloud.GetNetworkLinkService.Invoke(new()
+        ///     {
+        ///         Id = "nls-zyw30",
+        ///         Environment = new ConfluentCloud.Inputs.GetNetworkLinkServiceEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-1234",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["networkLinkService"] = nls,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNetworkLinkServiceResult> Invoke(GetNetworkLinkServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkLinkServiceResult>("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", args ?? new GetNetworkLinkServiceInvokeArgs(), options.WithDefaults());
     }
 
 
