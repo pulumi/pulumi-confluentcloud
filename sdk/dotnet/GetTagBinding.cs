@@ -130,6 +130,66 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetTagBindingResult> Invoke(GetTagBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagBindingResult>("confluentcloud:index/getTagBinding:getTagBinding", args ?? new GetTagBindingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.TagBinding` describes a Tag Binding data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetTagBinding.Invoke(new()
+        ///     {
+        ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetTagBindingSchemaRegistryClusterInputArgs
+        ///         {
+        ///             Id = essentials.Id,
+        ///         },
+        ///         RestEndpoint = essentials.RestEndpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetTagBindingCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///         },
+        ///         TagName = "PII",
+        ///         EntityName = "lsrc-8wrx70:.:100001",
+        ///         EntityType = "sr_schema",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetTagBinding.Invoke(new()
+        ///     {
+        ///         TagName = "PII",
+        ///         EntityName = "lsrc-8wrx70:.:100001",
+        ///         EntityType = "sr_schema",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTagBindingResult> Invoke(GetTagBindingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagBindingResult>("confluentcloud:index/getTagBinding:getTagBinding", args ?? new GetTagBindingInvokeArgs(), options.WithDefaults());
     }
 
 

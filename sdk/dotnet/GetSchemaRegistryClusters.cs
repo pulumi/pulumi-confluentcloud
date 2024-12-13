@@ -68,6 +68,35 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetSchemaRegistryClustersResult> Invoke(GetSchemaRegistryClustersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryClustersResult>("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", args ?? new GetSchemaRegistryClustersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `data.confluent_schema_registry_clusters` describes a data source for Schema Registry Clusters.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetSchemaRegistryClusters.Invoke(new()
+        ///     {
+        ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClustersEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSchemaRegistryClustersResult> Invoke(GetSchemaRegistryClustersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryClustersResult>("confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters", args ?? new GetSchemaRegistryClustersInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -71,21 +71,11 @@ type LookupRoleBindingResult struct {
 }
 
 func LookupRoleBindingOutput(ctx *pulumi.Context, args LookupRoleBindingOutputArgs, opts ...pulumi.InvokeOption) LookupRoleBindingResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRoleBindingResultOutput, error) {
 			args := v.(LookupRoleBindingArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRoleBindingResult
-			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getRoleBinding:getRoleBinding", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRoleBindingResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRoleBindingResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRoleBindingResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("confluentcloud:index/getRoleBinding:getRoleBinding", args, LookupRoleBindingResultOutput{}, options).(LookupRoleBindingResultOutput), nil
 		}).(LookupRoleBindingResultOutput)
 }
 

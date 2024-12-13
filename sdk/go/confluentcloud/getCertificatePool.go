@@ -76,21 +76,11 @@ type LookupCertificatePoolResult struct {
 }
 
 func LookupCertificatePoolOutput(ctx *pulumi.Context, args LookupCertificatePoolOutputArgs, opts ...pulumi.InvokeOption) LookupCertificatePoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCertificatePoolResultOutput, error) {
 			args := v.(LookupCertificatePoolArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCertificatePoolResult
-			secret, err := ctx.InvokePackageRaw("confluentcloud:index/getCertificatePool:getCertificatePool", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCertificatePoolResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCertificatePoolResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCertificatePoolResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("confluentcloud:index/getCertificatePool:getCertificatePool", args, LookupCertificatePoolResultOutput{}, options).(LookupCertificatePoolResultOutput), nil
 		}).(LookupCertificatePoolResultOutput)
 }
 

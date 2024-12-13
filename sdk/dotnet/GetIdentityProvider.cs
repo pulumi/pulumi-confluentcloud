@@ -82,6 +82,42 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetIdentityProviderResult> Invoke(GetIdentityProviderInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("confluentcloud:index/getIdentityProvider:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.IdentityProvider` describes an Identity Provider data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetIdentityProvider.Invoke(new()
+        ///     {
+        ///         Id = "op-abc123",
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetIdentityProvider.Invoke(new()
+        ///     {
+        ///         DisplayName = "My OIDC Provider: Azure AD",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetIdentityProviderResult> Invoke(GetIdentityProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("confluentcloud:index/getIdentityProvider:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithDefaults());
     }
 
 

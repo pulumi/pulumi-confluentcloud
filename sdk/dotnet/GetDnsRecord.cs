@@ -78,6 +78,40 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetDnsRecordResult> Invoke(GetDnsRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsRecordResult>("confluentcloud:index/getDnsRecord:getDnsRecord", args ?? new GetDnsRecordInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.DnsRecord` describes a DNS Record data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetDnsRecord.Invoke(new()
+        ///     {
+        ///         Id = "dnsrec-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetDnsRecordEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-123abc",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["dnsRecord"] = main,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDnsRecordResult> Invoke(GetDnsRecordInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDnsRecordResult>("confluentcloud:index/getDnsRecord:getDnsRecord", args ?? new GetDnsRecordInvokeArgs(), options.WithDefaults());
     }
 
 

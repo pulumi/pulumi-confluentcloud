@@ -98,6 +98,50 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetIdentityPoolResult> Invoke(GetIdentityPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityPoolResult>("confluentcloud:index/getIdentityPool:getIdentityPool", args ?? new GetIdentityPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.IdentityPool` describes an Identity Pool data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetIdentityPool.Invoke(new()
+        ///     {
+        ///         Id = "pool-xyz456",
+        ///         IdentityProvider = new ConfluentCloud.Inputs.GetIdentityPoolIdentityProviderInputArgs
+        ///         {
+        ///             Id = "op-abc123",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetIdentityPool.Invoke(new()
+        ///     {
+        ///         DisplayName = "My Identity Pool",
+        ///         IdentityProvider = new ConfluentCloud.Inputs.GetIdentityPoolIdentityProviderInputArgs
+        ///         {
+        ///             Id = "op-abc123",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetIdentityPoolResult> Invoke(GetIdentityPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentityPoolResult>("confluentcloud:index/getIdentityPool:getIdentityPool", args ?? new GetIdentityPoolInvokeArgs(), options.WithDefaults());
     }
 
 

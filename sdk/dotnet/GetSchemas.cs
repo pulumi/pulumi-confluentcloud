@@ -158,6 +158,80 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetSchemasResult> Invoke(GetSchemasInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemasResult>("confluentcloud:index/getSchemas:getSchemas", args ?? new GetSchemasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.getSchemas` describes a Schema data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetSchemas.Invoke(new()
+        ///     {
+        ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemasSchemaRegistryClusterInputArgs
+        ///         {
+        ///             Id = essentials.Id,
+        ///         },
+        ///         RestEndpoint = essentials.RestEndpoint,
+        ///         Filter = new ConfluentCloud.Inputs.GetSchemasFilterInputArgs
+        ///         {
+        ///             SubjectPrefix = "examples.record",
+        ///             LatestOnly = false,
+        ///             Deleted = true,
+        ///         },
+        ///         Credentials = new ConfluentCloud.Inputs.GetSchemasCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["schemas"] = main.Apply(getSchemasResult =&gt; getSchemasResult.Schemas),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetSchemas.Invoke(new()
+        ///     {
+        ///         Filter = new ConfluentCloud.Inputs.GetSchemasFilterInputArgs
+        ///         {
+        ///             SubjectPrefix = "examples.record",
+        ///             LatestOnly = false,
+        ///             Deleted = true,
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["schemas"] = main.Apply(getSchemasResult =&gt; getSchemasResult.Schemas),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSchemasResult> Invoke(GetSchemasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchemasResult>("confluentcloud:index/getSchemas:getSchemas", args ?? new GetSchemasInvokeArgs(), options.WithDefaults());
     }
 
 

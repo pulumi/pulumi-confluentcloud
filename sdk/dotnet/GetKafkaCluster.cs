@@ -108,6 +108,55 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetKafkaClusterResult> Invoke(GetKafkaClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaClusterResult>("confluentcloud:index/getKafkaCluster:getKafkaCluster", args ?? new GetKafkaClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.KafkaCluster` describes a Kafka cluster data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetKafkaCluster.Invoke(new()
+        ///     {
+        ///         Id = "lkc-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetKafkaClusterEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new()
+        ///     {
+        ///         DisplayName = "app_mgr",
+        ///         Description = $"app_mgr for {exampleUsingId.Apply(getKafkaClusterResult =&gt; getKafkaClusterResult.DisplayName)}",
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetKafkaCluster.Invoke(new()
+        ///     {
+        ///         DisplayName = "basic_kafka_cluster",
+        ///         Environment = new ConfluentCloud.Inputs.GetKafkaClusterEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingName"] = exampleUsingName,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetKafkaClusterResult> Invoke(GetKafkaClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKafkaClusterResult>("confluentcloud:index/getKafkaCluster:getKafkaCluster", args ?? new GetKafkaClusterInvokeArgs(), options.WithDefaults());
     }
 
 

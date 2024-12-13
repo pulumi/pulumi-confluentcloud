@@ -90,6 +90,46 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetServiceAccountResult> Invoke(GetServiceAccountInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("confluentcloud:index/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.ServiceAccount` describes a Service Account data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     {
+        ///         Id = "sa-abc123",
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     {
+        ///         DisplayName = "test_sa",
+        ///     });
+        /// 
+        ///     var test_env = new ConfluentCloud.Environment("test-env", new()
+        ///     {
+        ///         DisplayName = $"env_for_{exampleUsingId.Apply(getServiceAccountResult =&gt; getServiceAccountResult.DisplayName)}",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceAccountResult> Invoke(GetServiceAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("confluentcloud:index/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithDefaults());
     }
 
 

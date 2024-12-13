@@ -84,6 +84,43 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Output<GetGroupMappingResult> Invoke(GetGroupMappingInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupMappingResult>("confluentcloud:index/getGroupMapping:getGroupMapping", args ?? new GetGroupMappingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.GroupMapping` describes a Group Mapping data source.
+        /// 
+        /// &gt; **Note:** See [Group Mapping in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html) for more details.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleUsingId = ConfluentCloud.GetGroupMapping.Invoke(new()
+        ///     {
+        ///         Id = "group-abc123",
+        ///     });
+        /// 
+        ///     var exampleUsingName = ConfluentCloud.GetGroupMapping.Invoke(new()
+        ///     {
+        ///         DisplayName = "Default",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetGroupMappingResult> Invoke(GetGroupMappingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupMappingResult>("confluentcloud:index/getGroupMapping:getGroupMapping", args ?? new GetGroupMappingInvokeArgs(), options.WithDefaults());
     }
 
 
