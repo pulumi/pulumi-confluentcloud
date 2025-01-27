@@ -57,6 +57,8 @@ func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ..
 // A collection of arguments for invoking getAccessPoint.
 type LookupAccessPointArgs struct {
 	Environment GetAccessPointEnvironment `pulumi:"environment"`
+	// (Optional Configuration Block) supports the following:
+	GcpEgressPrivateServiceConnectEndpoints []GetAccessPointGcpEgressPrivateServiceConnectEndpoint `pulumi:"gcpEgressPrivateServiceConnectEndpoints"`
 	// The ID of the Access Point, for example, `ap-abc123`.
 	Id string `pulumi:"id"`
 }
@@ -74,6 +76,8 @@ type LookupAccessPointResult struct {
 	Environment GetAccessPointEnvironment `pulumi:"environment"`
 	// (Required Configuration Block) supports the following:
 	Gateways []GetAccessPointGateway `pulumi:"gateways"`
+	// (Optional Configuration Block) supports the following:
+	GcpEgressPrivateServiceConnectEndpoints []GetAccessPointGcpEgressPrivateServiceConnectEndpoint `pulumi:"gcpEgressPrivateServiceConnectEndpoints"`
 	// (Required String) The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
 	Id string `pulumi:"id"`
 }
@@ -90,6 +94,8 @@ func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputAr
 // A collection of arguments for invoking getAccessPoint.
 type LookupAccessPointOutputArgs struct {
 	Environment GetAccessPointEnvironmentInput `pulumi:"environment"`
+	// (Optional Configuration Block) supports the following:
+	GcpEgressPrivateServiceConnectEndpoints GetAccessPointGcpEgressPrivateServiceConnectEndpointArrayInput `pulumi:"gcpEgressPrivateServiceConnectEndpoints"`
 	// The ID of the Access Point, for example, `ap-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
@@ -146,6 +152,13 @@ func (o LookupAccessPointResultOutput) Environment() GetAccessPointEnvironmentOu
 // (Required Configuration Block) supports the following:
 func (o LookupAccessPointResultOutput) Gateways() GetAccessPointGatewayArrayOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointGateway { return v.Gateways }).(GetAccessPointGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupAccessPointResultOutput) GcpEgressPrivateServiceConnectEndpoints() GetAccessPointGcpEgressPrivateServiceConnectEndpointArrayOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointGcpEgressPrivateServiceConnectEndpoint {
+		return v.GcpEgressPrivateServiceConnectEndpoints
+	}).(GetAccessPointGcpEgressPrivateServiceConnectEndpointArrayOutput)
 }
 
 // (Required String) The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.

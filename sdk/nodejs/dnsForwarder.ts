@@ -13,6 +13,8 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ### Option #1: Create using ForwardViaIp method
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -93,6 +95,7 @@ export class DnsForwarder extends pulumi.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     public readonly environment!: pulumi.Output<outputs.DnsForwarderEnvironment>;
+    public readonly forwardViaGcpDnsZones!: pulumi.Output<outputs.DnsForwarderForwardViaGcpDnsZones | undefined>;
     public readonly forwardViaIp!: pulumi.Output<outputs.DnsForwarderForwardViaIp | undefined>;
     public readonly gateway!: pulumi.Output<outputs.DnsForwarderGateway>;
 
@@ -112,6 +115,7 @@ export class DnsForwarder extends pulumi.CustomResource {
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["domains"] = state ? state.domains : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["forwardViaGcpDnsZones"] = state ? state.forwardViaGcpDnsZones : undefined;
             resourceInputs["forwardViaIp"] = state ? state.forwardViaIp : undefined;
             resourceInputs["gateway"] = state ? state.gateway : undefined;
         } else {
@@ -128,6 +132,7 @@ export class DnsForwarder extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["domains"] = args ? args.domains : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["forwardViaGcpDnsZones"] = args ? args.forwardViaGcpDnsZones : undefined;
             resourceInputs["forwardViaIp"] = args ? args.forwardViaIp : undefined;
             resourceInputs["gateway"] = args ? args.gateway : undefined;
         }
@@ -152,6 +157,7 @@ export interface DnsForwarderState {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment?: pulumi.Input<inputs.DnsForwarderEnvironment>;
+    forwardViaGcpDnsZones?: pulumi.Input<inputs.DnsForwarderForwardViaGcpDnsZones>;
     forwardViaIp?: pulumi.Input<inputs.DnsForwarderForwardViaIp>;
     gateway?: pulumi.Input<inputs.DnsForwarderGateway>;
 }
@@ -172,6 +178,7 @@ export interface DnsForwarderArgs {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.DnsForwarderEnvironment>;
+    forwardViaGcpDnsZones?: pulumi.Input<inputs.DnsForwarderForwardViaGcpDnsZones>;
     forwardViaIp?: pulumi.Input<inputs.DnsForwarderForwardViaIp>;
     gateway: pulumi.Input<inputs.DnsForwarderGateway>;
 }

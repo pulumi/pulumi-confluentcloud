@@ -25,6 +25,7 @@ class DnsForwarderArgs:
                  environment: pulumi.Input['DnsForwarderEnvironmentArgs'],
                  gateway: pulumi.Input['DnsForwarderGatewayArgs'],
                  display_name: Optional[pulumi.Input[str]] = None,
+                 forward_via_gcp_dns_zones: Optional[pulumi.Input['DnsForwarderForwardViaGcpDnsZonesArgs']] = None,
                  forward_via_ip: Optional[pulumi.Input['DnsForwarderForwardViaIpArgs']] = None):
         """
         The set of arguments for constructing a DnsForwarder resource.
@@ -37,6 +38,8 @@ class DnsForwarderArgs:
         pulumi.set(__self__, "gateway", gateway)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if forward_via_gcp_dns_zones is not None:
+            pulumi.set(__self__, "forward_via_gcp_dns_zones", forward_via_gcp_dns_zones)
         if forward_via_ip is not None:
             pulumi.set(__self__, "forward_via_ip", forward_via_ip)
 
@@ -86,6 +89,15 @@ class DnsForwarderArgs:
         pulumi.set(self, "display_name", value)
 
     @property
+    @pulumi.getter(name="forwardViaGcpDnsZones")
+    def forward_via_gcp_dns_zones(self) -> Optional[pulumi.Input['DnsForwarderForwardViaGcpDnsZonesArgs']]:
+        return pulumi.get(self, "forward_via_gcp_dns_zones")
+
+    @forward_via_gcp_dns_zones.setter
+    def forward_via_gcp_dns_zones(self, value: Optional[pulumi.Input['DnsForwarderForwardViaGcpDnsZonesArgs']]):
+        pulumi.set(self, "forward_via_gcp_dns_zones", value)
+
+    @property
     @pulumi.getter(name="forwardViaIp")
     def forward_via_ip(self) -> Optional[pulumi.Input['DnsForwarderForwardViaIpArgs']]:
         return pulumi.get(self, "forward_via_ip")
@@ -101,6 +113,7 @@ class _DnsForwarderState:
                  display_name: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  environment: Optional[pulumi.Input['DnsForwarderEnvironmentArgs']] = None,
+                 forward_via_gcp_dns_zones: Optional[pulumi.Input['DnsForwarderForwardViaGcpDnsZonesArgs']] = None,
                  forward_via_ip: Optional[pulumi.Input['DnsForwarderForwardViaIpArgs']] = None,
                  gateway: Optional[pulumi.Input['DnsForwarderGatewayArgs']] = None):
         """
@@ -115,6 +128,8 @@ class _DnsForwarderState:
             pulumi.set(__self__, "domains", domains)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if forward_via_gcp_dns_zones is not None:
+            pulumi.set(__self__, "forward_via_gcp_dns_zones", forward_via_gcp_dns_zones)
         if forward_via_ip is not None:
             pulumi.set(__self__, "forward_via_ip", forward_via_ip)
         if gateway is not None:
@@ -157,6 +172,15 @@ class _DnsForwarderState:
         pulumi.set(self, "environment", value)
 
     @property
+    @pulumi.getter(name="forwardViaGcpDnsZones")
+    def forward_via_gcp_dns_zones(self) -> Optional[pulumi.Input['DnsForwarderForwardViaGcpDnsZonesArgs']]:
+        return pulumi.get(self, "forward_via_gcp_dns_zones")
+
+    @forward_via_gcp_dns_zones.setter
+    def forward_via_gcp_dns_zones(self, value: Optional[pulumi.Input['DnsForwarderForwardViaGcpDnsZonesArgs']]):
+        pulumi.set(self, "forward_via_gcp_dns_zones", value)
+
+    @property
     @pulumi.getter(name="forwardViaIp")
     def forward_via_ip(self) -> Optional[pulumi.Input['DnsForwarderForwardViaIpArgs']]:
         return pulumi.get(self, "forward_via_ip")
@@ -183,6 +207,7 @@ class DnsForwarder(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  environment: Optional[pulumi.Input[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']]] = None,
+                 forward_via_gcp_dns_zones: Optional[pulumi.Input[Union['DnsForwarderForwardViaGcpDnsZonesArgs', 'DnsForwarderForwardViaGcpDnsZonesArgsDict']]] = None,
                  forward_via_ip: Optional[pulumi.Input[Union['DnsForwarderForwardViaIpArgs', 'DnsForwarderForwardViaIpArgsDict']]] = None,
                  gateway: Optional[pulumi.Input[Union['DnsForwarderGatewayArgs', 'DnsForwarderGatewayArgsDict']]] = None,
                  __props__=None):
@@ -192,6 +217,8 @@ class DnsForwarder(pulumi.CustomResource):
         `DnsForwarder` provides a DNS Forwarder resource that enables creating, editing, and deleting DNS Forwarders on Confluent Cloud.
 
         ## Example Usage
+
+        ### Option #1: Create using ForwardViaIp method
 
         ```python
         import pulumi
@@ -251,6 +278,8 @@ class DnsForwarder(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Option #1: Create using ForwardViaIp method
+
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -308,6 +337,7 @@ class DnsForwarder(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  environment: Optional[pulumi.Input[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']]] = None,
+                 forward_via_gcp_dns_zones: Optional[pulumi.Input[Union['DnsForwarderForwardViaGcpDnsZonesArgs', 'DnsForwarderForwardViaGcpDnsZonesArgsDict']]] = None,
                  forward_via_ip: Optional[pulumi.Input[Union['DnsForwarderForwardViaIpArgs', 'DnsForwarderForwardViaIpArgsDict']]] = None,
                  gateway: Optional[pulumi.Input[Union['DnsForwarderGatewayArgs', 'DnsForwarderGatewayArgsDict']]] = None,
                  __props__=None):
@@ -326,6 +356,7 @@ class DnsForwarder(pulumi.CustomResource):
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            __props__.__dict__["forward_via_gcp_dns_zones"] = forward_via_gcp_dns_zones
             __props__.__dict__["forward_via_ip"] = forward_via_ip
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
@@ -343,6 +374,7 @@ class DnsForwarder(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[str]] = None,
             domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             environment: Optional[pulumi.Input[Union['DnsForwarderEnvironmentArgs', 'DnsForwarderEnvironmentArgsDict']]] = None,
+            forward_via_gcp_dns_zones: Optional[pulumi.Input[Union['DnsForwarderForwardViaGcpDnsZonesArgs', 'DnsForwarderForwardViaGcpDnsZonesArgsDict']]] = None,
             forward_via_ip: Optional[pulumi.Input[Union['DnsForwarderForwardViaIpArgs', 'DnsForwarderForwardViaIpArgsDict']]] = None,
             gateway: Optional[pulumi.Input[Union['DnsForwarderGatewayArgs', 'DnsForwarderGatewayArgsDict']]] = None) -> 'DnsForwarder':
         """
@@ -363,6 +395,7 @@ class DnsForwarder(pulumi.CustomResource):
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["domains"] = domains
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["forward_via_gcp_dns_zones"] = forward_via_gcp_dns_zones
         __props__.__dict__["forward_via_ip"] = forward_via_ip
         __props__.__dict__["gateway"] = gateway
         return DnsForwarder(resource_name, opts=opts, __props__=__props__)
@@ -390,6 +423,11 @@ class DnsForwarder(pulumi.CustomResource):
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="forwardViaGcpDnsZones")
+    def forward_via_gcp_dns_zones(self) -> pulumi.Output[Optional['outputs.DnsForwarderForwardViaGcpDnsZones']]:
+        return pulumi.get(self, "forward_via_gcp_dns_zones")
 
     @property
     @pulumi.getter(name="forwardViaIp")

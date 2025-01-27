@@ -64,6 +64,23 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
+    ///     var gcp = new ConfluentCloud.AccessPoint("gcp", new()
+    ///     {
+    ///         DisplayName = "access_point",
+    ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///         Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs
+    ///         {
+    ///             Id = main.Gateway[0].Id,
+    ///         },
+    ///         GcpEgressPrivateServiceConnectEndpoint = new ConfluentCloud.Inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs
+    ///         {
+    ///             PrivateServiceConnectEndpointTarget = "projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment",
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -116,6 +133,12 @@ namespace Pulumi.ConfluentCloud
 
         [Output("gateway")]
         public Output<Outputs.AccessPointGateway> Gateway { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Output("gcpEgressPrivateServiceConnectEndpoint")]
+        public Output<Outputs.AccessPointGcpEgressPrivateServiceConnectEndpoint?> GcpEgressPrivateServiceConnectEndpoint { get; private set; } = null!;
 
 
         /// <summary>
@@ -196,6 +219,12 @@ namespace Pulumi.ConfluentCloud
         [Input("gateway", required: true)]
         public Input<Inputs.AccessPointGatewayArgs> Gateway { get; set; } = null!;
 
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("gcpEgressPrivateServiceConnectEndpoint")]
+        public Input<Inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs>? GcpEgressPrivateServiceConnectEndpoint { get; set; }
+
         public AccessPointArgs()
         {
         }
@@ -236,6 +265,12 @@ namespace Pulumi.ConfluentCloud
 
         [Input("gateway")]
         public Input<Inputs.AccessPointGatewayGetArgs>? Gateway { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("gcpEgressPrivateServiceConnectEndpoint")]
+        public Input<Inputs.AccessPointGcpEgressPrivateServiceConnectEndpointGetArgs>? GcpEgressPrivateServiceConnectEndpoint { get; set; }
 
         public AccessPointState()
         {

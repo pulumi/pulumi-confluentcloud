@@ -214,7 +214,6 @@ import javax.annotation.Nullable;
  *             .gcp(PeeringGcpArgs.builder()
  *                 .project("temp-gear-123456")
  *                 .vpcNetwork("customer-test-vpc-network")
- *                 .customerRegion("us-west4")
  *                 .build())
  *             .environment(PeeringEnvironmentArgs.builder()
  *                 .id(development.id())

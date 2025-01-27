@@ -120,6 +120,18 @@ namespace Pulumi.ConfluentCloud
         [Input("environment", required: true)]
         public Inputs.GetAccessPointEnvironmentArgs Environment { get; set; } = null!;
 
+        [Input("gcpEgressPrivateServiceConnectEndpoints")]
+        private List<Inputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs>? _gcpEgressPrivateServiceConnectEndpoints;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public List<Inputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs> GcpEgressPrivateServiceConnectEndpoints
+        {
+            get => _gcpEgressPrivateServiceConnectEndpoints ?? (_gcpEgressPrivateServiceConnectEndpoints = new List<Inputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs>());
+            set => _gcpEgressPrivateServiceConnectEndpoints = value;
+        }
+
         /// <summary>
         /// The ID of the Access Point, for example, `ap-abc123`.
         /// </summary>
@@ -136,6 +148,18 @@ namespace Pulumi.ConfluentCloud
     {
         [Input("environment", required: true)]
         public Input<Inputs.GetAccessPointEnvironmentInputArgs> Environment { get; set; } = null!;
+
+        [Input("gcpEgressPrivateServiceConnectEndpoints")]
+        private InputList<Inputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointInputArgs>? _gcpEgressPrivateServiceConnectEndpoints;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public InputList<Inputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointInputArgs> GcpEgressPrivateServiceConnectEndpoints
+        {
+            get => _gcpEgressPrivateServiceConnectEndpoints ?? (_gcpEgressPrivateServiceConnectEndpoints = new InputList<Inputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointInputArgs>());
+            set => _gcpEgressPrivateServiceConnectEndpoints = value;
+        }
 
         /// <summary>
         /// The ID of the Access Point, for example, `ap-abc123`.
@@ -175,6 +199,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessPointGatewayResult> Gateways;
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointResult> GcpEgressPrivateServiceConnectEndpoints;
+        /// <summary>
         /// (Required String) The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
         /// </summary>
         public readonly string Id;
@@ -193,6 +221,8 @@ namespace Pulumi.ConfluentCloud
 
             ImmutableArray<Outputs.GetAccessPointGatewayResult> gateways,
 
+            ImmutableArray<Outputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointResult> gcpEgressPrivateServiceConnectEndpoints,
+
             string id)
         {
             AwsEgressPrivateLinkEndpoints = awsEgressPrivateLinkEndpoints;
@@ -201,6 +231,7 @@ namespace Pulumi.ConfluentCloud
             DisplayName = displayName;
             Environment = environment;
             Gateways = gateways;
+            GcpEgressPrivateServiceConnectEndpoints = gcpEgressPrivateServiceConnectEndpoints;
             Id = id;
         }
     }

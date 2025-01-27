@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetGatewayAwsPeeringGatewayResult
     {
         /// <summary>
-        /// (Required String) Azure region of the Peering Gateway.
+        /// (Required String) GCP region of the Peering Gateway.
         /// </summary>
         public readonly string Region;
 

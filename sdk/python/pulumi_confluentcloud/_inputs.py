@@ -25,6 +25,8 @@ __all__ = [
     'AccessPointEnvironmentArgsDict',
     'AccessPointGatewayArgs',
     'AccessPointGatewayArgsDict',
+    'AccessPointGcpEgressPrivateServiceConnectEndpointArgs',
+    'AccessPointGcpEgressPrivateServiceConnectEndpointArgsDict',
     'ApiKeyManagedResourceArgs',
     'ApiKeyManagedResourceArgsDict',
     'ApiKeyManagedResourceEnvironmentArgs',
@@ -75,6 +77,8 @@ __all__ = [
     'ConnectorKafkaClusterArgsDict',
     'DnsForwarderEnvironmentArgs',
     'DnsForwarderEnvironmentArgsDict',
+    'DnsForwarderForwardViaGcpDnsZonesArgs',
+    'DnsForwarderForwardViaGcpDnsZonesArgsDict',
     'DnsForwarderForwardViaIpArgs',
     'DnsForwarderForwardViaIpArgsDict',
     'DnsForwarderGatewayArgs',
@@ -297,6 +301,8 @@ __all__ = [
     'TransitGatewayAttachmentNetworkArgsDict',
     'GetAccessPointEnvironmentArgs',
     'GetAccessPointEnvironmentArgsDict',
+    'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs',
+    'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict',
     'GetBusinessMetadataBindingCredentialsArgs',
     'GetBusinessMetadataBindingCredentialsArgsDict',
     'GetBusinessMetadataBindingSchemaRegistryClusterArgs',
@@ -762,14 +768,101 @@ class AccessPointGatewayArgs:
 
 
 if not MYPY:
+    class AccessPointGcpEgressPrivateServiceConnectEndpointArgsDict(TypedDict):
+        private_service_connect_endpoint_target: pulumi.Input[str]
+        """
+        URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        """
+        private_service_connect_endpoint_connection_id: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+        private_service_connect_endpoint_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+        private_service_connect_endpoint_name: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+elif False:
+    AccessPointGcpEgressPrivateServiceConnectEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessPointGcpEgressPrivateServiceConnectEndpointArgs:
+    def __init__(__self__, *,
+                 private_service_connect_endpoint_target: pulumi.Input[str],
+                 private_service_connect_endpoint_connection_id: Optional[pulumi.Input[str]] = None,
+                 private_service_connect_endpoint_ip_address: Optional[pulumi.Input[str]] = None,
+                 private_service_connect_endpoint_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] private_service_connect_endpoint_target: URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        :param pulumi.Input[str] private_service_connect_endpoint_connection_id: (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+        :param pulumi.Input[str] private_service_connect_endpoint_ip_address: (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+        :param pulumi.Input[str] private_service_connect_endpoint_name: (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+        pulumi.set(__self__, "private_service_connect_endpoint_target", private_service_connect_endpoint_target)
+        if private_service_connect_endpoint_connection_id is not None:
+            pulumi.set(__self__, "private_service_connect_endpoint_connection_id", private_service_connect_endpoint_connection_id)
+        if private_service_connect_endpoint_ip_address is not None:
+            pulumi.set(__self__, "private_service_connect_endpoint_ip_address", private_service_connect_endpoint_ip_address)
+        if private_service_connect_endpoint_name is not None:
+            pulumi.set(__self__, "private_service_connect_endpoint_name", private_service_connect_endpoint_name)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectEndpointTarget")
+    def private_service_connect_endpoint_target(self) -> pulumi.Input[str]:
+        """
+        URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        """
+        return pulumi.get(self, "private_service_connect_endpoint_target")
+
+    @private_service_connect_endpoint_target.setter
+    def private_service_connect_endpoint_target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_service_connect_endpoint_target", value)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectEndpointConnectionId")
+    def private_service_connect_endpoint_connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+        return pulumi.get(self, "private_service_connect_endpoint_connection_id")
+
+    @private_service_connect_endpoint_connection_id.setter
+    def private_service_connect_endpoint_connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_service_connect_endpoint_connection_id", value)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectEndpointIpAddress")
+    def private_service_connect_endpoint_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+        return pulumi.get(self, "private_service_connect_endpoint_ip_address")
+
+    @private_service_connect_endpoint_ip_address.setter
+    def private_service_connect_endpoint_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_service_connect_endpoint_ip_address", value)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectEndpointName")
+    def private_service_connect_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+        return pulumi.get(self, "private_service_connect_endpoint_name")
+
+    @private_service_connect_endpoint_name.setter
+    def private_service_connect_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_service_connect_endpoint_name", value)
+
+
+if not MYPY:
     class ApiKeyManagedResourceArgsDict(TypedDict):
         api_version: pulumi.Input[str]
         """
         The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
-        """
-        environment: pulumi.Input['ApiKeyManagedResourceEnvironmentArgsDict']
-        """
-        Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         id: pulumi.Input[str]
         """
@@ -779,6 +872,7 @@ if not MYPY:
         """
         The kind of the managed resource that the API Key associated with, for example, `Cluster`.
         """
+        environment: NotRequired[pulumi.Input['ApiKeyManagedResourceEnvironmentArgsDict']]
 elif False:
     ApiKeyManagedResourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -786,19 +880,19 @@ elif False:
 class ApiKeyManagedResourceArgs:
     def __init__(__self__, *,
                  api_version: pulumi.Input[str],
-                 environment: pulumi.Input['ApiKeyManagedResourceEnvironmentArgs'],
                  id: pulumi.Input[str],
-                 kind: pulumi.Input[str]):
+                 kind: pulumi.Input[str],
+                 environment: Optional[pulumi.Input['ApiKeyManagedResourceEnvironmentArgs']] = None):
         """
         :param pulumi.Input[str] api_version: The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
-        :param pulumi.Input['ApiKeyManagedResourceEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] id: The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
         :param pulumi.Input[str] kind: The kind of the managed resource that the API Key associated with, for example, `Cluster`.
         """
         pulumi.set(__self__, "api_version", api_version)
-        pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "kind", kind)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -811,18 +905,6 @@ class ApiKeyManagedResourceArgs:
     @api_version.setter
     def api_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "api_version", value)
-
-    @property
-    @pulumi.getter
-    def environment(self) -> pulumi.Input['ApiKeyManagedResourceEnvironmentArgs']:
-        """
-        Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        """
-        return pulumi.get(self, "environment")
-
-    @environment.setter
-    def environment(self, value: pulumi.Input['ApiKeyManagedResourceEnvironmentArgs']):
-        pulumi.set(self, "environment", value)
 
     @property
     @pulumi.getter
@@ -847,6 +929,15 @@ class ApiKeyManagedResourceArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input['ApiKeyManagedResourceEnvironmentArgs']]:
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input['ApiKeyManagedResourceEnvironmentArgs']]):
+        pulumi.set(self, "environment", value)
 
 
 if not MYPY:
@@ -2206,6 +2297,50 @@ class DnsForwarderEnvironmentArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class DnsForwarderForwardViaGcpDnsZonesArgsDict(TypedDict):
+        domain_mappings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        List of Maps which contains the domain to zone and project mapping.
+
+        > **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
+
+        > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
+        """
+elif False:
+    DnsForwarderForwardViaGcpDnsZonesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DnsForwarderForwardViaGcpDnsZonesArgs:
+    def __init__(__self__, *,
+                 domain_mappings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] domain_mappings: List of Maps which contains the domain to zone and project mapping.
+               
+               > **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
+               
+               > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
+        """
+        if domain_mappings is not None:
+            pulumi.set(__self__, "domain_mappings", domain_mappings)
+
+    @property
+    @pulumi.getter(name="domainMappings")
+    def domain_mappings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        List of Maps which contains the domain to zone and project mapping.
+
+        > **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
+
+        > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
+        """
+        return pulumi.get(self, "domain_mappings")
+
+    @domain_mappings.setter
+    def domain_mappings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "domain_mappings", value)
 
 
 if not MYPY:
@@ -7158,6 +7293,94 @@ class GetAccessPointEnvironmentArgs:
     @id.setter
     def id(self, value: str):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict(TypedDict):
+        private_service_connect_endpoint_connection_id: str
+        """
+        (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+        private_service_connect_endpoint_ip_address: str
+        """
+        (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+        private_service_connect_endpoint_name: str
+        """
+        (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+        private_service_connect_endpoint_target: str
+        """
+        (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        """
+elif False:
+    GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs:
+    def __init__(__self__, *,
+                 private_service_connect_endpoint_connection_id: str,
+                 private_service_connect_endpoint_ip_address: str,
+                 private_service_connect_endpoint_name: str,
+                 private_service_connect_endpoint_target: str):
+        """
+        :param str private_service_connect_endpoint_connection_id: (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+        :param str private_service_connect_endpoint_ip_address: (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+        :param str private_service_connect_endpoint_name: (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+        :param str private_service_connect_endpoint_target: (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        """
+        pulumi.set(__self__, "private_service_connect_endpoint_connection_id", private_service_connect_endpoint_connection_id)
+        pulumi.set(__self__, "private_service_connect_endpoint_ip_address", private_service_connect_endpoint_ip_address)
+        pulumi.set(__self__, "private_service_connect_endpoint_name", private_service_connect_endpoint_name)
+        pulumi.set(__self__, "private_service_connect_endpoint_target", private_service_connect_endpoint_target)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectEndpointConnectionId")
+    def private_service_connect_endpoint_connection_id(self) -> str:
+        """
+        (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+        return pulumi.get(self, "private_service_connect_endpoint_connection_id")
+
+    @private_service_connect_endpoint_connection_id.setter
+    def private_service_connect_endpoint_connection_id(self, value: str):
+        pulumi.set(self, "private_service_connect_endpoint_connection_id", value)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectEndpointIpAddress")
+    def private_service_connect_endpoint_ip_address(self) -> str:
+        """
+        (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+        return pulumi.get(self, "private_service_connect_endpoint_ip_address")
+
+    @private_service_connect_endpoint_ip_address.setter
+    def private_service_connect_endpoint_ip_address(self, value: str):
+        pulumi.set(self, "private_service_connect_endpoint_ip_address", value)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectEndpointName")
+    def private_service_connect_endpoint_name(self) -> str:
+        """
+        (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+        """
+        return pulumi.get(self, "private_service_connect_endpoint_name")
+
+    @private_service_connect_endpoint_name.setter
+    def private_service_connect_endpoint_name(self, value: str):
+        pulumi.set(self, "private_service_connect_endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectEndpointTarget")
+    def private_service_connect_endpoint_target(self) -> str:
+        """
+        (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        """
+        return pulumi.get(self, "private_service_connect_endpoint_target")
+
+    @private_service_connect_endpoint_target.setter
+    def private_service_connect_endpoint_target(self, value: str):
+        pulumi.set(self, "private_service_connect_endpoint_target", value)
 
 
 if not MYPY:

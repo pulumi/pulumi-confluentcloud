@@ -76,15 +76,31 @@ export interface AccessPointGateway {
     id: pulumi.Input<string>;
 }
 
+export interface AccessPointGcpEgressPrivateServiceConnectEndpoint {
+    /**
+     * (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointConnectionId?: pulumi.Input<string>;
+    /**
+     * (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointIpAddress?: pulumi.Input<string>;
+    /**
+     * (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointName?: pulumi.Input<string>;
+    /**
+     * URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+     */
+    privateServiceConnectEndpointTarget: pulumi.Input<string>;
+}
+
 export interface ApiKeyManagedResource {
     /**
      * The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
      */
     apiVersion: pulumi.Input<string>;
-    /**
-     * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-     */
-    environment: pulumi.Input<inputs.ApiKeyManagedResourceEnvironment>;
+    environment?: pulumi.Input<inputs.ApiKeyManagedResourceEnvironment>;
     /**
      * The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
      */
@@ -389,6 +405,17 @@ export interface DnsForwarderEnvironment {
     id: pulumi.Input<string>;
 }
 
+export interface DnsForwarderForwardViaGcpDnsZones {
+    /**
+     * List of Maps which contains the domain to zone and project mapping.
+     *
+     * > **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
+     *
+     * > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
+     */
+    domainMappings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
 export interface DnsForwarderForwardViaIp {
     /**
      * List of IP addresses of the DNS server.
@@ -551,6 +578,44 @@ export interface GetAccessPointEnvironmentArgs {
      * The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
      */
     id: pulumi.Input<string>;
+}
+
+export interface GetAccessPointGcpEgressPrivateServiceConnectEndpoint {
+    /**
+     * (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointConnectionId?: string;
+    /**
+     * (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointIpAddress?: string;
+    /**
+     * (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointName?: string;
+    /**
+     * (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+     */
+    privateServiceConnectEndpointTarget?: string;
+}
+
+export interface GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs {
+    /**
+     * (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointConnectionId?: pulumi.Input<string>;
+    /**
+     * (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointIpAddress?: pulumi.Input<string>;
+    /**
+     * (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointName?: pulumi.Input<string>;
+    /**
+     * (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+     */
+    privateServiceConnectEndpointTarget?: pulumi.Input<string>;
 }
 
 export interface GetBusinessMetadataBindingCredentials {

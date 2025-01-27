@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.ApiKeyArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
- * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceEnvironmentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,9 +59,7 @@ import javax.annotation.Nullable;
  *                 .id(basic.id())
  *                 .apiVersion(basic.apiVersion())
  *                 .kind(basic.kind())
- *                 .environment(ApiKeyManagedResourceEnvironmentArgs.builder()
- *                     .id(staging.id())
- *                     .build())
+ *                 .environments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
  *             .build());
  * 
@@ -85,7 +82,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.ApiKeyArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
- * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceEnvironmentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -111,9 +107,7 @@ import javax.annotation.Nullable;
  *                 .id(main.id())
  *                 .apiVersion(main.apiVersion())
  *                 .kind(main.kind())
- *                 .environment(ApiKeyManagedResourceEnvironmentArgs.builder()
- *                     .id(staging.id())
- *                     .build())
+ *                 .environments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
  *             .build());
  * 
@@ -136,7 +130,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.ApiKeyArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
- * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceEnvironmentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -162,9 +155,7 @@ import javax.annotation.Nullable;
  *                 .id(essentials.id())
  *                 .apiVersion(essentials.apiVersion())
  *                 .kind(essentials.kind())
- *                 .environment(ApiKeyManagedResourceEnvironmentArgs.builder()
- *                     .id(staging.id())
- *                     .build())
+ *                 .environments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
  *             .build());
  * 
@@ -187,7 +178,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.ApiKeyArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
  * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
- * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceEnvironmentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -213,9 +203,54 @@ import javax.annotation.Nullable;
  *                 .id(example.id())
  *                 .apiVersion(example.apiVersion())
  *                 .kind(example.kind())
- *                 .environment(ApiKeyManagedResourceEnvironmentArgs.builder()
- *                     .id(staging.id())
- *                     .build())
+ *                 .environments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Example Tableflow API Key
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ApiKey;
+ * import com.pulumi.confluentcloud.ApiKeyArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var env_manager_tableflow_api_key = new ApiKey("env-manager-tableflow-api-key", ApiKeyArgs.builder()
+ *             .displayName("env-manager-tableflow-api-key")
+ *             .description("Tableflow API Key that is owned by 'env-manager' service account")
+ *             .owner(ApiKeyOwnerArgs.builder()
+ *                 .id(env_manager.id())
+ *                 .apiVersion(env_manager.apiVersion())
+ *                 .kind(env_manager.kind())
+ *                 .build())
+ *             .managedResource(ApiKeyManagedResourceArgs.builder()
+ *                 .id("tableflow")
+ *                 .apiVersion("tableflow/v1")
+ *                 .kind("Tableflow")
  *                 .build())
  *             .build());
  * 
@@ -307,7 +342,7 @@ import javax.annotation.Nullable;
  * $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key &#34;env-abc123/UTT6WDRXX7FHD2GV&#34;
  * ```
  * 
- * You can import a Cloud API Key by using Cloud API Key ID, for example:
+ * You can import a Cloud or Tableflow API Key by using Cloud or Tableflow API Key ID, for example:
  * 
  * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
  * 
@@ -315,7 +350,7 @@ import javax.annotation.Nullable;
  * 
  * $ export API_KEY_SECRET=&#34;&lt;api_key_secret&gt;&#34;
  * 
- * Option #2: Cloud API Key
+ * Option #2: Cloud or Tableflow API Key
  * 
  * ```sh
  * $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key &#34;4UEXOMMWIBE5KZQG&#34;

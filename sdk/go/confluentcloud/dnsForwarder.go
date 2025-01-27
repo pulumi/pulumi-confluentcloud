@@ -18,6 +18,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Option #1: Create using ForwardViaIp method
+//
 // ```go
 // package main
 //
@@ -85,9 +87,10 @@ type DnsForwarder struct {
 	// List of domains for the DNS forwarder to use.
 	Domains pulumi.StringArrayOutput `pulumi:"domains"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  DnsForwarderEnvironmentOutput     `pulumi:"environment"`
-	ForwardViaIp DnsForwarderForwardViaIpPtrOutput `pulumi:"forwardViaIp"`
-	Gateway      DnsForwarderGatewayOutput         `pulumi:"gateway"`
+	Environment           DnsForwarderEnvironmentOutput              `pulumi:"environment"`
+	ForwardViaGcpDnsZones DnsForwarderForwardViaGcpDnsZonesPtrOutput `pulumi:"forwardViaGcpDnsZones"`
+	ForwardViaIp          DnsForwarderForwardViaIpPtrOutput          `pulumi:"forwardViaIp"`
+	Gateway               DnsForwarderGatewayOutput                  `pulumi:"gateway"`
 }
 
 // NewDnsForwarder registers a new resource with the given unique name, arguments, and options.
@@ -134,9 +137,10 @@ type dnsForwarderState struct {
 	// List of domains for the DNS forwarder to use.
 	Domains []string `pulumi:"domains"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  *DnsForwarderEnvironment  `pulumi:"environment"`
-	ForwardViaIp *DnsForwarderForwardViaIp `pulumi:"forwardViaIp"`
-	Gateway      *DnsForwarderGateway      `pulumi:"gateway"`
+	Environment           *DnsForwarderEnvironment           `pulumi:"environment"`
+	ForwardViaGcpDnsZones *DnsForwarderForwardViaGcpDnsZones `pulumi:"forwardViaGcpDnsZones"`
+	ForwardViaIp          *DnsForwarderForwardViaIp          `pulumi:"forwardViaIp"`
+	Gateway               *DnsForwarderGateway               `pulumi:"gateway"`
 }
 
 type DnsForwarderState struct {
@@ -145,9 +149,10 @@ type DnsForwarderState struct {
 	// List of domains for the DNS forwarder to use.
 	Domains pulumi.StringArrayInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  DnsForwarderEnvironmentPtrInput
-	ForwardViaIp DnsForwarderForwardViaIpPtrInput
-	Gateway      DnsForwarderGatewayPtrInput
+	Environment           DnsForwarderEnvironmentPtrInput
+	ForwardViaGcpDnsZones DnsForwarderForwardViaGcpDnsZonesPtrInput
+	ForwardViaIp          DnsForwarderForwardViaIpPtrInput
+	Gateway               DnsForwarderGatewayPtrInput
 }
 
 func (DnsForwarderState) ElementType() reflect.Type {
@@ -160,9 +165,10 @@ type dnsForwarderArgs struct {
 	// List of domains for the DNS forwarder to use.
 	Domains []string `pulumi:"domains"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  DnsForwarderEnvironment   `pulumi:"environment"`
-	ForwardViaIp *DnsForwarderForwardViaIp `pulumi:"forwardViaIp"`
-	Gateway      DnsForwarderGateway       `pulumi:"gateway"`
+	Environment           DnsForwarderEnvironment            `pulumi:"environment"`
+	ForwardViaGcpDnsZones *DnsForwarderForwardViaGcpDnsZones `pulumi:"forwardViaGcpDnsZones"`
+	ForwardViaIp          *DnsForwarderForwardViaIp          `pulumi:"forwardViaIp"`
+	Gateway               DnsForwarderGateway                `pulumi:"gateway"`
 }
 
 // The set of arguments for constructing a DnsForwarder resource.
@@ -172,9 +178,10 @@ type DnsForwarderArgs struct {
 	// List of domains for the DNS forwarder to use.
 	Domains pulumi.StringArrayInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  DnsForwarderEnvironmentInput
-	ForwardViaIp DnsForwarderForwardViaIpPtrInput
-	Gateway      DnsForwarderGatewayInput
+	Environment           DnsForwarderEnvironmentInput
+	ForwardViaGcpDnsZones DnsForwarderForwardViaGcpDnsZonesPtrInput
+	ForwardViaIp          DnsForwarderForwardViaIpPtrInput
+	Gateway               DnsForwarderGatewayInput
 }
 
 func (DnsForwarderArgs) ElementType() reflect.Type {
@@ -277,6 +284,10 @@ func (o DnsForwarderOutput) Domains() pulumi.StringArrayOutput {
 // Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 func (o DnsForwarderOutput) Environment() DnsForwarderEnvironmentOutput {
 	return o.ApplyT(func(v *DnsForwarder) DnsForwarderEnvironmentOutput { return v.Environment }).(DnsForwarderEnvironmentOutput)
+}
+
+func (o DnsForwarderOutput) ForwardViaGcpDnsZones() DnsForwarderForwardViaGcpDnsZonesPtrOutput {
+	return o.ApplyT(func(v *DnsForwarder) DnsForwarderForwardViaGcpDnsZonesPtrOutput { return v.ForwardViaGcpDnsZones }).(DnsForwarderForwardViaGcpDnsZonesPtrOutput)
 }
 
 func (o DnsForwarderOutput) ForwardViaIp() DnsForwarderForwardViaIpPtrOutput {

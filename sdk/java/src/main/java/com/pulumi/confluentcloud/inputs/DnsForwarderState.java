@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.DnsForwarderEnvironmentArgs;
+import com.pulumi.confluentcloud.inputs.DnsForwarderForwardViaGcpDnsZonesArgs;
 import com.pulumi.confluentcloud.inputs.DnsForwarderForwardViaIpArgs;
 import com.pulumi.confluentcloud.inputs.DnsForwarderGatewayArgs;
 import com.pulumi.core.Output;
@@ -64,6 +65,13 @@ public final class DnsForwarderState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.environment);
     }
 
+    @Import(name="forwardViaGcpDnsZones")
+    private @Nullable Output<DnsForwarderForwardViaGcpDnsZonesArgs> forwardViaGcpDnsZones;
+
+    public Optional<Output<DnsForwarderForwardViaGcpDnsZonesArgs>> forwardViaGcpDnsZones() {
+        return Optional.ofNullable(this.forwardViaGcpDnsZones);
+    }
+
     @Import(name="forwardViaIp")
     private @Nullable Output<DnsForwarderForwardViaIpArgs> forwardViaIp;
 
@@ -84,6 +92,7 @@ public final class DnsForwarderState extends com.pulumi.resources.ResourceArgs {
         this.displayName = $.displayName;
         this.domains = $.domains;
         this.environment = $.environment;
+        this.forwardViaGcpDnsZones = $.forwardViaGcpDnsZones;
         this.forwardViaIp = $.forwardViaIp;
         this.gateway = $.gateway;
     }
@@ -177,6 +186,15 @@ public final class DnsForwarderState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder environment(DnsForwarderEnvironmentArgs environment) {
             return environment(Output.of(environment));
+        }
+
+        public Builder forwardViaGcpDnsZones(@Nullable Output<DnsForwarderForwardViaGcpDnsZonesArgs> forwardViaGcpDnsZones) {
+            $.forwardViaGcpDnsZones = forwardViaGcpDnsZones;
+            return this;
+        }
+
+        public Builder forwardViaGcpDnsZones(DnsForwarderForwardViaGcpDnsZonesArgs forwardViaGcpDnsZones) {
+            return forwardViaGcpDnsZones(Output.of(forwardViaGcpDnsZones));
         }
 
         public Builder forwardViaIp(@Nullable Output<DnsForwarderForwardViaIpArgs> forwardViaIp) {

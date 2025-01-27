@@ -43,6 +43,18 @@ import * as utilities from "./utilities";
  *         privateLinkSubresourceName: "sqlServer",
  *     },
  * });
+ * const gcp = new confluentcloud.AccessPoint("gcp", {
+ *     displayName: "access_point",
+ *     environment: {
+ *         id: development.id,
+ *     },
+ *     gateway: {
+ *         id: main.gateway[0].id,
+ *     },
+ *     gcpEgressPrivateServiceConnectEndpoint: {
+ *         privateServiceConnectEndpointTarget: "projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment",
+ *     },
+ * });
  * ```
  *
  * ## Import
@@ -108,6 +120,10 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<outputs.AccessPointEnvironment>;
     public readonly gateway!: pulumi.Output<outputs.AccessPointGateway>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    public readonly gcpEgressPrivateServiceConnectEndpoint!: pulumi.Output<outputs.AccessPointGcpEgressPrivateServiceConnectEndpoint | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -128,6 +144,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["gateway"] = state ? state.gateway : undefined;
+            resourceInputs["gcpEgressPrivateServiceConnectEndpoint"] = state ? state.gcpEgressPrivateServiceConnectEndpoint : undefined;
         } else {
             const args = argsOrState as AccessPointArgs | undefined;
             if ((!args || args.environment === undefined) && !opts.urn) {
@@ -142,6 +159,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["gateway"] = args ? args.gateway : undefined;
+            resourceInputs["gcpEgressPrivateServiceConnectEndpoint"] = args ? args.gcpEgressPrivateServiceConnectEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccessPoint.__pulumiType, name, resourceInputs, opts);
@@ -173,6 +191,10 @@ export interface AccessPointState {
      */
     environment?: pulumi.Input<inputs.AccessPointEnvironment>;
     gateway?: pulumi.Input<inputs.AccessPointGateway>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcpEgressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpEgressPrivateServiceConnectEndpoint>;
 }
 
 /**
@@ -200,4 +222,8 @@ export interface AccessPointArgs {
      */
     environment: pulumi.Input<inputs.AccessPointEnvironment>;
     gateway: pulumi.Input<inputs.AccessPointGateway>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcpEgressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpEgressPrivateServiceConnectEndpoint>;
 }

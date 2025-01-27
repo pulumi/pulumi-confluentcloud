@@ -11,6 +11,7 @@ import com.pulumi.confluentcloud.outputs.AccessPointAwsPrivateNetworkInterface;
 import com.pulumi.confluentcloud.outputs.AccessPointAzureEgressPrivateLinkEndpoint;
 import com.pulumi.confluentcloud.outputs.AccessPointEnvironment;
 import com.pulumi.confluentcloud.outputs.AccessPointGateway;
+import com.pulumi.confluentcloud.outputs.AccessPointGcpEgressPrivateServiceConnectEndpoint;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -42,6 +43,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.AccessPointGatewayArgs;
  * import com.pulumi.confluentcloud.inputs.AccessPointAwsEgressPrivateLinkEndpointArgs;
  * import com.pulumi.confluentcloud.inputs.AccessPointAzureEgressPrivateLinkEndpointArgs;
+ * import com.pulumi.confluentcloud.inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,6 +85,19 @@ import javax.annotation.Nullable;
  *             .azureEgressPrivateLinkEndpoint(AccessPointAzureEgressPrivateLinkEndpointArgs.builder()
  *                 .privateLinkServiceResourceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3")
  *                 .privateLinkSubresourceName("sqlServer")
+ *                 .build())
+ *             .build());
+ * 
+ *         var gcp = new AccessPoint("gcp", AccessPointArgs.builder()
+ *             .displayName("access_point")
+ *             .environment(AccessPointEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .gateway(AccessPointGatewayArgs.builder()
+ *                 .id(main.gateway()[0].id())
+ *                 .build())
+ *             .gcpEgressPrivateServiceConnectEndpoint(AccessPointGcpEgressPrivateServiceConnectEndpointArgs.builder()
+ *                 .privateServiceConnectEndpointTarget("projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment")
  *                 .build())
  *             .build());
  * 
@@ -184,6 +199,20 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
 
     public Output<AccessPointGateway> gateway() {
         return this.gateway;
+    }
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Export(name="gcpEgressPrivateServiceConnectEndpoint", refs={AccessPointGcpEgressPrivateServiceConnectEndpoint.class}, tree="[0]")
+    private Output</* @Nullable */ AccessPointGcpEgressPrivateServiceConnectEndpoint> gcpEgressPrivateServiceConnectEndpoint;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Output<Optional<AccessPointGcpEgressPrivateServiceConnectEndpoint>> gcpEgressPrivateServiceConnectEndpoint() {
+        return Codegen.optional(this.gcpEgressPrivateServiceConnectEndpoint);
     }
 
     /**

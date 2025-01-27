@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.AccessPointAwsPrivateNetworkInterfaceArg
 import com.pulumi.confluentcloud.inputs.AccessPointAzureEgressPrivateLinkEndpointArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointGatewayArgs;
+import com.pulumi.confluentcloud.inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -103,6 +104,21 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
         return this.gateway;
     }
 
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Import(name="gcpEgressPrivateServiceConnectEndpoint")
+    private @Nullable Output<AccessPointGcpEgressPrivateServiceConnectEndpointArgs> gcpEgressPrivateServiceConnectEndpoint;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Optional<Output<AccessPointGcpEgressPrivateServiceConnectEndpointArgs>> gcpEgressPrivateServiceConnectEndpoint() {
+        return Optional.ofNullable(this.gcpEgressPrivateServiceConnectEndpoint);
+    }
+
     private AccessPointArgs() {}
 
     private AccessPointArgs(AccessPointArgs $) {
@@ -112,6 +128,7 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
         this.displayName = $.displayName;
         this.environment = $.environment;
         this.gateway = $.gateway;
+        this.gcpEgressPrivateServiceConnectEndpoint = $.gcpEgressPrivateServiceConnectEndpoint;
     }
 
     public static Builder builder() {
@@ -244,6 +261,27 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder gateway(AccessPointGatewayArgs gateway) {
             return gateway(Output.of(gateway));
+        }
+
+        /**
+         * @param gcpEgressPrivateServiceConnectEndpoint (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcpEgressPrivateServiceConnectEndpoint(@Nullable Output<AccessPointGcpEgressPrivateServiceConnectEndpointArgs> gcpEgressPrivateServiceConnectEndpoint) {
+            $.gcpEgressPrivateServiceConnectEndpoint = gcpEgressPrivateServiceConnectEndpoint;
+            return this;
+        }
+
+        /**
+         * @param gcpEgressPrivateServiceConnectEndpoint (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcpEgressPrivateServiceConnectEndpoint(AccessPointGcpEgressPrivateServiceConnectEndpointArgs gcpEgressPrivateServiceConnectEndpoint) {
+            return gcpEgressPrivateServiceConnectEndpoint(Output.of(gcpEgressPrivateServiceConnectEndpoint));
         }
 
         public AccessPointArgs build() {

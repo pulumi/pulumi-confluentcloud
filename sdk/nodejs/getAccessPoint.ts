@@ -30,6 +30,7 @@ export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getAccessPoint:getAccessPoint", {
         "environment": args.environment,
+        "gcpEgressPrivateServiceConnectEndpoints": args.gcpEgressPrivateServiceConnectEndpoints,
         "id": args.id,
     }, opts);
 }
@@ -39,6 +40,10 @@ export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetAccessPointArgs {
     environment: inputs.GetAccessPointEnvironment;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcpEgressPrivateServiceConnectEndpoints?: inputs.GetAccessPointGcpEgressPrivateServiceConnectEndpoint[];
     /**
      * The ID of the Access Point, for example, `ap-abc123`.
      */
@@ -71,6 +76,10 @@ export interface GetAccessPointResult {
      */
     readonly gateways: outputs.GetAccessPointGateway[];
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly gcpEgressPrivateServiceConnectEndpoints?: outputs.GetAccessPointGcpEgressPrivateServiceConnectEndpoint[];
+    /**
      * (Required String) The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
      */
     readonly id: string;
@@ -99,6 +108,7 @@ export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getAccessPoint:getAccessPoint", {
         "environment": args.environment,
+        "gcpEgressPrivateServiceConnectEndpoints": args.gcpEgressPrivateServiceConnectEndpoints,
         "id": args.id,
     }, opts);
 }
@@ -108,6 +118,10 @@ export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulu
  */
 export interface GetAccessPointOutputArgs {
     environment: pulumi.Input<inputs.GetAccessPointEnvironmentArgs>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcpEgressPrivateServiceConnectEndpoints?: pulumi.Input<pulumi.Input<inputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs>[]>;
     /**
      * The ID of the Access Point, for example, `ap-abc123`.
      */

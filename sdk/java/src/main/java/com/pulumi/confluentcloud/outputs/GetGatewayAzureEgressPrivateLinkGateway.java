@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetGatewayAzureEgressPrivateLinkGateway {
     /**
-     * @return (Required String) Azure region of the Peering Gateway.
+     * @return (Required String) GCP region of the Peering Gateway.
      * 
      */
     private String region;
@@ -23,7 +23,7 @@ public final class GetGatewayAzureEgressPrivateLinkGateway {
 
     private GetGatewayAzureEgressPrivateLinkGateway() {}
     /**
-     * @return (Required String) Azure region of the Peering Gateway.
+     * @return (Required String) GCP region of the Peering Gateway.
      * 
      */
     public String region() {

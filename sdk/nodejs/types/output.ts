@@ -76,15 +76,31 @@ export interface AccessPointGateway {
     id: string;
 }
 
+export interface AccessPointGcpEgressPrivateServiceConnectEndpoint {
+    /**
+     * (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointConnectionId: string;
+    /**
+     * (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointIpAddress: string;
+    /**
+     * (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointName: string;
+    /**
+     * URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+     */
+    privateServiceConnectEndpointTarget: string;
+}
+
 export interface ApiKeyManagedResource {
     /**
      * The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
      */
     apiVersion: string;
-    /**
-     * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-     */
-    environment: outputs.ApiKeyManagedResourceEnvironment;
+    environment?: outputs.ApiKeyManagedResourceEnvironment;
     /**
      * The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
      */
@@ -389,6 +405,17 @@ export interface DnsForwarderEnvironment {
     id: string;
 }
 
+export interface DnsForwarderForwardViaGcpDnsZones {
+    /**
+     * List of Maps which contains the domain to zone and project mapping.
+     *
+     * > **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
+     *
+     * > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
+     */
+    domainMappings: {[key: string]: string};
+}
+
 export interface DnsForwarderForwardViaIp {
     /**
      * List of IP addresses of the DNS server.
@@ -610,6 +637,25 @@ export interface GetAccessPointGateway {
     id: string;
 }
 
+export interface GetAccessPointGcpEgressPrivateServiceConnectEndpoint {
+    /**
+     * (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointConnectionId: string;
+    /**
+     * (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointIpAddress: string;
+    /**
+     * (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+     */
+    privateServiceConnectEndpointName: string;
+    /**
+     * (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+     */
+    privateServiceConnectEndpointTarget: string;
+}
+
 export interface GetBusinessMetadataAttributeDefinition {
     /**
      * (Optional String) The default value of this attribute.
@@ -784,14 +830,14 @@ export interface GetGatewayAwsEgressPrivateLinkGateway {
      */
     principalArn: string;
     /**
-     * (Required String) Azure region of the Peering Gateway.
+     * (Required String) GCP region of the Peering Gateway.
      */
     region: string;
 }
 
 export interface GetGatewayAwsPeeringGateway {
     /**
-     * (Required String) Azure region of the Peering Gateway.
+     * (Required String) GCP region of the Peering Gateway.
      */
     region: string;
 }
@@ -802,7 +848,7 @@ export interface GetGatewayAwsPrivateNetworkInterfaceGateway {
      */
     account: string;
     /**
-     * (Required String) Azure region of the Peering Gateway.
+     * (Required String) GCP region of the Peering Gateway.
      */
     region: string;
     /**
@@ -813,7 +859,7 @@ export interface GetGatewayAwsPrivateNetworkInterfaceGateway {
 
 export interface GetGatewayAzureEgressPrivateLinkGateway {
     /**
-     * (Required String) Azure region of the Peering Gateway.
+     * (Required String) GCP region of the Peering Gateway.
      */
     region: string;
     /**
@@ -824,7 +870,7 @@ export interface GetGatewayAzureEgressPrivateLinkGateway {
 
 export interface GetGatewayAzurePeeringGateway {
     /**
-     * (Required String) Azure region of the Peering Gateway.
+     * (Required String) GCP region of the Peering Gateway.
      */
     region: string;
 }
@@ -834,6 +880,28 @@ export interface GetGatewayEnvironment {
      * The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
      */
     id: string;
+}
+
+export interface GetGatewayGcpEgressPrivateServiceConnectGateway {
+    /**
+     * (Required String) The GCP project used by the GCP Private Service Connect Gateway.
+     */
+    project: string;
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+}
+
+export interface GetGatewayGcpPeeringGateway {
+    /**
+     * (Required String) The IAM principal used by the GCP Peering Gateway.
+     */
+    iamPrincipal: string;
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
 }
 
 export interface GetIdentityPoolIdentityProvider {

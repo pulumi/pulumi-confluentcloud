@@ -9,6 +9,8 @@ import com.pulumi.confluentcloud.outputs.GetGatewayAwsPrivateNetworkInterfaceGat
 import com.pulumi.confluentcloud.outputs.GetGatewayAzureEgressPrivateLinkGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayAzurePeeringGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayEnvironment;
+import com.pulumi.confluentcloud.outputs.GetGatewayGcpEgressPrivateServiceConnectGateway;
+import com.pulumi.confluentcloud.outputs.GetGatewayGcpPeeringGateway;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -48,6 +50,16 @@ public final class GetGatewayResult {
      */
     private String displayName;
     private GetGatewayEnvironment environment;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetGatewayGcpEgressPrivateServiceConnectGateway> gcpEgressPrivateServiceConnectGateways;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetGatewayGcpPeeringGateway> gcpPeeringGateways;
     private String id;
 
     private GetGatewayResult() {}
@@ -96,6 +108,20 @@ public final class GetGatewayResult {
     public GetGatewayEnvironment environment() {
         return this.environment;
     }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetGatewayGcpEgressPrivateServiceConnectGateway> gcpEgressPrivateServiceConnectGateways() {
+        return this.gcpEgressPrivateServiceConnectGateways;
+    }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetGatewayGcpPeeringGateway> gcpPeeringGateways() {
+        return this.gcpPeeringGateways;
+    }
     public String id() {
         return this.id;
     }
@@ -116,6 +142,8 @@ public final class GetGatewayResult {
         private List<GetGatewayAzurePeeringGateway> azurePeeringGateways;
         private String displayName;
         private GetGatewayEnvironment environment;
+        private List<GetGatewayGcpEgressPrivateServiceConnectGateway> gcpEgressPrivateServiceConnectGateways;
+        private List<GetGatewayGcpPeeringGateway> gcpPeeringGateways;
         private String id;
         public Builder() {}
         public Builder(GetGatewayResult defaults) {
@@ -127,6 +155,8 @@ public final class GetGatewayResult {
     	      this.azurePeeringGateways = defaults.azurePeeringGateways;
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
+    	      this.gcpEgressPrivateServiceConnectGateways = defaults.gcpEgressPrivateServiceConnectGateways;
+    	      this.gcpPeeringGateways = defaults.gcpPeeringGateways;
     	      this.id = defaults.id;
         }
 
@@ -202,6 +232,28 @@ public final class GetGatewayResult {
             return this;
         }
         @CustomType.Setter
+        public Builder gcpEgressPrivateServiceConnectGateways(List<GetGatewayGcpEgressPrivateServiceConnectGateway> gcpEgressPrivateServiceConnectGateways) {
+            if (gcpEgressPrivateServiceConnectGateways == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "gcpEgressPrivateServiceConnectGateways");
+            }
+            this.gcpEgressPrivateServiceConnectGateways = gcpEgressPrivateServiceConnectGateways;
+            return this;
+        }
+        public Builder gcpEgressPrivateServiceConnectGateways(GetGatewayGcpEgressPrivateServiceConnectGateway... gcpEgressPrivateServiceConnectGateways) {
+            return gcpEgressPrivateServiceConnectGateways(List.of(gcpEgressPrivateServiceConnectGateways));
+        }
+        @CustomType.Setter
+        public Builder gcpPeeringGateways(List<GetGatewayGcpPeeringGateway> gcpPeeringGateways) {
+            if (gcpPeeringGateways == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "gcpPeeringGateways");
+            }
+            this.gcpPeeringGateways = gcpPeeringGateways;
+            return this;
+        }
+        public Builder gcpPeeringGateways(GetGatewayGcpPeeringGateway... gcpPeeringGateways) {
+            return gcpPeeringGateways(List.of(gcpPeeringGateways));
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetGatewayResult", "id");
@@ -218,6 +270,8 @@ public final class GetGatewayResult {
             _resultValue.azurePeeringGateways = azurePeeringGateways;
             _resultValue.displayName = displayName;
             _resultValue.environment = environment;
+            _resultValue.gcpEgressPrivateServiceConnectGateways = gcpEgressPrivateServiceConnectGateways;
+            _resultValue.gcpPeeringGateways = gcpPeeringGateways;
             _resultValue.id = id;
             return _resultValue;
         }
