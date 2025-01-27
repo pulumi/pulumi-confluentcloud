@@ -32,6 +32,9 @@
                     },
                     "gateway": {
                         "maxItemsOne": true
+                    },
+                    "gcp_egress_private_service_connect_endpoint": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -203,6 +206,9 @@
                         "maxItemsOne": false
                     },
                     "environment": {
+                        "maxItemsOne": true
+                    },
+                    "forward_via_gcp_dns_zones": {
                         "maxItemsOne": true
                     },
                     "forward_via_ip": {
@@ -870,6 +876,9 @@
                     },
                     "gateway": {
                         "maxItemsOne": false
+                    },
+                    "gcp_egress_private_service_connect_endpoint": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -1020,6 +1029,12 @@
                     },
                     "environment": {
                         "maxItemsOne": true
+                    },
+                    "gcp_egress_private_service_connect_gateway": {
+                        "maxItemsOne": false
+                    },
+                    "gcp_peering_gateway": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -1580,7 +1595,15 @@
             }
         }
     },
-    "auto-settings": {},
+    "auto-settings": {
+        "resources": {
+            "confluent_api_key": {
+                "maxItemsOneOverrides": {
+                    "managed_resource.$.environment": true
+                }
+            }
+        }
+    },
     "renames": {
         "resources": {
             "confluentcloud:index/apiKey:ApiKey": "confluent_api_key",

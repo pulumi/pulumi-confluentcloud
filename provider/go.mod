@@ -48,7 +48,7 @@ require (
 	github.com/charmbracelet/lipgloss v0.7.1 // indirect
 	github.com/cheggaaa/pb v1.0.29 // indirect
 	github.com/cloudflare/circl v1.3.7 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/apikeys v0.3.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/apikeys v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/byok v0.0.2 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/certificate-authority v0.0.0-20240921001517-750d06dd7c27 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/cmk v0.21.0 // indirect
@@ -66,7 +66,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.12.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-access-point v0.5.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/networking-dnsforwarder v0.2.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/networking-dnsforwarder v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-gateway v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-ip v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-privatelink v0.2.0 // indirect
