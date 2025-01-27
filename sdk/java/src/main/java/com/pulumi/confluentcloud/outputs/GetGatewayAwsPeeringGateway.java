@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetGatewayAwsPeeringGateway {
     /**
-     * @return (Required String) Azure region of the Peering Gateway.
+     * @return (Required String) GCP region of the Peering Gateway.
      * 
      */
     private String region;
 
     private GetGatewayAwsPeeringGateway() {}
     /**
-     * @return (Required String) Azure region of the Peering Gateway.
+     * @return (Required String) GCP region of the Peering Gateway.
      * 
      */
     public String region() {

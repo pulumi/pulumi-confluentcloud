@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ApiKeyManagedResource {
@@ -16,11 +18,7 @@ public final class ApiKeyManagedResource {
      * 
      */
     private String apiVersion;
-    /**
-     * @return Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-     * 
-     */
-    private ApiKeyManagedResourceEnvironment environment;
+    private @Nullable ApiKeyManagedResourceEnvironment environment;
     /**
      * @return The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
      * 
@@ -40,12 +38,8 @@ public final class ApiKeyManagedResource {
     public String apiVersion() {
         return this.apiVersion;
     }
-    /**
-     * @return Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-     * 
-     */
-    public ApiKeyManagedResourceEnvironment environment() {
-        return this.environment;
+    public Optional<ApiKeyManagedResourceEnvironment> environment() {
+        return Optional.ofNullable(this.environment);
     }
     /**
      * @return The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
@@ -72,7 +66,7 @@ public final class ApiKeyManagedResource {
     @CustomType.Builder
     public static final class Builder {
         private String apiVersion;
-        private ApiKeyManagedResourceEnvironment environment;
+        private @Nullable ApiKeyManagedResourceEnvironment environment;
         private String id;
         private String kind;
         public Builder() {}
@@ -93,10 +87,8 @@ public final class ApiKeyManagedResource {
             return this;
         }
         @CustomType.Setter
-        public Builder environment(ApiKeyManagedResourceEnvironment environment) {
-            if (environment == null) {
-              throw new MissingRequiredPropertyException("ApiKeyManagedResource", "environment");
-            }
+        public Builder environment(@Nullable ApiKeyManagedResourceEnvironment environment) {
+
             this.environment = environment;
             return this;
         }

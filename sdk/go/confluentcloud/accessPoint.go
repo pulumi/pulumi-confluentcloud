@@ -67,6 +67,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = confluentcloud.NewAccessPoint(ctx, "gcp", &confluentcloud.AccessPointArgs{
+//				DisplayName: pulumi.String("access_point"),
+//				Environment: &confluentcloud.AccessPointEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//				Gateway: &confluentcloud.AccessPointGatewayArgs{
+//					Id: pulumi.Any(main.Gateway[0].Id),
+//				},
+//				GcpEgressPrivateServiceConnectEndpoint: &confluentcloud.AccessPointGcpEgressPrivateServiceConnectEndpointArgs{
+//					PrivateServiceConnectEndpointTarget: pulumi.String("projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -100,6 +115,8 @@ type AccessPoint struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment AccessPointEnvironmentOutput `pulumi:"environment"`
 	Gateway     AccessPointGatewayOutput     `pulumi:"gateway"`
+	// (Optional Configuration Block) supports the following:
+	GcpEgressPrivateServiceConnectEndpoint AccessPointGcpEgressPrivateServiceConnectEndpointPtrOutput `pulumi:"gcpEgressPrivateServiceConnectEndpoint"`
 }
 
 // NewAccessPoint registers a new resource with the given unique name, arguments, and options.
@@ -149,6 +166,8 @@ type accessPointState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *AccessPointEnvironment `pulumi:"environment"`
 	Gateway     *AccessPointGateway     `pulumi:"gateway"`
+	// (Optional Configuration Block) supports the following:
+	GcpEgressPrivateServiceConnectEndpoint *AccessPointGcpEgressPrivateServiceConnectEndpoint `pulumi:"gcpEgressPrivateServiceConnectEndpoint"`
 }
 
 type AccessPointState struct {
@@ -163,6 +182,8 @@ type AccessPointState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment AccessPointEnvironmentPtrInput
 	Gateway     AccessPointGatewayPtrInput
+	// (Optional Configuration Block) supports the following:
+	GcpEgressPrivateServiceConnectEndpoint AccessPointGcpEgressPrivateServiceConnectEndpointPtrInput
 }
 
 func (AccessPointState) ElementType() reflect.Type {
@@ -181,6 +202,8 @@ type accessPointArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment AccessPointEnvironment `pulumi:"environment"`
 	Gateway     AccessPointGateway     `pulumi:"gateway"`
+	// (Optional Configuration Block) supports the following:
+	GcpEgressPrivateServiceConnectEndpoint *AccessPointGcpEgressPrivateServiceConnectEndpoint `pulumi:"gcpEgressPrivateServiceConnectEndpoint"`
 }
 
 // The set of arguments for constructing a AccessPoint resource.
@@ -196,6 +219,8 @@ type AccessPointArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment AccessPointEnvironmentInput
 	Gateway     AccessPointGatewayInput
+	// (Optional Configuration Block) supports the following:
+	GcpEgressPrivateServiceConnectEndpoint AccessPointGcpEgressPrivateServiceConnectEndpointPtrInput
 }
 
 func (AccessPointArgs) ElementType() reflect.Type {
@@ -318,6 +343,13 @@ func (o AccessPointOutput) Environment() AccessPointEnvironmentOutput {
 
 func (o AccessPointOutput) Gateway() AccessPointGatewayOutput {
 	return o.ApplyT(func(v *AccessPoint) AccessPointGatewayOutput { return v.Gateway }).(AccessPointGatewayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o AccessPointOutput) GcpEgressPrivateServiceConnectEndpoint() AccessPointGcpEgressPrivateServiceConnectEndpointPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointGcpEgressPrivateServiceConnectEndpointPtrOutput {
+		return v.GcpEgressPrivateServiceConnectEndpoint
+	}).(AccessPointGcpEgressPrivateServiceConnectEndpointPtrOutput)
 }
 
 type AccessPointArrayOutput struct{ *pulumi.OutputState }

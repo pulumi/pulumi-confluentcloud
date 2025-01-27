@@ -16,6 +16,8 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Example Usage
     /// 
+    /// ### Option #1: Create using ForwardViaIp method
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,6 +95,9 @@ namespace Pulumi.ConfluentCloud
         [Output("environment")]
         public Output<Outputs.DnsForwarderEnvironment> Environment { get; private set; } = null!;
 
+        [Output("forwardViaGcpDnsZones")]
+        public Output<Outputs.DnsForwarderForwardViaGcpDnsZones?> ForwardViaGcpDnsZones { get; private set; } = null!;
+
         [Output("forwardViaIp")]
         public Output<Outputs.DnsForwarderForwardViaIp?> ForwardViaIp { get; private set; } = null!;
 
@@ -169,6 +174,9 @@ namespace Pulumi.ConfluentCloud
         [Input("environment", required: true)]
         public Input<Inputs.DnsForwarderEnvironmentArgs> Environment { get; set; } = null!;
 
+        [Input("forwardViaGcpDnsZones")]
+        public Input<Inputs.DnsForwarderForwardViaGcpDnsZonesArgs>? ForwardViaGcpDnsZones { get; set; }
+
         [Input("forwardViaIp")]
         public Input<Inputs.DnsForwarderForwardViaIpArgs>? ForwardViaIp { get; set; }
 
@@ -206,6 +214,9 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("environment")]
         public Input<Inputs.DnsForwarderEnvironmentGetArgs>? Environment { get; set; }
+
+        [Input("forwardViaGcpDnsZones")]
+        public Input<Inputs.DnsForwarderForwardViaGcpDnsZonesGetArgs>? ForwardViaGcpDnsZones { get; set; }
 
         [Input("forwardViaIp")]
         public Input<Inputs.DnsForwarderForwardViaIpGetArgs>? ForwardViaIp { get; set; }

@@ -18,7 +18,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string PrincipalArn;
         /// <summary>
-        /// (Required String) Azure region of the Peering Gateway.
+        /// (Required String) GCP region of the Peering Gateway.
         /// </summary>
         public readonly string Region;
 

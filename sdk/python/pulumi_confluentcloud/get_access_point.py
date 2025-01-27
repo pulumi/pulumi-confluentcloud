@@ -28,7 +28,7 @@ class GetAccessPointResult:
     """
     A collection of values returned by getAccessPoint.
     """
-    def __init__(__self__, aws_egress_private_link_endpoints=None, aws_private_network_interfaces=None, azure_egress_private_link_endpoints=None, display_name=None, environment=None, gateways=None, id=None):
+    def __init__(__self__, aws_egress_private_link_endpoints=None, aws_private_network_interfaces=None, azure_egress_private_link_endpoints=None, display_name=None, environment=None, gateways=None, gcp_egress_private_service_connect_endpoints=None, id=None):
         if aws_egress_private_link_endpoints and not isinstance(aws_egress_private_link_endpoints, list):
             raise TypeError("Expected argument 'aws_egress_private_link_endpoints' to be a list")
         pulumi.set(__self__, "aws_egress_private_link_endpoints", aws_egress_private_link_endpoints)
@@ -47,6 +47,9 @@ class GetAccessPointResult:
         if gateways and not isinstance(gateways, list):
             raise TypeError("Expected argument 'gateways' to be a list")
         pulumi.set(__self__, "gateways", gateways)
+        if gcp_egress_private_service_connect_endpoints and not isinstance(gcp_egress_private_service_connect_endpoints, list):
+            raise TypeError("Expected argument 'gcp_egress_private_service_connect_endpoints' to be a list")
+        pulumi.set(__self__, "gcp_egress_private_service_connect_endpoints", gcp_egress_private_service_connect_endpoints)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -97,6 +100,14 @@ class GetAccessPointResult:
         return pulumi.get(self, "gateways")
 
     @property
+    @pulumi.getter(name="gcpEgressPrivateServiceConnectEndpoints")
+    def gcp_egress_private_service_connect_endpoints(self) -> Optional[Sequence['outputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointResult']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "gcp_egress_private_service_connect_endpoints")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -117,10 +128,12 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
             display_name=self.display_name,
             environment=self.environment,
             gateways=self.gateways,
+            gcp_egress_private_service_connect_endpoints=self.gcp_egress_private_service_connect_endpoints,
             id=self.id)
 
 
 def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict']] = None,
+                     gcp_egress_private_service_connect_endpoints: Optional[Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict']]] = None,
                      id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPointResult:
     """
@@ -142,10 +155,12 @@ def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs'
     ```
 
 
+    :param Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict']] gcp_egress_private_service_connect_endpoints: (Optional Configuration Block) supports the following:
     :param str id: The ID of the Access Point, for example, `ap-abc123`.
     """
     __args__ = dict()
     __args__['environment'] = environment
+    __args__['gcpEgressPrivateServiceConnectEndpoints'] = gcp_egress_private_service_connect_endpoints
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getAccessPoint:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult).value
@@ -157,8 +172,10 @@ def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs'
         display_name=pulumi.get(__ret__, 'display_name'),
         environment=pulumi.get(__ret__, 'environment'),
         gateways=pulumi.get(__ret__, 'gateways'),
+        gcp_egress_private_service_connect_endpoints=pulumi.get(__ret__, 'gcp_egress_private_service_connect_endpoints'),
         id=pulumi.get(__ret__, 'id'))
 def get_access_point_output(environment: Optional[pulumi.Input[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict']]] = None,
+                            gcp_egress_private_service_connect_endpoints: Optional[pulumi.Input[Optional[Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict']]]]] = None,
                             id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
@@ -180,10 +197,12 @@ def get_access_point_output(environment: Optional[pulumi.Input[Union['GetAccessP
     ```
 
 
+    :param Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict']] gcp_egress_private_service_connect_endpoints: (Optional Configuration Block) supports the following:
     :param str id: The ID of the Access Point, for example, `ap-abc123`.
     """
     __args__ = dict()
     __args__['environment'] = environment
+    __args__['gcpEgressPrivateServiceConnectEndpoints'] = gcp_egress_private_service_connect_endpoints
     __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getAccessPoint:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult)
@@ -194,4 +213,5 @@ def get_access_point_output(environment: Optional[pulumi.Input[Union['GetAccessP
         display_name=pulumi.get(__response__, 'display_name'),
         environment=pulumi.get(__response__, 'environment'),
         gateways=pulumi.get(__response__, 'gateways'),
+        gcp_egress_private_service_connect_endpoints=pulumi.get(__response__, 'gcp_egress_private_service_connect_endpoints'),
         id=pulumi.get(__response__, 'id')))

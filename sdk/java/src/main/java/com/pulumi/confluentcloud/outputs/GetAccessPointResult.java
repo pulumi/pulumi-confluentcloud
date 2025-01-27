@@ -8,11 +8,13 @@ import com.pulumi.confluentcloud.outputs.GetAccessPointAwsPrivateNetworkInterfac
 import com.pulumi.confluentcloud.outputs.GetAccessPointAzureEgressPrivateLinkEndpoint;
 import com.pulumi.confluentcloud.outputs.GetAccessPointEnvironment;
 import com.pulumi.confluentcloud.outputs.GetAccessPointGateway;
+import com.pulumi.confluentcloud.outputs.GetAccessPointGcpEgressPrivateServiceConnectEndpoint;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccessPointResult {
@@ -42,6 +44,11 @@ public final class GetAccessPointResult {
      * 
      */
     private List<GetAccessPointGateway> gateways;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private @Nullable List<GetAccessPointGcpEgressPrivateServiceConnectEndpoint> gcpEgressPrivateServiceConnectEndpoints;
     /**
      * @return (Required String) The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
      * 
@@ -88,6 +95,13 @@ public final class GetAccessPointResult {
         return this.gateways;
     }
     /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetAccessPointGcpEgressPrivateServiceConnectEndpoint> gcpEgressPrivateServiceConnectEndpoints() {
+        return this.gcpEgressPrivateServiceConnectEndpoints == null ? List.of() : this.gcpEgressPrivateServiceConnectEndpoints;
+    }
+    /**
      * @return (Required String) The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
      * 
      */
@@ -110,6 +124,7 @@ public final class GetAccessPointResult {
         private String displayName;
         private GetAccessPointEnvironment environment;
         private List<GetAccessPointGateway> gateways;
+        private @Nullable List<GetAccessPointGcpEgressPrivateServiceConnectEndpoint> gcpEgressPrivateServiceConnectEndpoints;
         private String id;
         public Builder() {}
         public Builder(GetAccessPointResult defaults) {
@@ -120,6 +135,7 @@ public final class GetAccessPointResult {
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
     	      this.gateways = defaults.gateways;
+    	      this.gcpEgressPrivateServiceConnectEndpoints = defaults.gcpEgressPrivateServiceConnectEndpoints;
     	      this.id = defaults.id;
         }
 
@@ -184,6 +200,15 @@ public final class GetAccessPointResult {
             return gateways(List.of(gateways));
         }
         @CustomType.Setter
+        public Builder gcpEgressPrivateServiceConnectEndpoints(@Nullable List<GetAccessPointGcpEgressPrivateServiceConnectEndpoint> gcpEgressPrivateServiceConnectEndpoints) {
+
+            this.gcpEgressPrivateServiceConnectEndpoints = gcpEgressPrivateServiceConnectEndpoints;
+            return this;
+        }
+        public Builder gcpEgressPrivateServiceConnectEndpoints(GetAccessPointGcpEgressPrivateServiceConnectEndpoint... gcpEgressPrivateServiceConnectEndpoints) {
+            return gcpEgressPrivateServiceConnectEndpoints(List.of(gcpEgressPrivateServiceConnectEndpoints));
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetAccessPointResult", "id");
@@ -199,6 +224,7 @@ public final class GetAccessPointResult {
             _resultValue.displayName = displayName;
             _resultValue.environment = environment;
             _resultValue.gateways = gateways;
+            _resultValue.gcpEgressPrivateServiceConnectEndpoints = gcpEgressPrivateServiceConnectEndpoints;
             _resultValue.id = id;
             return _resultValue;
         }

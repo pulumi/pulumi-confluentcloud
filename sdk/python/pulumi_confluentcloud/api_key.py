@@ -227,95 +227,23 @@ class ApiKey(pulumi.CustomResource):
         """
         ## Example Usage
 
-        ### Example Kafka API Key
+        ### Example Tableflow API Key
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        app_manager_kafka_api_key = confluentcloud.ApiKey("app-manager-kafka-api-key",
-            display_name="app-manager-kafka-api-key",
-            description="Kafka API Key that is owned by 'app-manager' service account",
-            owner={
-                "id": app_manager["id"],
-                "api_version": app_manager["apiVersion"],
-                "kind": app_manager["kind"],
-            },
-            managed_resource={
-                "id": basic["id"],
-                "api_version": basic["apiVersion"],
-                "kind": basic["kind"],
-                "environment": {
-                    "id": staging["id"],
-                },
-            })
-        ```
-
-        ### Example ksqlDB API Key
-        ```python
-        import pulumi
-        import pulumi_confluentcloud as confluentcloud
-
-        ksqldb_api_key = confluentcloud.ApiKey("ksqldb-api-key",
-            display_name="ksqldb-api-key",
-            description="KsqlDB API Key that is owned by 'app-manager' service account",
-            owner={
-                "id": app_manager["id"],
-                "api_version": app_manager["apiVersion"],
-                "kind": app_manager["kind"],
-            },
-            managed_resource={
-                "id": main["id"],
-                "api_version": main["apiVersion"],
-                "kind": main["kind"],
-                "environment": {
-                    "id": staging["id"],
-                },
-            })
-        ```
-
-        ### Example Schema Registry API Key
-        ```python
-        import pulumi
-        import pulumi_confluentcloud as confluentcloud
-
-        env_manager_schema_registry_api_key = confluentcloud.ApiKey("env-manager-schema-registry-api-key",
-            display_name="env-manager-schema-registry-api-key",
-            description="Schema Registry API Key that is owned by 'env-manager' service account",
+        env_manager_tableflow_api_key = confluentcloud.ApiKey("env-manager-tableflow-api-key",
+            display_name="env-manager-tableflow-api-key",
+            description="Tableflow API Key that is owned by 'env-manager' service account",
             owner={
                 "id": env_manager["id"],
                 "api_version": env_manager["apiVersion"],
                 "kind": env_manager["kind"],
             },
             managed_resource={
-                "id": essentials["id"],
-                "api_version": essentials["apiVersion"],
-                "kind": essentials["kind"],
-                "environment": {
-                    "id": staging["id"],
-                },
-            })
-        ```
-
-        ### Example Flink API Key
-        ```python
-        import pulumi
-        import pulumi_confluentcloud as confluentcloud
-
-        env_manager_flink_api_key = confluentcloud.ApiKey("env-manager-flink-api-key",
-            display_name="env-manager-flink-api-key",
-            description="Flink API Key that is owned by 'env-manager' service account",
-            owner={
-                "id": env_manager["id"],
-                "api_version": env_manager["apiVersion"],
-                "kind": env_manager["kind"],
-            },
-            managed_resource={
-                "id": example["id"],
-                "api_version": example["apiVersion"],
-                "kind": example["kind"],
-                "environment": {
-                    "id": staging["id"],
-                },
+                "id": "tableflow",
+                "api_version": "tableflow/v1",
+                "kind": "Tableflow",
             })
         ```
 
@@ -375,7 +303,7 @@ class ApiKey(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
         ```
 
-        You can import a Cloud API Key by using Cloud API Key ID, for example:
+        You can import a Cloud or Tableflow API Key by using Cloud or Tableflow API Key ID, for example:
 
         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
@@ -383,7 +311,7 @@ class ApiKey(pulumi.CustomResource):
 
         $ export API_KEY_SECRET="<api_key_secret>"
 
-        Option #2: Cloud API Key
+        Option #2: Cloud or Tableflow API Key
 
         ```sh
         $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key "4UEXOMMWIBE5KZQG"
@@ -409,95 +337,23 @@ class ApiKey(pulumi.CustomResource):
         """
         ## Example Usage
 
-        ### Example Kafka API Key
+        ### Example Tableflow API Key
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        app_manager_kafka_api_key = confluentcloud.ApiKey("app-manager-kafka-api-key",
-            display_name="app-manager-kafka-api-key",
-            description="Kafka API Key that is owned by 'app-manager' service account",
-            owner={
-                "id": app_manager["id"],
-                "api_version": app_manager["apiVersion"],
-                "kind": app_manager["kind"],
-            },
-            managed_resource={
-                "id": basic["id"],
-                "api_version": basic["apiVersion"],
-                "kind": basic["kind"],
-                "environment": {
-                    "id": staging["id"],
-                },
-            })
-        ```
-
-        ### Example ksqlDB API Key
-        ```python
-        import pulumi
-        import pulumi_confluentcloud as confluentcloud
-
-        ksqldb_api_key = confluentcloud.ApiKey("ksqldb-api-key",
-            display_name="ksqldb-api-key",
-            description="KsqlDB API Key that is owned by 'app-manager' service account",
-            owner={
-                "id": app_manager["id"],
-                "api_version": app_manager["apiVersion"],
-                "kind": app_manager["kind"],
-            },
-            managed_resource={
-                "id": main["id"],
-                "api_version": main["apiVersion"],
-                "kind": main["kind"],
-                "environment": {
-                    "id": staging["id"],
-                },
-            })
-        ```
-
-        ### Example Schema Registry API Key
-        ```python
-        import pulumi
-        import pulumi_confluentcloud as confluentcloud
-
-        env_manager_schema_registry_api_key = confluentcloud.ApiKey("env-manager-schema-registry-api-key",
-            display_name="env-manager-schema-registry-api-key",
-            description="Schema Registry API Key that is owned by 'env-manager' service account",
+        env_manager_tableflow_api_key = confluentcloud.ApiKey("env-manager-tableflow-api-key",
+            display_name="env-manager-tableflow-api-key",
+            description="Tableflow API Key that is owned by 'env-manager' service account",
             owner={
                 "id": env_manager["id"],
                 "api_version": env_manager["apiVersion"],
                 "kind": env_manager["kind"],
             },
             managed_resource={
-                "id": essentials["id"],
-                "api_version": essentials["apiVersion"],
-                "kind": essentials["kind"],
-                "environment": {
-                    "id": staging["id"],
-                },
-            })
-        ```
-
-        ### Example Flink API Key
-        ```python
-        import pulumi
-        import pulumi_confluentcloud as confluentcloud
-
-        env_manager_flink_api_key = confluentcloud.ApiKey("env-manager-flink-api-key",
-            display_name="env-manager-flink-api-key",
-            description="Flink API Key that is owned by 'env-manager' service account",
-            owner={
-                "id": env_manager["id"],
-                "api_version": env_manager["apiVersion"],
-                "kind": env_manager["kind"],
-            },
-            managed_resource={
-                "id": example["id"],
-                "api_version": example["apiVersion"],
-                "kind": example["kind"],
-                "environment": {
-                    "id": staging["id"],
-                },
+                "id": "tableflow",
+                "api_version": "tableflow/v1",
+                "kind": "Tableflow",
             })
         ```
 
@@ -557,7 +413,7 @@ class ApiKey(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
         ```
 
-        You can import a Cloud API Key by using Cloud API Key ID, for example:
+        You can import a Cloud or Tableflow API Key by using Cloud or Tableflow API Key ID, for example:
 
         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
@@ -565,7 +421,7 @@ class ApiKey(pulumi.CustomResource):
 
         $ export API_KEY_SECRET="<api_key_secret>"
 
-        Option #2: Cloud API Key
+        Option #2: Cloud or Tableflow API Key
 
         ```sh
         $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key "4UEXOMMWIBE5KZQG"

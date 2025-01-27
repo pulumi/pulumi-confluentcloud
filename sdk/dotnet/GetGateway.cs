@@ -178,6 +178,14 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string DisplayName;
         public readonly Outputs.GetGatewayEnvironmentResult Environment;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetGatewayGcpEgressPrivateServiceConnectGatewayResult> GcpEgressPrivateServiceConnectGateways;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetGatewayGcpPeeringGatewayResult> GcpPeeringGateways;
         public readonly string Id;
 
         [OutputConstructor]
@@ -196,6 +204,10 @@ namespace Pulumi.ConfluentCloud
 
             Outputs.GetGatewayEnvironmentResult environment,
 
+            ImmutableArray<Outputs.GetGatewayGcpEgressPrivateServiceConnectGatewayResult> gcpEgressPrivateServiceConnectGateways,
+
+            ImmutableArray<Outputs.GetGatewayGcpPeeringGatewayResult> gcpPeeringGateways,
+
             string id)
         {
             AwsEgressPrivateLinkGateways = awsEgressPrivateLinkGateways;
@@ -205,6 +217,8 @@ namespace Pulumi.ConfluentCloud
             AzurePeeringGateways = azurePeeringGateways;
             DisplayName = displayName;
             Environment = environment;
+            GcpEgressPrivateServiceConnectGateways = gcpEgressPrivateServiceConnectGateways;
+            GcpPeeringGateways = gcpPeeringGateways;
             Id = id;
         }
     }

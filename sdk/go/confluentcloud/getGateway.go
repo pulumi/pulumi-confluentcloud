@@ -76,7 +76,11 @@ type LookupGatewayResult struct {
 	// (Required String) A human-readable name for the Gateway.
 	DisplayName string                `pulumi:"displayName"`
 	Environment GetGatewayEnvironment `pulumi:"environment"`
-	Id          string                `pulumi:"id"`
+	// (Optional Configuration Block) supports the following:
+	GcpEgressPrivateServiceConnectGateways []GetGatewayGcpEgressPrivateServiceConnectGateway `pulumi:"gcpEgressPrivateServiceConnectGateways"`
+	// (Optional Configuration Block) supports the following:
+	GcpPeeringGateways []GetGatewayGcpPeeringGateway `pulumi:"gcpPeeringGateways"`
+	Id                 string                        `pulumi:"id"`
 }
 
 func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {
@@ -152,6 +156,18 @@ func (o LookupGatewayResultOutput) DisplayName() pulumi.StringOutput {
 
 func (o LookupGatewayResultOutput) Environment() GetGatewayEnvironmentOutput {
 	return o.ApplyT(func(v LookupGatewayResult) GetGatewayEnvironment { return v.Environment }).(GetGatewayEnvironmentOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupGatewayResultOutput) GcpEgressPrivateServiceConnectGateways() GetGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayGcpEgressPrivateServiceConnectGateway {
+		return v.GcpEgressPrivateServiceConnectGateways
+	}).(GetGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupGatewayResultOutput) GcpPeeringGateways() GetGatewayGcpPeeringGatewayArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayGcpPeeringGateway { return v.GcpPeeringGateways }).(GetGatewayGcpPeeringGatewayArrayOutput)
 }
 
 func (o LookupGatewayResultOutput) Id() pulumi.StringOutput {

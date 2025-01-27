@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ApiKeyManagedResourceArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,19 +32,11 @@ public final class ApiKeyManagedResourceArgs extends com.pulumi.resources.Resour
         return this.apiVersion;
     }
 
-    /**
-     * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-     * 
-     */
-    @Import(name="environment", required=true)
-    private Output<ApiKeyManagedResourceEnvironmentArgs> environment;
+    @Import(name="environment")
+    private @Nullable Output<ApiKeyManagedResourceEnvironmentArgs> environment;
 
-    /**
-     * @return Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-     * 
-     */
-    public Output<ApiKeyManagedResourceEnvironmentArgs> environment() {
-        return this.environment;
+    public Optional<Output<ApiKeyManagedResourceEnvironmentArgs>> environment() {
+        return Optional.ofNullable(this.environment);
     }
 
     /**
@@ -123,23 +117,11 @@ public final class ApiKeyManagedResourceArgs extends com.pulumi.resources.Resour
             return apiVersion(Output.of(apiVersion));
         }
 
-        /**
-         * @param environment Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder environment(Output<ApiKeyManagedResourceEnvironmentArgs> environment) {
+        public Builder environment(@Nullable Output<ApiKeyManagedResourceEnvironmentArgs> environment) {
             $.environment = environment;
             return this;
         }
 
-        /**
-         * @param environment Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environment(ApiKeyManagedResourceEnvironmentArgs environment) {
             return environment(Output.of(environment));
         }
@@ -189,9 +171,6 @@ public final class ApiKeyManagedResourceArgs extends com.pulumi.resources.Resour
         public ApiKeyManagedResourceArgs build() {
             if ($.apiVersion == null) {
                 throw new MissingRequiredPropertyException("ApiKeyManagedResourceArgs", "apiVersion");
-            }
-            if ($.environment == null) {
-                throw new MissingRequiredPropertyException("ApiKeyManagedResourceArgs", "environment");
             }
             if ($.id == null) {
                 throw new MissingRequiredPropertyException("ApiKeyManagedResourceArgs", "id");

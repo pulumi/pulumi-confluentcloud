@@ -282,6 +282,49 @@ class Peering(pulumi.CustomResource):
             })
         ```
 
+        ### Example Peering on GCP
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development", display_name="Development")
+        gcp_peering = confluentcloud.Network("gcp-peering",
+            display_name="GCP Peering Network",
+            cloud="GCP",
+            region="us-west4",
+            cidr="10.10.0.0/16",
+            connection_types=["PEERING"],
+            environment={
+                "id": development.id,
+            })
+        gcp = confluentcloud.Peering("gcp",
+            display_name="GCP Peering",
+            gcp={
+                "project": "temp-gear-123456",
+                "vpc_network": "customer-test-vpc-network",
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": gcp_peering.id,
+            })
+        ```
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `Peering` resource:
+          * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+          * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+          * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+
         ## Import
 
         You can import a Peering by using Environment ID and Peering ID, in the format `<Environment ID>/<Peering ID>`. The following example shows how to import a Peering:
@@ -374,6 +417,49 @@ class Peering(pulumi.CustomResource):
                 "id": azure_peering.id,
             })
         ```
+
+        ### Example Peering on GCP
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development", display_name="Development")
+        gcp_peering = confluentcloud.Network("gcp-peering",
+            display_name="GCP Peering Network",
+            cloud="GCP",
+            region="us-west4",
+            cidr="10.10.0.0/16",
+            connection_types=["PEERING"],
+            environment={
+                "id": development.id,
+            })
+        gcp = confluentcloud.Peering("gcp",
+            display_name="GCP Peering",
+            gcp={
+                "project": "temp-gear-123456",
+                "vpc_network": "customer-test-vpc-network",
+            },
+            environment={
+                "id": development.id,
+            },
+            network={
+                "id": gcp_peering.id,
+            })
+        ```
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `Peering` resource:
+          * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+          * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+          * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
 
         ## Import
 

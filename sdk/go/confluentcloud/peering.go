@@ -133,6 +133,76 @@ import (
 //
 // ```
 //
+// ### Example Peering on GCP
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", &confluentcloud.EnvironmentArgs{
+//				DisplayName: pulumi.String("Development"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewNetwork(ctx, "gcp-peering", &confluentcloud.NetworkArgs{
+//				DisplayName: pulumi.String("GCP Peering Network"),
+//				Cloud:       pulumi.String("GCP"),
+//				Region:      pulumi.String("us-west4"),
+//				Cidr:        pulumi.String("10.10.0.0/16"),
+//				ConnectionTypes: pulumi.StringArray{
+//					pulumi.String("PEERING"),
+//				},
+//				Environment: &confluentcloud.NetworkEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewPeering(ctx, "gcp", &confluentcloud.PeeringArgs{
+//				DisplayName: pulumi.String("GCP Peering"),
+//				Gcp: &confluentcloud.PeeringGcpArgs{
+//					Project:    pulumi.String("temp-gear-123456"),
+//					VpcNetwork: pulumi.String("customer-test-vpc-network"),
+//				},
+//				Environment: &confluentcloud.PeeringEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//				Network: &confluentcloud.PeeringNetworkArgs{
+//					Id: gcp_peering.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `Peering` resource:
+//   - `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+//   - `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+//   - `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+//
 // ## Import
 //
 // You can import a Peering by using Environment ID and Peering ID, in the format `<Environment ID>/<Peering ID>`. The following example shows how to import a Peering:

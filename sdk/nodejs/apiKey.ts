@@ -9,98 +9,23 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * ### Example Kafka API Key
+ * ### Example Tableflow API Key
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const app_manager_kafka_api_key = new confluentcloud.ApiKey("app-manager-kafka-api-key", {
- *     displayName: "app-manager-kafka-api-key",
- *     description: "Kafka API Key that is owned by 'app-manager' service account",
- *     owner: {
- *         id: app_manager.id,
- *         apiVersion: app_manager.apiVersion,
- *         kind: app_manager.kind,
- *     },
- *     managedResource: {
- *         id: basic.id,
- *         apiVersion: basic.apiVersion,
- *         kind: basic.kind,
- *         environment: {
- *             id: staging.id,
- *         },
- *     },
- * });
- * ```
- *
- * ### Example ksqlDB API Key
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as confluentcloud from "@pulumi/confluentcloud";
- *
- * const ksqldb_api_key = new confluentcloud.ApiKey("ksqldb-api-key", {
- *     displayName: "ksqldb-api-key",
- *     description: "KsqlDB API Key that is owned by 'app-manager' service account",
- *     owner: {
- *         id: app_manager.id,
- *         apiVersion: app_manager.apiVersion,
- *         kind: app_manager.kind,
- *     },
- *     managedResource: {
- *         id: main.id,
- *         apiVersion: main.apiVersion,
- *         kind: main.kind,
- *         environment: {
- *             id: staging.id,
- *         },
- *     },
- * });
- * ```
- *
- * ### Example Schema Registry API Key
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as confluentcloud from "@pulumi/confluentcloud";
- *
- * const env_manager_schema_registry_api_key = new confluentcloud.ApiKey("env-manager-schema-registry-api-key", {
- *     displayName: "env-manager-schema-registry-api-key",
- *     description: "Schema Registry API Key that is owned by 'env-manager' service account",
+ * const env_manager_tableflow_api_key = new confluentcloud.ApiKey("env-manager-tableflow-api-key", {
+ *     displayName: "env-manager-tableflow-api-key",
+ *     description: "Tableflow API Key that is owned by 'env-manager' service account",
  *     owner: {
  *         id: env_manager.id,
  *         apiVersion: env_manager.apiVersion,
  *         kind: env_manager.kind,
  *     },
  *     managedResource: {
- *         id: essentials.id,
- *         apiVersion: essentials.apiVersion,
- *         kind: essentials.kind,
- *         environment: {
- *             id: staging.id,
- *         },
- *     },
- * });
- * ```
- *
- * ### Example Flink API Key
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as confluentcloud from "@pulumi/confluentcloud";
- *
- * const env_manager_flink_api_key = new confluentcloud.ApiKey("env-manager-flink-api-key", {
- *     displayName: "env-manager-flink-api-key",
- *     description: "Flink API Key that is owned by 'env-manager' service account",
- *     owner: {
- *         id: env_manager.id,
- *         apiVersion: env_manager.apiVersion,
- *         kind: env_manager.kind,
- *     },
- *     managedResource: {
- *         id: example.id,
- *         apiVersion: example.apiVersion,
- *         kind: example.kind,
- *         environment: {
- *             id: staging.id,
- *         },
+ *         id: "tableflow",
+ *         apiVersion: "tableflow/v1",
+ *         kind: "Tableflow",
  *     },
  * });
  * ```
@@ -162,7 +87,7 @@ import * as utilities from "./utilities";
  * $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
  * ```
  *
- * You can import a Cloud API Key by using Cloud API Key ID, for example:
+ * You can import a Cloud or Tableflow API Key by using Cloud or Tableflow API Key ID, for example:
  *
  * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
  *
@@ -170,7 +95,7 @@ import * as utilities from "./utilities";
  *
  * $ export API_KEY_SECRET="<api_key_secret>"
  *
- * Option #2: Cloud API Key
+ * Option #2: Cloud or Tableflow API Key
  *
  * ```sh
  * $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key "4UEXOMMWIBE5KZQG"

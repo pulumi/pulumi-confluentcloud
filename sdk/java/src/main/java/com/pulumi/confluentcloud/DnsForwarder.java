@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.DnsForwarderArgs;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.DnsForwarderState;
 import com.pulumi.confluentcloud.outputs.DnsForwarderEnvironment;
+import com.pulumi.confluentcloud.outputs.DnsForwarderForwardViaGcpDnsZones;
 import com.pulumi.confluentcloud.outputs.DnsForwarderForwardViaIp;
 import com.pulumi.confluentcloud.outputs.DnsForwarderGateway;
 import com.pulumi.core.Output;
@@ -24,6 +25,8 @@ import javax.annotation.Nullable;
  * `confluentcloud.DnsForwarder` provides a DNS Forwarder resource that enables creating, editing, and deleting DNS Forwarders on Confluent Cloud.
  * 
  * ## Example Usage
+ * 
+ * ### Option #1: Create using ForwardViaIp method
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -79,6 +82,11 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Option #2: Create using ForwardViaGcpDnsZones method
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -139,6 +147,12 @@ public class DnsForwarder extends com.pulumi.resources.CustomResource {
      */
     public Output<DnsForwarderEnvironment> environment() {
         return this.environment;
+    }
+    @Export(name="forwardViaGcpDnsZones", refs={DnsForwarderForwardViaGcpDnsZones.class}, tree="[0]")
+    private Output</* @Nullable */ DnsForwarderForwardViaGcpDnsZones> forwardViaGcpDnsZones;
+
+    public Output<Optional<DnsForwarderForwardViaGcpDnsZones>> forwardViaGcpDnsZones() {
+        return Codegen.optional(this.forwardViaGcpDnsZones);
     }
     @Export(name="forwardViaIp", refs={DnsForwarderForwardViaIp.class}, tree="[0]")
     private Output</* @Nullable */ DnsForwarderForwardViaIp> forwardViaIp;

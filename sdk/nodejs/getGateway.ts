@@ -74,6 +74,14 @@ export interface GetGatewayResult {
      */
     readonly displayName: string;
     readonly environment: outputs.GetGatewayEnvironment;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly gcpEgressPrivateServiceConnectGateways: outputs.GetGatewayGcpEgressPrivateServiceConnectGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly gcpPeeringGateways: outputs.GetGatewayGcpPeeringGateway[];
     readonly id: string;
 }
 /**

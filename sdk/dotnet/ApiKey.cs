@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Example Usage
     /// 
-    /// ### Example Kafka API Key
+    /// ### Example Tableflow API Key
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -21,78 +21,10 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var app_manager_kafka_api_key = new ConfluentCloud.ApiKey("app-manager-kafka-api-key", new()
+    ///     var env_manager_tableflow_api_key = new ConfluentCloud.ApiKey("env-manager-tableflow-api-key", new()
     ///     {
-    ///         DisplayName = "app-manager-kafka-api-key",
-    ///         Description = "Kafka API Key that is owned by 'app-manager' service account",
-    ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
-    ///         {
-    ///             Id = app_manager.Id,
-    ///             ApiVersion = app_manager.ApiVersion,
-    ///             Kind = app_manager.Kind,
-    ///         },
-    ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
-    ///         {
-    ///             Id = basic.Id,
-    ///             ApiVersion = basic.ApiVersion,
-    ///             Kind = basic.Kind,
-    ///             Environment = new ConfluentCloud.Inputs.ApiKeyManagedResourceEnvironmentArgs
-    ///             {
-    ///                 Id = staging.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Example ksqlDB API Key
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using ConfluentCloud = Pulumi.ConfluentCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ksqldb_api_key = new ConfluentCloud.ApiKey("ksqldb-api-key", new()
-    ///     {
-    ///         DisplayName = "ksqldb-api-key",
-    ///         Description = "KsqlDB API Key that is owned by 'app-manager' service account",
-    ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
-    ///         {
-    ///             Id = app_manager.Id,
-    ///             ApiVersion = app_manager.ApiVersion,
-    ///             Kind = app_manager.Kind,
-    ///         },
-    ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
-    ///         {
-    ///             Id = main.Id,
-    ///             ApiVersion = main.ApiVersion,
-    ///             Kind = main.Kind,
-    ///             Environment = new ConfluentCloud.Inputs.ApiKeyManagedResourceEnvironmentArgs
-    ///             {
-    ///                 Id = staging.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Example Schema Registry API Key
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using ConfluentCloud = Pulumi.ConfluentCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var env_manager_schema_registry_api_key = new ConfluentCloud.ApiKey("env-manager-schema-registry-api-key", new()
-    ///     {
-    ///         DisplayName = "env-manager-schema-registry-api-key",
-    ///         Description = "Schema Registry API Key that is owned by 'env-manager' service account",
+    ///         DisplayName = "env-manager-tableflow-api-key",
+    ///         Description = "Tableflow API Key that is owned by 'env-manager' service account",
     ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
     ///         {
     ///             Id = env_manager.Id,
@@ -101,47 +33,9 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
     ///         {
-    ///             Id = essentials.Id,
-    ///             ApiVersion = essentials.ApiVersion,
-    ///             Kind = essentials.Kind,
-    ///             Environment = new ConfluentCloud.Inputs.ApiKeyManagedResourceEnvironmentArgs
-    ///             {
-    ///                 Id = staging.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Example Flink API Key
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using ConfluentCloud = Pulumi.ConfluentCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var env_manager_flink_api_key = new ConfluentCloud.ApiKey("env-manager-flink-api-key", new()
-    ///     {
-    ///         DisplayName = "env-manager-flink-api-key",
-    ///         Description = "Flink API Key that is owned by 'env-manager' service account",
-    ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
-    ///         {
-    ///             Id = env_manager.Id,
-    ///             ApiVersion = env_manager.ApiVersion,
-    ///             Kind = env_manager.Kind,
-    ///         },
-    ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
-    ///         {
-    ///             Id = example.Id,
-    ///             ApiVersion = example.ApiVersion,
-    ///             Kind = example.Kind,
-    ///             Environment = new ConfluentCloud.Inputs.ApiKeyManagedResourceEnvironmentArgs
-    ///             {
-    ///                 Id = staging.Id,
-    ///             },
+    ///             Id = "tableflow",
+    ///             ApiVersion = "tableflow/v1",
+    ///             Kind = "Tableflow",
     ///         },
     ///     });
     /// 
@@ -213,7 +107,7 @@ namespace Pulumi.ConfluentCloud
     /// $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
     /// ```
     /// 
-    /// You can import a Cloud API Key by using Cloud API Key ID, for example:
+    /// You can import a Cloud or Tableflow API Key by using Cloud or Tableflow API Key ID, for example:
     /// 
     /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
     /// 
@@ -221,7 +115,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// $ export API_KEY_SECRET="&lt;api_key_secret&gt;"
     /// 
-    /// Option #2: Cloud API Key
+    /// Option #2: Cloud or Tableflow API Key
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key "4UEXOMMWIBE5KZQG"
