@@ -21,7 +21,11 @@ public final class GetFlinkArtifactResult {
     /**
      * @return (Required String) Java class or alias for the Flink Artifact as provided by developer.
      * 
+     * @deprecated
+     * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+     * 
      */
+    @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
     private String class_;
     private String cloud;
     /**
@@ -35,6 +39,7 @@ public final class GetFlinkArtifactResult {
      */
     private String description;
     private String displayName;
+    private String documentationLink;
     private GetFlinkArtifactEnvironment environment;
     private String id;
     /**
@@ -61,7 +66,11 @@ public final class GetFlinkArtifactResult {
     /**
      * @return (Required String) Java class or alias for the Flink Artifact as provided by developer.
      * 
+     * @deprecated
+     * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+     * 
      */
+    @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
     public String class_() {
         return this.class_;
     }
@@ -84,6 +93,9 @@ public final class GetFlinkArtifactResult {
     }
     public String displayName() {
         return this.displayName;
+    }
+    public String documentationLink() {
+        return this.documentationLink;
     }
     public GetFlinkArtifactEnvironment environment() {
         return this.environment;
@@ -127,6 +139,7 @@ public final class GetFlinkArtifactResult {
         private String contentFormat;
         private String description;
         private String displayName;
+        private String documentationLink;
         private GetFlinkArtifactEnvironment environment;
         private String id;
         private String kind;
@@ -142,6 +155,7 @@ public final class GetFlinkArtifactResult {
     	      this.contentFormat = defaults.contentFormat;
     	      this.description = defaults.description;
     	      this.displayName = defaults.displayName;
+    	      this.documentationLink = defaults.documentationLink;
     	      this.environment = defaults.environment;
     	      this.id = defaults.id;
     	      this.kind = defaults.kind;
@@ -196,6 +210,14 @@ public final class GetFlinkArtifactResult {
               throw new MissingRequiredPropertyException("GetFlinkArtifactResult", "displayName");
             }
             this.displayName = displayName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder documentationLink(String documentationLink) {
+            if (documentationLink == null) {
+              throw new MissingRequiredPropertyException("GetFlinkArtifactResult", "documentationLink");
+            }
+            this.documentationLink = documentationLink;
             return this;
         }
         @CustomType.Setter
@@ -257,6 +279,7 @@ public final class GetFlinkArtifactResult {
             _resultValue.contentFormat = contentFormat;
             _resultValue.description = description;
             _resultValue.displayName = displayName;
+            _resultValue.documentationLink = documentationLink;
             _resultValue.environment = environment;
             _resultValue.id = id;
             _resultValue.kind = kind;

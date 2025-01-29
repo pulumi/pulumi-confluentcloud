@@ -17,6 +17,29 @@ public final class GetFlinkArtifactPlainArgs extends com.pulumi.resources.Invoke
     public static final GetFlinkArtifactPlainArgs Empty = new GetFlinkArtifactPlainArgs();
 
     /**
+     * (Required String) Java class or alias for the Flink Artifact as provided by developer.
+     * 
+     * @deprecated
+     * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+     * 
+     */
+    @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
+    @Import(name="class")
+    private @Nullable String class_;
+
+    /**
+     * @return (Required String) Java class or alias for the Flink Artifact as provided by developer.
+     * 
+     * @deprecated
+     * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+     * 
+     */
+    @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
+    public Optional<String> class_() {
+        return Optional.ofNullable(this.class_);
+    }
+
+    /**
      * The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      * 
      */
@@ -90,6 +113,7 @@ public final class GetFlinkArtifactPlainArgs extends com.pulumi.resources.Invoke
     private GetFlinkArtifactPlainArgs() {}
 
     private GetFlinkArtifactPlainArgs(GetFlinkArtifactPlainArgs $) {
+        this.class_ = $.class_;
         this.cloud = $.cloud;
         this.displayName = $.displayName;
         this.environment = $.environment;
@@ -113,6 +137,21 @@ public final class GetFlinkArtifactPlainArgs extends com.pulumi.resources.Invoke
 
         public Builder(GetFlinkArtifactPlainArgs defaults) {
             $ = new GetFlinkArtifactPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param class_ (Required String) Java class or alias for the Flink Artifact as provided by developer.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+         * 
+         */
+        @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
+        public Builder class_(@Nullable String class_) {
+            $.class_ = class_;
+            return this;
         }
 
         /**

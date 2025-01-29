@@ -21,52 +21,48 @@ __all__ = ['FlinkArtifactArgs', 'FlinkArtifact']
 @pulumi.input_type
 class FlinkArtifactArgs:
     def __init__(__self__, *,
-                 class_: pulumi.Input[str],
                  cloud: pulumi.Input[str],
                  display_name: pulumi.Input[str],
                  environment: pulumi.Input['FlinkArtifactEnvironmentArgs'],
                  region: pulumi.Input[str],
                  artifact_file: Optional[pulumi.Input[str]] = None,
+                 class_: Optional[pulumi.Input[str]] = None,
                  content_format: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 documentation_link: Optional[pulumi.Input[str]] = None,
                  runtime_language: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FlinkArtifact resource.
-        :param pulumi.Input[str] class_: Java class or alias for the Flink Artifact as provided by developer.
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Flink Artifact.
-        :param pulumi.Input[str] display_name: The display name of Flink Artifact.
+        :param pulumi.Input[str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
         :param pulumi.Input['FlinkArtifactEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Artifact.
         :param pulumi.Input[str] artifact_file: The artifact file for Flink Artifact.
-        :param pulumi.Input[str] content_format: (Optional String) Archive format of the Flink Artifact.
+        :param pulumi.Input[str] class_: Java class or alias for the Flink Artifact as provided by developer.
+        :param pulumi.Input[str] content_format: (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         :param pulumi.Input[str] description: (Optional String) Description of the Flink Artifact.
-        :param pulumi.Input[str] runtime_language: (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+        :param pulumi.Input[str] documentation_link: (Optional String) Documentation link of the Flink Artifact.
+        :param pulumi.Input[str] runtime_language: (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         """
-        pulumi.set(__self__, "class_", class_)
         pulumi.set(__self__, "cloud", cloud)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "region", region)
         if artifact_file is not None:
             pulumi.set(__self__, "artifact_file", artifact_file)
+        if class_ is not None:
+            warnings.warn("""The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.""", DeprecationWarning)
+            pulumi.log.warn("""class_ is deprecated: The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.""")
+        if class_ is not None:
+            pulumi.set(__self__, "class_", class_)
         if content_format is not None:
             pulumi.set(__self__, "content_format", content_format)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if documentation_link is not None:
+            pulumi.set(__self__, "documentation_link", documentation_link)
         if runtime_language is not None:
             pulumi.set(__self__, "runtime_language", runtime_language)
-
-    @property
-    @pulumi.getter(name="class")
-    def class_(self) -> pulumi.Input[str]:
-        """
-        Java class or alias for the Flink Artifact as provided by developer.
-        """
-        return pulumi.get(self, "class_")
-
-    @class_.setter
-    def class_(self, value: pulumi.Input[str]):
-        pulumi.set(self, "class_", value)
 
     @property
     @pulumi.getter
@@ -84,7 +80,7 @@ class FlinkArtifactArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
         """
-        The display name of Flink Artifact.
+        The unique name of the Flink Artifact per cloud, region, environment scope.
         """
         return pulumi.get(self, "display_name")
 
@@ -129,10 +125,23 @@ class FlinkArtifactArgs:
         pulumi.set(self, "artifact_file", value)
 
     @property
+    @pulumi.getter(name="class")
+    @_utilities.deprecated("""The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.""")
+    def class_(self) -> Optional[pulumi.Input[str]]:
+        """
+        Java class or alias for the Flink Artifact as provided by developer.
+        """
+        return pulumi.get(self, "class_")
+
+    @class_.setter
+    def class_(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "class_", value)
+
+    @property
     @pulumi.getter(name="contentFormat")
     def content_format(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional String) Archive format of the Flink Artifact.
+        (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         """
         return pulumi.get(self, "content_format")
 
@@ -153,10 +162,22 @@ class FlinkArtifactArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="documentationLink")
+    def documentation_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional String) Documentation link of the Flink Artifact.
+        """
+        return pulumi.get(self, "documentation_link")
+
+    @documentation_link.setter
+    def documentation_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "documentation_link", value)
+
+    @property
     @pulumi.getter(name="runtimeLanguage")
     def runtime_language(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+        (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         """
         return pulumi.get(self, "runtime_language")
 
@@ -175,6 +196,7 @@ class _FlinkArtifactState:
                  content_format: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 documentation_link: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['FlinkArtifactEnvironmentArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
@@ -186,19 +208,23 @@ class _FlinkArtifactState:
         :param pulumi.Input[str] artifact_file: The artifact file for Flink Artifact.
         :param pulumi.Input[str] class_: Java class or alias for the Flink Artifact as provided by developer.
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Flink Artifact.
-        :param pulumi.Input[str] content_format: (Optional String) Archive format of the Flink Artifact.
+        :param pulumi.Input[str] content_format: (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         :param pulumi.Input[str] description: (Optional String) Description of the Flink Artifact.
-        :param pulumi.Input[str] display_name: The display name of Flink Artifact.
+        :param pulumi.Input[str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
+        :param pulumi.Input[str] documentation_link: (Optional String) Documentation link of the Flink Artifact.
         :param pulumi.Input['FlinkArtifactEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) The kind of the Flink Artifact Pool, for example, `FlinkArtifact`.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Artifact.
-        :param pulumi.Input[str] runtime_language: (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+        :param pulumi.Input[str] runtime_language: (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         :param pulumi.Input[Sequence[pulumi.Input['FlinkArtifactVersionArgs']]] versions: List of versions for this Flink Artifact.
         """
         if api_version is not None:
             pulumi.set(__self__, "api_version", api_version)
         if artifact_file is not None:
             pulumi.set(__self__, "artifact_file", artifact_file)
+        if class_ is not None:
+            warnings.warn("""The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.""", DeprecationWarning)
+            pulumi.log.warn("""class_ is deprecated: The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.""")
         if class_ is not None:
             pulumi.set(__self__, "class_", class_)
         if cloud is not None:
@@ -209,6 +235,8 @@ class _FlinkArtifactState:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if documentation_link is not None:
+            pulumi.set(__self__, "documentation_link", documentation_link)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
         if kind is not None:
@@ -246,6 +274,7 @@ class _FlinkArtifactState:
 
     @property
     @pulumi.getter(name="class")
+    @_utilities.deprecated("""The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.""")
     def class_(self) -> Optional[pulumi.Input[str]]:
         """
         Java class or alias for the Flink Artifact as provided by developer.
@@ -272,7 +301,7 @@ class _FlinkArtifactState:
     @pulumi.getter(name="contentFormat")
     def content_format(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional String) Archive format of the Flink Artifact.
+        (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         """
         return pulumi.get(self, "content_format")
 
@@ -296,13 +325,25 @@ class _FlinkArtifactState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The display name of Flink Artifact.
+        The unique name of the Flink Artifact per cloud, region, environment scope.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="documentationLink")
+    def documentation_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional String) Documentation link of the Flink Artifact.
+        """
+        return pulumi.get(self, "documentation_link")
+
+    @documentation_link.setter
+    def documentation_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "documentation_link", value)
 
     @property
     @pulumi.getter
@@ -344,7 +385,7 @@ class _FlinkArtifactState:
     @pulumi.getter(name="runtimeLanguage")
     def runtime_language(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+        (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         """
         return pulumi.get(self, "runtime_language")
 
@@ -376,6 +417,7 @@ class FlinkArtifact(pulumi.CustomResource):
                  content_format: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 documentation_link: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  runtime_language: Optional[pulumi.Input[str]] = None,
@@ -389,10 +431,9 @@ class FlinkArtifact(pulumi.CustomResource):
 
         development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.FlinkArtifact("main",
-            class_="io.confluent.example.SumScalarFunction",
-            region="us-west-2",
             cloud="AWS",
-            display_name="flink_sumscalar_artifact",
+            region="us-west-2",
+            display_name="my_flink_sumscalar_artifact",
             content_format="JAR",
             environment={
                 "id": development.id,
@@ -418,12 +459,13 @@ class FlinkArtifact(pulumi.CustomResource):
         :param pulumi.Input[str] artifact_file: The artifact file for Flink Artifact.
         :param pulumi.Input[str] class_: Java class or alias for the Flink Artifact as provided by developer.
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Flink Artifact.
-        :param pulumi.Input[str] content_format: (Optional String) Archive format of the Flink Artifact.
+        :param pulumi.Input[str] content_format: (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         :param pulumi.Input[str] description: (Optional String) Description of the Flink Artifact.
-        :param pulumi.Input[str] display_name: The display name of Flink Artifact.
+        :param pulumi.Input[str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
+        :param pulumi.Input[str] documentation_link: (Optional String) Documentation link of the Flink Artifact.
         :param pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Artifact.
-        :param pulumi.Input[str] runtime_language: (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+        :param pulumi.Input[str] runtime_language: (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         """
         ...
     @overload
@@ -440,10 +482,9 @@ class FlinkArtifact(pulumi.CustomResource):
 
         development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.FlinkArtifact("main",
-            class_="io.confluent.example.SumScalarFunction",
-            region="us-west-2",
             cloud="AWS",
-            display_name="flink_sumscalar_artifact",
+            region="us-west-2",
+            display_name="my_flink_sumscalar_artifact",
             content_format="JAR",
             environment={
                 "id": development.id,
@@ -485,6 +526,7 @@ class FlinkArtifact(pulumi.CustomResource):
                  content_format: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 documentation_link: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  runtime_language: Optional[pulumi.Input[str]] = None,
@@ -498,8 +540,6 @@ class FlinkArtifact(pulumi.CustomResource):
             __props__ = FlinkArtifactArgs.__new__(FlinkArtifactArgs)
 
             __props__.__dict__["artifact_file"] = artifact_file
-            if class_ is None and not opts.urn:
-                raise TypeError("Missing required property 'class_'")
             __props__.__dict__["class_"] = class_
             if cloud is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud'")
@@ -509,6 +549,7 @@ class FlinkArtifact(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["documentation_link"] = documentation_link
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
@@ -536,6 +577,7 @@ class FlinkArtifact(pulumi.CustomResource):
             content_format: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
+            documentation_link: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             region: Optional[pulumi.Input[str]] = None,
@@ -552,13 +594,14 @@ class FlinkArtifact(pulumi.CustomResource):
         :param pulumi.Input[str] artifact_file: The artifact file for Flink Artifact.
         :param pulumi.Input[str] class_: Java class or alias for the Flink Artifact as provided by developer.
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Flink Artifact.
-        :param pulumi.Input[str] content_format: (Optional String) Archive format of the Flink Artifact.
+        :param pulumi.Input[str] content_format: (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         :param pulumi.Input[str] description: (Optional String) Description of the Flink Artifact.
-        :param pulumi.Input[str] display_name: The display name of Flink Artifact.
+        :param pulumi.Input[str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
+        :param pulumi.Input[str] documentation_link: (Optional String) Documentation link of the Flink Artifact.
         :param pulumi.Input[Union['FlinkArtifactEnvironmentArgs', 'FlinkArtifactEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) The kind of the Flink Artifact Pool, for example, `FlinkArtifact`.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Artifact.
-        :param pulumi.Input[str] runtime_language: (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+        :param pulumi.Input[str] runtime_language: (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FlinkArtifactVersionArgs', 'FlinkArtifactVersionArgsDict']]]] versions: List of versions for this Flink Artifact.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -572,6 +615,7 @@ class FlinkArtifact(pulumi.CustomResource):
         __props__.__dict__["content_format"] = content_format
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["documentation_link"] = documentation_link
         __props__.__dict__["environment"] = environment
         __props__.__dict__["kind"] = kind
         __props__.__dict__["region"] = region
@@ -597,7 +641,8 @@ class FlinkArtifact(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="class")
-    def class_(self) -> pulumi.Output[str]:
+    @_utilities.deprecated("""The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.""")
+    def class_(self) -> pulumi.Output[Optional[str]]:
         """
         Java class or alias for the Flink Artifact as provided by developer.
         """
@@ -615,7 +660,7 @@ class FlinkArtifact(pulumi.CustomResource):
     @pulumi.getter(name="contentFormat")
     def content_format(self) -> pulumi.Output[str]:
         """
-        (Optional String) Archive format of the Flink Artifact.
+        (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         """
         return pulumi.get(self, "content_format")
 
@@ -631,9 +676,17 @@ class FlinkArtifact(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
-        The display name of Flink Artifact.
+        The unique name of the Flink Artifact per cloud, region, environment scope.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="documentationLink")
+    def documentation_link(self) -> pulumi.Output[Optional[str]]:
+        """
+        (Optional String) Documentation link of the Flink Artifact.
+        """
+        return pulumi.get(self, "documentation_link")
 
     @property
     @pulumi.getter
@@ -663,7 +716,7 @@ class FlinkArtifact(pulumi.CustomResource):
     @pulumi.getter(name="runtimeLanguage")
     def runtime_language(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+        (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         """
         return pulumi.get(self, "runtime_language")
 

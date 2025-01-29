@@ -40,6 +40,7 @@ import * as utilities from "./utilities";
 export function getFlinkArtifact(args: GetFlinkArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetFlinkArtifactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", {
+        "class": args.class,
         "cloud": args.cloud,
         "displayName": args.displayName,
         "environment": args.environment,
@@ -52,6 +53,12 @@ export function getFlinkArtifact(args: GetFlinkArtifactArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getFlinkArtifact.
  */
 export interface GetFlinkArtifactArgs {
+    /**
+     * (Required String) Java class or alias for the Flink Artifact as provided by developer.
+     *
+     * @deprecated The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+     */
+    class?: string;
     /**
      * The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
@@ -83,6 +90,8 @@ export interface GetFlinkArtifactResult {
     readonly apiVersion: string;
     /**
      * (Required String) Java class or alias for the Flink Artifact as provided by developer.
+     *
+     * @deprecated The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
      */
     readonly class: string;
     readonly cloud: string;
@@ -95,6 +104,7 @@ export interface GetFlinkArtifactResult {
      */
     readonly description: string;
     readonly displayName: string;
+    readonly documentationLink: string;
     readonly environment: outputs.GetFlinkArtifactEnvironment;
     readonly id: string;
     /**
@@ -142,6 +152,7 @@ export interface GetFlinkArtifactResult {
 export function getFlinkArtifactOutput(args: GetFlinkArtifactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlinkArtifactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getFlinkArtifact:getFlinkArtifact", {
+        "class": args.class,
         "cloud": args.cloud,
         "displayName": args.displayName,
         "environment": args.environment,
@@ -154,6 +165,12 @@ export function getFlinkArtifactOutput(args: GetFlinkArtifactOutputArgs, opts?: 
  * A collection of arguments for invoking getFlinkArtifact.
  */
 export interface GetFlinkArtifactOutputArgs {
+    /**
+     * (Required String) Java class or alias for the Flink Artifact as provided by developer.
+     *
+     * @deprecated The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+     */
+    class?: pulumi.Input<string>;
     /**
      * The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */

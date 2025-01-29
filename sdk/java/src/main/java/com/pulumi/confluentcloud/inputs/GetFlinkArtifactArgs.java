@@ -18,6 +18,29 @@ public final class GetFlinkArtifactArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetFlinkArtifactArgs Empty = new GetFlinkArtifactArgs();
 
     /**
+     * (Required String) Java class or alias for the Flink Artifact as provided by developer.
+     * 
+     * @deprecated
+     * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+     * 
+     */
+    @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
+    @Import(name="class")
+    private @Nullable Output<String> class_;
+
+    /**
+     * @return (Required String) Java class or alias for the Flink Artifact as provided by developer.
+     * 
+     * @deprecated
+     * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+     * 
+     */
+    @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
+    public Optional<Output<String>> class_() {
+        return Optional.ofNullable(this.class_);
+    }
+
+    /**
      * The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      * 
      */
@@ -91,6 +114,7 @@ public final class GetFlinkArtifactArgs extends com.pulumi.resources.InvokeArgs 
     private GetFlinkArtifactArgs() {}
 
     private GetFlinkArtifactArgs(GetFlinkArtifactArgs $) {
+        this.class_ = $.class_;
         this.cloud = $.cloud;
         this.displayName = $.displayName;
         this.environment = $.environment;
@@ -114,6 +138,35 @@ public final class GetFlinkArtifactArgs extends com.pulumi.resources.InvokeArgs 
 
         public Builder(GetFlinkArtifactArgs defaults) {
             $ = new GetFlinkArtifactArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param class_ (Required String) Java class or alias for the Flink Artifact as provided by developer.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+         * 
+         */
+        @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
+        public Builder class_(@Nullable Output<String> class_) {
+            $.class_ = class_;
+            return this;
+        }
+
+        /**
+         * @param class_ (Required String) Java class or alias for the Flink Artifact as provided by developer.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+         * 
+         */
+        @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
+        public Builder class_(String class_) {
+            return class_(Output.of(class_));
         }
 
         /**

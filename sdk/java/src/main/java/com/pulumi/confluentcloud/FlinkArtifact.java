@@ -51,10 +51,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var main = new FlinkArtifact("main", FlinkArtifactArgs.builder()
- *             .class_("io.confluent.example.SumScalarFunction")
- *             .region("us-west-2")
  *             .cloud("AWS")
- *             .displayName("flink_sumscalar_artifact")
+ *             .region("us-west-2")
+ *             .displayName("my_flink_sumscalar_artifact")
  *             .contentFormat("JAR")
  *             .environment(FlinkArtifactEnvironmentArgs.builder()
  *                 .id(development.id())
@@ -115,16 +114,20 @@ public class FlinkArtifact extends com.pulumi.resources.CustomResource {
     /**
      * Java class or alias for the Flink Artifact as provided by developer.
      * 
+     * @deprecated
+     * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+     * 
      */
+    @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
     @Export(name="class", refs={String.class}, tree="[0]")
-    private Output<String> class_;
+    private Output</* @Nullable */ String> class_;
 
     /**
      * @return Java class or alias for the Flink Artifact as provided by developer.
      * 
      */
-    public Output<String> class_() {
-        return this.class_;
+    public Output<Optional<String>> class_() {
+        return Codegen.optional(this.class_);
     }
     /**
      * The cloud service provider that runs the Flink Artifact.
@@ -141,14 +144,14 @@ public class FlinkArtifact extends com.pulumi.resources.CustomResource {
         return this.cloud;
     }
     /**
-     * (Optional String) Archive format of the Flink Artifact.
+     * (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
      * 
      */
     @Export(name="contentFormat", refs={String.class}, tree="[0]")
     private Output<String> contentFormat;
 
     /**
-     * @return (Optional String) Archive format of the Flink Artifact.
+     * @return (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
      * 
      */
     public Output<String> contentFormat() {
@@ -169,18 +172,32 @@ public class FlinkArtifact extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The display name of Flink Artifact.
+     * The unique name of the Flink Artifact per cloud, region, environment scope.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return The display name of Flink Artifact.
+     * @return The unique name of the Flink Artifact per cloud, region, environment scope.
      * 
      */
     public Output<String> displayName() {
         return this.displayName;
+    }
+    /**
+     * (Optional String) Documentation link of the Flink Artifact.
+     * 
+     */
+    @Export(name="documentationLink", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> documentationLink;
+
+    /**
+     * @return (Optional String) Documentation link of the Flink Artifact.
+     * 
+     */
+    public Output<Optional<String>> documentationLink() {
+        return Codegen.optional(this.documentationLink);
     }
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -225,14 +242,14 @@ public class FlinkArtifact extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+     * (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
      * 
      */
     @Export(name="runtimeLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeLanguage;
 
     /**
-     * @return (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+     * @return (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
      * 
      */
     public Output<Optional<String>> runtimeLanguage() {
