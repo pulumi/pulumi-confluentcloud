@@ -6914,7 +6914,7 @@
             }
         },
         "confluentcloud:index/flinkArtifact:FlinkArtifact": {
-            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst main = new confluentcloud.FlinkArtifact(\"main\", {\n    \"class\": \"io.confluent.example.SumScalarFunction\",\n    region: \"us-west-2\",\n    cloud: \"AWS\",\n    displayName: \"flink_sumscalar_artifact\",\n    contentFormat: \"JAR\",\n    environment: {\n        id: development.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\nmain = confluentcloud.FlinkArtifact(\"main\",\n    class_=\"io.confluent.example.SumScalarFunction\",\n    region=\"us-west-2\",\n    cloud=\"AWS\",\n    display_name=\"flink_sumscalar_artifact\",\n    content_format=\"JAR\",\n    environment={\n        \"id\": development.id,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var main = new ConfluentCloud.FlinkArtifact(\"main\", new()\n    {\n        Class = \"io.confluent.example.SumScalarFunction\",\n        Region = \"us-west-2\",\n        Cloud = \"AWS\",\n        DisplayName = \"flink_sumscalar_artifact\",\n        ContentFormat = \"JAR\",\n        Environment = new ConfluentCloud.Inputs.FlinkArtifactEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewFlinkArtifact(ctx, \"main\", \u0026confluentcloud.FlinkArtifactArgs{\n\t\t\tClass:         pulumi.String(\"io.confluent.example.SumScalarFunction\"),\n\t\t\tRegion:        pulumi.String(\"us-west-2\"),\n\t\t\tCloud:         pulumi.String(\"AWS\"),\n\t\t\tDisplayName:   pulumi.String(\"flink_sumscalar_artifact\"),\n\t\t\tContentFormat: pulumi.String(\"JAR\"),\n\t\t\tEnvironment: \u0026confluentcloud.FlinkArtifactEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.FlinkArtifact;\nimport com.pulumi.confluentcloud.FlinkArtifactArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkArtifactEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var main = new FlinkArtifact(\"main\", FlinkArtifactArgs.builder()\n            .class_(\"io.confluent.example.SumScalarFunction\")\n            .region(\"us-west-2\")\n            .cloud(\"AWS\")\n            .displayName(\"flink_sumscalar_artifact\")\n            .contentFormat(\"JAR\")\n            .environment(FlinkArtifactEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  main:\n    type: confluentcloud:FlinkArtifact\n    properties:\n      class: io.confluent.example.SumScalarFunction\n      region: us-west-2\n      cloud: AWS\n      displayName: flink_sumscalar_artifact\n      contentFormat: JAR\n      environment:\n        id: ${development.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Flink Artifact by using cloud, region, Flink Artifact ID and artifact file, in the format `\u003cEnvironment ID\u003e/\u003cregion\u003e/\u003ccloud\u003e/\u003cFlink Artifact ID\u003e`. The following example shows how to import a Flink Artifact:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/flinkArtifact:FlinkArtifact main env-abc123/us-east-1/aws/fa-123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst main = new confluentcloud.FlinkArtifact(\"main\", {\n    cloud: \"AWS\",\n    region: \"us-west-2\",\n    displayName: \"my_flink_sumscalar_artifact\",\n    contentFormat: \"JAR\",\n    environment: {\n        id: development.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\nmain = confluentcloud.FlinkArtifact(\"main\",\n    cloud=\"AWS\",\n    region=\"us-west-2\",\n    display_name=\"my_flink_sumscalar_artifact\",\n    content_format=\"JAR\",\n    environment={\n        \"id\": development.id,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var main = new ConfluentCloud.FlinkArtifact(\"main\", new()\n    {\n        Cloud = \"AWS\",\n        Region = \"us-west-2\",\n        DisplayName = \"my_flink_sumscalar_artifact\",\n        ContentFormat = \"JAR\",\n        Environment = new ConfluentCloud.Inputs.FlinkArtifactEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewFlinkArtifact(ctx, \"main\", \u0026confluentcloud.FlinkArtifactArgs{\n\t\t\tCloud:         pulumi.String(\"AWS\"),\n\t\t\tRegion:        pulumi.String(\"us-west-2\"),\n\t\t\tDisplayName:   pulumi.String(\"my_flink_sumscalar_artifact\"),\n\t\t\tContentFormat: pulumi.String(\"JAR\"),\n\t\t\tEnvironment: \u0026confluentcloud.FlinkArtifactEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.FlinkArtifact;\nimport com.pulumi.confluentcloud.FlinkArtifactArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkArtifactEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var main = new FlinkArtifact(\"main\", FlinkArtifactArgs.builder()\n            .cloud(\"AWS\")\n            .region(\"us-west-2\")\n            .displayName(\"my_flink_sumscalar_artifact\")\n            .contentFormat(\"JAR\")\n            .environment(FlinkArtifactEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  main:\n    type: confluentcloud:FlinkArtifact\n    properties:\n      cloud: AWS\n      region: us-west-2\n      displayName: my_flink_sumscalar_artifact\n      contentFormat: JAR\n      environment:\n        id: ${development.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Flink Artifact by using cloud, region, Flink Artifact ID and artifact file, in the format `\u003cEnvironment ID\u003e/\u003cregion\u003e/\u003ccloud\u003e/\u003cFlink Artifact ID\u003e`. The following example shows how to import a Flink Artifact:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/flinkArtifact:FlinkArtifact main env-abc123/us-east-1/aws/fa-123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "apiVersion": {
                     "type": "string",
@@ -6926,7 +6926,8 @@
                 },
                 "class": {
                     "type": "string",
-                    "description": "Java class or alias for the Flink Artifact as provided by developer.\n"
+                    "description": "Java class or alias for the Flink Artifact as provided by developer.\n",
+                    "deprecationMessage": "The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released."
                 },
                 "cloud": {
                     "type": "string",
@@ -6934,7 +6935,7 @@
                 },
                 "contentFormat": {
                     "type": "string",
-                    "description": "(Optional String) Archive format of the Flink Artifact.\n"
+                    "description": "(Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.\n"
                 },
                 "description": {
                     "type": "string",
@@ -6942,7 +6943,11 @@
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "The display name of Flink Artifact.\n"
+                    "description": "The unique name of the Flink Artifact per cloud, region, environment scope.\n"
+                },
+                "documentationLink": {
+                    "type": "string",
+                    "description": "(Optional String) Documentation link of the Flink Artifact.\n"
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/FlinkArtifactEnvironment:FlinkArtifactEnvironment",
@@ -6958,7 +6963,7 @@
                 },
                 "runtimeLanguage": {
                     "type": "string",
-                    "description": "(Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.\n"
+                    "description": "(Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.\n"
                 },
                 "versions": {
                     "type": "array",
@@ -6970,7 +6975,6 @@
             },
             "required": [
                 "apiVersion",
-                "class",
                 "cloud",
                 "contentFormat",
                 "displayName",
@@ -6988,6 +6992,7 @@
                 "class": {
                     "type": "string",
                     "description": "Java class or alias for the Flink Artifact as provided by developer.\n",
+                    "deprecationMessage": "The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.",
                     "willReplaceOnChanges": true
                 },
                 "cloud": {
@@ -6997,7 +7002,7 @@
                 },
                 "contentFormat": {
                     "type": "string",
-                    "description": "(Optional String) Archive format of the Flink Artifact.\n"
+                    "description": "(Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.\n"
                 },
                 "description": {
                     "type": "string",
@@ -7006,7 +7011,12 @@
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "The display name of Flink Artifact.\n",
+                    "description": "The unique name of the Flink Artifact per cloud, region, environment scope.\n",
+                    "willReplaceOnChanges": true
+                },
+                "documentationLink": {
+                    "type": "string",
+                    "description": "(Optional String) Documentation link of the Flink Artifact.\n",
                     "willReplaceOnChanges": true
                 },
                 "environment": {
@@ -7021,12 +7031,11 @@
                 },
                 "runtimeLanguage": {
                     "type": "string",
-                    "description": "(Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.\n",
+                    "description": "(Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.\n",
                     "willReplaceOnChanges": true
                 }
             },
             "requiredInputs": [
-                "class",
                 "cloud",
                 "displayName",
                 "environment",
@@ -7047,6 +7056,7 @@
                     "class": {
                         "type": "string",
                         "description": "Java class or alias for the Flink Artifact as provided by developer.\n",
+                        "deprecationMessage": "The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.",
                         "willReplaceOnChanges": true
                     },
                     "cloud": {
@@ -7056,7 +7066,7 @@
                     },
                     "contentFormat": {
                         "type": "string",
-                        "description": "(Optional String) Archive format of the Flink Artifact.\n"
+                        "description": "(Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.\n"
                     },
                     "description": {
                         "type": "string",
@@ -7065,7 +7075,12 @@
                     },
                     "displayName": {
                         "type": "string",
-                        "description": "The display name of Flink Artifact.\n",
+                        "description": "The unique name of the Flink Artifact per cloud, region, environment scope.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "documentationLink": {
+                        "type": "string",
+                        "description": "(Optional String) Documentation link of the Flink Artifact.\n",
                         "willReplaceOnChanges": true
                     },
                     "environment": {
@@ -7084,7 +7099,7 @@
                     },
                     "runtimeLanguage": {
                         "type": "string",
-                        "description": "(Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.\n",
+                        "description": "(Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.\n",
                         "willReplaceOnChanges": true
                     },
                     "versions": {
@@ -11888,6 +11903,11 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getFlinkArtifact.\n",
                 "properties": {
+                    "class": {
+                        "type": "string",
+                        "description": "(Required String) Java class or alias for the Flink Artifact as provided by developer.\n",
+                        "deprecationMessage": "The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released."
+                    },
                     "cloud": {
                         "type": "string",
                         "description": "The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.\n"
@@ -11923,6 +11943,7 @@
                         "type": "string"
                     },
                     "class": {
+                        "deprecationMessage": "The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.",
                         "description": "(Required String) Java class or alias for the Flink Artifact as provided by developer.\n",
                         "type": "string"
                     },
@@ -11938,6 +11959,9 @@
                         "type": "string"
                     },
                     "displayName": {
+                        "type": "string"
+                    },
+                    "documentationLink": {
                         "type": "string"
                     },
                     "environment": {
@@ -11971,6 +11995,7 @@
                     "contentFormat",
                     "description",
                     "displayName",
+                    "documentationLink",
                     "environment",
                     "id",
                     "kind",
