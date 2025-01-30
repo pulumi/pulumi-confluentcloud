@@ -82,6 +82,21 @@ public final class FlinkStatementArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Block for sensitive statement properties:
+     * 
+     */
+    @Import(name="propertiesSensitive")
+    private @Nullable Output<Map<String,String>> propertiesSensitive;
+
+    /**
+     * @return Block for sensitive statement properties:
+     * 
+     */
+    public Optional<Output<Map<String,String>>> propertiesSensitive() {
+        return Optional.ofNullable(this.propertiesSensitive);
+    }
+
+    /**
      * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      * 
      */
@@ -150,6 +165,7 @@ public final class FlinkStatementArgs extends com.pulumi.resources.ResourceArgs 
         this.organization = $.organization;
         this.principal = $.principal;
         this.properties = $.properties;
+        this.propertiesSensitive = $.propertiesSensitive;
         this.restEndpoint = $.restEndpoint;
         this.statement = $.statement;
         this.statementName = $.statementName;
@@ -250,6 +266,27 @@ public final class FlinkStatementArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder properties(Map<String,String> properties) {
             return properties(Output.of(properties));
+        }
+
+        /**
+         * @param propertiesSensitive Block for sensitive statement properties:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder propertiesSensitive(@Nullable Output<Map<String,String>> propertiesSensitive) {
+            $.propertiesSensitive = propertiesSensitive;
+            return this;
+        }
+
+        /**
+         * @param propertiesSensitive Block for sensitive statement properties:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder propertiesSensitive(Map<String,String> propertiesSensitive) {
+            return propertiesSensitive(Output.of(propertiesSensitive));
         }
 
         /**

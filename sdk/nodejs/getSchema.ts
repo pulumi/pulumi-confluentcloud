@@ -113,7 +113,7 @@ export interface GetSchemaResult {
     /**
      * (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
      */
-    readonly ruleset: outputs.GetSchemaRuleset;
+    readonly ruleset?: outputs.GetSchemaRuleset;
     /**
      * (Required String) The schema string, for example, `file("./schema_version_1.avsc")`.
      */

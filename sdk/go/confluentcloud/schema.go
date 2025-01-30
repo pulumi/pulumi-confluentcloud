@@ -59,7 +59,7 @@ type Schema struct {
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
 	// The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-	Ruleset SchemaRulesetOutput `pulumi:"ruleset"`
+	Ruleset SchemaRulesetPtrOutput `pulumi:"ruleset"`
 	// The schema string, for example, `file("./schema_version_1.avsc")`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
@@ -352,8 +352,8 @@ func (o SchemaOutput) RestEndpoint() pulumi.StringPtrOutput {
 }
 
 // The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-func (o SchemaOutput) Ruleset() SchemaRulesetOutput {
-	return o.ApplyT(func(v *Schema) SchemaRulesetOutput { return v.Ruleset }).(SchemaRulesetOutput)
+func (o SchemaOutput) Ruleset() SchemaRulesetPtrOutput {
+	return o.ApplyT(func(v *Schema) SchemaRulesetPtrOutput { return v.Ruleset }).(SchemaRulesetPtrOutput)
 }
 
 // The schema string, for example, `file("./schema_version_1.avsc")`.

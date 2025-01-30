@@ -66,6 +66,10 @@ func LookupFlinkArtifact(ctx *pulumi.Context, args *LookupFlinkArtifactArgs, opt
 
 // A collection of arguments for invoking getFlinkArtifact.
 type LookupFlinkArtifactArgs struct {
+	// (Required String) Java class or alias for the Flink Artifact as provided by developer.
+	//
+	// Deprecated: The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+	Class *string `pulumi:"class"`
 	// The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud string `pulumi:"cloud"`
 	// A human-readable name for the Flink Artifact.
@@ -84,15 +88,18 @@ type LookupFlinkArtifactResult struct {
 	// (Required String) The API Version of the schema version of the Flink Artifact, for example, `fa/v2`.
 	ApiVersion string `pulumi:"apiVersion"`
 	// (Required String) Java class or alias for the Flink Artifact as provided by developer.
+	//
+	// Deprecated: The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
 	Class string `pulumi:"class"`
 	Cloud string `pulumi:"cloud"`
 	// (Required String) Archive format of the Flink Artifact.
 	ContentFormat string `pulumi:"contentFormat"`
 	// (Required String) Description of the Flink Artifact.
-	Description string                      `pulumi:"description"`
-	DisplayName string                      `pulumi:"displayName"`
-	Environment GetFlinkArtifactEnvironment `pulumi:"environment"`
-	Id          string                      `pulumi:"id"`
+	Description       string                      `pulumi:"description"`
+	DisplayName       string                      `pulumi:"displayName"`
+	DocumentationLink string                      `pulumi:"documentationLink"`
+	Environment       GetFlinkArtifactEnvironment `pulumi:"environment"`
+	Id                string                      `pulumi:"id"`
 	// (Required String) The kind of the Flink Artifact, for example, `FlinkArtifact`.
 	Kind   string `pulumi:"kind"`
 	Region string `pulumi:"region"`
@@ -112,6 +119,10 @@ func LookupFlinkArtifactOutput(ctx *pulumi.Context, args LookupFlinkArtifactOutp
 
 // A collection of arguments for invoking getFlinkArtifact.
 type LookupFlinkArtifactOutputArgs struct {
+	// (Required String) Java class or alias for the Flink Artifact as provided by developer.
+	//
+	// Deprecated: The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+	Class pulumi.StringPtrInput `pulumi:"class"`
 	// The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringInput `pulumi:"cloud"`
 	// A human-readable name for the Flink Artifact.
@@ -150,6 +161,8 @@ func (o LookupFlinkArtifactResultOutput) ApiVersion() pulumi.StringOutput {
 }
 
 // (Required String) Java class or alias for the Flink Artifact as provided by developer.
+//
+// Deprecated: The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
 func (o LookupFlinkArtifactResultOutput) Class() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlinkArtifactResult) string { return v.Class }).(pulumi.StringOutput)
 }
@@ -170,6 +183,10 @@ func (o LookupFlinkArtifactResultOutput) Description() pulumi.StringOutput {
 
 func (o LookupFlinkArtifactResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlinkArtifactResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+func (o LookupFlinkArtifactResultOutput) DocumentationLink() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFlinkArtifactResult) string { return v.DocumentationLink }).(pulumi.StringOutput)
 }
 
 func (o LookupFlinkArtifactResultOutput) Environment() GetFlinkArtifactEnvironmentOutput {

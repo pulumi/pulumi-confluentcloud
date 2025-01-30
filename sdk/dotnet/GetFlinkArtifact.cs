@@ -148,6 +148,12 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetFlinkArtifactArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// (Required String) Java class or alias for the Flink Artifact as provided by developer.
+        /// </summary>
+        [Input("class")]
+        public string? Class { get; set; }
+
+        /// <summary>
         /// The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         /// </summary>
         [Input("cloud", required: true)]
@@ -184,6 +190,12 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class GetFlinkArtifactInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// (Required String) Java class or alias for the Flink Artifact as provided by developer.
+        /// </summary>
+        [Input("class")]
+        public Input<string>? Class { get; set; }
+
         /// <summary>
         /// The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         /// </summary>
@@ -241,6 +253,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Description;
         public readonly string DisplayName;
+        public readonly string DocumentationLink;
         public readonly Outputs.GetFlinkArtifactEnvironmentResult Environment;
         public readonly string Id;
         /// <summary>
@@ -268,6 +281,8 @@ namespace Pulumi.ConfluentCloud
 
             string displayName,
 
+            string documentationLink,
+
             Outputs.GetFlinkArtifactEnvironmentResult environment,
 
             string id,
@@ -286,6 +301,7 @@ namespace Pulumi.ConfluentCloud
             ContentFormat = contentFormat;
             Description = description;
             DisplayName = displayName;
+            DocumentationLink = documentationLink;
             Environment = environment;
             Id = id;
             Kind = kind;

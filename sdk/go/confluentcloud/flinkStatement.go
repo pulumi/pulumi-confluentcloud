@@ -91,6 +91,38 @@ import (
 //
 // ```
 //
+// Example of `FlinkStatement` that creates a model:
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewFlinkStatement(ctx, "example", &confluentcloud.FlinkStatementArgs{
+//				Statement: pulumi.String("CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');"),
+//				Properties: pulumi.StringMap{
+//					"sql.current-catalog":  pulumi.Any(confluentEnvironmentDisplayName),
+//					"sql.current-database": pulumi.Any(confluentKafkaClusterDisplayName),
+//				},
+//				PropertiesSensitive: pulumi.StringMap{
+//					"sql.secrets.openaikey": pulumi.String("***REDACTED***"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Getting Started
 //
 // The following end-to-end example might help to get started with [Flink Statements](https://docs.confluent.io/cloud/current/flink/get-started/overview.html):
@@ -143,6 +175,8 @@ type FlinkStatement struct {
 	Principal              FlinkStatementPrincipalOutput    `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
+	// Block for sensitive statement properties:
+	PropertiesSensitive pulumi.StringMapOutput `pulumi:"propertiesSensitive"`
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
@@ -166,8 +200,12 @@ func NewFlinkStatement(ctx *pulumi.Context,
 	if args.Credentials != nil {
 		args.Credentials = pulumi.ToSecret(args.Credentials).(FlinkStatementCredentialsPtrInput)
 	}
+	if args.PropertiesSensitive != nil {
+		args.PropertiesSensitive = pulumi.ToSecret(args.PropertiesSensitive).(pulumi.StringMapInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"credentials",
+		"propertiesSensitive",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -205,6 +243,8 @@ type flinkStatementState struct {
 	Principal              *FlinkStatementPrincipal    `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties map[string]string `pulumi:"properties"`
+	// Block for sensitive statement properties:
+	PropertiesSensitive map[string]string `pulumi:"propertiesSensitive"`
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
@@ -228,6 +268,8 @@ type FlinkStatementState struct {
 	Principal              FlinkStatementPrincipalPtrInput
 	// The custom topic settings to set:
 	Properties pulumi.StringMapInput
+	// Block for sensitive statement properties:
+	PropertiesSensitive pulumi.StringMapInput
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint pulumi.StringPtrInput
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
@@ -251,6 +293,8 @@ type flinkStatementArgs struct {
 	Principal    *FlinkStatementPrincipal    `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties map[string]string `pulumi:"properties"`
+	// Block for sensitive statement properties:
+	PropertiesSensitive map[string]string `pulumi:"propertiesSensitive"`
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
@@ -271,6 +315,8 @@ type FlinkStatementArgs struct {
 	Principal    FlinkStatementPrincipalPtrInput
 	// The custom topic settings to set:
 	Properties pulumi.StringMapInput
+	// Block for sensitive statement properties:
+	PropertiesSensitive pulumi.StringMapInput
 	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint pulumi.StringPtrInput
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
@@ -402,6 +448,11 @@ func (o FlinkStatementOutput) Principal() FlinkStatementPrincipalOutput {
 // The custom topic settings to set:
 func (o FlinkStatementOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlinkStatement) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Block for sensitive statement properties:
+func (o FlinkStatementOutput) PropertiesSensitive() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlinkStatement) pulumi.StringMapOutput { return v.PropertiesSensitive }).(pulumi.StringMapOutput)
 }
 
 // The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
