@@ -715,7 +715,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ruleset(self) -> pulumi.Output['outputs.SchemaRuleset']:
+    def ruleset(self) -> pulumi.Output[Optional['outputs.SchemaRuleset']]:
         """
         The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
         """

@@ -51,14 +51,22 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
     /**
      * Java class or alias for the Flink Artifact as provided by developer.
      * 
+     * @deprecated
+     * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+     * 
      */
+    @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
     @Import(name="class")
     private @Nullable Output<String> class_;
 
     /**
      * @return Java class or alias for the Flink Artifact as provided by developer.
      * 
+     * @deprecated
+     * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+     * 
      */
+    @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
     public Optional<Output<String>> class_() {
         return Optional.ofNullable(this.class_);
     }
@@ -79,14 +87,14 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * (Optional String) Archive format of the Flink Artifact.
+     * (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
      * 
      */
     @Import(name="contentFormat")
     private @Nullable Output<String> contentFormat;
 
     /**
-     * @return (Optional String) Archive format of the Flink Artifact.
+     * @return (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
      * 
      */
     public Optional<Output<String>> contentFormat() {
@@ -109,18 +117,33 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The display name of Flink Artifact.
+     * The unique name of the Flink Artifact per cloud, region, environment scope.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return The display name of Flink Artifact.
+     * @return The unique name of the Flink Artifact per cloud, region, environment scope.
      * 
      */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
+    }
+
+    /**
+     * (Optional String) Documentation link of the Flink Artifact.
+     * 
+     */
+    @Import(name="documentationLink")
+    private @Nullable Output<String> documentationLink;
+
+    /**
+     * @return (Optional String) Documentation link of the Flink Artifact.
+     * 
+     */
+    public Optional<Output<String>> documentationLink() {
+        return Optional.ofNullable(this.documentationLink);
     }
 
     /**
@@ -169,14 +192,14 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+     * (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
      * 
      */
     @Import(name="runtimeLanguage")
     private @Nullable Output<String> runtimeLanguage;
 
     /**
-     * @return (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+     * @return (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
      * 
      */
     public Optional<Output<String>> runtimeLanguage() {
@@ -208,6 +231,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         this.contentFormat = $.contentFormat;
         this.description = $.description;
         this.displayName = $.displayName;
+        this.documentationLink = $.documentationLink;
         this.environment = $.environment;
         this.kind = $.kind;
         this.region = $.region;
@@ -280,7 +304,11 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+         * 
          */
+        @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
         public Builder class_(@Nullable Output<String> class_) {
             $.class_ = class_;
             return this;
@@ -291,7 +319,11 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * The &#34;class&#34; attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
+         * 
          */
+        @Deprecated /* The ""class"" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released. */
         public Builder class_(String class_) {
             return class_(Output.of(class_));
         }
@@ -318,7 +350,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param contentFormat (Optional String) Archive format of the Flink Artifact.
+         * @param contentFormat (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
          * 
          * @return builder
          * 
@@ -329,7 +361,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param contentFormat (Optional String) Archive format of the Flink Artifact.
+         * @param contentFormat (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
          * 
          * @return builder
          * 
@@ -360,7 +392,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param displayName The display name of Flink Artifact.
+         * @param displayName The unique name of the Flink Artifact per cloud, region, environment scope.
          * 
          * @return builder
          * 
@@ -371,13 +403,34 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param displayName The display name of Flink Artifact.
+         * @param displayName The unique name of the Flink Artifact per cloud, region, environment scope.
          * 
          * @return builder
          * 
          */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
+        }
+
+        /**
+         * @param documentationLink (Optional String) Documentation link of the Flink Artifact.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder documentationLink(@Nullable Output<String> documentationLink) {
+            $.documentationLink = documentationLink;
+            return this;
+        }
+
+        /**
+         * @param documentationLink (Optional String) Documentation link of the Flink Artifact.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder documentationLink(String documentationLink) {
+            return documentationLink(Output.of(documentationLink));
         }
 
         /**
@@ -444,7 +497,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param runtimeLanguage (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+         * @param runtimeLanguage (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
          * 
          * @return builder
          * 
@@ -455,7 +508,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param runtimeLanguage (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+         * @param runtimeLanguage (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
          * 
          * @return builder
          * 

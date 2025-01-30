@@ -80,6 +80,32 @@ namespace Pulumi.ConfluentCloud
     /// });
     /// ```
     /// 
+    /// Example of `confluentcloud.FlinkStatement` that creates a model:
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new ConfluentCloud.FlinkStatement("example", new()
+    ///     {
+    ///         Statement = "CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY&lt;FLOAT&gt;) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');",
+    ///         Properties = 
+    ///         {
+    ///             { "sql.current-catalog", confluentEnvironmentDisplayName },
+    ///             { "sql.current-database", confluentKafkaClusterDisplayName },
+    ///         },
+    ///         PropertiesSensitive = 
+    ///         {
+    ///             { "sql.secrets.openaikey", "***REDACTED***" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Getting Started
     /// 
     /// The following end-to-end example might help to get started with [Flink Statements](https://docs.confluent.io/cloud/current/flink/get-started/overview.html):
@@ -164,6 +190,12 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
 
         /// <summary>
+        /// Block for sensitive statement properties:
+        /// </summary>
+        [Output("propertiesSensitive")]
+        public Output<ImmutableDictionary<string, string>> PropertiesSensitive { get; private set; } = null!;
+
+        /// <summary>
         /// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         /// </summary>
         [Output("restEndpoint")]
@@ -213,6 +245,7 @@ namespace Pulumi.ConfluentCloud
                 AdditionalSecretOutputs =
                 {
                     "credentials",
+                    "propertiesSensitive",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -275,6 +308,22 @@ namespace Pulumi.ConfluentCloud
         {
             get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
+        }
+
+        [Input("propertiesSensitive")]
+        private InputMap<string>? _propertiesSensitive;
+
+        /// <summary>
+        /// Block for sensitive statement properties:
+        /// </summary>
+        public InputMap<string> PropertiesSensitive
+        {
+            get => _propertiesSensitive ?? (_propertiesSensitive = new InputMap<string>());
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _propertiesSensitive = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>
@@ -371,6 +420,22 @@ namespace Pulumi.ConfluentCloud
         {
             get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
+        }
+
+        [Input("propertiesSensitive")]
+        private InputMap<string>? _propertiesSensitive;
+
+        /// <summary>
+        /// Block for sensitive statement properties:
+        /// </summary>
+        public InputMap<string> PropertiesSensitive
+        {
+            get => _propertiesSensitive ?? (_propertiesSensitive = new InputMap<string>());
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _propertiesSensitive = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

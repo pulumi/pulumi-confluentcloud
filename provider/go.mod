@@ -52,7 +52,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/byok v0.0.2 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/certificate-authority v0.0.0-20240921001517-750d06dd7c27 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/cmk v0.21.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/connect v0.2.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/connect v0.7.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/connect-custom-plugin v0.0.2 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/data-catalog v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/flink v0.9.0 // indirect

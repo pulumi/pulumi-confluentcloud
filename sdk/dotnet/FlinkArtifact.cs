@@ -27,10 +27,9 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var main = new ConfluentCloud.FlinkArtifact("main", new()
     ///     {
-    ///         Class = "io.confluent.example.SumScalarFunction",
-    ///         Region = "us-west-2",
     ///         Cloud = "AWS",
-    ///         DisplayName = "flink_sumscalar_artifact",
+    ///         Region = "us-west-2",
+    ///         DisplayName = "my_flink_sumscalar_artifact",
     ///         ContentFormat = "JAR",
     ///         Environment = new ConfluentCloud.Inputs.FlinkArtifactEnvironmentArgs
     ///         {
@@ -74,7 +73,7 @@ namespace Pulumi.ConfluentCloud
         /// Java class or alias for the Flink Artifact as provided by developer.
         /// </summary>
         [Output("class")]
-        public Output<string> Class { get; private set; } = null!;
+        public Output<string?> Class { get; private set; } = null!;
 
         /// <summary>
         /// The cloud service provider that runs the Flink Artifact.
@@ -83,7 +82,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Cloud { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional String) Archive format of the Flink Artifact.
+        /// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         /// </summary>
         [Output("contentFormat")]
         public Output<string> ContentFormat { get; private set; } = null!;
@@ -95,10 +94,16 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The display name of Flink Artifact.
+        /// The unique name of the Flink Artifact per cloud, region, environment scope.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional String) Documentation link of the Flink Artifact.
+        /// </summary>
+        [Output("documentationLink")]
+        public Output<string?> DocumentationLink { get; private set; } = null!;
 
         /// <summary>
         /// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -119,7 +124,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+        /// (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         /// </summary>
         [Output("runtimeLanguage")]
         public Output<string?> RuntimeLanguage { get; private set; } = null!;
@@ -185,8 +190,8 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// Java class or alias for the Flink Artifact as provided by developer.
         /// </summary>
-        [Input("class", required: true)]
-        public Input<string> Class { get; set; } = null!;
+        [Input("class")]
+        public Input<string>? Class { get; set; }
 
         /// <summary>
         /// The cloud service provider that runs the Flink Artifact.
@@ -195,7 +200,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> Cloud { get; set; } = null!;
 
         /// <summary>
-        /// (Optional String) Archive format of the Flink Artifact.
+        /// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         /// </summary>
         [Input("contentFormat")]
         public Input<string>? ContentFormat { get; set; }
@@ -207,10 +212,16 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The display name of Flink Artifact.
+        /// The unique name of the Flink Artifact per cloud, region, environment scope.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
+        /// (Optional String) Documentation link of the Flink Artifact.
+        /// </summary>
+        [Input("documentationLink")]
+        public Input<string>? DocumentationLink { get; set; }
 
         /// <summary>
         /// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -225,7 +236,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> Region { get; set; } = null!;
 
         /// <summary>
-        /// (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+        /// (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         /// </summary>
         [Input("runtimeLanguage")]
         public Input<string>? RuntimeLanguage { get; set; }
@@ -263,7 +274,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Cloud { get; set; }
 
         /// <summary>
-        /// (Optional String) Archive format of the Flink Artifact.
+        /// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         /// </summary>
         [Input("contentFormat")]
         public Input<string>? ContentFormat { get; set; }
@@ -275,10 +286,16 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The display name of Flink Artifact.
+        /// The unique name of the Flink Artifact per cloud, region, environment scope.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// (Optional String) Documentation link of the Flink Artifact.
+        /// </summary>
+        [Input("documentationLink")]
+        public Input<string>? DocumentationLink { get; set; }
 
         /// <summary>
         /// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -299,7 +316,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+        /// (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
         /// </summary>
         [Input("runtimeLanguage")]
         public Input<string>? RuntimeLanguage { get; set; }

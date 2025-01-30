@@ -28,6 +28,7 @@ class FlinkStatementArgs:
                  organization: Optional[pulumi.Input['FlinkStatementOrganizationArgs']] = None,
                  principal: Optional[pulumi.Input['FlinkStatementPrincipalArgs']] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 properties_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
                  stopped: Optional[pulumi.Input[bool]] = None):
@@ -36,6 +37,7 @@ class FlinkStatementArgs:
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input['FlinkStatementCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties_sensitive: Block for sensitive statement properties:
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[bool] stopped: Indicates whether the statement should be stopped.
@@ -53,6 +55,8 @@ class FlinkStatementArgs:
             pulumi.set(__self__, "principal", principal)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if properties_sensitive is not None:
+            pulumi.set(__self__, "properties_sensitive", properties_sensitive)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if statement_name is not None:
@@ -133,6 +137,18 @@ class FlinkStatementArgs:
         pulumi.set(self, "properties", value)
 
     @property
+    @pulumi.getter(name="propertiesSensitive")
+    def properties_sensitive(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Block for sensitive statement properties:
+        """
+        return pulumi.get(self, "properties_sensitive")
+
+    @properties_sensitive.setter
+    def properties_sensitive(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties_sensitive", value)
+
+    @property
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -180,6 +196,7 @@ class _FlinkStatementState:
                  organization: Optional[pulumi.Input['FlinkStatementOrganizationArgs']] = None,
                  principal: Optional[pulumi.Input['FlinkStatementPrincipalArgs']] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 properties_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
@@ -196,6 +213,7 @@ class _FlinkStatementState:
                ```
         :param pulumi.Input[str] latest_offsets_timestamp: (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties_sensitive: Block for sensitive statement properties:
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input[str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
@@ -217,6 +235,8 @@ class _FlinkStatementState:
             pulumi.set(__self__, "principal", principal)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if properties_sensitive is not None:
+            pulumi.set(__self__, "properties_sensitive", properties_sensitive)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if statement is not None:
@@ -317,6 +337,18 @@ class _FlinkStatementState:
         pulumi.set(self, "properties", value)
 
     @property
+    @pulumi.getter(name="propertiesSensitive")
+    def properties_sensitive(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Block for sensitive statement properties:
+        """
+        return pulumi.get(self, "properties_sensitive")
+
+    @properties_sensitive.setter
+    def properties_sensitive(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties_sensitive", value)
+
+    @property
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -376,6 +408,7 @@ class FlinkStatement(pulumi.CustomResource):
                  organization: Optional[pulumi.Input[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
                  principal: Optional[pulumi.Input[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 properties_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
@@ -429,6 +462,22 @@ class FlinkStatement(pulumi.CustomResource):
             })
         ```
 
+        Example of `FlinkStatement` that creates a model:
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.FlinkStatement("example",
+            statement="CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');",
+            properties={
+                "sql.current-catalog": confluent_environment_display_name,
+                "sql.current-database": confluent_kafka_cluster_display_name,
+            },
+            properties_sensitive={
+                "sql.secrets.openaikey": "***REDACTED***",
+            })
+        ```
+
         ## Getting Started
 
         The following end-to-end example might help to get started with [Flink Statements](https://docs.confluent.io/cloud/current/flink/get-started/overview.html):
@@ -471,6 +520,7 @@ class FlinkStatement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties_sensitive: Block for sensitive statement properties:
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input[str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
@@ -527,6 +577,22 @@ class FlinkStatement(pulumi.CustomResource):
             properties={
                 "sql.current-catalog": confluent_environment_display_name,
                 "sql.current-database": confluent_kafka_cluster_display_name,
+            })
+        ```
+
+        Example of `FlinkStatement` that creates a model:
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.FlinkStatement("example",
+            statement="CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');",
+            properties={
+                "sql.current-catalog": confluent_environment_display_name,
+                "sql.current-database": confluent_kafka_cluster_display_name,
+            },
+            properties_sensitive={
+                "sql.secrets.openaikey": "***REDACTED***",
             })
         ```
 
@@ -589,6 +655,7 @@ class FlinkStatement(pulumi.CustomResource):
                  organization: Optional[pulumi.Input[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
                  principal: Optional[pulumi.Input[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 properties_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
@@ -608,6 +675,7 @@ class FlinkStatement(pulumi.CustomResource):
             __props__.__dict__["organization"] = organization
             __props__.__dict__["principal"] = principal
             __props__.__dict__["properties"] = properties
+            __props__.__dict__["properties_sensitive"] = None if properties_sensitive is None else pulumi.Output.secret(properties_sensitive)
             __props__.__dict__["rest_endpoint"] = rest_endpoint
             if statement is None and not opts.urn:
                 raise TypeError("Missing required property 'statement'")
@@ -616,7 +684,7 @@ class FlinkStatement(pulumi.CustomResource):
             __props__.__dict__["stopped"] = stopped
             __props__.__dict__["latest_offsets"] = None
             __props__.__dict__["latest_offsets_timestamp"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials", "propertiesSensitive"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FlinkStatement, __self__).__init__(
             'confluentcloud:index/flinkStatement:FlinkStatement',
@@ -636,6 +704,7 @@ class FlinkStatement(pulumi.CustomResource):
             organization: Optional[pulumi.Input[Union['FlinkStatementOrganizationArgs', 'FlinkStatementOrganizationArgsDict']]] = None,
             principal: Optional[pulumi.Input[Union['FlinkStatementPrincipalArgs', 'FlinkStatementPrincipalArgsDict']]] = None,
             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            properties_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
             statement: Optional[pulumi.Input[str]] = None,
             statement_name: Optional[pulumi.Input[str]] = None,
@@ -657,6 +726,7 @@ class FlinkStatement(pulumi.CustomResource):
                ```
         :param pulumi.Input[str] latest_offsets_timestamp: (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties_sensitive: Block for sensitive statement properties:
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input[str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
@@ -674,6 +744,7 @@ class FlinkStatement(pulumi.CustomResource):
         __props__.__dict__["organization"] = organization
         __props__.__dict__["principal"] = principal
         __props__.__dict__["properties"] = properties
+        __props__.__dict__["properties_sensitive"] = properties_sensitive
         __props__.__dict__["rest_endpoint"] = rest_endpoint
         __props__.__dict__["statement"] = statement
         __props__.__dict__["statement_name"] = statement_name
@@ -737,6 +808,14 @@ class FlinkStatement(pulumi.CustomResource):
         The custom topic settings to set:
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="propertiesSensitive")
+    def properties_sensitive(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Block for sensitive statement properties:
+        """
+        return pulumi.get(self, "properties_sensitive")
 
     @property
     @pulumi.getter(name="restEndpoint")

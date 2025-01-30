@@ -56,6 +56,23 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * Example of `confluentcloud.FlinkStatement` that creates a model:
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const example = new confluentcloud.FlinkStatement("example", {
+ *     statement: "CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');",
+ *     properties: {
+ *         "sql.current-catalog": confluentEnvironmentDisplayName,
+ *         "sql.current-database": confluentKafkaClusterDisplayName,
+ *     },
+ *     propertiesSensitive: {
+ *         "sql.secrets.openaikey": "***REDACTED***",
+ *     },
+ * });
+ * ```
+ *
  * ## Getting Started
  *
  * The following end-to-end example might help to get started with [Flink Statements](https://docs.confluent.io/cloud/current/flink/get-started/overview.html):
@@ -149,6 +166,10 @@ export class FlinkStatement extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<{[key: string]: string}>;
     /**
+     * Block for sensitive statement properties:
+     */
+    public readonly propertiesSensitive!: pulumi.Output<{[key: string]: string}>;
+    /**
      * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      */
     public readonly restEndpoint!: pulumi.Output<string | undefined>;
@@ -186,6 +207,7 @@ export class FlinkStatement extends pulumi.CustomResource {
             resourceInputs["organization"] = state ? state.organization : undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
             resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["propertiesSensitive"] = state ? state.propertiesSensitive : undefined;
             resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
             resourceInputs["statement"] = state ? state.statement : undefined;
             resourceInputs["statementName"] = state ? state.statementName : undefined;
@@ -201,6 +223,7 @@ export class FlinkStatement extends pulumi.CustomResource {
             resourceInputs["organization"] = args ? args.organization : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["propertiesSensitive"] = args?.propertiesSensitive ? pulumi.secret(args.propertiesSensitive) : undefined;
             resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
             resourceInputs["statement"] = args ? args.statement : undefined;
             resourceInputs["statementName"] = args ? args.statementName : undefined;
@@ -209,7 +232,7 @@ export class FlinkStatement extends pulumi.CustomResource {
             resourceInputs["latestOffsetsTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["credentials"] };
+        const secretOpts = { additionalSecretOutputs: ["credentials", "propertiesSensitive"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(FlinkStatement.__pulumiType, name, resourceInputs, opts);
     }
@@ -246,6 +269,10 @@ export interface FlinkStatementState {
      */
     properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Block for sensitive statement properties:
+     */
+    propertiesSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      */
     restEndpoint?: pulumi.Input<string>;
@@ -279,6 +306,10 @@ export interface FlinkStatementArgs {
      * The custom topic settings to set:
      */
     properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Block for sensitive statement properties:
+     */
+    propertiesSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      */

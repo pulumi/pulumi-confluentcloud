@@ -125,6 +125,45 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * Example of `confluentcloud.FlinkStatement` that creates a model:
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.FlinkStatement;
+ * import com.pulumi.confluentcloud.FlinkStatementArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new FlinkStatement("example", FlinkStatementArgs.builder()
+ *             .statement("CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY<FLOAT>) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');")
+ *             .properties(Map.ofEntries(
+ *                 Map.entry("sql.current-catalog", confluentEnvironmentDisplayName),
+ *                 Map.entry("sql.current-database", confluentKafkaClusterDisplayName)
+ *             ))
+ *             .propertiesSensitive(Map.of("sql.secrets.openaikey", "***REDACTED***"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Getting Started
  * 
  * The following end-to-end example might help to get started with [Flink Statements](https://docs.confluent.io/cloud/current/flink/get-started/overview.html):
@@ -247,6 +286,20 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
         return this.properties;
     }
     /**
+     * Block for sensitive statement properties:
+     * 
+     */
+    @Export(name="propertiesSensitive", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> propertiesSensitive;
+
+    /**
+     * @return Block for sensitive statement properties:
+     * 
+     */
+    public Output<Map<String,String>> propertiesSensitive() {
+        return this.propertiesSensitive;
+    }
+    /**
      * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      * 
      */
@@ -343,7 +396,8 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "credentials"
+                "credentials",
+                "propertiesSensitive"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

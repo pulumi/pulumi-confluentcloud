@@ -28,7 +28,7 @@ class GetFlinkArtifactResult:
     """
     A collection of values returned by getFlinkArtifact.
     """
-    def __init__(__self__, api_version=None, class_=None, cloud=None, content_format=None, description=None, display_name=None, environment=None, id=None, kind=None, region=None, runtime_language=None, versions=None):
+    def __init__(__self__, api_version=None, class_=None, cloud=None, content_format=None, description=None, display_name=None, documentation_link=None, environment=None, id=None, kind=None, region=None, runtime_language=None, versions=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
@@ -47,6 +47,9 @@ class GetFlinkArtifactResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if documentation_link and not isinstance(documentation_link, str):
+            raise TypeError("Expected argument 'documentation_link' to be a str")
+        pulumi.set(__self__, "documentation_link", documentation_link)
         if environment and not isinstance(environment, dict):
             raise TypeError("Expected argument 'environment' to be a dict")
         pulumi.set(__self__, "environment", environment)
@@ -76,6 +79,7 @@ class GetFlinkArtifactResult:
 
     @property
     @pulumi.getter(name="class")
+    @_utilities.deprecated("""The \"class\" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.""")
     def class_(self) -> str:
         """
         (Required String) Java class or alias for the Flink Artifact as provided by developer.
@@ -107,6 +111,11 @@ class GetFlinkArtifactResult:
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="documentationLink")
+    def documentation_link(self) -> str:
+        return pulumi.get(self, "documentation_link")
 
     @property
     @pulumi.getter
@@ -157,6 +166,7 @@ class AwaitableGetFlinkArtifactResult(GetFlinkArtifactResult):
             content_format=self.content_format,
             description=self.description,
             display_name=self.display_name,
+            documentation_link=self.documentation_link,
             environment=self.environment,
             id=self.id,
             kind=self.kind,
@@ -165,7 +175,8 @@ class AwaitableGetFlinkArtifactResult(GetFlinkArtifactResult):
             versions=self.versions)
 
 
-def get_flink_artifact(cloud: Optional[str] = None,
+def get_flink_artifact(class_: Optional[str] = None,
+                       cloud: Optional[str] = None,
                        display_name: Optional[str] = None,
                        environment: Optional[Union['GetFlinkArtifactEnvironmentArgs', 'GetFlinkArtifactEnvironmentArgsDict']] = None,
                        id: Optional[str] = None,
@@ -195,6 +206,7 @@ def get_flink_artifact(cloud: Optional[str] = None,
     ```
 
 
+    :param str class_: (Required String) Java class or alias for the Flink Artifact as provided by developer.
     :param str cloud: The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
     :param str display_name: A human-readable name for the Flink Artifact.
     :param str id: The ID of the Flink Artifact, for example, `lfa-abc123`.
@@ -203,6 +215,7 @@ def get_flink_artifact(cloud: Optional[str] = None,
            > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     """
     __args__ = dict()
+    __args__['class'] = class_
     __args__['cloud'] = cloud
     __args__['displayName'] = display_name
     __args__['environment'] = environment
@@ -218,13 +231,15 @@ def get_flink_artifact(cloud: Optional[str] = None,
         content_format=pulumi.get(__ret__, 'content_format'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
+        documentation_link=pulumi.get(__ret__, 'documentation_link'),
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         region=pulumi.get(__ret__, 'region'),
         runtime_language=pulumi.get(__ret__, 'runtime_language'),
         versions=pulumi.get(__ret__, 'versions'))
-def get_flink_artifact_output(cloud: Optional[pulumi.Input[str]] = None,
+def get_flink_artifact_output(class_: Optional[pulumi.Input[Optional[str]]] = None,
+                              cloud: Optional[pulumi.Input[str]] = None,
                               display_name: Optional[pulumi.Input[Optional[str]]] = None,
                               environment: Optional[pulumi.Input[Union['GetFlinkArtifactEnvironmentArgs', 'GetFlinkArtifactEnvironmentArgsDict']]] = None,
                               id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -254,6 +269,7 @@ def get_flink_artifact_output(cloud: Optional[pulumi.Input[str]] = None,
     ```
 
 
+    :param str class_: (Required String) Java class or alias for the Flink Artifact as provided by developer.
     :param str cloud: The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
     :param str display_name: A human-readable name for the Flink Artifact.
     :param str id: The ID of the Flink Artifact, for example, `lfa-abc123`.
@@ -262,6 +278,7 @@ def get_flink_artifact_output(cloud: Optional[pulumi.Input[str]] = None,
            > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     """
     __args__ = dict()
+    __args__['class'] = class_
     __args__['cloud'] = cloud
     __args__['displayName'] = display_name
     __args__['environment'] = environment
@@ -276,6 +293,7 @@ def get_flink_artifact_output(cloud: Optional[pulumi.Input[str]] = None,
         content_format=pulumi.get(__response__, 'content_format'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
+        documentation_link=pulumi.get(__response__, 'documentation_link'),
         environment=pulumi.get(__response__, 'environment'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

@@ -15,10 +15,9 @@ import * as utilities from "./utilities";
  *
  * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const main = new confluentcloud.FlinkArtifact("main", {
- *     "class": "io.confluent.example.SumScalarFunction",
- *     region: "us-west-2",
  *     cloud: "AWS",
- *     displayName: "flink_sumscalar_artifact",
+ *     region: "us-west-2",
+ *     displayName: "my_flink_sumscalar_artifact",
  *     contentFormat: "JAR",
  *     environment: {
  *         id: development.id,
@@ -78,14 +77,16 @@ export class FlinkArtifact extends pulumi.CustomResource {
     public readonly artifactFile!: pulumi.Output<string | undefined>;
     /**
      * Java class or alias for the Flink Artifact as provided by developer.
+     *
+     * @deprecated The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
      */
-    public readonly class!: pulumi.Output<string>;
+    public readonly class!: pulumi.Output<string | undefined>;
     /**
      * The cloud service provider that runs the Flink Artifact.
      */
     public readonly cloud!: pulumi.Output<string>;
     /**
-     * (Optional String) Archive format of the Flink Artifact.
+     * (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
      */
     public readonly contentFormat!: pulumi.Output<string>;
     /**
@@ -93,9 +94,13 @@ export class FlinkArtifact extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The display name of Flink Artifact.
+     * The unique name of the Flink Artifact per cloud, region, environment scope.
      */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * (Optional String) Documentation link of the Flink Artifact.
+     */
+    public readonly documentationLink!: pulumi.Output<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
@@ -109,7 +114,7 @@ export class FlinkArtifact extends pulumi.CustomResource {
      */
     public readonly region!: pulumi.Output<string>;
     /**
-     * (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+     * (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
      */
     public readonly runtimeLanguage!: pulumi.Output<string | undefined>;
     /**
@@ -137,6 +142,7 @@ export class FlinkArtifact extends pulumi.CustomResource {
             resourceInputs["contentFormat"] = state ? state.contentFormat : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["documentationLink"] = state ? state.documentationLink : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
@@ -144,9 +150,6 @@ export class FlinkArtifact extends pulumi.CustomResource {
             resourceInputs["versions"] = state ? state.versions : undefined;
         } else {
             const args = argsOrState as FlinkArtifactArgs | undefined;
-            if ((!args || args.class === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'class'");
-            }
             if ((!args || args.cloud === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cloud'");
             }
@@ -165,6 +168,7 @@ export class FlinkArtifact extends pulumi.CustomResource {
             resourceInputs["contentFormat"] = args ? args.contentFormat : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["documentationLink"] = args ? args.documentationLink : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["runtimeLanguage"] = args ? args.runtimeLanguage : undefined;
@@ -191,6 +195,8 @@ export interface FlinkArtifactState {
     artifactFile?: pulumi.Input<string>;
     /**
      * Java class or alias for the Flink Artifact as provided by developer.
+     *
+     * @deprecated The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
      */
     class?: pulumi.Input<string>;
     /**
@@ -198,7 +204,7 @@ export interface FlinkArtifactState {
      */
     cloud?: pulumi.Input<string>;
     /**
-     * (Optional String) Archive format of the Flink Artifact.
+     * (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
      */
     contentFormat?: pulumi.Input<string>;
     /**
@@ -206,9 +212,13 @@ export interface FlinkArtifactState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The display name of Flink Artifact.
+     * The unique name of the Flink Artifact per cloud, region, environment scope.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * (Optional String) Documentation link of the Flink Artifact.
+     */
+    documentationLink?: pulumi.Input<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
@@ -222,7 +232,7 @@ export interface FlinkArtifactState {
      */
     region?: pulumi.Input<string>;
     /**
-     * (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+     * (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
      */
     runtimeLanguage?: pulumi.Input<string>;
     /**
@@ -241,14 +251,16 @@ export interface FlinkArtifactArgs {
     artifactFile?: pulumi.Input<string>;
     /**
      * Java class or alias for the Flink Artifact as provided by developer.
+     *
+     * @deprecated The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
      */
-    class: pulumi.Input<string>;
+    class?: pulumi.Input<string>;
     /**
      * The cloud service provider that runs the Flink Artifact.
      */
     cloud: pulumi.Input<string>;
     /**
-     * (Optional String) Archive format of the Flink Artifact.
+     * (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
      */
     contentFormat?: pulumi.Input<string>;
     /**
@@ -256,9 +268,13 @@ export interface FlinkArtifactArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The display name of Flink Artifact.
+     * The unique name of the Flink Artifact per cloud, region, environment scope.
      */
     displayName: pulumi.Input<string>;
+    /**
+     * (Optional String) Documentation link of the Flink Artifact.
+     */
+    documentationLink?: pulumi.Input<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
@@ -268,7 +284,7 @@ export interface FlinkArtifactArgs {
      */
     region: pulumi.Input<string>;
     /**
-     * (Optional String) Runtime language of the Flink Artifact. The default runtime language is Java.
+     * (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
      */
     runtimeLanguage?: pulumi.Input<string>;
 }
