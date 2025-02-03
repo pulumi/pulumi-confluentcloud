@@ -9964,6 +9964,7 @@
             "required": [
                 "format",
                 "metadata",
+                "ruleset",
                 "schema",
                 "schemaIdentifier",
                 "subjectName",
@@ -13797,6 +13798,7 @@
                     "hardDelete",
                     "metadata",
                     "recreateOnUpdate",
+                    "ruleset",
                     "schema",
                     "schemaIdentifier",
                     "schemaReferences",

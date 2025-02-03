@@ -43,7 +43,7 @@ public final class GetSchemaResult {
      * @return (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
      * 
      */
-    private @Nullable GetSchemaRuleset ruleset;
+    private GetSchemaRuleset ruleset;
     /**
      * @return (Required String) The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
      * 
@@ -106,8 +106,8 @@ public final class GetSchemaResult {
      * @return (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
      * 
      */
-    public Optional<GetSchemaRuleset> ruleset() {
-        return Optional.ofNullable(this.ruleset);
+    public GetSchemaRuleset ruleset() {
+        return this.ruleset;
     }
     /**
      * @return (Required String) The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
@@ -163,7 +163,7 @@ public final class GetSchemaResult {
         private GetSchemaMetadata metadata;
         private Boolean recreateOnUpdate;
         private @Nullable String restEndpoint;
-        private @Nullable GetSchemaRuleset ruleset;
+        private GetSchemaRuleset ruleset;
         private String schema;
         private Integer schemaIdentifier;
         private List<GetSchemaSchemaReference> schemaReferences;
@@ -244,8 +244,10 @@ public final class GetSchemaResult {
             return this;
         }
         @CustomType.Setter
-        public Builder ruleset(@Nullable GetSchemaRuleset ruleset) {
-
+        public Builder ruleset(GetSchemaRuleset ruleset) {
+            if (ruleset == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "ruleset");
+            }
             this.ruleset = ruleset;
             return this;
         }
