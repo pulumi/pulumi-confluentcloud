@@ -147,14 +147,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="ruleset", refs={SchemaRuleset.class}, tree="[0]")
-    private Output</* @Nullable */ SchemaRuleset> ruleset;
+    private Output<SchemaRuleset> ruleset;
 
     /**
      * @return The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
      * 
      */
-    public Output<Optional<SchemaRuleset>> ruleset() {
-        return Codegen.optional(this.ruleset);
+    public Output<SchemaRuleset> ruleset() {
+        return this.ruleset;
     }
     /**
      * The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
