@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewNetwork(ctx, "aws-private-link", &confluentcloud.NetworkArgs{
+//			aws_private_link, err := confluentcloud.NewNetwork(ctx, "aws-private-link", &confluentcloud.NetworkArgs{
 //				DisplayName: pulumi.String("AWS Private Link Network"),
 //				Cloud:       pulumi.String("AWS"),
 //				Region:      pulumi.String("us-east-1"),

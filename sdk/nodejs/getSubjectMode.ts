@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const purchase-v1 = confluentcloud.getSubjectMode({
+ * const purchase_v1 = confluentcloud.getSubjectMode({
  *     schemaRegistryCluster: {
  *         id: essentials.id,
  *     },
@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const purchase-v1 = confluentcloud.getSubjectMode({
+ * const purchase_v1 = confluentcloud.getSubjectMode({
  *     subjectName: "proto-purchase-value",
  * });
  * export const mode = purchase_v1.then(purchase_v1 => purchase_v1.mode);
@@ -103,7 +103,7 @@ export interface GetSubjectModeResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const purchase-v1 = confluentcloud.getSubjectMode({
+ * const purchase_v1 = confluentcloud.getSubjectMode({
  *     schemaRegistryCluster: {
  *         id: essentials.id,
  *     },
@@ -123,7 +123,7 @@ export interface GetSubjectModeResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const purchase-v1 = confluentcloud.getSubjectMode({
+ * const purchase_v1 = confluentcloud.getSubjectMode({
  *     subjectName: "proto-purchase-value",
  * });
  * export const mode = purchase_v1.then(purchase_v1 => purchase_v1.mode);

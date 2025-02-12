@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewNetwork(ctx, "aws-transit-gateway-attachment", &confluentcloud.NetworkArgs{
+//			aws_transit_gateway_attachment, err := confluentcloud.NewNetwork(ctx, "aws-transit-gateway-attachment", &confluentcloud.NetworkArgs{
 //				DisplayName: pulumi.String("AWS Transit Gateway Attachment Network"),
 //				Cloud:       pulumi.String("AWS"),
 //				Region:      pulumi.String("us-east-2"),

@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const purchase-v1 = confluentcloud.getSchema({
+ * const purchase_v1 = confluentcloud.getSchema({
  *     schemaRegistryCluster: {
  *         id: essentials.id,
  *     },
@@ -40,7 +40,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const purchase-v1 = confluentcloud.getSchema({
+ * const purchase_v1 = confluentcloud.getSchema({
  *     subjectName: "proto-purchase-value",
  *     schemaIdentifier: 10001,
  * });
@@ -147,7 +147,7 @@ export interface GetSchemaResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const purchase-v1 = confluentcloud.getSchema({
+ * const purchase_v1 = confluentcloud.getSchema({
  *     schemaRegistryCluster: {
  *         id: essentials.id,
  *     },
@@ -168,7 +168,7 @@ export interface GetSchemaResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const purchase-v1 = confluentcloud.getSchema({
+ * const purchase_v1 = confluentcloud.getSchema({
  *     subjectName: "proto-purchase-value",
  *     schemaIdentifier: 10001,
  * });
