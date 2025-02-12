@@ -75,6 +75,8 @@ __all__ = [
     'ConnectorEnvironmentArgsDict',
     'ConnectorKafkaClusterArgs',
     'ConnectorKafkaClusterArgsDict',
+    'ConnectorOffsetArgs',
+    'ConnectorOffsetArgsDict',
     'DnsForwarderEnvironmentArgs',
     'DnsForwarderEnvironmentArgsDict',
     'DnsForwarderForwardViaGcpDnsZonesArgs',
@@ -2266,6 +2268,56 @@ class ConnectorKafkaClusterArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class ConnectorOffsetArgsDict(TypedDict):
+        offset: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafka_offset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+        """
+        partition: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafka_partition` and `kafka_topic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+        """
+elif False:
+    ConnectorOffsetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectorOffsetArgs:
+    def __init__(__self__, *,
+                 offset: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 partition: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] offset: Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafka_offset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] partition: Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafka_partition` and `kafka_topic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+        """
+        pulumi.set(__self__, "offset", offset)
+        pulumi.set(__self__, "partition", partition)
+
+    @property
+    @pulumi.getter
+    def offset(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafka_offset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+        """
+        return pulumi.get(self, "offset")
+
+    @offset.setter
+    def offset(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "offset", value)
+
+    @property
+    @pulumi.getter
+    def partition(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafka_partition` and `kafka_topic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+        """
+        return pulumi.get(self, "partition")
+
+    @partition.setter
+    def partition(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "partition", value)
 
 
 if not MYPY:

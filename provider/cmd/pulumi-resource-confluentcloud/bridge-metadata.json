@@ -188,6 +188,9 @@
                     },
                     "kafka_cluster": {
                         "maxItemsOne": true
+                    },
+                    "offsets": {
+                        "maxItemsOne": false
                     }
                 }
             },

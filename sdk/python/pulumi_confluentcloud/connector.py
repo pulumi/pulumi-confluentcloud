@@ -25,13 +25,17 @@ class ConnectorArgs:
                  environment: pulumi.Input['ConnectorEnvironmentArgs'],
                  kafka_cluster: pulumi.Input['ConnectorKafkaClusterArgs'],
                  config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 offsets: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Connector resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input['ConnectorEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]] offsets: Connector partitions with offsets
         :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+               
+               For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
                
                > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
                
@@ -42,6 +46,8 @@ class ConnectorArgs:
         pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         if config_sensitive is not None:
             pulumi.set(__self__, "config_sensitive", config_sensitive)
+        if offsets is not None:
+            pulumi.set(__self__, "offsets", offsets)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -92,9 +98,23 @@ class ConnectorArgs:
 
     @property
     @pulumi.getter
+    def offsets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]]]:
+        """
+        Connector partitions with offsets
+        """
+        return pulumi.get(self, "offsets")
+
+    @offsets.setter
+    def offsets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]]]):
+        pulumi.set(self, "offsets", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
         The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+
+        For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
 
         > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
 
@@ -114,13 +134,17 @@ class _ConnectorState:
                  config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  environment: Optional[pulumi.Input['ConnectorEnvironmentArgs']] = None,
                  kafka_cluster: Optional[pulumi.Input['ConnectorKafkaClusterArgs']] = None,
+                 offsets: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Connector resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input['ConnectorEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]] offsets: Connector partitions with offsets
         :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+               
+               For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
                
                > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
                
@@ -134,6 +158,8 @@ class _ConnectorState:
             pulumi.set(__self__, "environment", environment)
         if kafka_cluster is not None:
             pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+        if offsets is not None:
+            pulumi.set(__self__, "offsets", offsets)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -184,9 +210,23 @@ class _ConnectorState:
 
     @property
     @pulumi.getter
+    def offsets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]]]:
+        """
+        Connector partitions with offsets
+        """
+        return pulumi.get(self, "offsets")
+
+    @offsets.setter
+    def offsets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorOffsetArgs']]]]):
+        pulumi.set(self, "offsets", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
         The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+
+        For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
 
         > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
 
@@ -208,6 +248,7 @@ class Connector(pulumi.CustomResource):
                  config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  environment: Optional[pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
                  kafka_cluster: Optional[pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
+                 offsets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -373,6 +414,81 @@ class Connector(pulumi.CustomResource):
                 ]))
         ```
 
+        ### Example Managed [MySQL Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-mysql-sink.html) that uses a service account to communicate with your Kafka cluster
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        # https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
+        sink = confluentcloud.Connector("sink",
+            environment={
+                "id": staging["id"],
+            },
+            kafka_cluster={
+                "id": basic["id"],
+            },
+            config_sensitive={
+                "connection.password": "***REDACTED***",
+            },
+            config_nonsensitive={
+                "connector.class": "MySqlSink",
+                "name": "MySQLSinkConnector_0",
+                "topics": orders["topicName"],
+                "input.data.format": "AVRO",
+                "kafka.auth.mode": "SERVICE_ACCOUNT",
+                "kafka.service.account.id": app_connector["id"],
+                "db.name": "test_database",
+                "connection.user": "confluent_user",
+                "connection.host": "dev-testing-temp.abcdefghijk.us-west-7.rds.amazonaws.com",
+                "connection.port": "3306",
+                "insert.mode": "INSERT",
+                "auto.create": "true",
+                "auto.evolve": "true",
+                "tasks.max": "1",
+            },
+            offsets=[
+                {
+                    "partition": {
+                        "kafka_partition": "0",
+                        "kafka_topic": orders["topicName"],
+                    },
+                    "offset": {
+                        "kafka_offset": "100",
+                    },
+                },
+                {
+                    "partition": {
+                        "kafka_partition": "1",
+                        "kafka_topic": orders["topicName"],
+                    },
+                    "offset": {
+                        "kafka_offset": "200",
+                    },
+                },
+                {
+                    "partition": {
+                        "kafka_partition": "2",
+                        "kafka_topic": orders["topicName"],
+                    },
+                    "offset": {
+                        "kafka_offset": "300",
+                    },
+                },
+            ],
+            opts = pulumi.ResourceOptions(depends_on=[
+                    app_connector_describe_on_cluster,
+                    app_connector_read_on_target_topic,
+                    app_connector_create_on_dlq_lcc_topics,
+                    app_connector_write_on_dlq_lcc_topics,
+                    app_connector_create_on_success_lcc_topics,
+                    app_connector_write_on_success_lcc_topics,
+                    app_connector_create_on_error_lcc_topics,
+                    app_connector_write_on_error_lcc_topics,
+                    app_connector_read_on_connect_lcc_group,
+                ]))
+        ```
+
         ### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster
         ```python
         import pulumi
@@ -420,6 +536,9 @@ class Connector(pulumi.CustomResource):
         * `sql-server-cdc-debezium-source-connector`
         * `postgre-sql-cdc-debezium-source-connector`
         * `custom-datagen-source-connector`
+        * `manage-offsets-github-source-connector`
+        * `manage-offsets-mongo-db-source-connector`
+        * `manage-offsets-mysql-sink-connector`
 
         > **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.
 
@@ -440,7 +559,10 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]] offsets: Connector partitions with offsets
         :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+               
+               For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
                
                > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
                
@@ -615,6 +737,81 @@ class Connector(pulumi.CustomResource):
                 ]))
         ```
 
+        ### Example Managed [MySQL Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-mysql-sink.html) that uses a service account to communicate with your Kafka cluster
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        # https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
+        sink = confluentcloud.Connector("sink",
+            environment={
+                "id": staging["id"],
+            },
+            kafka_cluster={
+                "id": basic["id"],
+            },
+            config_sensitive={
+                "connection.password": "***REDACTED***",
+            },
+            config_nonsensitive={
+                "connector.class": "MySqlSink",
+                "name": "MySQLSinkConnector_0",
+                "topics": orders["topicName"],
+                "input.data.format": "AVRO",
+                "kafka.auth.mode": "SERVICE_ACCOUNT",
+                "kafka.service.account.id": app_connector["id"],
+                "db.name": "test_database",
+                "connection.user": "confluent_user",
+                "connection.host": "dev-testing-temp.abcdefghijk.us-west-7.rds.amazonaws.com",
+                "connection.port": "3306",
+                "insert.mode": "INSERT",
+                "auto.create": "true",
+                "auto.evolve": "true",
+                "tasks.max": "1",
+            },
+            offsets=[
+                {
+                    "partition": {
+                        "kafka_partition": "0",
+                        "kafka_topic": orders["topicName"],
+                    },
+                    "offset": {
+                        "kafka_offset": "100",
+                    },
+                },
+                {
+                    "partition": {
+                        "kafka_partition": "1",
+                        "kafka_topic": orders["topicName"],
+                    },
+                    "offset": {
+                        "kafka_offset": "200",
+                    },
+                },
+                {
+                    "partition": {
+                        "kafka_partition": "2",
+                        "kafka_topic": orders["topicName"],
+                    },
+                    "offset": {
+                        "kafka_offset": "300",
+                    },
+                },
+            ],
+            opts = pulumi.ResourceOptions(depends_on=[
+                    app_connector_describe_on_cluster,
+                    app_connector_read_on_target_topic,
+                    app_connector_create_on_dlq_lcc_topics,
+                    app_connector_write_on_dlq_lcc_topics,
+                    app_connector_create_on_success_lcc_topics,
+                    app_connector_write_on_success_lcc_topics,
+                    app_connector_create_on_error_lcc_topics,
+                    app_connector_write_on_error_lcc_topics,
+                    app_connector_read_on_connect_lcc_group,
+                ]))
+        ```
+
         ### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster
         ```python
         import pulumi
@@ -662,6 +859,9 @@ class Connector(pulumi.CustomResource):
         * `sql-server-cdc-debezium-source-connector`
         * `postgre-sql-cdc-debezium-source-connector`
         * `custom-datagen-source-connector`
+        * `manage-offsets-github-source-connector`
+        * `manage-offsets-mongo-db-source-connector`
+        * `manage-offsets-mysql-sink-connector`
 
         > **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.
 
@@ -696,6 +896,7 @@ class Connector(pulumi.CustomResource):
                  config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  environment: Optional[pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
                  kafka_cluster: Optional[pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
+                 offsets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -716,6 +917,7 @@ class Connector(pulumi.CustomResource):
             if kafka_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster
+            __props__.__dict__["offsets"] = offsets
             __props__.__dict__["status"] = status
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["configSensitive"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -733,6 +935,7 @@ class Connector(pulumi.CustomResource):
             config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             environment: Optional[pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']]] = None,
             kafka_cluster: Optional[pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
+            offsets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]]] = None,
             status: Optional[pulumi.Input[str]] = None) -> 'Connector':
         """
         Get an existing Connector resource's state with the given name, id, and optional extra
@@ -744,7 +947,10 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[Union['ConnectorEnvironmentArgs', 'ConnectorEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorOffsetArgs', 'ConnectorOffsetArgsDict']]]] offsets: Connector partitions with offsets
         :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+               
+               For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
                
                > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
                
@@ -758,6 +964,7 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["config_sensitive"] = config_sensitive
         __props__.__dict__["environment"] = environment
         __props__.__dict__["kafka_cluster"] = kafka_cluster
+        __props__.__dict__["offsets"] = offsets
         __props__.__dict__["status"] = status
         return Connector(resource_name, opts=opts, __props__=__props__)
 
@@ -792,9 +999,19 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def offsets(self) -> pulumi.Output[Optional[Sequence['outputs.ConnectorOffset']]]:
+        """
+        Connector partitions with offsets
+        """
+        return pulumi.get(self, "offsets")
+
+    @property
+    @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
         The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+
+        For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
 
         > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
 

@@ -398,6 +398,17 @@ export interface ConnectorKafkaCluster {
     id: string;
 }
 
+export interface ConnectorOffset {
+    /**
+     * Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafkaOffset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+     */
+    offset: {[key: string]: string};
+    /**
+     * Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafkaPartition` and `kafkaTopic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+     */
+    partition: {[key: string]: string};
+}
+
 export interface DnsForwarderEnvironment {
     /**
      * The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.

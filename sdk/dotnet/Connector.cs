@@ -230,6 +230,106 @@ namespace Pulumi.ConfluentCloud
     /// });
     /// ```
     /// 
+    /// ### Example Managed [MySQL Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-mysql-sink.html) that uses a service account to communicate with your Kafka cluster
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
+    ///     var sink = new ConfluentCloud.Connector("sink", new()
+    ///     {
+    ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
+    ///         {
+    ///             Id = staging.Id,
+    ///         },
+    ///         KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs
+    ///         {
+    ///             Id = basic.Id,
+    ///         },
+    ///         ConfigSensitive = 
+    ///         {
+    ///             { "connection.password", "***REDACTED***" },
+    ///         },
+    ///         ConfigNonsensitive = 
+    ///         {
+    ///             { "connector.class", "MySqlSink" },
+    ///             { "name", "MySQLSinkConnector_0" },
+    ///             { "topics", orders.TopicName },
+    ///             { "input.data.format", "AVRO" },
+    ///             { "kafka.auth.mode", "SERVICE_ACCOUNT" },
+    ///             { "kafka.service.account.id", app_connector.Id },
+    ///             { "db.name", "test_database" },
+    ///             { "connection.user", "confluent_user" },
+    ///             { "connection.host", "dev-testing-temp.abcdefghijk.us-west-7.rds.amazonaws.com" },
+    ///             { "connection.port", "3306" },
+    ///             { "insert.mode", "INSERT" },
+    ///             { "auto.create", "true" },
+    ///             { "auto.evolve", "true" },
+    ///             { "tasks.max", "1" },
+    ///         },
+    ///         Offsets = new[]
+    ///         {
+    ///             new ConfluentCloud.Inputs.ConnectorOffsetArgs
+    ///             {
+    ///                 Partition = 
+    ///                 {
+    ///                     { "kafka_partition", "0" },
+    ///                     { "kafka_topic", orders.TopicName },
+    ///                 },
+    ///                 Offset = 
+    ///                 {
+    ///                     { "kafka_offset", "100" },
+    ///                 },
+    ///             },
+    ///             new ConfluentCloud.Inputs.ConnectorOffsetArgs
+    ///             {
+    ///                 Partition = 
+    ///                 {
+    ///                     { "kafka_partition", "1" },
+    ///                     { "kafka_topic", orders.TopicName },
+    ///                 },
+    ///                 Offset = 
+    ///                 {
+    ///                     { "kafka_offset", "200" },
+    ///                 },
+    ///             },
+    ///             new ConfluentCloud.Inputs.ConnectorOffsetArgs
+    ///             {
+    ///                 Partition = 
+    ///                 {
+    ///                     { "kafka_partition", "2" },
+    ///                     { "kafka_topic", orders.TopicName },
+    ///                 },
+    ///                 Offset = 
+    ///                 {
+    ///                     { "kafka_offset", "300" },
+    ///                 },
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             app_connector_describe_on_cluster,
+    ///             app_connector_read_on_target_topic,
+    ///             app_connector_create_on_dlq_lcc_topics,
+    ///             app_connector_write_on_dlq_lcc_topics,
+    ///             app_connector_create_on_success_lcc_topics,
+    ///             app_connector_write_on_success_lcc_topics,
+    ///             app_connector_create_on_error_lcc_topics,
+    ///             app_connector_write_on_error_lcc_topics,
+    ///             app_connector_read_on_connect_lcc_group,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster
     /// ```csharp
     /// using System.Collections.Generic;
@@ -294,6 +394,9 @@ namespace Pulumi.ConfluentCloud
     /// * `sql-server-cdc-debezium-source-connector`
     /// * `postgre-sql-cdc-debezium-source-connector`
     /// * `custom-datagen-source-connector`
+    /// * `manage-offsets-github-source-connector`
+    /// * `manage-offsets-mongo-db-source-connector`
+    /// * `manage-offsets-mysql-sink-connector`
     /// 
     /// &gt; **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.
     /// 
@@ -334,7 +437,15 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.ConnectorKafkaCluster> KafkaCluster { get; private set; } = null!;
 
         /// <summary>
+        /// Connector partitions with offsets
+        /// </summary>
+        [Output("offsets")]
+        public Output<ImmutableArray<Outputs.ConnectorOffset>> Offsets { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" &gt; "PAUSED"`) and resuming (`"PAUSED" &gt; "RUNNING"`) a connector is supported via an update operation.
+        /// 
+        /// For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
         /// 
         /// &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
         /// 
@@ -430,8 +541,22 @@ namespace Pulumi.ConfluentCloud
         [Input("kafkaCluster", required: true)]
         public Input<Inputs.ConnectorKafkaClusterArgs> KafkaCluster { get; set; } = null!;
 
+        [Input("offsets")]
+        private InputList<Inputs.ConnectorOffsetArgs>? _offsets;
+
+        /// <summary>
+        /// Connector partitions with offsets
+        /// </summary>
+        public InputList<Inputs.ConnectorOffsetArgs> Offsets
+        {
+            get => _offsets ?? (_offsets = new InputList<Inputs.ConnectorOffsetArgs>());
+            set => _offsets = value;
+        }
+
         /// <summary>
         /// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" &gt; "PAUSED"`) and resuming (`"PAUSED" &gt; "RUNNING"`) a connector is supported via an update operation.
+        /// 
+        /// For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
         /// 
         /// &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
         /// 
@@ -485,8 +610,22 @@ namespace Pulumi.ConfluentCloud
         [Input("kafkaCluster")]
         public Input<Inputs.ConnectorKafkaClusterGetArgs>? KafkaCluster { get; set; }
 
+        [Input("offsets")]
+        private InputList<Inputs.ConnectorOffsetGetArgs>? _offsets;
+
+        /// <summary>
+        /// Connector partitions with offsets
+        /// </summary>
+        public InputList<Inputs.ConnectorOffsetGetArgs> Offsets
+        {
+            get => _offsets ?? (_offsets = new InputList<Inputs.ConnectorOffsetGetArgs>());
+            set => _offsets = value;
+        }
+
         /// <summary>
         /// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" &gt; "PAUSED"`) and resuming (`"PAUSED" &gt; "RUNNING"`) a connector is supported via an update operation.
+        /// 
+        /// For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
         /// 
         /// &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
         /// 
