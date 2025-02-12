@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewNetwork(ctx, "aws-peering", &confluentcloud.NetworkArgs{
+//			aws_peering, err := confluentcloud.NewNetwork(ctx, "aws-peering", &confluentcloud.NetworkArgs{
 //				DisplayName: pulumi.String("AWS Peering Network"),
 //				Cloud:       pulumi.String("AWS"),
 //				Region:      pulumi.String("us-east-2"),
@@ -95,7 +95,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewNetwork(ctx, "azure-peering", &confluentcloud.NetworkArgs{
+//			azure_peering, err := confluentcloud.NewNetwork(ctx, "azure-peering", &confluentcloud.NetworkArgs{
 //				DisplayName: pulumi.String("Azure Peering Network"),
 //				Cloud:       pulumi.String("AZURE"),
 //				Region:      pulumi.String("centralus"),
@@ -153,7 +153,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewNetwork(ctx, "gcp-peering", &confluentcloud.NetworkArgs{
+//			gcp_peering, err := confluentcloud.NewNetwork(ctx, "gcp-peering", &confluentcloud.NetworkArgs{
 //				DisplayName: pulumi.String("GCP Peering Network"),
 //				Cloud:       pulumi.String("GCP"),
 //				Region:      pulumi.String("us-west4"),

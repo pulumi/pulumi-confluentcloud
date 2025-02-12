@@ -34,7 +34,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.NewGroupMapping(ctx, "application-developers", &confluentcloud.GroupMappingArgs{
+//			application_developers, err := confluentcloud.NewGroupMapping(ctx, "application-developers", &confluentcloud.GroupMappingArgs{
 //				DisplayName: pulumi.String("Application Developers"),
 //				Description: pulumi.String("Admin access to production environment for Engineering"),
 //				Filter:      pulumi.String("\"engineering\" in groups"),

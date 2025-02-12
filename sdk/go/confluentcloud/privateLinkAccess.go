@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewNetwork(ctx, "aws-private-link", &confluentcloud.NetworkArgs{
+//			aws_private_link, err := confluentcloud.NewNetwork(ctx, "aws-private-link", &confluentcloud.NetworkArgs{
 //				DisplayName: pulumi.String("AWS Private Link Network"),
 //				Cloud:       pulumi.String("AWS"),
 //				Region:      pulumi.String("us-east-1"),
@@ -94,7 +94,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewNetwork(ctx, "azure-private-link", &confluentcloud.NetworkArgs{
+//			azure_private_link, err := confluentcloud.NewNetwork(ctx, "azure-private-link", &confluentcloud.NetworkArgs{
 //				DisplayName: pulumi.String("Azure Private Link Network"),
 //				Cloud:       pulumi.String("AZURE"),
 //				Region:      pulumi.String("centralus"),
@@ -149,7 +149,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewNetwork(ctx, "gcp-private-service-connect", &confluentcloud.NetworkArgs{
+//			gcp_private_service_connect, err := confluentcloud.NewNetwork(ctx, "gcp-private-service-connect", &confluentcloud.NetworkArgs{
 //				DisplayName: pulumi.String("GCP Private Service Connect Network"),
 //				Cloud:       pulumi.String("GCP"),
 //				Region:      pulumi.String("us-central1"),
