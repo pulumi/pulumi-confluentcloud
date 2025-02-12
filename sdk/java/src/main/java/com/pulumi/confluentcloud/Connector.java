@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.ConnectorState;
 import com.pulumi.confluentcloud.outputs.ConnectorEnvironment;
 import com.pulumi.confluentcloud.outputs.ConnectorKafkaCluster;
+import com.pulumi.confluentcloud.outputs.ConnectorOffset;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -15,6 +16,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -292,6 +294,101 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Example Managed [MySQL Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-mysql-sink.html) that uses a service account to communicate with your Kafka cluster
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Connector;
+ * import com.pulumi.confluentcloud.ConnectorArgs;
+ * import com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.ConnectorOffsetArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
+ *         var sink = new Connector("sink", ConnectorArgs.builder()
+ *             .environment(ConnectorEnvironmentArgs.builder()
+ *                 .id(staging.id())
+ *                 .build())
+ *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
+ *                 .id(basic.id())
+ *                 .build())
+ *             .configSensitive(Map.of("connection.password", "***REDACTED***"))
+ *             .configNonsensitive(Map.ofEntries(
+ *                 Map.entry("connector.class", "MySqlSink"),
+ *                 Map.entry("name", "MySQLSinkConnector_0"),
+ *                 Map.entry("topics", orders.topicName()),
+ *                 Map.entry("input.data.format", "AVRO"),
+ *                 Map.entry("kafka.auth.mode", "SERVICE_ACCOUNT"),
+ *                 Map.entry("kafka.service.account.id", app_connector.id()),
+ *                 Map.entry("db.name", "test_database"),
+ *                 Map.entry("connection.user", "confluent_user"),
+ *                 Map.entry("connection.host", "dev-testing-temp.abcdefghijk.us-west-7.rds.amazonaws.com"),
+ *                 Map.entry("connection.port", "3306"),
+ *                 Map.entry("insert.mode", "INSERT"),
+ *                 Map.entry("auto.create", "true"),
+ *                 Map.entry("auto.evolve", "true"),
+ *                 Map.entry("tasks.max", "1")
+ *             ))
+ *             .offsets(            
+ *                 ConnectorOffsetArgs.builder()
+ *                     .partition(Map.ofEntries(
+ *                         Map.entry("kafka_partition", "0"),
+ *                         Map.entry("kafka_topic", orders.topicName())
+ *                     ))
+ *                     .offset(Map.of("kafka_offset", "100"))
+ *                     .build(),
+ *                 ConnectorOffsetArgs.builder()
+ *                     .partition(Map.ofEntries(
+ *                         Map.entry("kafka_partition", "1"),
+ *                         Map.entry("kafka_topic", orders.topicName())
+ *                     ))
+ *                     .offset(Map.of("kafka_offset", "200"))
+ *                     .build(),
+ *                 ConnectorOffsetArgs.builder()
+ *                     .partition(Map.ofEntries(
+ *                         Map.entry("kafka_partition", "2"),
+ *                         Map.entry("kafka_topic", orders.topicName())
+ *                     ))
+ *                     .offset(Map.of("kafka_offset", "300"))
+ *                     .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     app_connector_describe_on_cluster,
+ *                     app_connector_read_on_target_topic,
+ *                     app_connector_create_on_dlq_lcc_topics,
+ *                     app_connector_write_on_dlq_lcc_topics,
+ *                     app_connector_create_on_success_lcc_topics,
+ *                     app_connector_write_on_success_lcc_topics,
+ *                     app_connector_create_on_error_lcc_topics,
+ *                     app_connector_write_on_error_lcc_topics,
+ *                     app_connector_read_on_connect_lcc_group)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -368,6 +465,9 @@ import javax.annotation.Nullable;
  * * `sql-server-cdc-debezium-source-connector`
  * * `postgre-sql-cdc-debezium-source-connector`
  * * `custom-datagen-source-connector`
+ * * `manage-offsets-github-source-connector`
+ * * `manage-offsets-mongo-db-source-connector`
+ * * `manage-offsets-mysql-sink-connector`
  * 
  * &gt; **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.
  * 
@@ -435,7 +535,23 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.kafkaCluster;
     }
     /**
+     * Connector partitions with offsets
+     * 
+     */
+    @Export(name="offsets", refs={List.class,ConnectorOffset.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ConnectorOffset>> offsets;
+
+    /**
+     * @return Connector partitions with offsets
+     * 
+     */
+    public Output<Optional<List<ConnectorOffset>>> offsets() {
+        return Codegen.optional(this.offsets);
+    }
+    /**
      * The status of the connector (one of `&#34;NONE&#34;`, `&#34;PROVISIONING&#34;`, `&#34;RUNNING&#34;`, `&#34;DEGRADED&#34;`, `&#34;FAILED&#34;`, `&#34;PAUSED&#34;`, `&#34;DELETED&#34;`). Pausing (`&#34;RUNNING&#34; &gt; &#34;PAUSED&#34;`) and resuming (`&#34;PAUSED&#34; &gt; &#34;RUNNING&#34;`) a connector is supported via an update operation.
+     * 
+     * For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
      * 
      * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
      * 
@@ -447,6 +563,8 @@ public class Connector extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The status of the connector (one of `&#34;NONE&#34;`, `&#34;PROVISIONING&#34;`, `&#34;RUNNING&#34;`, `&#34;DEGRADED&#34;`, `&#34;FAILED&#34;`, `&#34;PAUSED&#34;`, `&#34;DELETED&#34;`). Pausing (`&#34;RUNNING&#34; &gt; &#34;PAUSED&#34;`) and resuming (`&#34;PAUSED&#34; &gt; &#34;RUNNING&#34;`) a connector is supported via an update operation.
+     * 
+     * For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
      * 
      * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
      * 

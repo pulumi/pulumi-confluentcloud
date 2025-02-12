@@ -234,6 +234,96 @@ import (
 //
 // ```
 //
+// ### Example Managed [MySQL Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-mysql-sink.html) that uses a service account to communicate with your Kafka cluster
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
+//			_, err := confluentcloud.NewConnector(ctx, "sink", &confluentcloud.ConnectorArgs{
+//				Environment: &confluentcloud.ConnectorEnvironmentArgs{
+//					Id: pulumi.Any(staging.Id),
+//				},
+//				KafkaCluster: &confluentcloud.ConnectorKafkaClusterArgs{
+//					Id: pulumi.Any(basic.Id),
+//				},
+//				ConfigSensitive: pulumi.StringMap{
+//					"connection.password": pulumi.String("***REDACTED***"),
+//				},
+//				ConfigNonsensitive: pulumi.StringMap{
+//					"connector.class":          pulumi.String("MySqlSink"),
+//					"name":                     pulumi.String("MySQLSinkConnector_0"),
+//					"topics":                   pulumi.Any(orders.TopicName),
+//					"input.data.format":        pulumi.String("AVRO"),
+//					"kafka.auth.mode":          pulumi.String("SERVICE_ACCOUNT"),
+//					"kafka.service.account.id": pulumi.Any(app_connector.Id),
+//					"db.name":                  pulumi.String("test_database"),
+//					"connection.user":          pulumi.String("confluent_user"),
+//					"connection.host":          pulumi.String("dev-testing-temp.abcdefghijk.us-west-7.rds.amazonaws.com"),
+//					"connection.port":          pulumi.String("3306"),
+//					"insert.mode":              pulumi.String("INSERT"),
+//					"auto.create":              pulumi.String("true"),
+//					"auto.evolve":              pulumi.String("true"),
+//					"tasks.max":                pulumi.String("1"),
+//				},
+//				Offsets: confluentcloud.ConnectorOffsetArray{
+//					&confluentcloud.ConnectorOffsetArgs{
+//						Partition: pulumi.StringMap{
+//							"kafka_partition": pulumi.String("0"),
+//							"kafka_topic":     pulumi.Any(orders.TopicName),
+//						},
+//						Offset: pulumi.StringMap{
+//							"kafka_offset": pulumi.String("100"),
+//						},
+//					},
+//					&confluentcloud.ConnectorOffsetArgs{
+//						Partition: pulumi.StringMap{
+//							"kafka_partition": pulumi.String("1"),
+//							"kafka_topic":     pulumi.Any(orders.TopicName),
+//						},
+//						Offset: pulumi.StringMap{
+//							"kafka_offset": pulumi.String("200"),
+//						},
+//					},
+//					&confluentcloud.ConnectorOffsetArgs{
+//						Partition: pulumi.StringMap{
+//							"kafka_partition": pulumi.String("2"),
+//							"kafka_topic":     pulumi.Any(orders.TopicName),
+//						},
+//						Offset: pulumi.StringMap{
+//							"kafka_offset": pulumi.String("300"),
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				app_connector_describe_on_cluster,
+//				app_connector_read_on_target_topic,
+//				app_connector_create_on_dlq_lcc_topics,
+//				app_connector_write_on_dlq_lcc_topics,
+//				app_connector_create_on_success_lcc_topics,
+//				app_connector_write_on_success_lcc_topics,
+//				app_connector_create_on_error_lcc_topics,
+//				app_connector_write_on_error_lcc_topics,
+//				app_connector_read_on_connect_lcc_group,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster
 // ```go
 // package main
@@ -298,6 +388,9 @@ import (
 // * `sql-server-cdc-debezium-source-connector`
 // * `postgre-sql-cdc-debezium-source-connector`
 // * `custom-datagen-source-connector`
+// * `manage-offsets-github-source-connector`
+// * `manage-offsets-mongo-db-source-connector`
+// * `manage-offsets-mysql-sink-connector`
 //
 // > **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.
 //
@@ -322,7 +415,11 @@ type Connector struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironmentOutput  `pulumi:"environment"`
 	KafkaCluster ConnectorKafkaClusterOutput `pulumi:"kafkaCluster"`
+	// Connector partitions with offsets
+	Offsets ConnectorOffsetArrayOutput `pulumi:"offsets"`
 	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+	//
+	// For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
 	//
 	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
 	//
@@ -383,7 +480,11 @@ type connectorState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  *ConnectorEnvironment  `pulumi:"environment"`
 	KafkaCluster *ConnectorKafkaCluster `pulumi:"kafkaCluster"`
+	// Connector partitions with offsets
+	Offsets []ConnectorOffset `pulumi:"offsets"`
 	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+	//
+	// For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
 	//
 	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
 	//
@@ -399,7 +500,11 @@ type ConnectorState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironmentPtrInput
 	KafkaCluster ConnectorKafkaClusterPtrInput
+	// Connector partitions with offsets
+	Offsets ConnectorOffsetArrayInput
 	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+	//
+	// For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
 	//
 	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
 	//
@@ -419,7 +524,11 @@ type connectorArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironment  `pulumi:"environment"`
 	KafkaCluster ConnectorKafkaCluster `pulumi:"kafkaCluster"`
+	// Connector partitions with offsets
+	Offsets []ConnectorOffset `pulumi:"offsets"`
 	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+	//
+	// For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
 	//
 	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
 	//
@@ -436,7 +545,11 @@ type ConnectorArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironmentInput
 	KafkaCluster ConnectorKafkaClusterInput
+	// Connector partitions with offsets
+	Offsets ConnectorOffsetArrayInput
 	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+	//
+	// For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
 	//
 	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
 	//
@@ -550,7 +663,14 @@ func (o ConnectorOutput) KafkaCluster() ConnectorKafkaClusterOutput {
 	return o.ApplyT(func(v *Connector) ConnectorKafkaClusterOutput { return v.KafkaCluster }).(ConnectorKafkaClusterOutput)
 }
 
+// Connector partitions with offsets
+func (o ConnectorOutput) Offsets() ConnectorOffsetArrayOutput {
+	return o.ApplyT(func(v *Connector) ConnectorOffsetArrayOutput { return v.Offsets }).(ConnectorOffsetArrayOutput)
+}
+
 // The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+//
+// For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
 //
 // > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
 //

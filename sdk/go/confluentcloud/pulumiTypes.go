@@ -4921,6 +4921,112 @@ func (o ConnectorKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConnectorOffset struct {
+	// Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafkaOffset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+	Offset map[string]string `pulumi:"offset"`
+	// Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafkaPartition` and `kafkaTopic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+	Partition map[string]string `pulumi:"partition"`
+}
+
+// ConnectorOffsetInput is an input type that accepts ConnectorOffsetArgs and ConnectorOffsetOutput values.
+// You can construct a concrete instance of `ConnectorOffsetInput` via:
+//
+//	ConnectorOffsetArgs{...}
+type ConnectorOffsetInput interface {
+	pulumi.Input
+
+	ToConnectorOffsetOutput() ConnectorOffsetOutput
+	ToConnectorOffsetOutputWithContext(context.Context) ConnectorOffsetOutput
+}
+
+type ConnectorOffsetArgs struct {
+	// Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafkaOffset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+	Offset pulumi.StringMapInput `pulumi:"offset"`
+	// Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafkaPartition` and `kafkaTopic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+	Partition pulumi.StringMapInput `pulumi:"partition"`
+}
+
+func (ConnectorOffsetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorOffset)(nil)).Elem()
+}
+
+func (i ConnectorOffsetArgs) ToConnectorOffsetOutput() ConnectorOffsetOutput {
+	return i.ToConnectorOffsetOutputWithContext(context.Background())
+}
+
+func (i ConnectorOffsetArgs) ToConnectorOffsetOutputWithContext(ctx context.Context) ConnectorOffsetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorOffsetOutput)
+}
+
+// ConnectorOffsetArrayInput is an input type that accepts ConnectorOffsetArray and ConnectorOffsetArrayOutput values.
+// You can construct a concrete instance of `ConnectorOffsetArrayInput` via:
+//
+//	ConnectorOffsetArray{ ConnectorOffsetArgs{...} }
+type ConnectorOffsetArrayInput interface {
+	pulumi.Input
+
+	ToConnectorOffsetArrayOutput() ConnectorOffsetArrayOutput
+	ToConnectorOffsetArrayOutputWithContext(context.Context) ConnectorOffsetArrayOutput
+}
+
+type ConnectorOffsetArray []ConnectorOffsetInput
+
+func (ConnectorOffsetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectorOffset)(nil)).Elem()
+}
+
+func (i ConnectorOffsetArray) ToConnectorOffsetArrayOutput() ConnectorOffsetArrayOutput {
+	return i.ToConnectorOffsetArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectorOffsetArray) ToConnectorOffsetArrayOutputWithContext(ctx context.Context) ConnectorOffsetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorOffsetArrayOutput)
+}
+
+type ConnectorOffsetOutput struct{ *pulumi.OutputState }
+
+func (ConnectorOffsetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorOffset)(nil)).Elem()
+}
+
+func (o ConnectorOffsetOutput) ToConnectorOffsetOutput() ConnectorOffsetOutput {
+	return o
+}
+
+func (o ConnectorOffsetOutput) ToConnectorOffsetOutputWithContext(ctx context.Context) ConnectorOffsetOutput {
+	return o
+}
+
+// Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafkaOffset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+func (o ConnectorOffsetOutput) Offset() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectorOffset) map[string]string { return v.Offset }).(pulumi.StringMapOutput)
+}
+
+// Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafkaPartition` and `kafkaTopic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+func (o ConnectorOffsetOutput) Partition() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectorOffset) map[string]string { return v.Partition }).(pulumi.StringMapOutput)
+}
+
+type ConnectorOffsetArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectorOffsetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectorOffset)(nil)).Elem()
+}
+
+func (o ConnectorOffsetArrayOutput) ToConnectorOffsetArrayOutput() ConnectorOffsetArrayOutput {
+	return o
+}
+
+func (o ConnectorOffsetArrayOutput) ToConnectorOffsetArrayOutputWithContext(ctx context.Context) ConnectorOffsetArrayOutput {
+	return o
+}
+
+func (o ConnectorOffsetArrayOutput) Index(i pulumi.IntInput) ConnectorOffsetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectorOffset {
+		return vs[0].([]ConnectorOffset)[vs[1].(int)]
+	}).(ConnectorOffsetOutput)
+}
+
 type DnsForwarderEnvironment struct {
 	// The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
@@ -34504,6 +34610,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEnvironmentPtrInput)(nil)).Elem(), ConnectorEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterPtrInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorOffsetInput)(nil)).Elem(), ConnectorOffsetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorOffsetArrayInput)(nil)).Elem(), ConnectorOffsetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsForwarderEnvironmentInput)(nil)).Elem(), DnsForwarderEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsForwarderEnvironmentPtrInput)(nil)).Elem(), DnsForwarderEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsForwarderForwardViaGcpDnsZonesInput)(nil)).Elem(), DnsForwarderForwardViaGcpDnsZonesArgs{})
@@ -35010,6 +35118,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorOffsetOutput{})
+	pulumi.RegisterOutputType(ConnectorOffsetArrayOutput{})
 	pulumi.RegisterOutputType(DnsForwarderEnvironmentOutput{})
 	pulumi.RegisterOutputType(DnsForwarderEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(DnsForwarderForwardViaGcpDnsZonesOutput{})

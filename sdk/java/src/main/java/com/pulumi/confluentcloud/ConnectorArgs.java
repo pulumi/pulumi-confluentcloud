@@ -5,10 +5,12 @@ package com.pulumi.confluentcloud;
 
 import com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;
+import com.pulumi.confluentcloud.inputs.ConnectorOffsetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,7 +74,24 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Connector partitions with offsets
+     * 
+     */
+    @Import(name="offsets")
+    private @Nullable Output<List<ConnectorOffsetArgs>> offsets;
+
+    /**
+     * @return Connector partitions with offsets
+     * 
+     */
+    public Optional<Output<List<ConnectorOffsetArgs>>> offsets() {
+        return Optional.ofNullable(this.offsets);
+    }
+
+    /**
      * The status of the connector (one of `&#34;NONE&#34;`, `&#34;PROVISIONING&#34;`, `&#34;RUNNING&#34;`, `&#34;DEGRADED&#34;`, `&#34;FAILED&#34;`, `&#34;PAUSED&#34;`, `&#34;DELETED&#34;`). Pausing (`&#34;RUNNING&#34; &gt; &#34;PAUSED&#34;`) and resuming (`&#34;PAUSED&#34; &gt; &#34;RUNNING&#34;`) a connector is supported via an update operation.
+     * 
+     * For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
      * 
      * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
      * 
@@ -84,6 +103,8 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The status of the connector (one of `&#34;NONE&#34;`, `&#34;PROVISIONING&#34;`, `&#34;RUNNING&#34;`, `&#34;DEGRADED&#34;`, `&#34;FAILED&#34;`, `&#34;PAUSED&#34;`, `&#34;DELETED&#34;`). Pausing (`&#34;RUNNING&#34; &gt; &#34;PAUSED&#34;`) and resuming (`&#34;PAUSED&#34; &gt; &#34;RUNNING&#34;`) a connector is supported via an update operation.
+     * 
+     * For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
      * 
      * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
      * 
@@ -101,6 +122,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         this.configSensitive = $.configSensitive;
         this.environment = $.environment;
         this.kafkaCluster = $.kafkaCluster;
+        this.offsets = $.offsets;
         this.status = $.status;
     }
 
@@ -195,7 +217,40 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param offsets Connector partitions with offsets
+         * 
+         * @return builder
+         * 
+         */
+        public Builder offsets(@Nullable Output<List<ConnectorOffsetArgs>> offsets) {
+            $.offsets = offsets;
+            return this;
+        }
+
+        /**
+         * @param offsets Connector partitions with offsets
+         * 
+         * @return builder
+         * 
+         */
+        public Builder offsets(List<ConnectorOffsetArgs> offsets) {
+            return offsets(Output.of(offsets));
+        }
+
+        /**
+         * @param offsets Connector partitions with offsets
+         * 
+         * @return builder
+         * 
+         */
+        public Builder offsets(ConnectorOffsetArgs... offsets) {
+            return offsets(List.of(offsets));
+        }
+
+        /**
          * @param status The status of the connector (one of `&#34;NONE&#34;`, `&#34;PROVISIONING&#34;`, `&#34;RUNNING&#34;`, `&#34;DEGRADED&#34;`, `&#34;FAILED&#34;`, `&#34;PAUSED&#34;`, `&#34;DELETED&#34;`). Pausing (`&#34;RUNNING&#34; &gt; &#34;PAUSED&#34;`) and resuming (`&#34;PAUSED&#34; &gt; &#34;RUNNING&#34;`) a connector is supported via an update operation.
+         * 
+         * For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
          * 
          * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
          * 
@@ -211,6 +266,8 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param status The status of the connector (one of `&#34;NONE&#34;`, `&#34;PROVISIONING&#34;`, `&#34;RUNNING&#34;`, `&#34;DEGRADED&#34;`, `&#34;FAILED&#34;`, `&#34;PAUSED&#34;`, `&#34;DELETED&#34;`). Pausing (`&#34;RUNNING&#34; &gt; &#34;PAUSED&#34;`) and resuming (`&#34;PAUSED&#34; &gt; &#34;RUNNING&#34;`) a connector is supported via an update operation.
+         * 
+         * For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
          * 
          * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
          * 
