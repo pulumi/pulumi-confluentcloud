@@ -44,13 +44,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewEnvironment(ctx, "test-env", &confluentcloud.EnvironmentArgs{
+//			test_env, err := confluentcloud.NewEnvironment(ctx, "test-env", &confluentcloud.EnvironmentArgs{
 //				DisplayName: pulumi.Sprintf("env_for_%v", exampleUsingId.FullName),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewKafkaCluster(ctx, "standard-cluster-on-aws", &confluentcloud.KafkaClusterArgs{
+//			standard_cluster_on_aws, err := confluentcloud.NewKafkaCluster(ctx, "standard-cluster-on-aws", &confluentcloud.KafkaClusterArgs{
 //				DisplayName:  pulumi.String("standard_kafka_cluster_on_aws"),
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("AWS"),
