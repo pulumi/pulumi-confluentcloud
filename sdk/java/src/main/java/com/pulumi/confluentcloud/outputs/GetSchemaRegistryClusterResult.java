@@ -22,7 +22,7 @@ public final class GetSchemaRegistryClusterResult {
      */
     private String catalogEndpoint;
     /**
-     * @return (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+     * @return (Required String) The cloud service provider that the Schema Registry cluster belongs to, for example, `AWS`.
      * 
      */
     private String cloud;
@@ -84,7 +84,7 @@ public final class GetSchemaRegistryClusterResult {
         return this.catalogEndpoint;
     }
     /**
-     * @return (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+     * @return (Required String) The cloud service provider that the Schema Registry cluster belongs to, for example, `AWS`.
      * 
      */
     public String cloud() {

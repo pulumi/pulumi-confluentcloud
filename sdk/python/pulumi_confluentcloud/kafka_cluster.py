@@ -564,9 +564,6 @@ class KafkaCluster(pulumi.CustomResource):
             region="us-east-1",
             environment={
                 "id": staging["id"],
-            },
-            network={
-                "id": peering["id"],
             })
         ```
 
@@ -772,9 +769,6 @@ class KafkaCluster(pulumi.CustomResource):
             region="us-east-1",
             environment={
                 "id": staging["id"],
-            },
-            network={
-                "id": peering["id"],
             })
         ```
 

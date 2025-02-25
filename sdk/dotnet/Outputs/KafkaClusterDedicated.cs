@@ -18,8 +18,6 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// 
         /// &gt; **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
         /// 
-        /// &gt; **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
-        /// 
         /// &gt; **Note:** The `freight` Kafka cluster type is currently available only on AWS.
         /// 
         /// &gt; **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.

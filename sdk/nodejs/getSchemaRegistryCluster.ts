@@ -81,7 +81,7 @@ export interface GetSchemaRegistryClusterResult {
      */
     readonly catalogEndpoint: string;
     /**
-     * (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+     * (Required String) The cloud service provider that the Schema Registry cluster belongs to, for example, `AWS`.
      */
     readonly cloud: string;
     /**
