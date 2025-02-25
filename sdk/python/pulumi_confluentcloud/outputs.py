@@ -577,7 +577,7 @@ class AccessPointGcpEgressPrivateServiceConnectEndpoint(dict):
                  private_service_connect_endpoint_ip_address: Optional[str] = None,
                  private_service_connect_endpoint_name: Optional[str] = None):
         """
-        :param str private_service_connect_endpoint_target: URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        :param str private_service_connect_endpoint_target: URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         :param str private_service_connect_endpoint_connection_id: (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
         :param str private_service_connect_endpoint_ip_address: (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
         :param str private_service_connect_endpoint_name: (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
@@ -594,7 +594,7 @@ class AccessPointGcpEgressPrivateServiceConnectEndpoint(dict):
     @pulumi.getter(name="privateServiceConnectEndpointTarget")
     def private_service_connect_endpoint_target(self) -> str:
         """
-        URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         """
         return pulumi.get(self, "private_service_connect_endpoint_target")
 
@@ -2456,8 +2456,6 @@ class KafkaClusterDedicated(dict):
                
                > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
                
-               > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
-               
                > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
                
                > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
@@ -2482,8 +2480,6 @@ class KafkaClusterDedicated(dict):
         The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 
         > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
-
-        > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 
         > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 
@@ -5299,7 +5295,7 @@ class GetAccessPointGcpEgressPrivateServiceConnectEndpointResult(dict):
         :param str private_service_connect_endpoint_connection_id: (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
         :param str private_service_connect_endpoint_ip_address: (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
         :param str private_service_connect_endpoint_name: (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
-        :param str private_service_connect_endpoint_target: (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        :param str private_service_connect_endpoint_target: (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         """
         pulumi.set(__self__, "private_service_connect_endpoint_connection_id", private_service_connect_endpoint_connection_id)
         pulumi.set(__self__, "private_service_connect_endpoint_ip_address", private_service_connect_endpoint_ip_address)
@@ -5334,7 +5330,7 @@ class GetAccessPointGcpEgressPrivateServiceConnectEndpointResult(dict):
     @pulumi.getter(name="privateServiceConnectEndpointTarget")
     def private_service_connect_endpoint_target(self) -> str:
         """
-        (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         """
         return pulumi.get(self, "private_service_connect_endpoint_target")
 
@@ -7549,7 +7545,7 @@ class GetSchemaRegistryClustersClusterResult(dict):
         """
         :param str api_version: (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
         :param str catalog_endpoint: (Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.
-        :param str cloud: (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+        :param str cloud: (Required String) The cloud service provider that the Schema Registry cluster belongs to, for example, `AWS`.
         :param str display_name: (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
         :param 'GetSchemaRegistryClustersClusterEnvironmentArgs' environment: (Required Object) exports the following attributes:
         :param str id: (Required String) The id of the environment.
@@ -7593,7 +7589,7 @@ class GetSchemaRegistryClustersClusterResult(dict):
     @pulumi.getter
     def cloud(self) -> str:
         """
-        (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+        (Required String) The cloud service provider that the Schema Registry cluster belongs to, for example, `AWS`.
         """
         return pulumi.get(self, "cloud")
 

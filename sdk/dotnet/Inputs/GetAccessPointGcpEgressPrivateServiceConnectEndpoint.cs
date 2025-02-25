@@ -31,7 +31,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         public string PrivateServiceConnectEndpointName { get; set; } = null!;
 
         /// <summary>
-        /// (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        /// (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         /// </summary>
         [Input("privateServiceConnectEndpointTarget", required: true)]
         public string PrivateServiceConnectEndpointTarget { get; set; } = null!;

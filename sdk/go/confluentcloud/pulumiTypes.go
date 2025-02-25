@@ -878,7 +878,7 @@ type AccessPointGcpEgressPrivateServiceConnectEndpoint struct {
 	PrivateServiceConnectEndpointIpAddress *string `pulumi:"privateServiceConnectEndpointIpAddress"`
 	// (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
 	PrivateServiceConnectEndpointName *string `pulumi:"privateServiceConnectEndpointName"`
-	// URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+	// URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
 	PrivateServiceConnectEndpointTarget string `pulumi:"privateServiceConnectEndpointTarget"`
 }
 
@@ -900,7 +900,7 @@ type AccessPointGcpEgressPrivateServiceConnectEndpointArgs struct {
 	PrivateServiceConnectEndpointIpAddress pulumi.StringPtrInput `pulumi:"privateServiceConnectEndpointIpAddress"`
 	// (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
 	PrivateServiceConnectEndpointName pulumi.StringPtrInput `pulumi:"privateServiceConnectEndpointName"`
-	// URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+	// URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
 	PrivateServiceConnectEndpointTarget pulumi.StringInput `pulumi:"privateServiceConnectEndpointTarget"`
 }
 
@@ -1002,7 +1002,7 @@ func (o AccessPointGcpEgressPrivateServiceConnectEndpointOutput) PrivateServiceC
 	}).(pulumi.StringPtrOutput)
 }
 
-// URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+// URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
 func (o AccessPointGcpEgressPrivateServiceConnectEndpointOutput) PrivateServiceConnectEndpointTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointGcpEgressPrivateServiceConnectEndpoint) string {
 		return v.PrivateServiceConnectEndpointTarget
@@ -1063,7 +1063,7 @@ func (o AccessPointGcpEgressPrivateServiceConnectEndpointPtrOutput) PrivateServi
 	}).(pulumi.StringPtrOutput)
 }
 
-// URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+// URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
 func (o AccessPointGcpEgressPrivateServiceConnectEndpointPtrOutput) PrivateServiceConnectEndpointTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointGcpEgressPrivateServiceConnectEndpoint) *string {
 		if v == nil {
@@ -9493,8 +9493,6 @@ type KafkaClusterDedicated struct {
 	//
 	// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
 	//
-	// > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
-	//
 	// > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 	//
 	// > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
@@ -9525,8 +9523,6 @@ type KafkaClusterDedicatedArgs struct {
 	// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 	//
 	// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
-	//
-	// > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	//
 	// > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 	//
@@ -9624,8 +9620,6 @@ func (o KafkaClusterDedicatedOutput) ToKafkaClusterDedicatedPtrOutputWithContext
 //
 // > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
 //
-// > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
-//
 // > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 //
 // > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
@@ -9675,8 +9669,6 @@ func (o KafkaClusterDedicatedPtrOutput) Elem() KafkaClusterDedicatedOutput {
 // The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 //
 // > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
-//
-// > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 //
 // > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 //
@@ -21474,7 +21466,7 @@ type GetAccessPointGcpEgressPrivateServiceConnectEndpoint struct {
 	PrivateServiceConnectEndpointIpAddress string `pulumi:"privateServiceConnectEndpointIpAddress"`
 	// (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
 	PrivateServiceConnectEndpointName string `pulumi:"privateServiceConnectEndpointName"`
-	// (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+	// (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
 	PrivateServiceConnectEndpointTarget string `pulumi:"privateServiceConnectEndpointTarget"`
 }
 
@@ -21496,7 +21488,7 @@ type GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs struct {
 	PrivateServiceConnectEndpointIpAddress pulumi.StringInput `pulumi:"privateServiceConnectEndpointIpAddress"`
 	// (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
 	PrivateServiceConnectEndpointName pulumi.StringInput `pulumi:"privateServiceConnectEndpointName"`
-	// (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+	// (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
 	PrivateServiceConnectEndpointTarget pulumi.StringInput `pulumi:"privateServiceConnectEndpointTarget"`
 }
 
@@ -21572,7 +21564,7 @@ func (o GetAccessPointGcpEgressPrivateServiceConnectEndpointOutput) PrivateServi
 	}).(pulumi.StringOutput)
 }
 
-// (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+// (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
 func (o GetAccessPointGcpEgressPrivateServiceConnectEndpointOutput) PrivateServiceConnectEndpointTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccessPointGcpEgressPrivateServiceConnectEndpoint) string {
 		return v.PrivateServiceConnectEndpointTarget
@@ -30620,7 +30612,7 @@ type GetSchemaRegistryClustersCluster struct {
 	ApiVersion string `pulumi:"apiVersion"`
 	// (Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.
 	CatalogEndpoint string `pulumi:"catalogEndpoint"`
-	// (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+	// (Required String) The cloud service provider that the Schema Registry cluster belongs to, for example, `AWS`.
 	Cloud string `pulumi:"cloud"`
 	// (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
 	DisplayName string `pulumi:"displayName"`
@@ -30658,7 +30650,7 @@ type GetSchemaRegistryClustersClusterArgs struct {
 	ApiVersion pulumi.StringInput `pulumi:"apiVersion"`
 	// (Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.
 	CatalogEndpoint pulumi.StringInput `pulumi:"catalogEndpoint"`
-	// (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+	// (Required String) The cloud service provider that the Schema Registry cluster belongs to, for example, `AWS`.
 	Cloud pulumi.StringInput `pulumi:"cloud"`
 	// (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
@@ -30741,7 +30733,7 @@ func (o GetSchemaRegistryClustersClusterOutput) CatalogEndpoint() pulumi.StringO
 	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) string { return v.CatalogEndpoint }).(pulumi.StringOutput)
 }
 
-// (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+// (Required String) The cloud service provider that the Schema Registry cluster belongs to, for example, `AWS`.
 func (o GetSchemaRegistryClustersClusterOutput) Cloud() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) string { return v.Cloud }).(pulumi.StringOutput)
 }

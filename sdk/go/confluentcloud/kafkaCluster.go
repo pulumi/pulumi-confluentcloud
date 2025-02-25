@@ -101,9 +101,6 @@ import (
 //				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
 //					Id: pulumi.Any(staging.Id),
 //				},
-//				Network: &confluentcloud.KafkaClusterNetworkArgs{
-//					Id: pulumi.Any(peering.Id),
-//				},
 //			})
 //			if err != nil {
 //				return err

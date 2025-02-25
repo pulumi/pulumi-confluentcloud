@@ -19,8 +19,6 @@ public final class KafkaClusterDedicated {
      * 
      * &gt; **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
      * 
-     * &gt; **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
-     * 
      * &gt; **Note:** The `freight` Kafka cluster type is currently available only on AWS.
      * 
      * &gt; **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
@@ -48,8 +46,6 @@ public final class KafkaClusterDedicated {
      * @return The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
      * 
      * &gt; **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
-     * 
-     * &gt; **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      * 
      * &gt; **Note:** The `freight` Kafka cluster type is currently available only on AWS.
      * 

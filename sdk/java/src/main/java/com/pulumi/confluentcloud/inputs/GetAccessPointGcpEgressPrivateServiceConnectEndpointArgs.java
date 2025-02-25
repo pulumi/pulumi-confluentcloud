@@ -60,14 +60,14 @@ public final class GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs exte
     }
 
     /**
-     * (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or &#34;ALL_GOOGLE_APIS&#34; or &#34;all-google-apis&#34; for global Google APIs.
+     * (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or &#34;all-google-apis&#34; for global Google APIs.
      * 
      */
     @Import(name="privateServiceConnectEndpointTarget", required=true)
     private Output<String> privateServiceConnectEndpointTarget;
 
     /**
-     * @return (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or &#34;ALL_GOOGLE_APIS&#34; or &#34;all-google-apis&#34; for global Google APIs.
+     * @return (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or &#34;all-google-apis&#34; for global Google APIs.
      * 
      */
     public Output<String> privateServiceConnectEndpointTarget() {
@@ -165,7 +165,7 @@ public final class GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs exte
         }
 
         /**
-         * @param privateServiceConnectEndpointTarget (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or &#34;ALL_GOOGLE_APIS&#34; or &#34;all-google-apis&#34; for global Google APIs.
+         * @param privateServiceConnectEndpointTarget (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or &#34;all-google-apis&#34; for global Google APIs.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs exte
         }
 
         /**
-         * @param privateServiceConnectEndpointTarget (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or &#34;ALL_GOOGLE_APIS&#34; or &#34;all-google-apis&#34; for global Google APIs.
+         * @param privateServiceConnectEndpointTarget (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or &#34;all-google-apis&#34; for global Google APIs.
          * 
          * @return builder
          * 

@@ -99,10 +99,6 @@ namespace Pulumi.ConfluentCloud
     ///         {
     ///             Id = staging.Id,
     ///         },
-    ///         Network = new ConfluentCloud.Inputs.KafkaClusterNetworkArgs
-    ///         {
-    ///             Id = peering.Id,
-    ///         },
     ///     });
     /// 
     /// });

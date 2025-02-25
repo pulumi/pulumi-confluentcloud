@@ -773,7 +773,7 @@ if not MYPY:
     class AccessPointGcpEgressPrivateServiceConnectEndpointArgsDict(TypedDict):
         private_service_connect_endpoint_target: pulumi.Input[str]
         """
-        URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         """
         private_service_connect_endpoint_connection_id: NotRequired[pulumi.Input[str]]
         """
@@ -798,7 +798,7 @@ class AccessPointGcpEgressPrivateServiceConnectEndpointArgs:
                  private_service_connect_endpoint_ip_address: Optional[pulumi.Input[str]] = None,
                  private_service_connect_endpoint_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] private_service_connect_endpoint_target: URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        :param pulumi.Input[str] private_service_connect_endpoint_target: URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         :param pulumi.Input[str] private_service_connect_endpoint_connection_id: (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
         :param pulumi.Input[str] private_service_connect_endpoint_ip_address: (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
         :param pulumi.Input[str] private_service_connect_endpoint_name: (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
@@ -815,7 +815,7 @@ class AccessPointGcpEgressPrivateServiceConnectEndpointArgs:
     @pulumi.getter(name="privateServiceConnectEndpointTarget")
     def private_service_connect_endpoint_target(self) -> pulumi.Input[str]:
         """
-        URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         """
         return pulumi.get(self, "private_service_connect_endpoint_target")
 
@@ -3508,8 +3508,6 @@ if not MYPY:
 
         > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
 
-        > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
-
         > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 
         > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
@@ -3541,8 +3539,6 @@ class KafkaClusterDedicatedArgs:
                
                > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
                
-               > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
-               
                > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
                
                > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
@@ -3567,8 +3563,6 @@ class KafkaClusterDedicatedArgs:
         The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 
         > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
-
-        > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 
         > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 
@@ -7363,7 +7357,7 @@ if not MYPY:
         """
         private_service_connect_endpoint_target: str
         """
-        (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         """
 elif False:
     GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict: TypeAlias = Mapping[str, Any]
@@ -7379,7 +7373,7 @@ class GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs:
         :param str private_service_connect_endpoint_connection_id: (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
         :param str private_service_connect_endpoint_ip_address: (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
         :param str private_service_connect_endpoint_name: (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
-        :param str private_service_connect_endpoint_target: (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        :param str private_service_connect_endpoint_target: (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         """
         pulumi.set(__self__, "private_service_connect_endpoint_connection_id", private_service_connect_endpoint_connection_id)
         pulumi.set(__self__, "private_service_connect_endpoint_ip_address", private_service_connect_endpoint_ip_address)
@@ -7426,7 +7420,7 @@ class GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs:
     @pulumi.getter(name="privateServiceConnectEndpointTarget")
     def private_service_connect_endpoint_target(self) -> str:
         """
-        (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         """
         return pulumi.get(self, "private_service_connect_endpoint_target")
 

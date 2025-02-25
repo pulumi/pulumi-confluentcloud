@@ -67,9 +67,6 @@ import * as utilities from "./utilities";
  *     environment: {
  *         id: staging.id,
  *     },
- *     network: {
- *         id: peering.id,
- *     },
  * });
  * ```
  *

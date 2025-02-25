@@ -89,7 +89,7 @@ type GetSchemaRegistryClusterResult struct {
 	ApiVersion string `pulumi:"apiVersion"`
 	// (Required String) The Catalog endpoint of the Schema Registry cluster, for example, `https://psrc-y1113.us-west-2.aws.confluent.cloud`.
 	CatalogEndpoint string `pulumi:"catalogEndpoint"`
-	// (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+	// (Required String) The cloud service provider that the Schema Registry cluster belongs to, for example, `AWS`.
 	Cloud string `pulumi:"cloud"`
 	// (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
 	DisplayName string                              `pulumi:"displayName"`
@@ -157,7 +157,7 @@ func (o GetSchemaRegistryClusterResultOutput) CatalogEndpoint() pulumi.StringOut
 	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.CatalogEndpoint }).(pulumi.StringOutput)
 }
 
-// (Required String) The cloud service provider that that the Schema Registry cluster belongs to, for example, `AWS`.
+// (Required String) The cloud service provider that the Schema Registry cluster belongs to, for example, `AWS`.
 func (o GetSchemaRegistryClusterResultOutput) Cloud() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.Cloud }).(pulumi.StringOutput)
 }

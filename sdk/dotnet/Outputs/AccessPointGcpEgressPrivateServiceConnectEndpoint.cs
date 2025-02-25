@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string? PrivateServiceConnectEndpointName;
         /// <summary>
-        /// URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+        /// URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         /// </summary>
         public readonly string PrivateServiceConnectEndpointTarget;
 

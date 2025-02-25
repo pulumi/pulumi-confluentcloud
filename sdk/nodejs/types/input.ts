@@ -90,7 +90,7 @@ export interface AccessPointGcpEgressPrivateServiceConnectEndpoint {
      */
     privateServiceConnectEndpointName?: pulumi.Input<string>;
     /**
-     * URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+     * URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
      */
     privateServiceConnectEndpointTarget: pulumi.Input<string>;
 }
@@ -605,7 +605,7 @@ export interface GetAccessPointGcpEgressPrivateServiceConnectEndpoint {
      */
     privateServiceConnectEndpointName?: string;
     /**
-     * (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+     * (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
      */
     privateServiceConnectEndpointTarget?: string;
 }
@@ -624,7 +624,7 @@ export interface GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs {
      */
     privateServiceConnectEndpointName?: pulumi.Input<string>;
     /**
-     * (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "ALL_GOOGLE_APIS" or "all-google-apis" for global Google APIs.
+     * (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
      */
     privateServiceConnectEndpointTarget?: pulumi.Input<string>;
 }
@@ -2040,8 +2040,6 @@ export interface KafkaClusterDedicated {
      * The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
      *
      * > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
-     *
-     * > **Note:** The `freight` block is in an [Early Access lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      *
      * > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
      *

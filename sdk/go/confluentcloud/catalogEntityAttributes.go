@@ -12,11 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-//
-// > **Note:** `CatalogEntityAttributes` resource is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-//
 // ## Example Usage
 //
 // ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
@@ -185,9 +180,9 @@ type CatalogEntityAttributes struct {
 	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
 	// The Cluster API Credentials.
 	Credentials CatalogEntityAttributesCredentialsPtrOutput `pulumi:"credentials"`
-	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 	EntityName pulumi.StringOutput `pulumi:"entityName"`
-	// The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+	// The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to see the full list of supported values for the `entityType` attribute.
 	EntityType pulumi.StringOutput `pulumi:"entityType"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrOutput                                `pulumi:"restEndpoint"`
@@ -241,9 +236,9 @@ type catalogEntityAttributesState struct {
 	Attributes map[string]string `pulumi:"attributes"`
 	// The Cluster API Credentials.
 	Credentials *CatalogEntityAttributesCredentials `pulumi:"credentials"`
-	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 	EntityName *string `pulumi:"entityName"`
-	// The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+	// The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to see the full list of supported values for the `entityType` attribute.
 	EntityType *string `pulumi:"entityType"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                                       `pulumi:"restEndpoint"`
@@ -255,9 +250,9 @@ type CatalogEntityAttributesState struct {
 	Attributes pulumi.StringMapInput
 	// The Cluster API Credentials.
 	Credentials CatalogEntityAttributesCredentialsPtrInput
-	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 	EntityName pulumi.StringPtrInput
-	// The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+	// The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to see the full list of supported values for the `entityType` attribute.
 	EntityType pulumi.StringPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
@@ -273,9 +268,9 @@ type catalogEntityAttributesArgs struct {
 	Attributes map[string]string `pulumi:"attributes"`
 	// The Cluster API Credentials.
 	Credentials *CatalogEntityAttributesCredentials `pulumi:"credentials"`
-	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 	EntityName string `pulumi:"entityName"`
-	// The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+	// The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to see the full list of supported values for the `entityType` attribute.
 	EntityType string `pulumi:"entityType"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                                       `pulumi:"restEndpoint"`
@@ -288,9 +283,9 @@ type CatalogEntityAttributesArgs struct {
 	Attributes pulumi.StringMapInput
 	// The Cluster API Credentials.
 	Credentials CatalogEntityAttributesCredentialsPtrInput
-	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 	EntityName pulumi.StringInput
-	// The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+	// The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to see the full list of supported values for the `entityType` attribute.
 	EntityType pulumi.StringInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
@@ -394,12 +389,12 @@ func (o CatalogEntityAttributesOutput) Credentials() CatalogEntityAttributesCred
 	return o.ApplyT(func(v *CatalogEntityAttributes) CatalogEntityAttributesCredentialsPtrOutput { return v.Credentials }).(CatalogEntityAttributesCredentialsPtrOutput)
 }
 
-// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 func (o CatalogEntityAttributesOutput) EntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogEntityAttributes) pulumi.StringOutput { return v.EntityName }).(pulumi.StringOutput)
 }
 
-// The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+// The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to see the full list of supported values for the `entityType` attribute.
 func (o CatalogEntityAttributesOutput) EntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogEntityAttributes) pulumi.StringOutput { return v.EntityType }).(pulumi.StringOutput)
 }

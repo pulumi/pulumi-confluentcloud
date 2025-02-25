@@ -46,7 +46,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterEnterpriseArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterDedicatedArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterFreightArgs;
- * import com.pulumi.confluentcloud.inputs.KafkaClusterNetworkArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -118,9 +117,6 @@ import javax.annotation.Nullable;
  *             .region("us-east-1")
  *             .environment(KafkaClusterEnvironmentArgs.builder()
  *                 .id(staging.id())
- *                 .build())
- *             .network(KafkaClusterNetworkArgs.builder()
- *                 .id(peering.id())
  *                 .build())
  *             .build());
  * 
