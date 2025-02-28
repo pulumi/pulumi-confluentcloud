@@ -134,6 +134,8 @@ import (
 type ClusterLink struct {
 	pulumi.CustomResourceState
 
+	// (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+	ClusterLinkId pulumi.StringOutput `pulumi:"clusterLinkId"`
 	// The custom cluster link settings to set:
 	Config pulumi.StringMapOutput `pulumi:"config"`
 	// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
@@ -178,6 +180,8 @@ func GetClusterLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterLink resources.
 type clusterLinkState struct {
+	// (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+	ClusterLinkId *string `pulumi:"clusterLinkId"`
 	// The custom cluster link settings to set:
 	Config map[string]string `pulumi:"config"`
 	// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
@@ -193,6 +197,8 @@ type clusterLinkState struct {
 }
 
 type ClusterLinkState struct {
+	// (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+	ClusterLinkId pulumi.StringPtrInput
 	// The custom cluster link settings to set:
 	Config pulumi.StringMapInput
 	// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
@@ -327,6 +333,11 @@ func (o ClusterLinkOutput) ToClusterLinkOutput() ClusterLinkOutput {
 
 func (o ClusterLinkOutput) ToClusterLinkOutputWithContext(ctx context.Context) ClusterLinkOutput {
 	return o
+}
+
+// (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+func (o ClusterLinkOutput) ClusterLinkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterLink) pulumi.StringOutput { return v.ClusterLinkId }).(pulumi.StringOutput)
 }
 
 // The custom cluster link settings to set:

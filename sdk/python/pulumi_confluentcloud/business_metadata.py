@@ -298,6 +298,7 @@ class BusinessMetadata(pulumi.CustomResource):
                 },
             ])
         ```
+        > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
         ## Getting Started
 
@@ -312,7 +313,7 @@ class BusinessMetadata(pulumi.CustomResource):
 
         $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
 
-        $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+        $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
 
         ```sh
         $ pulumi import confluentcloud:index/businessMetadata:BusinessMetadata pii lsrc-8wrx70/PII
@@ -386,6 +387,7 @@ class BusinessMetadata(pulumi.CustomResource):
                 },
             ])
         ```
+        > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
         ## Getting Started
 
@@ -400,7 +402,7 @@ class BusinessMetadata(pulumi.CustomResource):
 
         $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
 
-        $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+        $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
 
         ```sh
         $ pulumi import confluentcloud:index/businessMetadata:BusinessMetadata pii lsrc-8wrx70/PII

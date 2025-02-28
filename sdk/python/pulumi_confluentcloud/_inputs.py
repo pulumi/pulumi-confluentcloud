@@ -315,6 +315,10 @@ __all__ = [
     'GetBusinessMetadataSchemaRegistryClusterArgsDict',
     'GetCertificatePoolCertificateAuthorityArgs',
     'GetCertificatePoolCertificateAuthorityArgsDict',
+    'GetClusterLinkCredentialsArgs',
+    'GetClusterLinkCredentialsArgsDict',
+    'GetClusterLinkKafkaClusterArgs',
+    'GetClusterLinkKafkaClusterArgsDict',
     'GetDnsRecordEnvironmentArgs',
     'GetDnsRecordEnvironmentArgsDict',
     'GetEnvironmentStreamGovernanceArgs',
@@ -7620,6 +7624,87 @@ class GetCertificatePoolCertificateAuthorityArgs:
     def id(self) -> str:
         """
         The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class GetClusterLinkCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Kafka API Key.
+        """
+        secret: str
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    GetClusterLinkCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetClusterLinkCredentialsArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Kafka API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Kafka API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: str):
+        pulumi.set(self, "secret", value)
+
+
+if not MYPY:
+    class GetClusterLinkKafkaClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
+        """
+elif False:
+    GetClusterLinkKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetClusterLinkKafkaClusterArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
         """
         return pulumi.get(self, "id")
 

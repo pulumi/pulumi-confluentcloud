@@ -125,6 +125,11 @@ export const getCertificatePool: typeof import("./getCertificatePool").getCertif
 export const getCertificatePoolOutput: typeof import("./getCertificatePool").getCertificatePoolOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificatePool","getCertificatePoolOutput"], () => require("./getCertificatePool"));
 
+export { GetClusterLinkArgs, GetClusterLinkResult, GetClusterLinkOutputArgs } from "./getClusterLink";
+export const getClusterLink: typeof import("./getClusterLink").getClusterLink = null as any;
+export const getClusterLinkOutput: typeof import("./getClusterLink").getClusterLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getClusterLink","getClusterLinkOutput"], () => require("./getClusterLink"));
+
 export { GetDnsRecordArgs, GetDnsRecordResult, GetDnsRecordOutputArgs } from "./getDnsRecord";
 export const getDnsRecord: typeof import("./getDnsRecord").getDnsRecord = null as any;
 export const getDnsRecordOutput: typeof import("./getDnsRecord").getDnsRecordOutput = null as any;

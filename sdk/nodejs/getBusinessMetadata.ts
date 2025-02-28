@@ -42,6 +42,7 @@ import * as utilities from "./utilities";
  *     name: "PII",
  * });
  * ```
+ * > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
  */
 export function getBusinessMetadata(args: GetBusinessMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessMetadataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -135,6 +136,7 @@ export interface GetBusinessMetadataResult {
  *     name: "PII",
  * });
  * ```
+ * > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
  */
 export function getBusinessMetadataOutput(args: GetBusinessMetadataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBusinessMetadataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

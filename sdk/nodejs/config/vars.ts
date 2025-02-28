@@ -8,6 +8,17 @@ declare var exports: any;
 const __config = new pulumi.Config("confluentcloud");
 
 /**
+ * The Stream Catalog REST Endpoint.
+ */
+export declare const catalogRestEndpoint: string | undefined;
+Object.defineProperty(exports, "catalogRestEndpoint", {
+    get() {
+        return __config.get("catalogRestEndpoint");
+    },
+    enumerable: true,
+});
+
+/**
  * The Confluent Cloud API Key.
  */
 export declare const cloudApiKey: string | undefined;

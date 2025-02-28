@@ -16,6 +16,8 @@ import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
 import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
 import com.pulumi.confluentcloud.inputs.GetCertificatePoolPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
+import com.pulumi.confluentcloud.inputs.GetClusterLinkPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
 import com.pulumi.confluentcloud.inputs.GetDnsRecordPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;
@@ -100,6 +102,7 @@ import com.pulumi.confluentcloud.outputs.GetBusinessMetadataResult;
 import com.pulumi.confluentcloud.outputs.GetByokKeyResult;
 import com.pulumi.confluentcloud.outputs.GetCertificateAuthorityResult;
 import com.pulumi.confluentcloud.outputs.GetCertificatePoolResult;
+import com.pulumi.confluentcloud.outputs.GetClusterLinkResult;
 import com.pulumi.confluentcloud.outputs.GetDnsRecordResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentsResult;
@@ -482,6 +485,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args) {
@@ -573,6 +577,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetBusinessMetadataResult> getBusinessMetadataPlain(GetBusinessMetadataPlainArgs args) {
@@ -664,6 +669,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args, InvokeOptions options) {
@@ -755,6 +761,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args, InvokeOutputOptions options) {
@@ -846,6 +853,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetBusinessMetadataResult> getBusinessMetadataPlain(GetBusinessMetadataPlainArgs args, InvokeOptions options) {
@@ -941,6 +949,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static Output<GetBusinessMetadataBindingResult> getBusinessMetadataBinding(GetBusinessMetadataBindingArgs args) {
@@ -1036,6 +1045,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetBusinessMetadataBindingResult> getBusinessMetadataBindingPlain(GetBusinessMetadataBindingPlainArgs args) {
@@ -1131,6 +1141,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static Output<GetBusinessMetadataBindingResult> getBusinessMetadataBinding(GetBusinessMetadataBindingArgs args, InvokeOptions options) {
@@ -1226,6 +1237,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static Output<GetBusinessMetadataBindingResult> getBusinessMetadataBinding(GetBusinessMetadataBindingArgs args, InvokeOutputOptions options) {
@@ -1321,6 +1333,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetBusinessMetadataBindingResult> getBusinessMetadataBindingPlain(GetBusinessMetadataBindingPlainArgs args, InvokeOptions options) {
@@ -2020,6 +2033,471 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetCertificatePoolResult> getCertificatePoolPlain(GetCertificatePoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getCertificatePool:getCertificatePool", TypeShape.of(GetCertificatePoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ClusterLink` describes a Cluster Link data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
+     *             .linkName("main-link")
+     *             .restEndpoint(west.restEndpoint())
+     *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
+     *                 .id(west.id())
+     *                 .build())
+     *             .credentials(GetClusterLinkCredentialsArgs.builder()
+     *                 .key(app_manager_west_cluster_api_key.id())
+     *                 .secret(app_manager_west_cluster_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
+     *             .linkName("main-link")
+     *             .build());
+     * 
+     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetClusterLinkResult> getClusterLink(GetClusterLinkArgs args) {
+        return getClusterLink(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ClusterLink` describes a Cluster Link data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
+     *             .linkName("main-link")
+     *             .restEndpoint(west.restEndpoint())
+     *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
+     *                 .id(west.id())
+     *                 .build())
+     *             .credentials(GetClusterLinkCredentialsArgs.builder()
+     *                 .key(app_manager_west_cluster_api_key.id())
+     *                 .secret(app_manager_west_cluster_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
+     *             .linkName("main-link")
+     *             .build());
+     * 
+     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetClusterLinkResult> getClusterLinkPlain(GetClusterLinkPlainArgs args) {
+        return getClusterLinkPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ClusterLink` describes a Cluster Link data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
+     *             .linkName("main-link")
+     *             .restEndpoint(west.restEndpoint())
+     *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
+     *                 .id(west.id())
+     *                 .build())
+     *             .credentials(GetClusterLinkCredentialsArgs.builder()
+     *                 .key(app_manager_west_cluster_api_key.id())
+     *                 .secret(app_manager_west_cluster_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
+     *             .linkName("main-link")
+     *             .build());
+     * 
+     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetClusterLinkResult> getClusterLink(GetClusterLinkArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getClusterLink:getClusterLink", TypeShape.of(GetClusterLinkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ClusterLink` describes a Cluster Link data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
+     *             .linkName("main-link")
+     *             .restEndpoint(west.restEndpoint())
+     *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
+     *                 .id(west.id())
+     *                 .build())
+     *             .credentials(GetClusterLinkCredentialsArgs.builder()
+     *                 .key(app_manager_west_cluster_api_key.id())
+     *                 .secret(app_manager_west_cluster_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
+     *             .linkName("main-link")
+     *             .build());
+     * 
+     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetClusterLinkResult> getClusterLink(GetClusterLinkArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getClusterLink:getClusterLink", TypeShape.of(GetClusterLinkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ClusterLink` describes a Cluster Link data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
+     *             .linkName("main-link")
+     *             .restEndpoint(west.restEndpoint())
+     *             .kafkaCluster(GetClusterLinkKafkaClusterArgs.builder()
+     *                 .id(west.id())
+     *                 .build())
+     *             .credentials(GetClusterLinkCredentialsArgs.builder()
+     *                 .key(app_manager_west_cluster_api_key.id())
+     *                 .secret(app_manager_west_cluster_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getClusterLink(GetClusterLinkArgs.builder()
+     *             .linkName("main-link")
+     *             .build());
+     * 
+     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetClusterLinkResult> getClusterLinkPlain(GetClusterLinkPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getClusterLink:getClusterLink", TypeShape.of(GetClusterLinkResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -14698,6 +15176,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static Output<GetTagResult> getTag(GetTagArgs args) {
@@ -14789,6 +15268,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetTagResult> getTagPlain(GetTagPlainArgs args) {
@@ -14880,6 +15360,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static Output<GetTagResult> getTag(GetTagArgs args, InvokeOptions options) {
@@ -14971,6 +15452,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static Output<GetTagResult> getTag(GetTagArgs args, InvokeOutputOptions options) {
@@ -15062,6 +15544,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetTagResult> getTagPlain(GetTagPlainArgs args, InvokeOptions options) {
@@ -15157,6 +15640,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static Output<GetTagBindingResult> getTagBinding(GetTagBindingArgs args) {
@@ -15252,6 +15736,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetTagBindingResult> getTagBindingPlain(GetTagBindingPlainArgs args) {
@@ -15347,6 +15832,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static Output<GetTagBindingResult> getTagBinding(GetTagBindingArgs args, InvokeOptions options) {
@@ -15442,6 +15928,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static Output<GetTagBindingResult> getTagBinding(GetTagBindingArgs args, InvokeOutputOptions options) {
@@ -15537,6 +16024,7 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetTagBindingResult> getTagBindingPlain(GetTagBindingPlainArgs args, InvokeOptions options) {

@@ -160,6 +160,7 @@ def get_business_metadata_binding(business_metadata_name: Optional[str] = None,
         entity_name=f"{schema_registry_id}:{kafka_id}:{main_confluent_kafka_topic['topicName']}",
         entity_type="kafka_topic")
     ```
+    > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
 
     :param str business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
@@ -229,6 +230,7 @@ def get_business_metadata_binding_output(business_metadata_name: Optional[pulumi
         entity_name=f"{schema_registry_id}:{kafka_id}:{main_confluent_kafka_topic['topicName']}",
         entity_type="kafka_topic")
     ```
+    > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
 
     :param str business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.

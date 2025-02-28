@@ -39,6 +39,7 @@
         "getByokKey.ts",
         "getCertificateAuthority.ts",
         "getCertificatePool.ts",
+        "getClusterLink.ts",
         "getDnsRecord.ts",
         "getEnvironment.ts",
         "getEnvironments.ts",

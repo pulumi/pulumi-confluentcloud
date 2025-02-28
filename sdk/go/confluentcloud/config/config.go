@@ -11,6 +11,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The Stream Catalog REST Endpoint.
+func GetCatalogRestEndpoint(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:catalogRestEndpoint")
+}
+
 // The Confluent Cloud API Key.
 func GetCloudApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:cloudApiKey")

@@ -19,6 +19,7 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
+                 catalog_rest_endpoint: Optional[pulumi.Input[str]] = None,
                  cloud_api_key: Optional[pulumi.Input[str]] = None,
                  cloud_api_secret: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
@@ -40,6 +41,7 @@ class ProviderArgs:
                  schema_registry_rest_endpoint: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
+        :param pulumi.Input[str] catalog_rest_endpoint: The Stream Catalog REST Endpoint.
         :param pulumi.Input[str] cloud_api_key: The Confluent Cloud API Key.
         :param pulumi.Input[str] cloud_api_secret: The Confluent Cloud API Secret.
         :param pulumi.Input[str] endpoint: The base endpoint of Confluent Cloud API.
@@ -60,6 +62,8 @@ class ProviderArgs:
         :param pulumi.Input[str] schema_registry_id: The Schema Registry Cluster ID.
         :param pulumi.Input[str] schema_registry_rest_endpoint: The Schema Registry Cluster REST Endpoint.
         """
+        if catalog_rest_endpoint is not None:
+            pulumi.set(__self__, "catalog_rest_endpoint", catalog_rest_endpoint)
         if cloud_api_key is not None:
             pulumi.set(__self__, "cloud_api_key", cloud_api_key)
         if cloud_api_secret is not None:
@@ -98,6 +102,18 @@ class ProviderArgs:
             pulumi.set(__self__, "schema_registry_id", schema_registry_id)
         if schema_registry_rest_endpoint is not None:
             pulumi.set(__self__, "schema_registry_rest_endpoint", schema_registry_rest_endpoint)
+
+    @property
+    @pulumi.getter(name="catalogRestEndpoint")
+    def catalog_rest_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Stream Catalog REST Endpoint.
+        """
+        return pulumi.get(self, "catalog_rest_endpoint")
+
+    @catalog_rest_endpoint.setter
+    def catalog_rest_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_rest_endpoint", value)
 
     @property
     @pulumi.getter(name="cloudApiKey")
@@ -333,6 +349,7 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 catalog_rest_endpoint: Optional[pulumi.Input[str]] = None,
                  cloud_api_key: Optional[pulumi.Input[str]] = None,
                  cloud_api_secret: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
@@ -361,6 +378,7 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] catalog_rest_endpoint: The Stream Catalog REST Endpoint.
         :param pulumi.Input[str] cloud_api_key: The Confluent Cloud API Key.
         :param pulumi.Input[str] cloud_api_secret: The Confluent Cloud API Secret.
         :param pulumi.Input[str] endpoint: The base endpoint of Confluent Cloud API.
@@ -408,6 +426,7 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 catalog_rest_endpoint: Optional[pulumi.Input[str]] = None,
                  cloud_api_key: Optional[pulumi.Input[str]] = None,
                  cloud_api_secret: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
@@ -436,6 +455,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
+            __props__.__dict__["catalog_rest_endpoint"] = catalog_rest_endpoint
             __props__.__dict__["cloud_api_key"] = None if cloud_api_key is None else pulumi.Output.secret(cloud_api_key)
             __props__.__dict__["cloud_api_secret"] = None if cloud_api_secret is None else pulumi.Output.secret(cloud_api_secret)
             __props__.__dict__["endpoint"] = endpoint
@@ -462,6 +482,14 @@ class Provider(pulumi.ProviderResource):
             resource_name,
             __props__,
             opts)
+
+    @property
+    @pulumi.getter(name="catalogRestEndpoint")
+    def catalog_rest_endpoint(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Stream Catalog REST Endpoint.
+        """
+        return pulumi.get(self, "catalog_rest_endpoint")
 
     @property
     @pulumi.getter(name="cloudApiKey")

@@ -139,6 +139,10 @@ export class ClusterLink extends pulumi.CustomResource {
     }
 
     /**
+     * (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+     */
+    public /*out*/ readonly clusterLinkId!: pulumi.Output<string>;
+    /**
      * The custom cluster link settings to set:
      */
     public readonly config!: pulumi.Output<{[key: string]: string}>;
@@ -172,6 +176,7 @@ export class ClusterLink extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterLinkState | undefined;
+            resourceInputs["clusterLinkId"] = state ? state.clusterLinkId : undefined;
             resourceInputs["config"] = state ? state.config : undefined;
             resourceInputs["connectionMode"] = state ? state.connectionMode : undefined;
             resourceInputs["destinationKafkaCluster"] = state ? state.destinationKafkaCluster : undefined;
@@ -190,6 +195,7 @@ export class ClusterLink extends pulumi.CustomResource {
             resourceInputs["localKafkaCluster"] = args ? args.localKafkaCluster : undefined;
             resourceInputs["remoteKafkaCluster"] = args ? args.remoteKafkaCluster : undefined;
             resourceInputs["sourceKafkaCluster"] = args ? args.sourceKafkaCluster : undefined;
+            resourceInputs["clusterLinkId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ClusterLink.__pulumiType, name, resourceInputs, opts);
@@ -200,6 +206,10 @@ export class ClusterLink extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClusterLink resources.
  */
 export interface ClusterLinkState {
+    /**
+     * (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+     */
+    clusterLinkId?: pulumi.Input<string>;
     /**
      * The custom cluster link settings to set:
      */

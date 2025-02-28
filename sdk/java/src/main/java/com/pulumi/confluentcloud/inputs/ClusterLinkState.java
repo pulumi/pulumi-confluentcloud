@@ -21,6 +21,21 @@ public final class ClusterLinkState extends com.pulumi.resources.ResourceArgs {
     public static final ClusterLinkState Empty = new ClusterLinkState();
 
     /**
+     * (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+     * 
+     */
+    @Import(name="clusterLinkId")
+    private @Nullable Output<String> clusterLinkId;
+
+    /**
+     * @return (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+     * 
+     */
+    public Optional<Output<String>> clusterLinkId() {
+        return Optional.ofNullable(this.clusterLinkId);
+    }
+
+    /**
      * The custom cluster link settings to set:
      * 
      */
@@ -111,6 +126,7 @@ public final class ClusterLinkState extends com.pulumi.resources.ResourceArgs {
     private ClusterLinkState() {}
 
     private ClusterLinkState(ClusterLinkState $) {
+        this.clusterLinkId = $.clusterLinkId;
         this.config = $.config;
         this.connectionMode = $.connectionMode;
         this.destinationKafkaCluster = $.destinationKafkaCluster;
@@ -137,6 +153,27 @@ public final class ClusterLinkState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ClusterLinkState defaults) {
             $ = new ClusterLinkState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param clusterLinkId (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clusterLinkId(@Nullable Output<String> clusterLinkId) {
+            $.clusterLinkId = clusterLinkId;
+            return this;
+        }
+
+        /**
+         * @param clusterLinkId (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clusterLinkId(String clusterLinkId) {
+            return clusterLinkId(Output.of(clusterLinkId));
         }
 
         /**

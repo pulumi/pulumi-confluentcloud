@@ -67,6 +67,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// });
         /// ```
+        /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
         /// </summary>
         public static Task<GetBusinessMetadataBindingResult> InvokeAsync(GetBusinessMetadataBindingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBusinessMetadataBindingResult>("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", args ?? new GetBusinessMetadataBindingArgs(), options.WithDefaults());
@@ -127,6 +128,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// });
         /// ```
+        /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
         /// </summary>
         public static Output<GetBusinessMetadataBindingResult> Invoke(GetBusinessMetadataBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessMetadataBindingResult>("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", args ?? new GetBusinessMetadataBindingInvokeArgs(), options.WithDefaults());
@@ -187,6 +189,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// });
         /// ```
+        /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
         /// </summary>
         public static Output<GetBusinessMetadataBindingResult> Invoke(GetBusinessMetadataBindingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessMetadataBindingResult>("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", args ?? new GetBusinessMetadataBindingInvokeArgs(), options.WithDefaults());

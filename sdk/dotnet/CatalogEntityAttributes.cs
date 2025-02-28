@@ -161,6 +161,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
+    /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes")]
     public partial class CatalogEntityAttributes : global::Pulumi.CustomResource

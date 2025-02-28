@@ -42,6 +42,7 @@ import * as utilities from "./utilities";
  *     name: "PII",
  * });
  * ```
+ * > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
  */
 export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<GetTagResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -132,6 +133,7 @@ export interface GetTagResult {
  *     name: "PII",
  * });
  * ```
+ * > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
  */
 export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

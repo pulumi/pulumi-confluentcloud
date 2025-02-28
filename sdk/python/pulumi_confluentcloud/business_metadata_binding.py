@@ -308,6 +308,7 @@ class BusinessMetadataBinding(pulumi.CustomResource):
                 "email": "team@company.com",
             })
         ```
+        > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
         ## Getting Started
 
@@ -322,7 +323,7 @@ class BusinessMetadataBinding(pulumi.CustomResource):
 
         $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
 
-        $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+        $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
 
         ```sh
         $ pulumi import confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding main lsrc-8wrx70/PII/lsrc-8wrx70:.:100001/sr_schema
@@ -393,6 +394,7 @@ class BusinessMetadataBinding(pulumi.CustomResource):
                 "email": "team@company.com",
             })
         ```
+        > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
         ## Getting Started
 
@@ -407,7 +409,7 @@ class BusinessMetadataBinding(pulumi.CustomResource):
 
         $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
 
-        $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+        $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
 
         ```sh
         $ pulumi import confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding main lsrc-8wrx70/PII/lsrc-8wrx70:.:100001/sr_schema
