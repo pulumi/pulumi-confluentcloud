@@ -14,6 +14,11 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
+catalogRestEndpoint: Optional[str]
+"""
+The Stream Catalog REST Endpoint.
+"""
+
 cloudApiKey: Optional[str]
 """
 The Confluent Cloud API Key.

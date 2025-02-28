@@ -12,6 +12,13 @@ public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("confluentcloud");
 /**
+ * The Stream Catalog REST Endpoint.
+ * 
+ */
+    public Optional<String> catalogRestEndpoint() {
+        return Codegen.stringProp("catalogRestEndpoint").config(config).get();
+    }
+/**
  * The Confluent Cloud API Key.
  * 
  */

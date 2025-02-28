@@ -160,6 +160,7 @@ def get_tag(credentials: Optional[Union['GetTagCredentialsArgs', 'GetTagCredenti
 
     pii = confluentcloud.get_tag(name="PII")
     ```
+    > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
 
     :param str name: The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
@@ -221,6 +222,7 @@ def get_tag_output(credentials: Optional[pulumi.Input[Optional[Union['GetTagCred
 
     pii = confluentcloud.get_tag(name="PII")
     ```
+    > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
 
     :param str name: The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.

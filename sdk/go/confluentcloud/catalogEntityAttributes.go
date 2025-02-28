@@ -173,6 +173,7 @@ import (
 //	}
 //
 // ```
+// > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
 type CatalogEntityAttributes struct {
 	pulumi.CustomResourceState
 

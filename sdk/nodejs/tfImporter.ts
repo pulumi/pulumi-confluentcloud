@@ -22,6 +22,7 @@ import * as utilities from "./utilities";
  * The following end-to-end examples might help to get started with the `confluentcloud.TfImporter` resource:
  *   * `cloud-importer`: Export _Cloud_ resources (for example, Service Accounts, Environments)
  *   * `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
+ *   * `schema-registry-importer`: Export _Schema Registry_ resources (for example, Schemas)
  */
 export class TfImporter extends pulumi.CustomResource {
     /**

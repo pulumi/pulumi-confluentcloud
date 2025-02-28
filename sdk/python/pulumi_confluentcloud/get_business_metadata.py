@@ -163,6 +163,7 @@ def get_business_metadata(credentials: Optional[Union['GetBusinessMetadataCreden
 
     pii = confluentcloud.get_business_metadata(name="PII")
     ```
+    > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
 
     :param str name: The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
@@ -224,6 +225,7 @@ def get_business_metadata_output(credentials: Optional[pulumi.Input[Optional[Uni
 
     pii = confluentcloud.get_business_metadata(name="PII")
     ```
+    > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
 
     :param str name: The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.

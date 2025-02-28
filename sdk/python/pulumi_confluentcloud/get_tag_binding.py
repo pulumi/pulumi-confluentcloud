@@ -148,6 +148,7 @@ def get_tag_binding(credentials: Optional[Union['GetTagBindingCredentialsArgs', 
         entity_name="lsrc-8wrx70:.:100001",
         entity_type="sr_schema")
     ```
+    > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
 
     :param str entity_name: The qualified name of the entity., for example, `${data..main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
@@ -218,6 +219,7 @@ def get_tag_binding_output(credentials: Optional[pulumi.Input[Optional[Union['Ge
         entity_name="lsrc-8wrx70:.:100001",
         entity_type="sr_schema")
     ```
+    > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
 
     :param str entity_name: The qualified name of the entity., for example, `${data..main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.

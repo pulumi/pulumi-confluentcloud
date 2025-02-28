@@ -32,6 +32,16 @@ namespace Pulumi.ConfluentCloud
 
         private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("confluentcloud");
 
+        private static readonly __Value<string?> _catalogRestEndpoint = new __Value<string?>(() => __config.Get("catalogRestEndpoint"));
+        /// <summary>
+        /// The Stream Catalog REST Endpoint.
+        /// </summary>
+        public static string? CatalogRestEndpoint
+        {
+            get => _catalogRestEndpoint.Get();
+            set => _catalogRestEndpoint.Set(value);
+        }
+
         private static readonly __Value<string?> _cloudApiKey = new __Value<string?>(() => __config.Get("cloudApiKey"));
         /// <summary>
         /// The Confluent Cloud API Key.

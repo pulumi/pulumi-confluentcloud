@@ -21,6 +21,13 @@ __config__ = pulumi.Config('confluentcloud')
 
 class _ExportableConfig(types.ModuleType):
     @property
+    def catalog_rest_endpoint(self) -> Optional[str]:
+        """
+        The Stream Catalog REST Endpoint.
+        """
+        return __config__.get('catalogRestEndpoint')
+
+    @property
     def cloud_api_key(self) -> Optional[str]:
         """
         The Confluent Cloud API Key.

@@ -46,6 +46,7 @@ import * as utilities from "./utilities";
  *     entityType: "kafka_topic",
  * });
  * ```
+ * > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
  */
 export function getBusinessMetadataBinding(args: GetBusinessMetadataBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessMetadataBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -142,6 +143,7 @@ export interface GetBusinessMetadataBindingResult {
  *     entityType: "kafka_topic",
  * });
  * ```
+ * > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
  */
 export function getBusinessMetadataBindingOutput(args: GetBusinessMetadataBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBusinessMetadataBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

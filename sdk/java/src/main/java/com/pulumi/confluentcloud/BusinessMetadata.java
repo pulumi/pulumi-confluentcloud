@@ -123,6 +123,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
  * 
  * ## Getting Started
  * 
@@ -137,7 +138,7 @@ import javax.annotation.Nullable;
  * 
  * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
  * 
- * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
+ * $ export IMPORT_CATALOG_REST_ENDPOINT=&#34;&lt;catalog_rest_endpoint&gt;&#34;
  * 
  * ```sh
  * $ pulumi import confluentcloud:index/businessMetadata:BusinessMetadata pii lsrc-8wrx70/PII

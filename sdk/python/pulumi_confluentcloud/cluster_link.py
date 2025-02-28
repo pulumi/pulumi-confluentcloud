@@ -141,6 +141,7 @@ class ClusterLinkArgs:
 @pulumi.input_type
 class _ClusterLinkState:
     def __init__(__self__, *,
+                 cluster_link_id: Optional[pulumi.Input[str]] = None,
                  config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  destination_kafka_cluster: Optional[pulumi.Input['ClusterLinkDestinationKafkaClusterArgs']] = None,
@@ -151,11 +152,14 @@ class _ClusterLinkState:
                  source_kafka_cluster: Optional[pulumi.Input['ClusterLinkSourceKafkaClusterArgs']] = None):
         """
         Input properties used for looking up and filtering ClusterLink resources.
+        :param pulumi.Input[str] cluster_link_id: (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The custom cluster link settings to set:
         :param pulumi.Input[str] connection_mode: The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
         :param pulumi.Input[str] link: The name of the cluster link, for example, `my-cluster-link`.
         :param pulumi.Input[str] link_mode: The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
         """
+        if cluster_link_id is not None:
+            pulumi.set(__self__, "cluster_link_id", cluster_link_id)
         if config is not None:
             pulumi.set(__self__, "config", config)
         if connection_mode is not None:
@@ -172,6 +176,18 @@ class _ClusterLinkState:
             pulumi.set(__self__, "remote_kafka_cluster", remote_kafka_cluster)
         if source_kafka_cluster is not None:
             pulumi.set(__self__, "source_kafka_cluster", source_kafka_cluster)
+
+    @property
+    @pulumi.getter(name="clusterLinkId")
+    def cluster_link_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+        """
+        return pulumi.get(self, "cluster_link_id")
+
+    @cluster_link_id.setter
+    def cluster_link_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_link_id", value)
 
     @property
     @pulumi.getter
@@ -529,6 +545,7 @@ class ClusterLink(pulumi.CustomResource):
             __props__.__dict__["local_kafka_cluster"] = local_kafka_cluster
             __props__.__dict__["remote_kafka_cluster"] = remote_kafka_cluster
             __props__.__dict__["source_kafka_cluster"] = source_kafka_cluster
+            __props__.__dict__["cluster_link_id"] = None
         super(ClusterLink, __self__).__init__(
             'confluentcloud:index/clusterLink:ClusterLink',
             resource_name,
@@ -539,6 +556,7 @@ class ClusterLink(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_link_id: Optional[pulumi.Input[str]] = None,
             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             connection_mode: Optional[pulumi.Input[str]] = None,
             destination_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkDestinationKafkaClusterArgs', 'ClusterLinkDestinationKafkaClusterArgsDict']]] = None,
@@ -554,6 +572,7 @@ class ClusterLink(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_link_id: (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The custom cluster link settings to set:
         :param pulumi.Input[str] connection_mode: The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
         :param pulumi.Input[str] link: The name of the cluster link, for example, `my-cluster-link`.
@@ -563,6 +582,7 @@ class ClusterLink(pulumi.CustomResource):
 
         __props__ = _ClusterLinkState.__new__(_ClusterLinkState)
 
+        __props__.__dict__["cluster_link_id"] = cluster_link_id
         __props__.__dict__["config"] = config
         __props__.__dict__["connection_mode"] = connection_mode
         __props__.__dict__["destination_kafka_cluster"] = destination_kafka_cluster
@@ -572,6 +592,14 @@ class ClusterLink(pulumi.CustomResource):
         __props__.__dict__["remote_kafka_cluster"] = remote_kafka_cluster
         __props__.__dict__["source_kafka_cluster"] = source_kafka_cluster
         return ClusterLink(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="clusterLinkId")
+    def cluster_link_id(self) -> pulumi.Output[str]:
+        """
+        (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+        """
+        return pulumi.get(self, "cluster_link_id")
 
     @property
     @pulumi.getter

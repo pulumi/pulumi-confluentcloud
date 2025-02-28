@@ -46,6 +46,7 @@ import * as utilities from "./utilities";
  *     entityType: "sr_schema",
  * });
  * ```
+ * > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
  */
 export function getTagBinding(args: GetTagBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetTagBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -140,6 +141,7 @@ export interface GetTagBindingResult {
  *     entityType: "sr_schema",
  * });
  * ```
+ * > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
  */
 export function getTagBindingOutput(args: GetTagBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

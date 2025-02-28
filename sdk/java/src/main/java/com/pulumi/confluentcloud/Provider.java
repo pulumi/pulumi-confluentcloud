@@ -24,6 +24,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:confluentcloud")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
+     * The Stream Catalog REST Endpoint.
+     * 
+     */
+    @Export(name="catalogRestEndpoint", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> catalogRestEndpoint;
+
+    /**
+     * @return The Stream Catalog REST Endpoint.
+     * 
+     */
+    public Output<Optional<String>> catalogRestEndpoint() {
+        return Codegen.optional(this.catalogRestEndpoint);
+    }
+    /**
      * The Confluent Cloud API Key.
      * 
      */

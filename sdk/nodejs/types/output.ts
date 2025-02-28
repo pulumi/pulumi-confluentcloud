@@ -784,6 +784,24 @@ export interface GetCertificatePoolCertificateAuthority {
     id: string;
 }
 
+export interface GetClusterLinkCredentials {
+    /**
+     * The Kafka API Key.
+     */
+    key: string;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: string;
+}
+
+export interface GetClusterLinkKafkaCluster {
+    /**
+     * The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
 export interface GetDnsRecordEnvironment {
     /**
      * The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.

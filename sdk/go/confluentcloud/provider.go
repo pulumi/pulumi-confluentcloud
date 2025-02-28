@@ -18,6 +18,8 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
+	// The Stream Catalog REST Endpoint.
+	CatalogRestEndpoint pulumi.StringPtrOutput `pulumi:"catalogRestEndpoint"`
 	// The Confluent Cloud API Key.
 	CloudApiKey pulumi.StringPtrOutput `pulumi:"cloudApiKey"`
 	// The Confluent Cloud API Secret.
@@ -108,6 +110,8 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
+	// The Stream Catalog REST Endpoint.
+	CatalogRestEndpoint *string `pulumi:"catalogRestEndpoint"`
 	// The Confluent Cloud API Key.
 	CloudApiKey *string `pulumi:"cloudApiKey"`
 	// The Confluent Cloud API Secret.
@@ -150,6 +154,8 @@ type providerArgs struct {
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
+	// The Stream Catalog REST Endpoint.
+	CatalogRestEndpoint pulumi.StringPtrInput
 	// The Confluent Cloud API Key.
 	CloudApiKey pulumi.StringPtrInput
 	// The Confluent Cloud API Secret.
@@ -225,6 +231,11 @@ func (o ProviderOutput) ToProviderOutput() ProviderOutput {
 
 func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
 	return o
+}
+
+// The Stream Catalog REST Endpoint.
+func (o ProviderOutput) CatalogRestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CatalogRestEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // The Confluent Cloud API Key.

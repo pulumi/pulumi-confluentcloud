@@ -719,6 +719,42 @@ export interface GetCertificatePoolCertificateAuthorityArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetClusterLinkCredentials {
+    /**
+     * The Kafka API Key.
+     */
+    key: string;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: string;
+}
+
+export interface GetClusterLinkCredentialsArgs {
+    /**
+     * The Kafka API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetClusterLinkKafkaCluster {
+    /**
+     * The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetClusterLinkKafkaClusterArgs {
+    /**
+     * The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetDnsRecordEnvironment {
     /**
      * The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.

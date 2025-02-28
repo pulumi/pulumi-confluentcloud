@@ -134,6 +134,12 @@ namespace Pulumi.ConfluentCloud
     public partial class ClusterLink : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+        /// </summary>
+        [Output("clusterLinkId")]
+        public Output<string> ClusterLinkId { get; private set; } = null!;
+
+        /// <summary>
         /// The custom cluster link settings to set:
         /// </summary>
         [Output("config")]
@@ -265,6 +271,12 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class ClusterLinkState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+        /// </summary>
+        [Input("clusterLinkId")]
+        public Input<string>? ClusterLinkId { get; set; }
+
         [Input("config")]
         private InputMap<string>? _config;
 

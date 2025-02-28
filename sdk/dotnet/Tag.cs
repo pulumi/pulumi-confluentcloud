@@ -63,6 +63,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
+    /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
     /// 
     /// ## Getting Started
     /// 
@@ -77,7 +78,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
     /// 
-    /// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
+    /// $ export IMPORT_CATALOG_REST_ENDPOINT="&lt;catalog_rest_endpoint&gt;"
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/tag:Tag pii lsrc-8wrx70/PII

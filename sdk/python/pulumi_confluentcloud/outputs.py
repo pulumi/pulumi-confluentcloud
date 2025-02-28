@@ -174,6 +174,8 @@ __all__ = [
     'GetByokKeyAzureResult',
     'GetByokKeyGcpResult',
     'GetCertificatePoolCertificateAuthorityResult',
+    'GetClusterLinkCredentialsResult',
+    'GetClusterLinkKafkaClusterResult',
     'GetDnsRecordEnvironmentResult',
     'GetDnsRecordGatewayResult',
     'GetDnsRecordPrivateLinkAccessPointResult',
@@ -5637,6 +5639,53 @@ class GetCertificatePoolCertificateAuthorityResult(dict):
     def id(self) -> str:
         """
         The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetClusterLinkCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Kafka API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Kafka API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetClusterLinkKafkaClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
         """
         return pulumi.get(self, "id")
 

@@ -953,6 +953,17 @@
                     }
                 }
             },
+            "confluent_cluster_link": {
+                "current": "confluentcloud:index/getClusterLink:getClusterLink",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "kafka_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_dns_record": {
                 "current": "confluentcloud:index/getDnsRecord:getDnsRecord",
                 "fields": {

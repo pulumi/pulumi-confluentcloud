@@ -44,6 +44,7 @@ import * as utilities from "./utilities";
  *     description: "PII tag",
  * });
  * ```
+ * > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
  *
  * ## Getting Started
  *
@@ -58,7 +59,7 @@ import * as utilities from "./utilities";
  *
  * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
  *
- * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+ * $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
  *
  * ```sh
  * $ pulumi import confluentcloud:index/tag:Tag pii lsrc-8wrx70/PII

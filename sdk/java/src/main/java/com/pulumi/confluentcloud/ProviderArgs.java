@@ -17,6 +17,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProviderArgs Empty = new ProviderArgs();
 
     /**
+     * The Stream Catalog REST Endpoint.
+     * 
+     */
+    @Import(name="catalogRestEndpoint")
+    private @Nullable Output<String> catalogRestEndpoint;
+
+    /**
+     * @return The Stream Catalog REST Endpoint.
+     * 
+     */
+    public Optional<Output<String>> catalogRestEndpoint() {
+        return Optional.ofNullable(this.catalogRestEndpoint);
+    }
+
+    /**
      * The Confluent Cloud API Key.
      * 
      */
@@ -304,6 +319,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private ProviderArgs() {}
 
     private ProviderArgs(ProviderArgs $) {
+        this.catalogRestEndpoint = $.catalogRestEndpoint;
         this.cloudApiKey = $.cloudApiKey;
         this.cloudApiSecret = $.cloudApiSecret;
         this.endpoint = $.endpoint;
@@ -341,6 +357,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ProviderArgs defaults) {
             $ = new ProviderArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param catalogRestEndpoint The Stream Catalog REST Endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder catalogRestEndpoint(@Nullable Output<String> catalogRestEndpoint) {
+            $.catalogRestEndpoint = catalogRestEndpoint;
+            return this;
+        }
+
+        /**
+         * @param catalogRestEndpoint The Stream Catalog REST Endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder catalogRestEndpoint(String catalogRestEndpoint) {
+            return catalogRestEndpoint(Output.of(catalogRestEndpoint));
         }
 
         /**

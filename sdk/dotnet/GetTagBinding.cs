@@ -67,6 +67,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// });
         /// ```
+        /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
         /// </summary>
         public static Task<GetTagBindingResult> InvokeAsync(GetTagBindingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagBindingResult>("confluentcloud:index/getTagBinding:getTagBinding", args ?? new GetTagBindingArgs(), options.WithDefaults());
@@ -127,6 +128,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// });
         /// ```
+        /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
         /// </summary>
         public static Output<GetTagBindingResult> Invoke(GetTagBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagBindingResult>("confluentcloud:index/getTagBinding:getTagBinding", args ?? new GetTagBindingInvokeArgs(), options.WithDefaults());
@@ -187,6 +189,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// });
         /// ```
+        /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
         /// </summary>
         public static Output<GetTagBindingResult> Invoke(GetTagBindingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagBindingResult>("confluentcloud:index/getTagBinding:getTagBinding", args ?? new GetTagBindingInvokeArgs(), options.WithDefaults());

@@ -22727,6 +22727,299 @@ func (o GetCertificatePoolCertificateAuthorityOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificatePoolCertificateAuthority) string { return v.Id }).(pulumi.StringOutput)
 }
 
+type GetClusterLinkCredentials struct {
+	// The Kafka API Key.
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
+	Secret string `pulumi:"secret"`
+}
+
+// GetClusterLinkCredentialsInput is an input type that accepts GetClusterLinkCredentialsArgs and GetClusterLinkCredentialsOutput values.
+// You can construct a concrete instance of `GetClusterLinkCredentialsInput` via:
+//
+//	GetClusterLinkCredentialsArgs{...}
+type GetClusterLinkCredentialsInput interface {
+	pulumi.Input
+
+	ToGetClusterLinkCredentialsOutput() GetClusterLinkCredentialsOutput
+	ToGetClusterLinkCredentialsOutputWithContext(context.Context) GetClusterLinkCredentialsOutput
+}
+
+type GetClusterLinkCredentialsArgs struct {
+	// The Kafka API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetClusterLinkCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterLinkCredentials)(nil)).Elem()
+}
+
+func (i GetClusterLinkCredentialsArgs) ToGetClusterLinkCredentialsOutput() GetClusterLinkCredentialsOutput {
+	return i.ToGetClusterLinkCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetClusterLinkCredentialsArgs) ToGetClusterLinkCredentialsOutputWithContext(ctx context.Context) GetClusterLinkCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterLinkCredentialsOutput)
+}
+
+func (i GetClusterLinkCredentialsArgs) ToGetClusterLinkCredentialsPtrOutput() GetClusterLinkCredentialsPtrOutput {
+	return i.ToGetClusterLinkCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetClusterLinkCredentialsArgs) ToGetClusterLinkCredentialsPtrOutputWithContext(ctx context.Context) GetClusterLinkCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterLinkCredentialsOutput).ToGetClusterLinkCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetClusterLinkCredentialsPtrInput is an input type that accepts GetClusterLinkCredentialsArgs, GetClusterLinkCredentialsPtr and GetClusterLinkCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetClusterLinkCredentialsPtrInput` via:
+//
+//	        GetClusterLinkCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetClusterLinkCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetClusterLinkCredentialsPtrOutput() GetClusterLinkCredentialsPtrOutput
+	ToGetClusterLinkCredentialsPtrOutputWithContext(context.Context) GetClusterLinkCredentialsPtrOutput
+}
+
+type getClusterLinkCredentialsPtrType GetClusterLinkCredentialsArgs
+
+func GetClusterLinkCredentialsPtr(v *GetClusterLinkCredentialsArgs) GetClusterLinkCredentialsPtrInput {
+	return (*getClusterLinkCredentialsPtrType)(v)
+}
+
+func (*getClusterLinkCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetClusterLinkCredentials)(nil)).Elem()
+}
+
+func (i *getClusterLinkCredentialsPtrType) ToGetClusterLinkCredentialsPtrOutput() GetClusterLinkCredentialsPtrOutput {
+	return i.ToGetClusterLinkCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getClusterLinkCredentialsPtrType) ToGetClusterLinkCredentialsPtrOutputWithContext(ctx context.Context) GetClusterLinkCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterLinkCredentialsPtrOutput)
+}
+
+type GetClusterLinkCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetClusterLinkCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterLinkCredentials)(nil)).Elem()
+}
+
+func (o GetClusterLinkCredentialsOutput) ToGetClusterLinkCredentialsOutput() GetClusterLinkCredentialsOutput {
+	return o
+}
+
+func (o GetClusterLinkCredentialsOutput) ToGetClusterLinkCredentialsOutputWithContext(ctx context.Context) GetClusterLinkCredentialsOutput {
+	return o
+}
+
+func (o GetClusterLinkCredentialsOutput) ToGetClusterLinkCredentialsPtrOutput() GetClusterLinkCredentialsPtrOutput {
+	return o.ToGetClusterLinkCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetClusterLinkCredentialsOutput) ToGetClusterLinkCredentialsPtrOutputWithContext(ctx context.Context) GetClusterLinkCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetClusterLinkCredentials) *GetClusterLinkCredentials {
+		return &v
+	}).(GetClusterLinkCredentialsPtrOutput)
+}
+
+// The Kafka API Key.
+func (o GetClusterLinkCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterLinkCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Cluster API Secret for your Confluent Cloud cluster.
+func (o GetClusterLinkCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterLinkCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetClusterLinkCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetClusterLinkCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetClusterLinkCredentials)(nil)).Elem()
+}
+
+func (o GetClusterLinkCredentialsPtrOutput) ToGetClusterLinkCredentialsPtrOutput() GetClusterLinkCredentialsPtrOutput {
+	return o
+}
+
+func (o GetClusterLinkCredentialsPtrOutput) ToGetClusterLinkCredentialsPtrOutputWithContext(ctx context.Context) GetClusterLinkCredentialsPtrOutput {
+	return o
+}
+
+func (o GetClusterLinkCredentialsPtrOutput) Elem() GetClusterLinkCredentialsOutput {
+	return o.ApplyT(func(v *GetClusterLinkCredentials) GetClusterLinkCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetClusterLinkCredentials
+		return ret
+	}).(GetClusterLinkCredentialsOutput)
+}
+
+// The Kafka API Key.
+func (o GetClusterLinkCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetClusterLinkCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Cluster API Secret for your Confluent Cloud cluster.
+func (o GetClusterLinkCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetClusterLinkCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetClusterLinkKafkaCluster struct {
+	// The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetClusterLinkKafkaClusterInput is an input type that accepts GetClusterLinkKafkaClusterArgs and GetClusterLinkKafkaClusterOutput values.
+// You can construct a concrete instance of `GetClusterLinkKafkaClusterInput` via:
+//
+//	GetClusterLinkKafkaClusterArgs{...}
+type GetClusterLinkKafkaClusterInput interface {
+	pulumi.Input
+
+	ToGetClusterLinkKafkaClusterOutput() GetClusterLinkKafkaClusterOutput
+	ToGetClusterLinkKafkaClusterOutputWithContext(context.Context) GetClusterLinkKafkaClusterOutput
+}
+
+type GetClusterLinkKafkaClusterArgs struct {
+	// The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetClusterLinkKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterLinkKafkaCluster)(nil)).Elem()
+}
+
+func (i GetClusterLinkKafkaClusterArgs) ToGetClusterLinkKafkaClusterOutput() GetClusterLinkKafkaClusterOutput {
+	return i.ToGetClusterLinkKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i GetClusterLinkKafkaClusterArgs) ToGetClusterLinkKafkaClusterOutputWithContext(ctx context.Context) GetClusterLinkKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterLinkKafkaClusterOutput)
+}
+
+func (i GetClusterLinkKafkaClusterArgs) ToGetClusterLinkKafkaClusterPtrOutput() GetClusterLinkKafkaClusterPtrOutput {
+	return i.ToGetClusterLinkKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i GetClusterLinkKafkaClusterArgs) ToGetClusterLinkKafkaClusterPtrOutputWithContext(ctx context.Context) GetClusterLinkKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterLinkKafkaClusterOutput).ToGetClusterLinkKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// GetClusterLinkKafkaClusterPtrInput is an input type that accepts GetClusterLinkKafkaClusterArgs, GetClusterLinkKafkaClusterPtr and GetClusterLinkKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `GetClusterLinkKafkaClusterPtrInput` via:
+//
+//	        GetClusterLinkKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetClusterLinkKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToGetClusterLinkKafkaClusterPtrOutput() GetClusterLinkKafkaClusterPtrOutput
+	ToGetClusterLinkKafkaClusterPtrOutputWithContext(context.Context) GetClusterLinkKafkaClusterPtrOutput
+}
+
+type getClusterLinkKafkaClusterPtrType GetClusterLinkKafkaClusterArgs
+
+func GetClusterLinkKafkaClusterPtr(v *GetClusterLinkKafkaClusterArgs) GetClusterLinkKafkaClusterPtrInput {
+	return (*getClusterLinkKafkaClusterPtrType)(v)
+}
+
+func (*getClusterLinkKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetClusterLinkKafkaCluster)(nil)).Elem()
+}
+
+func (i *getClusterLinkKafkaClusterPtrType) ToGetClusterLinkKafkaClusterPtrOutput() GetClusterLinkKafkaClusterPtrOutput {
+	return i.ToGetClusterLinkKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *getClusterLinkKafkaClusterPtrType) ToGetClusterLinkKafkaClusterPtrOutputWithContext(ctx context.Context) GetClusterLinkKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterLinkKafkaClusterPtrOutput)
+}
+
+type GetClusterLinkKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (GetClusterLinkKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterLinkKafkaCluster)(nil)).Elem()
+}
+
+func (o GetClusterLinkKafkaClusterOutput) ToGetClusterLinkKafkaClusterOutput() GetClusterLinkKafkaClusterOutput {
+	return o
+}
+
+func (o GetClusterLinkKafkaClusterOutput) ToGetClusterLinkKafkaClusterOutputWithContext(ctx context.Context) GetClusterLinkKafkaClusterOutput {
+	return o
+}
+
+func (o GetClusterLinkKafkaClusterOutput) ToGetClusterLinkKafkaClusterPtrOutput() GetClusterLinkKafkaClusterPtrOutput {
+	return o.ToGetClusterLinkKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o GetClusterLinkKafkaClusterOutput) ToGetClusterLinkKafkaClusterPtrOutputWithContext(ctx context.Context) GetClusterLinkKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetClusterLinkKafkaCluster) *GetClusterLinkKafkaCluster {
+		return &v
+	}).(GetClusterLinkKafkaClusterPtrOutput)
+}
+
+// The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
+func (o GetClusterLinkKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterLinkKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetClusterLinkKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetClusterLinkKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetClusterLinkKafkaCluster)(nil)).Elem()
+}
+
+func (o GetClusterLinkKafkaClusterPtrOutput) ToGetClusterLinkKafkaClusterPtrOutput() GetClusterLinkKafkaClusterPtrOutput {
+	return o
+}
+
+func (o GetClusterLinkKafkaClusterPtrOutput) ToGetClusterLinkKafkaClusterPtrOutputWithContext(ctx context.Context) GetClusterLinkKafkaClusterPtrOutput {
+	return o
+}
+
+func (o GetClusterLinkKafkaClusterPtrOutput) Elem() GetClusterLinkKafkaClusterOutput {
+	return o.ApplyT(func(v *GetClusterLinkKafkaCluster) GetClusterLinkKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret GetClusterLinkKafkaCluster
+		return ret
+	}).(GetClusterLinkKafkaClusterOutput)
+}
+
+// The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
+func (o GetClusterLinkKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetClusterLinkKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetDnsRecordEnvironment struct {
 	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
 	Id string `pulumi:"id"`
@@ -34856,6 +35149,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpInput)(nil)).Elem(), GetByokKeyGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpArrayInput)(nil)).Elem(), GetByokKeyGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificatePoolCertificateAuthorityInput)(nil)).Elem(), GetCertificatePoolCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkCredentialsInput)(nil)).Elem(), GetClusterLinkCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkCredentialsPtrInput)(nil)).Elem(), GetClusterLinkCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkKafkaClusterInput)(nil)).Elem(), GetClusterLinkKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkKafkaClusterPtrInput)(nil)).Elem(), GetClusterLinkKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordEnvironmentInput)(nil)).Elem(), GetDnsRecordEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordGatewayInput)(nil)).Elem(), GetDnsRecordGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordGatewayArrayInput)(nil)).Elem(), GetDnsRecordGatewayArray{})
@@ -35364,6 +35661,10 @@ func init() {
 	pulumi.RegisterOutputType(GetByokKeyGcpOutput{})
 	pulumi.RegisterOutputType(GetByokKeyGcpArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificatePoolCertificateAuthorityOutput{})
+	pulumi.RegisterOutputType(GetClusterLinkCredentialsOutput{})
+	pulumi.RegisterOutputType(GetClusterLinkCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetClusterLinkKafkaClusterOutput{})
+	pulumi.RegisterOutputType(GetClusterLinkKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordGatewayOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordGatewayArrayOutput{})

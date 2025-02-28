@@ -26,6 +26,10 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
+     * The Stream Catalog REST Endpoint.
+     */
+    public readonly catalogRestEndpoint!: pulumi.Output<string | undefined>;
+    /**
      * The Confluent Cloud API Key.
      */
     public readonly cloudApiKey!: pulumi.Output<string | undefined>;
@@ -109,6 +113,7 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
+            resourceInputs["catalogRestEndpoint"] = args ? args.catalogRestEndpoint : undefined;
             resourceInputs["cloudApiKey"] = args?.cloudApiKey ? pulumi.secret(args.cloudApiKey) : undefined;
             resourceInputs["cloudApiSecret"] = args?.cloudApiSecret ? pulumi.secret(args.cloudApiSecret) : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
@@ -140,6 +145,10 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
+    /**
+     * The Stream Catalog REST Endpoint.
+     */
+    catalogRestEndpoint?: pulumi.Input<string>;
     /**
      * The Confluent Cloud API Key.
      */

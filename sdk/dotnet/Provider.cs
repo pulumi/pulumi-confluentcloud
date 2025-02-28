@@ -19,6 +19,12 @@ namespace Pulumi.ConfluentCloud
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
+        /// The Stream Catalog REST Endpoint.
+        /// </summary>
+        [Output("catalogRestEndpoint")]
+        public Output<string?> CatalogRestEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The Confluent Cloud API Key.
         /// </summary>
         [Output("cloudApiKey")]
@@ -165,6 +171,12 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Stream Catalog REST Endpoint.
+        /// </summary>
+        [Input("catalogRestEndpoint")]
+        public Input<string>? CatalogRestEndpoint { get; set; }
+
         [Input("cloudApiKey")]
         private Input<string>? _cloudApiKey;
 

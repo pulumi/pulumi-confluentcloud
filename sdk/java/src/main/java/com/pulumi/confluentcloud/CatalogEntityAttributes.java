@@ -172,6 +172,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
  * 
  */
 @ResourceType(type="confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes")

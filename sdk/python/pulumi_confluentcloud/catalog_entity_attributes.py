@@ -330,6 +330,7 @@ class CatalogEntityAttributes(pulumi.CustomResource):
                 "description": "Schema description",
             })
         ```
+        > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -447,6 +448,7 @@ class CatalogEntityAttributes(pulumi.CustomResource):
                 "description": "Schema description",
             })
         ```
+        > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
         :param str resource_name: The name of the resource.
         :param CatalogEntityAttributesArgs args: The arguments to use to populate this resource's properties.

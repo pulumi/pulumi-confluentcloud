@@ -116,6 +116,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
  */
 export class CatalogEntityAttributes extends pulumi.CustomResource {
     /**

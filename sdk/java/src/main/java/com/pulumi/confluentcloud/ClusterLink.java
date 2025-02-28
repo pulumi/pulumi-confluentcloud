@@ -156,6 +156,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="confluentcloud:index/clusterLink:ClusterLink")
 public class ClusterLink extends com.pulumi.resources.CustomResource {
     /**
+     * (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+     * 
+     */
+    @Export(name="clusterLinkId", refs={String.class}, tree="[0]")
+    private Output<String> clusterLinkId;
+
+    /**
+     * @return (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
+     * 
+     */
+    public Output<String> clusterLinkId() {
+        return this.clusterLinkId;
+    }
+    /**
      * The custom cluster link settings to set:
      * 
      */

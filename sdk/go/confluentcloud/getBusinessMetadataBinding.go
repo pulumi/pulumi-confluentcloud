@@ -84,6 +84,7 @@ import (
 //	}
 //
 // ```
+// > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
 func LookupBusinessMetadataBinding(ctx *pulumi.Context, args *LookupBusinessMetadataBindingArgs, opts ...pulumi.InvokeOption) (*LookupBusinessMetadataBindingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBusinessMetadataBindingResult

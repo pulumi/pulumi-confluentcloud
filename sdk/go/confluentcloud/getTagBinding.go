@@ -80,6 +80,7 @@ import (
 //	}
 //
 // ```
+// > **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
 func LookupTagBinding(ctx *pulumi.Context, args *LookupTagBindingArgs, opts ...pulumi.InvokeOption) (*LookupTagBindingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTagBindingResult
