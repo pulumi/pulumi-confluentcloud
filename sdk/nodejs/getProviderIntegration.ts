@@ -36,6 +36,11 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
+ *
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegration` data source:
+ * * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
  */
 export function getProviderIntegration(args: GetProviderIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -119,6 +124,11 @@ export interface GetProviderIntegrationResult {
  *     };
  * }
  * ```
+ *
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegration` data source:
+ * * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
  */
 export function getProviderIntegrationOutput(args: GetProviderIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

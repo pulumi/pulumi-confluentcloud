@@ -175,6 +175,11 @@ class ProviderIntegration(pulumi.CustomResource):
             display_name="provider_integration_main")
         ```
 
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `ProviderIntegration` resource:
+        * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
+
         ## Import
 
         You can import a Provider Integration by using Environment ID and Provider Integration ID, in the format `<Environment ID>/<Provider Integration ID>`. The following example shows how to import a Provider Integration:
@@ -222,6 +227,11 @@ class ProviderIntegration(pulumi.CustomResource):
             },
             display_name="provider_integration_main")
         ```
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `ProviderIntegration` resource:
+        * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
 
         ## Import
 
