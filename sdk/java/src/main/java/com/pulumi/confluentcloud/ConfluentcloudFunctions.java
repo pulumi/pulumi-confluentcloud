@@ -9688,6 +9688,11 @@ public final class ConfluentcloudFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegration` data source:
+     * * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
+     * 
      */
     public static Output<GetProviderIntegrationResult> getProviderIntegration(GetProviderIntegrationArgs args) {
         return getProviderIntegration(args, InvokeOptions.Empty);
@@ -9744,6 +9749,11 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegration` data source:
+     * * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
      * 
      */
     public static CompletableFuture<GetProviderIntegrationResult> getProviderIntegrationPlain(GetProviderIntegrationPlainArgs args) {
@@ -9802,6 +9812,11 @@ public final class ConfluentcloudFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegration` data source:
+     * * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
+     * 
      */
     public static Output<GetProviderIntegrationResult> getProviderIntegration(GetProviderIntegrationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getProviderIntegration:getProviderIntegration", TypeShape.of(GetProviderIntegrationResult.class), args, Utilities.withVersion(options));
@@ -9859,6 +9874,11 @@ public final class ConfluentcloudFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegration` data source:
+     * * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
+     * 
      */
     public static Output<GetProviderIntegrationResult> getProviderIntegration(GetProviderIntegrationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getProviderIntegration:getProviderIntegration", TypeShape.of(GetProviderIntegrationResult.class), args, Utilities.withVersion(options));
@@ -9915,6 +9935,11 @@ public final class ConfluentcloudFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegration` data source:
+     * * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
      * 
      */
     public static CompletableFuture<GetProviderIntegrationResult> getProviderIntegrationPlain(GetProviderIntegrationPlainArgs args, InvokeOptions options) {

@@ -126,6 +126,11 @@ def get_provider_integration(display_name: Optional[str] = None,
     pulumi.export("exampleUsingName", example_using_name)
     ```
 
+    ## Getting Started
+
+    The following end-to-end examples might help to get started with `ProviderIntegration` data source:
+    * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
+
 
     :param str display_name: A human-readable name for the Provider Integration.
     :param Union['GetProviderIntegrationEnvironmentArgs', 'GetProviderIntegrationEnvironmentArgsDict'] environment: (Required Configuration Block) supports the following:
@@ -170,6 +175,11 @@ def get_provider_integration_output(display_name: Optional[pulumi.Input[Optional
         })
     pulumi.export("exampleUsingName", example_using_name)
     ```
+
+    ## Getting Started
+
+    The following end-to-end examples might help to get started with `ProviderIntegration` data source:
+    * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
 
 
     :param str display_name: A human-readable name for the Provider Integration.

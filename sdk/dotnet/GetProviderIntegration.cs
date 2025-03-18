@@ -51,6 +51,12 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
+        /// 
+        /// 
+        /// ## Getting Started
+        /// 
+        /// The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegration` data source:
+        /// * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
         /// </summary>
         public static Task<GetProviderIntegrationResult> InvokeAsync(GetProviderIntegrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderIntegrationResult>("confluentcloud:index/getProviderIntegration:getProviderIntegration", args ?? new GetProviderIntegrationArgs(), options.WithDefaults());
@@ -95,6 +101,12 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
+        /// 
+        /// 
+        /// ## Getting Started
+        /// 
+        /// The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegration` data source:
+        /// * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
         /// </summary>
         public static Output<GetProviderIntegrationResult> Invoke(GetProviderIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderIntegrationResult>("confluentcloud:index/getProviderIntegration:getProviderIntegration", args ?? new GetProviderIntegrationInvokeArgs(), options.WithDefaults());
@@ -139,6 +151,12 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
+        /// 
+        /// 
+        /// ## Getting Started
+        /// 
+        /// The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegration` data source:
+        /// * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
         /// </summary>
         public static Output<GetProviderIntegrationResult> Invoke(GetProviderIntegrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderIntegrationResult>("confluentcloud:index/getProviderIntegration:getProviderIntegration", args ?? new GetProviderIntegrationInvokeArgs(), options.WithDefaults());
