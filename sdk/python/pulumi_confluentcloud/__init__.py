@@ -11,6 +11,7 @@ from .business_metadata import *
 from .business_metadata_binding import *
 from .byok_key import *
 from .catalog_entity_attributes import *
+from .catalog_integration import *
 from .certificate_authority import *
 from .certificate_pool import *
 from .cluster_link import *
@@ -27,6 +28,7 @@ from .get_access_point import *
 from .get_business_metadata import *
 from .get_business_metadata_binding import *
 from .get_byok_key import *
+from .get_catalog_integration import *
 from .get_certificate_authority import *
 from .get_certificate_pool import *
 from .get_cluster_link import *
@@ -67,6 +69,7 @@ from .get_schemas import *
 from .get_service_account import *
 from .get_subject_config import *
 from .get_subject_mode import *
+from .get_tableflow_topic import *
 from .get_tag import *
 from .get_tag_binding import *
 from .get_transit_gateway_attachment import *
@@ -102,6 +105,7 @@ from .schema_registry_kek import *
 from .service_account import *
 from .subject_config import *
 from .subject_mode import *
+from .tableflow_topic import *
 from .tag import *
 from .tag_binding import *
 from .tf_importer import *
@@ -165,6 +169,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes": "CatalogEntityAttributes"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/catalogIntegration",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/catalogIntegration:CatalogIntegration": "CatalogIntegration"
   }
  },
  {
@@ -493,6 +505,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/subjectMode:SubjectMode": "SubjectMode"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/tableflowTopic",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/tableflowTopic:TableflowTopic": "TableflowTopic"
   }
  },
  {

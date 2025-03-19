@@ -3108,6 +3108,786 @@ func (o CatalogEntityAttributesSchemaRegistryClusterPtrOutput) Id() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type CatalogIntegrationAwsGlue struct {
+	// The provider integration id.
+	ProviderIntegrationId string `pulumi:"providerIntegrationId"`
+}
+
+// CatalogIntegrationAwsGlueInput is an input type that accepts CatalogIntegrationAwsGlueArgs and CatalogIntegrationAwsGlueOutput values.
+// You can construct a concrete instance of `CatalogIntegrationAwsGlueInput` via:
+//
+//	CatalogIntegrationAwsGlueArgs{...}
+type CatalogIntegrationAwsGlueInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationAwsGlueOutput() CatalogIntegrationAwsGlueOutput
+	ToCatalogIntegrationAwsGlueOutputWithContext(context.Context) CatalogIntegrationAwsGlueOutput
+}
+
+type CatalogIntegrationAwsGlueArgs struct {
+	// The provider integration id.
+	ProviderIntegrationId pulumi.StringInput `pulumi:"providerIntegrationId"`
+}
+
+func (CatalogIntegrationAwsGlueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationAwsGlue)(nil)).Elem()
+}
+
+func (i CatalogIntegrationAwsGlueArgs) ToCatalogIntegrationAwsGlueOutput() CatalogIntegrationAwsGlueOutput {
+	return i.ToCatalogIntegrationAwsGlueOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationAwsGlueArgs) ToCatalogIntegrationAwsGlueOutputWithContext(ctx context.Context) CatalogIntegrationAwsGlueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationAwsGlueOutput)
+}
+
+func (i CatalogIntegrationAwsGlueArgs) ToCatalogIntegrationAwsGluePtrOutput() CatalogIntegrationAwsGluePtrOutput {
+	return i.ToCatalogIntegrationAwsGluePtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationAwsGlueArgs) ToCatalogIntegrationAwsGluePtrOutputWithContext(ctx context.Context) CatalogIntegrationAwsGluePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationAwsGlueOutput).ToCatalogIntegrationAwsGluePtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationAwsGluePtrInput is an input type that accepts CatalogIntegrationAwsGlueArgs, CatalogIntegrationAwsGluePtr and CatalogIntegrationAwsGluePtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationAwsGluePtrInput` via:
+//
+//	        CatalogIntegrationAwsGlueArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationAwsGluePtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationAwsGluePtrOutput() CatalogIntegrationAwsGluePtrOutput
+	ToCatalogIntegrationAwsGluePtrOutputWithContext(context.Context) CatalogIntegrationAwsGluePtrOutput
+}
+
+type catalogIntegrationAwsGluePtrType CatalogIntegrationAwsGlueArgs
+
+func CatalogIntegrationAwsGluePtr(v *CatalogIntegrationAwsGlueArgs) CatalogIntegrationAwsGluePtrInput {
+	return (*catalogIntegrationAwsGluePtrType)(v)
+}
+
+func (*catalogIntegrationAwsGluePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationAwsGlue)(nil)).Elem()
+}
+
+func (i *catalogIntegrationAwsGluePtrType) ToCatalogIntegrationAwsGluePtrOutput() CatalogIntegrationAwsGluePtrOutput {
+	return i.ToCatalogIntegrationAwsGluePtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationAwsGluePtrType) ToCatalogIntegrationAwsGluePtrOutputWithContext(ctx context.Context) CatalogIntegrationAwsGluePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationAwsGluePtrOutput)
+}
+
+type CatalogIntegrationAwsGlueOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationAwsGlueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationAwsGlue)(nil)).Elem()
+}
+
+func (o CatalogIntegrationAwsGlueOutput) ToCatalogIntegrationAwsGlueOutput() CatalogIntegrationAwsGlueOutput {
+	return o
+}
+
+func (o CatalogIntegrationAwsGlueOutput) ToCatalogIntegrationAwsGlueOutputWithContext(ctx context.Context) CatalogIntegrationAwsGlueOutput {
+	return o
+}
+
+func (o CatalogIntegrationAwsGlueOutput) ToCatalogIntegrationAwsGluePtrOutput() CatalogIntegrationAwsGluePtrOutput {
+	return o.ToCatalogIntegrationAwsGluePtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationAwsGlueOutput) ToCatalogIntegrationAwsGluePtrOutputWithContext(ctx context.Context) CatalogIntegrationAwsGluePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationAwsGlue) *CatalogIntegrationAwsGlue {
+		return &v
+	}).(CatalogIntegrationAwsGluePtrOutput)
+}
+
+// The provider integration id.
+func (o CatalogIntegrationAwsGlueOutput) ProviderIntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlue) string { return v.ProviderIntegrationId }).(pulumi.StringOutput)
+}
+
+type CatalogIntegrationAwsGluePtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationAwsGluePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationAwsGlue)(nil)).Elem()
+}
+
+func (o CatalogIntegrationAwsGluePtrOutput) ToCatalogIntegrationAwsGluePtrOutput() CatalogIntegrationAwsGluePtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationAwsGluePtrOutput) ToCatalogIntegrationAwsGluePtrOutputWithContext(ctx context.Context) CatalogIntegrationAwsGluePtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationAwsGluePtrOutput) Elem() CatalogIntegrationAwsGlueOutput {
+	return o.ApplyT(func(v *CatalogIntegrationAwsGlue) CatalogIntegrationAwsGlue {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationAwsGlue
+		return ret
+	}).(CatalogIntegrationAwsGlueOutput)
+}
+
+// The provider integration id.
+func (o CatalogIntegrationAwsGluePtrOutput) ProviderIntegrationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationAwsGlue) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProviderIntegrationId
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationCredentials struct {
+	// The Tableflow API Key.
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
+	Secret string `pulumi:"secret"`
+}
+
+// CatalogIntegrationCredentialsInput is an input type that accepts CatalogIntegrationCredentialsArgs and CatalogIntegrationCredentialsOutput values.
+// You can construct a concrete instance of `CatalogIntegrationCredentialsInput` via:
+//
+//	CatalogIntegrationCredentialsArgs{...}
+type CatalogIntegrationCredentialsInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationCredentialsOutput() CatalogIntegrationCredentialsOutput
+	ToCatalogIntegrationCredentialsOutputWithContext(context.Context) CatalogIntegrationCredentialsOutput
+}
+
+type CatalogIntegrationCredentialsArgs struct {
+	// The Tableflow API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (CatalogIntegrationCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationCredentials)(nil)).Elem()
+}
+
+func (i CatalogIntegrationCredentialsArgs) ToCatalogIntegrationCredentialsOutput() CatalogIntegrationCredentialsOutput {
+	return i.ToCatalogIntegrationCredentialsOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationCredentialsArgs) ToCatalogIntegrationCredentialsOutputWithContext(ctx context.Context) CatalogIntegrationCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationCredentialsOutput)
+}
+
+func (i CatalogIntegrationCredentialsArgs) ToCatalogIntegrationCredentialsPtrOutput() CatalogIntegrationCredentialsPtrOutput {
+	return i.ToCatalogIntegrationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationCredentialsArgs) ToCatalogIntegrationCredentialsPtrOutputWithContext(ctx context.Context) CatalogIntegrationCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationCredentialsOutput).ToCatalogIntegrationCredentialsPtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationCredentialsPtrInput is an input type that accepts CatalogIntegrationCredentialsArgs, CatalogIntegrationCredentialsPtr and CatalogIntegrationCredentialsPtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationCredentialsPtrInput` via:
+//
+//	        CatalogIntegrationCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationCredentialsPtrOutput() CatalogIntegrationCredentialsPtrOutput
+	ToCatalogIntegrationCredentialsPtrOutputWithContext(context.Context) CatalogIntegrationCredentialsPtrOutput
+}
+
+type catalogIntegrationCredentialsPtrType CatalogIntegrationCredentialsArgs
+
+func CatalogIntegrationCredentialsPtr(v *CatalogIntegrationCredentialsArgs) CatalogIntegrationCredentialsPtrInput {
+	return (*catalogIntegrationCredentialsPtrType)(v)
+}
+
+func (*catalogIntegrationCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationCredentials)(nil)).Elem()
+}
+
+func (i *catalogIntegrationCredentialsPtrType) ToCatalogIntegrationCredentialsPtrOutput() CatalogIntegrationCredentialsPtrOutput {
+	return i.ToCatalogIntegrationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationCredentialsPtrType) ToCatalogIntegrationCredentialsPtrOutputWithContext(ctx context.Context) CatalogIntegrationCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationCredentialsPtrOutput)
+}
+
+type CatalogIntegrationCredentialsOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationCredentials)(nil)).Elem()
+}
+
+func (o CatalogIntegrationCredentialsOutput) ToCatalogIntegrationCredentialsOutput() CatalogIntegrationCredentialsOutput {
+	return o
+}
+
+func (o CatalogIntegrationCredentialsOutput) ToCatalogIntegrationCredentialsOutputWithContext(ctx context.Context) CatalogIntegrationCredentialsOutput {
+	return o
+}
+
+func (o CatalogIntegrationCredentialsOutput) ToCatalogIntegrationCredentialsPtrOutput() CatalogIntegrationCredentialsPtrOutput {
+	return o.ToCatalogIntegrationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationCredentialsOutput) ToCatalogIntegrationCredentialsPtrOutputWithContext(ctx context.Context) CatalogIntegrationCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationCredentials) *CatalogIntegrationCredentials {
+		return &v
+	}).(CatalogIntegrationCredentialsPtrOutput)
+}
+
+// The Tableflow API Key.
+func (o CatalogIntegrationCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Cluster API Secret for your Confluent Cloud cluster.
+func (o CatalogIntegrationCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type CatalogIntegrationCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationCredentials)(nil)).Elem()
+}
+
+func (o CatalogIntegrationCredentialsPtrOutput) ToCatalogIntegrationCredentialsPtrOutput() CatalogIntegrationCredentialsPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationCredentialsPtrOutput) ToCatalogIntegrationCredentialsPtrOutputWithContext(ctx context.Context) CatalogIntegrationCredentialsPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationCredentialsPtrOutput) Elem() CatalogIntegrationCredentialsOutput {
+	return o.ApplyT(func(v *CatalogIntegrationCredentials) CatalogIntegrationCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationCredentials
+		return ret
+	}).(CatalogIntegrationCredentialsOutput)
+}
+
+// The Tableflow API Key.
+func (o CatalogIntegrationCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Cluster API Secret for your Confluent Cloud cluster.
+func (o CatalogIntegrationCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationEnvironment struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// CatalogIntegrationEnvironmentInput is an input type that accepts CatalogIntegrationEnvironmentArgs and CatalogIntegrationEnvironmentOutput values.
+// You can construct a concrete instance of `CatalogIntegrationEnvironmentInput` via:
+//
+//	CatalogIntegrationEnvironmentArgs{...}
+type CatalogIntegrationEnvironmentInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationEnvironmentOutput() CatalogIntegrationEnvironmentOutput
+	ToCatalogIntegrationEnvironmentOutputWithContext(context.Context) CatalogIntegrationEnvironmentOutput
+}
+
+type CatalogIntegrationEnvironmentArgs struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (CatalogIntegrationEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationEnvironment)(nil)).Elem()
+}
+
+func (i CatalogIntegrationEnvironmentArgs) ToCatalogIntegrationEnvironmentOutput() CatalogIntegrationEnvironmentOutput {
+	return i.ToCatalogIntegrationEnvironmentOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationEnvironmentArgs) ToCatalogIntegrationEnvironmentOutputWithContext(ctx context.Context) CatalogIntegrationEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationEnvironmentOutput)
+}
+
+func (i CatalogIntegrationEnvironmentArgs) ToCatalogIntegrationEnvironmentPtrOutput() CatalogIntegrationEnvironmentPtrOutput {
+	return i.ToCatalogIntegrationEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationEnvironmentArgs) ToCatalogIntegrationEnvironmentPtrOutputWithContext(ctx context.Context) CatalogIntegrationEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationEnvironmentOutput).ToCatalogIntegrationEnvironmentPtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationEnvironmentPtrInput is an input type that accepts CatalogIntegrationEnvironmentArgs, CatalogIntegrationEnvironmentPtr and CatalogIntegrationEnvironmentPtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationEnvironmentPtrInput` via:
+//
+//	        CatalogIntegrationEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationEnvironmentPtrOutput() CatalogIntegrationEnvironmentPtrOutput
+	ToCatalogIntegrationEnvironmentPtrOutputWithContext(context.Context) CatalogIntegrationEnvironmentPtrOutput
+}
+
+type catalogIntegrationEnvironmentPtrType CatalogIntegrationEnvironmentArgs
+
+func CatalogIntegrationEnvironmentPtr(v *CatalogIntegrationEnvironmentArgs) CatalogIntegrationEnvironmentPtrInput {
+	return (*catalogIntegrationEnvironmentPtrType)(v)
+}
+
+func (*catalogIntegrationEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationEnvironment)(nil)).Elem()
+}
+
+func (i *catalogIntegrationEnvironmentPtrType) ToCatalogIntegrationEnvironmentPtrOutput() CatalogIntegrationEnvironmentPtrOutput {
+	return i.ToCatalogIntegrationEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationEnvironmentPtrType) ToCatalogIntegrationEnvironmentPtrOutputWithContext(ctx context.Context) CatalogIntegrationEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationEnvironmentPtrOutput)
+}
+
+type CatalogIntegrationEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationEnvironment)(nil)).Elem()
+}
+
+func (o CatalogIntegrationEnvironmentOutput) ToCatalogIntegrationEnvironmentOutput() CatalogIntegrationEnvironmentOutput {
+	return o
+}
+
+func (o CatalogIntegrationEnvironmentOutput) ToCatalogIntegrationEnvironmentOutputWithContext(ctx context.Context) CatalogIntegrationEnvironmentOutput {
+	return o
+}
+
+func (o CatalogIntegrationEnvironmentOutput) ToCatalogIntegrationEnvironmentPtrOutput() CatalogIntegrationEnvironmentPtrOutput {
+	return o.ToCatalogIntegrationEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationEnvironmentOutput) ToCatalogIntegrationEnvironmentPtrOutputWithContext(ctx context.Context) CatalogIntegrationEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationEnvironment) *CatalogIntegrationEnvironment {
+		return &v
+	}).(CatalogIntegrationEnvironmentPtrOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o CatalogIntegrationEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type CatalogIntegrationEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationEnvironment)(nil)).Elem()
+}
+
+func (o CatalogIntegrationEnvironmentPtrOutput) ToCatalogIntegrationEnvironmentPtrOutput() CatalogIntegrationEnvironmentPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationEnvironmentPtrOutput) ToCatalogIntegrationEnvironmentPtrOutputWithContext(ctx context.Context) CatalogIntegrationEnvironmentPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationEnvironmentPtrOutput) Elem() CatalogIntegrationEnvironmentOutput {
+	return o.ApplyT(func(v *CatalogIntegrationEnvironment) CatalogIntegrationEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationEnvironment
+		return ret
+	}).(CatalogIntegrationEnvironmentOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o CatalogIntegrationEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationKafkaCluster struct {
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// CatalogIntegrationKafkaClusterInput is an input type that accepts CatalogIntegrationKafkaClusterArgs and CatalogIntegrationKafkaClusterOutput values.
+// You can construct a concrete instance of `CatalogIntegrationKafkaClusterInput` via:
+//
+//	CatalogIntegrationKafkaClusterArgs{...}
+type CatalogIntegrationKafkaClusterInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationKafkaClusterOutput() CatalogIntegrationKafkaClusterOutput
+	ToCatalogIntegrationKafkaClusterOutputWithContext(context.Context) CatalogIntegrationKafkaClusterOutput
+}
+
+type CatalogIntegrationKafkaClusterArgs struct {
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (CatalogIntegrationKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationKafkaCluster)(nil)).Elem()
+}
+
+func (i CatalogIntegrationKafkaClusterArgs) ToCatalogIntegrationKafkaClusterOutput() CatalogIntegrationKafkaClusterOutput {
+	return i.ToCatalogIntegrationKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationKafkaClusterArgs) ToCatalogIntegrationKafkaClusterOutputWithContext(ctx context.Context) CatalogIntegrationKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationKafkaClusterOutput)
+}
+
+func (i CatalogIntegrationKafkaClusterArgs) ToCatalogIntegrationKafkaClusterPtrOutput() CatalogIntegrationKafkaClusterPtrOutput {
+	return i.ToCatalogIntegrationKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationKafkaClusterArgs) ToCatalogIntegrationKafkaClusterPtrOutputWithContext(ctx context.Context) CatalogIntegrationKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationKafkaClusterOutput).ToCatalogIntegrationKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationKafkaClusterPtrInput is an input type that accepts CatalogIntegrationKafkaClusterArgs, CatalogIntegrationKafkaClusterPtr and CatalogIntegrationKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationKafkaClusterPtrInput` via:
+//
+//	        CatalogIntegrationKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationKafkaClusterPtrOutput() CatalogIntegrationKafkaClusterPtrOutput
+	ToCatalogIntegrationKafkaClusterPtrOutputWithContext(context.Context) CatalogIntegrationKafkaClusterPtrOutput
+}
+
+type catalogIntegrationKafkaClusterPtrType CatalogIntegrationKafkaClusterArgs
+
+func CatalogIntegrationKafkaClusterPtr(v *CatalogIntegrationKafkaClusterArgs) CatalogIntegrationKafkaClusterPtrInput {
+	return (*catalogIntegrationKafkaClusterPtrType)(v)
+}
+
+func (*catalogIntegrationKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationKafkaCluster)(nil)).Elem()
+}
+
+func (i *catalogIntegrationKafkaClusterPtrType) ToCatalogIntegrationKafkaClusterPtrOutput() CatalogIntegrationKafkaClusterPtrOutput {
+	return i.ToCatalogIntegrationKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationKafkaClusterPtrType) ToCatalogIntegrationKafkaClusterPtrOutputWithContext(ctx context.Context) CatalogIntegrationKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationKafkaClusterPtrOutput)
+}
+
+type CatalogIntegrationKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationKafkaCluster)(nil)).Elem()
+}
+
+func (o CatalogIntegrationKafkaClusterOutput) ToCatalogIntegrationKafkaClusterOutput() CatalogIntegrationKafkaClusterOutput {
+	return o
+}
+
+func (o CatalogIntegrationKafkaClusterOutput) ToCatalogIntegrationKafkaClusterOutputWithContext(ctx context.Context) CatalogIntegrationKafkaClusterOutput {
+	return o
+}
+
+func (o CatalogIntegrationKafkaClusterOutput) ToCatalogIntegrationKafkaClusterPtrOutput() CatalogIntegrationKafkaClusterPtrOutput {
+	return o.ToCatalogIntegrationKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationKafkaClusterOutput) ToCatalogIntegrationKafkaClusterPtrOutputWithContext(ctx context.Context) CatalogIntegrationKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationKafkaCluster) *CatalogIntegrationKafkaCluster {
+		return &v
+	}).(CatalogIntegrationKafkaClusterPtrOutput)
+}
+
+// The ID of the Kafka cluster, for example, `lkc-abc123`.
+func (o CatalogIntegrationKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type CatalogIntegrationKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationKafkaCluster)(nil)).Elem()
+}
+
+func (o CatalogIntegrationKafkaClusterPtrOutput) ToCatalogIntegrationKafkaClusterPtrOutput() CatalogIntegrationKafkaClusterPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationKafkaClusterPtrOutput) ToCatalogIntegrationKafkaClusterPtrOutputWithContext(ctx context.Context) CatalogIntegrationKafkaClusterPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationKafkaClusterPtrOutput) Elem() CatalogIntegrationKafkaClusterOutput {
+	return o.ApplyT(func(v *CatalogIntegrationKafkaCluster) CatalogIntegrationKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationKafkaCluster
+		return ret
+	}).(CatalogIntegrationKafkaClusterOutput)
+}
+
+// The ID of the Kafka cluster, for example, `lkc-abc123`.
+func (o CatalogIntegrationKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationSnowflake struct {
+	// Allowed scope of the Snowflake Open Catalog.
+	AllowedScope string `pulumi:"allowedScope"`
+	// The client ID of the catalog integration.
+	ClientId string `pulumi:"clientId"`
+	// The client secret of the catalog integration.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The catalog integration connection endpoint for Snowflake Open Catalog.
+	Endpoint string `pulumi:"endpoint"`
+	// Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+	Warehouse string `pulumi:"warehouse"`
+}
+
+// CatalogIntegrationSnowflakeInput is an input type that accepts CatalogIntegrationSnowflakeArgs and CatalogIntegrationSnowflakeOutput values.
+// You can construct a concrete instance of `CatalogIntegrationSnowflakeInput` via:
+//
+//	CatalogIntegrationSnowflakeArgs{...}
+type CatalogIntegrationSnowflakeInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationSnowflakeOutput() CatalogIntegrationSnowflakeOutput
+	ToCatalogIntegrationSnowflakeOutputWithContext(context.Context) CatalogIntegrationSnowflakeOutput
+}
+
+type CatalogIntegrationSnowflakeArgs struct {
+	// Allowed scope of the Snowflake Open Catalog.
+	AllowedScope pulumi.StringInput `pulumi:"allowedScope"`
+	// The client ID of the catalog integration.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The client secret of the catalog integration.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The catalog integration connection endpoint for Snowflake Open Catalog.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+	Warehouse pulumi.StringInput `pulumi:"warehouse"`
+}
+
+func (CatalogIntegrationSnowflakeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationSnowflake)(nil)).Elem()
+}
+
+func (i CatalogIntegrationSnowflakeArgs) ToCatalogIntegrationSnowflakeOutput() CatalogIntegrationSnowflakeOutput {
+	return i.ToCatalogIntegrationSnowflakeOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationSnowflakeArgs) ToCatalogIntegrationSnowflakeOutputWithContext(ctx context.Context) CatalogIntegrationSnowflakeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationSnowflakeOutput)
+}
+
+func (i CatalogIntegrationSnowflakeArgs) ToCatalogIntegrationSnowflakePtrOutput() CatalogIntegrationSnowflakePtrOutput {
+	return i.ToCatalogIntegrationSnowflakePtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationSnowflakeArgs) ToCatalogIntegrationSnowflakePtrOutputWithContext(ctx context.Context) CatalogIntegrationSnowflakePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationSnowflakeOutput).ToCatalogIntegrationSnowflakePtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationSnowflakePtrInput is an input type that accepts CatalogIntegrationSnowflakeArgs, CatalogIntegrationSnowflakePtr and CatalogIntegrationSnowflakePtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationSnowflakePtrInput` via:
+//
+//	        CatalogIntegrationSnowflakeArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationSnowflakePtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationSnowflakePtrOutput() CatalogIntegrationSnowflakePtrOutput
+	ToCatalogIntegrationSnowflakePtrOutputWithContext(context.Context) CatalogIntegrationSnowflakePtrOutput
+}
+
+type catalogIntegrationSnowflakePtrType CatalogIntegrationSnowflakeArgs
+
+func CatalogIntegrationSnowflakePtr(v *CatalogIntegrationSnowflakeArgs) CatalogIntegrationSnowflakePtrInput {
+	return (*catalogIntegrationSnowflakePtrType)(v)
+}
+
+func (*catalogIntegrationSnowflakePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationSnowflake)(nil)).Elem()
+}
+
+func (i *catalogIntegrationSnowflakePtrType) ToCatalogIntegrationSnowflakePtrOutput() CatalogIntegrationSnowflakePtrOutput {
+	return i.ToCatalogIntegrationSnowflakePtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationSnowflakePtrType) ToCatalogIntegrationSnowflakePtrOutputWithContext(ctx context.Context) CatalogIntegrationSnowflakePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationSnowflakePtrOutput)
+}
+
+type CatalogIntegrationSnowflakeOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationSnowflakeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationSnowflake)(nil)).Elem()
+}
+
+func (o CatalogIntegrationSnowflakeOutput) ToCatalogIntegrationSnowflakeOutput() CatalogIntegrationSnowflakeOutput {
+	return o
+}
+
+func (o CatalogIntegrationSnowflakeOutput) ToCatalogIntegrationSnowflakeOutputWithContext(ctx context.Context) CatalogIntegrationSnowflakeOutput {
+	return o
+}
+
+func (o CatalogIntegrationSnowflakeOutput) ToCatalogIntegrationSnowflakePtrOutput() CatalogIntegrationSnowflakePtrOutput {
+	return o.ToCatalogIntegrationSnowflakePtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationSnowflakeOutput) ToCatalogIntegrationSnowflakePtrOutputWithContext(ctx context.Context) CatalogIntegrationSnowflakePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationSnowflake) *CatalogIntegrationSnowflake {
+		return &v
+	}).(CatalogIntegrationSnowflakePtrOutput)
+}
+
+// Allowed scope of the Snowflake Open Catalog.
+func (o CatalogIntegrationSnowflakeOutput) AllowedScope() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationSnowflake) string { return v.AllowedScope }).(pulumi.StringOutput)
+}
+
+// The client ID of the catalog integration.
+func (o CatalogIntegrationSnowflakeOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationSnowflake) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The client secret of the catalog integration.
+func (o CatalogIntegrationSnowflakeOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationSnowflake) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The catalog integration connection endpoint for Snowflake Open Catalog.
+func (o CatalogIntegrationSnowflakeOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationSnowflake) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+func (o CatalogIntegrationSnowflakeOutput) Warehouse() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationSnowflake) string { return v.Warehouse }).(pulumi.StringOutput)
+}
+
+type CatalogIntegrationSnowflakePtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationSnowflakePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationSnowflake)(nil)).Elem()
+}
+
+func (o CatalogIntegrationSnowflakePtrOutput) ToCatalogIntegrationSnowflakePtrOutput() CatalogIntegrationSnowflakePtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationSnowflakePtrOutput) ToCatalogIntegrationSnowflakePtrOutputWithContext(ctx context.Context) CatalogIntegrationSnowflakePtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationSnowflakePtrOutput) Elem() CatalogIntegrationSnowflakeOutput {
+	return o.ApplyT(func(v *CatalogIntegrationSnowflake) CatalogIntegrationSnowflake {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationSnowflake
+		return ret
+	}).(CatalogIntegrationSnowflakeOutput)
+}
+
+// Allowed scope of the Snowflake Open Catalog.
+func (o CatalogIntegrationSnowflakePtrOutput) AllowedScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationSnowflake) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowedScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client ID of the catalog integration.
+func (o CatalogIntegrationSnowflakePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationSnowflake) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret of the catalog integration.
+func (o CatalogIntegrationSnowflakePtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationSnowflake) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The catalog integration connection endpoint for Snowflake Open Catalog.
+func (o CatalogIntegrationSnowflakePtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationSnowflake) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+func (o CatalogIntegrationSnowflakePtrOutput) Warehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationSnowflake) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Warehouse
+	}).(pulumi.StringPtrOutput)
+}
+
 type CertificatePoolCertificateAuthority struct {
 	// The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
 	Id string `pulumi:"id"`
@@ -19874,6 +20654,699 @@ func (o SubjectModeSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TableflowTopicByobAws struct {
+	// The bucket name.
+	BucketName string `pulumi:"bucketName"`
+	// (Required String) The bucket region.
+	BucketRegion *string `pulumi:"bucketRegion"`
+	// The provider integration id.
+	ProviderIntegrationId string `pulumi:"providerIntegrationId"`
+}
+
+// TableflowTopicByobAwsInput is an input type that accepts TableflowTopicByobAwsArgs and TableflowTopicByobAwsOutput values.
+// You can construct a concrete instance of `TableflowTopicByobAwsInput` via:
+//
+//	TableflowTopicByobAwsArgs{...}
+type TableflowTopicByobAwsInput interface {
+	pulumi.Input
+
+	ToTableflowTopicByobAwsOutput() TableflowTopicByobAwsOutput
+	ToTableflowTopicByobAwsOutputWithContext(context.Context) TableflowTopicByobAwsOutput
+}
+
+type TableflowTopicByobAwsArgs struct {
+	// The bucket name.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// (Required String) The bucket region.
+	BucketRegion pulumi.StringPtrInput `pulumi:"bucketRegion"`
+	// The provider integration id.
+	ProviderIntegrationId pulumi.StringInput `pulumi:"providerIntegrationId"`
+}
+
+func (TableflowTopicByobAwsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicByobAws)(nil)).Elem()
+}
+
+func (i TableflowTopicByobAwsArgs) ToTableflowTopicByobAwsOutput() TableflowTopicByobAwsOutput {
+	return i.ToTableflowTopicByobAwsOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicByobAwsArgs) ToTableflowTopicByobAwsOutputWithContext(ctx context.Context) TableflowTopicByobAwsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicByobAwsOutput)
+}
+
+func (i TableflowTopicByobAwsArgs) ToTableflowTopicByobAwsPtrOutput() TableflowTopicByobAwsPtrOutput {
+	return i.ToTableflowTopicByobAwsPtrOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicByobAwsArgs) ToTableflowTopicByobAwsPtrOutputWithContext(ctx context.Context) TableflowTopicByobAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicByobAwsOutput).ToTableflowTopicByobAwsPtrOutputWithContext(ctx)
+}
+
+// TableflowTopicByobAwsPtrInput is an input type that accepts TableflowTopicByobAwsArgs, TableflowTopicByobAwsPtr and TableflowTopicByobAwsPtrOutput values.
+// You can construct a concrete instance of `TableflowTopicByobAwsPtrInput` via:
+//
+//	        TableflowTopicByobAwsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableflowTopicByobAwsPtrInput interface {
+	pulumi.Input
+
+	ToTableflowTopicByobAwsPtrOutput() TableflowTopicByobAwsPtrOutput
+	ToTableflowTopicByobAwsPtrOutputWithContext(context.Context) TableflowTopicByobAwsPtrOutput
+}
+
+type tableflowTopicByobAwsPtrType TableflowTopicByobAwsArgs
+
+func TableflowTopicByobAwsPtr(v *TableflowTopicByobAwsArgs) TableflowTopicByobAwsPtrInput {
+	return (*tableflowTopicByobAwsPtrType)(v)
+}
+
+func (*tableflowTopicByobAwsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicByobAws)(nil)).Elem()
+}
+
+func (i *tableflowTopicByobAwsPtrType) ToTableflowTopicByobAwsPtrOutput() TableflowTopicByobAwsPtrOutput {
+	return i.ToTableflowTopicByobAwsPtrOutputWithContext(context.Background())
+}
+
+func (i *tableflowTopicByobAwsPtrType) ToTableflowTopicByobAwsPtrOutputWithContext(ctx context.Context) TableflowTopicByobAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicByobAwsPtrOutput)
+}
+
+type TableflowTopicByobAwsOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicByobAwsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicByobAws)(nil)).Elem()
+}
+
+func (o TableflowTopicByobAwsOutput) ToTableflowTopicByobAwsOutput() TableflowTopicByobAwsOutput {
+	return o
+}
+
+func (o TableflowTopicByobAwsOutput) ToTableflowTopicByobAwsOutputWithContext(ctx context.Context) TableflowTopicByobAwsOutput {
+	return o
+}
+
+func (o TableflowTopicByobAwsOutput) ToTableflowTopicByobAwsPtrOutput() TableflowTopicByobAwsPtrOutput {
+	return o.ToTableflowTopicByobAwsPtrOutputWithContext(context.Background())
+}
+
+func (o TableflowTopicByobAwsOutput) ToTableflowTopicByobAwsPtrOutputWithContext(ctx context.Context) TableflowTopicByobAwsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableflowTopicByobAws) *TableflowTopicByobAws {
+		return &v
+	}).(TableflowTopicByobAwsPtrOutput)
+}
+
+// The bucket name.
+func (o TableflowTopicByobAwsOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableflowTopicByobAws) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// (Required String) The bucket region.
+func (o TableflowTopicByobAwsOutput) BucketRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableflowTopicByobAws) *string { return v.BucketRegion }).(pulumi.StringPtrOutput)
+}
+
+// The provider integration id.
+func (o TableflowTopicByobAwsOutput) ProviderIntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v TableflowTopicByobAws) string { return v.ProviderIntegrationId }).(pulumi.StringOutput)
+}
+
+type TableflowTopicByobAwsPtrOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicByobAwsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicByobAws)(nil)).Elem()
+}
+
+func (o TableflowTopicByobAwsPtrOutput) ToTableflowTopicByobAwsPtrOutput() TableflowTopicByobAwsPtrOutput {
+	return o
+}
+
+func (o TableflowTopicByobAwsPtrOutput) ToTableflowTopicByobAwsPtrOutputWithContext(ctx context.Context) TableflowTopicByobAwsPtrOutput {
+	return o
+}
+
+func (o TableflowTopicByobAwsPtrOutput) Elem() TableflowTopicByobAwsOutput {
+	return o.ApplyT(func(v *TableflowTopicByobAws) TableflowTopicByobAws {
+		if v != nil {
+			return *v
+		}
+		var ret TableflowTopicByobAws
+		return ret
+	}).(TableflowTopicByobAwsOutput)
+}
+
+// The bucket name.
+func (o TableflowTopicByobAwsPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicByobAws) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The bucket region.
+func (o TableflowTopicByobAwsPtrOutput) BucketRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicByobAws) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The provider integration id.
+func (o TableflowTopicByobAwsPtrOutput) ProviderIntegrationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicByobAws) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProviderIntegrationId
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableflowTopicCredentials struct {
+	// The Tableflow API Key.
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
+	Secret string `pulumi:"secret"`
+}
+
+// TableflowTopicCredentialsInput is an input type that accepts TableflowTopicCredentialsArgs and TableflowTopicCredentialsOutput values.
+// You can construct a concrete instance of `TableflowTopicCredentialsInput` via:
+//
+//	TableflowTopicCredentialsArgs{...}
+type TableflowTopicCredentialsInput interface {
+	pulumi.Input
+
+	ToTableflowTopicCredentialsOutput() TableflowTopicCredentialsOutput
+	ToTableflowTopicCredentialsOutputWithContext(context.Context) TableflowTopicCredentialsOutput
+}
+
+type TableflowTopicCredentialsArgs struct {
+	// The Tableflow API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (TableflowTopicCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicCredentials)(nil)).Elem()
+}
+
+func (i TableflowTopicCredentialsArgs) ToTableflowTopicCredentialsOutput() TableflowTopicCredentialsOutput {
+	return i.ToTableflowTopicCredentialsOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicCredentialsArgs) ToTableflowTopicCredentialsOutputWithContext(ctx context.Context) TableflowTopicCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicCredentialsOutput)
+}
+
+func (i TableflowTopicCredentialsArgs) ToTableflowTopicCredentialsPtrOutput() TableflowTopicCredentialsPtrOutput {
+	return i.ToTableflowTopicCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicCredentialsArgs) ToTableflowTopicCredentialsPtrOutputWithContext(ctx context.Context) TableflowTopicCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicCredentialsOutput).ToTableflowTopicCredentialsPtrOutputWithContext(ctx)
+}
+
+// TableflowTopicCredentialsPtrInput is an input type that accepts TableflowTopicCredentialsArgs, TableflowTopicCredentialsPtr and TableflowTopicCredentialsPtrOutput values.
+// You can construct a concrete instance of `TableflowTopicCredentialsPtrInput` via:
+//
+//	        TableflowTopicCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableflowTopicCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToTableflowTopicCredentialsPtrOutput() TableflowTopicCredentialsPtrOutput
+	ToTableflowTopicCredentialsPtrOutputWithContext(context.Context) TableflowTopicCredentialsPtrOutput
+}
+
+type tableflowTopicCredentialsPtrType TableflowTopicCredentialsArgs
+
+func TableflowTopicCredentialsPtr(v *TableflowTopicCredentialsArgs) TableflowTopicCredentialsPtrInput {
+	return (*tableflowTopicCredentialsPtrType)(v)
+}
+
+func (*tableflowTopicCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicCredentials)(nil)).Elem()
+}
+
+func (i *tableflowTopicCredentialsPtrType) ToTableflowTopicCredentialsPtrOutput() TableflowTopicCredentialsPtrOutput {
+	return i.ToTableflowTopicCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *tableflowTopicCredentialsPtrType) ToTableflowTopicCredentialsPtrOutputWithContext(ctx context.Context) TableflowTopicCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicCredentialsPtrOutput)
+}
+
+type TableflowTopicCredentialsOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicCredentials)(nil)).Elem()
+}
+
+func (o TableflowTopicCredentialsOutput) ToTableflowTopicCredentialsOutput() TableflowTopicCredentialsOutput {
+	return o
+}
+
+func (o TableflowTopicCredentialsOutput) ToTableflowTopicCredentialsOutputWithContext(ctx context.Context) TableflowTopicCredentialsOutput {
+	return o
+}
+
+func (o TableflowTopicCredentialsOutput) ToTableflowTopicCredentialsPtrOutput() TableflowTopicCredentialsPtrOutput {
+	return o.ToTableflowTopicCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o TableflowTopicCredentialsOutput) ToTableflowTopicCredentialsPtrOutputWithContext(ctx context.Context) TableflowTopicCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableflowTopicCredentials) *TableflowTopicCredentials {
+		return &v
+	}).(TableflowTopicCredentialsPtrOutput)
+}
+
+// The Tableflow API Key.
+func (o TableflowTopicCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TableflowTopicCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Cluster API Secret for your Confluent Cloud cluster.
+func (o TableflowTopicCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v TableflowTopicCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type TableflowTopicCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicCredentials)(nil)).Elem()
+}
+
+func (o TableflowTopicCredentialsPtrOutput) ToTableflowTopicCredentialsPtrOutput() TableflowTopicCredentialsPtrOutput {
+	return o
+}
+
+func (o TableflowTopicCredentialsPtrOutput) ToTableflowTopicCredentialsPtrOutputWithContext(ctx context.Context) TableflowTopicCredentialsPtrOutput {
+	return o
+}
+
+func (o TableflowTopicCredentialsPtrOutput) Elem() TableflowTopicCredentialsOutput {
+	return o.ApplyT(func(v *TableflowTopicCredentials) TableflowTopicCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret TableflowTopicCredentials
+		return ret
+	}).(TableflowTopicCredentialsOutput)
+}
+
+// The Tableflow API Key.
+func (o TableflowTopicCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Cluster API Secret for your Confluent Cloud cluster.
+func (o TableflowTopicCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableflowTopicEnvironment struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// TableflowTopicEnvironmentInput is an input type that accepts TableflowTopicEnvironmentArgs and TableflowTopicEnvironmentOutput values.
+// You can construct a concrete instance of `TableflowTopicEnvironmentInput` via:
+//
+//	TableflowTopicEnvironmentArgs{...}
+type TableflowTopicEnvironmentInput interface {
+	pulumi.Input
+
+	ToTableflowTopicEnvironmentOutput() TableflowTopicEnvironmentOutput
+	ToTableflowTopicEnvironmentOutputWithContext(context.Context) TableflowTopicEnvironmentOutput
+}
+
+type TableflowTopicEnvironmentArgs struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (TableflowTopicEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicEnvironment)(nil)).Elem()
+}
+
+func (i TableflowTopicEnvironmentArgs) ToTableflowTopicEnvironmentOutput() TableflowTopicEnvironmentOutput {
+	return i.ToTableflowTopicEnvironmentOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicEnvironmentArgs) ToTableflowTopicEnvironmentOutputWithContext(ctx context.Context) TableflowTopicEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicEnvironmentOutput)
+}
+
+func (i TableflowTopicEnvironmentArgs) ToTableflowTopicEnvironmentPtrOutput() TableflowTopicEnvironmentPtrOutput {
+	return i.ToTableflowTopicEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicEnvironmentArgs) ToTableflowTopicEnvironmentPtrOutputWithContext(ctx context.Context) TableflowTopicEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicEnvironmentOutput).ToTableflowTopicEnvironmentPtrOutputWithContext(ctx)
+}
+
+// TableflowTopicEnvironmentPtrInput is an input type that accepts TableflowTopicEnvironmentArgs, TableflowTopicEnvironmentPtr and TableflowTopicEnvironmentPtrOutput values.
+// You can construct a concrete instance of `TableflowTopicEnvironmentPtrInput` via:
+//
+//	        TableflowTopicEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableflowTopicEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToTableflowTopicEnvironmentPtrOutput() TableflowTopicEnvironmentPtrOutput
+	ToTableflowTopicEnvironmentPtrOutputWithContext(context.Context) TableflowTopicEnvironmentPtrOutput
+}
+
+type tableflowTopicEnvironmentPtrType TableflowTopicEnvironmentArgs
+
+func TableflowTopicEnvironmentPtr(v *TableflowTopicEnvironmentArgs) TableflowTopicEnvironmentPtrInput {
+	return (*tableflowTopicEnvironmentPtrType)(v)
+}
+
+func (*tableflowTopicEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicEnvironment)(nil)).Elem()
+}
+
+func (i *tableflowTopicEnvironmentPtrType) ToTableflowTopicEnvironmentPtrOutput() TableflowTopicEnvironmentPtrOutput {
+	return i.ToTableflowTopicEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *tableflowTopicEnvironmentPtrType) ToTableflowTopicEnvironmentPtrOutputWithContext(ctx context.Context) TableflowTopicEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicEnvironmentPtrOutput)
+}
+
+type TableflowTopicEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicEnvironment)(nil)).Elem()
+}
+
+func (o TableflowTopicEnvironmentOutput) ToTableflowTopicEnvironmentOutput() TableflowTopicEnvironmentOutput {
+	return o
+}
+
+func (o TableflowTopicEnvironmentOutput) ToTableflowTopicEnvironmentOutputWithContext(ctx context.Context) TableflowTopicEnvironmentOutput {
+	return o
+}
+
+func (o TableflowTopicEnvironmentOutput) ToTableflowTopicEnvironmentPtrOutput() TableflowTopicEnvironmentPtrOutput {
+	return o.ToTableflowTopicEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o TableflowTopicEnvironmentOutput) ToTableflowTopicEnvironmentPtrOutputWithContext(ctx context.Context) TableflowTopicEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableflowTopicEnvironment) *TableflowTopicEnvironment {
+		return &v
+	}).(TableflowTopicEnvironmentPtrOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o TableflowTopicEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TableflowTopicEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type TableflowTopicEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicEnvironment)(nil)).Elem()
+}
+
+func (o TableflowTopicEnvironmentPtrOutput) ToTableflowTopicEnvironmentPtrOutput() TableflowTopicEnvironmentPtrOutput {
+	return o
+}
+
+func (o TableflowTopicEnvironmentPtrOutput) ToTableflowTopicEnvironmentPtrOutputWithContext(ctx context.Context) TableflowTopicEnvironmentPtrOutput {
+	return o
+}
+
+func (o TableflowTopicEnvironmentPtrOutput) Elem() TableflowTopicEnvironmentOutput {
+	return o.ApplyT(func(v *TableflowTopicEnvironment) TableflowTopicEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret TableflowTopicEnvironment
+		return ret
+	}).(TableflowTopicEnvironmentOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o TableflowTopicEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableflowTopicKafkaCluster struct {
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// TableflowTopicKafkaClusterInput is an input type that accepts TableflowTopicKafkaClusterArgs and TableflowTopicKafkaClusterOutput values.
+// You can construct a concrete instance of `TableflowTopicKafkaClusterInput` via:
+//
+//	TableflowTopicKafkaClusterArgs{...}
+type TableflowTopicKafkaClusterInput interface {
+	pulumi.Input
+
+	ToTableflowTopicKafkaClusterOutput() TableflowTopicKafkaClusterOutput
+	ToTableflowTopicKafkaClusterOutputWithContext(context.Context) TableflowTopicKafkaClusterOutput
+}
+
+type TableflowTopicKafkaClusterArgs struct {
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (TableflowTopicKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicKafkaCluster)(nil)).Elem()
+}
+
+func (i TableflowTopicKafkaClusterArgs) ToTableflowTopicKafkaClusterOutput() TableflowTopicKafkaClusterOutput {
+	return i.ToTableflowTopicKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicKafkaClusterArgs) ToTableflowTopicKafkaClusterOutputWithContext(ctx context.Context) TableflowTopicKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicKafkaClusterOutput)
+}
+
+func (i TableflowTopicKafkaClusterArgs) ToTableflowTopicKafkaClusterPtrOutput() TableflowTopicKafkaClusterPtrOutput {
+	return i.ToTableflowTopicKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicKafkaClusterArgs) ToTableflowTopicKafkaClusterPtrOutputWithContext(ctx context.Context) TableflowTopicKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicKafkaClusterOutput).ToTableflowTopicKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// TableflowTopicKafkaClusterPtrInput is an input type that accepts TableflowTopicKafkaClusterArgs, TableflowTopicKafkaClusterPtr and TableflowTopicKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `TableflowTopicKafkaClusterPtrInput` via:
+//
+//	        TableflowTopicKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableflowTopicKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToTableflowTopicKafkaClusterPtrOutput() TableflowTopicKafkaClusterPtrOutput
+	ToTableflowTopicKafkaClusterPtrOutputWithContext(context.Context) TableflowTopicKafkaClusterPtrOutput
+}
+
+type tableflowTopicKafkaClusterPtrType TableflowTopicKafkaClusterArgs
+
+func TableflowTopicKafkaClusterPtr(v *TableflowTopicKafkaClusterArgs) TableflowTopicKafkaClusterPtrInput {
+	return (*tableflowTopicKafkaClusterPtrType)(v)
+}
+
+func (*tableflowTopicKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicKafkaCluster)(nil)).Elem()
+}
+
+func (i *tableflowTopicKafkaClusterPtrType) ToTableflowTopicKafkaClusterPtrOutput() TableflowTopicKafkaClusterPtrOutput {
+	return i.ToTableflowTopicKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *tableflowTopicKafkaClusterPtrType) ToTableflowTopicKafkaClusterPtrOutputWithContext(ctx context.Context) TableflowTopicKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicKafkaClusterPtrOutput)
+}
+
+type TableflowTopicKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicKafkaCluster)(nil)).Elem()
+}
+
+func (o TableflowTopicKafkaClusterOutput) ToTableflowTopicKafkaClusterOutput() TableflowTopicKafkaClusterOutput {
+	return o
+}
+
+func (o TableflowTopicKafkaClusterOutput) ToTableflowTopicKafkaClusterOutputWithContext(ctx context.Context) TableflowTopicKafkaClusterOutput {
+	return o
+}
+
+func (o TableflowTopicKafkaClusterOutput) ToTableflowTopicKafkaClusterPtrOutput() TableflowTopicKafkaClusterPtrOutput {
+	return o.ToTableflowTopicKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o TableflowTopicKafkaClusterOutput) ToTableflowTopicKafkaClusterPtrOutputWithContext(ctx context.Context) TableflowTopicKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableflowTopicKafkaCluster) *TableflowTopicKafkaCluster {
+		return &v
+	}).(TableflowTopicKafkaClusterPtrOutput)
+}
+
+// The ID of the Kafka cluster, for example, `lkc-abc123`.
+func (o TableflowTopicKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TableflowTopicKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type TableflowTopicKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicKafkaCluster)(nil)).Elem()
+}
+
+func (o TableflowTopicKafkaClusterPtrOutput) ToTableflowTopicKafkaClusterPtrOutput() TableflowTopicKafkaClusterPtrOutput {
+	return o
+}
+
+func (o TableflowTopicKafkaClusterPtrOutput) ToTableflowTopicKafkaClusterPtrOutputWithContext(ctx context.Context) TableflowTopicKafkaClusterPtrOutput {
+	return o
+}
+
+func (o TableflowTopicKafkaClusterPtrOutput) Elem() TableflowTopicKafkaClusterOutput {
+	return o.ApplyT(func(v *TableflowTopicKafkaCluster) TableflowTopicKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret TableflowTopicKafkaCluster
+		return ret
+	}).(TableflowTopicKafkaClusterOutput)
+}
+
+// The ID of the Kafka cluster, for example, `lkc-abc123`.
+func (o TableflowTopicKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableflowTopicManagedStorage struct {
+}
+
+// TableflowTopicManagedStorageInput is an input type that accepts TableflowTopicManagedStorageArgs and TableflowTopicManagedStorageOutput values.
+// You can construct a concrete instance of `TableflowTopicManagedStorageInput` via:
+//
+//	TableflowTopicManagedStorageArgs{...}
+type TableflowTopicManagedStorageInput interface {
+	pulumi.Input
+
+	ToTableflowTopicManagedStorageOutput() TableflowTopicManagedStorageOutput
+	ToTableflowTopicManagedStorageOutputWithContext(context.Context) TableflowTopicManagedStorageOutput
+}
+
+type TableflowTopicManagedStorageArgs struct {
+}
+
+func (TableflowTopicManagedStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicManagedStorage)(nil)).Elem()
+}
+
+func (i TableflowTopicManagedStorageArgs) ToTableflowTopicManagedStorageOutput() TableflowTopicManagedStorageOutput {
+	return i.ToTableflowTopicManagedStorageOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicManagedStorageArgs) ToTableflowTopicManagedStorageOutputWithContext(ctx context.Context) TableflowTopicManagedStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicManagedStorageOutput)
+}
+
+// TableflowTopicManagedStorageArrayInput is an input type that accepts TableflowTopicManagedStorageArray and TableflowTopicManagedStorageArrayOutput values.
+// You can construct a concrete instance of `TableflowTopicManagedStorageArrayInput` via:
+//
+//	TableflowTopicManagedStorageArray{ TableflowTopicManagedStorageArgs{...} }
+type TableflowTopicManagedStorageArrayInput interface {
+	pulumi.Input
+
+	ToTableflowTopicManagedStorageArrayOutput() TableflowTopicManagedStorageArrayOutput
+	ToTableflowTopicManagedStorageArrayOutputWithContext(context.Context) TableflowTopicManagedStorageArrayOutput
+}
+
+type TableflowTopicManagedStorageArray []TableflowTopicManagedStorageInput
+
+func (TableflowTopicManagedStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableflowTopicManagedStorage)(nil)).Elem()
+}
+
+func (i TableflowTopicManagedStorageArray) ToTableflowTopicManagedStorageArrayOutput() TableflowTopicManagedStorageArrayOutput {
+	return i.ToTableflowTopicManagedStorageArrayOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicManagedStorageArray) ToTableflowTopicManagedStorageArrayOutputWithContext(ctx context.Context) TableflowTopicManagedStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicManagedStorageArrayOutput)
+}
+
+type TableflowTopicManagedStorageOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicManagedStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicManagedStorage)(nil)).Elem()
+}
+
+func (o TableflowTopicManagedStorageOutput) ToTableflowTopicManagedStorageOutput() TableflowTopicManagedStorageOutput {
+	return o
+}
+
+func (o TableflowTopicManagedStorageOutput) ToTableflowTopicManagedStorageOutputWithContext(ctx context.Context) TableflowTopicManagedStorageOutput {
+	return o
+}
+
+type TableflowTopicManagedStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicManagedStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableflowTopicManagedStorage)(nil)).Elem()
+}
+
+func (o TableflowTopicManagedStorageArrayOutput) ToTableflowTopicManagedStorageArrayOutput() TableflowTopicManagedStorageArrayOutput {
+	return o
+}
+
+func (o TableflowTopicManagedStorageArrayOutput) ToTableflowTopicManagedStorageArrayOutputWithContext(ctx context.Context) TableflowTopicManagedStorageArrayOutput {
+	return o
+}
+
+func (o TableflowTopicManagedStorageArrayOutput) Index(i pulumi.IntInput) TableflowTopicManagedStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableflowTopicManagedStorage {
+		return vs[0].([]TableflowTopicManagedStorage)[vs[1].(int)]
+	}).(TableflowTopicManagedStorageOutput)
+}
+
 type TagBindingCredentials struct {
 	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
@@ -22673,6 +24146,478 @@ func (o GetByokKeyGcpArrayOutput) Index(i pulumi.IntInput) GetByokKeyGcpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetByokKeyGcp {
 		return vs[0].([]GetByokKeyGcp)[vs[1].(int)]
 	}).(GetByokKeyGcpOutput)
+}
+
+type GetCatalogIntegrationAwsGlue struct {
+	// (Required String) The provider integration id.
+	ProviderIntegrationId string `pulumi:"providerIntegrationId"`
+}
+
+// GetCatalogIntegrationAwsGlueInput is an input type that accepts GetCatalogIntegrationAwsGlueArgs and GetCatalogIntegrationAwsGlueOutput values.
+// You can construct a concrete instance of `GetCatalogIntegrationAwsGlueInput` via:
+//
+//	GetCatalogIntegrationAwsGlueArgs{...}
+type GetCatalogIntegrationAwsGlueInput interface {
+	pulumi.Input
+
+	ToGetCatalogIntegrationAwsGlueOutput() GetCatalogIntegrationAwsGlueOutput
+	ToGetCatalogIntegrationAwsGlueOutputWithContext(context.Context) GetCatalogIntegrationAwsGlueOutput
+}
+
+type GetCatalogIntegrationAwsGlueArgs struct {
+	// (Required String) The provider integration id.
+	ProviderIntegrationId pulumi.StringInput `pulumi:"providerIntegrationId"`
+}
+
+func (GetCatalogIntegrationAwsGlueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationAwsGlue)(nil)).Elem()
+}
+
+func (i GetCatalogIntegrationAwsGlueArgs) ToGetCatalogIntegrationAwsGlueOutput() GetCatalogIntegrationAwsGlueOutput {
+	return i.ToGetCatalogIntegrationAwsGlueOutputWithContext(context.Background())
+}
+
+func (i GetCatalogIntegrationAwsGlueArgs) ToGetCatalogIntegrationAwsGlueOutputWithContext(ctx context.Context) GetCatalogIntegrationAwsGlueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationAwsGlueOutput)
+}
+
+// GetCatalogIntegrationAwsGlueArrayInput is an input type that accepts GetCatalogIntegrationAwsGlueArray and GetCatalogIntegrationAwsGlueArrayOutput values.
+// You can construct a concrete instance of `GetCatalogIntegrationAwsGlueArrayInput` via:
+//
+//	GetCatalogIntegrationAwsGlueArray{ GetCatalogIntegrationAwsGlueArgs{...} }
+type GetCatalogIntegrationAwsGlueArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogIntegrationAwsGlueArrayOutput() GetCatalogIntegrationAwsGlueArrayOutput
+	ToGetCatalogIntegrationAwsGlueArrayOutputWithContext(context.Context) GetCatalogIntegrationAwsGlueArrayOutput
+}
+
+type GetCatalogIntegrationAwsGlueArray []GetCatalogIntegrationAwsGlueInput
+
+func (GetCatalogIntegrationAwsGlueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogIntegrationAwsGlue)(nil)).Elem()
+}
+
+func (i GetCatalogIntegrationAwsGlueArray) ToGetCatalogIntegrationAwsGlueArrayOutput() GetCatalogIntegrationAwsGlueArrayOutput {
+	return i.ToGetCatalogIntegrationAwsGlueArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogIntegrationAwsGlueArray) ToGetCatalogIntegrationAwsGlueArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationAwsGlueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationAwsGlueArrayOutput)
+}
+
+type GetCatalogIntegrationAwsGlueOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogIntegrationAwsGlueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationAwsGlue)(nil)).Elem()
+}
+
+func (o GetCatalogIntegrationAwsGlueOutput) ToGetCatalogIntegrationAwsGlueOutput() GetCatalogIntegrationAwsGlueOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationAwsGlueOutput) ToGetCatalogIntegrationAwsGlueOutputWithContext(ctx context.Context) GetCatalogIntegrationAwsGlueOutput {
+	return o
+}
+
+// (Required String) The provider integration id.
+func (o GetCatalogIntegrationAwsGlueOutput) ProviderIntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationAwsGlue) string { return v.ProviderIntegrationId }).(pulumi.StringOutput)
+}
+
+type GetCatalogIntegrationAwsGlueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogIntegrationAwsGlueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogIntegrationAwsGlue)(nil)).Elem()
+}
+
+func (o GetCatalogIntegrationAwsGlueArrayOutput) ToGetCatalogIntegrationAwsGlueArrayOutput() GetCatalogIntegrationAwsGlueArrayOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationAwsGlueArrayOutput) ToGetCatalogIntegrationAwsGlueArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationAwsGlueArrayOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationAwsGlueArrayOutput) Index(i pulumi.IntInput) GetCatalogIntegrationAwsGlueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogIntegrationAwsGlue {
+		return vs[0].([]GetCatalogIntegrationAwsGlue)[vs[1].(int)]
+	}).(GetCatalogIntegrationAwsGlueOutput)
+}
+
+type GetCatalogIntegrationCredentials struct {
+	// The Tableflow API Key.
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
+	Secret string `pulumi:"secret"`
+}
+
+// GetCatalogIntegrationCredentialsInput is an input type that accepts GetCatalogIntegrationCredentialsArgs and GetCatalogIntegrationCredentialsOutput values.
+// You can construct a concrete instance of `GetCatalogIntegrationCredentialsInput` via:
+//
+//	GetCatalogIntegrationCredentialsArgs{...}
+type GetCatalogIntegrationCredentialsInput interface {
+	pulumi.Input
+
+	ToGetCatalogIntegrationCredentialsOutput() GetCatalogIntegrationCredentialsOutput
+	ToGetCatalogIntegrationCredentialsOutputWithContext(context.Context) GetCatalogIntegrationCredentialsOutput
+}
+
+type GetCatalogIntegrationCredentialsArgs struct {
+	// The Tableflow API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetCatalogIntegrationCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationCredentials)(nil)).Elem()
+}
+
+func (i GetCatalogIntegrationCredentialsArgs) ToGetCatalogIntegrationCredentialsOutput() GetCatalogIntegrationCredentialsOutput {
+	return i.ToGetCatalogIntegrationCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetCatalogIntegrationCredentialsArgs) ToGetCatalogIntegrationCredentialsOutputWithContext(ctx context.Context) GetCatalogIntegrationCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationCredentialsOutput)
+}
+
+func (i GetCatalogIntegrationCredentialsArgs) ToGetCatalogIntegrationCredentialsPtrOutput() GetCatalogIntegrationCredentialsPtrOutput {
+	return i.ToGetCatalogIntegrationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetCatalogIntegrationCredentialsArgs) ToGetCatalogIntegrationCredentialsPtrOutputWithContext(ctx context.Context) GetCatalogIntegrationCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationCredentialsOutput).ToGetCatalogIntegrationCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetCatalogIntegrationCredentialsPtrInput is an input type that accepts GetCatalogIntegrationCredentialsArgs, GetCatalogIntegrationCredentialsPtr and GetCatalogIntegrationCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetCatalogIntegrationCredentialsPtrInput` via:
+//
+//	        GetCatalogIntegrationCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCatalogIntegrationCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetCatalogIntegrationCredentialsPtrOutput() GetCatalogIntegrationCredentialsPtrOutput
+	ToGetCatalogIntegrationCredentialsPtrOutputWithContext(context.Context) GetCatalogIntegrationCredentialsPtrOutput
+}
+
+type getCatalogIntegrationCredentialsPtrType GetCatalogIntegrationCredentialsArgs
+
+func GetCatalogIntegrationCredentialsPtr(v *GetCatalogIntegrationCredentialsArgs) GetCatalogIntegrationCredentialsPtrInput {
+	return (*getCatalogIntegrationCredentialsPtrType)(v)
+}
+
+func (*getCatalogIntegrationCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCatalogIntegrationCredentials)(nil)).Elem()
+}
+
+func (i *getCatalogIntegrationCredentialsPtrType) ToGetCatalogIntegrationCredentialsPtrOutput() GetCatalogIntegrationCredentialsPtrOutput {
+	return i.ToGetCatalogIntegrationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getCatalogIntegrationCredentialsPtrType) ToGetCatalogIntegrationCredentialsPtrOutputWithContext(ctx context.Context) GetCatalogIntegrationCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationCredentialsPtrOutput)
+}
+
+type GetCatalogIntegrationCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogIntegrationCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationCredentials)(nil)).Elem()
+}
+
+func (o GetCatalogIntegrationCredentialsOutput) ToGetCatalogIntegrationCredentialsOutput() GetCatalogIntegrationCredentialsOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationCredentialsOutput) ToGetCatalogIntegrationCredentialsOutputWithContext(ctx context.Context) GetCatalogIntegrationCredentialsOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationCredentialsOutput) ToGetCatalogIntegrationCredentialsPtrOutput() GetCatalogIntegrationCredentialsPtrOutput {
+	return o.ToGetCatalogIntegrationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetCatalogIntegrationCredentialsOutput) ToGetCatalogIntegrationCredentialsPtrOutputWithContext(ctx context.Context) GetCatalogIntegrationCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCatalogIntegrationCredentials) *GetCatalogIntegrationCredentials {
+		return &v
+	}).(GetCatalogIntegrationCredentialsPtrOutput)
+}
+
+// The Tableflow API Key.
+func (o GetCatalogIntegrationCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Cluster API Secret for your Confluent Cloud cluster.
+func (o GetCatalogIntegrationCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetCatalogIntegrationCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogIntegrationCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCatalogIntegrationCredentials)(nil)).Elem()
+}
+
+func (o GetCatalogIntegrationCredentialsPtrOutput) ToGetCatalogIntegrationCredentialsPtrOutput() GetCatalogIntegrationCredentialsPtrOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationCredentialsPtrOutput) ToGetCatalogIntegrationCredentialsPtrOutputWithContext(ctx context.Context) GetCatalogIntegrationCredentialsPtrOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationCredentialsPtrOutput) Elem() GetCatalogIntegrationCredentialsOutput {
+	return o.ApplyT(func(v *GetCatalogIntegrationCredentials) GetCatalogIntegrationCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetCatalogIntegrationCredentials
+		return ret
+	}).(GetCatalogIntegrationCredentialsOutput)
+}
+
+// The Tableflow API Key.
+func (o GetCatalogIntegrationCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCatalogIntegrationCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Cluster API Secret for your Confluent Cloud cluster.
+func (o GetCatalogIntegrationCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCatalogIntegrationCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetCatalogIntegrationEnvironment struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetCatalogIntegrationEnvironmentInput is an input type that accepts GetCatalogIntegrationEnvironmentArgs and GetCatalogIntegrationEnvironmentOutput values.
+// You can construct a concrete instance of `GetCatalogIntegrationEnvironmentInput` via:
+//
+//	GetCatalogIntegrationEnvironmentArgs{...}
+type GetCatalogIntegrationEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetCatalogIntegrationEnvironmentOutput() GetCatalogIntegrationEnvironmentOutput
+	ToGetCatalogIntegrationEnvironmentOutputWithContext(context.Context) GetCatalogIntegrationEnvironmentOutput
+}
+
+type GetCatalogIntegrationEnvironmentArgs struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetCatalogIntegrationEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationEnvironment)(nil)).Elem()
+}
+
+func (i GetCatalogIntegrationEnvironmentArgs) ToGetCatalogIntegrationEnvironmentOutput() GetCatalogIntegrationEnvironmentOutput {
+	return i.ToGetCatalogIntegrationEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetCatalogIntegrationEnvironmentArgs) ToGetCatalogIntegrationEnvironmentOutputWithContext(ctx context.Context) GetCatalogIntegrationEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationEnvironmentOutput)
+}
+
+type GetCatalogIntegrationEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogIntegrationEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationEnvironment)(nil)).Elem()
+}
+
+func (o GetCatalogIntegrationEnvironmentOutput) ToGetCatalogIntegrationEnvironmentOutput() GetCatalogIntegrationEnvironmentOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationEnvironmentOutput) ToGetCatalogIntegrationEnvironmentOutputWithContext(ctx context.Context) GetCatalogIntegrationEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o GetCatalogIntegrationEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetCatalogIntegrationKafkaCluster struct {
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetCatalogIntegrationKafkaClusterInput is an input type that accepts GetCatalogIntegrationKafkaClusterArgs and GetCatalogIntegrationKafkaClusterOutput values.
+// You can construct a concrete instance of `GetCatalogIntegrationKafkaClusterInput` via:
+//
+//	GetCatalogIntegrationKafkaClusterArgs{...}
+type GetCatalogIntegrationKafkaClusterInput interface {
+	pulumi.Input
+
+	ToGetCatalogIntegrationKafkaClusterOutput() GetCatalogIntegrationKafkaClusterOutput
+	ToGetCatalogIntegrationKafkaClusterOutputWithContext(context.Context) GetCatalogIntegrationKafkaClusterOutput
+}
+
+type GetCatalogIntegrationKafkaClusterArgs struct {
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetCatalogIntegrationKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationKafkaCluster)(nil)).Elem()
+}
+
+func (i GetCatalogIntegrationKafkaClusterArgs) ToGetCatalogIntegrationKafkaClusterOutput() GetCatalogIntegrationKafkaClusterOutput {
+	return i.ToGetCatalogIntegrationKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i GetCatalogIntegrationKafkaClusterArgs) ToGetCatalogIntegrationKafkaClusterOutputWithContext(ctx context.Context) GetCatalogIntegrationKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationKafkaClusterOutput)
+}
+
+type GetCatalogIntegrationKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogIntegrationKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationKafkaCluster)(nil)).Elem()
+}
+
+func (o GetCatalogIntegrationKafkaClusterOutput) ToGetCatalogIntegrationKafkaClusterOutput() GetCatalogIntegrationKafkaClusterOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationKafkaClusterOutput) ToGetCatalogIntegrationKafkaClusterOutputWithContext(ctx context.Context) GetCatalogIntegrationKafkaClusterOutput {
+	return o
+}
+
+// The ID of the Kafka cluster, for example, `lkc-abc123`.
+func (o GetCatalogIntegrationKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetCatalogIntegrationSnowflake struct {
+	// (Required String) Allowed scope of the Snowflake Open Catalog.
+	AllowedScope string `pulumi:"allowedScope"`
+	// (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
+	Endpoint string `pulumi:"endpoint"`
+	// (Required String) Warehouse name of the Snowflake Open Catalog.
+	Warehouse string `pulumi:"warehouse"`
+}
+
+// GetCatalogIntegrationSnowflakeInput is an input type that accepts GetCatalogIntegrationSnowflakeArgs and GetCatalogIntegrationSnowflakeOutput values.
+// You can construct a concrete instance of `GetCatalogIntegrationSnowflakeInput` via:
+//
+//	GetCatalogIntegrationSnowflakeArgs{...}
+type GetCatalogIntegrationSnowflakeInput interface {
+	pulumi.Input
+
+	ToGetCatalogIntegrationSnowflakeOutput() GetCatalogIntegrationSnowflakeOutput
+	ToGetCatalogIntegrationSnowflakeOutputWithContext(context.Context) GetCatalogIntegrationSnowflakeOutput
+}
+
+type GetCatalogIntegrationSnowflakeArgs struct {
+	// (Required String) Allowed scope of the Snowflake Open Catalog.
+	AllowedScope pulumi.StringInput `pulumi:"allowedScope"`
+	// (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// (Required String) Warehouse name of the Snowflake Open Catalog.
+	Warehouse pulumi.StringInput `pulumi:"warehouse"`
+}
+
+func (GetCatalogIntegrationSnowflakeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationSnowflake)(nil)).Elem()
+}
+
+func (i GetCatalogIntegrationSnowflakeArgs) ToGetCatalogIntegrationSnowflakeOutput() GetCatalogIntegrationSnowflakeOutput {
+	return i.ToGetCatalogIntegrationSnowflakeOutputWithContext(context.Background())
+}
+
+func (i GetCatalogIntegrationSnowflakeArgs) ToGetCatalogIntegrationSnowflakeOutputWithContext(ctx context.Context) GetCatalogIntegrationSnowflakeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationSnowflakeOutput)
+}
+
+// GetCatalogIntegrationSnowflakeArrayInput is an input type that accepts GetCatalogIntegrationSnowflakeArray and GetCatalogIntegrationSnowflakeArrayOutput values.
+// You can construct a concrete instance of `GetCatalogIntegrationSnowflakeArrayInput` via:
+//
+//	GetCatalogIntegrationSnowflakeArray{ GetCatalogIntegrationSnowflakeArgs{...} }
+type GetCatalogIntegrationSnowflakeArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogIntegrationSnowflakeArrayOutput() GetCatalogIntegrationSnowflakeArrayOutput
+	ToGetCatalogIntegrationSnowflakeArrayOutputWithContext(context.Context) GetCatalogIntegrationSnowflakeArrayOutput
+}
+
+type GetCatalogIntegrationSnowflakeArray []GetCatalogIntegrationSnowflakeInput
+
+func (GetCatalogIntegrationSnowflakeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogIntegrationSnowflake)(nil)).Elem()
+}
+
+func (i GetCatalogIntegrationSnowflakeArray) ToGetCatalogIntegrationSnowflakeArrayOutput() GetCatalogIntegrationSnowflakeArrayOutput {
+	return i.ToGetCatalogIntegrationSnowflakeArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogIntegrationSnowflakeArray) ToGetCatalogIntegrationSnowflakeArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationSnowflakeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationSnowflakeArrayOutput)
+}
+
+type GetCatalogIntegrationSnowflakeOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogIntegrationSnowflakeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationSnowflake)(nil)).Elem()
+}
+
+func (o GetCatalogIntegrationSnowflakeOutput) ToGetCatalogIntegrationSnowflakeOutput() GetCatalogIntegrationSnowflakeOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationSnowflakeOutput) ToGetCatalogIntegrationSnowflakeOutputWithContext(ctx context.Context) GetCatalogIntegrationSnowflakeOutput {
+	return o
+}
+
+// (Required String) Allowed scope of the Snowflake Open Catalog.
+func (o GetCatalogIntegrationSnowflakeOutput) AllowedScope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationSnowflake) string { return v.AllowedScope }).(pulumi.StringOutput)
+}
+
+// (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
+func (o GetCatalogIntegrationSnowflakeOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationSnowflake) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// (Required String) Warehouse name of the Snowflake Open Catalog.
+func (o GetCatalogIntegrationSnowflakeOutput) Warehouse() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationSnowflake) string { return v.Warehouse }).(pulumi.StringOutput)
+}
+
+type GetCatalogIntegrationSnowflakeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogIntegrationSnowflakeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogIntegrationSnowflake)(nil)).Elem()
+}
+
+func (o GetCatalogIntegrationSnowflakeArrayOutput) ToGetCatalogIntegrationSnowflakeArrayOutput() GetCatalogIntegrationSnowflakeArrayOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationSnowflakeArrayOutput) ToGetCatalogIntegrationSnowflakeArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationSnowflakeArrayOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationSnowflakeArrayOutput) Index(i pulumi.IntInput) GetCatalogIntegrationSnowflakeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogIntegrationSnowflake {
+		return vs[0].([]GetCatalogIntegrationSnowflake)[vs[1].(int)]
+	}).(GetCatalogIntegrationSnowflakeOutput)
 }
 
 type GetCertificatePoolCertificateAuthority struct {
@@ -33969,6 +35914,469 @@ func (o GetSubjectModeSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetTableflowTopicByobAw struct {
+	// (Required String) The bucket name.
+	BucketName string `pulumi:"bucketName"`
+	// (Required String) The bucket region.
+	BucketRegion string `pulumi:"bucketRegion"`
+	// (Required String) The provider integration id.
+	ProviderIntegrationId string `pulumi:"providerIntegrationId"`
+}
+
+// GetTableflowTopicByobAwInput is an input type that accepts GetTableflowTopicByobAwArgs and GetTableflowTopicByobAwOutput values.
+// You can construct a concrete instance of `GetTableflowTopicByobAwInput` via:
+//
+//	GetTableflowTopicByobAwArgs{...}
+type GetTableflowTopicByobAwInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicByobAwOutput() GetTableflowTopicByobAwOutput
+	ToGetTableflowTopicByobAwOutputWithContext(context.Context) GetTableflowTopicByobAwOutput
+}
+
+type GetTableflowTopicByobAwArgs struct {
+	// (Required String) The bucket name.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// (Required String) The bucket region.
+	BucketRegion pulumi.StringInput `pulumi:"bucketRegion"`
+	// (Required String) The provider integration id.
+	ProviderIntegrationId pulumi.StringInput `pulumi:"providerIntegrationId"`
+}
+
+func (GetTableflowTopicByobAwArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicByobAw)(nil)).Elem()
+}
+
+func (i GetTableflowTopicByobAwArgs) ToGetTableflowTopicByobAwOutput() GetTableflowTopicByobAwOutput {
+	return i.ToGetTableflowTopicByobAwOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicByobAwArgs) ToGetTableflowTopicByobAwOutputWithContext(ctx context.Context) GetTableflowTopicByobAwOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicByobAwOutput)
+}
+
+// GetTableflowTopicByobAwArrayInput is an input type that accepts GetTableflowTopicByobAwArray and GetTableflowTopicByobAwArrayOutput values.
+// You can construct a concrete instance of `GetTableflowTopicByobAwArrayInput` via:
+//
+//	GetTableflowTopicByobAwArray{ GetTableflowTopicByobAwArgs{...} }
+type GetTableflowTopicByobAwArrayInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicByobAwArrayOutput() GetTableflowTopicByobAwArrayOutput
+	ToGetTableflowTopicByobAwArrayOutputWithContext(context.Context) GetTableflowTopicByobAwArrayOutput
+}
+
+type GetTableflowTopicByobAwArray []GetTableflowTopicByobAwInput
+
+func (GetTableflowTopicByobAwArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableflowTopicByobAw)(nil)).Elem()
+}
+
+func (i GetTableflowTopicByobAwArray) ToGetTableflowTopicByobAwArrayOutput() GetTableflowTopicByobAwArrayOutput {
+	return i.ToGetTableflowTopicByobAwArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicByobAwArray) ToGetTableflowTopicByobAwArrayOutputWithContext(ctx context.Context) GetTableflowTopicByobAwArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicByobAwArrayOutput)
+}
+
+type GetTableflowTopicByobAwOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicByobAwOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicByobAw)(nil)).Elem()
+}
+
+func (o GetTableflowTopicByobAwOutput) ToGetTableflowTopicByobAwOutput() GetTableflowTopicByobAwOutput {
+	return o
+}
+
+func (o GetTableflowTopicByobAwOutput) ToGetTableflowTopicByobAwOutputWithContext(ctx context.Context) GetTableflowTopicByobAwOutput {
+	return o
+}
+
+// (Required String) The bucket name.
+func (o GetTableflowTopicByobAwOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicByobAw) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// (Required String) The bucket region.
+func (o GetTableflowTopicByobAwOutput) BucketRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicByobAw) string { return v.BucketRegion }).(pulumi.StringOutput)
+}
+
+// (Required String) The provider integration id.
+func (o GetTableflowTopicByobAwOutput) ProviderIntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicByobAw) string { return v.ProviderIntegrationId }).(pulumi.StringOutput)
+}
+
+type GetTableflowTopicByobAwArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicByobAwArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableflowTopicByobAw)(nil)).Elem()
+}
+
+func (o GetTableflowTopicByobAwArrayOutput) ToGetTableflowTopicByobAwArrayOutput() GetTableflowTopicByobAwArrayOutput {
+	return o
+}
+
+func (o GetTableflowTopicByobAwArrayOutput) ToGetTableflowTopicByobAwArrayOutputWithContext(ctx context.Context) GetTableflowTopicByobAwArrayOutput {
+	return o
+}
+
+func (o GetTableflowTopicByobAwArrayOutput) Index(i pulumi.IntInput) GetTableflowTopicByobAwOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableflowTopicByobAw {
+		return vs[0].([]GetTableflowTopicByobAw)[vs[1].(int)]
+	}).(GetTableflowTopicByobAwOutput)
+}
+
+type GetTableflowTopicCredentials struct {
+	// The Tableflow API Key.
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
+	Secret string `pulumi:"secret"`
+}
+
+// GetTableflowTopicCredentialsInput is an input type that accepts GetTableflowTopicCredentialsArgs and GetTableflowTopicCredentialsOutput values.
+// You can construct a concrete instance of `GetTableflowTopicCredentialsInput` via:
+//
+//	GetTableflowTopicCredentialsArgs{...}
+type GetTableflowTopicCredentialsInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicCredentialsOutput() GetTableflowTopicCredentialsOutput
+	ToGetTableflowTopicCredentialsOutputWithContext(context.Context) GetTableflowTopicCredentialsOutput
+}
+
+type GetTableflowTopicCredentialsArgs struct {
+	// The Tableflow API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetTableflowTopicCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicCredentials)(nil)).Elem()
+}
+
+func (i GetTableflowTopicCredentialsArgs) ToGetTableflowTopicCredentialsOutput() GetTableflowTopicCredentialsOutput {
+	return i.ToGetTableflowTopicCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicCredentialsArgs) ToGetTableflowTopicCredentialsOutputWithContext(ctx context.Context) GetTableflowTopicCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicCredentialsOutput)
+}
+
+func (i GetTableflowTopicCredentialsArgs) ToGetTableflowTopicCredentialsPtrOutput() GetTableflowTopicCredentialsPtrOutput {
+	return i.ToGetTableflowTopicCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicCredentialsArgs) ToGetTableflowTopicCredentialsPtrOutputWithContext(ctx context.Context) GetTableflowTopicCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicCredentialsOutput).ToGetTableflowTopicCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetTableflowTopicCredentialsPtrInput is an input type that accepts GetTableflowTopicCredentialsArgs, GetTableflowTopicCredentialsPtr and GetTableflowTopicCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetTableflowTopicCredentialsPtrInput` via:
+//
+//	        GetTableflowTopicCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetTableflowTopicCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicCredentialsPtrOutput() GetTableflowTopicCredentialsPtrOutput
+	ToGetTableflowTopicCredentialsPtrOutputWithContext(context.Context) GetTableflowTopicCredentialsPtrOutput
+}
+
+type getTableflowTopicCredentialsPtrType GetTableflowTopicCredentialsArgs
+
+func GetTableflowTopicCredentialsPtr(v *GetTableflowTopicCredentialsArgs) GetTableflowTopicCredentialsPtrInput {
+	return (*getTableflowTopicCredentialsPtrType)(v)
+}
+
+func (*getTableflowTopicCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTableflowTopicCredentials)(nil)).Elem()
+}
+
+func (i *getTableflowTopicCredentialsPtrType) ToGetTableflowTopicCredentialsPtrOutput() GetTableflowTopicCredentialsPtrOutput {
+	return i.ToGetTableflowTopicCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getTableflowTopicCredentialsPtrType) ToGetTableflowTopicCredentialsPtrOutputWithContext(ctx context.Context) GetTableflowTopicCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicCredentialsPtrOutput)
+}
+
+type GetTableflowTopicCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicCredentials)(nil)).Elem()
+}
+
+func (o GetTableflowTopicCredentialsOutput) ToGetTableflowTopicCredentialsOutput() GetTableflowTopicCredentialsOutput {
+	return o
+}
+
+func (o GetTableflowTopicCredentialsOutput) ToGetTableflowTopicCredentialsOutputWithContext(ctx context.Context) GetTableflowTopicCredentialsOutput {
+	return o
+}
+
+func (o GetTableflowTopicCredentialsOutput) ToGetTableflowTopicCredentialsPtrOutput() GetTableflowTopicCredentialsPtrOutput {
+	return o.ToGetTableflowTopicCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetTableflowTopicCredentialsOutput) ToGetTableflowTopicCredentialsPtrOutputWithContext(ctx context.Context) GetTableflowTopicCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTableflowTopicCredentials) *GetTableflowTopicCredentials {
+		return &v
+	}).(GetTableflowTopicCredentialsPtrOutput)
+}
+
+// The Tableflow API Key.
+func (o GetTableflowTopicCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Cluster API Secret for your Confluent Cloud cluster.
+func (o GetTableflowTopicCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetTableflowTopicCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTableflowTopicCredentials)(nil)).Elem()
+}
+
+func (o GetTableflowTopicCredentialsPtrOutput) ToGetTableflowTopicCredentialsPtrOutput() GetTableflowTopicCredentialsPtrOutput {
+	return o
+}
+
+func (o GetTableflowTopicCredentialsPtrOutput) ToGetTableflowTopicCredentialsPtrOutputWithContext(ctx context.Context) GetTableflowTopicCredentialsPtrOutput {
+	return o
+}
+
+func (o GetTableflowTopicCredentialsPtrOutput) Elem() GetTableflowTopicCredentialsOutput {
+	return o.ApplyT(func(v *GetTableflowTopicCredentials) GetTableflowTopicCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetTableflowTopicCredentials
+		return ret
+	}).(GetTableflowTopicCredentialsOutput)
+}
+
+// The Tableflow API Key.
+func (o GetTableflowTopicCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTableflowTopicCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Cluster API Secret for your Confluent Cloud cluster.
+func (o GetTableflowTopicCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTableflowTopicCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetTableflowTopicEnvironment struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetTableflowTopicEnvironmentInput is an input type that accepts GetTableflowTopicEnvironmentArgs and GetTableflowTopicEnvironmentOutput values.
+// You can construct a concrete instance of `GetTableflowTopicEnvironmentInput` via:
+//
+//	GetTableflowTopicEnvironmentArgs{...}
+type GetTableflowTopicEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicEnvironmentOutput() GetTableflowTopicEnvironmentOutput
+	ToGetTableflowTopicEnvironmentOutputWithContext(context.Context) GetTableflowTopicEnvironmentOutput
+}
+
+type GetTableflowTopicEnvironmentArgs struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetTableflowTopicEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicEnvironment)(nil)).Elem()
+}
+
+func (i GetTableflowTopicEnvironmentArgs) ToGetTableflowTopicEnvironmentOutput() GetTableflowTopicEnvironmentOutput {
+	return i.ToGetTableflowTopicEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicEnvironmentArgs) ToGetTableflowTopicEnvironmentOutputWithContext(ctx context.Context) GetTableflowTopicEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicEnvironmentOutput)
+}
+
+type GetTableflowTopicEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicEnvironment)(nil)).Elem()
+}
+
+func (o GetTableflowTopicEnvironmentOutput) ToGetTableflowTopicEnvironmentOutput() GetTableflowTopicEnvironmentOutput {
+	return o
+}
+
+func (o GetTableflowTopicEnvironmentOutput) ToGetTableflowTopicEnvironmentOutputWithContext(ctx context.Context) GetTableflowTopicEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o GetTableflowTopicEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetTableflowTopicKafkaCluster struct {
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetTableflowTopicKafkaClusterInput is an input type that accepts GetTableflowTopicKafkaClusterArgs and GetTableflowTopicKafkaClusterOutput values.
+// You can construct a concrete instance of `GetTableflowTopicKafkaClusterInput` via:
+//
+//	GetTableflowTopicKafkaClusterArgs{...}
+type GetTableflowTopicKafkaClusterInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicKafkaClusterOutput() GetTableflowTopicKafkaClusterOutput
+	ToGetTableflowTopicKafkaClusterOutputWithContext(context.Context) GetTableflowTopicKafkaClusterOutput
+}
+
+type GetTableflowTopicKafkaClusterArgs struct {
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetTableflowTopicKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicKafkaCluster)(nil)).Elem()
+}
+
+func (i GetTableflowTopicKafkaClusterArgs) ToGetTableflowTopicKafkaClusterOutput() GetTableflowTopicKafkaClusterOutput {
+	return i.ToGetTableflowTopicKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicKafkaClusterArgs) ToGetTableflowTopicKafkaClusterOutputWithContext(ctx context.Context) GetTableflowTopicKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicKafkaClusterOutput)
+}
+
+type GetTableflowTopicKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicKafkaCluster)(nil)).Elem()
+}
+
+func (o GetTableflowTopicKafkaClusterOutput) ToGetTableflowTopicKafkaClusterOutput() GetTableflowTopicKafkaClusterOutput {
+	return o
+}
+
+func (o GetTableflowTopicKafkaClusterOutput) ToGetTableflowTopicKafkaClusterOutputWithContext(ctx context.Context) GetTableflowTopicKafkaClusterOutput {
+	return o
+}
+
+// The ID of the Kafka cluster, for example, `lkc-abc123`.
+func (o GetTableflowTopicKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetTableflowTopicManagedStorage struct {
+}
+
+// GetTableflowTopicManagedStorageInput is an input type that accepts GetTableflowTopicManagedStorageArgs and GetTableflowTopicManagedStorageOutput values.
+// You can construct a concrete instance of `GetTableflowTopicManagedStorageInput` via:
+//
+//	GetTableflowTopicManagedStorageArgs{...}
+type GetTableflowTopicManagedStorageInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicManagedStorageOutput() GetTableflowTopicManagedStorageOutput
+	ToGetTableflowTopicManagedStorageOutputWithContext(context.Context) GetTableflowTopicManagedStorageOutput
+}
+
+type GetTableflowTopicManagedStorageArgs struct {
+}
+
+func (GetTableflowTopicManagedStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicManagedStorage)(nil)).Elem()
+}
+
+func (i GetTableflowTopicManagedStorageArgs) ToGetTableflowTopicManagedStorageOutput() GetTableflowTopicManagedStorageOutput {
+	return i.ToGetTableflowTopicManagedStorageOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicManagedStorageArgs) ToGetTableflowTopicManagedStorageOutputWithContext(ctx context.Context) GetTableflowTopicManagedStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicManagedStorageOutput)
+}
+
+// GetTableflowTopicManagedStorageArrayInput is an input type that accepts GetTableflowTopicManagedStorageArray and GetTableflowTopicManagedStorageArrayOutput values.
+// You can construct a concrete instance of `GetTableflowTopicManagedStorageArrayInput` via:
+//
+//	GetTableflowTopicManagedStorageArray{ GetTableflowTopicManagedStorageArgs{...} }
+type GetTableflowTopicManagedStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicManagedStorageArrayOutput() GetTableflowTopicManagedStorageArrayOutput
+	ToGetTableflowTopicManagedStorageArrayOutputWithContext(context.Context) GetTableflowTopicManagedStorageArrayOutput
+}
+
+type GetTableflowTopicManagedStorageArray []GetTableflowTopicManagedStorageInput
+
+func (GetTableflowTopicManagedStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableflowTopicManagedStorage)(nil)).Elem()
+}
+
+func (i GetTableflowTopicManagedStorageArray) ToGetTableflowTopicManagedStorageArrayOutput() GetTableflowTopicManagedStorageArrayOutput {
+	return i.ToGetTableflowTopicManagedStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicManagedStorageArray) ToGetTableflowTopicManagedStorageArrayOutputWithContext(ctx context.Context) GetTableflowTopicManagedStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicManagedStorageArrayOutput)
+}
+
+type GetTableflowTopicManagedStorageOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicManagedStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicManagedStorage)(nil)).Elem()
+}
+
+func (o GetTableflowTopicManagedStorageOutput) ToGetTableflowTopicManagedStorageOutput() GetTableflowTopicManagedStorageOutput {
+	return o
+}
+
+func (o GetTableflowTopicManagedStorageOutput) ToGetTableflowTopicManagedStorageOutputWithContext(ctx context.Context) GetTableflowTopicManagedStorageOutput {
+	return o
+}
+
+type GetTableflowTopicManagedStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicManagedStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableflowTopicManagedStorage)(nil)).Elem()
+}
+
+func (o GetTableflowTopicManagedStorageArrayOutput) ToGetTableflowTopicManagedStorageArrayOutput() GetTableflowTopicManagedStorageArrayOutput {
+	return o
+}
+
+func (o GetTableflowTopicManagedStorageArrayOutput) ToGetTableflowTopicManagedStorageArrayOutputWithContext(ctx context.Context) GetTableflowTopicManagedStorageArrayOutput {
+	return o
+}
+
+func (o GetTableflowTopicManagedStorageArrayOutput) Index(i pulumi.IntInput) GetTableflowTopicManagedStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableflowTopicManagedStorage {
+		return vs[0].([]GetTableflowTopicManagedStorage)[vs[1].(int)]
+	}).(GetTableflowTopicManagedStorageOutput)
+}
+
 type GetTagBindingCredentials struct {
 	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
@@ -34873,6 +37281,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntityAttributesCredentialsPtrInput)(nil)).Elem(), CatalogEntityAttributesCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntityAttributesSchemaRegistryClusterInput)(nil)).Elem(), CatalogEntityAttributesSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntityAttributesSchemaRegistryClusterPtrInput)(nil)).Elem(), CatalogEntityAttributesSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationAwsGlueInput)(nil)).Elem(), CatalogIntegrationAwsGlueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationAwsGluePtrInput)(nil)).Elem(), CatalogIntegrationAwsGlueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationCredentialsInput)(nil)).Elem(), CatalogIntegrationCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationCredentialsPtrInput)(nil)).Elem(), CatalogIntegrationCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationEnvironmentInput)(nil)).Elem(), CatalogIntegrationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationEnvironmentPtrInput)(nil)).Elem(), CatalogIntegrationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationKafkaClusterInput)(nil)).Elem(), CatalogIntegrationKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationKafkaClusterPtrInput)(nil)).Elem(), CatalogIntegrationKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationSnowflakeInput)(nil)).Elem(), CatalogIntegrationSnowflakeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationSnowflakePtrInput)(nil)).Elem(), CatalogIntegrationSnowflakeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificatePoolCertificateAuthorityInput)(nil)).Elem(), CertificatePoolCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificatePoolCertificateAuthorityPtrInput)(nil)).Elem(), CertificatePoolCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
@@ -35107,6 +37525,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeCredentialsPtrInput)(nil)).Elem(), SubjectModeCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeSchemaRegistryClusterInput)(nil)).Elem(), SubjectModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeSchemaRegistryClusterPtrInput)(nil)).Elem(), SubjectModeSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicByobAwsInput)(nil)).Elem(), TableflowTopicByobAwsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicByobAwsPtrInput)(nil)).Elem(), TableflowTopicByobAwsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicCredentialsInput)(nil)).Elem(), TableflowTopicCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicCredentialsPtrInput)(nil)).Elem(), TableflowTopicCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicEnvironmentInput)(nil)).Elem(), TableflowTopicEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicEnvironmentPtrInput)(nil)).Elem(), TableflowTopicEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicKafkaClusterInput)(nil)).Elem(), TableflowTopicKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicKafkaClusterPtrInput)(nil)).Elem(), TableflowTopicKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicManagedStorageInput)(nil)).Elem(), TableflowTopicManagedStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicManagedStorageArrayInput)(nil)).Elem(), TableflowTopicManagedStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagBindingCredentialsInput)(nil)).Elem(), TagBindingCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagBindingCredentialsPtrInput)(nil)).Elem(), TagBindingCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagBindingSchemaRegistryClusterInput)(nil)).Elem(), TagBindingSchemaRegistryClusterArgs{})
@@ -35148,6 +37576,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAzureArrayInput)(nil)).Elem(), GetByokKeyAzureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpInput)(nil)).Elem(), GetByokKeyGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpArrayInput)(nil)).Elem(), GetByokKeyGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationAwsGlueInput)(nil)).Elem(), GetCatalogIntegrationAwsGlueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationAwsGlueArrayInput)(nil)).Elem(), GetCatalogIntegrationAwsGlueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationCredentialsInput)(nil)).Elem(), GetCatalogIntegrationCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationCredentialsPtrInput)(nil)).Elem(), GetCatalogIntegrationCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationEnvironmentInput)(nil)).Elem(), GetCatalogIntegrationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationKafkaClusterInput)(nil)).Elem(), GetCatalogIntegrationKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationSnowflakeInput)(nil)).Elem(), GetCatalogIntegrationSnowflakeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationSnowflakeArrayInput)(nil)).Elem(), GetCatalogIntegrationSnowflakeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificatePoolCertificateAuthorityInput)(nil)).Elem(), GetCertificatePoolCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkCredentialsInput)(nil)).Elem(), GetClusterLinkCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkCredentialsPtrInput)(nil)).Elem(), GetClusterLinkCredentialsArgs{})
@@ -35334,6 +37770,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeCredentialsPtrInput)(nil)).Elem(), GetSubjectModeCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeSchemaRegistryClusterInput)(nil)).Elem(), GetSubjectModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSubjectModeSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicByobAwInput)(nil)).Elem(), GetTableflowTopicByobAwArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicByobAwArrayInput)(nil)).Elem(), GetTableflowTopicByobAwArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicCredentialsInput)(nil)).Elem(), GetTableflowTopicCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicCredentialsPtrInput)(nil)).Elem(), GetTableflowTopicCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicEnvironmentInput)(nil)).Elem(), GetTableflowTopicEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicKafkaClusterInput)(nil)).Elem(), GetTableflowTopicKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicManagedStorageInput)(nil)).Elem(), GetTableflowTopicManagedStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicManagedStorageArrayInput)(nil)).Elem(), GetTableflowTopicManagedStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTagBindingCredentialsInput)(nil)).Elem(), GetTagBindingCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTagBindingCredentialsPtrInput)(nil)).Elem(), GetTagBindingCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTagBindingSchemaRegistryClusterInput)(nil)).Elem(), GetTagBindingSchemaRegistryClusterArgs{})
@@ -35385,6 +37829,16 @@ func init() {
 	pulumi.RegisterOutputType(CatalogEntityAttributesCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(CatalogEntityAttributesSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(CatalogEntityAttributesSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationAwsGlueOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationAwsGluePtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationCredentialsOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationEnvironmentOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationKafkaClusterOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationSnowflakeOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationSnowflakePtrOutput{})
 	pulumi.RegisterOutputType(CertificatePoolCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(CertificatePoolCertificateAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterOutput{})
@@ -35619,6 +38073,16 @@ func init() {
 	pulumi.RegisterOutputType(SubjectModeCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SubjectModeSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(SubjectModeSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(TableflowTopicByobAwsOutput{})
+	pulumi.RegisterOutputType(TableflowTopicByobAwsPtrOutput{})
+	pulumi.RegisterOutputType(TableflowTopicCredentialsOutput{})
+	pulumi.RegisterOutputType(TableflowTopicCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(TableflowTopicEnvironmentOutput{})
+	pulumi.RegisterOutputType(TableflowTopicEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(TableflowTopicKafkaClusterOutput{})
+	pulumi.RegisterOutputType(TableflowTopicKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(TableflowTopicManagedStorageOutput{})
+	pulumi.RegisterOutputType(TableflowTopicManagedStorageArrayOutput{})
 	pulumi.RegisterOutputType(TagBindingCredentialsOutput{})
 	pulumi.RegisterOutputType(TagBindingCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(TagBindingSchemaRegistryClusterOutput{})
@@ -35660,6 +38124,14 @@ func init() {
 	pulumi.RegisterOutputType(GetByokKeyAzureArrayOutput{})
 	pulumi.RegisterOutputType(GetByokKeyGcpOutput{})
 	pulumi.RegisterOutputType(GetByokKeyGcpArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogIntegrationAwsGlueOutput{})
+	pulumi.RegisterOutputType(GetCatalogIntegrationAwsGlueArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogIntegrationCredentialsOutput{})
+	pulumi.RegisterOutputType(GetCatalogIntegrationCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetCatalogIntegrationEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetCatalogIntegrationKafkaClusterOutput{})
+	pulumi.RegisterOutputType(GetCatalogIntegrationSnowflakeOutput{})
+	pulumi.RegisterOutputType(GetCatalogIntegrationSnowflakeArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificatePoolCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(GetClusterLinkCredentialsOutput{})
 	pulumi.RegisterOutputType(GetClusterLinkCredentialsPtrOutput{})
@@ -35846,6 +38318,14 @@ func init() {
 	pulumi.RegisterOutputType(GetSubjectModeCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetSubjectModeSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(GetSubjectModeSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicByobAwOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicByobAwArrayOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicCredentialsOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicKafkaClusterOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicManagedStorageOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicManagedStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetTagBindingCredentialsOutput{})
 	pulumi.RegisterOutputType(GetTagBindingCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetTagBindingSchemaRegistryClusterOutput{})

@@ -38,7 +38,9 @@ class ProviderArgs:
                  schema_registry_api_key: Optional[pulumi.Input[str]] = None,
                  schema_registry_api_secret: Optional[pulumi.Input[str]] = None,
                  schema_registry_id: Optional[pulumi.Input[str]] = None,
-                 schema_registry_rest_endpoint: Optional[pulumi.Input[str]] = None):
+                 schema_registry_rest_endpoint: Optional[pulumi.Input[str]] = None,
+                 tableflow_api_key: Optional[pulumi.Input[str]] = None,
+                 tableflow_api_secret: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] catalog_rest_endpoint: The Stream Catalog REST Endpoint.
@@ -61,6 +63,8 @@ class ProviderArgs:
         :param pulumi.Input[str] schema_registry_api_secret: The Schema Registry Cluster API Secret.
         :param pulumi.Input[str] schema_registry_id: The Schema Registry Cluster ID.
         :param pulumi.Input[str] schema_registry_rest_endpoint: The Schema Registry Cluster REST Endpoint.
+        :param pulumi.Input[str] tableflow_api_key: The Tableflow API Key.
+        :param pulumi.Input[str] tableflow_api_secret: The Tableflow API Secret.
         """
         if catalog_rest_endpoint is not None:
             pulumi.set(__self__, "catalog_rest_endpoint", catalog_rest_endpoint)
@@ -102,6 +106,10 @@ class ProviderArgs:
             pulumi.set(__self__, "schema_registry_id", schema_registry_id)
         if schema_registry_rest_endpoint is not None:
             pulumi.set(__self__, "schema_registry_rest_endpoint", schema_registry_rest_endpoint)
+        if tableflow_api_key is not None:
+            pulumi.set(__self__, "tableflow_api_key", tableflow_api_key)
+        if tableflow_api_secret is not None:
+            pulumi.set(__self__, "tableflow_api_secret", tableflow_api_secret)
 
     @property
     @pulumi.getter(name="catalogRestEndpoint")
@@ -343,6 +351,30 @@ class ProviderArgs:
     def schema_registry_rest_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema_registry_rest_endpoint", value)
 
+    @property
+    @pulumi.getter(name="tableflowApiKey")
+    def tableflow_api_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tableflow API Key.
+        """
+        return pulumi.get(self, "tableflow_api_key")
+
+    @tableflow_api_key.setter
+    def tableflow_api_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tableflow_api_key", value)
+
+    @property
+    @pulumi.getter(name="tableflowApiSecret")
+    def tableflow_api_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tableflow API Secret.
+        """
+        return pulumi.get(self, "tableflow_api_secret")
+
+    @tableflow_api_secret.setter
+    def tableflow_api_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tableflow_api_secret", value)
+
 
 class Provider(pulumi.ProviderResource):
     @overload
@@ -369,6 +401,8 @@ class Provider(pulumi.ProviderResource):
                  schema_registry_api_secret: Optional[pulumi.Input[str]] = None,
                  schema_registry_id: Optional[pulumi.Input[str]] = None,
                  schema_registry_rest_endpoint: Optional[pulumi.Input[str]] = None,
+                 tableflow_api_key: Optional[pulumi.Input[str]] = None,
+                 tableflow_api_secret: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The provider type for the confluent package. By default, resources use package-wide configuration
@@ -398,6 +432,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] schema_registry_api_secret: The Schema Registry Cluster API Secret.
         :param pulumi.Input[str] schema_registry_id: The Schema Registry Cluster ID.
         :param pulumi.Input[str] schema_registry_rest_endpoint: The Schema Registry Cluster REST Endpoint.
+        :param pulumi.Input[str] tableflow_api_key: The Tableflow API Key.
+        :param pulumi.Input[str] tableflow_api_secret: The Tableflow API Secret.
         """
         ...
     @overload
@@ -446,6 +482,8 @@ class Provider(pulumi.ProviderResource):
                  schema_registry_api_secret: Optional[pulumi.Input[str]] = None,
                  schema_registry_id: Optional[pulumi.Input[str]] = None,
                  schema_registry_rest_endpoint: Optional[pulumi.Input[str]] = None,
+                 tableflow_api_key: Optional[pulumi.Input[str]] = None,
+                 tableflow_api_secret: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -475,7 +513,9 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["schema_registry_api_secret"] = None if schema_registry_api_secret is None else pulumi.Output.secret(schema_registry_api_secret)
             __props__.__dict__["schema_registry_id"] = schema_registry_id
             __props__.__dict__["schema_registry_rest_endpoint"] = schema_registry_rest_endpoint
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cloudApiKey", "cloudApiSecret", "flinkApiKey", "flinkApiSecret", "kafkaApiKey", "kafkaApiSecret", "schemaRegistryApiKey", "schemaRegistryApiSecret"])
+            __props__.__dict__["tableflow_api_key"] = None if tableflow_api_key is None else pulumi.Output.secret(tableflow_api_key)
+            __props__.__dict__["tableflow_api_secret"] = None if tableflow_api_secret is None else pulumi.Output.secret(tableflow_api_secret)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cloudApiKey", "cloudApiSecret", "flinkApiKey", "flinkApiSecret", "kafkaApiKey", "kafkaApiSecret", "schemaRegistryApiKey", "schemaRegistryApiSecret", "tableflowApiKey", "tableflowApiSecret"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'confluentcloud',
@@ -634,4 +674,20 @@ class Provider(pulumi.ProviderResource):
         The Schema Registry Cluster REST Endpoint.
         """
         return pulumi.get(self, "schema_registry_rest_endpoint")
+
+    @property
+    @pulumi.getter(name="tableflowApiKey")
+    def tableflow_api_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Tableflow API Key.
+        """
+        return pulumi.get(self, "tableflow_api_key")
+
+    @property
+    @pulumi.getter(name="tableflowApiSecret")
+    def tableflow_api_secret(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Tableflow API Secret.
+        """
+        return pulumi.get(self, "tableflow_api_secret")
 

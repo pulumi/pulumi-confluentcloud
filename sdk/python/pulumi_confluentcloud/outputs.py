@@ -35,6 +35,11 @@ __all__ = [
     'ByokKeyGcp',
     'CatalogEntityAttributesCredentials',
     'CatalogEntityAttributesSchemaRegistryCluster',
+    'CatalogIntegrationAwsGlue',
+    'CatalogIntegrationCredentials',
+    'CatalogIntegrationEnvironment',
+    'CatalogIntegrationKafkaCluster',
+    'CatalogIntegrationSnowflake',
     'CertificatePoolCertificateAuthority',
     'ClusterLinkDestinationKafkaCluster',
     'ClusterLinkDestinationKafkaClusterCredentials',
@@ -152,6 +157,11 @@ __all__ = [
     'SubjectConfigSchemaRegistryCluster',
     'SubjectModeCredentials',
     'SubjectModeSchemaRegistryCluster',
+    'TableflowTopicByobAws',
+    'TableflowTopicCredentials',
+    'TableflowTopicEnvironment',
+    'TableflowTopicKafkaCluster',
+    'TableflowTopicManagedStorage',
     'TagBindingCredentials',
     'TagBindingSchemaRegistryCluster',
     'TagCredentials',
@@ -173,6 +183,11 @@ __all__ = [
     'GetByokKeyAwResult',
     'GetByokKeyAzureResult',
     'GetByokKeyGcpResult',
+    'GetCatalogIntegrationAwsGlueResult',
+    'GetCatalogIntegrationCredentialsResult',
+    'GetCatalogIntegrationEnvironmentResult',
+    'GetCatalogIntegrationKafkaClusterResult',
+    'GetCatalogIntegrationSnowflakeResult',
     'GetCertificatePoolCertificateAuthorityResult',
     'GetClusterLinkCredentialsResult',
     'GetClusterLinkKafkaClusterResult',
@@ -275,6 +290,11 @@ __all__ = [
     'GetSubjectConfigSchemaRegistryClusterResult',
     'GetSubjectModeCredentialsResult',
     'GetSubjectModeSchemaRegistryClusterResult',
+    'GetTableflowTopicByobAwResult',
+    'GetTableflowTopicCredentialsResult',
+    'GetTableflowTopicEnvironmentResult',
+    'GetTableflowTopicKafkaClusterResult',
+    'GetTableflowTopicManagedStorageResult',
     'GetTagBindingCredentialsResult',
     'GetTagBindingSchemaRegistryClusterResult',
     'GetTagCredentialsResult',
@@ -1176,6 +1196,189 @@ class CatalogEntityAttributesSchemaRegistryCluster(dict):
         The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CatalogIntegrationAwsGlue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerIntegrationId":
+            suggest = "provider_integration_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogIntegrationAwsGlue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogIntegrationAwsGlue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogIntegrationAwsGlue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_integration_id: str):
+        """
+        :param str provider_integration_id: The provider integration id.
+        """
+        pulumi.set(__self__, "provider_integration_id", provider_integration_id)
+
+    @property
+    @pulumi.getter(name="providerIntegrationId")
+    def provider_integration_id(self) -> str:
+        """
+        The provider integration id.
+        """
+        return pulumi.get(self, "provider_integration_id")
+
+
+@pulumi.output_type
+class CatalogIntegrationCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Tableflow API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Tableflow API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class CatalogIntegrationEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CatalogIntegrationKafkaCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CatalogIntegrationSnowflake(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedScope":
+            suggest = "allowed_scope"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogIntegrationSnowflake. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogIntegrationSnowflake.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogIntegrationSnowflake.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_scope: str,
+                 client_id: str,
+                 client_secret: str,
+                 endpoint: str,
+                 warehouse: str):
+        """
+        :param str allowed_scope: Allowed scope of the Snowflake Open Catalog.
+        :param str client_id: The client ID of the catalog integration.
+        :param str client_secret: The client secret of the catalog integration.
+        :param str endpoint: The catalog integration connection endpoint for Snowflake Open Catalog.
+        :param str warehouse: Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+        """
+        pulumi.set(__self__, "allowed_scope", allowed_scope)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "warehouse", warehouse)
+
+    @property
+    @pulumi.getter(name="allowedScope")
+    def allowed_scope(self) -> str:
+        """
+        Allowed scope of the Snowflake Open Catalog.
+        """
+        return pulumi.get(self, "allowed_scope")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the catalog integration.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> str:
+        """
+        The client secret of the catalog integration.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        The catalog integration connection endpoint for Snowflake Open Catalog.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def warehouse(self) -> str:
+        """
+        Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+        """
+        return pulumi.get(self, "warehouse")
 
 
 @pulumi.output_type
@@ -4891,6 +5094,139 @@ class SubjectModeSchemaRegistryCluster(dict):
 
 
 @pulumi.output_type
+class TableflowTopicByobAws(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "providerIntegrationId":
+            suggest = "provider_integration_id"
+        elif key == "bucketRegion":
+            suggest = "bucket_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableflowTopicByobAws. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableflowTopicByobAws.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableflowTopicByobAws.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str,
+                 provider_integration_id: str,
+                 bucket_region: Optional[str] = None):
+        """
+        :param str bucket_name: The bucket name.
+        :param str provider_integration_id: The provider integration id.
+        :param str bucket_region: (Required String) The bucket region.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "provider_integration_id", provider_integration_id)
+        if bucket_region is not None:
+            pulumi.set(__self__, "bucket_region", bucket_region)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        The bucket name.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="providerIntegrationId")
+    def provider_integration_id(self) -> str:
+        """
+        The provider integration id.
+        """
+        return pulumi.get(self, "provider_integration_id")
+
+    @property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> Optional[str]:
+        """
+        (Required String) The bucket region.
+        """
+        return pulumi.get(self, "bucket_region")
+
+
+@pulumi.output_type
+class TableflowTopicCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Tableflow API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Tableflow API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class TableflowTopicEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class TableflowTopicKafkaCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class TableflowTopicManagedStorage(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
 class TagBindingCredentials(dict):
     def __init__(__self__, *,
                  key: str,
@@ -5623,6 +5959,129 @@ class GetByokKeyGcpResult(dict):
         (Optional String) The Google security group created for this key.
         """
         return pulumi.get(self, "security_group")
+
+
+@pulumi.output_type
+class GetCatalogIntegrationAwsGlueResult(dict):
+    def __init__(__self__, *,
+                 provider_integration_id: str):
+        """
+        :param str provider_integration_id: (Required String) The provider integration id.
+        """
+        pulumi.set(__self__, "provider_integration_id", provider_integration_id)
+
+    @property
+    @pulumi.getter(name="providerIntegrationId")
+    def provider_integration_id(self) -> str:
+        """
+        (Required String) The provider integration id.
+        """
+        return pulumi.get(self, "provider_integration_id")
+
+
+@pulumi.output_type
+class GetCatalogIntegrationCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Tableflow API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Tableflow API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetCatalogIntegrationEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetCatalogIntegrationKafkaClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetCatalogIntegrationSnowflakeResult(dict):
+    def __init__(__self__, *,
+                 allowed_scope: str,
+                 endpoint: str,
+                 warehouse: str):
+        """
+        :param str allowed_scope: (Required String) Allowed scope of the Snowflake Open Catalog.
+        :param str endpoint: (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
+        :param str warehouse: (Required String) Warehouse name of the Snowflake Open Catalog.
+        """
+        pulumi.set(__self__, "allowed_scope", allowed_scope)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "warehouse", warehouse)
+
+    @property
+    @pulumi.getter(name="allowedScope")
+    def allowed_scope(self) -> str:
+        """
+        (Required String) Allowed scope of the Snowflake Open Catalog.
+        """
+        return pulumi.get(self, "allowed_scope")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def warehouse(self) -> str:
+        """
+        (Required String) Warehouse name of the Snowflake Open Catalog.
+        """
+        return pulumi.get(self, "warehouse")
 
 
 @pulumi.output_type
@@ -8493,6 +8952,117 @@ class GetSubjectModeSchemaRegistryClusterResult(dict):
         The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetTableflowTopicByobAwResult(dict):
+    def __init__(__self__, *,
+                 bucket_name: str,
+                 bucket_region: str,
+                 provider_integration_id: str):
+        """
+        :param str bucket_name: (Required String) The bucket name.
+        :param str bucket_region: (Required String) The bucket region.
+        :param str provider_integration_id: (Required String) The provider integration id.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_region", bucket_region)
+        pulumi.set(__self__, "provider_integration_id", provider_integration_id)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        (Required String) The bucket name.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> str:
+        """
+        (Required String) The bucket region.
+        """
+        return pulumi.get(self, "bucket_region")
+
+    @property
+    @pulumi.getter(name="providerIntegrationId")
+    def provider_integration_id(self) -> str:
+        """
+        (Required String) The provider integration id.
+        """
+        return pulumi.get(self, "provider_integration_id")
+
+
+@pulumi.output_type
+class GetTableflowTopicCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Tableflow API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Tableflow API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetTableflowTopicEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetTableflowTopicKafkaClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetTableflowTopicManagedStorageResult(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type

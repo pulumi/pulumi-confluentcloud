@@ -12,6 +12,8 @@ import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetBusinessMetadataPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
 import com.pulumi.confluentcloud.inputs.GetByokKeyPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
+import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityArgs;
 import com.pulumi.confluentcloud.inputs.GetCertificateAuthorityPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
@@ -88,6 +90,8 @@ import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
 import com.pulumi.confluentcloud.inputs.GetSubjectConfigPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
 import com.pulumi.confluentcloud.inputs.GetSubjectModePlainArgs;
+import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
+import com.pulumi.confluentcloud.inputs.GetTableflowTopicPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetTagArgs;
 import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
 import com.pulumi.confluentcloud.inputs.GetTagBindingPlainArgs;
@@ -100,6 +104,7 @@ import com.pulumi.confluentcloud.outputs.GetAccessPointResult;
 import com.pulumi.confluentcloud.outputs.GetBusinessMetadataBindingResult;
 import com.pulumi.confluentcloud.outputs.GetBusinessMetadataResult;
 import com.pulumi.confluentcloud.outputs.GetByokKeyResult;
+import com.pulumi.confluentcloud.outputs.GetCatalogIntegrationResult;
 import com.pulumi.confluentcloud.outputs.GetCertificateAuthorityResult;
 import com.pulumi.confluentcloud.outputs.GetCertificatePoolResult;
 import com.pulumi.confluentcloud.outputs.GetClusterLinkResult;
@@ -140,6 +145,7 @@ import com.pulumi.confluentcloud.outputs.GetSchemasResult;
 import com.pulumi.confluentcloud.outputs.GetServiceAccountResult;
 import com.pulumi.confluentcloud.outputs.GetSubjectConfigResult;
 import com.pulumi.confluentcloud.outputs.GetSubjectModeResult;
+import com.pulumi.confluentcloud.outputs.GetTableflowTopicResult;
 import com.pulumi.confluentcloud.outputs.GetTagBindingResult;
 import com.pulumi.confluentcloud.outputs.GetTagResult;
 import com.pulumi.confluentcloud.outputs.GetTransitGatewayAttachmentResult;
@@ -1563,6 +1569,61 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetByokKeyResult> getByokKeyPlain(GetByokKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getByokKey:getByokKey", TypeShape.of(GetByokKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CatalogIntegration` describes a Catalog Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetCatalogIntegrationResult> getCatalogIntegration(GetCatalogIntegrationArgs args) {
+        return getCatalogIntegration(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CatalogIntegration` describes a Catalog Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetCatalogIntegrationResult> getCatalogIntegrationPlain(GetCatalogIntegrationPlainArgs args) {
+        return getCatalogIntegrationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CatalogIntegration` describes a Catalog Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetCatalogIntegrationResult> getCatalogIntegration(GetCatalogIntegrationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getCatalogIntegration:getCatalogIntegration", TypeShape.of(GetCatalogIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CatalogIntegration` describes a Catalog Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetCatalogIntegrationResult> getCatalogIntegration(GetCatalogIntegrationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getCatalogIntegration:getCatalogIntegration", TypeShape.of(GetCatalogIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.CatalogIntegration` describes a Catalog Integration data source.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetCatalogIntegrationResult> getCatalogIntegrationPlain(GetCatalogIntegrationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getCatalogIntegration:getCatalogIntegration", TypeShape.of(GetCatalogIntegrationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -15114,6 +15175,486 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetSubjectModeResult> getSubjectModePlain(GetSubjectModePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSubjectMode:getSubjectMode", TypeShape.of(GetSubjectModeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.TableflowTopic` describes a Tableflow Topic data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
+     *             .environment(GetTableflowTopicEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .kafkaCluster(GetTableflowTopicKafkaClusterArgs.builder()
+     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .build())
+     *             .displayName("tableflow-example")
+     *             .credentials(GetTableflowTopicCredentialsArgs.builder()
+     *                 .key(env_admin_tableflow_api_key.id())
+     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Tableflow Topic in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
+     *             .displayName("tableflow-example")
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTableflowTopicResult> getTableflowTopic(GetTableflowTopicArgs args) {
+        return getTableflowTopic(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.TableflowTopic` describes a Tableflow Topic data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
+     *             .environment(GetTableflowTopicEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .kafkaCluster(GetTableflowTopicKafkaClusterArgs.builder()
+     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .build())
+     *             .displayName("tableflow-example")
+     *             .credentials(GetTableflowTopicCredentialsArgs.builder()
+     *                 .key(env_admin_tableflow_api_key.id())
+     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Tableflow Topic in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
+     *             .displayName("tableflow-example")
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTableflowTopicResult> getTableflowTopicPlain(GetTableflowTopicPlainArgs args) {
+        return getTableflowTopicPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.TableflowTopic` describes a Tableflow Topic data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
+     *             .environment(GetTableflowTopicEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .kafkaCluster(GetTableflowTopicKafkaClusterArgs.builder()
+     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .build())
+     *             .displayName("tableflow-example")
+     *             .credentials(GetTableflowTopicCredentialsArgs.builder()
+     *                 .key(env_admin_tableflow_api_key.id())
+     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Tableflow Topic in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
+     *             .displayName("tableflow-example")
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTableflowTopicResult> getTableflowTopic(GetTableflowTopicArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getTableflowTopic:getTableflowTopic", TypeShape.of(GetTableflowTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.TableflowTopic` describes a Tableflow Topic data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
+     *             .environment(GetTableflowTopicEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .kafkaCluster(GetTableflowTopicKafkaClusterArgs.builder()
+     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .build())
+     *             .displayName("tableflow-example")
+     *             .credentials(GetTableflowTopicCredentialsArgs.builder()
+     *                 .key(env_admin_tableflow_api_key.id())
+     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Tableflow Topic in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
+     *             .displayName("tableflow-example")
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTableflowTopicResult> getTableflowTopic(GetTableflowTopicArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getTableflowTopic:getTableflowTopic", TypeShape.of(GetTableflowTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.TableflowTopic` describes a Tableflow Topic data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
+     *             .environment(GetTableflowTopicEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .kafkaCluster(GetTableflowTopicKafkaClusterArgs.builder()
+     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .build())
+     *             .displayName("tableflow-example")
+     *             .credentials(GetTableflowTopicCredentialsArgs.builder()
+     *                 .key(env_admin_tableflow_api_key.id())
+     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Option #2: Manage a single Tableflow Topic in the same Pulumi Stack
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()
+     *             .displayName("tableflow-example")
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTableflowTopicResult> getTableflowTopicPlain(GetTableflowTopicPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getTableflowTopic:getTableflowTopic", TypeShape.of(GetTableflowTopicResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

@@ -53,6 +53,16 @@ __all__ = [
     'CatalogEntityAttributesCredentialsArgsDict',
     'CatalogEntityAttributesSchemaRegistryClusterArgs',
     'CatalogEntityAttributesSchemaRegistryClusterArgsDict',
+    'CatalogIntegrationAwsGlueArgs',
+    'CatalogIntegrationAwsGlueArgsDict',
+    'CatalogIntegrationCredentialsArgs',
+    'CatalogIntegrationCredentialsArgsDict',
+    'CatalogIntegrationEnvironmentArgs',
+    'CatalogIntegrationEnvironmentArgsDict',
+    'CatalogIntegrationKafkaClusterArgs',
+    'CatalogIntegrationKafkaClusterArgsDict',
+    'CatalogIntegrationSnowflakeArgs',
+    'CatalogIntegrationSnowflakeArgsDict',
     'CertificatePoolCertificateAuthorityArgs',
     'CertificatePoolCertificateAuthorityArgsDict',
     'ClusterLinkDestinationKafkaClusterArgs',
@@ -287,6 +297,16 @@ __all__ = [
     'SubjectModeCredentialsArgsDict',
     'SubjectModeSchemaRegistryClusterArgs',
     'SubjectModeSchemaRegistryClusterArgsDict',
+    'TableflowTopicByobAwsArgs',
+    'TableflowTopicByobAwsArgsDict',
+    'TableflowTopicCredentialsArgs',
+    'TableflowTopicCredentialsArgsDict',
+    'TableflowTopicEnvironmentArgs',
+    'TableflowTopicEnvironmentArgsDict',
+    'TableflowTopicKafkaClusterArgs',
+    'TableflowTopicKafkaClusterArgsDict',
+    'TableflowTopicManagedStorageArgs',
+    'TableflowTopicManagedStorageArgsDict',
     'TagBindingCredentialsArgs',
     'TagBindingCredentialsArgsDict',
     'TagBindingSchemaRegistryClusterArgs',
@@ -313,6 +333,12 @@ __all__ = [
     'GetBusinessMetadataCredentialsArgsDict',
     'GetBusinessMetadataSchemaRegistryClusterArgs',
     'GetBusinessMetadataSchemaRegistryClusterArgsDict',
+    'GetCatalogIntegrationCredentialsArgs',
+    'GetCatalogIntegrationCredentialsArgsDict',
+    'GetCatalogIntegrationEnvironmentArgs',
+    'GetCatalogIntegrationEnvironmentArgsDict',
+    'GetCatalogIntegrationKafkaClusterArgs',
+    'GetCatalogIntegrationKafkaClusterArgsDict',
     'GetCertificatePoolCertificateAuthorityArgs',
     'GetCertificatePoolCertificateAuthorityArgsDict',
     'GetClusterLinkCredentialsArgs',
@@ -425,6 +451,12 @@ __all__ = [
     'GetSubjectModeCredentialsArgsDict',
     'GetSubjectModeSchemaRegistryClusterArgs',
     'GetSubjectModeSchemaRegistryClusterArgsDict',
+    'GetTableflowTopicCredentialsArgs',
+    'GetTableflowTopicCredentialsArgsDict',
+    'GetTableflowTopicEnvironmentArgs',
+    'GetTableflowTopicEnvironmentArgsDict',
+    'GetTableflowTopicKafkaClusterArgs',
+    'GetTableflowTopicKafkaClusterArgsDict',
     'GetTagBindingCredentialsArgs',
     'GetTagBindingCredentialsArgsDict',
     'GetTagBindingSchemaRegistryClusterArgs',
@@ -1615,6 +1647,256 @@ class CatalogEntityAttributesSchemaRegistryClusterArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CatalogIntegrationAwsGlueArgsDict(TypedDict):
+        provider_integration_id: pulumi.Input[str]
+        """
+        The provider integration id.
+        """
+elif False:
+    CatalogIntegrationAwsGlueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CatalogIntegrationAwsGlueArgs:
+    def __init__(__self__, *,
+                 provider_integration_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] provider_integration_id: The provider integration id.
+        """
+        pulumi.set(__self__, "provider_integration_id", provider_integration_id)
+
+    @property
+    @pulumi.getter(name="providerIntegrationId")
+    def provider_integration_id(self) -> pulumi.Input[str]:
+        """
+        The provider integration id.
+        """
+        return pulumi.get(self, "provider_integration_id")
+
+    @provider_integration_id.setter
+    def provider_integration_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider_integration_id", value)
+
+
+if not MYPY:
+    class CatalogIntegrationCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Tableflow API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    CatalogIntegrationCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CatalogIntegrationCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Tableflow API Key.
+        :param pulumi.Input[str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Tableflow API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+if not MYPY:
+    class CatalogIntegrationEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+elif False:
+    CatalogIntegrationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CatalogIntegrationEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CatalogIntegrationKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+elif False:
+    CatalogIntegrationKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CatalogIntegrationKafkaClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class CatalogIntegrationSnowflakeArgsDict(TypedDict):
+        allowed_scope: pulumi.Input[str]
+        """
+        Allowed scope of the Snowflake Open Catalog.
+        """
+        client_id: pulumi.Input[str]
+        """
+        The client ID of the catalog integration.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The client secret of the catalog integration.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        The catalog integration connection endpoint for Snowflake Open Catalog.
+        """
+        warehouse: pulumi.Input[str]
+        """
+        Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+        """
+elif False:
+    CatalogIntegrationSnowflakeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CatalogIntegrationSnowflakeArgs:
+    def __init__(__self__, *,
+                 allowed_scope: pulumi.Input[str],
+                 client_id: pulumi.Input[str],
+                 client_secret: pulumi.Input[str],
+                 endpoint: pulumi.Input[str],
+                 warehouse: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] allowed_scope: Allowed scope of the Snowflake Open Catalog.
+        :param pulumi.Input[str] client_id: The client ID of the catalog integration.
+        :param pulumi.Input[str] client_secret: The client secret of the catalog integration.
+        :param pulumi.Input[str] endpoint: The catalog integration connection endpoint for Snowflake Open Catalog.
+        :param pulumi.Input[str] warehouse: Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+        """
+        pulumi.set(__self__, "allowed_scope", allowed_scope)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "warehouse", warehouse)
+
+    @property
+    @pulumi.getter(name="allowedScope")
+    def allowed_scope(self) -> pulumi.Input[str]:
+        """
+        Allowed scope of the Snowflake Open Catalog.
+        """
+        return pulumi.get(self, "allowed_scope")
+
+    @allowed_scope.setter
+    def allowed_scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "allowed_scope", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The client ID of the catalog integration.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[str]:
+        """
+        The client secret of the catalog integration.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        """
+        The catalog integration connection endpoint for Snowflake Open Catalog.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def warehouse(self) -> pulumi.Input[str]:
+        """
+        Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+        """
+        return pulumi.get(self, "warehouse")
+
+    @warehouse.setter
+    def warehouse(self, value: pulumi.Input[str]):
+        pulumi.set(self, "warehouse", value)
 
 
 if not MYPY:
@@ -6996,6 +7278,200 @@ class SubjectModeSchemaRegistryClusterArgs:
 
 
 if not MYPY:
+    class TableflowTopicByobAwsArgsDict(TypedDict):
+        bucket_name: pulumi.Input[str]
+        """
+        The bucket name.
+        """
+        provider_integration_id: pulumi.Input[str]
+        """
+        The provider integration id.
+        """
+        bucket_region: NotRequired[pulumi.Input[str]]
+        """
+        (Required String) The bucket region.
+        """
+elif False:
+    TableflowTopicByobAwsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableflowTopicByobAwsArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[str],
+                 provider_integration_id: pulumi.Input[str],
+                 bucket_region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_name: The bucket name.
+        :param pulumi.Input[str] provider_integration_id: The provider integration id.
+        :param pulumi.Input[str] bucket_region: (Required String) The bucket region.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "provider_integration_id", provider_integration_id)
+        if bucket_region is not None:
+            pulumi.set(__self__, "bucket_region", bucket_region)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[str]:
+        """
+        The bucket name.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="providerIntegrationId")
+    def provider_integration_id(self) -> pulumi.Input[str]:
+        """
+        The provider integration id.
+        """
+        return pulumi.get(self, "provider_integration_id")
+
+    @provider_integration_id.setter
+    def provider_integration_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider_integration_id", value)
+
+    @property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) The bucket region.
+        """
+        return pulumi.get(self, "bucket_region")
+
+    @bucket_region.setter
+    def bucket_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_region", value)
+
+
+if not MYPY:
+    class TableflowTopicCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Tableflow API Key.
+        """
+        secret: pulumi.Input[str]
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    TableflowTopicCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableflowTopicCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Tableflow API Key.
+        :param pulumi.Input[str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Tableflow API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+if not MYPY:
+    class TableflowTopicEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+elif False:
+    TableflowTopicEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableflowTopicEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class TableflowTopicKafkaClusterArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+elif False:
+    TableflowTopicKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableflowTopicKafkaClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class TableflowTopicManagedStorageArgsDict(TypedDict):
+        pass
+elif False:
+    TableflowTopicManagedStorageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableflowTopicManagedStorageArgs:
+    def __init__(__self__):
+        pass
+
+
+if not MYPY:
     class TagBindingCredentialsArgsDict(TypedDict):
         key: pulumi.Input[str]
         """
@@ -7593,6 +8069,118 @@ class GetBusinessMetadataSchemaRegistryClusterArgs:
     def id(self) -> str:
         """
         The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class GetCatalogIntegrationCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Tableflow API Key.
+        """
+        secret: str
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    GetCatalogIntegrationCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetCatalogIntegrationCredentialsArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Tableflow API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Tableflow API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: str):
+        pulumi.set(self, "secret", value)
+
+
+if not MYPY:
+    class GetCatalogIntegrationEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+elif False:
+    GetCatalogIntegrationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetCatalogIntegrationEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class GetCatalogIntegrationKafkaClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+elif False:
+    GetCatalogIntegrationKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetCatalogIntegrationKafkaClusterArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -10237,6 +10825,118 @@ class GetSubjectModeSchemaRegistryClusterArgs:
     def id(self) -> str:
         """
         The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class GetTableflowTopicCredentialsArgsDict(TypedDict):
+        key: str
+        """
+        The Tableflow API Key.
+        """
+        secret: str
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    GetTableflowTopicCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetTableflowTopicCredentialsArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Tableflow API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Tableflow API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: str):
+        pulumi.set(self, "secret", value)
+
+
+if not MYPY:
+    class GetTableflowTopicEnvironmentArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+elif False:
+    GetTableflowTopicEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetTableflowTopicEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class GetTableflowTopicKafkaClusterArgsDict(TypedDict):
+        id: str
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+elif False:
+    GetTableflowTopicKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetTableflowTopicKafkaClusterArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Kafka cluster, for example, `lkc-abc123`.
         """
         return pulumi.get(self, "id")
 

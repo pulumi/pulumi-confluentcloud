@@ -110,3 +110,13 @@ func GetSchemaRegistryId(ctx *pulumi.Context) string {
 func GetSchemaRegistryRestEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:schemaRegistryRestEndpoint")
 }
+
+// The Tableflow API Key.
+func GetTableflowApiKey(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:tableflowApiKey")
+}
+
+// The Tableflow API Secret.
+func GetTableflowApiSecret(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:tableflowApiSecret")
+}

@@ -56,6 +56,10 @@ type Provider struct {
 	SchemaRegistryId pulumi.StringPtrOutput `pulumi:"schemaRegistryId"`
 	// The Schema Registry Cluster REST Endpoint.
 	SchemaRegistryRestEndpoint pulumi.StringPtrOutput `pulumi:"schemaRegistryRestEndpoint"`
+	// The Tableflow API Key.
+	TableflowApiKey pulumi.StringPtrOutput `pulumi:"tableflowApiKey"`
+	// The Tableflow API Secret.
+	TableflowApiSecret pulumi.StringPtrOutput `pulumi:"tableflowApiSecret"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -89,6 +93,12 @@ func NewProvider(ctx *pulumi.Context,
 	if args.SchemaRegistryApiSecret != nil {
 		args.SchemaRegistryApiSecret = pulumi.ToSecret(args.SchemaRegistryApiSecret).(pulumi.StringPtrInput)
 	}
+	if args.TableflowApiKey != nil {
+		args.TableflowApiKey = pulumi.ToSecret(args.TableflowApiKey).(pulumi.StringPtrInput)
+	}
+	if args.TableflowApiSecret != nil {
+		args.TableflowApiSecret = pulumi.ToSecret(args.TableflowApiSecret).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"cloudApiKey",
 		"cloudApiSecret",
@@ -98,6 +108,8 @@ func NewProvider(ctx *pulumi.Context,
 		"kafkaApiSecret",
 		"schemaRegistryApiKey",
 		"schemaRegistryApiSecret",
+		"tableflowApiKey",
+		"tableflowApiSecret",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -150,6 +162,10 @@ type providerArgs struct {
 	SchemaRegistryId *string `pulumi:"schemaRegistryId"`
 	// The Schema Registry Cluster REST Endpoint.
 	SchemaRegistryRestEndpoint *string `pulumi:"schemaRegistryRestEndpoint"`
+	// The Tableflow API Key.
+	TableflowApiKey *string `pulumi:"tableflowApiKey"`
+	// The Tableflow API Secret.
+	TableflowApiSecret *string `pulumi:"tableflowApiSecret"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -194,6 +210,10 @@ type ProviderArgs struct {
 	SchemaRegistryId pulumi.StringPtrInput
 	// The Schema Registry Cluster REST Endpoint.
 	SchemaRegistryRestEndpoint pulumi.StringPtrInput
+	// The Tableflow API Key.
+	TableflowApiKey pulumi.StringPtrInput
+	// The Tableflow API Secret.
+	TableflowApiSecret pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -326,6 +346,16 @@ func (o ProviderOutput) SchemaRegistryId() pulumi.StringPtrOutput {
 // The Schema Registry Cluster REST Endpoint.
 func (o ProviderOutput) SchemaRegistryRestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SchemaRegistryRestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The Tableflow API Key.
+func (o ProviderOutput) TableflowApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TableflowApiKey }).(pulumi.StringPtrOutput)
+}
+
+// The Tableflow API Secret.
+func (o ProviderOutput) TableflowApiSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TableflowApiSecret }).(pulumi.StringPtrOutput)
 }
 
 func init() {

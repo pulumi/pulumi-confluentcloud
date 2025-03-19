@@ -227,3 +227,25 @@ Object.defineProperty(exports, "schemaRegistryRestEndpoint", {
     enumerable: true,
 });
 
+/**
+ * The Tableflow API Key.
+ */
+export declare const tableflowApiKey: string | undefined;
+Object.defineProperty(exports, "tableflowApiKey", {
+    get() {
+        return __config.get("tableflowApiKey");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Tableflow API Secret.
+ */
+export declare const tableflowApiSecret: string | undefined;
+Object.defineProperty(exports, "tableflowApiSecret", {
+    get() {
+        return __config.get("tableflowApiSecret");
+    },
+    enumerable: true,
+});
+

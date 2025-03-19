@@ -101,6 +101,14 @@ export class Provider extends pulumi.ProviderResource {
      * The Schema Registry Cluster REST Endpoint.
      */
     public readonly schemaRegistryRestEndpoint!: pulumi.Output<string | undefined>;
+    /**
+     * The Tableflow API Key.
+     */
+    public readonly tableflowApiKey!: pulumi.Output<string | undefined>;
+    /**
+     * The Tableflow API Secret.
+     */
+    public readonly tableflowApiSecret!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -133,9 +141,11 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["schemaRegistryApiSecret"] = args?.schemaRegistryApiSecret ? pulumi.secret(args.schemaRegistryApiSecret) : undefined;
             resourceInputs["schemaRegistryId"] = args ? args.schemaRegistryId : undefined;
             resourceInputs["schemaRegistryRestEndpoint"] = args ? args.schemaRegistryRestEndpoint : undefined;
+            resourceInputs["tableflowApiKey"] = args?.tableflowApiKey ? pulumi.secret(args.tableflowApiKey) : undefined;
+            resourceInputs["tableflowApiSecret"] = args?.tableflowApiSecret ? pulumi.secret(args.tableflowApiSecret) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["cloudApiKey", "cloudApiSecret", "flinkApiKey", "flinkApiSecret", "kafkaApiKey", "kafkaApiSecret", "schemaRegistryApiKey", "schemaRegistryApiSecret"] };
+        const secretOpts = { additionalSecretOutputs: ["cloudApiKey", "cloudApiSecret", "flinkApiKey", "flinkApiSecret", "kafkaApiKey", "kafkaApiSecret", "schemaRegistryApiKey", "schemaRegistryApiSecret", "tableflowApiKey", "tableflowApiSecret"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
@@ -225,4 +235,12 @@ export interface ProviderArgs {
      * The Schema Registry Cluster REST Endpoint.
      */
     schemaRegistryRestEndpoint?: pulumi.Input<string>;
+    /**
+     * The Tableflow API Key.
+     */
+    tableflowApiKey?: pulumi.Input<string>;
+    /**
+     * The Tableflow API Secret.
+     */
+    tableflowApiSecret?: pulumi.Input<string>;
 }

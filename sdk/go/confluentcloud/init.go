@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ByokKey{}
 	case "confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes":
 		r = &CatalogEntityAttributes{}
+	case "confluentcloud:index/catalogIntegration:CatalogIntegration":
+		r = &CatalogIntegration{}
 	case "confluentcloud:index/certificateAuthority:CertificateAuthority":
 		r = &CertificateAuthority{}
 	case "confluentcloud:index/certificatePool:CertificatePool":
@@ -115,6 +117,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SubjectConfig{}
 	case "confluentcloud:index/subjectMode:SubjectMode":
 		r = &SubjectMode{}
+	case "confluentcloud:index/tableflowTopic:TableflowTopic":
+		r = &TableflowTopic{}
 	case "confluentcloud:index/tag:Tag":
 		r = &Tag{}
 	case "confluentcloud:index/tagBinding:TagBinding":
@@ -182,6 +186,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/catalogEntityAttributes",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/catalogIntegration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -387,6 +396,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/subjectMode",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/tableflowTopic",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

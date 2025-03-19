@@ -132,6 +132,18 @@ namespace Pulumi.ConfluentCloud
         [Output("schemaRegistryRestEndpoint")]
         public Output<string?> SchemaRegistryRestEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// The Tableflow API Key.
+        /// </summary>
+        [Output("tableflowApiKey")]
+        public Output<string?> TableflowApiKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The Tableflow API Secret.
+        /// </summary>
+        [Output("tableflowApiSecret")]
+        public Output<string?> TableflowApiSecret { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
@@ -160,6 +172,8 @@ namespace Pulumi.ConfluentCloud
                     "kafkaApiSecret",
                     "schemaRegistryApiKey",
                     "schemaRegistryApiSecret",
+                    "tableflowApiKey",
+                    "tableflowApiSecret",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -370,6 +384,38 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("schemaRegistryRestEndpoint")]
         public Input<string>? SchemaRegistryRestEndpoint { get; set; }
+
+        [Input("tableflowApiKey")]
+        private Input<string>? _tableflowApiKey;
+
+        /// <summary>
+        /// The Tableflow API Key.
+        /// </summary>
+        public Input<string>? TableflowApiKey
+        {
+            get => _tableflowApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tableflowApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("tableflowApiSecret")]
+        private Input<string>? _tableflowApiSecret;
+
+        /// <summary>
+        /// The Tableflow API Secret.
+        /// </summary>
+        public Input<string>? TableflowApiSecret
+        {
+            get => _tableflowApiSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tableflowApiSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ProviderArgs()
         {
