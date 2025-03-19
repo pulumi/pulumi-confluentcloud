@@ -160,3 +160,17 @@ class _ExportableConfig(types.ModuleType):
         """
         return __config__.get('schemaRegistryRestEndpoint')
 
+    @property
+    def tableflow_api_key(self) -> Optional[str]:
+        """
+        The Tableflow API Key.
+        """
+        return __config__.get('tableflowApiKey')
+
+    @property
+    def tableflow_api_secret(self) -> Optional[str]:
+        """
+        The Tableflow API Secret.
+        """
+        return __config__.get('tableflowApiSecret')
+

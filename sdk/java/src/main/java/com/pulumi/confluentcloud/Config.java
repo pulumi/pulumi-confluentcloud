@@ -151,4 +151,18 @@ public final class Config {
     public Optional<String> schemaRegistryRestEndpoint() {
         return Codegen.stringProp("schemaRegistryRestEndpoint").config(config).get();
     }
+/**
+ * The Tableflow API Key.
+ * 
+ */
+    public Optional<String> tableflowApiKey() {
+        return Codegen.stringProp("tableflowApiKey").config(config).get();
+    }
+/**
+ * The Tableflow API Secret.
+ * 
+ */
+    public Optional<String> tableflowApiSecret() {
+        return Codegen.stringProp("tableflowApiSecret").config(config).get();
+    }
 }

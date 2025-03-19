@@ -35,6 +35,11 @@ export type CatalogEntityAttributes = import("./catalogEntityAttributes").Catalo
 export const CatalogEntityAttributes: typeof import("./catalogEntityAttributes").CatalogEntityAttributes = null as any;
 utilities.lazyLoad(exports, ["CatalogEntityAttributes"], () => require("./catalogEntityAttributes"));
 
+export { CatalogIntegrationArgs, CatalogIntegrationState } from "./catalogIntegration";
+export type CatalogIntegration = import("./catalogIntegration").CatalogIntegration;
+export const CatalogIntegration: typeof import("./catalogIntegration").CatalogIntegration = null as any;
+utilities.lazyLoad(exports, ["CatalogIntegration"], () => require("./catalogIntegration"));
+
 export { CertificateAuthorityArgs, CertificateAuthorityState } from "./certificateAuthority";
 export type CertificateAuthority = import("./certificateAuthority").CertificateAuthority;
 export const CertificateAuthority: typeof import("./certificateAuthority").CertificateAuthority = null as any;
@@ -114,6 +119,11 @@ export { GetByokKeyArgs, GetByokKeyResult, GetByokKeyOutputArgs } from "./getByo
 export const getByokKey: typeof import("./getByokKey").getByokKey = null as any;
 export const getByokKeyOutput: typeof import("./getByokKey").getByokKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getByokKey","getByokKeyOutput"], () => require("./getByokKey"));
+
+export { GetCatalogIntegrationArgs, GetCatalogIntegrationResult, GetCatalogIntegrationOutputArgs } from "./getCatalogIntegration";
+export const getCatalogIntegration: typeof import("./getCatalogIntegration").getCatalogIntegration = null as any;
+export const getCatalogIntegrationOutput: typeof import("./getCatalogIntegration").getCatalogIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getCatalogIntegration","getCatalogIntegrationOutput"], () => require("./getCatalogIntegration"));
 
 export { GetCertificateAuthorityArgs, GetCertificateAuthorityResult, GetCertificateAuthorityOutputArgs } from "./getCertificateAuthority";
 export const getCertificateAuthority: typeof import("./getCertificateAuthority").getCertificateAuthority = null as any;
@@ -315,6 +325,11 @@ export const getSubjectMode: typeof import("./getSubjectMode").getSubjectMode = 
 export const getSubjectModeOutput: typeof import("./getSubjectMode").getSubjectModeOutput = null as any;
 utilities.lazyLoad(exports, ["getSubjectMode","getSubjectModeOutput"], () => require("./getSubjectMode"));
 
+export { GetTableflowTopicArgs, GetTableflowTopicResult, GetTableflowTopicOutputArgs } from "./getTableflowTopic";
+export const getTableflowTopic: typeof import("./getTableflowTopic").getTableflowTopic = null as any;
+export const getTableflowTopicOutput: typeof import("./getTableflowTopic").getTableflowTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getTableflowTopic","getTableflowTopicOutput"], () => require("./getTableflowTopic"));
+
 export { GetTagArgs, GetTagResult, GetTagOutputArgs } from "./getTag";
 export const getTag: typeof import("./getTag").getTag = null as any;
 export const getTagOutput: typeof import("./getTag").getTagOutput = null as any;
@@ -490,6 +505,11 @@ export type SubjectMode = import("./subjectMode").SubjectMode;
 export const SubjectMode: typeof import("./subjectMode").SubjectMode = null as any;
 utilities.lazyLoad(exports, ["SubjectMode"], () => require("./subjectMode"));
 
+export { TableflowTopicArgs, TableflowTopicState } from "./tableflowTopic";
+export type TableflowTopic = import("./tableflowTopic").TableflowTopic;
+export const TableflowTopic: typeof import("./tableflowTopic").TableflowTopic = null as any;
+utilities.lazyLoad(exports, ["TableflowTopic"], () => require("./tableflowTopic"));
+
 export { TagArgs, TagState } from "./tag";
 export type Tag = import("./tag").Tag;
 export const Tag: typeof import("./tag").Tag = null as any;
@@ -536,6 +556,8 @@ const _module = {
                 return new ByokKey(name, <any>undefined, { urn })
             case "confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes":
                 return new CatalogEntityAttributes(name, <any>undefined, { urn })
+            case "confluentcloud:index/catalogIntegration:CatalogIntegration":
+                return new CatalogIntegration(name, <any>undefined, { urn })
             case "confluentcloud:index/certificateAuthority:CertificateAuthority":
                 return new CertificateAuthority(name, <any>undefined, { urn })
             case "confluentcloud:index/certificatePool:CertificatePool":
@@ -618,6 +640,8 @@ const _module = {
                 return new SubjectConfig(name, <any>undefined, { urn })
             case "confluentcloud:index/subjectMode:SubjectMode":
                 return new SubjectMode(name, <any>undefined, { urn })
+            case "confluentcloud:index/tableflowTopic:TableflowTopic":
+                return new TableflowTopic(name, <any>undefined, { urn })
             case "confluentcloud:index/tag:Tag":
                 return new Tag(name, <any>undefined, { urn })
             case "confluentcloud:index/tagBinding:TagBinding":
@@ -637,6 +661,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/businessMetadata"
 pulumi.runtime.registerResourceModule("confluentcloud", "index/businessMetadataBinding", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/byokKey", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/catalogEntityAttributes", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/catalogIntegration", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/certificateAuthority", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/certificatePool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/clusterLink", _module)
@@ -678,6 +703,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryKek
 pulumi.runtime.registerResourceModule("confluentcloud", "index/serviceAccount", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/subjectConfig", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/subjectMode", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/tableflowTopic", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/tag", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/tagBinding", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/tfImporter", _module)

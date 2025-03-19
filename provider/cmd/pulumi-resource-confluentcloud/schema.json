@@ -141,6 +141,16 @@
             "schemaRegistryRestEndpoint": {
                 "type": "string",
                 "description": "The Schema Registry Cluster REST Endpoint.\n"
+            },
+            "tableflowApiKey": {
+                "type": "string",
+                "description": "The Tableflow API Key.\n",
+                "secret": true
+            },
+            "tableflowApiSecret": {
+                "type": "string",
+                "description": "The Tableflow API Secret.\n",
+                "secret": true
             }
         }
     },
@@ -609,6 +619,98 @@
             "type": "object",
             "required": [
                 "id"
+            ]
+        },
+        "confluentcloud:index/CatalogIntegrationAwsGlue:CatalogIntegrationAwsGlue": {
+            "properties": {
+                "providerIntegrationId": {
+                    "type": "string",
+                    "description": "The provider integration id.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "providerIntegrationId"
+            ]
+        },
+        "confluentcloud:index/CatalogIntegrationCredentials:CatalogIntegrationCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Tableflow API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Cluster API Secret for your Confluent Cloud cluster.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/CatalogIntegrationEnvironment:CatalogIntegrationEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment, for example, `env-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/CatalogIntegrationKafkaCluster:CatalogIntegrationKafkaCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/CatalogIntegrationSnowflake:CatalogIntegrationSnowflake": {
+            "properties": {
+                "allowedScope": {
+                    "type": "string",
+                    "description": "Allowed scope of the Snowflake Open Catalog.\n"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "The client ID of the catalog integration.\n",
+                    "secret": true
+                },
+                "clientSecret": {
+                    "type": "string",
+                    "description": "The client secret of the catalog integration.\n",
+                    "secret": true
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "The catalog integration connection endpoint for Snowflake Open Catalog.\n"
+                },
+                "warehouse": {
+                    "type": "string",
+                    "description": "Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowedScope",
+                "clientId",
+                "clientSecret",
+                "endpoint",
+                "warehouse"
             ]
         },
         "confluentcloud:index/CertificatePoolCertificateAuthority:CertificatePoolCertificateAuthority": {
@@ -2695,6 +2797,86 @@
                 "id"
             ]
         },
+        "confluentcloud:index/TableflowTopicByobAws:TableflowTopicByobAws": {
+            "properties": {
+                "bucketName": {
+                    "type": "string",
+                    "description": "The bucket name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "bucketRegion": {
+                    "type": "string",
+                    "description": "(Required String) The bucket region.\n"
+                },
+                "providerIntegrationId": {
+                    "type": "string",
+                    "description": "The provider integration id.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "bucketName",
+                "providerIntegrationId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "bucketName",
+                        "bucketRegion",
+                        "providerIntegrationId"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/TableflowTopicCredentials:TableflowTopicCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Tableflow API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Cluster API Secret for your Confluent Cloud cluster.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/TableflowTopicEnvironment:TableflowTopicEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment, for example, `env-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/TableflowTopicManagedStorage:TableflowTopicManagedStorage": {
+            "type": "object"
+        },
         "confluentcloud:index/TagBindingCredentials:TagBindingCredentials": {
             "properties": {
                 "key": {
@@ -3169,6 +3351,93 @@
             "required": [
                 "keyId",
                 "securityGroup"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getCatalogIntegrationAwsGlue:getCatalogIntegrationAwsGlue": {
+            "properties": {
+                "providerIntegrationId": {
+                    "type": "string",
+                    "description": "(Required String) The provider integration id.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "providerIntegrationId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getCatalogIntegrationCredentials:getCatalogIntegrationCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Tableflow API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Cluster API Secret for your Confluent Cloud cluster.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/getCatalogIntegrationEnvironment:getCatalogIntegrationEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment, for example, `env-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getCatalogIntegrationKafkaCluster:getCatalogIntegrationKafkaCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getCatalogIntegrationSnowflake:getCatalogIntegrationSnowflake": {
+            "properties": {
+                "allowedScope": {
+                    "type": "string",
+                    "description": "(Required String) Allowed scope of the Snowflake Open Catalog.\n"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "(Required String) The catalog integration connection endpoint for Snowflake Open Catalog.\n"
+                },
+                "warehouse": {
+                    "type": "string",
+                    "description": "(Required String) Warehouse name of the Snowflake Open Catalog.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowedScope",
+                "endpoint",
+                "warehouse"
             ],
             "language": {
                 "nodejs": {
@@ -5198,6 +5467,79 @@
                 "id"
             ]
         },
+        "confluentcloud:index/getTableflowTopicByobAw:getTableflowTopicByobAw": {
+            "properties": {
+                "bucketName": {
+                    "type": "string",
+                    "description": "(Required String) The bucket name.\n"
+                },
+                "bucketRegion": {
+                    "type": "string",
+                    "description": "(Required String) The bucket region.\n"
+                },
+                "providerIntegrationId": {
+                    "type": "string",
+                    "description": "(Required String) The provider integration id.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "bucketName",
+                "bucketRegion",
+                "providerIntegrationId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getTableflowTopicCredentials:getTableflowTopicCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Tableflow API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Cluster API Secret for your Confluent Cloud cluster.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/getTableflowTopicEnvironment:getTableflowTopicEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment, for example, `env-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getTableflowTopicKafkaCluster:getTableflowTopicKafkaCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getTableflowTopicManagedStorage:getTableflowTopicManagedStorage": {
+            "type": "object"
+        },
         "confluentcloud:index/getTagBindingCredentials:getTagBindingCredentials": {
             "properties": {
                 "key": {
@@ -5415,6 +5757,16 @@
             "schemaRegistryRestEndpoint": {
                 "type": "string",
                 "description": "The Schema Registry Cluster REST Endpoint.\n"
+            },
+            "tableflowApiKey": {
+                "type": "string",
+                "description": "The Tableflow API Key.\n",
+                "secret": true
+            },
+            "tableflowApiSecret": {
+                "type": "string",
+                "description": "The Tableflow API Secret.\n",
+                "secret": true
             }
         },
         "inputProperties": {
@@ -5505,6 +5857,16 @@
             "schemaRegistryRestEndpoint": {
                 "type": "string",
                 "description": "The Schema Registry Cluster REST Endpoint.\n"
+            },
+            "tableflowApiKey": {
+                "type": "string",
+                "description": "The Tableflow API Key.\n",
+                "secret": true
+            },
+            "tableflowApiSecret": {
+                "type": "string",
+                "description": "The Tableflow API Secret.\n",
+                "secret": true
             }
         }
     },
@@ -6122,6 +6484,114 @@
                     "schemaRegistryCluster": {
                         "$ref": "#/types/confluentcloud:index/CatalogEntityAttributesSchemaRegistryCluster:CatalogEntityAttributesSchemaRegistryCluster",
                         "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/catalogIntegration:CatalogIntegration": {
+            "description": "## Example Usage\n\n### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.CatalogIntegration(\"example\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: \"catalog-integration-1\",\n    awsGlue: {\n        providerIntegrationId: main.id,\n    },\n    credentials: {\n        key: env_admin_tableflow_api_key.id,\n        secret: env_admin_tableflow_api_key.secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.CatalogIntegration(\"example\",\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=\"catalog-integration-1\",\n    aws_glue={\n        \"provider_integration_id\": main[\"id\"],\n    },\n    credentials={\n        \"key\": env_admin_tableflow_api_key[\"id\"],\n        \"secret\": env_admin_tableflow_api_key[\"secret\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.CatalogIntegration(\"example\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.CatalogIntegrationEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.CatalogIntegrationKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = \"catalog-integration-1\",\n        AwsGlue = new ConfluentCloud.Inputs.CatalogIntegrationAwsGlueArgs\n        {\n            ProviderIntegrationId = main.Id,\n        },\n        Credentials = new ConfluentCloud.Inputs.CatalogIntegrationCredentialsArgs\n        {\n            Key = env_admin_tableflow_api_key.Id,\n            Secret = env_admin_tableflow_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewCatalogIntegration(ctx, \"example\", \u0026confluentcloud.CatalogIntegrationArgs{\n\t\t\tEnvironment: \u0026confluentcloud.CatalogIntegrationEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.CatalogIntegrationKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.String(\"catalog-integration-1\"),\n\t\t\tAwsGlue: \u0026confluentcloud.CatalogIntegrationAwsGlueArgs{\n\t\t\t\tProviderIntegrationId: pulumi.Any(main.Id),\n\t\t\t},\n\t\t\tCredentials: \u0026confluentcloud.CatalogIntegrationCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(env_admin_tableflow_api_key.Id),\n\t\t\t\tSecret: pulumi.Any(env_admin_tableflow_api_key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.CatalogIntegration;\nimport com.pulumi.confluentcloud.CatalogIntegrationArgs;\nimport com.pulumi.confluentcloud.inputs.CatalogIntegrationEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.CatalogIntegrationKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.CatalogIntegrationAwsGlueArgs;\nimport com.pulumi.confluentcloud.inputs.CatalogIntegrationCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new CatalogIntegration(\"example\", CatalogIntegrationArgs.builder()\n            .environment(CatalogIntegrationEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(CatalogIntegrationKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(\"catalog-integration-1\")\n            .awsGlue(CatalogIntegrationAwsGlueArgs.builder()\n                .providerIntegrationId(main.id())\n                .build())\n            .credentials(CatalogIntegrationCredentialsArgs.builder()\n                .key(env_admin_tableflow_api_key.id())\n                .secret(env_admin_tableflow_api_key.secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:CatalogIntegration\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: catalog-integration-1\n      awsGlue:\n        providerIntegrationId: ${main.id}\n      credentials:\n        key: ${[\"env-admin-tableflow-api-key\"].id}\n        secret: ${[\"env-admin-tableflow-api-key\"].secret}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Catalog Integration in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.CatalogIntegration(\"example\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: \"catalog-integration-1\",\n    snowflake: {\n        endpoint: \"https://vuser1_polaris.snowflakecomputing.com/\",\n        clientId: \"***REDACTED***\",\n        clientSecret: \"***REDACTED***\",\n        warehouse: \"catalog-name\",\n        allowedScope: \"session:role:R1\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.CatalogIntegration(\"example\",\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=\"catalog-integration-1\",\n    snowflake={\n        \"endpoint\": \"https://vuser1_polaris.snowflakecomputing.com/\",\n        \"client_id\": \"***REDACTED***\",\n        \"client_secret\": \"***REDACTED***\",\n        \"warehouse\": \"catalog-name\",\n        \"allowed_scope\": \"session:role:R1\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.CatalogIntegration(\"example\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.CatalogIntegrationEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.CatalogIntegrationKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = \"catalog-integration-1\",\n        Snowflake = new ConfluentCloud.Inputs.CatalogIntegrationSnowflakeArgs\n        {\n            Endpoint = \"https://vuser1_polaris.snowflakecomputing.com/\",\n            ClientId = \"***REDACTED***\",\n            ClientSecret = \"***REDACTED***\",\n            Warehouse = \"catalog-name\",\n            AllowedScope = \"session:role:R1\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewCatalogIntegration(ctx, \"example\", \u0026confluentcloud.CatalogIntegrationArgs{\n\t\t\tEnvironment: \u0026confluentcloud.CatalogIntegrationEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.CatalogIntegrationKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.String(\"catalog-integration-1\"),\n\t\t\tSnowflake: \u0026confluentcloud.CatalogIntegrationSnowflakeArgs{\n\t\t\t\tEndpoint:     pulumi.String(\"https://vuser1_polaris.snowflakecomputing.com/\"),\n\t\t\t\tClientId:     pulumi.String(\"***REDACTED***\"),\n\t\t\t\tClientSecret: pulumi.String(\"***REDACTED***\"),\n\t\t\t\tWarehouse:    pulumi.String(\"catalog-name\"),\n\t\t\t\tAllowedScope: pulumi.String(\"session:role:R1\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.CatalogIntegration;\nimport com.pulumi.confluentcloud.CatalogIntegrationArgs;\nimport com.pulumi.confluentcloud.inputs.CatalogIntegrationEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.CatalogIntegrationKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.CatalogIntegrationSnowflakeArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new CatalogIntegration(\"example\", CatalogIntegrationArgs.builder()\n            .environment(CatalogIntegrationEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(CatalogIntegrationKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(\"catalog-integration-1\")\n            .snowflake(CatalogIntegrationSnowflakeArgs.builder()\n                .endpoint(\"https://vuser1_polaris.snowflakecomputing.com/\")\n                .clientId(\"***REDACTED***\")\n                .clientSecret(\"***REDACTED***\")\n                .warehouse(\"catalog-name\")\n                .allowedScope(\"session:role:R1\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:CatalogIntegration\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: catalog-integration-1\n      snowflake:\n        endpoint: https://vuser1_polaris.snowflakecomputing.com/\n        clientId: '***REDACTED***'\n        clientSecret: '***REDACTED***'\n        warehouse: catalog-name\n        allowedScope: session:role:R1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Catalog Integration by using the Catalog Integration name, Environment ID, and Kafka Cluster ID, in the format `\u003cEnvironment ID\u003e/\u003cKafka Cluster ID\u003e/\u003cCatalog Integration Id\u003e`, for example:\n\nOption #1: Manage multiple Catalog Integrations in the same Pulumi Stack\n\n$ export IMPORT_TABLEFLOW_API_KEY=\"\u003ctableflow_api_key\u003e\"\n\n$ export IMPORT_TABLEFLOW_API_SECRET=\"\u003ctableflow_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/catalogIntegration:CatalogIntegration example env-abc123/lkc-abc123/tci-abc123\n```\n\nOption #2: Manage a single Catalog Integration in the same Pulumi Stack\n\n```sh\n$ pulumi import confluentcloud:index/catalogIntegration:CatalogIntegration example env-abc123/lkc-abc123/tci-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "awsGlue": {
+                    "$ref": "#/types/confluentcloud:index/CatalogIntegrationAwsGlue:CatalogIntegrationAwsGlue",
+                    "description": "The catalog integration Glue connection configuration.\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/CatalogIntegrationCredentials:CatalogIntegrationCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the catalog integration.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/CatalogIntegrationEnvironment:CatalogIntegrationEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/CatalogIntegrationKafkaCluster:CatalogIntegrationKafkaCluster"
+                },
+                "snowflake": {
+                    "$ref": "#/types/confluentcloud:index/CatalogIntegrationSnowflake:CatalogIntegrationSnowflake",
+                    "description": "The catalog integration connection configuration for Snowflake Open Catalog.\n"
+                },
+                "suspended": {
+                    "type": "boolean",
+                    "description": "(Optional Boolean) Indicates whether the Catalog Integration should be suspended.\n"
+                }
+            },
+            "required": [
+                "displayName",
+                "environment",
+                "kafkaCluster",
+                "suspended"
+            ],
+            "inputProperties": {
+                "awsGlue": {
+                    "$ref": "#/types/confluentcloud:index/CatalogIntegrationAwsGlue:CatalogIntegrationAwsGlue",
+                    "description": "The catalog integration Glue connection configuration.\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/CatalogIntegrationCredentials:CatalogIntegrationCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the catalog integration.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/CatalogIntegrationEnvironment:CatalogIntegrationEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/CatalogIntegrationKafkaCluster:CatalogIntegrationKafkaCluster",
+                    "willReplaceOnChanges": true
+                },
+                "snowflake": {
+                    "$ref": "#/types/confluentcloud:index/CatalogIntegrationSnowflake:CatalogIntegrationSnowflake",
+                    "description": "The catalog integration connection configuration for Snowflake Open Catalog.\n"
+                }
+            },
+            "requiredInputs": [
+                "displayName",
+                "environment",
+                "kafkaCluster"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CatalogIntegration resources.\n",
+                "properties": {
+                    "awsGlue": {
+                        "$ref": "#/types/confluentcloud:index/CatalogIntegrationAwsGlue:CatalogIntegrationAwsGlue",
+                        "description": "The catalog integration Glue connection configuration.\n"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/CatalogIntegrationCredentials:CatalogIntegrationCredentials",
+                        "description": "The Cluster API Credentials.\n",
+                        "secret": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the catalog integration.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/CatalogIntegrationEnvironment:CatalogIntegrationEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/CatalogIntegrationKafkaCluster:CatalogIntegrationKafkaCluster",
+                        "willReplaceOnChanges": true
+                    },
+                    "snowflake": {
+                        "$ref": "#/types/confluentcloud:index/CatalogIntegrationSnowflake:CatalogIntegrationSnowflake",
+                        "description": "The catalog integration connection configuration for Snowflake Open Catalog.\n"
+                    },
+                    "suspended": {
+                        "type": "boolean",
+                        "description": "(Optional Boolean) Indicates whether the Catalog Integration should be suspended.\n"
                     }
                 },
                 "type": "object"
@@ -11100,6 +11570,192 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/tableflowTopic:TableflowTopic": {
+            "description": "## Example Usage\n\n### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    managedStorages: [{}],\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    tableFormats: [\n        \"ICEBERG\",\n        \"DELTA\",\n    ],\n    credentials: {\n        key: env_admin_tableflow_api_key.id,\n        secret: env_admin_tableflow_api_key.secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    managed_storages=[{}],\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    table_formats=[\n        \"ICEBERG\",\n        \"DELTA\",\n    ],\n    credentials={\n        \"key\": env_admin_tableflow_api_key[\"id\"],\n        \"secret\": env_admin_tableflow_api_key[\"secret\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        ManagedStorages = new[]\n        {\n            null,\n        },\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        TableFormats = new[]\n        {\n            \"ICEBERG\",\n            \"DELTA\",\n        },\n        Credentials = new ConfluentCloud.Inputs.TableflowTopicCredentialsArgs\n        {\n            Key = env_admin_tableflow_api_key.Id,\n            Secret = env_admin_tableflow_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tManagedStorages: confluentcloud.TableflowTopicManagedStorageArray{\n\t\t\t\t\u0026confluentcloud.TableflowTopicManagedStorageArgs{},\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tTableFormats: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"ICEBERG\"),\n\t\t\t\tpulumi.String(\"DELTA\"),\n\t\t\t},\n\t\t\tCredentials: \u0026confluentcloud.TableflowTopicCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(env_admin_tableflow_api_key.Id),\n\t\t\t\tSecret: pulumi.Any(env_admin_tableflow_api_key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicManagedStorageArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .managedStorages()\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .tableFormats(            \n                \"ICEBERG\",\n                \"DELTA\")\n            .credentials(TableflowTopicCredentialsArgs.builder()\n                .key(env_admin_tableflow_api_key.id())\n                .secret(env_admin_tableflow_api_key.secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      managedStorages:\n        - {}\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      tableFormats:\n        - ICEBERG\n        - DELTA\n      credentials:\n        key: ${[\"env-admin-tableflow-api-key\"].id}\n        secret: ${[\"env-admin-tableflow-api-key\"].secret}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    byobAws: {\n        bucketName: \"bucket_1\",\n        providerIntegrationId: main.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    byob_aws={\n        \"bucket_name\": \"bucket_1\",\n        \"provider_integration_id\": main[\"id\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        ByobAws = new ConfluentCloud.Inputs.TableflowTopicByobAwsArgs\n        {\n            BucketName = \"bucket_1\",\n            ProviderIntegrationId = main.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tByobAws: \u0026confluentcloud.TableflowTopicByobAwsArgs{\n\t\t\t\tBucketName:            pulumi.String(\"bucket_1\"),\n\t\t\t\tProviderIntegrationId: pulumi.Any(main.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicByobAwsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .byobAws(TableflowTopicByobAwsArgs.builder()\n                .bucketName(\"bucket_1\")\n                .providerIntegrationId(main.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      byobAws:\n        bucketName: bucket_1\n        providerIntegrationId: ${main.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with `confluentcloud.TableflowTopic` resource:\n* `confluent-managed-storage`: Tableflow topic with Confluent-managed storage.\n\n## Import\n\nYou can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `\u003cEnvironment ID\u003e/\u003cKafka Cluster ID\u003e/\u003cTableflow Topic name\u003e`, for example:\n\nOption #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n$ export IMPORT_TABLEFLOW_API_KEY=\"\u003ctableflow_api_key\u003e\"\n\n$ export IMPORT_TABLEFLOW_API_SECRET=\"\u003ctableflow_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders\n```\n\nOption #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n```sh\n$ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "byobAws": {
+                    "$ref": "#/types/confluentcloud:index/TableflowTopicByobAws:TableflowTopicByobAws",
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/TableflowTopicCredentials:TableflowTopicCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Kafka topic for which Tableflow is enabled.\n"
+                },
+                "enableCompaction": {
+                    "type": "boolean",
+                    "description": "(Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.\n"
+                },
+                "enablePartitioning": {
+                    "type": "boolean",
+                    "description": "(Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/TableflowTopicEnvironment:TableflowTopicEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster"
+                },
+                "managedStorages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/TableflowTopicManagedStorage:TableflowTopicManagedStorage"
+                    },
+                    "description": "The configuration of the Confluent managed bucket.\n"
+                },
+                "recordFailureStrategy": {
+                    "type": "string",
+                    "description": "The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.\n"
+                },
+                "retentionMs": {
+                    "type": "string",
+                    "description": "The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.\n"
+                },
+                "suspended": {
+                    "type": "boolean",
+                    "description": "(Optional Boolean) Indicates whether the Tableflow should be suspended.\n"
+                },
+                "tableFormats": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.\n"
+                }
+            },
+            "required": [
+                "displayName",
+                "enableCompaction",
+                "enablePartitioning",
+                "environment",
+                "kafkaCluster",
+                "recordFailureStrategy",
+                "suspended",
+                "tableFormats"
+            ],
+            "inputProperties": {
+                "byobAws": {
+                    "$ref": "#/types/confluentcloud:index/TableflowTopicByobAws:TableflowTopicByobAws",
+                    "description": "(Optional Configuration Block) supports the following:\n",
+                    "willReplaceOnChanges": true
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/TableflowTopicCredentials:TableflowTopicCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Kafka topic for which Tableflow is enabled.\n",
+                    "willReplaceOnChanges": true
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/TableflowTopicEnvironment:TableflowTopicEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster",
+                    "willReplaceOnChanges": true
+                },
+                "managedStorages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/TableflowTopicManagedStorage:TableflowTopicManagedStorage"
+                    },
+                    "description": "The configuration of the Confluent managed bucket.\n"
+                },
+                "recordFailureStrategy": {
+                    "type": "string",
+                    "description": "The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.\n"
+                },
+                "retentionMs": {
+                    "type": "string",
+                    "description": "The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.\n"
+                },
+                "tableFormats": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.\n"
+                }
+            },
+            "requiredInputs": [
+                "displayName",
+                "environment",
+                "kafkaCluster"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TableflowTopic resources.\n",
+                "properties": {
+                    "byobAws": {
+                        "$ref": "#/types/confluentcloud:index/TableflowTopicByobAws:TableflowTopicByobAws",
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/TableflowTopicCredentials:TableflowTopicCredentials",
+                        "description": "The Cluster API Credentials.\n",
+                        "secret": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Kafka topic for which Tableflow is enabled.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "enableCompaction": {
+                        "type": "boolean",
+                        "description": "(Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.\n"
+                    },
+                    "enablePartitioning": {
+                        "type": "boolean",
+                        "description": "(Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/TableflowTopicEnvironment:TableflowTopicEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster",
+                        "willReplaceOnChanges": true
+                    },
+                    "managedStorages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/TableflowTopicManagedStorage:TableflowTopicManagedStorage"
+                        },
+                        "description": "The configuration of the Confluent managed bucket.\n"
+                    },
+                    "recordFailureStrategy": {
+                        "type": "string",
+                        "description": "The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.\n"
+                    },
+                    "retentionMs": {
+                        "type": "string",
+                        "description": "The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.\n"
+                    },
+                    "suspended": {
+                        "type": "boolean",
+                        "description": "(Optional Boolean) Indicates whether the Tableflow should be suspended.\n"
+                    },
+                    "tableFormats": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/tag:Tag": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.Tag` provides a Tag resource that enables creating, editing, and deleting Tags on Confluent Cloud.\n\n## Example Usage\n\n### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst pii = new confluentcloud.Tag(\"pii\", {\n    schemaRegistryCluster: {\n        id: essentials.id,\n    },\n    restEndpoint: essentials.restEndpoint,\n    credentials: {\n        key: \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        secret: \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    },\n    name: \"PII\",\n    description: \"PII tag\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\npii = confluentcloud.Tag(\"pii\",\n    schema_registry_cluster={\n        \"id\": essentials[\"id\"],\n    },\n    rest_endpoint=essentials[\"restEndpoint\"],\n    credentials={\n        \"key\": \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        \"secret\": \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    },\n    name=\"PII\",\n    description=\"PII tag\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var pii = new ConfluentCloud.Tag(\"pii\", new()\n    {\n        SchemaRegistryCluster = new ConfluentCloud.Inputs.TagSchemaRegistryClusterArgs\n        {\n            Id = essentials.Id,\n        },\n        RestEndpoint = essentials.RestEndpoint,\n        Credentials = new ConfluentCloud.Inputs.TagCredentialsArgs\n        {\n            Key = \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n            Secret = \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n        },\n        Name = \"PII\",\n        Description = \"PII tag\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTag(ctx, \"pii\", \u0026confluentcloud.TagArgs{\n\t\t\tSchemaRegistryCluster: \u0026confluentcloud.TagSchemaRegistryClusterArgs{\n\t\t\t\tId: pulumi.Any(essentials.Id),\n\t\t\t},\n\t\t\tRestEndpoint: pulumi.Any(essentials.RestEndpoint),\n\t\t\tCredentials: \u0026confluentcloud.TagCredentialsArgs{\n\t\t\t\tKey:    pulumi.String(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t\tSecret: pulumi.String(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t},\n\t\t\tName:        pulumi.String(\"PII\"),\n\t\t\tDescription: pulumi.String(\"PII tag\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Tag;\nimport com.pulumi.confluentcloud.TagArgs;\nimport com.pulumi.confluentcloud.inputs.TagSchemaRegistryClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TagCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var pii = new Tag(\"pii\", TagArgs.builder()\n            .schemaRegistryCluster(TagSchemaRegistryClusterArgs.builder()\n                .id(essentials.id())\n                .build())\n            .restEndpoint(essentials.restEndpoint())\n            .credentials(TagCredentialsArgs.builder()\n                .key(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .secret(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .build())\n            .name(\"PII\")\n            .description(\"PII tag\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  pii:\n    type: confluentcloud:Tag\n    properties:\n      schemaRegistryCluster:\n        id: ${essentials.id}\n      restEndpoint: ${essentials.restEndpoint}\n      credentials:\n        key: \u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\n        secret: \u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\n      name: PII\n      description: PII tag\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst pii = new confluentcloud.Tag(\"pii\", {\n    name: \"PII\",\n    description: \"PII tag\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\npii = confluentcloud.Tag(\"pii\",\n    name=\"PII\",\n    description=\"PII tag\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var pii = new ConfluentCloud.Tag(\"pii\", new()\n    {\n        Name = \"PII\",\n        Description = \"PII tag\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTag(ctx, \"pii\", \u0026confluentcloud.TagArgs{\n\t\t\tName:        pulumi.String(\"PII\"),\n\t\t\tDescription: pulumi.String(\"PII tag\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Tag;\nimport com.pulumi.confluentcloud.TagArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var pii = new Tag(\"pii\", TagArgs.builder()\n            .name(\"PII\")\n            .description(\"PII tag\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  pii:\n    type: confluentcloud:Tag\n    properties:\n      name: PII\n      description: PII tag\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\u003e **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.\n\n\n## Getting Started\n\nThe following end-to-end example might help to get started with [Stream Catalog](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html):\n* stream-catalog\n\n## Import\n\nYou can import a Tag by using the Schema Registry cluster ID, Tag name in the format `\u003cSchema Registry cluster ID\u003e/\u003cTag name\u003e`, for example:\n\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n\n$ export IMPORT_CATALOG_REST_ENDPOINT=\"\u003ccatalog_rest_endpoint\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/tag:Tag pii lsrc-8wrx70/PII\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
@@ -11727,6 +12383,84 @@
                     "azures",
                     "gcps",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getCatalogIntegration:getCatalogIntegration": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.CatalogIntegration` describes a Catalog Integration data source.\n\n## Example Usage\n\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getCatalogIntegration.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getCatalogIntegrationCredentials:getCatalogIntegrationCredentials",
+                        "secret": true
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getCatalogIntegrationEnvironment:getCatalogIntegrationEnvironment"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Catalog Integration, for example, `tci-abc123`.\n"
+                    },
+                    "kafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/getCatalogIntegrationKafkaCluster:getCatalogIntegrationKafkaCluster"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environment",
+                    "id",
+                    "kafkaCluster"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCatalogIntegration.\n",
+                "properties": {
+                    "awsGlues": {
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getCatalogIntegrationAwsGlue:getCatalogIntegrationAwsGlue"
+                        },
+                        "type": "array"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getCatalogIntegrationCredentials:getCatalogIntegrationCredentials",
+                        "secret": true
+                    },
+                    "displayName": {
+                        "description": "(Required String) The name of the catalog integration.\n",
+                        "type": "string"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getCatalogIntegrationEnvironment:getCatalogIntegrationEnvironment"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "kafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/getCatalogIntegrationKafkaCluster:getCatalogIntegrationKafkaCluster"
+                    },
+                    "snowflakes": {
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getCatalogIntegrationSnowflake:getCatalogIntegrationSnowflake"
+                        },
+                        "type": "array"
+                    },
+                    "suspended": {
+                        "description": "(Optional Boolean) Indicates whether the Catalog Integration should be suspended.\n",
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "awsGlues",
+                    "displayName",
+                    "environment",
+                    "id",
+                    "kafkaCluster",
+                    "snowflakes",
+                    "suspended"
                 ],
                 "type": "object"
             }
@@ -14614,6 +15348,112 @@
                 "required": [
                     "mode",
                     "subjectName",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getTableflowTopic:getTableflowTopic": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.TableflowTopic` describes a Tableflow Topic data source.\n\n## Example Usage\n\n### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nexport = async () =\u003e {\n    const example = await confluentcloud.getTableflowTopic({\n        environment: {\n            id: staging.id,\n        },\n        kafkaCluster: {\n            id: stagingConfluentKafkaCluster.id,\n        },\n        displayName: \"tableflow-example\",\n        credentials: {\n            key: env_admin_tableflow_api_key.id,\n            secret: env_admin_tableflow_api_key.secret,\n        },\n    });\n    return {\n        \"retention-ms\": example.retentionMs,\n    };\n}\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_tableflow_topic(environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=\"tableflow-example\",\n    credentials={\n        \"key\": env_admin_tableflow_api_key[\"id\"],\n        \"secret\": env_admin_tableflow_api_key[\"secret\"],\n    })\npulumi.export(\"retention-ms\", example.retention_ms)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.GetTableflowTopic.Invoke(new()\n    {\n        Environment = new ConfluentCloud.Inputs.GetTableflowTopicEnvironmentInputArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.GetTableflowTopicKafkaClusterInputArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = \"tableflow-example\",\n        Credentials = new ConfluentCloud.Inputs.GetTableflowTopicCredentialsInputArgs\n        {\n            Key = env_admin_tableflow_api_key.Id,\n            Secret = env_admin_tableflow_api_key.Secret,\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"retention-ms\"] = example.Apply(getTableflowTopicResult =\u003e getTableflowTopicResult.RetentionMs),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.LookupTableflowTopic(ctx, \u0026confluentcloud.LookupTableflowTopicArgs{\n\t\t\tEnvironment: confluentcloud.GetTableflowTopicEnvironment{\n\t\t\t\tId: staging.Id,\n\t\t\t},\n\t\t\tKafkaCluster: confluentcloud.GetTableflowTopicKafkaCluster{\n\t\t\t\tId: stagingConfluentKafkaCluster.Id,\n\t\t\t},\n\t\t\tDisplayName: \"tableflow-example\",\n\t\t\tCredentials: confluentcloud.GetTableflowTopicCredentials{\n\t\t\t\tKey:    env_admin_tableflow_api_key.Id,\n\t\t\t\tSecret: env_admin_tableflow_api_key.Secret,\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"retention-ms\", example.RetentionMs)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.GetTableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.GetTableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.GetTableflowTopicCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()\n            .environment(GetTableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(GetTableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(\"tableflow-example\")\n            .credentials(GetTableflowTopicCredentialsArgs.builder()\n                .key(env_admin_tableflow_api_key.id())\n                .secret(env_admin_tableflow_api_key.secret())\n                .build())\n            .build());\n\n        ctx.export(\"retention-ms\", example.applyValue(getTableflowTopicResult -\u003e getTableflowTopicResult.retentionMs()));\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getTableflowTopic\n      arguments:\n        environment:\n          id: ${staging.id}\n        kafkaCluster:\n          id: ${stagingConfluentKafkaCluster.id}\n        displayName: tableflow-example\n        credentials:\n          key: ${[\"env-admin-tableflow-api-key\"].id}\n          secret: ${[\"env-admin-tableflow-api-key\"].secret}\noutputs:\n  retention-ms: ${example.retentionMs}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nexport = async () =\u003e {\n    const example = await confluentcloud.getTableflowTopic({\n        displayName: \"tableflow-example\",\n    });\n    return {\n        \"retention-ms\": example.retentionMs,\n    };\n}\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_tableflow_topic(display_name=\"tableflow-example\")\npulumi.export(\"retention-ms\", example.retention_ms)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.GetTableflowTopic.Invoke(new()\n    {\n        DisplayName = \"tableflow-example\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"retention-ms\"] = example.Apply(getTableflowTopicResult =\u003e getTableflowTopicResult.RetentionMs),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.LookupTableflowTopic(ctx, \u0026confluentcloud.LookupTableflowTopicArgs{\n\t\t\tDisplayName: \"tableflow-example\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"retention-ms\", example.RetentionMs)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetTableflowTopicArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getTableflowTopic(GetTableflowTopicArgs.builder()\n            .displayName(\"tableflow-example\")\n            .build());\n\n        ctx.export(\"retention-ms\", example.applyValue(getTableflowTopicResult -\u003e getTableflowTopicResult.retentionMs()));\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getTableflowTopic\n      arguments:\n        displayName: tableflow-example\noutputs:\n  retention-ms: ${example.retentionMs}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getTableflowTopic.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getTableflowTopicCredentials:getTableflowTopicCredentials",
+                        "secret": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Tableflow Topic.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getTableflowTopicEnvironment:getTableflowTopicEnvironment"
+                    },
+                    "kafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/getTableflowTopicKafkaCluster:getTableflowTopicKafkaCluster"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "displayName",
+                    "environment",
+                    "kafkaCluster"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTableflowTopic.\n",
+                "properties": {
+                    "byobAws": {
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getTableflowTopicByobAw:getTableflowTopicByobAw"
+                        },
+                        "type": "array"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getTableflowTopicCredentials:getTableflowTopicCredentials",
+                        "secret": true
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "enableCompaction": {
+                        "description": "(Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.\n",
+                        "type": "boolean"
+                    },
+                    "enablePartitioning": {
+                        "description": "(Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.\n",
+                        "type": "boolean"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getTableflowTopicEnvironment:getTableflowTopicEnvironment"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "kafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/getTableflowTopicKafkaCluster:getTableflowTopicKafkaCluster"
+                    },
+                    "managedStorages": {
+                        "description": "(Optional Configuration Block) The configuration of the Confluent managed bucket.\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getTableflowTopicManagedStorage:getTableflowTopicManagedStorage"
+                        },
+                        "type": "array"
+                    },
+                    "recordFailureStrategy": {
+                        "description": "(Optional String) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.\n",
+                        "type": "string"
+                    },
+                    "retentionMs": {
+                        "description": "(Optional String) The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.\n",
+                        "type": "string"
+                    },
+                    "suspended": {
+                        "description": "(Optional Boolean) Indicates whether the Tableflow should be suspended.\n",
+                        "type": "boolean"
+                    },
+                    "tableFormats": {
+                        "description": "(Optional List) The supported table formats for the Tableflow-enabled topic.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "byobAws",
+                    "displayName",
+                    "enableCompaction",
+                    "enablePartitioning",
+                    "environment",
+                    "kafkaCluster",
+                    "managedStorages",
+                    "recordFailureStrategy",
+                    "retentionMs",
+                    "suspended",
+                    "tableFormats",
                     "id"
                 ],
                 "type": "object"

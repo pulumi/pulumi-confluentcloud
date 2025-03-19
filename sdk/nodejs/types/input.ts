@@ -257,6 +257,61 @@ export interface CatalogEntityAttributesSchemaRegistryCluster {
     id: pulumi.Input<string>;
 }
 
+export interface CatalogIntegrationAwsGlue {
+    /**
+     * The provider integration id.
+     */
+    providerIntegrationId: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationCredentials {
+    /**
+     * The Tableflow API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationKafkaCluster {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationSnowflake {
+    /**
+     * Allowed scope of the Snowflake Open Catalog.
+     */
+    allowedScope: pulumi.Input<string>;
+    /**
+     * The client ID of the catalog integration.
+     */
+    clientId: pulumi.Input<string>;
+    /**
+     * The client secret of the catalog integration.
+     */
+    clientSecret: pulumi.Input<string>;
+    /**
+     * The catalog integration connection endpoint for Snowflake Open Catalog.
+     */
+    endpoint: pulumi.Input<string>;
+    /**
+     * Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+     */
+    warehouse: pulumi.Input<string>;
+}
+
 export interface CertificatePoolCertificateAuthority {
     /**
      * The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
@@ -701,6 +756,56 @@ export interface GetBusinessMetadataSchemaRegistryCluster {
 export interface GetBusinessMetadataSchemaRegistryClusterArgs {
     /**
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetCatalogIntegrationCredentials {
+    /**
+     * The Tableflow API Key.
+     */
+    key: string;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: string;
+}
+
+export interface GetCatalogIntegrationCredentialsArgs {
+    /**
+     * The Tableflow API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetCatalogIntegrationEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface GetCatalogIntegrationEnvironmentArgs {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetCatalogIntegrationKafkaCluster {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetCatalogIntegrationKafkaClusterArgs {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -1881,6 +1986,56 @@ export interface GetSubjectModeSchemaRegistryClusterArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetTableflowTopicCredentials {
+    /**
+     * The Tableflow API Key.
+     */
+    key: string;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: string;
+}
+
+export interface GetTableflowTopicCredentialsArgs {
+    /**
+     * The Tableflow API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetTableflowTopicEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface GetTableflowTopicEnvironmentArgs {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetTableflowTopicKafkaCluster {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetTableflowTopicKafkaClusterArgs {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetTagBindingCredentials {
     /**
      * The Schema Registry API Key.
@@ -2839,6 +2994,49 @@ export interface SubjectModeSchemaRegistryCluster {
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: pulumi.Input<string>;
+}
+
+export interface TableflowTopicByobAws {
+    /**
+     * The bucket name.
+     */
+    bucketName: pulumi.Input<string>;
+    /**
+     * (Required String) The bucket region.
+     */
+    bucketRegion?: pulumi.Input<string>;
+    /**
+     * The provider integration id.
+     */
+    providerIntegrationId: pulumi.Input<string>;
+}
+
+export interface TableflowTopicCredentials {
+    /**
+     * The Tableflow API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface TableflowTopicEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface TableflowTopicKafkaCluster {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface TableflowTopicManagedStorage {
 }
 
 export interface TagBindingCredentials {

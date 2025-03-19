@@ -114,3 +114,13 @@ schemaRegistryRestEndpoint: Optional[str]
 The Schema Registry Cluster REST Endpoint.
 """
 
+tableflowApiKey: Optional[str]
+"""
+The Tableflow API Key.
+"""
+
+tableflowApiSecret: Optional[str]
+"""
+The Tableflow API Secret.
+"""
+

@@ -257,6 +257,61 @@ export interface CatalogEntityAttributesSchemaRegistryCluster {
     id: string;
 }
 
+export interface CatalogIntegrationAwsGlue {
+    /**
+     * The provider integration id.
+     */
+    providerIntegrationId: string;
+}
+
+export interface CatalogIntegrationCredentials {
+    /**
+     * The Tableflow API Key.
+     */
+    key: string;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: string;
+}
+
+export interface CatalogIntegrationEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface CatalogIntegrationKafkaCluster {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
+export interface CatalogIntegrationSnowflake {
+    /**
+     * Allowed scope of the Snowflake Open Catalog.
+     */
+    allowedScope: string;
+    /**
+     * The client ID of the catalog integration.
+     */
+    clientId: string;
+    /**
+     * The client secret of the catalog integration.
+     */
+    clientSecret: string;
+    /**
+     * The catalog integration connection endpoint for Snowflake Open Catalog.
+     */
+    endpoint: string;
+    /**
+     * Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+     */
+    warehouse: string;
+}
+
 export interface CertificatePoolCertificateAuthority {
     /**
      * The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
@@ -775,6 +830,53 @@ export interface GetByokKeyGcp {
      * (Optional String) The Google security group created for this key.
      */
     securityGroup: string;
+}
+
+export interface GetCatalogIntegrationAwsGlue {
+    /**
+     * (Required String) The provider integration id.
+     */
+    providerIntegrationId: string;
+}
+
+export interface GetCatalogIntegrationCredentials {
+    /**
+     * The Tableflow API Key.
+     */
+    key: string;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: string;
+}
+
+export interface GetCatalogIntegrationEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface GetCatalogIntegrationKafkaCluster {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetCatalogIntegrationSnowflake {
+    /**
+     * (Required String) Allowed scope of the Snowflake Open Catalog.
+     */
+    allowedScope: string;
+    /**
+     * (Required String) The catalog integration connection endpoint for Snowflake Open Catalog.
+     */
+    endpoint: string;
+    /**
+     * (Required String) Warehouse name of the Snowflake Open Catalog.
+     */
+    warehouse: string;
 }
 
 export interface GetCertificatePoolCertificateAuthority {
@@ -1868,6 +1970,49 @@ export interface GetSubjectModeSchemaRegistryCluster {
     id: string;
 }
 
+export interface GetTableflowTopicByobAw {
+    /**
+     * (Required String) The bucket name.
+     */
+    bucketName: string;
+    /**
+     * (Required String) The bucket region.
+     */
+    bucketRegion: string;
+    /**
+     * (Required String) The provider integration id.
+     */
+    providerIntegrationId: string;
+}
+
+export interface GetTableflowTopicCredentials {
+    /**
+     * The Tableflow API Key.
+     */
+    key: string;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: string;
+}
+
+export interface GetTableflowTopicEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface GetTableflowTopicKafkaCluster {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetTableflowTopicManagedStorage {
+}
+
 export interface GetTagBindingCredentials {
     /**
      * The Schema Registry API Key.
@@ -2807,6 +2952,49 @@ export interface SubjectModeSchemaRegistryCluster {
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: string;
+}
+
+export interface TableflowTopicByobAws {
+    /**
+     * The bucket name.
+     */
+    bucketName: string;
+    /**
+     * (Required String) The bucket region.
+     */
+    bucketRegion: string;
+    /**
+     * The provider integration id.
+     */
+    providerIntegrationId: string;
+}
+
+export interface TableflowTopicCredentials {
+    /**
+     * The Tableflow API Key.
+     */
+    key: string;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: string;
+}
+
+export interface TableflowTopicEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface TableflowTopicKafkaCluster {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
+export interface TableflowTopicManagedStorage {
 }
 
 export interface TagBindingCredentials {

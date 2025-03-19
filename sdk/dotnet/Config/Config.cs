@@ -232,5 +232,25 @@ namespace Pulumi.ConfluentCloud
             set => _schemaRegistryRestEndpoint.Set(value);
         }
 
+        private static readonly __Value<string?> _tableflowApiKey = new __Value<string?>(() => __config.Get("tableflowApiKey"));
+        /// <summary>
+        /// The Tableflow API Key.
+        /// </summary>
+        public static string? TableflowApiKey
+        {
+            get => _tableflowApiKey.Get();
+            set => _tableflowApiKey.Set(value);
+        }
+
+        private static readonly __Value<string?> _tableflowApiSecret = new __Value<string?>(() => __config.Get("tableflowApiSecret"));
+        /// <summary>
+        /// The Tableflow API Secret.
+        /// </summary>
+        public static string? TableflowApiSecret
+        {
+            get => _tableflowApiSecret.Get();
+            set => _tableflowApiSecret.Set(value);
+        }
+
     }
 }

@@ -289,6 +289,34 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     public Output<Optional<String>> schemaRegistryRestEndpoint() {
         return Codegen.optional(this.schemaRegistryRestEndpoint);
     }
+    /**
+     * The Tableflow API Key.
+     * 
+     */
+    @Export(name="tableflowApiKey", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tableflowApiKey;
+
+    /**
+     * @return The Tableflow API Key.
+     * 
+     */
+    public Output<Optional<String>> tableflowApiKey() {
+        return Codegen.optional(this.tableflowApiKey);
+    }
+    /**
+     * The Tableflow API Secret.
+     * 
+     */
+    @Export(name="tableflowApiSecret", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tableflowApiSecret;
+
+    /**
+     * @return The Tableflow API Secret.
+     * 
+     */
+    public Output<Optional<String>> tableflowApiSecret() {
+        return Codegen.optional(this.tableflowApiSecret);
+    }
 
     /**
      *
@@ -333,7 +361,9 @@ public class Provider extends com.pulumi.resources.ProviderResource {
                 "kafkaApiKey",
                 "kafkaApiSecret",
                 "schemaRegistryApiKey",
-                "schemaRegistryApiSecret"
+                "schemaRegistryApiSecret",
+                "tableflowApiKey",
+                "tableflowApiSecret"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

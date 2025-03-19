@@ -316,6 +316,36 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.schemaRegistryRestEndpoint);
     }
 
+    /**
+     * The Tableflow API Key.
+     * 
+     */
+    @Import(name="tableflowApiKey")
+    private @Nullable Output<String> tableflowApiKey;
+
+    /**
+     * @return The Tableflow API Key.
+     * 
+     */
+    public Optional<Output<String>> tableflowApiKey() {
+        return Optional.ofNullable(this.tableflowApiKey);
+    }
+
+    /**
+     * The Tableflow API Secret.
+     * 
+     */
+    @Import(name="tableflowApiSecret")
+    private @Nullable Output<String> tableflowApiSecret;
+
+    /**
+     * @return The Tableflow API Secret.
+     * 
+     */
+    public Optional<Output<String>> tableflowApiSecret() {
+        return Optional.ofNullable(this.tableflowApiSecret);
+    }
+
     private ProviderArgs() {}
 
     private ProviderArgs(ProviderArgs $) {
@@ -339,6 +369,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.schemaRegistryApiSecret = $.schemaRegistryApiSecret;
         this.schemaRegistryId = $.schemaRegistryId;
         this.schemaRegistryRestEndpoint = $.schemaRegistryRestEndpoint;
+        this.tableflowApiKey = $.tableflowApiKey;
+        this.tableflowApiSecret = $.tableflowApiSecret;
     }
 
     public static Builder builder() {
@@ -777,6 +809,48 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder schemaRegistryRestEndpoint(String schemaRegistryRestEndpoint) {
             return schemaRegistryRestEndpoint(Output.of(schemaRegistryRestEndpoint));
+        }
+
+        /**
+         * @param tableflowApiKey The Tableflow API Key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tableflowApiKey(@Nullable Output<String> tableflowApiKey) {
+            $.tableflowApiKey = tableflowApiKey;
+            return this;
+        }
+
+        /**
+         * @param tableflowApiKey The Tableflow API Key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tableflowApiKey(String tableflowApiKey) {
+            return tableflowApiKey(Output.of(tableflowApiKey));
+        }
+
+        /**
+         * @param tableflowApiSecret The Tableflow API Secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tableflowApiSecret(@Nullable Output<String> tableflowApiSecret) {
+            $.tableflowApiSecret = tableflowApiSecret;
+            return this;
+        }
+
+        /**
+         * @param tableflowApiSecret The Tableflow API Secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tableflowApiSecret(String tableflowApiSecret) {
+            return tableflowApiSecret(Output.of(tableflowApiSecret));
         }
 
         public ProviderArgs build() {
