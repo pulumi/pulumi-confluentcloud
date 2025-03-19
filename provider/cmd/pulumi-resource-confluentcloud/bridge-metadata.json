@@ -113,6 +113,26 @@
                     }
                 }
             },
+            "confluent_catalog_integration": {
+                "current": "confluentcloud:index/catalogIntegration:CatalogIntegration",
+                "fields": {
+                    "aws_glue": {
+                        "maxItemsOne": true
+                    },
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "kafka_cluster": {
+                        "maxItemsOne": true
+                    },
+                    "snowflake": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_certificate_authority": {
                 "current": "confluentcloud:index/certificateAuthority:CertificateAuthority",
                 "fields": {
@@ -792,6 +812,29 @@
                     }
                 }
             },
+            "confluent_tableflow_topic": {
+                "current": "confluentcloud:index/tableflowTopic:TableflowTopic",
+                "fields": {
+                    "byob_aws": {
+                        "maxItemsOne": true
+                    },
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "kafka_cluster": {
+                        "maxItemsOne": true
+                    },
+                    "managed_storage": {
+                        "maxItemsOne": false
+                    },
+                    "table_formats": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_tag": {
                 "current": "confluentcloud:index/tag:Tag",
                 "fields": {
@@ -927,6 +970,26 @@
                         "maxItemsOne": false
                     },
                     "gcp": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_catalog_integration": {
+                "current": "confluentcloud:index/getCatalogIntegration:getCatalogIntegration",
+                "fields": {
+                    "aws_glue": {
+                        "maxItemsOne": false
+                    },
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "kafka_cluster": {
+                        "maxItemsOne": true
+                    },
+                    "snowflake": {
                         "maxItemsOne": false
                     }
                 }
@@ -1547,6 +1610,29 @@
                     },
                     "schema_registry_cluster": {
                         "maxItemsOne": true
+                    }
+                }
+            },
+            "confluent_tableflow_topic": {
+                "current": "confluentcloud:index/getTableflowTopic:getTableflowTopic",
+                "fields": {
+                    "byob_aws": {
+                        "maxItemsOne": false
+                    },
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "kafka_cluster": {
+                        "maxItemsOne": true
+                    },
+                    "managed_storage": {
+                        "maxItemsOne": false
+                    },
+                    "table_formats": {
+                        "maxItemsOne": false
                     }
                 }
             },
