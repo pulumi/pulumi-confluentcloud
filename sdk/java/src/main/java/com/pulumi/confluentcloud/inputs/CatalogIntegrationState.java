@@ -22,14 +22,14 @@ public final class CatalogIntegrationState extends com.pulumi.resources.Resource
     public static final CatalogIntegrationState Empty = new CatalogIntegrationState();
 
     /**
-     * The catalog integration Glue connection configuration.
+     * supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
      * 
      */
     @Import(name="awsGlue")
     private @Nullable Output<CatalogIntegrationAwsGlueArgs> awsGlue;
 
     /**
-     * @return The catalog integration Glue connection configuration.
+     * @return supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
      * 
      */
     public Optional<Output<CatalogIntegrationAwsGlueArgs>> awsGlue() {
@@ -89,14 +89,14 @@ public final class CatalogIntegrationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The catalog integration connection configuration for Snowflake Open Catalog.
+     * supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
      * 
      */
     @Import(name="snowflake")
     private @Nullable Output<CatalogIntegrationSnowflakeArgs> snowflake;
 
     /**
-     * @return The catalog integration connection configuration for Snowflake Open Catalog.
+     * @return supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
      * 
      */
     public Optional<Output<CatalogIntegrationSnowflakeArgs>> snowflake() {
@@ -149,7 +149,7 @@ public final class CatalogIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param awsGlue The catalog integration Glue connection configuration.
+         * @param awsGlue supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class CatalogIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param awsGlue The catalog integration Glue connection configuration.
+         * @param awsGlue supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class CatalogIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param snowflake The catalog integration connection configuration for Snowflake Open Catalog.
+         * @param snowflake supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class CatalogIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param snowflake The catalog integration connection configuration for Snowflake Open Catalog.
+         * @param snowflake supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
          * 
          * @return builder
          * 

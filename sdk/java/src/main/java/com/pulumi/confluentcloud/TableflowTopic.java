@@ -129,6 +129,7 @@ import javax.annotation.Nullable;
  * 
  * The following end-to-end examples might help to get started with `confluentcloud.TableflowTopic` resource:
  * * `confluent-managed-storage`: Tableflow topic with Confluent-managed storage.
+ * * `byob-aws-storage`: Tableflow topic with custom (BYOB AWS) storage.
  * 
  * ## Import
  * 
@@ -156,14 +157,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="confluentcloud:index/tableflowTopic:TableflowTopic")
 public class TableflowTopic extends com.pulumi.resources.CustomResource {
     /**
-     * (Optional Configuration Block) supports the following:
+     * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      * 
      */
     @Export(name="byobAws", refs={TableflowTopicByobAws.class}, tree="[0]")
     private Output</* @Nullable */ TableflowTopicByobAws> byobAws;
 
     /**
-     * @return (Optional Configuration Block) supports the following:
+     * @return supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      * 
      */
     public Output<Optional<TableflowTopicByobAws>> byobAws() {
@@ -246,14 +247,14 @@ public class TableflowTopic extends com.pulumi.resources.CustomResource {
         return this.kafkaCluster;
     }
     /**
-     * The configuration of the Confluent managed bucket.
+     * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
      * 
      */
     @Export(name="managedStorages", refs={List.class,TableflowTopicManagedStorage.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TableflowTopicManagedStorage>> managedStorages;
 
     /**
-     * @return The configuration of the Confluent managed bucket.
+     * @return The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
      * 
      */
     public Output<Optional<List<TableflowTopicManagedStorage>>> managedStorages() {

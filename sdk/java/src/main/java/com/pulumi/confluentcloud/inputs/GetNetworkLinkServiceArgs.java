@@ -33,6 +33,21 @@ public final class GetNetworkLinkServiceArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.accept);
     }
 
+    /**
+     * The Display Name of the Network Link Service, for example, `DR Link`
+     * 
+     */
+    @Import(name="displayName")
+    private @Nullable Output<String> displayName;
+
+    /**
+     * @return The Display Name of the Network Link Service, for example, `DR Link`
+     * 
+     */
+    public Optional<Output<String>> displayName() {
+        return Optional.ofNullable(this.displayName);
+    }
+
     @Import(name="environment", required=true)
     private Output<GetNetworkLinkServiceEnvironmentArgs> environment;
 
@@ -44,21 +59,22 @@ public final class GetNetworkLinkServiceArgs extends com.pulumi.resources.Invoke
      * The ID of the Network Link Service, for example, `nls-zyw30`.
      * 
      */
-    @Import(name="id", required=true)
-    private Output<String> id;
+    @Import(name="id")
+    private @Nullable Output<String> id;
 
     /**
      * @return The ID of the Network Link Service, for example, `nls-zyw30`.
      * 
      */
-    public Output<String> id() {
-        return this.id;
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
     }
 
     private GetNetworkLinkServiceArgs() {}
 
     private GetNetworkLinkServiceArgs(GetNetworkLinkServiceArgs $) {
         this.accept = $.accept;
+        this.displayName = $.displayName;
         this.environment = $.environment;
         this.id = $.id;
     }
@@ -102,6 +118,27 @@ public final class GetNetworkLinkServiceArgs extends com.pulumi.resources.Invoke
             return accept(Output.of(accept));
         }
 
+        /**
+         * @param displayName The Display Name of the Network Link Service, for example, `DR Link`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder displayName(@Nullable Output<String> displayName) {
+            $.displayName = displayName;
+            return this;
+        }
+
+        /**
+         * @param displayName The Display Name of the Network Link Service, for example, `DR Link`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder displayName(String displayName) {
+            return displayName(Output.of(displayName));
+        }
+
         public Builder environment(Output<GetNetworkLinkServiceEnvironmentArgs> environment) {
             $.environment = environment;
             return this;
@@ -117,7 +154,7 @@ public final class GetNetworkLinkServiceArgs extends com.pulumi.resources.Invoke
          * @return builder
          * 
          */
-        public Builder id(Output<String> id) {
+        public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
@@ -135,9 +172,6 @@ public final class GetNetworkLinkServiceArgs extends com.pulumi.resources.Invoke
         public GetNetworkLinkServiceArgs build() {
             if ($.environment == null) {
                 throw new MissingRequiredPropertyException("GetNetworkLinkServiceArgs", "environment");
-            }
-            if ($.id == null) {
-                throw new MissingRequiredPropertyException("GetNetworkLinkServiceArgs", "id");
             }
             return $;
         }

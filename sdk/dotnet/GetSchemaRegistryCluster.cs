@@ -255,7 +255,11 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Package;
         /// <summary>
-        /// (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`.
+        /// (Required Map) The private regional HTTP endpoint map of the Schema Registry cluster. For example, to reference the endpoint corresponding to the us-central-1 region, use `private_regional_rest_endpoints["us-central-1"]`.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> PrivateRegionalRestEndpoints;
+        /// <summary>
+        /// (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`. Please use the `private_regional_rest_endpoints` attribute instead, which supersedes the `private_rest_endpoint` attribute.
         /// </summary>
         public readonly string PrivateRestEndpoint;
         /// <summary>
@@ -289,6 +293,8 @@ namespace Pulumi.ConfluentCloud
 
             string package,
 
+            ImmutableDictionary<string, string> privateRegionalRestEndpoints,
+
             string privateRestEndpoint,
 
             string region,
@@ -305,6 +311,7 @@ namespace Pulumi.ConfluentCloud
             Id = id;
             Kind = kind;
             Package = package;
+            PrivateRegionalRestEndpoints = privateRegionalRestEndpoints;
             PrivateRestEndpoint = privateRestEndpoint;
             Region = region;
             ResourceName = resourceName;

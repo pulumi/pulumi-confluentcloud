@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			nls, err := confluentcloud.LookupNetworkLinkService(ctx, &confluentcloud.LookupNetworkLinkServiceArgs{
-//				Id: "nls-zyw30",
+//				Id: pulumi.StringRef("nls-zyw30"),
 //				Environment: confluentcloud.GetNetworkLinkServiceEnvironment{
 //					Id: "env-1234",
 //				},
@@ -57,10 +57,12 @@ func LookupNetworkLinkService(ctx *pulumi.Context, args *LookupNetworkLinkServic
 // A collection of arguments for invoking getNetworkLinkService.
 type LookupNetworkLinkServiceArgs struct {
 	// (Optional Configuration Block) supports the following:
-	Accept      *GetNetworkLinkServiceAccept     `pulumi:"accept"`
+	Accept *GetNetworkLinkServiceAccept `pulumi:"accept"`
+	// The Display Name of the Network Link Service, for example, `DR Link`
+	DisplayName *string                          `pulumi:"displayName"`
 	Environment GetNetworkLinkServiceEnvironment `pulumi:"environment"`
 	// The ID of the Network Link Service, for example, `nls-zyw30`.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 // A collection of values returned by getNetworkLinkService.
@@ -92,10 +94,12 @@ func LookupNetworkLinkServiceOutput(ctx *pulumi.Context, args LookupNetworkLinkS
 // A collection of arguments for invoking getNetworkLinkService.
 type LookupNetworkLinkServiceOutputArgs struct {
 	// (Optional Configuration Block) supports the following:
-	Accept      GetNetworkLinkServiceAcceptPtrInput   `pulumi:"accept"`
+	Accept GetNetworkLinkServiceAcceptPtrInput `pulumi:"accept"`
+	// The Display Name of the Network Link Service, for example, `DR Link`
+	DisplayName pulumi.StringPtrInput                 `pulumi:"displayName"`
 	Environment GetNetworkLinkServiceEnvironmentInput `pulumi:"environment"`
 	// The ID of the Network Link Service, for example, `nls-zyw30`.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
 func (LookupNetworkLinkServiceOutputArgs) ElementType() reflect.Type {

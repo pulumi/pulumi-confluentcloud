@@ -123,14 +123,20 @@ namespace Pulumi.ConfluentCloud
         [Input("accept")]
         public Inputs.GetNetworkLinkServiceAcceptArgs? Accept { get; set; }
 
+        /// <summary>
+        /// The Display Name of the Network Link Service, for example, `DR Link`
+        /// </summary>
+        [Input("displayName")]
+        public string? DisplayName { get; set; }
+
         [Input("environment", required: true)]
         public Inputs.GetNetworkLinkServiceEnvironmentArgs Environment { get; set; } = null!;
 
         /// <summary>
         /// The ID of the Network Link Service, for example, `nls-zyw30`.
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("id")]
+        public string? Id { get; set; }
 
         public GetNetworkLinkServiceArgs()
         {
@@ -146,14 +152,20 @@ namespace Pulumi.ConfluentCloud
         [Input("accept")]
         public Input<Inputs.GetNetworkLinkServiceAcceptInputArgs>? Accept { get; set; }
 
+        /// <summary>
+        /// The Display Name of the Network Link Service, for example, `DR Link`
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
         [Input("environment", required: true)]
         public Input<Inputs.GetNetworkLinkServiceEnvironmentInputArgs> Environment { get; set; } = null!;
 
         /// <summary>
         /// The ID of the Network Link Service, for example, `nls-zyw30`.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         public GetNetworkLinkServiceInvokeArgs()
         {

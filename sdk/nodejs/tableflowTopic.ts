@@ -60,6 +60,7 @@ import * as utilities from "./utilities";
  *
  * The following end-to-end examples might help to get started with `confluentcloud.TableflowTopic` resource:
  * * `confluent-managed-storage`: Tableflow topic with Confluent-managed storage.
+ * * `byob-aws-storage`: Tableflow topic with custom (BYOB AWS) storage.
  *
  * ## Import
  *
@@ -112,7 +113,7 @@ export class TableflowTopic extends pulumi.CustomResource {
     }
 
     /**
-     * (Optional Configuration Block) supports the following:
+     * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      */
     public readonly byobAws!: pulumi.Output<outputs.TableflowTopicByobAws | undefined>;
     /**
@@ -137,7 +138,7 @@ export class TableflowTopic extends pulumi.CustomResource {
     public readonly environment!: pulumi.Output<outputs.TableflowTopicEnvironment>;
     public readonly kafkaCluster!: pulumi.Output<outputs.TableflowTopicKafkaCluster>;
     /**
-     * The configuration of the Confluent managed bucket.
+     * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
      */
     public readonly managedStorages!: pulumi.Output<outputs.TableflowTopicManagedStorage[] | undefined>;
     /**
@@ -218,7 +219,7 @@ export class TableflowTopic extends pulumi.CustomResource {
  */
 export interface TableflowTopicState {
     /**
-     * (Optional Configuration Block) supports the following:
+     * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      */
     byobAws?: pulumi.Input<inputs.TableflowTopicByobAws>;
     /**
@@ -243,7 +244,7 @@ export interface TableflowTopicState {
     environment?: pulumi.Input<inputs.TableflowTopicEnvironment>;
     kafkaCluster?: pulumi.Input<inputs.TableflowTopicKafkaCluster>;
     /**
-     * The configuration of the Confluent managed bucket.
+     * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
      */
     managedStorages?: pulumi.Input<pulumi.Input<inputs.TableflowTopicManagedStorage>[]>;
     /**
@@ -269,7 +270,7 @@ export interface TableflowTopicState {
  */
 export interface TableflowTopicArgs {
     /**
-     * (Optional Configuration Block) supports the following:
+     * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      */
     byobAws?: pulumi.Input<inputs.TableflowTopicByobAws>;
     /**
@@ -286,7 +287,7 @@ export interface TableflowTopicArgs {
     environment: pulumi.Input<inputs.TableflowTopicEnvironment>;
     kafkaCluster: pulumi.Input<inputs.TableflowTopicKafkaCluster>;
     /**
-     * The configuration of the Confluent managed bucket.
+     * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
      */
     managedStorages?: pulumi.Input<pulumi.Input<inputs.TableflowTopicManagedStorage>[]>;
     /**

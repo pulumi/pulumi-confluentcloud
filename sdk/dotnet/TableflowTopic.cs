@@ -87,6 +87,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// The following end-to-end examples might help to get started with `confluentcloud.TableflowTopic` resource:
     /// * `confluent-managed-storage`: Tableflow topic with Confluent-managed storage.
+    /// * `byob-aws-storage`: Tableflow topic with custom (BYOB AWS) storage.
     /// 
     /// ## Import
     /// 
@@ -114,7 +115,7 @@ namespace Pulumi.ConfluentCloud
     public partial class TableflowTopic : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Optional Configuration Block) supports the following:
+        /// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         /// </summary>
         [Output("byobAws")]
         public Output<Outputs.TableflowTopicByobAws?> ByobAws { get; private set; } = null!;
@@ -153,7 +154,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.TableflowTopicKafkaCluster> KafkaCluster { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration of the Confluent managed bucket.
+        /// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         /// </summary>
         [Output("managedStorages")]
         public Output<ImmutableArray<Outputs.TableflowTopicManagedStorage>> ManagedStorages { get; private set; } = null!;
@@ -233,7 +234,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class TableflowTopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional Configuration Block) supports the following:
+        /// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         /// </summary>
         [Input("byobAws")]
         public Input<Inputs.TableflowTopicByobAwsArgs>? ByobAws { get; set; }
@@ -273,7 +274,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<Inputs.TableflowTopicManagedStorageArgs>? _managedStorages;
 
         /// <summary>
-        /// The configuration of the Confluent managed bucket.
+        /// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         /// </summary>
         public InputList<Inputs.TableflowTopicManagedStorageArgs> ManagedStorages
         {
@@ -314,7 +315,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class TableflowTopicState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional Configuration Block) supports the following:
+        /// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         /// </summary>
         [Input("byobAws")]
         public Input<Inputs.TableflowTopicByobAwsGetArgs>? ByobAws { get; set; }
@@ -366,7 +367,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<Inputs.TableflowTopicManagedStorageGetArgs>? _managedStorages;
 
         /// <summary>
-        /// The configuration of the Confluent managed bucket.
+        /// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         /// </summary>
         public InputList<Inputs.TableflowTopicManagedStorageGetArgs> ManagedStorages
         {

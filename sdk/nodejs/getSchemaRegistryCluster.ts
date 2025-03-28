@@ -102,7 +102,13 @@ export interface GetSchemaRegistryClusterResult {
      */
     readonly package: string;
     /**
-     * (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`.
+     * (Required Map) The private regional HTTP endpoint map of the Schema Registry cluster. For example, to reference the endpoint corresponding to the us-central-1 region, use `private_regional_rest_endpoints["us-central-1"]`.
+     */
+    readonly privateRegionalRestEndpoints: {[key: string]: string};
+    /**
+     * (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`. Please use the `privateRegionalRestEndpoints` attribute instead, which supersedes the `privateRestEndpoint` attribute.
+     *
+     * @deprecated Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute.
      */
     readonly privateRestEndpoint: string;
     /**

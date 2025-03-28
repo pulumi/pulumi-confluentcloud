@@ -3414,8 +3414,6 @@ class NetworkZoneInfo(dict):
                  zone_id: Optional[str] = None):
         """
         :param str cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-               
-               > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         :param str zone_id: Cloud provider zone ID.
         """
         if cidr is not None:
@@ -3428,8 +3426,6 @@ class NetworkZoneInfo(dict):
     def cidr(self) -> Optional[str]:
         """
         The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-
-        > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         """
         return pulumi.get(self, "cidr")
 
@@ -7251,6 +7247,8 @@ class GetNetworkLinkServiceEnvironmentResult(dict):
                  id: str):
         """
         :param str id: The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         pulumi.set(__self__, "id", id)
 
@@ -7259,6 +7257,8 @@ class GetNetworkLinkServiceEnvironmentResult(dict):
     def id(self) -> str:
         """
         The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 
@@ -8046,6 +8046,7 @@ class GetSchemaRegistryClustersClusterResult(dict):
                  id: str,
                  kind: str,
                  package: str,
+                 private_regional_rest_endpoints: Mapping[str, str],
                  private_rest_endpoint: str,
                  region: str,
                  resource_name: str,
@@ -8059,7 +8060,8 @@ class GetSchemaRegistryClustersClusterResult(dict):
         :param str id: (Required String) The id of the environment.
         :param str kind: (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
         :param str package: (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
-        :param str private_rest_endpoint: (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`.
+        :param Mapping[str, str] private_regional_rest_endpoints: (Required Map) The private regional HTTP endpoint map of the Schema Registry cluster. For example, to reference the endpoint corresponding to the us-central-1 region, use `private_regional_rest_endpoints["us-central-1"]`.
+        :param str private_rest_endpoint: (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`. Please use the `private_regional_rest_endpoints` attribute instead, which supersedes the `private_rest_endpoint` attribute.
         :param str region: (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
         :param str resource_name: (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
         :param str rest_endpoint: (Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.
@@ -8072,6 +8074,7 @@ class GetSchemaRegistryClustersClusterResult(dict):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "package", package)
+        pulumi.set(__self__, "private_regional_rest_endpoints", private_regional_rest_endpoints)
         pulumi.set(__self__, "private_rest_endpoint", private_rest_endpoint)
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "resource_name", resource_name)
@@ -8142,10 +8145,19 @@ class GetSchemaRegistryClustersClusterResult(dict):
         return pulumi.get(self, "package")
 
     @property
+    @pulumi.getter(name="privateRegionalRestEndpoints")
+    def private_regional_rest_endpoints(self) -> Mapping[str, str]:
+        """
+        (Required Map) The private regional HTTP endpoint map of the Schema Registry cluster. For example, to reference the endpoint corresponding to the us-central-1 region, use `private_regional_rest_endpoints["us-central-1"]`.
+        """
+        return pulumi.get(self, "private_regional_rest_endpoints")
+
+    @property
     @pulumi.getter(name="privateRestEndpoint")
+    @_utilities.deprecated("""Please use the private_regional_rest_endpoints attribute instead, which supersedes the private_rest_endpoint attribute.""")
     def private_rest_endpoint(self) -> str:
         """
-        (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`.
+        (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`. Please use the `private_regional_rest_endpoints` attribute instead, which supersedes the `private_rest_endpoint` attribute.
         """
         return pulumi.get(self, "private_rest_endpoint")
 

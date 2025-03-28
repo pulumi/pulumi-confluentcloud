@@ -23,14 +23,14 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
     public static final TableflowTopicState Empty = new TableflowTopicState();
 
     /**
-     * (Optional Configuration Block) supports the following:
+     * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      * 
      */
     @Import(name="byobAws")
     private @Nullable Output<TableflowTopicByobAwsArgs> byobAws;
 
     /**
-     * @return (Optional Configuration Block) supports the following:
+     * @return supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      * 
      */
     public Optional<Output<TableflowTopicByobAwsArgs>> byobAws() {
@@ -120,14 +120,14 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The configuration of the Confluent managed bucket.
+     * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
      * 
      */
     @Import(name="managedStorages")
     private @Nullable Output<List<TableflowTopicManagedStorageArgs>> managedStorages;
 
     /**
-     * @return The configuration of the Confluent managed bucket.
+     * @return The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
      * 
      */
     public Optional<Output<List<TableflowTopicManagedStorageArgs>>> managedStorages() {
@@ -230,7 +230,7 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param byobAws (Optional Configuration Block) supports the following:
+         * @param byobAws supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param byobAws (Optional Configuration Block) supports the following:
+         * @param byobAws supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param managedStorages The configuration of the Confluent managed bucket.
+         * @param managedStorages The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param managedStorages The configuration of the Confluent managed bucket.
+         * @param managedStorages The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param managedStorages The configuration of the Confluent managed bucket.
+         * @param managedStorages The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
          * 
          * @return builder
          * 

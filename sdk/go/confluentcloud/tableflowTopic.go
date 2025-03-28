@@ -97,6 +97,7 @@ import (
 //
 // The following end-to-end examples might help to get started with `TableflowTopic` resource:
 // * `confluent-managed-storage`: Tableflow topic with Confluent-managed storage.
+// * `byob-aws-storage`: Tableflow topic with custom (BYOB AWS) storage.
 //
 // ## Import
 //
@@ -122,7 +123,7 @@ import (
 type TableflowTopic struct {
 	pulumi.CustomResourceState
 
-	// (Optional Configuration Block) supports the following:
+	// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
 	ByobAws TableflowTopicByobAwsPtrOutput `pulumi:"byobAws"`
 	// The Cluster API Credentials.
 	Credentials TableflowTopicCredentialsPtrOutput `pulumi:"credentials"`
@@ -135,7 +136,7 @@ type TableflowTopic struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  TableflowTopicEnvironmentOutput  `pulumi:"environment"`
 	KafkaCluster TableflowTopicKafkaClusterOutput `pulumi:"kafkaCluster"`
-	// The configuration of the Confluent managed bucket.
+	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages TableflowTopicManagedStorageArrayOutput `pulumi:"managedStorages"`
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 	RecordFailureStrategy pulumi.StringOutput `pulumi:"recordFailureStrategy"`
@@ -193,7 +194,7 @@ func GetTableflowTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TableflowTopic resources.
 type tableflowTopicState struct {
-	// (Optional Configuration Block) supports the following:
+	// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
 	ByobAws *TableflowTopicByobAws `pulumi:"byobAws"`
 	// The Cluster API Credentials.
 	Credentials *TableflowTopicCredentials `pulumi:"credentials"`
@@ -206,7 +207,7 @@ type tableflowTopicState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  *TableflowTopicEnvironment  `pulumi:"environment"`
 	KafkaCluster *TableflowTopicKafkaCluster `pulumi:"kafkaCluster"`
-	// The configuration of the Confluent managed bucket.
+	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages []TableflowTopicManagedStorage `pulumi:"managedStorages"`
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 	RecordFailureStrategy *string `pulumi:"recordFailureStrategy"`
@@ -219,7 +220,7 @@ type tableflowTopicState struct {
 }
 
 type TableflowTopicState struct {
-	// (Optional Configuration Block) supports the following:
+	// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
 	ByobAws TableflowTopicByobAwsPtrInput
 	// The Cluster API Credentials.
 	Credentials TableflowTopicCredentialsPtrInput
@@ -232,7 +233,7 @@ type TableflowTopicState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  TableflowTopicEnvironmentPtrInput
 	KafkaCluster TableflowTopicKafkaClusterPtrInput
-	// The configuration of the Confluent managed bucket.
+	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages TableflowTopicManagedStorageArrayInput
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 	RecordFailureStrategy pulumi.StringPtrInput
@@ -249,7 +250,7 @@ func (TableflowTopicState) ElementType() reflect.Type {
 }
 
 type tableflowTopicArgs struct {
-	// (Optional Configuration Block) supports the following:
+	// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
 	ByobAws *TableflowTopicByobAws `pulumi:"byobAws"`
 	// The Cluster API Credentials.
 	Credentials *TableflowTopicCredentials `pulumi:"credentials"`
@@ -258,7 +259,7 @@ type tableflowTopicArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  TableflowTopicEnvironment  `pulumi:"environment"`
 	KafkaCluster TableflowTopicKafkaCluster `pulumi:"kafkaCluster"`
-	// The configuration of the Confluent managed bucket.
+	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages []TableflowTopicManagedStorage `pulumi:"managedStorages"`
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 	RecordFailureStrategy *string `pulumi:"recordFailureStrategy"`
@@ -270,7 +271,7 @@ type tableflowTopicArgs struct {
 
 // The set of arguments for constructing a TableflowTopic resource.
 type TableflowTopicArgs struct {
-	// (Optional Configuration Block) supports the following:
+	// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
 	ByobAws TableflowTopicByobAwsPtrInput
 	// The Cluster API Credentials.
 	Credentials TableflowTopicCredentialsPtrInput
@@ -279,7 +280,7 @@ type TableflowTopicArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  TableflowTopicEnvironmentInput
 	KafkaCluster TableflowTopicKafkaClusterInput
-	// The configuration of the Confluent managed bucket.
+	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages TableflowTopicManagedStorageArrayInput
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 	RecordFailureStrategy pulumi.StringPtrInput
@@ -376,7 +377,7 @@ func (o TableflowTopicOutput) ToTableflowTopicOutputWithContext(ctx context.Cont
 	return o
 }
 
-// (Optional Configuration Block) supports the following:
+// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
 func (o TableflowTopicOutput) ByobAws() TableflowTopicByobAwsPtrOutput {
 	return o.ApplyT(func(v *TableflowTopic) TableflowTopicByobAwsPtrOutput { return v.ByobAws }).(TableflowTopicByobAwsPtrOutput)
 }
@@ -410,7 +411,7 @@ func (o TableflowTopicOutput) KafkaCluster() TableflowTopicKafkaClusterOutput {
 	return o.ApplyT(func(v *TableflowTopic) TableflowTopicKafkaClusterOutput { return v.KafkaCluster }).(TableflowTopicKafkaClusterOutput)
 }
 
-// The configuration of the Confluent managed bucket.
+// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 func (o TableflowTopicOutput) ManagedStorages() TableflowTopicManagedStorageArrayOutput {
 	return o.ApplyT(func(v *TableflowTopic) TableflowTopicManagedStorageArrayOutput { return v.ManagedStorages }).(TableflowTopicManagedStorageArrayOutput)
 }

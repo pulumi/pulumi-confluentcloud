@@ -1331,6 +1331,8 @@ export interface GetNetworkLinkServiceAccept {
 export interface GetNetworkLinkServiceEnvironment {
     /**
      * The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: string;
 }
@@ -1666,7 +1668,13 @@ export interface GetSchemaRegistryClustersCluster {
      */
     package: string;
     /**
-     * (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`.
+     * (Required Map) The private regional HTTP endpoint map of the Schema Registry cluster. For example, to reference the endpoint corresponding to the us-central-1 region, use `private_regional_rest_endpoints["us-central-1"]`.
+     */
+    privateRegionalRestEndpoints: {[key: string]: string};
+    /**
+     * (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`. Please use the `privateRegionalRestEndpoints` attribute instead, which supersedes the `privateRestEndpoint` attribute.
+     *
+     * @deprecated Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute.
      */
     privateRestEndpoint: string;
     /**
@@ -2431,8 +2439,6 @@ export interface NetworkLinkServiceNetwork {
 export interface NetworkZoneInfo {
     /**
      * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-     *
-     * > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
      */
     cidr: string;
     /**

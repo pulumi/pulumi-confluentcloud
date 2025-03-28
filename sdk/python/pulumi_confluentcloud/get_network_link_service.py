@@ -121,6 +121,7 @@ class AwaitableGetNetworkLinkServiceResult(GetNetworkLinkServiceResult):
 
 
 def get_network_link_service(accept: Optional[Union['GetNetworkLinkServiceAcceptArgs', 'GetNetworkLinkServiceAcceptArgsDict']] = None,
+                             display_name: Optional[str] = None,
                              environment: Optional[Union['GetNetworkLinkServiceEnvironmentArgs', 'GetNetworkLinkServiceEnvironmentArgsDict']] = None,
                              id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkLinkServiceResult:
@@ -144,10 +145,12 @@ def get_network_link_service(accept: Optional[Union['GetNetworkLinkServiceAccept
 
 
     :param Union['GetNetworkLinkServiceAcceptArgs', 'GetNetworkLinkServiceAcceptArgsDict'] accept: (Optional Configuration Block) supports the following:
+    :param str display_name: The Display Name of the Network Link Service, for example, `DR Link`
     :param str id: The ID of the Network Link Service, for example, `nls-zyw30`.
     """
     __args__ = dict()
     __args__['accept'] = accept
+    __args__['displayName'] = display_name
     __args__['environment'] = environment
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -162,8 +165,9 @@ def get_network_link_service(accept: Optional[Union['GetNetworkLinkServiceAccept
         networks=pulumi.get(__ret__, 'networks'),
         resource_name=pulumi.get(__ret__, 'resource_name'))
 def get_network_link_service_output(accept: Optional[pulumi.Input[Optional[Union['GetNetworkLinkServiceAcceptArgs', 'GetNetworkLinkServiceAcceptArgsDict']]]] = None,
+                                    display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                     environment: Optional[pulumi.Input[Union['GetNetworkLinkServiceEnvironmentArgs', 'GetNetworkLinkServiceEnvironmentArgsDict']]] = None,
-                                    id: Optional[pulumi.Input[str]] = None,
+                                    id: Optional[pulumi.Input[Optional[str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkLinkServiceResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -185,10 +189,12 @@ def get_network_link_service_output(accept: Optional[pulumi.Input[Optional[Union
 
 
     :param Union['GetNetworkLinkServiceAcceptArgs', 'GetNetworkLinkServiceAcceptArgsDict'] accept: (Optional Configuration Block) supports the following:
+    :param str display_name: The Display Name of the Network Link Service, for example, `DR Link`
     :param str id: The ID of the Network Link Service, for example, `nls-zyw30`.
     """
     __args__ = dict()
     __args__['accept'] = accept
+    __args__['displayName'] = display_name
     __args__['environment'] = environment
     __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

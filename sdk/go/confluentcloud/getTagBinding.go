@@ -94,7 +94,7 @@ func LookupTagBinding(ctx *pulumi.Context, args *LookupTagBindingArgs, opts ...p
 // A collection of arguments for invoking getTagBinding.
 type LookupTagBindingArgs struct {
 	Credentials *GetTagBindingCredentials `pulumi:"credentials"`
-	// The qualified name of the entity., for example, `${data..main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 	EntityName string `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`.
 	//
@@ -131,7 +131,7 @@ func LookupTagBindingOutput(ctx *pulumi.Context, args LookupTagBindingOutputArgs
 // A collection of arguments for invoking getTagBinding.
 type LookupTagBindingOutputArgs struct {
 	Credentials GetTagBindingCredentialsPtrInput `pulumi:"credentials"`
-	// The qualified name of the entity., for example, `${data..main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
+	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 	EntityName pulumi.StringInput `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`.
 	//

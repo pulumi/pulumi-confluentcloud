@@ -100,7 +100,11 @@ type GetSchemaRegistryClusterResult struct {
 	Kind string `pulumi:"kind"`
 	// (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
 	Package string `pulumi:"package"`
-	// (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`.
+	// (Required Map) The private regional HTTP endpoint map of the Schema Registry cluster. For example, to reference the endpoint corresponding to the us-central-1 region, use `private_regional_rest_endpoints["us-central-1"]`.
+	PrivateRegionalRestEndpoints map[string]string `pulumi:"privateRegionalRestEndpoints"`
+	// (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`. Please use the `privateRegionalRestEndpoints` attribute instead, which supersedes the `privateRestEndpoint` attribute.
+	//
+	// Deprecated: Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute.
 	PrivateRestEndpoint string `pulumi:"privateRestEndpoint"`
 	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
 	Region string `pulumi:"region"`
@@ -186,7 +190,14 @@ func (o GetSchemaRegistryClusterResultOutput) Package() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.Package }).(pulumi.StringOutput)
 }
 
-// (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`.
+// (Required Map) The private regional HTTP endpoint map of the Schema Registry cluster. For example, to reference the endpoint corresponding to the us-central-1 region, use `private_regional_rest_endpoints["us-central-1"]`.
+func (o GetSchemaRegistryClusterResultOutput) PrivateRegionalRestEndpoints() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterResult) map[string]string { return v.PrivateRegionalRestEndpoints }).(pulumi.StringMapOutput)
+}
+
+// (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.confluent.cloud`. Please use the `privateRegionalRestEndpoints` attribute instead, which supersedes the `privateRestEndpoint` attribute.
+//
+// Deprecated: Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute.
 func (o GetSchemaRegistryClusterResultOutput) PrivateRestEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterResult) string { return v.PrivateRestEndpoint }).(pulumi.StringOutput)
 }

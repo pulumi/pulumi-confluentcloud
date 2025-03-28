@@ -30,6 +30,7 @@ export function getNetworkLinkService(args: GetNetworkLinkServiceArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", {
         "accept": args.accept,
+        "displayName": args.displayName,
         "environment": args.environment,
         "id": args.id,
     }, opts);
@@ -43,11 +44,15 @@ export interface GetNetworkLinkServiceArgs {
      * (Optional Configuration Block) supports the following:
      */
     accept?: inputs.GetNetworkLinkServiceAccept;
+    /**
+     * The Display Name of the Network Link Service, for example, `DR Link`
+     */
+    displayName?: string;
     environment: inputs.GetNetworkLinkServiceEnvironment;
     /**
      * The ID of the Network Link Service, for example, `nls-zyw30`.
      */
-    id: string;
+    id?: string;
 }
 
 /**
@@ -104,6 +109,7 @@ export function getNetworkLinkServiceOutput(args: GetNetworkLinkServiceOutputArg
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", {
         "accept": args.accept,
+        "displayName": args.displayName,
         "environment": args.environment,
         "id": args.id,
     }, opts);
@@ -117,9 +123,13 @@ export interface GetNetworkLinkServiceOutputArgs {
      * (Optional Configuration Block) supports the following:
      */
     accept?: pulumi.Input<inputs.GetNetworkLinkServiceAcceptArgs>;
+    /**
+     * The Display Name of the Network Link Service, for example, `DR Link`
+     */
+    displayName?: pulumi.Input<string>;
     environment: pulumi.Input<inputs.GetNetworkLinkServiceEnvironmentArgs>;
     /**
      * The ID of the Network Link Service, for example, `nls-zyw30`.
      */
-    id: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
 }
