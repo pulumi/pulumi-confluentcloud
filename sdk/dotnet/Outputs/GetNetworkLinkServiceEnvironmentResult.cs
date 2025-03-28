@@ -15,6 +15,8 @@ namespace Pulumi.ConfluentCloud.Outputs
     {
         /// <summary>
         /// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+        /// 
+        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         /// </summary>
         public readonly string Id;
 

@@ -116,7 +116,7 @@ import (
 type CatalogIntegration struct {
 	pulumi.CustomResourceState
 
-	// The catalog integration Glue connection configuration.
+	// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 	AwsGlue CatalogIntegrationAwsGluePtrOutput `pulumi:"awsGlue"`
 	// The Cluster API Credentials.
 	Credentials CatalogIntegrationCredentialsPtrOutput `pulumi:"credentials"`
@@ -125,7 +125,7 @@ type CatalogIntegration struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  CatalogIntegrationEnvironmentOutput  `pulumi:"environment"`
 	KafkaCluster CatalogIntegrationKafkaClusterOutput `pulumi:"kafkaCluster"`
-	// The catalog integration connection configuration for Snowflake Open Catalog.
+	// supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
 	Snowflake CatalogIntegrationSnowflakePtrOutput `pulumi:"snowflake"`
 	// (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
 	Suspended pulumi.BoolOutput `pulumi:"suspended"`
@@ -177,7 +177,7 @@ func GetCatalogIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CatalogIntegration resources.
 type catalogIntegrationState struct {
-	// The catalog integration Glue connection configuration.
+	// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 	AwsGlue *CatalogIntegrationAwsGlue `pulumi:"awsGlue"`
 	// The Cluster API Credentials.
 	Credentials *CatalogIntegrationCredentials `pulumi:"credentials"`
@@ -186,14 +186,14 @@ type catalogIntegrationState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  *CatalogIntegrationEnvironment  `pulumi:"environment"`
 	KafkaCluster *CatalogIntegrationKafkaCluster `pulumi:"kafkaCluster"`
-	// The catalog integration connection configuration for Snowflake Open Catalog.
+	// supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
 	Snowflake *CatalogIntegrationSnowflake `pulumi:"snowflake"`
 	// (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
 	Suspended *bool `pulumi:"suspended"`
 }
 
 type CatalogIntegrationState struct {
-	// The catalog integration Glue connection configuration.
+	// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 	AwsGlue CatalogIntegrationAwsGluePtrInput
 	// The Cluster API Credentials.
 	Credentials CatalogIntegrationCredentialsPtrInput
@@ -202,7 +202,7 @@ type CatalogIntegrationState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  CatalogIntegrationEnvironmentPtrInput
 	KafkaCluster CatalogIntegrationKafkaClusterPtrInput
-	// The catalog integration connection configuration for Snowflake Open Catalog.
+	// supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
 	Snowflake CatalogIntegrationSnowflakePtrInput
 	// (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
 	Suspended pulumi.BoolPtrInput
@@ -213,7 +213,7 @@ func (CatalogIntegrationState) ElementType() reflect.Type {
 }
 
 type catalogIntegrationArgs struct {
-	// The catalog integration Glue connection configuration.
+	// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 	AwsGlue *CatalogIntegrationAwsGlue `pulumi:"awsGlue"`
 	// The Cluster API Credentials.
 	Credentials *CatalogIntegrationCredentials `pulumi:"credentials"`
@@ -222,13 +222,13 @@ type catalogIntegrationArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  CatalogIntegrationEnvironment  `pulumi:"environment"`
 	KafkaCluster CatalogIntegrationKafkaCluster `pulumi:"kafkaCluster"`
-	// The catalog integration connection configuration for Snowflake Open Catalog.
+	// supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
 	Snowflake *CatalogIntegrationSnowflake `pulumi:"snowflake"`
 }
 
 // The set of arguments for constructing a CatalogIntegration resource.
 type CatalogIntegrationArgs struct {
-	// The catalog integration Glue connection configuration.
+	// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 	AwsGlue CatalogIntegrationAwsGluePtrInput
 	// The Cluster API Credentials.
 	Credentials CatalogIntegrationCredentialsPtrInput
@@ -237,7 +237,7 @@ type CatalogIntegrationArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  CatalogIntegrationEnvironmentInput
 	KafkaCluster CatalogIntegrationKafkaClusterInput
-	// The catalog integration connection configuration for Snowflake Open Catalog.
+	// supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
 	Snowflake CatalogIntegrationSnowflakePtrInput
 }
 
@@ -328,7 +328,7 @@ func (o CatalogIntegrationOutput) ToCatalogIntegrationOutputWithContext(ctx cont
 	return o
 }
 
-// The catalog integration Glue connection configuration.
+// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
 func (o CatalogIntegrationOutput) AwsGlue() CatalogIntegrationAwsGluePtrOutput {
 	return o.ApplyT(func(v *CatalogIntegration) CatalogIntegrationAwsGluePtrOutput { return v.AwsGlue }).(CatalogIntegrationAwsGluePtrOutput)
 }
@@ -352,7 +352,7 @@ func (o CatalogIntegrationOutput) KafkaCluster() CatalogIntegrationKafkaClusterO
 	return o.ApplyT(func(v *CatalogIntegration) CatalogIntegrationKafkaClusterOutput { return v.KafkaCluster }).(CatalogIntegrationKafkaClusterOutput)
 }
 
-// The catalog integration connection configuration for Snowflake Open Catalog.
+// supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
 func (o CatalogIntegrationOutput) Snowflake() CatalogIntegrationSnowflakePtrOutput {
 	return o.ApplyT(func(v *CatalogIntegration) CatalogIntegrationSnowflakePtrOutput { return v.Snowflake }).(CatalogIntegrationSnowflakePtrOutput)
 }

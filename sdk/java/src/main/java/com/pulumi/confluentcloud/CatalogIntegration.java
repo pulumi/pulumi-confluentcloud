@@ -153,14 +153,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="confluentcloud:index/catalogIntegration:CatalogIntegration")
 public class CatalogIntegration extends com.pulumi.resources.CustomResource {
     /**
-     * The catalog integration Glue connection configuration.
+     * supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
      * 
      */
     @Export(name="awsGlue", refs={CatalogIntegrationAwsGlue.class}, tree="[0]")
     private Output</* @Nullable */ CatalogIntegrationAwsGlue> awsGlue;
 
     /**
-     * @return The catalog integration Glue connection configuration.
+     * @return supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
      * 
      */
     public Output<Optional<CatalogIntegrationAwsGlue>> awsGlue() {
@@ -215,14 +215,14 @@ public class CatalogIntegration extends com.pulumi.resources.CustomResource {
         return this.kafkaCluster;
     }
     /**
-     * The catalog integration connection configuration for Snowflake Open Catalog.
+     * supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
      * 
      */
     @Export(name="snowflake", refs={CatalogIntegrationSnowflake.class}, tree="[0]")
     private Output</* @Nullable */ CatalogIntegrationSnowflake> snowflake;
 
     /**
-     * @return The catalog integration connection configuration for Snowflake Open Catalog.
+     * @return supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
      * 
      */
     public Output<Optional<CatalogIntegrationSnowflake>> snowflake() {

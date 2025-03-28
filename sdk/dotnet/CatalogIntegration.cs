@@ -107,7 +107,7 @@ namespace Pulumi.ConfluentCloud
     public partial class CatalogIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The catalog integration Glue connection configuration.
+        /// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
         /// </summary>
         [Output("awsGlue")]
         public Output<Outputs.CatalogIntegrationAwsGlue?> AwsGlue { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.CatalogIntegrationKafkaCluster> KafkaCluster { get; private set; } = null!;
 
         /// <summary>
-        /// The catalog integration connection configuration for Snowflake Open Catalog.
+        /// supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
         /// </summary>
         [Output("snowflake")]
         public Output<Outputs.CatalogIntegrationSnowflake?> Snowflake { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class CatalogIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The catalog integration Glue connection configuration.
+        /// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
         /// </summary>
         [Input("awsGlue")]
         public Input<Inputs.CatalogIntegrationAwsGlueArgs>? AwsGlue { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.CatalogIntegrationKafkaClusterArgs> KafkaCluster { get; set; } = null!;
 
         /// <summary>
-        /// The catalog integration connection configuration for Snowflake Open Catalog.
+        /// supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
         /// </summary>
         [Input("snowflake")]
         public Input<Inputs.CatalogIntegrationSnowflakeArgs>? Snowflake { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class CatalogIntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The catalog integration Glue connection configuration.
+        /// supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
         /// </summary>
         [Input("awsGlue")]
         public Input<Inputs.CatalogIntegrationAwsGlueGetArgs>? AwsGlue { get; set; }
@@ -284,7 +284,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.CatalogIntegrationKafkaClusterGetArgs>? KafkaCluster { get; set; }
 
         /// <summary>
-        /// The catalog integration connection configuration for Snowflake Open Catalog.
+        /// supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
         /// </summary>
         [Input("snowflake")]
         public Input<Inputs.CatalogIntegrationSnowflakeGetArgs>? Snowflake { get; set; }

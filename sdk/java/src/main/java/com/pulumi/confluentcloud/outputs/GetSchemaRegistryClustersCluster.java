@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClustersClusterEnviron
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -52,9 +53,18 @@ public final class GetSchemaRegistryClustersCluster {
      */
     private String package_;
     /**
-     * @return (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`.
+     * @return (Required Map) The private regional HTTP endpoint map of the Schema Registry cluster. For example, to reference the endpoint corresponding to the us-central-1 region, use `private_regional_rest_endpoints[&#34;us-central-1&#34;]`.
      * 
      */
+    private Map<String,String> privateRegionalRestEndpoints;
+    /**
+     * @return (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`. Please use the `private_regional_rest_endpoints` attribute instead, which supersedes the `private_rest_endpoint` attribute.
+     * 
+     * @deprecated
+     * Please use the private_regional_rest_endpoints attribute instead, which supersedes the private_rest_endpoint attribute.
+     * 
+     */
+    @Deprecated /* Please use the private_regional_rest_endpoints attribute instead, which supersedes the private_rest_endpoint attribute. */
     private String privateRestEndpoint;
     /**
      * @return (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
@@ -130,9 +140,20 @@ public final class GetSchemaRegistryClustersCluster {
         return this.package_;
     }
     /**
-     * @return (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`.
+     * @return (Required Map) The private regional HTTP endpoint map of the Schema Registry cluster. For example, to reference the endpoint corresponding to the us-central-1 region, use `private_regional_rest_endpoints[&#34;us-central-1&#34;]`.
      * 
      */
+    public Map<String,String> privateRegionalRestEndpoints() {
+        return this.privateRegionalRestEndpoints;
+    }
+    /**
+     * @return (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`. Please use the `private_regional_rest_endpoints` attribute instead, which supersedes the `private_rest_endpoint` attribute.
+     * 
+     * @deprecated
+     * Please use the private_regional_rest_endpoints attribute instead, which supersedes the private_rest_endpoint attribute.
+     * 
+     */
+    @Deprecated /* Please use the private_regional_rest_endpoints attribute instead, which supersedes the private_rest_endpoint attribute. */
     public String privateRestEndpoint() {
         return this.privateRestEndpoint;
     }
@@ -175,6 +196,7 @@ public final class GetSchemaRegistryClustersCluster {
         private String id;
         private String kind;
         private String package_;
+        private Map<String,String> privateRegionalRestEndpoints;
         private String privateRestEndpoint;
         private String region;
         private String resourceName;
@@ -190,6 +212,7 @@ public final class GetSchemaRegistryClustersCluster {
     	      this.id = defaults.id;
     	      this.kind = defaults.kind;
     	      this.package_ = defaults.package_;
+    	      this.privateRegionalRestEndpoints = defaults.privateRegionalRestEndpoints;
     	      this.privateRestEndpoint = defaults.privateRestEndpoint;
     	      this.region = defaults.region;
     	      this.resourceName = defaults.resourceName;
@@ -261,6 +284,14 @@ public final class GetSchemaRegistryClustersCluster {
             return this;
         }
         @CustomType.Setter
+        public Builder privateRegionalRestEndpoints(Map<String,String> privateRegionalRestEndpoints) {
+            if (privateRegionalRestEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClustersCluster", "privateRegionalRestEndpoints");
+            }
+            this.privateRegionalRestEndpoints = privateRegionalRestEndpoints;
+            return this;
+        }
+        @CustomType.Setter
         public Builder privateRestEndpoint(String privateRestEndpoint) {
             if (privateRestEndpoint == null) {
               throw new MissingRequiredPropertyException("GetSchemaRegistryClustersCluster", "privateRestEndpoint");
@@ -302,6 +333,7 @@ public final class GetSchemaRegistryClustersCluster {
             _resultValue.id = id;
             _resultValue.kind = kind;
             _resultValue.package_ = package_;
+            _resultValue.privateRegionalRestEndpoints = privateRegionalRestEndpoints;
             _resultValue.privateRestEndpoint = privateRestEndpoint;
             _resultValue.region = region;
             _resultValue.resourceName = resourceName;

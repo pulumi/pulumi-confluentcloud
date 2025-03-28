@@ -13945,8 +13945,6 @@ func (o NetworkLinkServiceNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 
 type NetworkZoneInfo struct {
 	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
 	Cidr *string `pulumi:"cidr"`
 	// Cloud provider zone ID.
 	ZoneId *string `pulumi:"zoneId"`
@@ -13965,8 +13963,6 @@ type NetworkZoneInfoInput interface {
 
 type NetworkZoneInfoArgs struct {
 	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
 	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
 	// Cloud provider zone ID.
 	ZoneId pulumi.StringPtrInput `pulumi:"zoneId"`
@@ -14024,8 +14020,6 @@ func (o NetworkZoneInfoOutput) ToNetworkZoneInfoOutputWithContext(ctx context.Co
 }
 
 // The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-//
-// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
 func (o NetworkZoneInfoOutput) Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkZoneInfo) *string { return v.Cidr }).(pulumi.StringPtrOutput)
 }
@@ -29580,6 +29574,8 @@ func (o GetNetworkLinkServiceAcceptPtrOutput) Networks() pulumi.StringArrayOutpu
 
 type GetNetworkLinkServiceEnvironment struct {
 	// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id string `pulumi:"id"`
 }
 
@@ -29596,6 +29592,8 @@ type GetNetworkLinkServiceEnvironmentInput interface {
 
 type GetNetworkLinkServiceEnvironmentArgs struct {
 	// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -29626,6 +29624,8 @@ func (o GetNetworkLinkServiceEnvironmentOutput) ToGetNetworkLinkServiceEnvironme
 }
 
 // The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+//
+// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 func (o GetNetworkLinkServiceEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkLinkServiceEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -32862,7 +32862,11 @@ type GetSchemaRegistryClustersCluster struct {
 	Kind string `pulumi:"kind"`
 	// (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
 	Package string `pulumi:"package"`
-	// (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`.
+	// (Required Map) The private regional HTTP endpoint map of the Schema Registry cluster. For example, to reference the endpoint corresponding to the us-central-1 region, use `private_regional_rest_endpoints["us-central-1"]`.
+	PrivateRegionalRestEndpoints map[string]string `pulumi:"privateRegionalRestEndpoints"`
+	// (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`. Please use the `privateRegionalRestEndpoints` attribute instead, which supersedes the `privateRestEndpoint` attribute.
+	//
+	// Deprecated: Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute.
 	PrivateRestEndpoint string `pulumi:"privateRestEndpoint"`
 	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
 	Region string `pulumi:"region"`
@@ -32900,7 +32904,11 @@ type GetSchemaRegistryClustersClusterArgs struct {
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
 	Package pulumi.StringInput `pulumi:"package"`
-	// (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`.
+	// (Required Map) The private regional HTTP endpoint map of the Schema Registry cluster. For example, to reference the endpoint corresponding to the us-central-1 region, use `private_regional_rest_endpoints["us-central-1"]`.
+	PrivateRegionalRestEndpoints pulumi.StringMapInput `pulumi:"privateRegionalRestEndpoints"`
+	// (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`. Please use the `privateRegionalRestEndpoints` attribute instead, which supersedes the `privateRestEndpoint` attribute.
+	//
+	// Deprecated: Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute.
 	PrivateRestEndpoint pulumi.StringInput `pulumi:"privateRestEndpoint"`
 	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `us-east4`.
 	Region pulumi.StringInput `pulumi:"region"`
@@ -33003,7 +33011,14 @@ func (o GetSchemaRegistryClustersClusterOutput) Package() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) string { return v.Package }).(pulumi.StringOutput)
 }
 
-// (Required String) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`.
+// (Required Map) The private regional HTTP endpoint map of the Schema Registry cluster. For example, to reference the endpoint corresponding to the us-central-1 region, use `private_regional_rest_endpoints["us-central-1"]`.
+func (o GetSchemaRegistryClustersClusterOutput) PrivateRegionalRestEndpoints() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) map[string]string { return v.PrivateRegionalRestEndpoints }).(pulumi.StringMapOutput)
+}
+
+// (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`. Please use the `privateRegionalRestEndpoints` attribute instead, which supersedes the `privateRestEndpoint` attribute.
+//
+// Deprecated: Please use the privateRegionalRestEndpoints attribute instead, which supersedes the privateRestEndpoint attribute.
 func (o GetSchemaRegistryClustersClusterOutput) PrivateRestEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) string { return v.PrivateRestEndpoint }).(pulumi.StringOutput)
 }

@@ -17,12 +17,16 @@ public final class GetNetworkLinkServiceEnvironmentArgs extends com.pulumi.resou
     /**
      * The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
      * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
      * @return The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
      * 
      */
     public Output<String> id() {
@@ -56,6 +60,8 @@ public final class GetNetworkLinkServiceEnvironmentArgs extends com.pulumi.resou
         /**
          * @param id The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
          * 
+         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * 
          * @return builder
          * 
          */
@@ -66,6 +72,8 @@ public final class GetNetworkLinkServiceEnvironmentArgs extends com.pulumi.resou
 
         /**
          * @param id The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+         * 
+         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
          * 
          * @return builder
          * 

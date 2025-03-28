@@ -73,7 +73,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/org v0.9.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/provider-integration v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/schema-registry v0.4.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.7.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.7.3 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/sso v0.0.1 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/tableflow v0.1.0 // indirect
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect

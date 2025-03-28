@@ -4871,8 +4871,6 @@ if not MYPY:
         cidr: NotRequired[pulumi.Input[str]]
         """
         The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-
-        > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         """
         zone_id: NotRequired[pulumi.Input[str]]
         """
@@ -4888,8 +4886,6 @@ class NetworkZoneInfoArgs:
                  zone_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-               
-               > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         :param pulumi.Input[str] zone_id: Cloud provider zone ID.
         """
         if cidr is not None:
@@ -4902,8 +4898,6 @@ class NetworkZoneInfoArgs:
     def cidr(self) -> Optional[pulumi.Input[str]]:
         """
         The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-
-        > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         """
         return pulumi.get(self, "cidr")
 
@@ -9229,6 +9223,8 @@ if not MYPY:
         id: str
         """
         The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
 elif False:
     GetNetworkLinkServiceEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
@@ -9239,6 +9235,8 @@ class GetNetworkLinkServiceEnvironmentArgs:
                  id: str):
         """
         :param str id: The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         pulumi.set(__self__, "id", id)
 
@@ -9247,6 +9245,8 @@ class GetNetworkLinkServiceEnvironmentArgs:
     def id(self) -> str:
         """
         The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 

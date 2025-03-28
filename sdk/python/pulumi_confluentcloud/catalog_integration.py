@@ -31,9 +31,9 @@ class CatalogIntegrationArgs:
         The set of arguments for constructing a CatalogIntegration resource.
         :param pulumi.Input[str] display_name: The name of the catalog integration.
         :param pulumi.Input['CatalogIntegrationEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input['CatalogIntegrationAwsGlueArgs'] aws_glue: The catalog integration Glue connection configuration.
+        :param pulumi.Input['CatalogIntegrationAwsGlueArgs'] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
         :param pulumi.Input['CatalogIntegrationCredentialsArgs'] credentials: The Cluster API Credentials.
-        :param pulumi.Input['CatalogIntegrationSnowflakeArgs'] snowflake: The catalog integration connection configuration for Snowflake Open Catalog.
+        :param pulumi.Input['CatalogIntegrationSnowflakeArgs'] snowflake: supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "environment", environment)
@@ -82,7 +82,7 @@ class CatalogIntegrationArgs:
     @pulumi.getter(name="awsGlue")
     def aws_glue(self) -> Optional[pulumi.Input['CatalogIntegrationAwsGlueArgs']]:
         """
-        The catalog integration Glue connection configuration.
+        supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
         """
         return pulumi.get(self, "aws_glue")
 
@@ -106,7 +106,7 @@ class CatalogIntegrationArgs:
     @pulumi.getter
     def snowflake(self) -> Optional[pulumi.Input['CatalogIntegrationSnowflakeArgs']]:
         """
-        The catalog integration connection configuration for Snowflake Open Catalog.
+        supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
         """
         return pulumi.get(self, "snowflake")
 
@@ -127,11 +127,11 @@ class _CatalogIntegrationState:
                  suspended: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering CatalogIntegration resources.
-        :param pulumi.Input['CatalogIntegrationAwsGlueArgs'] aws_glue: The catalog integration Glue connection configuration.
+        :param pulumi.Input['CatalogIntegrationAwsGlueArgs'] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
         :param pulumi.Input['CatalogIntegrationCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] display_name: The name of the catalog integration.
         :param pulumi.Input['CatalogIntegrationEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input['CatalogIntegrationSnowflakeArgs'] snowflake: The catalog integration connection configuration for Snowflake Open Catalog.
+        :param pulumi.Input['CatalogIntegrationSnowflakeArgs'] snowflake: supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
         :param pulumi.Input[bool] suspended: (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
         """
         if aws_glue is not None:
@@ -153,7 +153,7 @@ class _CatalogIntegrationState:
     @pulumi.getter(name="awsGlue")
     def aws_glue(self) -> Optional[pulumi.Input['CatalogIntegrationAwsGlueArgs']]:
         """
-        The catalog integration Glue connection configuration.
+        supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
         """
         return pulumi.get(self, "aws_glue")
 
@@ -210,7 +210,7 @@ class _CatalogIntegrationState:
     @pulumi.getter
     def snowflake(self) -> Optional[pulumi.Input['CatalogIntegrationSnowflakeArgs']]:
         """
-        The catalog integration connection configuration for Snowflake Open Catalog.
+        supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
         """
         return pulumi.get(self, "snowflake")
 
@@ -316,11 +316,11 @@ class CatalogIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']] aws_glue: The catalog integration Glue connection configuration.
+        :param pulumi.Input[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
         :param pulumi.Input[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] display_name: The name of the catalog integration.
         :param pulumi.Input[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict']] snowflake: The catalog integration connection configuration for Snowflake Open Catalog.
+        :param pulumi.Input[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict']] snowflake: supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
         """
         ...
     @overload
@@ -468,11 +468,11 @@ class CatalogIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']] aws_glue: The catalog integration Glue connection configuration.
+        :param pulumi.Input[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
         :param pulumi.Input[Union['CatalogIntegrationCredentialsArgs', 'CatalogIntegrationCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] display_name: The name of the catalog integration.
         :param pulumi.Input[Union['CatalogIntegrationEnvironmentArgs', 'CatalogIntegrationEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict']] snowflake: The catalog integration connection configuration for Snowflake Open Catalog.
+        :param pulumi.Input[Union['CatalogIntegrationSnowflakeArgs', 'CatalogIntegrationSnowflakeArgsDict']] snowflake: supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
         :param pulumi.Input[bool] suspended: (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -492,7 +492,7 @@ class CatalogIntegration(pulumi.CustomResource):
     @pulumi.getter(name="awsGlue")
     def aws_glue(self) -> pulumi.Output[Optional['outputs.CatalogIntegrationAwsGlue']]:
         """
-        The catalog integration Glue connection configuration.
+        supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
         """
         return pulumi.get(self, "aws_glue")
 
@@ -529,7 +529,7 @@ class CatalogIntegration(pulumi.CustomResource):
     @pulumi.getter
     def snowflake(self) -> pulumi.Output[Optional['outputs.CatalogIntegrationSnowflake']]:
         """
-        The catalog integration connection configuration for Snowflake Open Catalog.
+        supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
         """
         return pulumi.get(self, "snowflake")
 

@@ -32,6 +32,21 @@ public final class GetNetworkLinkServicePlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.accept);
     }
 
+    /**
+     * The Display Name of the Network Link Service, for example, `DR Link`
+     * 
+     */
+    @Import(name="displayName")
+    private @Nullable String displayName;
+
+    /**
+     * @return The Display Name of the Network Link Service, for example, `DR Link`
+     * 
+     */
+    public Optional<String> displayName() {
+        return Optional.ofNullable(this.displayName);
+    }
+
     @Import(name="environment", required=true)
     private GetNetworkLinkServiceEnvironment environment;
 
@@ -43,21 +58,22 @@ public final class GetNetworkLinkServicePlainArgs extends com.pulumi.resources.I
      * The ID of the Network Link Service, for example, `nls-zyw30`.
      * 
      */
-    @Import(name="id", required=true)
-    private String id;
+    @Import(name="id")
+    private @Nullable String id;
 
     /**
      * @return The ID of the Network Link Service, for example, `nls-zyw30`.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     private GetNetworkLinkServicePlainArgs() {}
 
     private GetNetworkLinkServicePlainArgs(GetNetworkLinkServicePlainArgs $) {
         this.accept = $.accept;
+        this.displayName = $.displayName;
         this.environment = $.environment;
         this.id = $.id;
     }
@@ -91,6 +107,17 @@ public final class GetNetworkLinkServicePlainArgs extends com.pulumi.resources.I
             return this;
         }
 
+        /**
+         * @param displayName The Display Name of the Network Link Service, for example, `DR Link`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder displayName(@Nullable String displayName) {
+            $.displayName = displayName;
+            return this;
+        }
+
         public Builder environment(GetNetworkLinkServiceEnvironment environment) {
             $.environment = environment;
             return this;
@@ -102,7 +129,7 @@ public final class GetNetworkLinkServicePlainArgs extends com.pulumi.resources.I
          * @return builder
          * 
          */
-        public Builder id(String id) {
+        public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
@@ -110,9 +137,6 @@ public final class GetNetworkLinkServicePlainArgs extends com.pulumi.resources.I
         public GetNetworkLinkServicePlainArgs build() {
             if ($.environment == null) {
                 throw new MissingRequiredPropertyException("GetNetworkLinkServicePlainArgs", "environment");
-            }
-            if ($.id == null) {
-                throw new MissingRequiredPropertyException("GetNetworkLinkServicePlainArgs", "id");
             }
             return $;
         }

@@ -34,9 +34,9 @@ class TableflowTopicArgs:
         The set of arguments for constructing a TableflowTopic resource.
         :param pulumi.Input[str] display_name: The name of the Kafka topic for which Tableflow is enabled.
         :param pulumi.Input['TableflowTopicEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input['TableflowTopicByobAwsArgs'] byob_aws: (Optional Configuration Block) supports the following:
+        :param pulumi.Input['TableflowTopicByobAwsArgs'] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input['TableflowTopicCredentialsArgs'] credentials: The Cluster API Credentials.
-        :param pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]] managed_storages: The configuration of the Confluent managed bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         :param pulumi.Input[str] record_failure_strategy: The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         :param pulumi.Input[str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_formats: The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
@@ -94,7 +94,7 @@ class TableflowTopicArgs:
     @pulumi.getter(name="byobAws")
     def byob_aws(self) -> Optional[pulumi.Input['TableflowTopicByobAwsArgs']]:
         """
-        (Optional Configuration Block) supports the following:
+        supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         """
         return pulumi.get(self, "byob_aws")
 
@@ -118,7 +118,7 @@ class TableflowTopicArgs:
     @pulumi.getter(name="managedStorages")
     def managed_storages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]]]:
         """
-        The configuration of the Confluent managed bucket.
+        The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         """
         return pulumi.get(self, "managed_storages")
 
@@ -180,13 +180,13 @@ class _TableflowTopicState:
                  table_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering TableflowTopic resources.
-        :param pulumi.Input['TableflowTopicByobAwsArgs'] byob_aws: (Optional Configuration Block) supports the following:
+        :param pulumi.Input['TableflowTopicByobAwsArgs'] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input['TableflowTopicCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] display_name: The name of the Kafka topic for which Tableflow is enabled.
         :param pulumi.Input[bool] enable_compaction: (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
         :param pulumi.Input[bool] enable_partitioning: (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
         :param pulumi.Input['TableflowTopicEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]] managed_storages: The configuration of the Confluent managed bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         :param pulumi.Input[str] record_failure_strategy: The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         :param pulumi.Input[str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
         :param pulumi.Input[bool] suspended: (Optional Boolean) Indicates whether the Tableflow should be suspended.
@@ -221,7 +221,7 @@ class _TableflowTopicState:
     @pulumi.getter(name="byobAws")
     def byob_aws(self) -> Optional[pulumi.Input['TableflowTopicByobAwsArgs']]:
         """
-        (Optional Configuration Block) supports the following:
+        supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         """
         return pulumi.get(self, "byob_aws")
 
@@ -302,7 +302,7 @@ class _TableflowTopicState:
     @pulumi.getter(name="managedStorages")
     def managed_storages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]]]:
         """
-        The configuration of the Confluent managed bucket.
+        The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         """
         return pulumi.get(self, "managed_storages")
 
@@ -426,6 +426,7 @@ class TableflowTopic(pulumi.CustomResource):
 
         The following end-to-end examples might help to get started with `TableflowTopic` resource:
         * `confluent-managed-storage`: Tableflow topic with Confluent-managed storage.
+        * `byob-aws-storage`: Tableflow topic with custom (BYOB AWS) storage.
 
         ## Import
 
@@ -451,11 +452,11 @@ class TableflowTopic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']] byob_aws: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] display_name: The name of the Kafka topic for which Tableflow is enabled.
         :param pulumi.Input[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]] managed_storages: The configuration of the Confluent managed bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         :param pulumi.Input[str] record_failure_strategy: The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         :param pulumi.Input[str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_formats: The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
@@ -518,6 +519,7 @@ class TableflowTopic(pulumi.CustomResource):
 
         The following end-to-end examples might help to get started with `TableflowTopic` resource:
         * `confluent-managed-storage`: Tableflow topic with Confluent-managed storage.
+        * `byob-aws-storage`: Tableflow topic with custom (BYOB AWS) storage.
 
         ## Import
 
@@ -623,13 +625,13 @@ class TableflowTopic(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']] byob_aws: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] display_name: The name of the Kafka topic for which Tableflow is enabled.
         :param pulumi.Input[bool] enable_compaction: (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
         :param pulumi.Input[bool] enable_partitioning: (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
         :param pulumi.Input[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]] managed_storages: The configuration of the Confluent managed bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         :param pulumi.Input[str] record_failure_strategy: The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         :param pulumi.Input[str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
         :param pulumi.Input[bool] suspended: (Optional Boolean) Indicates whether the Tableflow should be suspended.
@@ -657,7 +659,7 @@ class TableflowTopic(pulumi.CustomResource):
     @pulumi.getter(name="byobAws")
     def byob_aws(self) -> pulumi.Output[Optional['outputs.TableflowTopicByobAws']]:
         """
-        (Optional Configuration Block) supports the following:
+        supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         """
         return pulumi.get(self, "byob_aws")
 
@@ -710,7 +712,7 @@ class TableflowTopic(pulumi.CustomResource):
     @pulumi.getter(name="managedStorages")
     def managed_storages(self) -> pulumi.Output[Optional[Sequence['outputs.TableflowTopicManagedStorage']]]:
         """
-        The configuration of the Confluent managed bucket.
+        The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
         """
         return pulumi.get(self, "managed_storages")
 
