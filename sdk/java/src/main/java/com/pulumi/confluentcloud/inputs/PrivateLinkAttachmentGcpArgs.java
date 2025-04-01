@@ -30,26 +30,10 @@ public final class PrivateLinkAttachmentGcpArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.privateServiceConnectServiceAttachment);
     }
 
-    /**
-     * Zone associated with the PSC Service attachment.
-     * 
-     */
-    @Import(name="zone")
-    private @Nullable Output<String> zone;
-
-    /**
-     * @return Zone associated with the PSC Service attachment.
-     * 
-     */
-    public Optional<Output<String>> zone() {
-        return Optional.ofNullable(this.zone);
-    }
-
     private PrivateLinkAttachmentGcpArgs() {}
 
     private PrivateLinkAttachmentGcpArgs(PrivateLinkAttachmentGcpArgs $) {
         this.privateServiceConnectServiceAttachment = $.privateServiceConnectServiceAttachment;
-        this.zone = $.zone;
     }
 
     public static Builder builder() {
@@ -89,27 +73,6 @@ public final class PrivateLinkAttachmentGcpArgs extends com.pulumi.resources.Res
          */
         public Builder privateServiceConnectServiceAttachment(String privateServiceConnectServiceAttachment) {
             return privateServiceConnectServiceAttachment(Output.of(privateServiceConnectServiceAttachment));
-        }
-
-        /**
-         * @param zone Zone associated with the PSC Service attachment.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zone(@Nullable Output<String> zone) {
-            $.zone = zone;
-            return this;
-        }
-
-        /**
-         * @param zone Zone associated with the PSC Service attachment.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zone(String zone) {
-            return zone(Output.of(zone));
         }
 
         public PrivateLinkAttachmentGcpArgs build() {

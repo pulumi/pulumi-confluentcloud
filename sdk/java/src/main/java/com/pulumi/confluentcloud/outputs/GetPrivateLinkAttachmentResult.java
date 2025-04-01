@@ -42,6 +42,10 @@ public final class GetPrivateLinkAttachmentResult {
      */
     private String dnsDomain;
     private GetPrivateLinkAttachmentEnvironment environment;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     private List<GetPrivateLinkAttachmentGcp> gcps;
     private String id;
     /**
@@ -95,6 +99,10 @@ public final class GetPrivateLinkAttachmentResult {
     public GetPrivateLinkAttachmentEnvironment environment() {
         return this.environment;
     }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public List<GetPrivateLinkAttachmentGcp> gcps() {
         return this.gcps;
     }

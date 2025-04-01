@@ -68,6 +68,9 @@ export interface GetPrivateLinkAttachmentConnectionResult {
      */
     readonly displayName: string;
     readonly environment: outputs.GetPrivateLinkAttachmentConnectionEnvironment;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     readonly gcps: outputs.GetPrivateLinkAttachmentConnectionGcp[];
     /**
      * (Required String) The unique identifier for the private link attachment.

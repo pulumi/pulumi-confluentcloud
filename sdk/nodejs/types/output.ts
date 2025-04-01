@@ -1498,7 +1498,7 @@ export interface GetPrivateLinkAttachmentConnectionEnvironment {
 
 export interface GetPrivateLinkAttachmentConnectionGcp {
     /**
-     * Id of the Private Service connection.
+     * (Required String) GCP Private Service Connect ID used to establish connections for all zones.
      */
     privateServiceConnectConnectionId: string;
 }
@@ -1522,10 +1522,6 @@ export interface GetPrivateLinkAttachmentGcp {
      * Id of a Private Service Connect Service Attachment in Confluent Cloud.
      */
     privateServiceConnectServiceAttachment: string;
-    /**
-     * Zone associated with the PSC Service attachment.
-     */
-    zone: string;
 }
 
 export interface GetProviderIntegrationAw {
@@ -2579,7 +2575,7 @@ export interface PrivateLinkAttachmentAzure {
 
 export interface PrivateLinkAttachmentConnectionAws {
     /**
-     * Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+     * ID of a VPC Endpoint that is connected to the VPC Endpoint service.
      */
     vpcEndpointId: string;
 }
@@ -2600,7 +2596,7 @@ export interface PrivateLinkAttachmentConnectionEnvironment {
 
 export interface PrivateLinkAttachmentConnectionGcp {
     /**
-     * Id of the Private Service connection.
+     * GCP Private Service Connect ID used to establish connections for all zones.
      */
     privateServiceConnectConnectionId: string;
 }
@@ -2624,10 +2620,6 @@ export interface PrivateLinkAttachmentGcp {
      * Id of a Private Service Connect Service Attachment in Confluent Cloud.
      */
     privateServiceConnectServiceAttachment: string;
-    /**
-     * Zone associated with the PSC Service attachment.
-     */
-    zone: string;
 }
 
 export interface ProviderIntegrationAws {

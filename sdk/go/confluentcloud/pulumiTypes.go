@@ -15812,7 +15812,7 @@ func (o PrivateLinkAttachmentAzureArrayOutput) Index(i pulumi.IntInput) PrivateL
 }
 
 type PrivateLinkAttachmentConnectionAws struct {
-	// Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+	// ID of a VPC Endpoint that is connected to the VPC Endpoint service.
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
 }
 
@@ -15828,7 +15828,7 @@ type PrivateLinkAttachmentConnectionAwsInput interface {
 }
 
 type PrivateLinkAttachmentConnectionAwsArgs struct {
-	// Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+	// ID of a VPC Endpoint that is connected to the VPC Endpoint service.
 	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
 }
 
@@ -15909,7 +15909,7 @@ func (o PrivateLinkAttachmentConnectionAwsOutput) ToPrivateLinkAttachmentConnect
 	}).(PrivateLinkAttachmentConnectionAwsPtrOutput)
 }
 
-// Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+// ID of a VPC Endpoint that is connected to the VPC Endpoint service.
 func (o PrivateLinkAttachmentConnectionAwsOutput) VpcEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentConnectionAws) string { return v.VpcEndpointId }).(pulumi.StringOutput)
 }
@@ -15938,7 +15938,7 @@ func (o PrivateLinkAttachmentConnectionAwsPtrOutput) Elem() PrivateLinkAttachmen
 	}).(PrivateLinkAttachmentConnectionAwsOutput)
 }
 
-// Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+// ID of a VPC Endpoint that is connected to the VPC Endpoint service.
 func (o PrivateLinkAttachmentConnectionAwsPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionAws) *string {
 		if v == nil {
@@ -16223,7 +16223,7 @@ func (o PrivateLinkAttachmentConnectionEnvironmentPtrOutput) Id() pulumi.StringP
 }
 
 type PrivateLinkAttachmentConnectionGcp struct {
-	// Id of the Private Service connection.
+	// GCP Private Service Connect ID used to establish connections for all zones.
 	PrivateServiceConnectConnectionId string `pulumi:"privateServiceConnectConnectionId"`
 }
 
@@ -16239,7 +16239,7 @@ type PrivateLinkAttachmentConnectionGcpInput interface {
 }
 
 type PrivateLinkAttachmentConnectionGcpArgs struct {
-	// Id of the Private Service connection.
+	// GCP Private Service Connect ID used to establish connections for all zones.
 	PrivateServiceConnectConnectionId pulumi.StringInput `pulumi:"privateServiceConnectConnectionId"`
 }
 
@@ -16320,7 +16320,7 @@ func (o PrivateLinkAttachmentConnectionGcpOutput) ToPrivateLinkAttachmentConnect
 	}).(PrivateLinkAttachmentConnectionGcpPtrOutput)
 }
 
-// Id of the Private Service connection.
+// GCP Private Service Connect ID used to establish connections for all zones.
 func (o PrivateLinkAttachmentConnectionGcpOutput) PrivateServiceConnectConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentConnectionGcp) string { return v.PrivateServiceConnectConnectionId }).(pulumi.StringOutput)
 }
@@ -16349,7 +16349,7 @@ func (o PrivateLinkAttachmentConnectionGcpPtrOutput) Elem() PrivateLinkAttachmen
 	}).(PrivateLinkAttachmentConnectionGcpOutput)
 }
 
-// Id of the Private Service connection.
+// GCP Private Service Connect ID used to establish connections for all zones.
 func (o PrivateLinkAttachmentConnectionGcpPtrOutput) PrivateServiceConnectConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionGcp) *string {
 		if v == nil {
@@ -16636,8 +16636,6 @@ func (o PrivateLinkAttachmentEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 type PrivateLinkAttachmentGcp struct {
 	// Id of a Private Service Connect Service Attachment in Confluent Cloud.
 	PrivateServiceConnectServiceAttachment *string `pulumi:"privateServiceConnectServiceAttachment"`
-	// Zone associated with the PSC Service attachment.
-	Zone *string `pulumi:"zone"`
 }
 
 // PrivateLinkAttachmentGcpInput is an input type that accepts PrivateLinkAttachmentGcpArgs and PrivateLinkAttachmentGcpOutput values.
@@ -16654,8 +16652,6 @@ type PrivateLinkAttachmentGcpInput interface {
 type PrivateLinkAttachmentGcpArgs struct {
 	// Id of a Private Service Connect Service Attachment in Confluent Cloud.
 	PrivateServiceConnectServiceAttachment pulumi.StringPtrInput `pulumi:"privateServiceConnectServiceAttachment"`
-	// Zone associated with the PSC Service attachment.
-	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
 func (PrivateLinkAttachmentGcpArgs) ElementType() reflect.Type {
@@ -16712,11 +16708,6 @@ func (o PrivateLinkAttachmentGcpOutput) ToPrivateLinkAttachmentGcpOutputWithCont
 // Id of a Private Service Connect Service Attachment in Confluent Cloud.
 func (o PrivateLinkAttachmentGcpOutput) PrivateServiceConnectServiceAttachment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentGcp) *string { return v.PrivateServiceConnectServiceAttachment }).(pulumi.StringPtrOutput)
-}
-
-// Zone associated with the PSC Service attachment.
-func (o PrivateLinkAttachmentGcpOutput) Zone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkAttachmentGcp) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
 type PrivateLinkAttachmentGcpArrayOutput struct{ *pulumi.OutputState }
@@ -31238,7 +31229,7 @@ func (o GetPrivateLinkAttachmentConnectionEnvironmentOutput) Id() pulumi.StringO
 }
 
 type GetPrivateLinkAttachmentConnectionGcp struct {
-	// Id of the Private Service connection.
+	// (Required String) GCP Private Service Connect ID used to establish connections for all zones.
 	PrivateServiceConnectConnectionId string `pulumi:"privateServiceConnectConnectionId"`
 }
 
@@ -31254,7 +31245,7 @@ type GetPrivateLinkAttachmentConnectionGcpInput interface {
 }
 
 type GetPrivateLinkAttachmentConnectionGcpArgs struct {
-	// Id of the Private Service connection.
+	// (Required String) GCP Private Service Connect ID used to establish connections for all zones.
 	PrivateServiceConnectConnectionId pulumi.StringInput `pulumi:"privateServiceConnectConnectionId"`
 }
 
@@ -31309,7 +31300,7 @@ func (o GetPrivateLinkAttachmentConnectionGcpOutput) ToGetPrivateLinkAttachmentC
 	return o
 }
 
-// Id of the Private Service connection.
+// (Required String) GCP Private Service Connect ID used to establish connections for all zones.
 func (o GetPrivateLinkAttachmentConnectionGcpOutput) PrivateServiceConnectConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentConnectionGcp) string { return v.PrivateServiceConnectConnectionId }).(pulumi.StringOutput)
 }
@@ -31486,8 +31477,6 @@ func (o GetPrivateLinkAttachmentEnvironmentOutput) Id() pulumi.StringOutput {
 type GetPrivateLinkAttachmentGcp struct {
 	// Id of a Private Service Connect Service Attachment in Confluent Cloud.
 	PrivateServiceConnectServiceAttachment string `pulumi:"privateServiceConnectServiceAttachment"`
-	// Zone associated with the PSC Service attachment.
-	Zone string `pulumi:"zone"`
 }
 
 // GetPrivateLinkAttachmentGcpInput is an input type that accepts GetPrivateLinkAttachmentGcpArgs and GetPrivateLinkAttachmentGcpOutput values.
@@ -31504,8 +31493,6 @@ type GetPrivateLinkAttachmentGcpInput interface {
 type GetPrivateLinkAttachmentGcpArgs struct {
 	// Id of a Private Service Connect Service Attachment in Confluent Cloud.
 	PrivateServiceConnectServiceAttachment pulumi.StringInput `pulumi:"privateServiceConnectServiceAttachment"`
-	// Zone associated with the PSC Service attachment.
-	Zone pulumi.StringInput `pulumi:"zone"`
 }
 
 func (GetPrivateLinkAttachmentGcpArgs) ElementType() reflect.Type {
@@ -31562,11 +31549,6 @@ func (o GetPrivateLinkAttachmentGcpOutput) ToGetPrivateLinkAttachmentGcpOutputWi
 // Id of a Private Service Connect Service Attachment in Confluent Cloud.
 func (o GetPrivateLinkAttachmentGcpOutput) PrivateServiceConnectServiceAttachment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentGcp) string { return v.PrivateServiceConnectServiceAttachment }).(pulumi.StringOutput)
-}
-
-// Zone associated with the PSC Service attachment.
-func (o GetPrivateLinkAttachmentGcpOutput) Zone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPrivateLinkAttachmentGcp) string { return v.Zone }).(pulumi.StringOutput)
 }
 
 type GetPrivateLinkAttachmentGcpArrayOutput struct{ *pulumi.OutputState }

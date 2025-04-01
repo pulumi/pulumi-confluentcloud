@@ -58,6 +58,23 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
+    ///     var gcp = new ConfluentCloud.PrivateLinkAttachmentConnection("gcp", new()
+    ///     {
+    ///         DisplayName = "prod-gcp-uscentral1-connection",
+    ///         Environment = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionEnvironmentArgs
+    ///         {
+    ///             Id = "env-12345",
+    ///         },
+    ///         Gcp = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionGcpArgs
+    ///         {
+    ///             PrivateServiceConnectConnectionId = "48796d35-191c-4de1-83e6-3824517eaa1d",
+    ///         },
+    ///         PrivateLinkAttachment = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs
+    ///         {
+    ///             Id = "platt-abcdef",
+    ///         },
+    ///     });
+    /// 
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
     ///         ["privateLinkAttachmentConnection"] = aws,

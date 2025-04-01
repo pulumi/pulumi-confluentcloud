@@ -107,6 +107,7 @@ class _PrivateLinkAttachmentState:
         :param pulumi.Input[str] display_name: The name of the Private Link Attachment.
         :param pulumi.Input[str] dns_domain: (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
         :param pulumi.Input['PrivateLinkAttachmentEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentGcpArgs']]] gcps: (Optional Configuration Block) supports the following:
         :param pulumi.Input[str] region: The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
         """
@@ -205,6 +206,9 @@ class _PrivateLinkAttachmentState:
     @property
     @pulumi.getter
     def gcps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentGcpArgs']]]]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
         return pulumi.get(self, "gcps")
 
     @gcps.setter
@@ -419,6 +423,7 @@ class PrivateLinkAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The name of the Private Link Attachment.
         :param pulumi.Input[str] dns_domain: (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
         :param pulumi.Input[Union['PrivateLinkAttachmentEnvironmentArgs', 'PrivateLinkAttachmentEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkAttachmentGcpArgs', 'PrivateLinkAttachmentGcpArgsDict']]]] gcps: (Optional Configuration Block) supports the following:
         :param pulumi.Input[str] region: The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
         :param pulumi.Input[str] resource_name_: (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
         """
@@ -489,6 +494,9 @@ class PrivateLinkAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def gcps(self) -> pulumi.Output[Sequence['outputs.PrivateLinkAttachmentGcp']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
         return pulumi.get(self, "gcps")
 
     @property

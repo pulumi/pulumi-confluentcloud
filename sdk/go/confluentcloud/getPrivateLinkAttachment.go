@@ -81,8 +81,9 @@ type LookupPrivateLinkAttachmentResult struct {
 	// (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
 	DnsDomain   string                              `pulumi:"dnsDomain"`
 	Environment GetPrivateLinkAttachmentEnvironment `pulumi:"environment"`
-	Gcps        []GetPrivateLinkAttachmentGcp       `pulumi:"gcps"`
-	Id          string                              `pulumi:"id"`
+	// (Optional Configuration Block) supports the following:
+	Gcps []GetPrivateLinkAttachmentGcp `pulumi:"gcps"`
+	Id   string                        `pulumi:"id"`
 	// (Optional String) The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
 	Region string `pulumi:"region"`
 	// (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
@@ -154,6 +155,7 @@ func (o LookupPrivateLinkAttachmentResultOutput) Environment() GetPrivateLinkAtt
 	return o.ApplyT(func(v LookupPrivateLinkAttachmentResult) GetPrivateLinkAttachmentEnvironment { return v.Environment }).(GetPrivateLinkAttachmentEnvironmentOutput)
 }
 
+// (Optional Configuration Block) supports the following:
 func (o LookupPrivateLinkAttachmentResultOutput) Gcps() GetPrivateLinkAttachmentGcpArrayOutput {
 	return o.ApplyT(func(v LookupPrivateLinkAttachmentResult) []GetPrivateLinkAttachmentGcp { return v.Gcps }).(GetPrivateLinkAttachmentGcpArrayOutput)
 }

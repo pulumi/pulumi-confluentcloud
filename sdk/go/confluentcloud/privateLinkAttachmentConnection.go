@@ -60,6 +60,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = confluentcloud.NewPrivateLinkAttachmentConnection(ctx, "gcp", &confluentcloud.PrivateLinkAttachmentConnectionArgs{
+//				DisplayName: pulumi.String("prod-gcp-uscentral1-connection"),
+//				Environment: &confluentcloud.PrivateLinkAttachmentConnectionEnvironmentArgs{
+//					Id: pulumi.String("env-12345"),
+//				},
+//				Gcp: &confluentcloud.PrivateLinkAttachmentConnectionGcpArgs{
+//					PrivateServiceConnectConnectionId: pulumi.String("48796d35-191c-4de1-83e6-3824517eaa1d"),
+//				},
+//				PrivateLinkAttachment: &confluentcloud.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs{
+//					Id: pulumi.String("platt-abcdef"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			ctx.Export("privateLinkAttachmentConnection", aws)
 //			return nil
 //		})

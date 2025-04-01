@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class PrivateLinkAttachmentConnectionAws
     {
         /// <summary>
-        /// Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        /// ID of a VPC Endpoint that is connected to the VPC Endpoint service.
         /// </summary>
         public readonly string VpcEndpointId;
 

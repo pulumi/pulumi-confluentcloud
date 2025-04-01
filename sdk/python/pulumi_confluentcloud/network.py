@@ -251,6 +251,7 @@ class _NetworkState:
                  display_name: Optional[pulumi.Input[str]] = None,
                  dns_config: Optional[pulumi.Input['NetworkDnsConfigArgs']] = None,
                  dns_domain: Optional[pulumi.Input[str]] = None,
+                 endpoint_suffix: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['NetworkEnvironmentArgs']] = None,
                  gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGatewayArgs']]]] = None,
                  gcps: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]]] = None,
@@ -270,6 +271,7 @@ class _NetworkState:
         :param pulumi.Input[str] display_name: The name of the Network.
         :param pulumi.Input['NetworkDnsConfigArgs'] dns_config: Network DNS config. It applies only to the PRIVATELINK network connection type.
         :param pulumi.Input[str] dns_domain: (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
+        :param pulumi.Input[str] endpoint_suffix: (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
         :param pulumi.Input['NetworkEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkGatewayArgs']]] gateways: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
@@ -301,6 +303,8 @@ class _NetworkState:
             pulumi.set(__self__, "dns_config", dns_config)
         if dns_domain is not None:
             pulumi.set(__self__, "dns_domain", dns_domain)
+        if endpoint_suffix is not None:
+            pulumi.set(__self__, "endpoint_suffix", endpoint_suffix)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
         if gateways is not None:
@@ -415,6 +419,18 @@ class _NetworkState:
     @dns_domain.setter
     def dns_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_domain", value)
+
+    @property
+    @pulumi.getter(name="endpointSuffix")
+    def endpoint_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+        """
+        return pulumi.get(self, "endpoint_suffix")
+
+    @endpoint_suffix.setter
+    def endpoint_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_suffix", value)
 
     @property
     @pulumi.getter
@@ -865,6 +881,7 @@ class Network(pulumi.CustomResource):
             __props__.__dict__["zone_infos"] = zone_infos
             __props__.__dict__["zones"] = zones
             __props__.__dict__["dns_domain"] = None
+            __props__.__dict__["endpoint_suffix"] = None
             __props__.__dict__["gateways"] = None
             __props__.__dict__["resource_name"] = None
             __props__.__dict__["zonal_subdomains"] = None
@@ -886,6 +903,7 @@ class Network(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[str]] = None,
             dns_config: Optional[pulumi.Input[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict']]] = None,
             dns_domain: Optional[pulumi.Input[str]] = None,
+            endpoint_suffix: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[Union['NetworkEnvironmentArgs', 'NetworkEnvironmentArgsDict']]] = None,
             gateways: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkGatewayArgs', 'NetworkGatewayArgsDict']]]]] = None,
             gcps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkGcpArgs', 'NetworkGcpArgsDict']]]]] = None,
@@ -910,6 +928,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The name of the Network.
         :param pulumi.Input[Union['NetworkDnsConfigArgs', 'NetworkDnsConfigArgsDict']] dns_config: Network DNS config. It applies only to the PRIVATELINK network connection type.
         :param pulumi.Input[str] dns_domain: (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
+        :param pulumi.Input[str] endpoint_suffix: (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
         :param pulumi.Input[Union['NetworkEnvironmentArgs', 'NetworkEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkGatewayArgs', 'NetworkGatewayArgsDict']]]] gateways: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkGcpArgs', 'NetworkGcpArgsDict']]]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
@@ -937,6 +956,7 @@ class Network(pulumi.CustomResource):
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["dns_config"] = dns_config
         __props__.__dict__["dns_domain"] = dns_domain
+        __props__.__dict__["endpoint_suffix"] = endpoint_suffix
         __props__.__dict__["environment"] = environment
         __props__.__dict__["gateways"] = gateways
         __props__.__dict__["gcps"] = gcps
@@ -1011,6 +1031,14 @@ class Network(pulumi.CustomResource):
         (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
         """
         return pulumi.get(self, "dns_domain")
+
+    @property
+    @pulumi.getter(name="endpointSuffix")
+    def endpoint_suffix(self) -> pulumi.Output[str]:
+        """
+        (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+        """
+        return pulumi.get(self, "endpoint_suffix")
 
     @property
     @pulumi.getter

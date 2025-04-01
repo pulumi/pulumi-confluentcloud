@@ -5492,7 +5492,7 @@ if not MYPY:
     class PrivateLinkAttachmentConnectionAwsArgsDict(TypedDict):
         vpc_endpoint_id: pulumi.Input[str]
         """
-        Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        ID of a VPC Endpoint that is connected to the VPC Endpoint service.
         """
 elif False:
     PrivateLinkAttachmentConnectionAwsArgsDict: TypeAlias = Mapping[str, Any]
@@ -5502,7 +5502,7 @@ class PrivateLinkAttachmentConnectionAwsArgs:
     def __init__(__self__, *,
                  vpc_endpoint_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] vpc_endpoint_id: Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        :param pulumi.Input[str] vpc_endpoint_id: ID of a VPC Endpoint that is connected to the VPC Endpoint service.
         """
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
 
@@ -5510,7 +5510,7 @@ class PrivateLinkAttachmentConnectionAwsArgs:
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Input[str]:
         """
-        Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        ID of a VPC Endpoint that is connected to the VPC Endpoint service.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 
@@ -5585,7 +5585,7 @@ if not MYPY:
     class PrivateLinkAttachmentConnectionGcpArgsDict(TypedDict):
         private_service_connect_connection_id: pulumi.Input[str]
         """
-        Id of the Private Service connection.
+        GCP Private Service Connect ID used to establish connections for all zones.
         """
 elif False:
     PrivateLinkAttachmentConnectionGcpArgsDict: TypeAlias = Mapping[str, Any]
@@ -5595,7 +5595,7 @@ class PrivateLinkAttachmentConnectionGcpArgs:
     def __init__(__self__, *,
                  private_service_connect_connection_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] private_service_connect_connection_id: Id of the Private Service connection.
+        :param pulumi.Input[str] private_service_connect_connection_id: GCP Private Service Connect ID used to establish connections for all zones.
         """
         pulumi.set(__self__, "private_service_connect_connection_id", private_service_connect_connection_id)
 
@@ -5603,7 +5603,7 @@ class PrivateLinkAttachmentConnectionGcpArgs:
     @pulumi.getter(name="privateServiceConnectConnectionId")
     def private_service_connect_connection_id(self) -> pulumi.Input[str]:
         """
-        Id of the Private Service connection.
+        GCP Private Service Connect ID used to establish connections for all zones.
         """
         return pulumi.get(self, "private_service_connect_connection_id")
 
@@ -5680,26 +5680,18 @@ if not MYPY:
         """
         Id of a Private Service Connect Service Attachment in Confluent Cloud.
         """
-        zone: NotRequired[pulumi.Input[str]]
-        """
-        Zone associated with the PSC Service attachment.
-        """
 elif False:
     PrivateLinkAttachmentGcpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateLinkAttachmentGcpArgs:
     def __init__(__self__, *,
-                 private_service_connect_service_attachment: Optional[pulumi.Input[str]] = None,
-                 zone: Optional[pulumi.Input[str]] = None):
+                 private_service_connect_service_attachment: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] private_service_connect_service_attachment: Id of a Private Service Connect Service Attachment in Confluent Cloud.
-        :param pulumi.Input[str] zone: Zone associated with the PSC Service attachment.
         """
         if private_service_connect_service_attachment is not None:
             pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
-        if zone is not None:
-            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="privateServiceConnectServiceAttachment")
@@ -5712,18 +5704,6 @@ class PrivateLinkAttachmentGcpArgs:
     @private_service_connect_service_attachment.setter
     def private_service_connect_service_attachment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_service_connect_service_attachment", value)
-
-    @property
-    @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        Zone associated with the PSC Service attachment.
-        """
-        return pulumi.get(self, "zone")
-
-    @zone.setter
-    def zone(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "zone", value)
 
 
 if not MYPY:

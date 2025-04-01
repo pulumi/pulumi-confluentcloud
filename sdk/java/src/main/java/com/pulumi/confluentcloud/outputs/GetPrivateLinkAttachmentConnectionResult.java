@@ -32,6 +32,10 @@ public final class GetPrivateLinkAttachmentConnectionResult {
      */
     private String displayName;
     private GetPrivateLinkAttachmentConnectionEnvironment environment;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     private List<GetPrivateLinkAttachmentConnectionGcp> gcps;
     /**
      * @return (Required String) The unique identifier for the private link attachment.
@@ -74,6 +78,10 @@ public final class GetPrivateLinkAttachmentConnectionResult {
     public GetPrivateLinkAttachmentConnectionEnvironment environment() {
         return this.environment;
     }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public List<GetPrivateLinkAttachmentConnectionGcp> gcps() {
         return this.gcps;
     }

@@ -182,6 +182,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// (Optional String) The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+        /// </summary>
+        public readonly string IdentityClaim;
+        /// <summary>
         /// (Required String) A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
         /// </summary>
         public readonly string Issuer;
@@ -198,6 +202,8 @@ namespace Pulumi.ConfluentCloud
 
             string id,
 
+            string identityClaim,
+
             string issuer,
 
             string jwksUri)
@@ -205,6 +211,7 @@ namespace Pulumi.ConfluentCloud
             Description = description;
             DisplayName = displayName;
             Id = id;
+            IdentityClaim = identityClaim;
             Issuer = issuer;
             JwksUri = jwksUri;
         }

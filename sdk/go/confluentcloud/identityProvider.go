@@ -100,11 +100,15 @@ type IdentityProvider struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// A human-readable name for the Identity Provider.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+	//
+	// > **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
+	//
+	// > **Note:** If the client specifies mapping to one identity pool ID, the identity claim configured with that pool will be used instead.
+	IdentityClaim pulumi.StringPtrOutput `pulumi:"identityClaim"`
 	// A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
 	// A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.
-	//
-	// > **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
 	JwksUri pulumi.StringOutput `pulumi:"jwksUri"`
 }
 
@@ -154,11 +158,15 @@ type identityProviderState struct {
 	Description *string `pulumi:"description"`
 	// A human-readable name for the Identity Provider.
 	DisplayName *string `pulumi:"displayName"`
+	// The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+	//
+	// > **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
+	//
+	// > **Note:** If the client specifies mapping to one identity pool ID, the identity claim configured with that pool will be used instead.
+	IdentityClaim *string `pulumi:"identityClaim"`
 	// A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
 	Issuer *string `pulumi:"issuer"`
 	// A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.
-	//
-	// > **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
 	JwksUri *string `pulumi:"jwksUri"`
 }
 
@@ -167,11 +175,15 @@ type IdentityProviderState struct {
 	Description pulumi.StringPtrInput
 	// A human-readable name for the Identity Provider.
 	DisplayName pulumi.StringPtrInput
+	// The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+	//
+	// > **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
+	//
+	// > **Note:** If the client specifies mapping to one identity pool ID, the identity claim configured with that pool will be used instead.
+	IdentityClaim pulumi.StringPtrInput
 	// A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
 	Issuer pulumi.StringPtrInput
 	// A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.
-	//
-	// > **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
 	JwksUri pulumi.StringPtrInput
 }
 
@@ -184,11 +196,15 @@ type identityProviderArgs struct {
 	Description string `pulumi:"description"`
 	// A human-readable name for the Identity Provider.
 	DisplayName string `pulumi:"displayName"`
+	// The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+	//
+	// > **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
+	//
+	// > **Note:** If the client specifies mapping to one identity pool ID, the identity claim configured with that pool will be used instead.
+	IdentityClaim *string `pulumi:"identityClaim"`
 	// A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
 	Issuer string `pulumi:"issuer"`
 	// A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.
-	//
-	// > **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
 	JwksUri string `pulumi:"jwksUri"`
 }
 
@@ -198,11 +214,15 @@ type IdentityProviderArgs struct {
 	Description pulumi.StringInput
 	// A human-readable name for the Identity Provider.
 	DisplayName pulumi.StringInput
+	// The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+	//
+	// > **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
+	//
+	// > **Note:** If the client specifies mapping to one identity pool ID, the identity claim configured with that pool will be used instead.
+	IdentityClaim pulumi.StringPtrInput
 	// A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
 	Issuer pulumi.StringInput
 	// A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.
-	//
-	// > **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
 	JwksUri pulumi.StringInput
 }
 
@@ -303,14 +323,21 @@ func (o IdentityProviderOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+//
+// > **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
+//
+// > **Note:** If the client specifies mapping to one identity pool ID, the identity claim configured with that pool will be used instead.
+func (o IdentityProviderOutput) IdentityClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.IdentityClaim }).(pulumi.StringPtrOutput)
+}
+
 // A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
 func (o IdentityProviderOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
 }
 
 // A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.
-//
-// > **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
 func (o IdentityProviderOutput) JwksUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.JwksUri }).(pulumi.StringOutput)
 }

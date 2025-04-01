@@ -26,6 +26,11 @@ public final class GetIdentityProviderResult {
      */
     private String id;
     /**
+     * @return (Optional String) The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+     * 
+     */
+    private String identityClaim;
+    /**
      * @return (Required String) A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
      * 
      */
@@ -59,6 +64,13 @@ public final class GetIdentityProviderResult {
         return this.id;
     }
     /**
+     * @return (Optional String) The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+     * 
+     */
+    public String identityClaim() {
+        return this.identityClaim;
+    }
+    /**
      * @return (Required String) A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
      * 
      */
@@ -85,6 +97,7 @@ public final class GetIdentityProviderResult {
         private String description;
         private String displayName;
         private String id;
+        private String identityClaim;
         private String issuer;
         private String jwksUri;
         public Builder() {}
@@ -93,6 +106,7 @@ public final class GetIdentityProviderResult {
     	      this.description = defaults.description;
     	      this.displayName = defaults.displayName;
     	      this.id = defaults.id;
+    	      this.identityClaim = defaults.identityClaim;
     	      this.issuer = defaults.issuer;
     	      this.jwksUri = defaults.jwksUri;
         }
@@ -122,6 +136,14 @@ public final class GetIdentityProviderResult {
             return this;
         }
         @CustomType.Setter
+        public Builder identityClaim(String identityClaim) {
+            if (identityClaim == null) {
+              throw new MissingRequiredPropertyException("GetIdentityProviderResult", "identityClaim");
+            }
+            this.identityClaim = identityClaim;
+            return this;
+        }
+        @CustomType.Setter
         public Builder issuer(String issuer) {
             if (issuer == null) {
               throw new MissingRequiredPropertyException("GetIdentityProviderResult", "issuer");
@@ -142,6 +164,7 @@ public final class GetIdentityProviderResult {
             _resultValue.description = description;
             _resultValue.displayName = displayName;
             _resultValue.id = id;
+            _resultValue.identityClaim = identityClaim;
             _resultValue.issuer = issuer;
             _resultValue.jwksUri = jwksUri;
             return _resultValue;

@@ -76,7 +76,8 @@ type LookupPrivateLinkAttachmentConnectionResult struct {
 	// (Optional String) The name of the Private Link Attachment Connection.
 	DisplayName string                                        `pulumi:"displayName"`
 	Environment GetPrivateLinkAttachmentConnectionEnvironment `pulumi:"environment"`
-	Gcps        []GetPrivateLinkAttachmentConnectionGcp       `pulumi:"gcps"`
+	// (Optional Configuration Block) supports the following:
+	Gcps []GetPrivateLinkAttachmentConnectionGcp `pulumi:"gcps"`
 	// (Required String) The unique identifier for the private link attachment.
 	Id string `pulumi:"id"`
 	// (Optional Configuration Block) supports the following:
@@ -145,6 +146,7 @@ func (o LookupPrivateLinkAttachmentConnectionResultOutput) Environment() GetPriv
 	}).(GetPrivateLinkAttachmentConnectionEnvironmentOutput)
 }
 
+// (Optional Configuration Block) supports the following:
 func (o LookupPrivateLinkAttachmentConnectionResultOutput) Gcps() GetPrivateLinkAttachmentConnectionGcpArrayOutput {
 	return o.ApplyT(func(v LookupPrivateLinkAttachmentConnectionResult) []GetPrivateLinkAttachmentConnectionGcp {
 		return v.Gcps

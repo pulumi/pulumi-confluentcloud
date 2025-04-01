@@ -16,11 +16,6 @@ public final class PrivateLinkAttachmentGcp {
      * 
      */
     private @Nullable String privateServiceConnectServiceAttachment;
-    /**
-     * @return Zone associated with the PSC Service attachment.
-     * 
-     */
-    private @Nullable String zone;
 
     private PrivateLinkAttachmentGcp() {}
     /**
@@ -29,13 +24,6 @@ public final class PrivateLinkAttachmentGcp {
      */
     public Optional<String> privateServiceConnectServiceAttachment() {
         return Optional.ofNullable(this.privateServiceConnectServiceAttachment);
-    }
-    /**
-     * @return Zone associated with the PSC Service attachment.
-     * 
-     */
-    public Optional<String> zone() {
-        return Optional.ofNullable(this.zone);
     }
 
     public static Builder builder() {
@@ -48,12 +36,10 @@ public final class PrivateLinkAttachmentGcp {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String privateServiceConnectServiceAttachment;
-        private @Nullable String zone;
         public Builder() {}
         public Builder(PrivateLinkAttachmentGcp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateServiceConnectServiceAttachment = defaults.privateServiceConnectServiceAttachment;
-    	      this.zone = defaults.zone;
         }
 
         @CustomType.Setter
@@ -62,16 +48,9 @@ public final class PrivateLinkAttachmentGcp {
             this.privateServiceConnectServiceAttachment = privateServiceConnectServiceAttachment;
             return this;
         }
-        @CustomType.Setter
-        public Builder zone(@Nullable String zone) {
-
-            this.zone = zone;
-            return this;
-        }
         public PrivateLinkAttachmentGcp build() {
             final var _resultValue = new PrivateLinkAttachmentGcp();
             _resultValue.privateServiceConnectServiceAttachment = privateServiceConnectServiceAttachment;
-            _resultValue.zone = zone;
             return _resultValue;
         }
     }

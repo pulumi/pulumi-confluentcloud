@@ -71,6 +71,10 @@ export interface GetIdentityProviderResult {
      */
     readonly id: string;
     /**
+     * (Optional String) The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+     */
+    readonly identityClaim: string;
+    /**
      * (Required String) A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
      */
     readonly issuer: string;

@@ -100,9 +100,11 @@ type LookupNetworkResult struct {
 	// (Required String) The name of the Network.
 	DisplayName string `pulumi:"displayName"`
 	// (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
-	DnsConfigs  []GetNetworkDnsConfig `pulumi:"dnsConfigs"`
-	DnsDomain   string                `pulumi:"dnsDomain"`
-	Environment GetNetworkEnvironment `pulumi:"environment"`
+	DnsConfigs []GetNetworkDnsConfig `pulumi:"dnsConfigs"`
+	DnsDomain  string                `pulumi:"dnsDomain"`
+	// (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+	EndpointSuffix string                `pulumi:"endpointSuffix"`
+	Environment    GetNetworkEnvironment `pulumi:"environment"`
 	// (Optional Configuration Block) supports the following:
 	Gateways []GetNetworkGateway `pulumi:"gateways"`
 	// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
@@ -209,6 +211,11 @@ func (o LookupNetworkResultOutput) DnsConfigs() GetNetworkDnsConfigArrayOutput {
 
 func (o LookupNetworkResultOutput) DnsDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.DnsDomain }).(pulumi.StringOutput)
+}
+
+// (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+func (o LookupNetworkResultOutput) EndpointSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkResult) string { return v.EndpointSuffix }).(pulumi.StringOutput)
 }
 
 func (o LookupNetworkResultOutput) Environment() GetNetworkEnvironmentOutput {
