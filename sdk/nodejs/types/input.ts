@@ -2617,7 +2617,7 @@ export interface PrivateLinkAttachmentAzure {
 
 export interface PrivateLinkAttachmentConnectionAws {
     /**
-     * Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+     * ID of a VPC Endpoint that is connected to the VPC Endpoint service.
      */
     vpcEndpointId: pulumi.Input<string>;
 }
@@ -2638,7 +2638,7 @@ export interface PrivateLinkAttachmentConnectionEnvironment {
 
 export interface PrivateLinkAttachmentConnectionGcp {
     /**
-     * Id of the Private Service connection.
+     * GCP Private Service Connect ID used to establish connections for all zones.
      */
     privateServiceConnectConnectionId: pulumi.Input<string>;
 }
@@ -2662,10 +2662,6 @@ export interface PrivateLinkAttachmentGcp {
      * Id of a Private Service Connect Service Attachment in Confluent Cloud.
      */
     privateServiceConnectServiceAttachment?: pulumi.Input<string>;
-    /**
-     * Zone associated with the PSC Service attachment.
-     */
-    zone?: pulumi.Input<string>;
 }
 
 export interface ProviderIntegrationAws {

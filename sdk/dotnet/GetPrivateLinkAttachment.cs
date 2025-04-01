@@ -196,6 +196,9 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string DnsDomain;
         public readonly Outputs.GetPrivateLinkAttachmentEnvironmentResult Environment;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetPrivateLinkAttachmentGcpResult> Gcps;
         public readonly string Id;
         /// <summary>

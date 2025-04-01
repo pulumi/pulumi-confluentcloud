@@ -83,7 +83,8 @@ type PrivateLinkAttachment struct {
 	DnsDomain pulumi.StringOutput `pulumi:"dnsDomain"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAttachmentEnvironmentOutput `pulumi:"environment"`
-	Gcps        PrivateLinkAttachmentGcpArrayOutput    `pulumi:"gcps"`
+	// (Optional Configuration Block) supports the following:
+	Gcps PrivateLinkAttachmentGcpArrayOutput `pulumi:"gcps"`
 	// The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
@@ -145,7 +146,8 @@ type privateLinkAttachmentState struct {
 	DnsDomain *string `pulumi:"dnsDomain"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *PrivateLinkAttachmentEnvironment `pulumi:"environment"`
-	Gcps        []PrivateLinkAttachmentGcp        `pulumi:"gcps"`
+	// (Optional Configuration Block) supports the following:
+	Gcps []PrivateLinkAttachmentGcp `pulumi:"gcps"`
 	// The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
 	Region *string `pulumi:"region"`
 	// (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
@@ -166,7 +168,8 @@ type PrivateLinkAttachmentState struct {
 	DnsDomain pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAttachmentEnvironmentPtrInput
-	Gcps        PrivateLinkAttachmentGcpArrayInput
+	// (Optional Configuration Block) supports the following:
+	Gcps PrivateLinkAttachmentGcpArrayInput
 	// The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
 	Region pulumi.StringPtrInput
 	// (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
@@ -318,6 +321,7 @@ func (o PrivateLinkAttachmentOutput) Environment() PrivateLinkAttachmentEnvironm
 	return o.ApplyT(func(v *PrivateLinkAttachment) PrivateLinkAttachmentEnvironmentOutput { return v.Environment }).(PrivateLinkAttachmentEnvironmentOutput)
 }
 
+// (Optional Configuration Block) supports the following:
 func (o PrivateLinkAttachmentOutput) Gcps() PrivateLinkAttachmentGcpArrayOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachment) PrivateLinkAttachmentGcpArrayOutput { return v.Gcps }).(PrivateLinkAttachmentGcpArrayOutput)
 }

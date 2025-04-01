@@ -15,11 +15,6 @@ public final class GetPrivateLinkAttachmentGcp {
      * 
      */
     private String privateServiceConnectServiceAttachment;
-    /**
-     * @return Zone associated with the PSC Service attachment.
-     * 
-     */
-    private String zone;
 
     private GetPrivateLinkAttachmentGcp() {}
     /**
@@ -28,13 +23,6 @@ public final class GetPrivateLinkAttachmentGcp {
      */
     public String privateServiceConnectServiceAttachment() {
         return this.privateServiceConnectServiceAttachment;
-    }
-    /**
-     * @return Zone associated with the PSC Service attachment.
-     * 
-     */
-    public String zone() {
-        return this.zone;
     }
 
     public static Builder builder() {
@@ -47,12 +35,10 @@ public final class GetPrivateLinkAttachmentGcp {
     @CustomType.Builder
     public static final class Builder {
         private String privateServiceConnectServiceAttachment;
-        private String zone;
         public Builder() {}
         public Builder(GetPrivateLinkAttachmentGcp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateServiceConnectServiceAttachment = defaults.privateServiceConnectServiceAttachment;
-    	      this.zone = defaults.zone;
         }
 
         @CustomType.Setter
@@ -63,18 +49,9 @@ public final class GetPrivateLinkAttachmentGcp {
             this.privateServiceConnectServiceAttachment = privateServiceConnectServiceAttachment;
             return this;
         }
-        @CustomType.Setter
-        public Builder zone(String zone) {
-            if (zone == null) {
-              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentGcp", "zone");
-            }
-            this.zone = zone;
-            return this;
-        }
         public GetPrivateLinkAttachmentGcp build() {
             final var _resultValue = new GetPrivateLinkAttachmentGcp();
             _resultValue.privateServiceConnectServiceAttachment = privateServiceConnectServiceAttachment;
-            _resultValue.zone = zone;
             return _resultValue;
         }
     }

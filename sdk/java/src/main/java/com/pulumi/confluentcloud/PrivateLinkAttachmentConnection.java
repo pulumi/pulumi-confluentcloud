@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionAwsArgs;
  * import com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs;
  * import com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionAzureArgs;
+ * import com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionGcpArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -73,6 +74,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .azure(PrivateLinkAttachmentConnectionAzureArgs.builder()
  *                 .privateEndpointResourceId("/subscriptions/123aaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/testvpc/providers/Microsoft.Network/privateEndpoints/pe-platt-abcdef-az1")
+ *                 .build())
+ *             .privateLinkAttachment(PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs.builder()
+ *                 .id("platt-abcdef")
+ *                 .build())
+ *             .build());
+ * 
+ *         var gcp = new PrivateLinkAttachmentConnection("gcp", PrivateLinkAttachmentConnectionArgs.builder()
+ *             .displayName("prod-gcp-uscentral1-connection")
+ *             .environment(PrivateLinkAttachmentConnectionEnvironmentArgs.builder()
+ *                 .id("env-12345")
+ *                 .build())
+ *             .gcp(PrivateLinkAttachmentConnectionGcpArgs.builder()
+ *                 .privateServiceConnectConnectionId("48796d35-191c-4de1-83e6-3824517eaa1d")
  *                 .build())
  *             .privateLinkAttachment(PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs.builder()
  *                 .id("platt-abcdef")

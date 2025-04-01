@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class PrivateLinkAttachmentConnectionAws {
     /**
-     * @return Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+     * @return ID of a VPC Endpoint that is connected to the VPC Endpoint service.
      * 
      */
     private String vpcEndpointId;
 
     private PrivateLinkAttachmentConnectionAws() {}
     /**
-     * @return Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+     * @return ID of a VPC Endpoint that is connected to the VPC Endpoint service.
      * 
      */
     public String vpcEndpointId() {

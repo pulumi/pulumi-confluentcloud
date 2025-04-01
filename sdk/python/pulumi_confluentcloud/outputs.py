@@ -3885,7 +3885,7 @@ class PrivateLinkAttachmentConnectionAws(dict):
     def __init__(__self__, *,
                  vpc_endpoint_id: str):
         """
-        :param str vpc_endpoint_id: Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        :param str vpc_endpoint_id: ID of a VPC Endpoint that is connected to the VPC Endpoint service.
         """
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
 
@@ -3893,7 +3893,7 @@ class PrivateLinkAttachmentConnectionAws(dict):
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> str:
         """
-        Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        ID of a VPC Endpoint that is connected to the VPC Endpoint service.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 
@@ -3973,7 +3973,7 @@ class PrivateLinkAttachmentConnectionGcp(dict):
     def __init__(__self__, *,
                  private_service_connect_connection_id: str):
         """
-        :param str private_service_connect_connection_id: Id of the Private Service connection.
+        :param str private_service_connect_connection_id: GCP Private Service Connect ID used to establish connections for all zones.
         """
         pulumi.set(__self__, "private_service_connect_connection_id", private_service_connect_connection_id)
 
@@ -3981,7 +3981,7 @@ class PrivateLinkAttachmentConnectionGcp(dict):
     @pulumi.getter(name="privateServiceConnectConnectionId")
     def private_service_connect_connection_id(self) -> str:
         """
-        Id of the Private Service connection.
+        GCP Private Service Connect ID used to establish connections for all zones.
         """
         return pulumi.get(self, "private_service_connect_connection_id")
 
@@ -4042,16 +4042,12 @@ class PrivateLinkAttachmentGcp(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 private_service_connect_service_attachment: Optional[str] = None,
-                 zone: Optional[str] = None):
+                 private_service_connect_service_attachment: Optional[str] = None):
         """
         :param str private_service_connect_service_attachment: Id of a Private Service Connect Service Attachment in Confluent Cloud.
-        :param str zone: Zone associated with the PSC Service attachment.
         """
         if private_service_connect_service_attachment is not None:
             pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
-        if zone is not None:
-            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="privateServiceConnectServiceAttachment")
@@ -4060,14 +4056,6 @@ class PrivateLinkAttachmentGcp(dict):
         Id of a Private Service Connect Service Attachment in Confluent Cloud.
         """
         return pulumi.get(self, "private_service_connect_service_attachment")
-
-    @property
-    @pulumi.getter
-    def zone(self) -> Optional[str]:
-        """
-        Zone associated with the PSC Service attachment.
-        """
-        return pulumi.get(self, "zone")
 
 
 @pulumi.output_type
@@ -7681,7 +7669,7 @@ class GetPrivateLinkAttachmentConnectionGcpResult(dict):
     def __init__(__self__, *,
                  private_service_connect_connection_id: str):
         """
-        :param str private_service_connect_connection_id: Id of the Private Service connection.
+        :param str private_service_connect_connection_id: (Required String) GCP Private Service Connect ID used to establish connections for all zones.
         """
         pulumi.set(__self__, "private_service_connect_connection_id", private_service_connect_connection_id)
 
@@ -7689,7 +7677,7 @@ class GetPrivateLinkAttachmentConnectionGcpResult(dict):
     @pulumi.getter(name="privateServiceConnectConnectionId")
     def private_service_connect_connection_id(self) -> str:
         """
-        Id of the Private Service connection.
+        (Required String) GCP Private Service Connect ID used to establish connections for all zones.
         """
         return pulumi.get(self, "private_service_connect_connection_id")
 
@@ -7733,14 +7721,11 @@ class GetPrivateLinkAttachmentEnvironmentResult(dict):
 @pulumi.output_type
 class GetPrivateLinkAttachmentGcpResult(dict):
     def __init__(__self__, *,
-                 private_service_connect_service_attachment: str,
-                 zone: str):
+                 private_service_connect_service_attachment: str):
         """
         :param str private_service_connect_service_attachment: Id of a Private Service Connect Service Attachment in Confluent Cloud.
-        :param str zone: Zone associated with the PSC Service attachment.
         """
         pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
-        pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="privateServiceConnectServiceAttachment")
@@ -7749,14 +7734,6 @@ class GetPrivateLinkAttachmentGcpResult(dict):
         Id of a Private Service Connect Service Attachment in Confluent Cloud.
         """
         return pulumi.get(self, "private_service_connect_service_attachment")
-
-    @property
-    @pulumi.getter
-    def zone(self) -> str:
-        """
-        Zone associated with the PSC Service attachment.
-        """
-        return pulumi.get(self, "zone")
 
 
 @pulumi.output_type

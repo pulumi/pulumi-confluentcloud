@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class PrivateLinkAttachmentConnectionGcp
     {
         /// <summary>
-        /// Id of the Private Service connection.
+        /// GCP Private Service Connect ID used to establish connections for all zones.
         /// </summary>
         public readonly string PrivateServiceConnectConnectionId;
 

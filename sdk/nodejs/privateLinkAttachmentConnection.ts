@@ -41,6 +41,18 @@ import * as utilities from "./utilities";
  *         id: "platt-abcdef",
  *     },
  * });
+ * const gcp = new confluentcloud.PrivateLinkAttachmentConnection("gcp", {
+ *     displayName: "prod-gcp-uscentral1-connection",
+ *     environment: {
+ *         id: "env-12345",
+ *     },
+ *     gcp: {
+ *         privateServiceConnectConnectionId: "48796d35-191c-4de1-83e6-3824517eaa1d",
+ *     },
+ *     privateLinkAttachment: {
+ *         id: "platt-abcdef",
+ *     },
+ * });
  * export const privateLinkAttachmentConnection = aws;
  * ```
  *

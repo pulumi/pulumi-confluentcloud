@@ -15,14 +15,14 @@ public final class PrivateLinkAttachmentConnectionGcpArgs extends com.pulumi.res
     public static final PrivateLinkAttachmentConnectionGcpArgs Empty = new PrivateLinkAttachmentConnectionGcpArgs();
 
     /**
-     * Id of the Private Service connection.
+     * GCP Private Service Connect ID used to establish connections for all zones.
      * 
      */
     @Import(name="privateServiceConnectConnectionId", required=true)
     private Output<String> privateServiceConnectConnectionId;
 
     /**
-     * @return Id of the Private Service connection.
+     * @return GCP Private Service Connect ID used to establish connections for all zones.
      * 
      */
     public Output<String> privateServiceConnectConnectionId() {
@@ -54,7 +54,7 @@ public final class PrivateLinkAttachmentConnectionGcpArgs extends com.pulumi.res
         }
 
         /**
-         * @param privateServiceConnectConnectionId Id of the Private Service connection.
+         * @param privateServiceConnectConnectionId GCP Private Service Connect ID used to establish connections for all zones.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class PrivateLinkAttachmentConnectionGcpArgs extends com.pulumi.res
         }
 
         /**
-         * @param privateServiceConnectConnectionId Id of the Private Service connection.
+         * @param privateServiceConnectConnectionId GCP Private Service Connect ID used to establish connections for all zones.
          * 
          * @return builder
          * 

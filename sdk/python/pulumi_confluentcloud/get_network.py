@@ -28,7 +28,7 @@ class GetNetworkResult:
     """
     A collection of values returned by getNetwork.
     """
-    def __init__(__self__, aws=None, azures=None, cidr=None, cloud=None, connection_types=None, display_name=None, dns_configs=None, dns_domain=None, environment=None, gateways=None, gcps=None, id=None, region=None, reserved_cidr=None, resource_name=None, zonal_subdomains=None, zone_infos=None, zones=None):
+    def __init__(__self__, aws=None, azures=None, cidr=None, cloud=None, connection_types=None, display_name=None, dns_configs=None, dns_domain=None, endpoint_suffix=None, environment=None, gateways=None, gcps=None, id=None, region=None, reserved_cidr=None, resource_name=None, zonal_subdomains=None, zone_infos=None, zones=None):
         if aws and not isinstance(aws, list):
             raise TypeError("Expected argument 'aws' to be a list")
         pulumi.set(__self__, "aws", aws)
@@ -53,6 +53,9 @@ class GetNetworkResult:
         if dns_domain and not isinstance(dns_domain, str):
             raise TypeError("Expected argument 'dns_domain' to be a str")
         pulumi.set(__self__, "dns_domain", dns_domain)
+        if endpoint_suffix and not isinstance(endpoint_suffix, str):
+            raise TypeError("Expected argument 'endpoint_suffix' to be a str")
+        pulumi.set(__self__, "endpoint_suffix", endpoint_suffix)
         if environment and not isinstance(environment, dict):
             raise TypeError("Expected argument 'environment' to be a dict")
         pulumi.set(__self__, "environment", environment)
@@ -144,6 +147,14 @@ class GetNetworkResult:
     @pulumi.getter(name="dnsDomain")
     def dns_domain(self) -> str:
         return pulumi.get(self, "dns_domain")
+
+    @property
+    @pulumi.getter(name="endpointSuffix")
+    def endpoint_suffix(self) -> str:
+        """
+        (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+        """
+        return pulumi.get(self, "endpoint_suffix")
 
     @property
     @pulumi.getter
@@ -239,6 +250,7 @@ class AwaitableGetNetworkResult(GetNetworkResult):
             display_name=self.display_name,
             dns_configs=self.dns_configs,
             dns_domain=self.dns_domain,
+            endpoint_suffix=self.endpoint_suffix,
             environment=self.environment,
             gateways=self.gateways,
             gcps=self.gcps,
@@ -308,6 +320,7 @@ def get_network(aws: Optional[Sequence[Union['GetNetworkAwArgs', 'GetNetworkAwAr
         display_name=pulumi.get(__ret__, 'display_name'),
         dns_configs=pulumi.get(__ret__, 'dns_configs'),
         dns_domain=pulumi.get(__ret__, 'dns_domain'),
+        endpoint_suffix=pulumi.get(__ret__, 'endpoint_suffix'),
         environment=pulumi.get(__ret__, 'environment'),
         gateways=pulumi.get(__ret__, 'gateways'),
         gcps=pulumi.get(__ret__, 'gcps'),
@@ -374,6 +387,7 @@ def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[Union['GetNe
         display_name=pulumi.get(__response__, 'display_name'),
         dns_configs=pulumi.get(__response__, 'dns_configs'),
         dns_domain=pulumi.get(__response__, 'dns_domain'),
+        endpoint_suffix=pulumi.get(__response__, 'endpoint_suffix'),
         environment=pulumi.get(__response__, 'environment'),
         gateways=pulumi.get(__response__, 'gateways'),
         gcps=pulumi.get(__response__, 'gcps'),

@@ -15,14 +15,14 @@ public final class PrivateLinkAttachmentConnectionAwsArgs extends com.pulumi.res
     public static final PrivateLinkAttachmentConnectionAwsArgs Empty = new PrivateLinkAttachmentConnectionAwsArgs();
 
     /**
-     * Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+     * ID of a VPC Endpoint that is connected to the VPC Endpoint service.
      * 
      */
     @Import(name="vpcEndpointId", required=true)
     private Output<String> vpcEndpointId;
 
     /**
-     * @return Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+     * @return ID of a VPC Endpoint that is connected to the VPC Endpoint service.
      * 
      */
     public Output<String> vpcEndpointId() {
@@ -54,7 +54,7 @@ public final class PrivateLinkAttachmentConnectionAwsArgs extends com.pulumi.res
         }
 
         /**
-         * @param vpcEndpointId Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+         * @param vpcEndpointId ID of a VPC Endpoint that is connected to the VPC Endpoint service.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class PrivateLinkAttachmentConnectionAwsArgs extends com.pulumi.res
         }
 
         /**
-         * @param vpcEndpointId Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+         * @param vpcEndpointId ID of a VPC Endpoint that is connected to the VPC Endpoint service.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class PrivateLinkAttachmentConnectionAwsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        /// ID of a VPC Endpoint that is connected to the VPC Endpoint service.
         /// </summary>
         [Input("vpcEndpointId", required: true)]
         public Input<string> VpcEndpointId { get; set; } = null!;

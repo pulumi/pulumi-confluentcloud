@@ -76,6 +76,8 @@ type LookupIdentityProviderResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// (Required String) The ID of the Identity Provider, for example, `op-abc123`.
 	Id string `pulumi:"id"`
+	// (Optional String) The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+	IdentityClaim string `pulumi:"identityClaim"`
 	// (Required String) A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
 	Issuer string `pulumi:"issuer"`
 	// (Required String) A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.
@@ -133,6 +135,11 @@ func (o LookupIdentityProviderResultOutput) DisplayName() pulumi.StringOutput {
 // (Required String) The ID of the Identity Provider, for example, `op-abc123`.
 func (o LookupIdentityProviderResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIdentityProviderResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Optional String) The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+func (o LookupIdentityProviderResultOutput) IdentityClaim() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) string { return v.IdentityClaim }).(pulumi.StringOutput)
 }
 
 // (Required String) A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.

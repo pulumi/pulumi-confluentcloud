@@ -186,6 +186,10 @@ export class Network extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsDomain!: pulumi.Output<string>;
     /**
+     * (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+     */
+    public /*out*/ readonly endpointSuffix!: pulumi.Output<string>;
+    /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     public readonly environment!: pulumi.Output<outputs.NetworkEnvironment>;
@@ -248,6 +252,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["dnsConfig"] = state ? state.dnsConfig : undefined;
             resourceInputs["dnsDomain"] = state ? state.dnsDomain : undefined;
+            resourceInputs["endpointSuffix"] = state ? state.endpointSuffix : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["gateways"] = state ? state.gateways : undefined;
             resourceInputs["gcps"] = state ? state.gcps : undefined;
@@ -285,6 +290,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["zoneInfos"] = args ? args.zoneInfos : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["dnsDomain"] = undefined /*out*/;
+            resourceInputs["endpointSuffix"] = undefined /*out*/;
             resourceInputs["gateways"] = undefined /*out*/;
             resourceInputs["resourceName"] = undefined /*out*/;
             resourceInputs["zonalSubdomains"] = undefined /*out*/;
@@ -330,6 +336,10 @@ export interface NetworkState {
      * (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
      */
     dnsDomain?: pulumi.Input<string>;
+    /**
+     * (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+     */
+    endpointSuffix?: pulumi.Input<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */

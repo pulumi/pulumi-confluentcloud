@@ -260,6 +260,17 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
             private_link_attachment={
                 "id": "platt-abcdef",
             })
+        gcp = confluentcloud.PrivateLinkAttachmentConnection("gcp",
+            display_name="prod-gcp-uscentral1-connection",
+            environment={
+                "id": "env-12345",
+            },
+            gcp={
+                "private_service_connect_connection_id": "48796d35-191c-4de1-83e6-3824517eaa1d",
+            },
+            private_link_attachment={
+                "id": "platt-abcdef",
+            })
         pulumi.export("privateLinkAttachmentConnection", aws)
         ```
 
@@ -324,6 +335,17 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
             },
             azure={
                 "private_endpoint_resource_id": "/subscriptions/123aaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/testvpc/providers/Microsoft.Network/privateEndpoints/pe-platt-abcdef-az1",
+            },
+            private_link_attachment={
+                "id": "platt-abcdef",
+            })
+        gcp = confluentcloud.PrivateLinkAttachmentConnection("gcp",
+            display_name="prod-gcp-uscentral1-connection",
+            environment={
+                "id": "env-12345",
+            },
+            gcp={
+                "private_service_connect_connection_id": "48796d35-191c-4de1-83e6-3824517eaa1d",
             },
             private_link_attachment={
                 "id": "platt-abcdef",

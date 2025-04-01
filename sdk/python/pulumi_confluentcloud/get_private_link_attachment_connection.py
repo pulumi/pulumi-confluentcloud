@@ -86,6 +86,9 @@ class GetPrivateLinkAttachmentConnectionResult:
     @property
     @pulumi.getter
     def gcps(self) -> Sequence['outputs.GetPrivateLinkAttachmentConnectionGcpResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
         return pulumi.get(self, "gcps")
 
     @property

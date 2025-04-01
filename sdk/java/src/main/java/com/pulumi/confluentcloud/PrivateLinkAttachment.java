@@ -174,9 +174,17 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
     public Output<PrivateLinkAttachmentEnvironment> environment() {
         return this.environment;
     }
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
     @Export(name="gcps", refs={List.class,PrivateLinkAttachmentGcp.class}, tree="[0,1]")
     private Output<List<PrivateLinkAttachmentGcp>> gcps;
 
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public Output<List<PrivateLinkAttachmentGcp>> gcps() {
         return this.gcps;
     }

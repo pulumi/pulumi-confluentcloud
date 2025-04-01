@@ -376,6 +376,20 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.dnsDomain;
     }
     /**
+     * (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+     * 
+     */
+    @Export(name="endpointSuffix", refs={String.class}, tree="[0]")
+    private Output<String> endpointSuffix;
+
+    /**
+     * @return (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+     * 
+     */
+    public Output<String> endpointSuffix() {
+        return this.endpointSuffix;
+    }
+    /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */

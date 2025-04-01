@@ -236,6 +236,8 @@ type Network struct {
 	DnsConfig NetworkDnsConfigOutput `pulumi:"dnsConfig"`
 	// (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
 	DnsDomain pulumi.StringOutput `pulumi:"dnsDomain"`
+	// (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+	EndpointSuffix pulumi.StringOutput `pulumi:"endpointSuffix"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkEnvironmentOutput `pulumi:"environment"`
 	// (Optional Configuration Block) supports the following:
@@ -319,6 +321,8 @@ type networkState struct {
 	DnsConfig *NetworkDnsConfig `pulumi:"dnsConfig"`
 	// (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
 	DnsDomain *string `pulumi:"dnsDomain"`
+	// (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+	EndpointSuffix *string `pulumi:"endpointSuffix"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *NetworkEnvironment `pulumi:"environment"`
 	// (Optional Configuration Block) supports the following:
@@ -361,6 +365,8 @@ type NetworkState struct {
 	DnsConfig NetworkDnsConfigPtrInput
 	// (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
 	DnsDomain pulumi.StringPtrInput
+	// (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+	EndpointSuffix pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkEnvironmentPtrInput
 	// (Optional Configuration Block) supports the following:
@@ -584,6 +590,11 @@ func (o NetworkOutput) DnsConfig() NetworkDnsConfigOutput {
 // (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
 func (o NetworkOutput) DnsDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.DnsDomain }).(pulumi.StringOutput)
+}
+
+// (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+func (o NetworkOutput) EndpointSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.EndpointSuffix }).(pulumi.StringOutput)
 }
 
 // Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.

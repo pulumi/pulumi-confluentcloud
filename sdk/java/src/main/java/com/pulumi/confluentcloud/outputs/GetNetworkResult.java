@@ -55,6 +55,11 @@ public final class GetNetworkResult {
      */
     private List<GetNetworkDnsConfig> dnsConfigs;
     private String dnsDomain;
+    /**
+     * @return (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+     * 
+     */
+    private String endpointSuffix;
     private GetNetworkEnvironment environment;
     /**
      * @return (Optional Configuration Block) supports the following:
@@ -156,6 +161,13 @@ public final class GetNetworkResult {
     public String dnsDomain() {
         return this.dnsDomain;
     }
+    /**
+     * @return (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+     * 
+     */
+    public String endpointSuffix() {
+        return this.endpointSuffix;
+    }
     public GetNetworkEnvironment environment() {
         return this.environment;
     }
@@ -241,6 +253,7 @@ public final class GetNetworkResult {
         private String displayName;
         private List<GetNetworkDnsConfig> dnsConfigs;
         private String dnsDomain;
+        private String endpointSuffix;
         private GetNetworkEnvironment environment;
         private List<GetNetworkGateway> gateways;
         private List<GetNetworkGcp> gcps;
@@ -262,6 +275,7 @@ public final class GetNetworkResult {
     	      this.displayName = defaults.displayName;
     	      this.dnsConfigs = defaults.dnsConfigs;
     	      this.dnsDomain = defaults.dnsDomain;
+    	      this.endpointSuffix = defaults.endpointSuffix;
     	      this.environment = defaults.environment;
     	      this.gateways = defaults.gateways;
     	      this.gcps = defaults.gcps;
@@ -348,6 +362,14 @@ public final class GetNetworkResult {
               throw new MissingRequiredPropertyException("GetNetworkResult", "dnsDomain");
             }
             this.dnsDomain = dnsDomain;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpointSuffix(String endpointSuffix) {
+            if (endpointSuffix == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "endpointSuffix");
+            }
+            this.endpointSuffix = endpointSuffix;
             return this;
         }
         @CustomType.Setter
@@ -452,6 +474,7 @@ public final class GetNetworkResult {
             _resultValue.displayName = displayName;
             _resultValue.dnsConfigs = dnsConfigs;
             _resultValue.dnsDomain = dnsDomain;
+            _resultValue.endpointSuffix = endpointSuffix;
             _resultValue.environment = environment;
             _resultValue.gateways = gateways;
             _resultValue.gcps = gcps;

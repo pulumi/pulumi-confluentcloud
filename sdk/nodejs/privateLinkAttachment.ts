@@ -101,6 +101,9 @@ export class PrivateLinkAttachment extends pulumi.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     public readonly environment!: pulumi.Output<outputs.PrivateLinkAttachmentEnvironment>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     public /*out*/ readonly gcps!: pulumi.Output<outputs.PrivateLinkAttachmentGcp[]>;
     /**
      * The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
@@ -191,6 +194,9 @@ export interface PrivateLinkAttachmentState {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment?: pulumi.Input<inputs.PrivateLinkAttachmentEnvironment>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     gcps?: pulumi.Input<pulumi.Input<inputs.PrivateLinkAttachmentGcp>[]>;
     /**
      * The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.

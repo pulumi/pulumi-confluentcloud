@@ -77,6 +77,9 @@ export interface GetPrivateLinkAttachmentResult {
      */
     readonly dnsDomain: string;
     readonly environment: outputs.GetPrivateLinkAttachmentEnvironment;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     readonly gcps: outputs.GetPrivateLinkAttachmentGcp[];
     readonly id: string;
     /**

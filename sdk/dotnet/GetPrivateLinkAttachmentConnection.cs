@@ -187,6 +187,9 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string DisplayName;
         public readonly Outputs.GetPrivateLinkAttachmentConnectionEnvironmentResult Environment;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetPrivateLinkAttachmentConnectionGcpResult> Gcps;
         /// <summary>
         /// (Required String) The unique identifier for the private link attachment.

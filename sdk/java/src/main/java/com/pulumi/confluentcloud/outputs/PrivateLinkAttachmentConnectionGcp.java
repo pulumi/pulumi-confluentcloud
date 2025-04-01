@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class PrivateLinkAttachmentConnectionGcp {
     /**
-     * @return Id of the Private Service connection.
+     * @return GCP Private Service Connect ID used to establish connections for all zones.
      * 
      */
     private String privateServiceConnectConnectionId;
 
     private PrivateLinkAttachmentConnectionGcp() {}
     /**
-     * @return Id of the Private Service connection.
+     * @return GCP Private Service Connect ID used to establish connections for all zones.
      * 
      */
     public String privateServiceConnectConnectionId() {

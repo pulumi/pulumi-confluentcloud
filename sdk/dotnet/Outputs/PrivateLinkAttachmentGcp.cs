@@ -17,19 +17,11 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// Id of a Private Service Connect Service Attachment in Confluent Cloud.
         /// </summary>
         public readonly string? PrivateServiceConnectServiceAttachment;
-        /// <summary>
-        /// Zone associated with the PSC Service attachment.
-        /// </summary>
-        public readonly string? Zone;
 
         [OutputConstructor]
-        private PrivateLinkAttachmentGcp(
-            string? privateServiceConnectServiceAttachment,
-
-            string? zone)
+        private PrivateLinkAttachmentGcp(string? privateServiceConnectServiceAttachment)
         {
             PrivateServiceConnectServiceAttachment = privateServiceConnectServiceAttachment;
-            Zone = zone;
         }
     }
 }

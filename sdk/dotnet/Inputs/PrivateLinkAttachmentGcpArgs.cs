@@ -18,12 +18,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         [Input("privateServiceConnectServiceAttachment")]
         public Input<string>? PrivateServiceConnectServiceAttachment { get; set; }
 
-        /// <summary>
-        /// Zone associated with the PSC Service attachment.
-        /// </summary>
-        [Input("zone")]
-        public Input<string>? Zone { get; set; }
-
         public PrivateLinkAttachmentGcpArgs()
         {
         }

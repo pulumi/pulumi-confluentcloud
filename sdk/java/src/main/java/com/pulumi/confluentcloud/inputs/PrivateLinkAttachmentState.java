@@ -112,9 +112,17 @@ public final class PrivateLinkAttachmentState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.environment);
     }
 
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
     @Import(name="gcps")
     private @Nullable Output<List<PrivateLinkAttachmentGcpArgs>> gcps;
 
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public Optional<Output<List<PrivateLinkAttachmentGcpArgs>>> gcps() {
         return Optional.ofNullable(this.gcps);
     }
@@ -330,15 +338,33 @@ public final class PrivateLinkAttachmentState extends com.pulumi.resources.Resou
             return environment(Output.of(environment));
         }
 
+        /**
+         * @param gcps (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder gcps(@Nullable Output<List<PrivateLinkAttachmentGcpArgs>> gcps) {
             $.gcps = gcps;
             return this;
         }
 
+        /**
+         * @param gcps (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder gcps(List<PrivateLinkAttachmentGcpArgs> gcps) {
             return gcps(Output.of(gcps));
         }
 
+        /**
+         * @param gcps (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder gcps(PrivateLinkAttachmentGcpArgs... gcps) {
             return gcps(List.of(gcps));
         }

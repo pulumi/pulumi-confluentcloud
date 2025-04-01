@@ -26,7 +26,7 @@ class GetIdentityProviderResult:
     """
     A collection of values returned by getIdentityProvider.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, issuer=None, jwks_uri=None):
+    def __init__(__self__, description=None, display_name=None, id=None, identity_claim=None, issuer=None, jwks_uri=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -36,6 +36,9 @@ class GetIdentityProviderResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity_claim and not isinstance(identity_claim, str):
+            raise TypeError("Expected argument 'identity_claim' to be a str")
+        pulumi.set(__self__, "identity_claim", identity_claim)
         if issuer and not isinstance(issuer, str):
             raise TypeError("Expected argument 'issuer' to be a str")
         pulumi.set(__self__, "issuer", issuer)
@@ -68,6 +71,14 @@ class GetIdentityProviderResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="identityClaim")
+    def identity_claim(self) -> str:
+        """
+        (Optional String) The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
+        """
+        return pulumi.get(self, "identity_claim")
+
+    @property
     @pulumi.getter
     def issuer(self) -> str:
         """
@@ -93,6 +104,7 @@ class AwaitableGetIdentityProviderResult(GetIdentityProviderResult):
             description=self.description,
             display_name=self.display_name,
             id=self.id,
+            identity_claim=self.identity_claim,
             issuer=self.issuer,
             jwks_uri=self.jwks_uri)
 
@@ -133,6 +145,7 @@ def get_identity_provider(display_name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
+        identity_claim=pulumi.get(__ret__, 'identity_claim'),
         issuer=pulumi.get(__ret__, 'issuer'),
         jwks_uri=pulumi.get(__ret__, 'jwks_uri'))
 def get_identity_provider_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -170,5 +183,6 @@ def get_identity_provider_output(display_name: Optional[pulumi.Input[Optional[st
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
+        identity_claim=pulumi.get(__response__, 'identity_claim'),
         issuer=pulumi.get(__response__, 'issuer'),
         jwks_uri=pulumi.get(__response__, 'jwks_uri')))

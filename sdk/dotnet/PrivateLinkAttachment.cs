@@ -102,6 +102,9 @@ namespace Pulumi.ConfluentCloud
         [Output("environment")]
         public Output<Outputs.PrivateLinkAttachmentEnvironment> Environment { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         [Output("gcps")]
         public Output<ImmutableArray<Outputs.PrivateLinkAttachmentGcp>> Gcps { get; private set; } = null!;
 
@@ -246,6 +249,10 @@ namespace Pulumi.ConfluentCloud
 
         [Input("gcps")]
         private InputList<Inputs.PrivateLinkAttachmentGcpGetArgs>? _gcps;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         public InputList<Inputs.PrivateLinkAttachmentGcpGetArgs> Gcps
         {
             get => _gcps ?? (_gcps = new InputList<Inputs.PrivateLinkAttachmentGcpGetArgs>());
