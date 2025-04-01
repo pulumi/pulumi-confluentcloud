@@ -59,17 +59,17 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/flink-artifact v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/flink-gateway v0.17.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/iam v0.17.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.2.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/kafka-quotas v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.14.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.12.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.14.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-access-point v0.5.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-dnsforwarder v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-gateway v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-ip v0.2.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/networking-privatelink v0.2.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/networking-privatelink v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/org v0.9.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/provider-integration v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/schema-registry v0.4.0 // indirect
@@ -77,9 +77,9 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/sso v0.0.1 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/tableflow v0.1.0 // indirect
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect
-	github.com/containerd/containerd v1.7.18 // indirect
-	github.com/containerd/errdefs v0.1.0 // indirect
+	github.com/containerd/containerd v1.7.27 // indirect
 	github.com/containerd/log v0.1.0 // indirect
+	github.com/containerd/platforms v0.2.1 // indirect
 	github.com/cpuguy83/dockercfg v0.3.1 // indirect
 	github.com/cyphar/filepath-securejoin v0.3.6 // indirect
 	github.com/deckarep/golang-set/v2 v2.5.0 // indirect
@@ -166,7 +166,8 @@ require (
 	github.com/moby/docker-image-spec v1.3.1 // indirect
 	github.com/moby/patternmatcher v0.6.0 // indirect
 	github.com/moby/sys/sequential v0.5.0 // indirect
-	github.com/moby/sys/user v0.1.0 // indirect
+	github.com/moby/sys/user v0.3.0 // indirect
+	github.com/moby/sys/userns v0.1.0 // indirect
 	github.com/moby/term v0.5.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
