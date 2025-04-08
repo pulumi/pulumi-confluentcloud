@@ -54,7 +54,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TableflowTopic("example", TableflowTopicArgs.builder()
- *             .managedStorages()
+ *             .managedStorages(TableflowTopicManagedStorageArgs.builder()
+ *                 .build())
  *             .environment(TableflowTopicEnvironmentArgs.builder()
  *                 .id(staging.id())
  *                 .build())

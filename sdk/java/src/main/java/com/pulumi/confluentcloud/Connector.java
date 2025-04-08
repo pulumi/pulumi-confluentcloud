@@ -57,7 +57,8 @@ import javax.annotation.Nullable;
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
  *                 .id(basic.id())
  *                 .build())
- *             .configSensitive()
+ *             .configSensitive(Map.ofEntries(
+ *             ))
  *             .configNonsensitive(Map.ofEntries(
  *                 Map.entry("connector.class", "DatagenSource"),
  *                 Map.entry("name", "DatagenSourceConnector_0"),
@@ -188,7 +189,8 @@ import javax.annotation.Nullable;
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
  *                 .id(basic.id())
  *                 .build())
- *             .configSensitive()
+ *             .configSensitive(Map.ofEntries(
+ *             ))
  *             .configNonsensitive(Map.ofEntries(
  *                 Map.entry("topics", orders.topicName()),
  *                 Map.entry("input.data.format", "JSON"),

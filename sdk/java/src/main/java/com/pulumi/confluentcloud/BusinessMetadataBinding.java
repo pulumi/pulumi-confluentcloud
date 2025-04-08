@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
  *                 .build())
  *             .businessMetadataName(pii.name())
- *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.applyValue(getKafkaTopicResult -> getKafkaTopicResult.topicName())))
+ *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.topicName()))
  *             .entityType("kafka_topic")
  *             .attributes(Map.ofEntries(
  *                 Map.entry("team", "teamName"),
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  * 
  *         var mainBusinessMetadataBinding = new BusinessMetadataBinding("mainBusinessMetadataBinding", BusinessMetadataBindingArgs.builder()
  *             .businessMetadataName(pii.name())
- *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.applyValue(getKafkaTopicResult -> getKafkaTopicResult.topicName())))
+ *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.topicName()))
  *             .entityType("kafka_topic")
  *             .attributes(Map.ofEntries(
  *                 Map.entry("team", "teamName"),

@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var envadmin = new RoleBinding("envadmin", RoleBindingArgs.builder()
- *             .principal(application_developers.id().applyValue(id -> String.format("User:%s", id)))
+ *             .principal(application_developers.id().applyValue(_id -> String.format("User:%s", _id)))
  *             .roleName("EnvironmentAdmin")
  *             .crnPattern(prod.resourceName())
  *             .build());
