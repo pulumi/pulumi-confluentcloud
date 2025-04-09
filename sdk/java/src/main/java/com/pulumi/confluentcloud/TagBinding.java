@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
  *                 .build())
  *             .tagName("PII")
- *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.applyValue(getKafkaTopicResult -> getKafkaTopicResult.topicName())))
+ *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.topicName()))
  *             .entityType("kafka_topic")
  *             .build());
  * 
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  * 
  *         var topic_tagging = new TagBinding("topic-tagging", TagBindingArgs.builder()
  *             .tagName("PII")
- *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.applyValue(getKafkaTopicResult -> getKafkaTopicResult.topicName())))
+ *             .entityName(String.format("%s:%s:%s", schemaRegistryId,kafkaId,main.topicName()))
  *             .entityType("kafka_topic")
  *             .build());
  * 

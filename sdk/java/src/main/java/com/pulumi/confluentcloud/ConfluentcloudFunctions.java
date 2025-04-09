@@ -198,7 +198,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("accessPoint", main.applyValue(getAccessPointResult -> getAccessPointResult));
+     *         ctx.export("accessPoint", main);
      *     }
      * }
      * }
@@ -247,7 +247,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("accessPoint", main.applyValue(getAccessPointResult -> getAccessPointResult));
+     *         ctx.export("accessPoint", main);
      *     }
      * }
      * }
@@ -296,7 +296,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("accessPoint", main.applyValue(getAccessPointResult -> getAccessPointResult));
+     *         ctx.export("accessPoint", main);
      *     }
      * }
      * }
@@ -345,7 +345,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("accessPoint", main.applyValue(getAccessPointResult -> getAccessPointResult));
+     *         ctx.export("accessPoint", main);
      *     }
      * }
      * }
@@ -394,7 +394,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("accessPoint", main.applyValue(getAccessPointResult -> getAccessPointResult));
+     *         ctx.export("accessPoint", main);
      *     }
      * }
      * }
@@ -1379,7 +1379,7 @@ public final class ConfluentcloudFunctions {
      *             .id("cck-abcde")
      *             .build());
      * 
-     *         ctx.export("byok", azureKey.applyValue(getByokKeyResult -> getByokKeyResult));
+     *         ctx.export("byok", azureKey);
      *     }
      * }
      * }
@@ -1424,7 +1424,7 @@ public final class ConfluentcloudFunctions {
      *             .id("cck-abcde")
      *             .build());
      * 
-     *         ctx.export("byok", azureKey.applyValue(getByokKeyResult -> getByokKeyResult));
+     *         ctx.export("byok", azureKey);
      *     }
      * }
      * }
@@ -1469,7 +1469,7 @@ public final class ConfluentcloudFunctions {
      *             .id("cck-abcde")
      *             .build());
      * 
-     *         ctx.export("byok", azureKey.applyValue(getByokKeyResult -> getByokKeyResult));
+     *         ctx.export("byok", azureKey);
      *     }
      * }
      * }
@@ -1514,7 +1514,7 @@ public final class ConfluentcloudFunctions {
      *             .id("cck-abcde")
      *             .build());
      * 
-     *         ctx.export("byok", azureKey.applyValue(getByokKeyResult -> getByokKeyResult));
+     *         ctx.export("byok", azureKey);
      *     }
      * }
      * }
@@ -1559,7 +1559,7 @@ public final class ConfluentcloudFunctions {
      *             .id("cck-abcde")
      *             .build());
      * 
-     *         ctx.export("byok", azureKey.applyValue(getByokKeyResult -> getByokKeyResult));
+     *         ctx.export("byok", azureKey);
      *     }
      * }
      * }
@@ -1659,7 +1659,7 @@ public final class ConfluentcloudFunctions {
      *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export("certificateAuthority", main.applyValue(getCertificateAuthorityResult -> getCertificateAuthorityResult));
+     *         ctx.export("certificateAuthority", main);
      *     }
      * }
      * }
@@ -1704,7 +1704,7 @@ public final class ConfluentcloudFunctions {
      *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export("certificateAuthority", main.applyValue(getCertificateAuthorityResult -> getCertificateAuthorityResult));
+     *         ctx.export("certificateAuthority", main);
      *     }
      * }
      * }
@@ -1749,7 +1749,7 @@ public final class ConfluentcloudFunctions {
      *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export("certificateAuthority", main.applyValue(getCertificateAuthorityResult -> getCertificateAuthorityResult));
+     *         ctx.export("certificateAuthority", main);
      *     }
      * }
      * }
@@ -1794,7 +1794,7 @@ public final class ConfluentcloudFunctions {
      *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export("certificateAuthority", main.applyValue(getCertificateAuthorityResult -> getCertificateAuthorityResult));
+     *         ctx.export("certificateAuthority", main);
      *     }
      * }
      * }
@@ -1839,7 +1839,7 @@ public final class ConfluentcloudFunctions {
      *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export("certificateAuthority", main.applyValue(getCertificateAuthorityResult -> getCertificateAuthorityResult));
+     *         ctx.export("certificateAuthority", main);
      *     }
      * }
      * }
@@ -1888,7 +1888,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("certificatePool", main.applyValue(getCertificatePoolResult -> getCertificatePoolResult));
+     *         ctx.export("certificatePool", main);
      *     }
      * }
      * }
@@ -1937,7 +1937,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("certificatePool", main.applyValue(getCertificatePoolResult -> getCertificatePoolResult));
+     *         ctx.export("certificatePool", main);
      *     }
      * }
      * }
@@ -1986,7 +1986,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("certificatePool", main.applyValue(getCertificatePoolResult -> getCertificatePoolResult));
+     *         ctx.export("certificatePool", main);
      *     }
      * }
      * }
@@ -2035,7 +2035,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("certificatePool", main.applyValue(getCertificatePoolResult -> getCertificatePoolResult));
+     *         ctx.export("certificatePool", main);
      *     }
      * }
      * }
@@ -2084,7 +2084,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("certificatePool", main.applyValue(getCertificatePoolResult -> getCertificatePoolResult));
+     *         ctx.export("certificatePool", main);
      *     }
      * }
      * }
@@ -2141,7 +2141,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *         ctx.export("kafkaClusterLinkId", main.clusterLinkId());
      *     }
      * }
      * }
@@ -2177,7 +2177,7 @@ public final class ConfluentcloudFunctions {
      *             .linkName("main-link")
      *             .build());
      * 
-     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *         ctx.export("kafkaClusterLinkId", main.clusterLinkId());
      *     }
      * }
      * }
@@ -2234,7 +2234,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *         ctx.export("kafkaClusterLinkId", main.clusterLinkId());
      *     }
      * }
      * }
@@ -2270,7 +2270,7 @@ public final class ConfluentcloudFunctions {
      *             .linkName("main-link")
      *             .build());
      * 
-     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *         ctx.export("kafkaClusterLinkId", main.clusterLinkId());
      *     }
      * }
      * }
@@ -2327,7 +2327,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *         ctx.export("kafkaClusterLinkId", main.clusterLinkId());
      *     }
      * }
      * }
@@ -2363,7 +2363,7 @@ public final class ConfluentcloudFunctions {
      *             .linkName("main-link")
      *             .build());
      * 
-     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *         ctx.export("kafkaClusterLinkId", main.clusterLinkId());
      *     }
      * }
      * }
@@ -2420,7 +2420,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *         ctx.export("kafkaClusterLinkId", main.clusterLinkId());
      *     }
      * }
      * }
@@ -2456,7 +2456,7 @@ public final class ConfluentcloudFunctions {
      *             .linkName("main-link")
      *             .build());
      * 
-     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *         ctx.export("kafkaClusterLinkId", main.clusterLinkId());
      *     }
      * }
      * }
@@ -2513,7 +2513,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *         ctx.export("kafkaClusterLinkId", main.clusterLinkId());
      *     }
      * }
      * }
@@ -2549,7 +2549,7 @@ public final class ConfluentcloudFunctions {
      *             .linkName("main-link")
      *             .build());
      * 
-     *         ctx.export("kafkaClusterLinkId", main.applyValue(getClusterLinkResult -> getClusterLinkResult.clusterLinkId()));
+     *         ctx.export("kafkaClusterLinkId", main.clusterLinkId());
      *     }
      * }
      * }
@@ -2598,7 +2598,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("dnsRecord", main.applyValue(getDnsRecordResult -> getDnsRecordResult));
+     *         ctx.export("dnsRecord", main);
      *     }
      * }
      * }
@@ -2647,7 +2647,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("dnsRecord", main.applyValue(getDnsRecordResult -> getDnsRecordResult));
+     *         ctx.export("dnsRecord", main);
      *     }
      * }
      * }
@@ -2696,7 +2696,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("dnsRecord", main.applyValue(getDnsRecordResult -> getDnsRecordResult));
+     *         ctx.export("dnsRecord", main);
      *     }
      * }
      * }
@@ -2745,7 +2745,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("dnsRecord", main.applyValue(getDnsRecordResult -> getDnsRecordResult));
+     *         ctx.export("dnsRecord", main);
      *     }
      * }
      * }
@@ -2794,7 +2794,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("dnsRecord", main.applyValue(getDnsRecordResult -> getDnsRecordResult));
+     *         ctx.export("dnsRecord", main);
      *     }
      * }
      * }
@@ -2842,7 +2842,7 @@ public final class ConfluentcloudFunctions {
      *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName("stag")
      *             .build());
@@ -2852,9 +2852,9 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.id()))
      *             .roleName("EnvironmentAdmin")
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.resourceName())
      *             .build());
      * 
      *     }
@@ -2904,7 +2904,7 @@ public final class ConfluentcloudFunctions {
      *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName("stag")
      *             .build());
@@ -2914,9 +2914,9 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.id()))
      *             .roleName("EnvironmentAdmin")
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.resourceName())
      *             .build());
      * 
      *     }
@@ -2966,7 +2966,7 @@ public final class ConfluentcloudFunctions {
      *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName("stag")
      *             .build());
@@ -2976,9 +2976,9 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.id()))
      *             .roleName("EnvironmentAdmin")
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.resourceName())
      *             .build());
      * 
      *     }
@@ -3028,7 +3028,7 @@ public final class ConfluentcloudFunctions {
      *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName("stag")
      *             .build());
@@ -3038,9 +3038,9 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.id()))
      *             .roleName("EnvironmentAdmin")
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.resourceName())
      *             .build());
      * 
      *     }
@@ -3090,7 +3090,7 @@ public final class ConfluentcloudFunctions {
      *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName("stag")
      *             .build());
@@ -3100,9 +3100,9 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.id()))
      *             .roleName("EnvironmentAdmin")
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.resourceName())
      *             .build());
      * 
      *     }
@@ -3152,7 +3152,7 @@ public final class ConfluentcloudFunctions {
      *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName("stag")
      *             .build());
@@ -3162,9 +3162,9 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.id()))
      *             .roleName("EnvironmentAdmin")
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.resourceName())
      *             .build());
      * 
      *     }
@@ -3214,7 +3214,7 @@ public final class ConfluentcloudFunctions {
      *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName("stag")
      *             .build());
@@ -3224,9 +3224,9 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.id()))
      *             .roleName("EnvironmentAdmin")
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.resourceName())
      *             .build());
      * 
      *     }
@@ -3268,9 +3268,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getEnvironments();
+     *         final var main = ConfluentcloudFunctions.getEnvironments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.ids());
      *     }
      * }
      * }
@@ -3310,9 +3310,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getEnvironments();
+     *         final var main = ConfluentcloudFunctions.getEnvironments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.ids());
      *     }
      * }
      * }
@@ -3352,9 +3352,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getEnvironments();
+     *         final var main = ConfluentcloudFunctions.getEnvironments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.ids());
      *     }
      * }
      * }
@@ -3394,9 +3394,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getEnvironments();
+     *         final var main = ConfluentcloudFunctions.getEnvironments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.ids());
      *     }
      * }
      * }
@@ -3436,9 +3436,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getEnvironments();
+     *         final var main = ConfluentcloudFunctions.getEnvironments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.ids());
      *     }
      * }
      * }
@@ -3478,9 +3478,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getEnvironments();
+     *         final var main = ConfluentcloudFunctions.getEnvironments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.ids());
      *     }
      * }
      * }
@@ -3520,9 +3520,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getEnvironments();
+     *         final var main = ConfluentcloudFunctions.getEnvironments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.ids());
      *     }
      * }
      * }
@@ -3571,7 +3571,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
      *             .displayName("my_artifact")
      *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
@@ -3579,7 +3579,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -3628,7 +3628,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
      *             .displayName("my_artifact")
      *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
@@ -3636,7 +3636,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -3685,7 +3685,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
      *             .displayName("my_artifact")
      *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
@@ -3693,7 +3693,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -3742,7 +3742,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
      *             .displayName("my_artifact")
      *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
@@ -3750,7 +3750,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -3799,7 +3799,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkArtifact(GetFlinkArtifactArgs.builder()
      *             .displayName("my_artifact")
      *             .environment(GetFlinkArtifactEnvironmentArgs.builder()
@@ -3807,7 +3807,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkArtifactResult -> getFlinkArtifactResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -3856,7 +3856,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .displayName("my_compute_pool")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
@@ -3864,7 +3864,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -3913,7 +3913,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .displayName("my_compute_pool")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
@@ -3921,7 +3921,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -3970,7 +3970,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .displayName("my_compute_pool")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
@@ -3978,7 +3978,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -4027,7 +4027,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .displayName("my_compute_pool")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
@@ -4035,7 +4035,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -4084,7 +4084,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .displayName("my_compute_pool")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
@@ -4092,7 +4092,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -4138,7 +4138,7 @@ public final class ConfluentcloudFunctions {
      *             .region("us-east-1")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getFlinkRegionResult -> getFlinkRegionResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -4184,7 +4184,7 @@ public final class ConfluentcloudFunctions {
      *             .region("us-east-1")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getFlinkRegionResult -> getFlinkRegionResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -4230,7 +4230,7 @@ public final class ConfluentcloudFunctions {
      *             .region("us-east-1")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getFlinkRegionResult -> getFlinkRegionResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -4276,7 +4276,7 @@ public final class ConfluentcloudFunctions {
      *             .region("us-east-1")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getFlinkRegionResult -> getFlinkRegionResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -4322,7 +4322,7 @@ public final class ConfluentcloudFunctions {
      *             .region("us-east-1")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getFlinkRegionResult -> getFlinkRegionResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -4371,7 +4371,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("gateway", main.applyValue(getGatewayResult -> getGatewayResult));
+     *         ctx.export("gateway", main);
      *     }
      * }
      * }
@@ -4420,7 +4420,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("gateway", main.applyValue(getGatewayResult -> getGatewayResult));
+     *         ctx.export("gateway", main);
      *     }
      * }
      * }
@@ -4469,7 +4469,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("gateway", main.applyValue(getGatewayResult -> getGatewayResult));
+     *         ctx.export("gateway", main);
      *     }
      * }
      * }
@@ -4518,7 +4518,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("gateway", main.applyValue(getGatewayResult -> getGatewayResult));
+     *         ctx.export("gateway", main);
      *     }
      * }
      * }
@@ -4567,7 +4567,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("gateway", main.applyValue(getGatewayResult -> getGatewayResult));
+     *         ctx.export("gateway", main);
      *     }
      * }
      * }
@@ -4614,7 +4614,7 @@ public final class ConfluentcloudFunctions {
      *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName("Default")
      *             .build());
@@ -4665,7 +4665,7 @@ public final class ConfluentcloudFunctions {
      *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName("Default")
      *             .build());
@@ -4716,7 +4716,7 @@ public final class ConfluentcloudFunctions {
      *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName("Default")
      *             .build());
@@ -4767,7 +4767,7 @@ public final class ConfluentcloudFunctions {
      *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName("Default")
      *             .build());
@@ -4818,7 +4818,7 @@ public final class ConfluentcloudFunctions {
      *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName("Default")
      *             .build());
@@ -4869,7 +4869,7 @@ public final class ConfluentcloudFunctions {
      *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName("Default")
      *             .build());
@@ -4920,7 +4920,7 @@ public final class ConfluentcloudFunctions {
      *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName("Default")
      *             .build());
@@ -4973,7 +4973,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .displayName("My Identity Pool")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
@@ -4981,7 +4981,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -5030,7 +5030,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .displayName("My Identity Pool")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
@@ -5038,7 +5038,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -5087,7 +5087,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .displayName("My Identity Pool")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
@@ -5095,7 +5095,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -5144,7 +5144,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .displayName("My Identity Pool")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
@@ -5152,7 +5152,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -5201,7 +5201,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .displayName("My Identity Pool")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
@@ -5209,7 +5209,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -5254,12 +5254,12 @@ public final class ConfluentcloudFunctions {
      *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -5304,12 +5304,12 @@ public final class ConfluentcloudFunctions {
      *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -5354,12 +5354,12 @@ public final class ConfluentcloudFunctions {
      *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -5404,12 +5404,12 @@ public final class ConfluentcloudFunctions {
      *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -5454,12 +5454,12 @@ public final class ConfluentcloudFunctions {
      *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -5504,12 +5504,12 @@ public final class ConfluentcloudFunctions {
      *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -5554,12 +5554,12 @@ public final class ConfluentcloudFunctions {
      *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -5604,7 +5604,7 @@ public final class ConfluentcloudFunctions {
      *             .id("i-gxxn1")
      *             .build());
      * 
-     *         ctx.export("invitation", main.applyValue(getInvitationResult -> getInvitationResult));
+     *         ctx.export("invitation", main);
      *     }
      * }
      * }
@@ -5649,7 +5649,7 @@ public final class ConfluentcloudFunctions {
      *             .id("i-gxxn1")
      *             .build());
      * 
-     *         ctx.export("invitation", main.applyValue(getInvitationResult -> getInvitationResult));
+     *         ctx.export("invitation", main);
      *     }
      * }
      * }
@@ -5694,7 +5694,7 @@ public final class ConfluentcloudFunctions {
      *             .id("i-gxxn1")
      *             .build());
      * 
-     *         ctx.export("invitation", main.applyValue(getInvitationResult -> getInvitationResult));
+     *         ctx.export("invitation", main);
      *     }
      * }
      * }
@@ -5739,7 +5739,7 @@ public final class ConfluentcloudFunctions {
      *             .id("i-gxxn1")
      *             .build());
      * 
-     *         ctx.export("invitation", main.applyValue(getInvitationResult -> getInvitationResult));
+     *         ctx.export("invitation", main);
      *     }
      * }
      * }
@@ -5784,7 +5784,7 @@ public final class ConfluentcloudFunctions {
      *             .id("i-gxxn1")
      *             .build());
      * 
-     *         ctx.export("invitation", main.applyValue(getInvitationResult -> getInvitationResult));
+     *         ctx.export("invitation", main);
      *     }
      * }
      * }
@@ -5840,7 +5840,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.ipAddresses());
      *     }
      * }
      * }
@@ -5896,7 +5896,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.ipAddresses());
      *     }
      * }
      * }
@@ -5952,7 +5952,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.ipAddresses());
      *     }
      * }
      * }
@@ -6008,7 +6008,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.ipAddresses());
      *     }
      * }
      * }
@@ -6064,7 +6064,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.ipAddresses());
      *     }
      * }
      * }
@@ -6120,7 +6120,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.ipAddresses());
      *     }
      * }
      * }
@@ -6176,7 +6176,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.ipAddresses());
      *     }
      * }
      * }
@@ -6223,7 +6223,7 @@ public final class ConfluentcloudFunctions {
      *             .id("cq-abc123")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getKafkaClientQuotaResult -> getKafkaClientQuotaResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -6270,7 +6270,7 @@ public final class ConfluentcloudFunctions {
      *             .id("cq-abc123")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getKafkaClientQuotaResult -> getKafkaClientQuotaResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -6317,7 +6317,7 @@ public final class ConfluentcloudFunctions {
      *             .id("cq-abc123")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getKafkaClientQuotaResult -> getKafkaClientQuotaResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -6364,7 +6364,7 @@ public final class ConfluentcloudFunctions {
      *             .id("cq-abc123")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getKafkaClientQuotaResult -> getKafkaClientQuotaResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -6411,7 +6411,7 @@ public final class ConfluentcloudFunctions {
      *             .id("cq-abc123")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getKafkaClientQuotaResult -> getKafkaClientQuotaResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -6464,7 +6464,7 @@ public final class ConfluentcloudFunctions {
      * 
      *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("app_mgr")
-     *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
+     *             .description(String.format("app_mgr for %s", exampleUsingId.displayName()))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
@@ -6474,7 +6474,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKafkaClusterResult -> getKafkaClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -6527,7 +6527,7 @@ public final class ConfluentcloudFunctions {
      * 
      *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("app_mgr")
-     *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
+     *             .description(String.format("app_mgr for %s", exampleUsingId.displayName()))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
@@ -6537,7 +6537,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKafkaClusterResult -> getKafkaClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -6590,7 +6590,7 @@ public final class ConfluentcloudFunctions {
      * 
      *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("app_mgr")
-     *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
+     *             .description(String.format("app_mgr for %s", exampleUsingId.displayName()))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
@@ -6600,7 +6600,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKafkaClusterResult -> getKafkaClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -6653,7 +6653,7 @@ public final class ConfluentcloudFunctions {
      * 
      *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("app_mgr")
-     *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
+     *             .description(String.format("app_mgr for %s", exampleUsingId.displayName()))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
@@ -6663,7 +6663,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKafkaClusterResult -> getKafkaClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -6716,7 +6716,7 @@ public final class ConfluentcloudFunctions {
      * 
      *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("app_mgr")
-     *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
+     *             .description(String.format("app_mgr for %s", exampleUsingId.displayName()))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
@@ -6726,7 +6726,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKafkaClusterResult -> getKafkaClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -6783,7 +6783,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *         ctx.export("config", orders.config());
      *     }
      * }
      * }
@@ -6819,7 +6819,7 @@ public final class ConfluentcloudFunctions {
      *             .topicName("orders")
      *             .build());
      * 
-     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *         ctx.export("config", orders.config());
      *     }
      * }
      * }
@@ -6876,7 +6876,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *         ctx.export("config", orders.config());
      *     }
      * }
      * }
@@ -6912,7 +6912,7 @@ public final class ConfluentcloudFunctions {
      *             .topicName("orders")
      *             .build());
      * 
-     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *         ctx.export("config", orders.config());
      *     }
      * }
      * }
@@ -6969,7 +6969,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *         ctx.export("config", orders.config());
      *     }
      * }
      * }
@@ -7005,7 +7005,7 @@ public final class ConfluentcloudFunctions {
      *             .topicName("orders")
      *             .build());
      * 
-     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *         ctx.export("config", orders.config());
      *     }
      * }
      * }
@@ -7062,7 +7062,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *         ctx.export("config", orders.config());
      *     }
      * }
      * }
@@ -7098,7 +7098,7 @@ public final class ConfluentcloudFunctions {
      *             .topicName("orders")
      *             .build());
      * 
-     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *         ctx.export("config", orders.config());
      *     }
      * }
      * }
@@ -7155,7 +7155,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *         ctx.export("config", orders.config());
      *     }
      * }
      * }
@@ -7191,7 +7191,7 @@ public final class ConfluentcloudFunctions {
      *             .topicName("orders")
      *             .build());
      * 
-     *         ctx.export("config", orders.applyValue(getKafkaTopicResult -> getKafkaTopicResult.config()));
+     *         ctx.export("config", orders.config());
      *     }
      * }
      * }
@@ -7242,7 +7242,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .displayName("ksqldb_cluster")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
@@ -7250,7 +7250,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -7301,7 +7301,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .displayName("ksqldb_cluster")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
@@ -7309,7 +7309,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -7360,7 +7360,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .displayName("ksqldb_cluster")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
@@ -7368,7 +7368,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -7419,7 +7419,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .displayName("ksqldb_cluster")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
@@ -7427,7 +7427,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -7478,7 +7478,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .displayName("ksqldb_cluster")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
@@ -7486,7 +7486,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -7535,7 +7535,7 @@ public final class ConfluentcloudFunctions {
      * 
      *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("test_sa")
-     *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
+     *             .description(String.format("test_sa for %s", exampleUsingId.displayName()))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
@@ -7545,7 +7545,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getNetworkResult -> getNetworkResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -7594,7 +7594,7 @@ public final class ConfluentcloudFunctions {
      * 
      *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("test_sa")
-     *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
+     *             .description(String.format("test_sa for %s", exampleUsingId.displayName()))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
@@ -7604,7 +7604,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getNetworkResult -> getNetworkResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -7653,7 +7653,7 @@ public final class ConfluentcloudFunctions {
      * 
      *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("test_sa")
-     *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
+     *             .description(String.format("test_sa for %s", exampleUsingId.displayName()))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
@@ -7663,7 +7663,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getNetworkResult -> getNetworkResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -7712,7 +7712,7 @@ public final class ConfluentcloudFunctions {
      * 
      *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("test_sa")
-     *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
+     *             .description(String.format("test_sa for %s", exampleUsingId.displayName()))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
@@ -7722,7 +7722,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getNetworkResult -> getNetworkResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -7771,7 +7771,7 @@ public final class ConfluentcloudFunctions {
      * 
      *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()
      *             .displayName("test_sa")
-     *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
+     *             .description(String.format("test_sa for %s", exampleUsingId.displayName()))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
@@ -7781,7 +7781,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getNetworkResult -> getNetworkResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -7830,7 +7830,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("networkLinkEndpoint", nle.applyValue(getNetworkLinkEndpointResult -> getNetworkLinkEndpointResult));
+     *         ctx.export("networkLinkEndpoint", nle);
      *     }
      * }
      * }
@@ -7879,7 +7879,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("networkLinkEndpoint", nle.applyValue(getNetworkLinkEndpointResult -> getNetworkLinkEndpointResult));
+     *         ctx.export("networkLinkEndpoint", nle);
      *     }
      * }
      * }
@@ -7928,7 +7928,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("networkLinkEndpoint", nle.applyValue(getNetworkLinkEndpointResult -> getNetworkLinkEndpointResult));
+     *         ctx.export("networkLinkEndpoint", nle);
      *     }
      * }
      * }
@@ -7977,7 +7977,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("networkLinkEndpoint", nle.applyValue(getNetworkLinkEndpointResult -> getNetworkLinkEndpointResult));
+     *         ctx.export("networkLinkEndpoint", nle);
      *     }
      * }
      * }
@@ -8026,7 +8026,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("networkLinkEndpoint", nle.applyValue(getNetworkLinkEndpointResult -> getNetworkLinkEndpointResult));
+     *         ctx.export("networkLinkEndpoint", nle);
      *     }
      * }
      * }
@@ -8075,7 +8075,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("networkLinkService", nls.applyValue(getNetworkLinkServiceResult -> getNetworkLinkServiceResult));
+     *         ctx.export("networkLinkService", nls);
      *     }
      * }
      * }
@@ -8124,7 +8124,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("networkLinkService", nls.applyValue(getNetworkLinkServiceResult -> getNetworkLinkServiceResult));
+     *         ctx.export("networkLinkService", nls);
      *     }
      * }
      * }
@@ -8173,7 +8173,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("networkLinkService", nls.applyValue(getNetworkLinkServiceResult -> getNetworkLinkServiceResult));
+     *         ctx.export("networkLinkService", nls);
      *     }
      * }
      * }
@@ -8222,7 +8222,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("networkLinkService", nls.applyValue(getNetworkLinkServiceResult -> getNetworkLinkServiceResult));
+     *         ctx.export("networkLinkService", nls);
      *     }
      * }
      * }
@@ -8271,7 +8271,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("networkLinkService", nls.applyValue(getNetworkLinkServiceResult -> getNetworkLinkServiceResult));
+     *         ctx.export("networkLinkService", nls);
      *     }
      * }
      * }
@@ -8311,9 +8311,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -8353,9 +8353,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -8395,9 +8395,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -8437,9 +8437,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -8479,9 +8479,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -8521,9 +8521,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -8563,9 +8563,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -8614,7 +8614,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPeeringResult -> getPeeringResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .displayName("my_peering")
      *             .environment(GetPeeringEnvironmentArgs.builder()
@@ -8622,7 +8622,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPeeringResult -> getPeeringResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -8671,7 +8671,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPeeringResult -> getPeeringResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .displayName("my_peering")
      *             .environment(GetPeeringEnvironmentArgs.builder()
@@ -8679,7 +8679,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPeeringResult -> getPeeringResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -8728,7 +8728,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPeeringResult -> getPeeringResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .displayName("my_peering")
      *             .environment(GetPeeringEnvironmentArgs.builder()
@@ -8736,7 +8736,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPeeringResult -> getPeeringResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -8785,7 +8785,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPeeringResult -> getPeeringResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .displayName("my_peering")
      *             .environment(GetPeeringEnvironmentArgs.builder()
@@ -8793,7 +8793,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPeeringResult -> getPeeringResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -8842,7 +8842,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPeeringResult -> getPeeringResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .displayName("my_peering")
      *             .environment(GetPeeringEnvironmentArgs.builder()
@@ -8850,7 +8850,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPeeringResult -> getPeeringResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -8899,7 +8899,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .displayName("my_pla")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
@@ -8907,7 +8907,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -8956,7 +8956,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .displayName("my_pla")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
@@ -8964,7 +8964,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -9013,7 +9013,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .displayName("my_pla")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
@@ -9021,7 +9021,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -9070,7 +9070,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .displayName("my_pla")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
@@ -9078,7 +9078,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -9127,7 +9127,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .displayName("my_pla")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
@@ -9135,7 +9135,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -9184,7 +9184,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("platt", main.applyValue(getPrivateLinkAttachmentResult -> getPrivateLinkAttachmentResult));
+     *         ctx.export("platt", main);
      *     }
      * }
      * }
@@ -9239,7 +9239,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("platt", main.applyValue(getPrivateLinkAttachmentResult -> getPrivateLinkAttachmentResult));
+     *         ctx.export("platt", main);
      *     }
      * }
      * }
@@ -9294,7 +9294,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("platt", main.applyValue(getPrivateLinkAttachmentResult -> getPrivateLinkAttachmentResult));
+     *         ctx.export("platt", main);
      *     }
      * }
      * }
@@ -9349,7 +9349,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("platt", main.applyValue(getPrivateLinkAttachmentResult -> getPrivateLinkAttachmentResult));
+     *         ctx.export("platt", main);
      *     }
      * }
      * }
@@ -9404,7 +9404,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("platt", main.applyValue(getPrivateLinkAttachmentResult -> getPrivateLinkAttachmentResult));
+     *         ctx.export("platt", main);
      *     }
      * }
      * }
@@ -9459,7 +9459,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("plattc", main.applyValue(getPrivateLinkAttachmentConnectionResult -> getPrivateLinkAttachmentConnectionResult));
+     *         ctx.export("plattc", main);
      *     }
      * }
      * }
@@ -9514,7 +9514,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("plattc", main.applyValue(getPrivateLinkAttachmentConnectionResult -> getPrivateLinkAttachmentConnectionResult));
+     *         ctx.export("plattc", main);
      *     }
      * }
      * }
@@ -9569,7 +9569,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("plattc", main.applyValue(getPrivateLinkAttachmentConnectionResult -> getPrivateLinkAttachmentConnectionResult));
+     *         ctx.export("plattc", main);
      *     }
      * }
      * }
@@ -9624,7 +9624,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("plattc", main.applyValue(getPrivateLinkAttachmentConnectionResult -> getPrivateLinkAttachmentConnectionResult));
+     *         ctx.export("plattc", main);
      *     }
      * }
      * }
@@ -9679,7 +9679,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("plattc", main.applyValue(getPrivateLinkAttachmentConnectionResult -> getPrivateLinkAttachmentConnectionResult));
+     *         ctx.export("plattc", main);
      *     }
      * }
      * }
@@ -9734,7 +9734,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
      *             .displayName("provider_integration_main")
      *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
@@ -9742,7 +9742,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -9796,7 +9796,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
      *             .displayName("provider_integration_main")
      *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
@@ -9804,7 +9804,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -9858,7 +9858,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
      *             .displayName("provider_integration_main")
      *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
@@ -9866,7 +9866,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -9920,7 +9920,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
      *             .displayName("provider_integration_main")
      *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
@@ -9928,7 +9928,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -9982,7 +9982,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getProviderIntegration(GetProviderIntegrationArgs.builder()
      *             .displayName("provider_integration_main")
      *             .environment(GetProviderIntegrationEnvironmentArgs.builder()
@@ -9990,7 +9990,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getProviderIntegrationResult -> getProviderIntegrationResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -10042,7 +10042,7 @@ public final class ConfluentcloudFunctions {
      *             .id("rb-abc123")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getRoleBindingResult -> getRoleBindingResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -10089,7 +10089,7 @@ public final class ConfluentcloudFunctions {
      *             .id("rb-abc123")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getRoleBindingResult -> getRoleBindingResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -10136,7 +10136,7 @@ public final class ConfluentcloudFunctions {
      *             .id("rb-abc123")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getRoleBindingResult -> getRoleBindingResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -10183,7 +10183,7 @@ public final class ConfluentcloudFunctions {
      *             .id("rb-abc123")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getRoleBindingResult -> getRoleBindingResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -10230,7 +10230,7 @@ public final class ConfluentcloudFunctions {
      *             .id("rb-abc123")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getRoleBindingResult -> getRoleBindingResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -10754,7 +10754,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId);
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id("lsrc-abc123")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -10762,7 +10762,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .displayName("Stream Governance Package")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -10770,7 +10770,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -10819,7 +10819,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId);
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id("lsrc-abc123")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -10827,7 +10827,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .displayName("Stream Governance Package")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -10835,7 +10835,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -10884,7 +10884,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId);
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id("lsrc-abc123")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -10892,7 +10892,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .displayName("Stream Governance Package")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -10900,7 +10900,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -10949,7 +10949,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId);
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id("lsrc-abc123")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -10957,7 +10957,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .displayName("Stream Governance Package")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -10965,7 +10965,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -11014,7 +11014,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId);
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id("lsrc-abc123")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -11022,7 +11022,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .displayName("Stream Governance Package")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -11030,7 +11030,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -11086,7 +11086,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11118,9 +11118,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11176,7 +11177,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11208,9 +11209,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11266,7 +11268,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11298,9 +11300,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11356,7 +11359,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11388,9 +11391,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11446,7 +11450,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11478,9 +11482,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11536,7 +11541,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11568,9 +11573,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11626,7 +11632,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11658,9 +11664,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("compatibilityLevel", example.applyValue(getSchemaRegistryClusterConfigResult -> getSchemaRegistryClusterConfigResult.compatibilityLevel()));
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
      *     }
      * }
      * }
@@ -11716,7 +11723,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -11748,9 +11755,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -11806,7 +11814,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -11838,9 +11846,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -11896,7 +11905,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -11928,9 +11937,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -11986,7 +11996,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -12018,9 +12028,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -12076,7 +12087,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -12108,9 +12119,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -12166,7 +12178,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -12198,9 +12210,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -12256,7 +12269,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -12288,9 +12301,10 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode();
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("mode", example.applyValue(getSchemaRegistryClusterModeResult -> getSchemaRegistryClusterModeResult.mode()));
+     *         ctx.export("mode", example.mode());
      *     }
      * }
      * }
@@ -13601,7 +13615,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -13642,7 +13656,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -13704,7 +13718,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -13745,7 +13759,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -13807,7 +13821,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -13848,7 +13862,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -13910,7 +13924,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -13951,7 +13965,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -14013,7 +14027,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -14054,7 +14068,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -14116,7 +14130,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -14157,7 +14171,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -14219,7 +14233,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -14260,7 +14274,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("schemas", main.applyValue(getSchemasResult -> getSchemasResult.schemas()));
+     *         ctx.export("schemas", main.schemas());
      *     }
      * }
      * }
@@ -14307,13 +14321,13 @@ public final class ConfluentcloudFunctions {
      *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName("test_sa")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.displayName()))
      *             .build());
      * 
      *     }
@@ -14362,13 +14376,13 @@ public final class ConfluentcloudFunctions {
      *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName("test_sa")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.displayName()))
      *             .build());
      * 
      *     }
@@ -14417,13 +14431,13 @@ public final class ConfluentcloudFunctions {
      *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName("test_sa")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.displayName()))
      *             .build());
      * 
      *     }
@@ -14472,13 +14486,13 @@ public final class ConfluentcloudFunctions {
      *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName("test_sa")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.displayName()))
      *             .build());
      * 
      *     }
@@ -14527,13 +14541,13 @@ public final class ConfluentcloudFunctions {
      *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName("test_sa")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.displayName()))
      *             .build());
      * 
      *     }
@@ -14582,13 +14596,13 @@ public final class ConfluentcloudFunctions {
      *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName("test_sa")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.displayName()))
      *             .build());
      * 
      *     }
@@ -14637,13 +14651,13 @@ public final class ConfluentcloudFunctions {
      *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName("test_sa")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.displayName()))
      *             .build());
      * 
      *     }
@@ -15225,7 +15239,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *         ctx.export("retention-ms", example.retentionMs());
      *     }
      * }
      * }
@@ -15261,7 +15275,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("tableflow-example")
      *             .build());
      * 
-     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *         ctx.export("retention-ms", example.retentionMs());
      *     }
      * }
      * }
@@ -15321,7 +15335,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *         ctx.export("retention-ms", example.retentionMs());
      *     }
      * }
      * }
@@ -15357,7 +15371,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("tableflow-example")
      *             .build());
      * 
-     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *         ctx.export("retention-ms", example.retentionMs());
      *     }
      * }
      * }
@@ -15417,7 +15431,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *         ctx.export("retention-ms", example.retentionMs());
      *     }
      * }
      * }
@@ -15453,7 +15467,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("tableflow-example")
      *             .build());
      * 
-     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *         ctx.export("retention-ms", example.retentionMs());
      *     }
      * }
      * }
@@ -15513,7 +15527,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *         ctx.export("retention-ms", example.retentionMs());
      *     }
      * }
      * }
@@ -15549,7 +15563,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("tableflow-example")
      *             .build());
      * 
-     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *         ctx.export("retention-ms", example.retentionMs());
      *     }
      * }
      * }
@@ -15609,7 +15623,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *         ctx.export("retention-ms", example.retentionMs());
      *     }
      * }
      * }
@@ -15645,7 +15659,7 @@ public final class ConfluentcloudFunctions {
      *             .displayName("tableflow-example")
      *             .build());
      * 
-     *         ctx.export("retention-ms", example.applyValue(getTableflowTopicResult -> getTableflowTopicResult.retentionMs()));
+     *         ctx.export("retention-ms", example.retentionMs());
      *     }
      * }
      * }
@@ -16634,7 +16648,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .displayName("my_tgwa")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
@@ -16642,7 +16656,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -16691,7 +16705,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .displayName("my_tgwa")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
@@ -16699,7 +16713,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -16748,7 +16762,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .displayName("my_tgwa")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
@@ -16756,7 +16770,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -16805,7 +16819,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .displayName("my_tgwa")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
@@ -16813,7 +16827,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -16862,7 +16876,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .displayName("my_tgwa")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
@@ -16870,7 +16884,7 @@ public final class ConfluentcloudFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -16923,13 +16937,13 @@ public final class ConfluentcloudFunctions {
      *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.fullName()))
      *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
@@ -16937,14 +16951,15 @@ public final class ConfluentcloudFunctions {
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
      *             .region("us-west-2")
-     *             .standard()
+     *             .standard(KafkaClusterStandardArgs.builder()
+     *                 .build())
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingEmail.id()))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
@@ -17005,13 +17020,13 @@ public final class ConfluentcloudFunctions {
      *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.fullName()))
      *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
@@ -17019,14 +17034,15 @@ public final class ConfluentcloudFunctions {
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
      *             .region("us-west-2")
-     *             .standard()
+     *             .standard(KafkaClusterStandardArgs.builder()
+     *                 .build())
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingEmail.id()))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
@@ -17087,13 +17103,13 @@ public final class ConfluentcloudFunctions {
      *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.fullName()))
      *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
@@ -17101,14 +17117,15 @@ public final class ConfluentcloudFunctions {
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
      *             .region("us-west-2")
-     *             .standard()
+     *             .standard(KafkaClusterStandardArgs.builder()
+     *                 .build())
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingEmail.id()))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
@@ -17169,13 +17186,13 @@ public final class ConfluentcloudFunctions {
      *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.fullName()))
      *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
@@ -17183,14 +17200,15 @@ public final class ConfluentcloudFunctions {
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
      *             .region("us-west-2")
-     *             .standard()
+     *             .standard(KafkaClusterStandardArgs.builder()
+     *                 .build())
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingEmail.id()))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
@@ -17251,13 +17269,13 @@ public final class ConfluentcloudFunctions {
      *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.fullName()))
      *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
@@ -17265,14 +17283,15 @@ public final class ConfluentcloudFunctions {
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
      *             .region("us-west-2")
-     *             .standard()
+     *             .standard(KafkaClusterStandardArgs.builder()
+     *                 .build())
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingEmail.id()))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
@@ -17333,13 +17352,13 @@ public final class ConfluentcloudFunctions {
      *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.fullName()))
      *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
@@ -17347,14 +17366,15 @@ public final class ConfluentcloudFunctions {
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
      *             .region("us-west-2")
-     *             .standard()
+     *             .standard(KafkaClusterStandardArgs.builder()
+     *                 .build())
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingEmail.id()))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
@@ -17415,13 +17435,13 @@ public final class ConfluentcloudFunctions {
      *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId);
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email("test123}{@literal @}{@code gmail.com")
      *             .build());
      * 
      *         var test_env = new Environment("test-env", EnvironmentArgs.builder()
-     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
+     *             .displayName(String.format("env_for_%s", exampleUsingId.fullName()))
      *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()
@@ -17429,14 +17449,15 @@ public final class ConfluentcloudFunctions {
      *             .availability("SINGLE_ZONE")
      *             .cloud("AWS")
      *             .region("us-west-2")
-     *             .standard()
+     *             .standard(KafkaClusterStandardArgs.builder()
+     *                 .build())
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()
-     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .principal(String.format("User:%s", exampleUsingEmail.id()))
      *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
@@ -17484,9 +17505,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getUsers();
+     *         final var main = ConfluentcloudFunctions.getUsers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
+     *         ctx.export("users", main.ids());
      *     }
      * }
      * }
@@ -17526,9 +17547,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getUsers();
+     *         final var main = ConfluentcloudFunctions.getUsers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
+     *         ctx.export("users", main.ids());
      *     }
      * }
      * }
@@ -17568,9 +17589,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getUsers();
+     *         final var main = ConfluentcloudFunctions.getUsers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
+     *         ctx.export("users", main.ids());
      *     }
      * }
      * }
@@ -17610,9 +17631,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getUsers();
+     *         final var main = ConfluentcloudFunctions.getUsers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
+     *         ctx.export("users", main.ids());
      *     }
      * }
      * }
@@ -17652,9 +17673,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getUsers();
+     *         final var main = ConfluentcloudFunctions.getUsers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
+     *         ctx.export("users", main.ids());
      *     }
      * }
      * }
@@ -17694,9 +17715,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getUsers();
+     *         final var main = ConfluentcloudFunctions.getUsers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
+     *         ctx.export("users", main.ids());
      *     }
      * }
      * }
@@ -17736,9 +17757,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = ConfluentcloudFunctions.getUsers();
+     *         final var main = ConfluentcloudFunctions.getUsers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
+     *         ctx.export("users", main.ids());
      *     }
      * }
      * }
