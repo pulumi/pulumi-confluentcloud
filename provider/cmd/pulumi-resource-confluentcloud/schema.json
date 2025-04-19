@@ -120,6 +120,10 @@
                 "type": "integer",
                 "description": "Maximum number of retries of HTTP client. Defaults to 4.\n"
             },
+            "oauth": {
+                "$ref": "#/types/confluentcloud:config/oauth:oauth",
+                "description": "OAuth config settings\n"
+            },
             "organizationId": {
                 "type": "string",
                 "description": "The Flink Organization ID.\n"
@@ -155,6 +159,49 @@
         }
     },
     "types": {
+        "confluentcloud:config/oauth:oauth": {
+            "properties": {
+                "oauthExternalAccessToken": {
+                    "type": "string",
+                    "description": "OAuth existing access token already fetched from external IDP\n",
+                    "secret": true
+                },
+                "oauthExternalClientId": {
+                    "type": "string",
+                    "description": "OAuth client id from external token source\n"
+                },
+                "oauthExternalClientSecret": {
+                    "type": "string",
+                    "description": "OAuth client secret from external token source\n",
+                    "secret": true
+                },
+                "oauthExternalTokenScope": {
+                    "type": "string",
+                    "description": "OAuth access token scope\n"
+                },
+                "oauthExternalTokenUrl": {
+                    "type": "string",
+                    "description": "OAuth token URL to fetch access token from external IDP\n"
+                },
+                "oauthIdentityPoolId": {
+                    "type": "string",
+                    "description": "OAuth identity pool id used for processing external token and exchange STS token\n"
+                },
+                "oauthStsTokenExpiredInSeconds": {
+                    "type": "string",
+                    "description": "OAuth STS access token expired in second from Confluent Cloud\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "oauthIdentityPoolId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/AccessPointAwsEgressPrivateLinkEndpoint:AccessPointAwsEgressPrivateLinkEndpoint": {
             "properties": {
                 "enableHighAvailability": {
@@ -2249,6 +2296,49 @@
                 "id"
             ]
         },
+        "confluentcloud:index/ProviderOauth:ProviderOauth": {
+            "properties": {
+                "oauthExternalAccessToken": {
+                    "type": "string",
+                    "description": "OAuth existing access token already fetched from external IDP\n",
+                    "secret": true
+                },
+                "oauthExternalClientId": {
+                    "type": "string",
+                    "description": "OAuth client id from external token source\n"
+                },
+                "oauthExternalClientSecret": {
+                    "type": "string",
+                    "description": "OAuth client secret from external token source\n",
+                    "secret": true
+                },
+                "oauthExternalTokenScope": {
+                    "type": "string",
+                    "description": "OAuth access token scope\n"
+                },
+                "oauthExternalTokenUrl": {
+                    "type": "string",
+                    "description": "OAuth token URL to fetch access token from external IDP\n"
+                },
+                "oauthIdentityPoolId": {
+                    "type": "string",
+                    "description": "OAuth identity pool id used for processing external token and exchange STS token\n"
+                },
+                "oauthStsTokenExpiredInSeconds": {
+                    "type": "string",
+                    "description": "OAuth STS access token expired in second from Confluent Cloud\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "oauthIdentityPoolId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": []
+                }
+            }
+        },
         "confluentcloud:index/SchemaCredentials:SchemaCredentials": {
             "properties": {
                 "key": {
@@ -2580,14 +2670,14 @@
                 },
                 "onSuccess": {
                     "type": "string",
-                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.\n"
+                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.\n"
                 },
                 "params": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n\n\u003e **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).\n"
+                    "description": "A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n\n\u003e **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).\n\n\u003e **Note:** The Confluent Cloud Console uses the following default values: `on_success = \"NONE\"` and `on_failure = \"ERROR\"`. However, the TF Provider sets its defaults to `on_success = \"NONE,NONE\"` and `on_failure = \"ERROR,ERROR\"`.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -2652,14 +2742,14 @@
                 },
                 "onSuccess": {
                     "type": "string",
-                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.\n"
+                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.\n"
                 },
                 "params": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n\n\u003e **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).\n"
+                    "description": "A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n\n\u003e **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).\n\n\u003e **Note:** The Confluent Cloud Console uses the following default values: `on_success = \"NONE\"` and `on_failure = \"ERROR\"`. However, the TF Provider sets its defaults to `on_success = \"NONE,NONE\"` and `on_failure = \"ERROR,ERROR\"`.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -5131,7 +5221,7 @@
                 },
                 "onSuccess": {
                     "type": "string",
-                    "description": "(Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
+                    "description": "(Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
                 },
                 "params": {
                     "type": "object",
@@ -5204,7 +5294,7 @@
                 },
                 "onSuccess": {
                     "type": "string",
-                    "description": "(Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
+                    "description": "(Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
                 },
                 "params": {
                     "type": "object",
@@ -5735,6 +5825,10 @@
                 "type": "integer",
                 "description": "Maximum number of retries of HTTP client. Defaults to 4.\n"
             },
+            "oauth": {
+                "$ref": "#/types/confluentcloud:index/ProviderOauth:ProviderOauth",
+                "description": "OAuth config settings\n"
+            },
             "organizationId": {
                 "type": "string",
                 "description": "The Flink Organization ID.\n"
@@ -5834,6 +5928,10 @@
             "maxRetries": {
                 "type": "integer",
                 "description": "Maximum number of retries of HTTP client. Defaults to 4.\n"
+            },
+            "oauth": {
+                "$ref": "#/types/confluentcloud:index/ProviderOauth:ProviderOauth",
+                "description": "OAuth config settings\n"
             },
             "organizationId": {
                 "type": "string",
@@ -6601,7 +6699,7 @@
             "properties": {
                 "certificateChain": {
                     "type": "string",
-                    "description": "A base64 encoded string containing the signing certificate chain.\n",
+                    "description": "A PEM encoded string containing the signing certificate chain.\n",
                     "secret": true
                 },
                 "certificateChainFilename": {
@@ -6610,7 +6708,7 @@
                 },
                 "crlChain": {
                     "type": "string",
-                    "description": "A base64 encoded string containing the CRL for this certificate authority.\n",
+                    "description": "A PEM encoded string containing the CRL for this certificate authority.\n",
                     "secret": true
                 },
                 "crlSource": {
@@ -6669,7 +6767,7 @@
             "inputProperties": {
                 "certificateChain": {
                     "type": "string",
-                    "description": "A base64 encoded string containing the signing certificate chain.\n",
+                    "description": "A PEM encoded string containing the signing certificate chain.\n",
                     "secret": true
                 },
                 "certificateChainFilename": {
@@ -6678,7 +6776,7 @@
                 },
                 "crlChain": {
                     "type": "string",
-                    "description": "A base64 encoded string containing the CRL for this certificate authority.\n",
+                    "description": "A PEM encoded string containing the CRL for this certificate authority.\n",
                     "secret": true
                 },
                 "crlUrl": {
@@ -6705,7 +6803,7 @@
                 "properties": {
                     "certificateChain": {
                         "type": "string",
-                        "description": "A base64 encoded string containing the signing certificate chain.\n",
+                        "description": "A PEM encoded string containing the signing certificate chain.\n",
                         "secret": true
                     },
                     "certificateChainFilename": {
@@ -6714,7 +6812,7 @@
                     },
                     "crlChain": {
                         "type": "string",
-                        "description": "A base64 encoded string containing the CRL for this certificate authority.\n",
+                        "description": "A PEM encoded string containing the CRL for this certificate authority.\n",
                         "secret": true
                     },
                     "crlSource": {
@@ -11593,7 +11691,7 @@
             }
         },
         "confluentcloud:index/tableflowTopic:TableflowTopic": {
-            "description": "## Example Usage\n\n### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    managedStorages: [{}],\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    tableFormats: [\n        \"ICEBERG\",\n        \"DELTA\",\n    ],\n    credentials: {\n        key: env_admin_tableflow_api_key.id,\n        secret: env_admin_tableflow_api_key.secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    managed_storages=[{}],\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    table_formats=[\n        \"ICEBERG\",\n        \"DELTA\",\n    ],\n    credentials={\n        \"key\": env_admin_tableflow_api_key[\"id\"],\n        \"secret\": env_admin_tableflow_api_key[\"secret\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        ManagedStorages = new[]\n        {\n            null,\n        },\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        TableFormats = new[]\n        {\n            \"ICEBERG\",\n            \"DELTA\",\n        },\n        Credentials = new ConfluentCloud.Inputs.TableflowTopicCredentialsArgs\n        {\n            Key = env_admin_tableflow_api_key.Id,\n            Secret = env_admin_tableflow_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tManagedStorages: confluentcloud.TableflowTopicManagedStorageArray{\n\t\t\t\t\u0026confluentcloud.TableflowTopicManagedStorageArgs{},\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tTableFormats: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"ICEBERG\"),\n\t\t\t\tpulumi.String(\"DELTA\"),\n\t\t\t},\n\t\t\tCredentials: \u0026confluentcloud.TableflowTopicCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(env_admin_tableflow_api_key.Id),\n\t\t\t\tSecret: pulumi.Any(env_admin_tableflow_api_key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicManagedStorageArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .managedStorages(TableflowTopicManagedStorageArgs.builder()\n                .build())\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .tableFormats(            \n                \"ICEBERG\",\n                \"DELTA\")\n            .credentials(TableflowTopicCredentialsArgs.builder()\n                .key(env_admin_tableflow_api_key.id())\n                .secret(env_admin_tableflow_api_key.secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      managedStorages:\n        - {}\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      tableFormats:\n        - ICEBERG\n        - DELTA\n      credentials:\n        key: ${[\"env-admin-tableflow-api-key\"].id}\n        secret: ${[\"env-admin-tableflow-api-key\"].secret}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    byobAws: {\n        bucketName: \"bucket_1\",\n        providerIntegrationId: main.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    byob_aws={\n        \"bucket_name\": \"bucket_1\",\n        \"provider_integration_id\": main[\"id\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        ByobAws = new ConfluentCloud.Inputs.TableflowTopicByobAwsArgs\n        {\n            BucketName = \"bucket_1\",\n            ProviderIntegrationId = main.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tByobAws: \u0026confluentcloud.TableflowTopicByobAwsArgs{\n\t\t\t\tBucketName:            pulumi.String(\"bucket_1\"),\n\t\t\t\tProviderIntegrationId: pulumi.Any(main.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicByobAwsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .byobAws(TableflowTopicByobAwsArgs.builder()\n                .bucketName(\"bucket_1\")\n                .providerIntegrationId(main.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      byobAws:\n        bucketName: bucket_1\n        providerIntegrationId: ${main.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with `confluentcloud.TableflowTopic` resource:\n* `confluent-managed-storage`: Tableflow topic with Confluent-managed storage.\n* `byob-aws-storage`: Tableflow topic with custom (BYOB AWS) storage.\n\n## Import\n\nYou can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `\u003cEnvironment ID\u003e/\u003cKafka Cluster ID\u003e/\u003cTableflow Topic name\u003e`, for example:\n\nOption #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n$ export IMPORT_TABLEFLOW_API_KEY=\"\u003ctableflow_api_key\u003e\"\n\n$ export IMPORT_TABLEFLOW_API_SECRET=\"\u003ctableflow_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders\n```\n\nOption #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n```sh\n$ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "description": "## Example Usage\n\n### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    managedStorages: [{}],\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    tableFormats: [\n        \"ICEBERG\",\n        \"DELTA\",\n    ],\n    credentials: {\n        key: env_admin_tableflow_api_key.id,\n        secret: env_admin_tableflow_api_key.secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    managed_storages=[{}],\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    table_formats=[\n        \"ICEBERG\",\n        \"DELTA\",\n    ],\n    credentials={\n        \"key\": env_admin_tableflow_api_key[\"id\"],\n        \"secret\": env_admin_tableflow_api_key[\"secret\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        ManagedStorages = new[]\n        {\n            null,\n        },\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        TableFormats = new[]\n        {\n            \"ICEBERG\",\n            \"DELTA\",\n        },\n        Credentials = new ConfluentCloud.Inputs.TableflowTopicCredentialsArgs\n        {\n            Key = env_admin_tableflow_api_key.Id,\n            Secret = env_admin_tableflow_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tManagedStorages: confluentcloud.TableflowTopicManagedStorageArray{\n\t\t\t\t\u0026confluentcloud.TableflowTopicManagedStorageArgs{},\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tTableFormats: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"ICEBERG\"),\n\t\t\t\tpulumi.String(\"DELTA\"),\n\t\t\t},\n\t\t\tCredentials: \u0026confluentcloud.TableflowTopicCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(env_admin_tableflow_api_key.Id),\n\t\t\t\tSecret: pulumi.Any(env_admin_tableflow_api_key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicManagedStorageArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .managedStorages(TableflowTopicManagedStorageArgs.builder()\n                .build())\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .tableFormats(            \n                \"ICEBERG\",\n                \"DELTA\")\n            .credentials(TableflowTopicCredentialsArgs.builder()\n                .key(env_admin_tableflow_api_key.id())\n                .secret(env_admin_tableflow_api_key.secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      managedStorages:\n        - {}\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      tableFormats:\n        - ICEBERG\n        - DELTA\n      credentials:\n        key: ${[\"env-admin-tableflow-api-key\"].id}\n        secret: ${[\"env-admin-tableflow-api-key\"].secret}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.TableflowTopic(\"example\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: stagingConfluentKafkaCluster.id,\n    },\n    displayName: orders.topicName,\n    byobAws: {\n        bucketName: \"bucket_1\",\n        providerIntegrationId: main.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.TableflowTopic(\"example\",\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    kafka_cluster={\n        \"id\": staging_confluent_kafka_cluster[\"id\"],\n    },\n    display_name=orders[\"topicName\"],\n    byob_aws={\n        \"bucket_name\": \"bucket_1\",\n        \"provider_integration_id\": main[\"id\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.TableflowTopic(\"example\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.TableflowTopicKafkaClusterArgs\n        {\n            Id = stagingConfluentKafkaCluster.Id,\n        },\n        DisplayName = orders.TopicName,\n        ByobAws = new ConfluentCloud.Inputs.TableflowTopicByobAwsArgs\n        {\n            BucketName = \"bucket_1\",\n            ProviderIntegrationId = main.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewTableflowTopic(ctx, \"example\", \u0026confluentcloud.TableflowTopicArgs{\n\t\t\tEnvironment: \u0026confluentcloud.TableflowTopicEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.TableflowTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(stagingConfluentKafkaCluster.Id),\n\t\t\t},\n\t\t\tDisplayName: pulumi.Any(orders.TopicName),\n\t\t\tByobAws: \u0026confluentcloud.TableflowTopicByobAwsArgs{\n\t\t\t\tBucketName:            pulumi.String(\"bucket_1\"),\n\t\t\t\tProviderIntegrationId: pulumi.Any(main.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.TableflowTopic;\nimport com.pulumi.confluentcloud.TableflowTopicArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.TableflowTopicByobAwsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new TableflowTopic(\"example\", TableflowTopicArgs.builder()\n            .environment(TableflowTopicEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(TableflowTopicKafkaClusterArgs.builder()\n                .id(stagingConfluentKafkaCluster.id())\n                .build())\n            .displayName(orders.topicName())\n            .byobAws(TableflowTopicByobAwsArgs.builder()\n                .bucketName(\"bucket_1\")\n                .providerIntegrationId(main.id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:TableflowTopic\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${stagingConfluentKafkaCluster.id}\n      displayName: ${orders.topicName}\n      byobAws:\n        bucketName: bucket_1\n        providerIntegrationId: ${main.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with `confluentcloud.TableflowTopic` resource:\n* `confluent-managed-storage`: Tableflow topic with Confluent-managed storage.\n* `byob-aws-storage`: Tableflow topic with custom (BYOB AWS) storage.\n* `datagen-connector-byob-aws-storage`: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.\n* `datagen-connector-confluent-managed-storage`: Datagen Source connector with a Tableflow topic with Confluent-managed storage.\n\n## Import\n\nYou can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `\u003cEnvironment ID\u003e/\u003cKafka Cluster ID\u003e/\u003cTableflow Topic name\u003e`, for example:\n\nOption #1: Manage multiple Tableflow Topics in the same Pulumi Stack\n\n$ export IMPORT_TABLEFLOW_API_KEY=\"\u003ctableflow_api_key\u003e\"\n\n$ export IMPORT_TABLEFLOW_API_SECRET=\"\u003ctableflow_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders\n```\n\nOption #2: Manage a single Tableflow Topic in the same Pulumi Stack\n\n```sh\n$ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "byobAws": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicByobAws:TableflowTopicByobAws",
