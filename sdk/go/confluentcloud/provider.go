@@ -152,6 +152,8 @@ type providerArgs struct {
 	KafkaRestEndpoint *string `pulumi:"kafkaRestEndpoint"`
 	// Maximum number of retries of HTTP client. Defaults to 4.
 	MaxRetries *int `pulumi:"maxRetries"`
+	// OAuth config settings
+	Oauth *ProviderOauth `pulumi:"oauth"`
 	// The Flink Organization ID.
 	OrganizationId *string `pulumi:"organizationId"`
 	// The Schema Registry Cluster API Key.
@@ -200,6 +202,8 @@ type ProviderArgs struct {
 	KafkaRestEndpoint pulumi.StringPtrInput
 	// Maximum number of retries of HTTP client. Defaults to 4.
 	MaxRetries pulumi.IntPtrInput
+	// OAuth config settings
+	Oauth ProviderOauthPtrInput
 	// The Flink Organization ID.
 	OrganizationId pulumi.StringPtrInput
 	// The Schema Registry Cluster API Key.

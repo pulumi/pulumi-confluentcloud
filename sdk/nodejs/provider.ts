@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -136,6 +138,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["kafkaId"] = args ? args.kafkaId : undefined;
             resourceInputs["kafkaRestEndpoint"] = args ? args.kafkaRestEndpoint : undefined;
             resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
+            resourceInputs["oauth"] = pulumi.output(args ? args.oauth : undefined).apply(JSON.stringify);
             resourceInputs["organizationId"] = args ? args.organizationId : undefined;
             resourceInputs["schemaRegistryApiKey"] = args?.schemaRegistryApiKey ? pulumi.secret(args.schemaRegistryApiKey) : undefined;
             resourceInputs["schemaRegistryApiSecret"] = args?.schemaRegistryApiSecret ? pulumi.secret(args.schemaRegistryApiSecret) : undefined;
@@ -215,6 +218,10 @@ export interface ProviderArgs {
      * Maximum number of retries of HTTP client. Defaults to 4.
      */
     maxRetries?: pulumi.Input<number>;
+    /**
+     * OAuth config settings
+     */
+    oauth?: pulumi.Input<inputs.ProviderOauth>;
     /**
      * The Flink Organization ID.
      */

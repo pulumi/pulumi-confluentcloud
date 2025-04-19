@@ -1777,7 +1777,7 @@ export interface GetSchemaRulesetDomainRule {
      */
     onFailure?: string;
     /**
-     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      */
     onSuccess?: string;
     /**
@@ -1824,7 +1824,7 @@ export interface GetSchemaRulesetMigrationRule {
      */
     onFailure?: string;
     /**
-     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      */
     onSuccess?: string;
     /**
@@ -2829,13 +2829,15 @@ export interface SchemaRulesetDomainRule {
      */
     onFailure?: string;
     /**
-     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      */
     onSuccess?: string;
     /**
      * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      *
      * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     *
+     * > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
      */
     params: {[key: string]: string};
     /**
@@ -2875,13 +2877,15 @@ export interface SchemaRulesetMigrationRule {
      */
     onFailure?: string;
     /**
-     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      */
     onSuccess?: string;
     /**
      * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      *
      * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     *
+     * > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
      */
     params: {[key: string]: string};
     /**
@@ -3066,3 +3070,36 @@ export interface TransitGatewayAttachmentNetwork {
     id: string;
 }
 
+export namespace config {
+    export interface Oauth {
+        /**
+         * OAuth existing access token already fetched from external IDP
+         */
+        oauthExternalAccessToken?: string;
+        /**
+         * OAuth client id from external token source
+         */
+        oauthExternalClientId?: string;
+        /**
+         * OAuth client secret from external token source
+         */
+        oauthExternalClientSecret?: string;
+        /**
+         * OAuth access token scope
+         */
+        oauthExternalTokenScope?: string;
+        /**
+         * OAuth token URL to fetch access token from external IDP
+         */
+        oauthExternalTokenUrl?: string;
+        /**
+         * OAuth identity pool id used for processing external token and exchange STS token
+         */
+        oauthIdentityPoolId: string;
+        /**
+         * OAuth STS access token expired in second from Confluent Cloud
+         */
+        oauthStsTokenExpiredInSeconds?: string;
+    }
+
+}

@@ -182,6 +182,16 @@ namespace Pulumi.ConfluentCloud
             set => _maxRetries.Set(value);
         }
 
+        private static readonly __Value<Pulumi.ConfluentCloud.Config.Types.Oauth?> _oauth = new __Value<Pulumi.ConfluentCloud.Config.Types.Oauth?>(() => __config.GetObject<Pulumi.ConfluentCloud.Config.Types.Oauth>("oauth"));
+        /// <summary>
+        /// OAuth config settings
+        /// </summary>
+        public static Pulumi.ConfluentCloud.Config.Types.Oauth? Oauth
+        {
+            get => _oauth.Get();
+            set => _oauth.Set(value);
+        }
+
         private static readonly __Value<string?> _organizationId = new __Value<string?>(() => __config.Get("organizationId"));
         /// <summary>
         /// The Flink Organization ID.
@@ -252,5 +262,40 @@ namespace Pulumi.ConfluentCloud
             set => _tableflowApiSecret.Set(value);
         }
 
+        public static class Types
+        {
+
+             public class Oauth
+             {
+            /// <summary>
+            /// OAuth existing access token already fetched from external IDP
+            /// </summary>
+                public string? OauthExternalAccessToken { get; set; } = null!;
+            /// <summary>
+            /// OAuth client id from external token source
+            /// </summary>
+                public string? OauthExternalClientId { get; set; } = null!;
+            /// <summary>
+            /// OAuth client secret from external token source
+            /// </summary>
+                public string? OauthExternalClientSecret { get; set; } = null!;
+            /// <summary>
+            /// OAuth access token scope
+            /// </summary>
+                public string? OauthExternalTokenScope { get; set; } = null!;
+            /// <summary>
+            /// OAuth token URL to fetch access token from external IDP
+            /// </summary>
+                public string? OauthExternalTokenUrl { get; set; } = null!;
+            /// <summary>
+            /// OAuth identity pool id used for processing external token and exchange STS token
+            /// </summary>
+                public string OauthIdentityPoolId { get; set; }
+            /// <summary>
+            /// OAuth STS access token expired in second from Confluent Cloud
+            /// </summary>
+                public string? OauthStsTokenExpiredInSeconds { get; set; } = null!;
+            }
+        }
     }
 }

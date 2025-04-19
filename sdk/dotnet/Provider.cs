@@ -336,6 +336,12 @@ namespace Pulumi.ConfluentCloud
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
+        /// OAuth config settings
+        /// </summary>
+        [Input("oauth", json: true)]
+        public Input<Inputs.ProviderOauthArgs>? Oauth { get; set; }
+
+        /// <summary>
         /// The Flink Organization ID.
         /// </summary>
         [Input("organizationId")]

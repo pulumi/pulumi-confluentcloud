@@ -250,6 +250,8 @@ __all__ = [
     'ProviderIntegrationAwsArgsDict',
     'ProviderIntegrationEnvironmentArgs',
     'ProviderIntegrationEnvironmentArgsDict',
+    'ProviderOauthArgs',
+    'ProviderOauthArgsDict',
     'SchemaCredentialsArgs',
     'SchemaCredentialsArgsDict',
     'SchemaExporterCredentialsArgs',
@@ -5822,6 +5824,157 @@ class ProviderIntegrationEnvironmentArgs:
 
 
 if not MYPY:
+    class ProviderOauthArgsDict(TypedDict):
+        oauth_identity_pool_id: pulumi.Input[builtins.str]
+        """
+        OAuth identity pool id used for processing external token and exchange STS token
+        """
+        oauth_external_access_token: NotRequired[pulumi.Input[builtins.str]]
+        """
+        OAuth existing access token already fetched from external IDP
+        """
+        oauth_external_client_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        OAuth client id from external token source
+        """
+        oauth_external_client_secret: NotRequired[pulumi.Input[builtins.str]]
+        """
+        OAuth client secret from external token source
+        """
+        oauth_external_token_scope: NotRequired[pulumi.Input[builtins.str]]
+        """
+        OAuth access token scope
+        """
+        oauth_external_token_url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        OAuth token URL to fetch access token from external IDP
+        """
+        oauth_sts_token_expired_in_seconds: NotRequired[pulumi.Input[builtins.str]]
+        """
+        OAuth STS access token expired in second from Confluent Cloud
+        """
+elif False:
+    ProviderOauthArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProviderOauthArgs:
+    def __init__(__self__, *,
+                 oauth_identity_pool_id: pulumi.Input[builtins.str],
+                 oauth_external_access_token: Optional[pulumi.Input[builtins.str]] = None,
+                 oauth_external_client_id: Optional[pulumi.Input[builtins.str]] = None,
+                 oauth_external_client_secret: Optional[pulumi.Input[builtins.str]] = None,
+                 oauth_external_token_scope: Optional[pulumi.Input[builtins.str]] = None,
+                 oauth_external_token_url: Optional[pulumi.Input[builtins.str]] = None,
+                 oauth_sts_token_expired_in_seconds: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] oauth_identity_pool_id: OAuth identity pool id used for processing external token and exchange STS token
+        :param pulumi.Input[builtins.str] oauth_external_access_token: OAuth existing access token already fetched from external IDP
+        :param pulumi.Input[builtins.str] oauth_external_client_id: OAuth client id from external token source
+        :param pulumi.Input[builtins.str] oauth_external_client_secret: OAuth client secret from external token source
+        :param pulumi.Input[builtins.str] oauth_external_token_scope: OAuth access token scope
+        :param pulumi.Input[builtins.str] oauth_external_token_url: OAuth token URL to fetch access token from external IDP
+        :param pulumi.Input[builtins.str] oauth_sts_token_expired_in_seconds: OAuth STS access token expired in second from Confluent Cloud
+        """
+        pulumi.set(__self__, "oauth_identity_pool_id", oauth_identity_pool_id)
+        if oauth_external_access_token is not None:
+            pulumi.set(__self__, "oauth_external_access_token", oauth_external_access_token)
+        if oauth_external_client_id is not None:
+            pulumi.set(__self__, "oauth_external_client_id", oauth_external_client_id)
+        if oauth_external_client_secret is not None:
+            pulumi.set(__self__, "oauth_external_client_secret", oauth_external_client_secret)
+        if oauth_external_token_scope is not None:
+            pulumi.set(__self__, "oauth_external_token_scope", oauth_external_token_scope)
+        if oauth_external_token_url is not None:
+            pulumi.set(__self__, "oauth_external_token_url", oauth_external_token_url)
+        if oauth_sts_token_expired_in_seconds is not None:
+            pulumi.set(__self__, "oauth_sts_token_expired_in_seconds", oauth_sts_token_expired_in_seconds)
+
+    @property
+    @pulumi.getter(name="oauthIdentityPoolId")
+    def oauth_identity_pool_id(self) -> pulumi.Input[builtins.str]:
+        """
+        OAuth identity pool id used for processing external token and exchange STS token
+        """
+        return pulumi.get(self, "oauth_identity_pool_id")
+
+    @oauth_identity_pool_id.setter
+    def oauth_identity_pool_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "oauth_identity_pool_id", value)
+
+    @property
+    @pulumi.getter(name="oauthExternalAccessToken")
+    def oauth_external_access_token(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        OAuth existing access token already fetched from external IDP
+        """
+        return pulumi.get(self, "oauth_external_access_token")
+
+    @oauth_external_access_token.setter
+    def oauth_external_access_token(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "oauth_external_access_token", value)
+
+    @property
+    @pulumi.getter(name="oauthExternalClientId")
+    def oauth_external_client_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        OAuth client id from external token source
+        """
+        return pulumi.get(self, "oauth_external_client_id")
+
+    @oauth_external_client_id.setter
+    def oauth_external_client_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "oauth_external_client_id", value)
+
+    @property
+    @pulumi.getter(name="oauthExternalClientSecret")
+    def oauth_external_client_secret(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        OAuth client secret from external token source
+        """
+        return pulumi.get(self, "oauth_external_client_secret")
+
+    @oauth_external_client_secret.setter
+    def oauth_external_client_secret(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "oauth_external_client_secret", value)
+
+    @property
+    @pulumi.getter(name="oauthExternalTokenScope")
+    def oauth_external_token_scope(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        OAuth access token scope
+        """
+        return pulumi.get(self, "oauth_external_token_scope")
+
+    @oauth_external_token_scope.setter
+    def oauth_external_token_scope(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "oauth_external_token_scope", value)
+
+    @property
+    @pulumi.getter(name="oauthExternalTokenUrl")
+    def oauth_external_token_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        OAuth token URL to fetch access token from external IDP
+        """
+        return pulumi.get(self, "oauth_external_token_url")
+
+    @oauth_external_token_url.setter
+    def oauth_external_token_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "oauth_external_token_url", value)
+
+    @property
+    @pulumi.getter(name="oauthStsTokenExpiredInSeconds")
+    def oauth_sts_token_expired_in_seconds(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        OAuth STS access token expired in second from Confluent Cloud
+        """
+        return pulumi.get(self, "oauth_sts_token_expired_in_seconds")
+
+    @oauth_sts_token_expired_in_seconds.setter
+    def oauth_sts_token_expired_in_seconds(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "oauth_sts_token_expired_in_seconds", value)
+
+
+if not MYPY:
     class SchemaCredentialsArgsDict(TypedDict):
         key: pulumi.Input[builtins.str]
         """
@@ -6565,13 +6718,15 @@ if not MYPY:
         """
         on_success: NotRequired[pulumi.Input[builtins.str]]
         """
-        An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+        An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         """
         params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
         """
         A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 
         > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+
+        > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         """
         tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -6603,10 +6758,12 @@ class SchemaRulesetDomainRuleArgs:
         :param pulumi.Input[builtins.str] doc: An optional description of the rule. Defaults to "".
         :param pulumi.Input[builtins.str] expr: The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
         :param pulumi.Input[builtins.str] on_failure: An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
-        :param pulumi.Input[builtins.str] on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+        :param pulumi.Input[builtins.str] on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] params: A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
                
                > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+               
+               > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: The tags to which the rule applies, if any.
         """
         pulumi.set(__self__, "kind", kind)
@@ -6728,7 +6885,7 @@ class SchemaRulesetDomainRuleArgs:
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+        An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         """
         return pulumi.get(self, "on_success")
 
@@ -6743,6 +6900,8 @@ class SchemaRulesetDomainRuleArgs:
         A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 
         > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+
+        > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         """
         return pulumi.get(self, "params")
 
@@ -6796,13 +6955,15 @@ if not MYPY:
         """
         on_success: NotRequired[pulumi.Input[builtins.str]]
         """
-        An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+        An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         """
         params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
         """
         A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 
         > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+
+        > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         """
         tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -6833,10 +6994,12 @@ class SchemaRulesetMigrationRuleArgs:
         :param pulumi.Input[builtins.str] doc: An optional description of the rule. Defaults to "".
         :param pulumi.Input[builtins.str] expr: The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
         :param pulumi.Input[builtins.str] on_failure: An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
-        :param pulumi.Input[builtins.str] on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+        :param pulumi.Input[builtins.str] on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] params: A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
                
                > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+               
+               > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: The tags to which the rule applies, if any.
         """
         pulumi.set(__self__, "kind", kind)
@@ -6955,7 +7118,7 @@ class SchemaRulesetMigrationRuleArgs:
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+        An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         """
         return pulumi.get(self, "on_success")
 
@@ -6970,6 +7133,8 @@ class SchemaRulesetMigrationRuleArgs:
         A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 
         > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+
+        > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         """
         return pulumi.get(self, "params")
 
@@ -10060,7 +10225,7 @@ if not MYPY:
         """
         on_success: NotRequired[builtins.str]
         """
-        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
         """
 elif False:
     GetSchemaRulesetDomainRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -10090,7 +10255,7 @@ class GetSchemaRulesetDomainRuleArgs:
         :param builtins.str doc: (Optional String) An optional description of the rule.
         :param builtins.str expr: (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
         :param builtins.str on_failure: (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-        :param builtins.str on_success: (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        :param builtins.str on_success: (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
         """
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "mode", mode)
@@ -10233,7 +10398,7 @@ class GetSchemaRulesetDomainRuleArgs:
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[builtins.str]:
         """
-        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
         """
         return pulumi.get(self, "on_success")
 
@@ -10286,7 +10451,7 @@ if not MYPY:
         """
         on_success: NotRequired[builtins.str]
         """
-        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
         """
 elif False:
     GetSchemaRulesetMigrationRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -10316,7 +10481,7 @@ class GetSchemaRulesetMigrationRuleArgs:
         :param builtins.str doc: (Optional String) An optional description of the rule.
         :param builtins.str expr: (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
         :param builtins.str on_failure: (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-        :param builtins.str on_success: (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        :param builtins.str on_success: (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
         """
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "mode", mode)
@@ -10459,7 +10624,7 @@ class GetSchemaRulesetMigrationRuleArgs:
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[builtins.str]:
         """
-        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
         """
         return pulumi.get(self, "on_success")
 

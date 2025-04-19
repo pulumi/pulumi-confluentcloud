@@ -117,14 +117,14 @@ public final class SchemaRulesetMigrationRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      * 
      */
     @Import(name="onSuccess")
     private @Nullable Output<String> onSuccess;
 
     /**
-     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      * 
      */
     public Optional<Output<String>> onSuccess() {
@@ -136,6 +136,8 @@ public final class SchemaRulesetMigrationRuleArgs extends com.pulumi.resources.R
      * 
      * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
      * 
+     * &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = &#34;NONE&#34;` and `on_failure = &#34;ERROR&#34;`. However, the TF Provider sets its defaults to `on_success = &#34;NONE,NONE&#34;` and `on_failure = &#34;ERROR,ERROR&#34;`.
+     * 
      */
     @Import(name="params")
     private @Nullable Output<Map<String,String>> params;
@@ -144,6 +146,8 @@ public final class SchemaRulesetMigrationRuleArgs extends com.pulumi.resources.R
      * @return A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      * 
      * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     * 
+     * &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = &#34;NONE&#34;` and `on_failure = &#34;ERROR&#34;`. However, the TF Provider sets its defaults to `on_success = &#34;NONE,NONE&#34;` and `on_failure = &#34;ERROR,ERROR&#34;`.
      * 
      */
     public Optional<Output<Map<String,String>>> params() {
@@ -350,7 +354,7 @@ public final class SchemaRulesetMigrationRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param onSuccess An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+         * @param onSuccess An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
          * 
          * @return builder
          * 
@@ -361,7 +365,7 @@ public final class SchemaRulesetMigrationRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param onSuccess An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+         * @param onSuccess An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
          * 
          * @return builder
          * 
@@ -375,6 +379,8 @@ public final class SchemaRulesetMigrationRuleArgs extends com.pulumi.resources.R
          * 
          * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
          * 
+         * &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = &#34;NONE&#34;` and `on_failure = &#34;ERROR&#34;`. However, the TF Provider sets its defaults to `on_success = &#34;NONE,NONE&#34;` and `on_failure = &#34;ERROR,ERROR&#34;`.
+         * 
          * @return builder
          * 
          */
@@ -387,6 +393,8 @@ public final class SchemaRulesetMigrationRuleArgs extends com.pulumi.resources.R
          * @param params A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
          * 
          * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+         * 
+         * &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = &#34;NONE&#34;` and `on_failure = &#34;ERROR&#34;`. However, the TF Provider sets its defaults to `on_success = &#34;NONE,NONE&#34;` and `on_failure = &#34;ERROR,ERROR&#34;`.
          * 
          * @return builder
          * 

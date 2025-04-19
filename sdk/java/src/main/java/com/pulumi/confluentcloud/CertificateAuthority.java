@@ -76,14 +76,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="confluentcloud:index/certificateAuthority:CertificateAuthority")
 public class CertificateAuthority extends com.pulumi.resources.CustomResource {
     /**
-     * A base64 encoded string containing the signing certificate chain.
+     * A PEM encoded string containing the signing certificate chain.
      * 
      */
     @Export(name="certificateChain", refs={String.class}, tree="[0]")
     private Output<String> certificateChain;
 
     /**
-     * @return A base64 encoded string containing the signing certificate chain.
+     * @return A PEM encoded string containing the signing certificate chain.
      * 
      */
     public Output<String> certificateChain() {
@@ -104,14 +104,14 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
         return this.certificateChainFilename;
     }
     /**
-     * A base64 encoded string containing the CRL for this certificate authority.
+     * A PEM encoded string containing the CRL for this certificate authority.
      * 
      */
     @Export(name="crlChain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> crlChain;
 
     /**
-     * @return A base64 encoded string containing the CRL for this certificate authority.
+     * @return A PEM encoded string containing the CRL for this certificate authority.
      * 
      */
     public Output<Optional<String>> crlChain() {

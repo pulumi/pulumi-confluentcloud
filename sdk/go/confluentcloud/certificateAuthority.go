@@ -61,11 +61,11 @@ import (
 type CertificateAuthority struct {
 	pulumi.CustomResourceState
 
-	// A base64 encoded string containing the signing certificate chain.
+	// A PEM encoded string containing the signing certificate chain.
 	CertificateChain pulumi.StringOutput `pulumi:"certificateChain"`
 	// The name of the certificate file.
 	CertificateChainFilename pulumi.StringOutput `pulumi:"certificateChainFilename"`
-	// A base64 encoded string containing the CRL for this certificate authority.
+	// A PEM encoded string containing the CRL for this certificate authority.
 	CrlChain pulumi.StringPtrOutput `pulumi:"crlChain"`
 	// (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL).
 	CrlSource pulumi.StringOutput `pulumi:"crlSource"`
@@ -138,11 +138,11 @@ func GetCertificateAuthority(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CertificateAuthority resources.
 type certificateAuthorityState struct {
-	// A base64 encoded string containing the signing certificate chain.
+	// A PEM encoded string containing the signing certificate chain.
 	CertificateChain *string `pulumi:"certificateChain"`
 	// The name of the certificate file.
 	CertificateChainFilename *string `pulumi:"certificateChainFilename"`
-	// A base64 encoded string containing the CRL for this certificate authority.
+	// A PEM encoded string containing the CRL for this certificate authority.
 	CrlChain *string `pulumi:"crlChain"`
 	// (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL).
 	CrlSource *string `pulumi:"crlSource"`
@@ -163,11 +163,11 @@ type certificateAuthorityState struct {
 }
 
 type CertificateAuthorityState struct {
-	// A base64 encoded string containing the signing certificate chain.
+	// A PEM encoded string containing the signing certificate chain.
 	CertificateChain pulumi.StringPtrInput
 	// The name of the certificate file.
 	CertificateChainFilename pulumi.StringPtrInput
-	// A base64 encoded string containing the CRL for this certificate authority.
+	// A PEM encoded string containing the CRL for this certificate authority.
 	CrlChain pulumi.StringPtrInput
 	// (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL).
 	CrlSource pulumi.StringPtrInput
@@ -192,11 +192,11 @@ func (CertificateAuthorityState) ElementType() reflect.Type {
 }
 
 type certificateAuthorityArgs struct {
-	// A base64 encoded string containing the signing certificate chain.
+	// A PEM encoded string containing the signing certificate chain.
 	CertificateChain string `pulumi:"certificateChain"`
 	// The name of the certificate file.
 	CertificateChainFilename string `pulumi:"certificateChainFilename"`
-	// A base64 encoded string containing the CRL for this certificate authority.
+	// A PEM encoded string containing the CRL for this certificate authority.
 	CrlChain *string `pulumi:"crlChain"`
 	// The url from which to fetch the CRL for the certificate authority.
 	CrlUrl *string `pulumi:"crlUrl"`
@@ -208,11 +208,11 @@ type certificateAuthorityArgs struct {
 
 // The set of arguments for constructing a CertificateAuthority resource.
 type CertificateAuthorityArgs struct {
-	// A base64 encoded string containing the signing certificate chain.
+	// A PEM encoded string containing the signing certificate chain.
 	CertificateChain pulumi.StringInput
 	// The name of the certificate file.
 	CertificateChainFilename pulumi.StringInput
-	// A base64 encoded string containing the CRL for this certificate authority.
+	// A PEM encoded string containing the CRL for this certificate authority.
 	CrlChain pulumi.StringPtrInput
 	// The url from which to fetch the CRL for the certificate authority.
 	CrlUrl pulumi.StringPtrInput
@@ -309,7 +309,7 @@ func (o CertificateAuthorityOutput) ToCertificateAuthorityOutputWithContext(ctx 
 	return o
 }
 
-// A base64 encoded string containing the signing certificate chain.
+// A PEM encoded string containing the signing certificate chain.
 func (o CertificateAuthorityOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.CertificateChain }).(pulumi.StringOutput)
 }
@@ -319,7 +319,7 @@ func (o CertificateAuthorityOutput) CertificateChainFilename() pulumi.StringOutp
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.CertificateChainFilename }).(pulumi.StringOutput)
 }
 
-// A base64 encoded string containing the CRL for this certificate authority.
+// A PEM encoded string containing the CRL for this certificate authority.
 func (o CertificateAuthorityOutput) CrlChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.CrlChain }).(pulumi.StringPtrOutput)
 }
