@@ -52,7 +52,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         public Input<string>? OnFailure { get; set; }
 
         /// <summary>
-        /// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+        /// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
         /// </summary>
         [Input("onSuccess")]
         public Input<string>? OnSuccess { get; set; }
@@ -64,6 +64,8 @@ namespace Pulumi.ConfluentCloud.Inputs
         /// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
         /// 
         /// &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+        /// 
+        /// &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         /// </summary>
         public InputMap<string> Params
         {

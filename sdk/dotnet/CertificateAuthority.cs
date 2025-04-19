@@ -53,7 +53,7 @@ namespace Pulumi.ConfluentCloud
     public partial class CertificateAuthority : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A base64 encoded string containing the signing certificate chain.
+        /// A PEM encoded string containing the signing certificate chain.
         /// </summary>
         [Output("certificateChain")]
         public Output<string> CertificateChain { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> CertificateChainFilename { get; private set; } = null!;
 
         /// <summary>
-        /// A base64 encoded string containing the CRL for this certificate authority.
+        /// A PEM encoded string containing the CRL for this certificate authority.
         /// </summary>
         [Output("crlChain")]
         public Output<string?> CrlChain { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.ConfluentCloud
         private Input<string>? _certificateChain;
 
         /// <summary>
-        /// A base64 encoded string containing the signing certificate chain.
+        /// A PEM encoded string containing the signing certificate chain.
         /// </summary>
         public Input<string>? CertificateChain
         {
@@ -195,7 +195,7 @@ namespace Pulumi.ConfluentCloud
         private Input<string>? _crlChain;
 
         /// <summary>
-        /// A base64 encoded string containing the CRL for this certificate authority.
+        /// A PEM encoded string containing the CRL for this certificate authority.
         /// </summary>
         public Input<string>? CrlChain
         {
@@ -237,7 +237,7 @@ namespace Pulumi.ConfluentCloud
         private Input<string>? _certificateChain;
 
         /// <summary>
-        /// A base64 encoded string containing the signing certificate chain.
+        /// A PEM encoded string containing the signing certificate chain.
         /// </summary>
         public Input<string>? CertificateChain
         {
@@ -259,7 +259,7 @@ namespace Pulumi.ConfluentCloud
         private Input<string>? _crlChain;
 
         /// <summary>
-        /// A base64 encoded string containing the CRL for this certificate authority.
+        /// A PEM encoded string containing the CRL for this certificate authority.
         /// </summary>
         public Input<string>? CrlChain
         {

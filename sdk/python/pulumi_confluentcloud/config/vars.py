@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 import types
 
@@ -125,6 +126,13 @@ class _ExportableConfig(types.ModuleType):
         Maximum number of retries of HTTP client. Defaults to 4.
         """
         return __config__.get_int('maxRetries')
+
+    @property
+    def oauth(self) -> Optional[str]:
+        """
+        OAuth config settings
+        """
+        return __config__.get('oauth')
 
     @property
     def organization_id(self) -> Optional[str]:

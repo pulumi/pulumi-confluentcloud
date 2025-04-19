@@ -17058,6 +17058,257 @@ func (o ProviderIntegrationEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ProviderOauth struct {
+	// OAuth existing access token already fetched from external IDP
+	OauthExternalAccessToken *string `pulumi:"oauthExternalAccessToken"`
+	// OAuth client id from external token source
+	OauthExternalClientId *string `pulumi:"oauthExternalClientId"`
+	// OAuth client secret from external token source
+	OauthExternalClientSecret *string `pulumi:"oauthExternalClientSecret"`
+	// OAuth access token scope
+	OauthExternalTokenScope *string `pulumi:"oauthExternalTokenScope"`
+	// OAuth token URL to fetch access token from external IDP
+	OauthExternalTokenUrl *string `pulumi:"oauthExternalTokenUrl"`
+	// OAuth identity pool id used for processing external token and exchange STS token
+	OauthIdentityPoolId string `pulumi:"oauthIdentityPoolId"`
+	// OAuth STS access token expired in second from Confluent Cloud
+	OauthStsTokenExpiredInSeconds *string `pulumi:"oauthStsTokenExpiredInSeconds"`
+}
+
+// ProviderOauthInput is an input type that accepts ProviderOauthArgs and ProviderOauthOutput values.
+// You can construct a concrete instance of `ProviderOauthInput` via:
+//
+//	ProviderOauthArgs{...}
+type ProviderOauthInput interface {
+	pulumi.Input
+
+	ToProviderOauthOutput() ProviderOauthOutput
+	ToProviderOauthOutputWithContext(context.Context) ProviderOauthOutput
+}
+
+type ProviderOauthArgs struct {
+	// OAuth existing access token already fetched from external IDP
+	OauthExternalAccessToken pulumi.StringPtrInput `pulumi:"oauthExternalAccessToken"`
+	// OAuth client id from external token source
+	OauthExternalClientId pulumi.StringPtrInput `pulumi:"oauthExternalClientId"`
+	// OAuth client secret from external token source
+	OauthExternalClientSecret pulumi.StringPtrInput `pulumi:"oauthExternalClientSecret"`
+	// OAuth access token scope
+	OauthExternalTokenScope pulumi.StringPtrInput `pulumi:"oauthExternalTokenScope"`
+	// OAuth token URL to fetch access token from external IDP
+	OauthExternalTokenUrl pulumi.StringPtrInput `pulumi:"oauthExternalTokenUrl"`
+	// OAuth identity pool id used for processing external token and exchange STS token
+	OauthIdentityPoolId pulumi.StringInput `pulumi:"oauthIdentityPoolId"`
+	// OAuth STS access token expired in second from Confluent Cloud
+	OauthStsTokenExpiredInSeconds pulumi.StringPtrInput `pulumi:"oauthStsTokenExpiredInSeconds"`
+}
+
+func (ProviderOauthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderOauth)(nil)).Elem()
+}
+
+func (i ProviderOauthArgs) ToProviderOauthOutput() ProviderOauthOutput {
+	return i.ToProviderOauthOutputWithContext(context.Background())
+}
+
+func (i ProviderOauthArgs) ToProviderOauthOutputWithContext(ctx context.Context) ProviderOauthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderOauthOutput)
+}
+
+func (i ProviderOauthArgs) ToProviderOauthPtrOutput() ProviderOauthPtrOutput {
+	return i.ToProviderOauthPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderOauthArgs) ToProviderOauthPtrOutputWithContext(ctx context.Context) ProviderOauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderOauthOutput).ToProviderOauthPtrOutputWithContext(ctx)
+}
+
+// ProviderOauthPtrInput is an input type that accepts ProviderOauthArgs, ProviderOauthPtr and ProviderOauthPtrOutput values.
+// You can construct a concrete instance of `ProviderOauthPtrInput` via:
+//
+//	        ProviderOauthArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderOauthPtrInput interface {
+	pulumi.Input
+
+	ToProviderOauthPtrOutput() ProviderOauthPtrOutput
+	ToProviderOauthPtrOutputWithContext(context.Context) ProviderOauthPtrOutput
+}
+
+type providerOauthPtrType ProviderOauthArgs
+
+func ProviderOauthPtr(v *ProviderOauthArgs) ProviderOauthPtrInput {
+	return (*providerOauthPtrType)(v)
+}
+
+func (*providerOauthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderOauth)(nil)).Elem()
+}
+
+func (i *providerOauthPtrType) ToProviderOauthPtrOutput() ProviderOauthPtrOutput {
+	return i.ToProviderOauthPtrOutputWithContext(context.Background())
+}
+
+func (i *providerOauthPtrType) ToProviderOauthPtrOutputWithContext(ctx context.Context) ProviderOauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderOauthPtrOutput)
+}
+
+type ProviderOauthOutput struct{ *pulumi.OutputState }
+
+func (ProviderOauthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderOauth)(nil)).Elem()
+}
+
+func (o ProviderOauthOutput) ToProviderOauthOutput() ProviderOauthOutput {
+	return o
+}
+
+func (o ProviderOauthOutput) ToProviderOauthOutputWithContext(ctx context.Context) ProviderOauthOutput {
+	return o
+}
+
+func (o ProviderOauthOutput) ToProviderOauthPtrOutput() ProviderOauthPtrOutput {
+	return o.ToProviderOauthPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderOauthOutput) ToProviderOauthPtrOutputWithContext(ctx context.Context) ProviderOauthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderOauth) *ProviderOauth {
+		return &v
+	}).(ProviderOauthPtrOutput)
+}
+
+// OAuth existing access token already fetched from external IDP
+func (o ProviderOauthOutput) OauthExternalAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderOauth) *string { return v.OauthExternalAccessToken }).(pulumi.StringPtrOutput)
+}
+
+// OAuth client id from external token source
+func (o ProviderOauthOutput) OauthExternalClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderOauth) *string { return v.OauthExternalClientId }).(pulumi.StringPtrOutput)
+}
+
+// OAuth client secret from external token source
+func (o ProviderOauthOutput) OauthExternalClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderOauth) *string { return v.OauthExternalClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// OAuth access token scope
+func (o ProviderOauthOutput) OauthExternalTokenScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderOauth) *string { return v.OauthExternalTokenScope }).(pulumi.StringPtrOutput)
+}
+
+// OAuth token URL to fetch access token from external IDP
+func (o ProviderOauthOutput) OauthExternalTokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderOauth) *string { return v.OauthExternalTokenUrl }).(pulumi.StringPtrOutput)
+}
+
+// OAuth identity pool id used for processing external token and exchange STS token
+func (o ProviderOauthOutput) OauthIdentityPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderOauth) string { return v.OauthIdentityPoolId }).(pulumi.StringOutput)
+}
+
+// OAuth STS access token expired in second from Confluent Cloud
+func (o ProviderOauthOutput) OauthStsTokenExpiredInSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderOauth) *string { return v.OauthStsTokenExpiredInSeconds }).(pulumi.StringPtrOutput)
+}
+
+type ProviderOauthPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderOauthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderOauth)(nil)).Elem()
+}
+
+func (o ProviderOauthPtrOutput) ToProviderOauthPtrOutput() ProviderOauthPtrOutput {
+	return o
+}
+
+func (o ProviderOauthPtrOutput) ToProviderOauthPtrOutputWithContext(ctx context.Context) ProviderOauthPtrOutput {
+	return o
+}
+
+func (o ProviderOauthPtrOutput) Elem() ProviderOauthOutput {
+	return o.ApplyT(func(v *ProviderOauth) ProviderOauth {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderOauth
+		return ret
+	}).(ProviderOauthOutput)
+}
+
+// OAuth existing access token already fetched from external IDP
+func (o ProviderOauthPtrOutput) OauthExternalAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthExternalAccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth client id from external token source
+func (o ProviderOauthPtrOutput) OauthExternalClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthExternalClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth client secret from external token source
+func (o ProviderOauthPtrOutput) OauthExternalClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthExternalClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth access token scope
+func (o ProviderOauthPtrOutput) OauthExternalTokenScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthExternalTokenScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth token URL to fetch access token from external IDP
+func (o ProviderOauthPtrOutput) OauthExternalTokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthExternalTokenUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth identity pool id used for processing external token and exchange STS token
+func (o ProviderOauthPtrOutput) OauthIdentityPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OauthIdentityPoolId
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth STS access token expired in second from Confluent Cloud
+func (o ProviderOauthPtrOutput) OauthStsTokenExpiredInSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthStsTokenExpiredInSeconds
+	}).(pulumi.StringPtrOutput)
+}
+
 type SchemaCredentials struct {
 	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
@@ -19433,11 +19684,13 @@ type SchemaRulesetDomainRule struct {
 	Name string `pulumi:"name"`
 	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure *string `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 	OnSuccess *string `pulumi:"onSuccess"`
 	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	//
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+	//
+	// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
 	Params map[string]string `pulumi:"params"`
 	// The tags to which the rule applies, if any.
 	Tags []string `pulumi:"tags"`
@@ -19471,11 +19724,13 @@ type SchemaRulesetDomainRuleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
 	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	//
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+	//
+	// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
 	Params pulumi.StringMapInput `pulumi:"params"`
 	// The tags to which the rule applies, if any.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
@@ -19569,7 +19824,7 @@ func (o SchemaRulesetDomainRuleOutput) OnFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
-// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 func (o SchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
@@ -19577,6 +19832,8 @@ func (o SchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 // A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 //
 // > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+//
+// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
 func (o SchemaRulesetDomainRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }
@@ -19625,11 +19882,13 @@ type SchemaRulesetMigrationRule struct {
 	Name string `pulumi:"name"`
 	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure *string `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 	OnSuccess *string `pulumi:"onSuccess"`
 	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	//
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+	//
+	// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
 	Params map[string]string `pulumi:"params"`
 	// The tags to which the rule applies, if any.
 	Tags []string `pulumi:"tags"`
@@ -19662,11 +19921,13 @@ type SchemaRulesetMigrationRuleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
 	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	//
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+	//
+	// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
 	Params pulumi.StringMapInput `pulumi:"params"`
 	// The tags to which the rule applies, if any.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
@@ -19759,7 +20020,7 @@ func (o SchemaRulesetMigrationRuleOutput) OnFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
-// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 func (o SchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
@@ -19767,6 +20028,8 @@ func (o SchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 // A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 //
 // > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+//
+// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
 func (o SchemaRulesetMigrationRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }
@@ -33989,7 +34252,7 @@ type GetSchemaRulesetDomainRule struct {
 	Name string `pulumi:"name"`
 	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
 	OnFailure *string `pulumi:"onFailure"`
-	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
 	OnSuccess *string `pulumi:"onSuccess"`
 	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	Params map[string]string `pulumi:"params"`
@@ -34025,7 +34288,7 @@ type GetSchemaRulesetDomainRuleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
 	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
-	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
 	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
 	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	Params pulumi.StringMapInput `pulumi:"params"`
@@ -34121,7 +34384,7 @@ func (o GetSchemaRulesetDomainRuleOutput) OnFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSchemaRulesetDomainRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
-// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
 func (o GetSchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSchemaRulesetDomainRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
@@ -34176,7 +34439,7 @@ type GetSchemaRulesetMigrationRule struct {
 	Name string `pulumi:"name"`
 	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
 	OnFailure *string `pulumi:"onFailure"`
-	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
 	OnSuccess *string `pulumi:"onSuccess"`
 	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	Params map[string]string `pulumi:"params"`
@@ -34212,7 +34475,7 @@ type GetSchemaRulesetMigrationRuleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
 	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
-	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
 	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
 	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
 	Params pulumi.StringMapInput `pulumi:"params"`
@@ -34308,7 +34571,7 @@ func (o GetSchemaRulesetMigrationRuleOutput) OnFailure() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
-// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
 func (o GetSchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
@@ -37474,6 +37737,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAwsPtrInput)(nil)).Elem(), ProviderIntegrationAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationEnvironmentInput)(nil)).Elem(), ProviderIntegrationEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationEnvironmentPtrInput)(nil)).Elem(), ProviderIntegrationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderOauthInput)(nil)).Elem(), ProviderOauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderOauthPtrInput)(nil)).Elem(), ProviderOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsInput)(nil)).Elem(), SchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsPtrInput)(nil)).Elem(), SchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterCredentialsInput)(nil)).Elem(), SchemaExporterCredentialsArgs{})
@@ -38022,6 +38287,8 @@ func init() {
 	pulumi.RegisterOutputType(ProviderIntegrationAwsPtrOutput{})
 	pulumi.RegisterOutputType(ProviderIntegrationEnvironmentOutput{})
 	pulumi.RegisterOutputType(ProviderIntegrationEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(ProviderOauthOutput{})
+	pulumi.RegisterOutputType(ProviderOauthPtrOutput{})
 	pulumi.RegisterOutputType(SchemaCredentialsOutput{})
 	pulumi.RegisterOutputType(SchemaCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SchemaExporterCredentialsOutput{})

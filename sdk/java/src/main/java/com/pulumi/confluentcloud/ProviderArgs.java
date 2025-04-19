@@ -3,6 +3,7 @@
 
 package com.pulumi.confluentcloud;
 
+import com.pulumi.confluentcloud.inputs.ProviderOauthArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -242,6 +243,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * OAuth config settings
+     * 
+     */
+    @Import(name="oauth", json=true)
+    private @Nullable Output<ProviderOauthArgs> oauth;
+
+    /**
+     * @return OAuth config settings
+     * 
+     */
+    public Optional<Output<ProviderOauthArgs>> oauth() {
+        return Optional.ofNullable(this.oauth);
+    }
+
+    /**
      * The Flink Organization ID.
      * 
      */
@@ -364,6 +380,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.kafkaId = $.kafkaId;
         this.kafkaRestEndpoint = $.kafkaRestEndpoint;
         this.maxRetries = $.maxRetries;
+        this.oauth = $.oauth;
         this.organizationId = $.organizationId;
         this.schemaRegistryApiKey = $.schemaRegistryApiKey;
         this.schemaRegistryApiSecret = $.schemaRegistryApiSecret;
@@ -704,6 +721,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder maxRetries(Integer maxRetries) {
             return maxRetries(Output.of(maxRetries));
+        }
+
+        /**
+         * @param oauth OAuth config settings
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oauth(@Nullable Output<ProviderOauthArgs> oauth) {
+            $.oauth = oauth;
+            return this;
+        }
+
+        /**
+         * @param oauth OAuth config settings
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oauth(ProviderOauthArgs oauth) {
+            return oauth(Output.of(oauth));
         }
 
         /**

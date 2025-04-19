@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 declare var exports: any;
@@ -168,6 +170,17 @@ export declare const maxRetries: number | undefined;
 Object.defineProperty(exports, "maxRetries", {
     get() {
         return __config.getObject<number>("maxRetries");
+    },
+    enumerable: true,
+});
+
+/**
+ * OAuth config settings
+ */
+export declare const oauth: outputs.config.Oauth | undefined;
+Object.defineProperty(exports, "oauth", {
+    get() {
+        return __config.getObject<outputs.config.Oauth>("oauth");
     },
     enumerable: true,
 });

@@ -1680,7 +1680,7 @@ export interface GetSchemaRulesetDomainRule {
      */
     onFailure?: string;
     /**
-     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      */
     onSuccess?: string;
     /**
@@ -1727,7 +1727,7 @@ export interface GetSchemaRulesetDomainRuleArgs {
      */
     onFailure?: pulumi.Input<string>;
     /**
-     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      */
     onSuccess?: pulumi.Input<string>;
     /**
@@ -1774,7 +1774,7 @@ export interface GetSchemaRulesetMigrationRule {
      */
     onFailure?: string;
     /**
-     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      */
     onSuccess?: string;
     /**
@@ -1821,7 +1821,7 @@ export interface GetSchemaRulesetMigrationRuleArgs {
      */
     onFailure?: pulumi.Input<string>;
     /**
-     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
      */
     onSuccess?: pulumi.Input<string>;
     /**
@@ -2690,6 +2690,37 @@ export interface ProviderIntegrationEnvironment {
     id: pulumi.Input<string>;
 }
 
+export interface ProviderOauth {
+    /**
+     * OAuth existing access token already fetched from external IDP
+     */
+    oauthExternalAccessToken?: pulumi.Input<string>;
+    /**
+     * OAuth client id from external token source
+     */
+    oauthExternalClientId?: pulumi.Input<string>;
+    /**
+     * OAuth client secret from external token source
+     */
+    oauthExternalClientSecret?: pulumi.Input<string>;
+    /**
+     * OAuth access token scope
+     */
+    oauthExternalTokenScope?: pulumi.Input<string>;
+    /**
+     * OAuth token URL to fetch access token from external IDP
+     */
+    oauthExternalTokenUrl?: pulumi.Input<string>;
+    /**
+     * OAuth identity pool id used for processing external token and exchange STS token
+     */
+    oauthIdentityPoolId: pulumi.Input<string>;
+    /**
+     * OAuth STS access token expired in second from Confluent Cloud
+     */
+    oauthStsTokenExpiredInSeconds?: pulumi.Input<string>;
+}
+
 export interface SchemaCredentials {
     /**
      * The Schema Registry API Key.
@@ -2871,13 +2902,15 @@ export interface SchemaRulesetDomainRule {
      */
     onFailure?: pulumi.Input<string>;
     /**
-     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      */
     onSuccess?: pulumi.Input<string>;
     /**
      * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      *
      * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     *
+     * > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
      */
     params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -2917,13 +2950,15 @@ export interface SchemaRulesetMigrationRule {
      */
     onFailure?: pulumi.Input<string>;
     /**
-     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      */
     onSuccess?: pulumi.Input<string>;
     /**
      * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      *
      * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     *
+     * > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
      */
     params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -3106,4 +3141,6 @@ export interface TransitGatewayAttachmentNetwork {
      * The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
      */
     id: pulumi.Input<string>;
+}
+export namespace config {
 }

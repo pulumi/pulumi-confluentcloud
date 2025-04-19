@@ -66,7 +66,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     }
 
     /**
-     * A base64 encoded string containing the signing certificate chain.
+     * A PEM encoded string containing the signing certificate chain.
      */
     public readonly certificateChain!: pulumi.Output<string>;
     /**
@@ -74,7 +74,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public readonly certificateChainFilename!: pulumi.Output<string>;
     /**
-     * A base64 encoded string containing the CRL for this certificate authority.
+     * A PEM encoded string containing the CRL for this certificate authority.
      */
     public readonly crlChain!: pulumi.Output<string | undefined>;
     /**
@@ -172,7 +172,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
  */
 export interface CertificateAuthorityState {
     /**
-     * A base64 encoded string containing the signing certificate chain.
+     * A PEM encoded string containing the signing certificate chain.
      */
     certificateChain?: pulumi.Input<string>;
     /**
@@ -180,7 +180,7 @@ export interface CertificateAuthorityState {
      */
     certificateChainFilename?: pulumi.Input<string>;
     /**
-     * A base64 encoded string containing the CRL for this certificate authority.
+     * A PEM encoded string containing the CRL for this certificate authority.
      */
     crlChain?: pulumi.Input<string>;
     /**
@@ -222,7 +222,7 @@ export interface CertificateAuthorityState {
  */
 export interface CertificateAuthorityArgs {
     /**
-     * A base64 encoded string containing the signing certificate chain.
+     * A PEM encoded string containing the signing certificate chain.
      */
     certificateChain: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface CertificateAuthorityArgs {
      */
     certificateChainFilename: pulumi.Input<string>;
     /**
-     * A base64 encoded string containing the CRL for this certificate authority.
+     * A PEM encoded string containing the CRL for this certificate authority.
      */
     crlChain?: pulumi.Input<string>;
     /**

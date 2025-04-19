@@ -3,6 +3,7 @@
 
 package com.pulumi.confluentcloud;
 
+import com.pulumi.confluentcloud.config.inputs.Oauth;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
@@ -115,6 +116,13 @@ public final class Config {
  */
     public Optional<Integer> maxRetries() {
         return Codegen.integerProp("maxRetries").config(config).get();
+    }
+/**
+ * OAuth config settings
+ * 
+ */
+    public Optional<Oauth> oauth() {
+        return Codegen.objectProp("oauth", Oauth.class).config(config).get();
     }
 /**
  * The Flink Organization ID.

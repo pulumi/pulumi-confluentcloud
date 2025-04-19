@@ -28,11 +28,11 @@ class CertificateAuthorityArgs:
                  crl_url: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateAuthority resource.
-        :param pulumi.Input[builtins.str] certificate_chain: A base64 encoded string containing the signing certificate chain.
+        :param pulumi.Input[builtins.str] certificate_chain: A PEM encoded string containing the signing certificate chain.
         :param pulumi.Input[builtins.str] certificate_chain_filename: The name of the certificate file.
         :param pulumi.Input[builtins.str] description: A description of the Certificate Authority.
         :param pulumi.Input[builtins.str] display_name: The name of the Certificate Authority.
-        :param pulumi.Input[builtins.str] crl_chain: A base64 encoded string containing the CRL for this certificate authority.
+        :param pulumi.Input[builtins.str] crl_chain: A PEM encoded string containing the CRL for this certificate authority.
         :param pulumi.Input[builtins.str] crl_url: The url from which to fetch the CRL for the certificate authority.
         """
         pulumi.set(__self__, "certificate_chain", certificate_chain)
@@ -48,7 +48,7 @@ class CertificateAuthorityArgs:
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Input[builtins.str]:
         """
-        A base64 encoded string containing the signing certificate chain.
+        A PEM encoded string containing the signing certificate chain.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -96,7 +96,7 @@ class CertificateAuthorityArgs:
     @pulumi.getter(name="crlChain")
     def crl_chain(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A base64 encoded string containing the CRL for this certificate authority.
+        A PEM encoded string containing the CRL for this certificate authority.
         """
         return pulumi.get(self, "crl_chain")
 
@@ -133,9 +133,9 @@ class _CertificateAuthorityState:
                  serial_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CertificateAuthority resources.
-        :param pulumi.Input[builtins.str] certificate_chain: A base64 encoded string containing the signing certificate chain.
+        :param pulumi.Input[builtins.str] certificate_chain: A PEM encoded string containing the signing certificate chain.
         :param pulumi.Input[builtins.str] certificate_chain_filename: The name of the certificate file.
-        :param pulumi.Input[builtins.str] crl_chain: A base64 encoded string containing the CRL for this certificate authority.
+        :param pulumi.Input[builtins.str] crl_chain: A PEM encoded string containing the CRL for this certificate authority.
         :param pulumi.Input[builtins.str] crl_source: (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL).
         :param pulumi.Input[builtins.str] crl_updated_at: (Optional String) The timestamp for when CRL was last updated.
         :param pulumi.Input[builtins.str] crl_url: The url from which to fetch the CRL for the certificate authority.
@@ -172,7 +172,7 @@ class _CertificateAuthorityState:
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A base64 encoded string containing the signing certificate chain.
+        A PEM encoded string containing the signing certificate chain.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -196,7 +196,7 @@ class _CertificateAuthorityState:
     @pulumi.getter(name="crlChain")
     def crl_chain(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A base64 encoded string containing the CRL for this certificate authority.
+        A PEM encoded string containing the CRL for this certificate authority.
         """
         return pulumi.get(self, "crl_chain")
 
@@ -347,9 +347,9 @@ class CertificateAuthority(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] certificate_chain: A base64 encoded string containing the signing certificate chain.
+        :param pulumi.Input[builtins.str] certificate_chain: A PEM encoded string containing the signing certificate chain.
         :param pulumi.Input[builtins.str] certificate_chain_filename: The name of the certificate file.
-        :param pulumi.Input[builtins.str] crl_chain: A base64 encoded string containing the CRL for this certificate authority.
+        :param pulumi.Input[builtins.str] crl_chain: A PEM encoded string containing the CRL for this certificate authority.
         :param pulumi.Input[builtins.str] crl_url: The url from which to fetch the CRL for the certificate authority.
         :param pulumi.Input[builtins.str] description: A description of the Certificate Authority.
         :param pulumi.Input[builtins.str] display_name: The name of the Certificate Authority.
@@ -471,9 +471,9 @@ class CertificateAuthority(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] certificate_chain: A base64 encoded string containing the signing certificate chain.
+        :param pulumi.Input[builtins.str] certificate_chain: A PEM encoded string containing the signing certificate chain.
         :param pulumi.Input[builtins.str] certificate_chain_filename: The name of the certificate file.
-        :param pulumi.Input[builtins.str] crl_chain: A base64 encoded string containing the CRL for this certificate authority.
+        :param pulumi.Input[builtins.str] crl_chain: A PEM encoded string containing the CRL for this certificate authority.
         :param pulumi.Input[builtins.str] crl_source: (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL).
         :param pulumi.Input[builtins.str] crl_updated_at: (Optional String) The timestamp for when CRL was last updated.
         :param pulumi.Input[builtins.str] crl_url: The url from which to fetch the CRL for the certificate authority.
@@ -504,7 +504,7 @@ class CertificateAuthority(pulumi.CustomResource):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Output[builtins.str]:
         """
-        A base64 encoded string containing the signing certificate chain.
+        A PEM encoded string containing the signing certificate chain.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -520,7 +520,7 @@ class CertificateAuthority(pulumi.CustomResource):
     @pulumi.getter(name="crlChain")
     def crl_chain(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        A base64 encoded string containing the CRL for this certificate authority.
+        A PEM encoded string containing the CRL for this certificate authority.
         """
         return pulumi.get(self, "crl_chain")
 

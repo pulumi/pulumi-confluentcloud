@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 catalogRestEndpoint: Optional[str]
 """
@@ -88,6 +89,11 @@ The Kafka Cluster REST Endpoint.
 maxRetries: Optional[int]
 """
 Maximum number of retries of HTTP client. Defaults to 4.
+"""
+
+oauth: Optional[str]
+"""
+OAuth config settings
 """
 
 organizationId: Optional[str]

@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from ._inputs import *
 
 __all__ = ['ProviderArgs', 'Provider']
 
@@ -35,6 +36,7 @@ class ProviderArgs:
                  kafka_id: Optional[pulumi.Input[builtins.str]] = None,
                  kafka_rest_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
+                 oauth: Optional[pulumi.Input['ProviderOauthArgs']] = None,
                  organization_id: Optional[pulumi.Input[builtins.str]] = None,
                  schema_registry_api_key: Optional[pulumi.Input[builtins.str]] = None,
                  schema_registry_api_secret: Optional[pulumi.Input[builtins.str]] = None,
@@ -59,6 +61,7 @@ class ProviderArgs:
         :param pulumi.Input[builtins.str] kafka_id: The Kafka Cluster ID.
         :param pulumi.Input[builtins.str] kafka_rest_endpoint: The Kafka Cluster REST Endpoint.
         :param pulumi.Input[builtins.int] max_retries: Maximum number of retries of HTTP client. Defaults to 4.
+        :param pulumi.Input['ProviderOauthArgs'] oauth: OAuth config settings
         :param pulumi.Input[builtins.str] organization_id: The Flink Organization ID.
         :param pulumi.Input[builtins.str] schema_registry_api_key: The Schema Registry Cluster API Key.
         :param pulumi.Input[builtins.str] schema_registry_api_secret: The Schema Registry Cluster API Secret.
@@ -97,6 +100,8 @@ class ProviderArgs:
             pulumi.set(__self__, "kafka_rest_endpoint", kafka_rest_endpoint)
         if max_retries is not None:
             pulumi.set(__self__, "max_retries", max_retries)
+        if oauth is not None:
+            pulumi.set(__self__, "oauth", oauth)
         if organization_id is not None:
             pulumi.set(__self__, "organization_id", organization_id)
         if schema_registry_api_key is not None:
@@ -293,6 +298,18 @@ class ProviderArgs:
         pulumi.set(self, "max_retries", value)
 
     @property
+    @pulumi.getter
+    def oauth(self) -> Optional[pulumi.Input['ProviderOauthArgs']]:
+        """
+        OAuth config settings
+        """
+        return pulumi.get(self, "oauth")
+
+    @oauth.setter
+    def oauth(self, value: Optional[pulumi.Input['ProviderOauthArgs']]):
+        pulumi.set(self, "oauth", value)
+
+    @property
     @pulumi.getter(name="organizationId")
     def organization_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -397,6 +414,7 @@ class Provider(pulumi.ProviderResource):
                  kafka_id: Optional[pulumi.Input[builtins.str]] = None,
                  kafka_rest_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
+                 oauth: Optional[pulumi.Input[Union['ProviderOauthArgs', 'ProviderOauthArgsDict']]] = None,
                  organization_id: Optional[pulumi.Input[builtins.str]] = None,
                  schema_registry_api_key: Optional[pulumi.Input[builtins.str]] = None,
                  schema_registry_api_secret: Optional[pulumi.Input[builtins.str]] = None,
@@ -428,6 +446,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[builtins.str] kafka_id: The Kafka Cluster ID.
         :param pulumi.Input[builtins.str] kafka_rest_endpoint: The Kafka Cluster REST Endpoint.
         :param pulumi.Input[builtins.int] max_retries: Maximum number of retries of HTTP client. Defaults to 4.
+        :param pulumi.Input[Union['ProviderOauthArgs', 'ProviderOauthArgsDict']] oauth: OAuth config settings
         :param pulumi.Input[builtins.str] organization_id: The Flink Organization ID.
         :param pulumi.Input[builtins.str] schema_registry_api_key: The Schema Registry Cluster API Key.
         :param pulumi.Input[builtins.str] schema_registry_api_secret: The Schema Registry Cluster API Secret.
@@ -478,6 +497,7 @@ class Provider(pulumi.ProviderResource):
                  kafka_id: Optional[pulumi.Input[builtins.str]] = None,
                  kafka_rest_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
+                 oauth: Optional[pulumi.Input[Union['ProviderOauthArgs', 'ProviderOauthArgsDict']]] = None,
                  organization_id: Optional[pulumi.Input[builtins.str]] = None,
                  schema_registry_api_key: Optional[pulumi.Input[builtins.str]] = None,
                  schema_registry_api_secret: Optional[pulumi.Input[builtins.str]] = None,
@@ -509,6 +529,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["kafka_id"] = kafka_id
             __props__.__dict__["kafka_rest_endpoint"] = kafka_rest_endpoint
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
+            __props__.__dict__["oauth"] = pulumi.Output.from_input(oauth).apply(pulumi.runtime.to_json) if oauth is not None else None
             __props__.__dict__["organization_id"] = organization_id
             __props__.__dict__["schema_registry_api_key"] = None if schema_registry_api_key is None else pulumi.Output.secret(schema_registry_api_key)
             __props__.__dict__["schema_registry_api_secret"] = None if schema_registry_api_secret is None else pulumi.Output.secret(schema_registry_api_secret)

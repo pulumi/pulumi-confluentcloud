@@ -17,14 +17,14 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
     public static final CertificateAuthorityArgs Empty = new CertificateAuthorityArgs();
 
     /**
-     * A base64 encoded string containing the signing certificate chain.
+     * A PEM encoded string containing the signing certificate chain.
      * 
      */
     @Import(name="certificateChain", required=true)
     private Output<String> certificateChain;
 
     /**
-     * @return A base64 encoded string containing the signing certificate chain.
+     * @return A PEM encoded string containing the signing certificate chain.
      * 
      */
     public Output<String> certificateChain() {
@@ -47,14 +47,14 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A base64 encoded string containing the CRL for this certificate authority.
+     * A PEM encoded string containing the CRL for this certificate authority.
      * 
      */
     @Import(name="crlChain")
     private @Nullable Output<String> crlChain;
 
     /**
-     * @return A base64 encoded string containing the CRL for this certificate authority.
+     * @return A PEM encoded string containing the CRL for this certificate authority.
      * 
      */
     public Optional<Output<String>> crlChain() {
@@ -136,7 +136,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param certificateChain A base64 encoded string containing the signing certificate chain.
+         * @param certificateChain A PEM encoded string containing the signing certificate chain.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param certificateChain A base64 encoded string containing the signing certificate chain.
+         * @param certificateChain A PEM encoded string containing the signing certificate chain.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param crlChain A base64 encoded string containing the CRL for this certificate authority.
+         * @param crlChain A PEM encoded string containing the CRL for this certificate authority.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param crlChain A base64 encoded string containing the CRL for this certificate authority.
+         * @param crlChain A PEM encoded string containing the CRL for this certificate authority.
          * 
          * @return builder
          * 

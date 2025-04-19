@@ -86,6 +86,11 @@ func GetMaxRetries(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "confluentcloud:maxRetries")
 }
 
+// OAuth config settings
+func GetOauth(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:oauth")
+}
+
 // The Flink Organization ID.
 func GetOrganizationId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:organizationId")

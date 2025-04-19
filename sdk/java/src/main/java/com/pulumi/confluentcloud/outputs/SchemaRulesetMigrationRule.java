@@ -47,7 +47,7 @@ public final class SchemaRulesetMigrationRule {
      */
     private @Nullable String onFailure;
     /**
-     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      * 
      */
     private @Nullable String onSuccess;
@@ -55,6 +55,8 @@ public final class SchemaRulesetMigrationRule {
      * @return A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      * 
      * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     * 
+     * &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = &#34;NONE&#34;` and `on_failure = &#34;ERROR&#34;`. However, the TF Provider sets its defaults to `on_success = &#34;NONE,NONE&#34;` and `on_failure = &#34;ERROR,ERROR&#34;`.
      * 
      */
     private @Nullable Map<String,String> params;
@@ -116,7 +118,7 @@ public final class SchemaRulesetMigrationRule {
         return Optional.ofNullable(this.onFailure);
     }
     /**
-     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as &#34;NONE,ERROR&#34; for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      * 
      */
     public Optional<String> onSuccess() {
@@ -126,6 +128,8 @@ public final class SchemaRulesetMigrationRule {
      * @return A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
      * 
      * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     * 
+     * &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = &#34;NONE&#34;` and `on_failure = &#34;ERROR&#34;`. However, the TF Provider sets its defaults to `on_success = &#34;NONE,NONE&#34;` and `on_failure = &#34;ERROR,ERROR&#34;`.
      * 
      */
     public Map<String,String> params() {

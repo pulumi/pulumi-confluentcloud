@@ -98,6 +98,8 @@ import (
 // The following end-to-end examples might help to get started with `TableflowTopic` resource:
 // * `confluent-managed-storage`: Tableflow topic with Confluent-managed storage.
 // * `byob-aws-storage`: Tableflow topic with custom (BYOB AWS) storage.
+// * `datagen-connector-byob-aws-storage`: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.
+// * `datagen-connector-confluent-managed-storage`: Datagen Source connector with a Tableflow topic with Confluent-managed storage.
 //
 // ## Import
 //
