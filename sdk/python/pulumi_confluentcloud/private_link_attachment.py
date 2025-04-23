@@ -242,6 +242,9 @@ class _PrivateLinkAttachmentState:
 
 
 class PrivateLinkAttachment(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

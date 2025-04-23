@@ -187,6 +187,9 @@ class _SubjectModeState:
 
 
 class SubjectMode(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/subjectMode:SubjectMode"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

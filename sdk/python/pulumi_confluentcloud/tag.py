@@ -220,6 +220,9 @@ class _TagState:
 
 
 class Tag(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/tag:Tag"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

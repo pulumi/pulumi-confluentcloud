@@ -146,6 +146,9 @@ class _ProviderIntegrationState:
 
 
 class ProviderIntegration(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/providerIntegration:ProviderIntegration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

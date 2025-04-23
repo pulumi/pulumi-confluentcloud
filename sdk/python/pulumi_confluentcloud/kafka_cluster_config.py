@@ -155,6 +155,9 @@ class _KafkaClusterConfigState:
 
 
 class KafkaClusterConfig(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

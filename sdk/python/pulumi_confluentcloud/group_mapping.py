@@ -128,6 +128,9 @@ class _GroupMappingState:
 
 
 class GroupMapping(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/groupMapping:GroupMapping"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

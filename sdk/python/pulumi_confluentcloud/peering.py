@@ -206,6 +206,9 @@ class _PeeringState:
 
 
 class Peering(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/peering:Peering"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

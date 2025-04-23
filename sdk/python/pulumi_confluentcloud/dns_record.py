@@ -177,6 +177,9 @@ class _DnsRecordState:
 
 
 class DnsRecord(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/dnsRecord:DnsRecord"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -142,6 +142,9 @@ class _TfImporterState:
 
 
 class TfImporter(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/tfImporter:TfImporter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
