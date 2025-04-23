@@ -1,8 +1,8 @@
 module github.com/pulumi/pulumi-confluentcloud/provider/v2
 
-go 1.22.7
+go 1.23
 
-toolchain go1.22.10
+toolchain go1.23.8
 
 replace (
 	github.com/confluentinc/terraform-provider-confluent => ../upstream
@@ -11,9 +11,9 @@ replace (
 
 require (
 	github.com/confluentinc/terraform-provider-confluent v1.32.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.106.0
-	github.com/pulumi/pulumi/pkg/v3 v3.160.0
-	github.com/pulumi/pulumi/sdk/v3 v3.160.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.106.1-0.20250423224910-a427f7f8223c
+	github.com/pulumi/pulumi/pkg/v3 v3.163.0
+	github.com/pulumi/pulumi/sdk/v3 v3.163.0
 )
 
 require (
@@ -191,7 +191,7 @@ require (
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/power-devops/perfstat v0.0.0-20240221224432-82ca36839d55 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.10.0 // indirect
+	github.com/pulumi/esc v0.13.0 // indirect
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v1.8.0 // indirect
 	github.com/pulumi/pulumi-yaml v1.15.1 // indirect
