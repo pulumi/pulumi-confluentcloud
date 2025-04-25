@@ -303,6 +303,9 @@ class _KsqlClusterState:
 
 
 class KsqlCluster(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/ksqlCluster:KsqlCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

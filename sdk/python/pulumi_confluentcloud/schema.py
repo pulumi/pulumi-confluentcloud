@@ -442,6 +442,9 @@ class _SchemaState:
 
 
 class Schema(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/schema:Schema"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

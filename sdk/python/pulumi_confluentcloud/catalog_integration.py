@@ -233,6 +233,9 @@ class _CatalogIntegrationState:
 
 
 class CatalogIntegration(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/catalogIntegration:CatalogIntegration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

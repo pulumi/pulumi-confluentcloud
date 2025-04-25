@@ -361,6 +361,9 @@ class _TableflowTopicState:
 
 
 class TableflowTopic(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/tableflowTopic:TableflowTopic"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
