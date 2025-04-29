@@ -408,6 +408,9 @@ class _FlinkArtifactState:
 
 
 class FlinkArtifact(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/flinkArtifact:FlinkArtifact"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

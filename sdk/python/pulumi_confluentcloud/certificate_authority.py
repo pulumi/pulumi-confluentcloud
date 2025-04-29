@@ -302,6 +302,9 @@ class _CertificateAuthorityState:
 
 
 class CertificateAuthority(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/certificateAuthority:CertificateAuthority"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

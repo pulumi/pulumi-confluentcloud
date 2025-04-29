@@ -236,6 +236,9 @@ class _BusinessMetadataState:
 
 
 class BusinessMetadata(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/businessMetadata:BusinessMetadata"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

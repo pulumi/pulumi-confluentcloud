@@ -215,6 +215,9 @@ class _KafkaClientQuotaState:
 
 
 class KafkaClientQuota(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/kafkaClientQuota:KafkaClientQuota"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
