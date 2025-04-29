@@ -218,6 +218,9 @@ class _CatalogEntityAttributesState:
 
 
 class CatalogEntityAttributes(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -403,6 +403,9 @@ class _SchemaExporterState:
 
 
 class SchemaExporter(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/schemaExporter:SchemaExporter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

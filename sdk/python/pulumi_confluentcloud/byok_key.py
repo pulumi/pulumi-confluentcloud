@@ -132,6 +132,9 @@ class _ByokKeyState:
 
 
 class ByokKey(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/byokKey:ByokKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

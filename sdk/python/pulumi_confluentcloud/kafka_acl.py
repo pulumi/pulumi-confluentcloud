@@ -341,6 +341,9 @@ class _KafkaAclState:
 
 
 class KafkaAcl(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/kafkaAcl:KafkaAcl"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

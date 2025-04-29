@@ -206,6 +206,9 @@ class _IdentityProviderState:
 
 
 class IdentityProvider(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/identityProvider:IdentityProvider"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

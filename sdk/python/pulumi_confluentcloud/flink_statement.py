@@ -399,6 +399,9 @@ class _FlinkStatementState:
 
 
 class FlinkStatement(pulumi.CustomResource):
+
+    pulumi_type = "confluentcloud:index/flinkStatement:FlinkStatement"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
