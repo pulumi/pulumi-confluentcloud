@@ -72,31 +72,26 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly credentials!: pulumi.Output<outputs.SchemaCredentials | undefined>;
     /**
-     * The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+     * The format of the Schema.
      */
     public readonly format!: pulumi.Output<string>;
     /**
-     * An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+     * destroy. Defaults to `false` (soft delete).
      */
     public readonly hardDelete!: pulumi.Output<boolean | undefined>;
-    /**
-     * See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-     */
     public readonly metadata!: pulumi.Output<outputs.SchemaMetadata>;
     /**
-     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+     * Controls whether a schema should be recreated on update.
      */
     public readonly recreateOnUpdate!: pulumi.Output<boolean | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    /**
-     * The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-     */
     public readonly ruleset!: pulumi.Output<outputs.SchemaRuleset>;
     /**
-     * The schema string, for example, `file("./schema_version_1.avsc")`.
+     * The definition of the Schema.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -104,13 +99,10 @@ export class Schema extends pulumi.CustomResource {
      */
     public /*out*/ readonly schemaIdentifier!: pulumi.Output<number>;
     /**
-     * The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+     * The list of references to other Schemas.
      */
     public readonly schemaReferences!: pulumi.Output<outputs.SchemaSchemaReference[] | undefined>;
     public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaSchemaRegistryCluster | undefined>;
-    /**
-     * An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-     */
     public readonly skipValidationDuringPlan!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
@@ -187,31 +179,26 @@ export interface SchemaState {
      */
     credentials?: pulumi.Input<inputs.SchemaCredentials>;
     /**
-     * The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+     * The format of the Schema.
      */
     format?: pulumi.Input<string>;
     /**
-     * An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+     * destroy. Defaults to `false` (soft delete).
      */
     hardDelete?: pulumi.Input<boolean>;
-    /**
-     * See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-     */
     metadata?: pulumi.Input<inputs.SchemaMetadata>;
     /**
-     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+     * Controls whether a schema should be recreated on update.
      */
     recreateOnUpdate?: pulumi.Input<boolean>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
-    /**
-     * The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-     */
     ruleset?: pulumi.Input<inputs.SchemaRuleset>;
     /**
-     * The schema string, for example, `file("./schema_version_1.avsc")`.
+     * The definition of the Schema.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -219,13 +206,10 @@ export interface SchemaState {
      */
     schemaIdentifier?: pulumi.Input<number>;
     /**
-     * The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+     * The list of references to other Schemas.
      */
     schemaReferences?: pulumi.Input<pulumi.Input<inputs.SchemaSchemaReference>[]>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaSchemaRegistryCluster>;
-    /**
-     * An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-     */
     skipValidationDuringPlan?: pulumi.Input<boolean>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
@@ -246,41 +230,33 @@ export interface SchemaArgs {
      */
     credentials?: pulumi.Input<inputs.SchemaCredentials>;
     /**
-     * The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+     * The format of the Schema.
      */
     format: pulumi.Input<string>;
     /**
-     * An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+     * destroy. Defaults to `false` (soft delete).
      */
     hardDelete?: pulumi.Input<boolean>;
-    /**
-     * See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-     */
     metadata?: pulumi.Input<inputs.SchemaMetadata>;
     /**
-     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+     * Controls whether a schema should be recreated on update.
      */
     recreateOnUpdate?: pulumi.Input<boolean>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
-    /**
-     * The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-     */
     ruleset?: pulumi.Input<inputs.SchemaRuleset>;
     /**
-     * The schema string, for example, `file("./schema_version_1.avsc")`.
+     * The definition of the Schema.
      */
     schema?: pulumi.Input<string>;
     /**
-     * The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+     * The list of references to other Schemas.
      */
     schemaReferences?: pulumi.Input<pulumi.Input<inputs.SchemaSchemaReference>[]>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaSchemaRegistryCluster>;
-    /**
-     * An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-     */
     skipValidationDuringPlan?: pulumi.Input<boolean>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.

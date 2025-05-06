@@ -24,6 +24,7 @@ class SubjectModeArgs:
     def __init__(__self__, *,
                  subject_name: pulumi.Input[builtins.str],
                  credentials: Optional[pulumi.Input['SubjectModeCredentialsArgs']] = None,
+                 force: Optional[pulumi.Input[builtins.bool]] = None,
                  mode: Optional[pulumi.Input[builtins.str]] = None,
                  rest_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  schema_registry_cluster: Optional[pulumi.Input['SubjectModeSchemaRegistryClusterArgs']] = None):
@@ -31,12 +32,15 @@ class SubjectModeArgs:
         The set of arguments for constructing a SubjectMode resource.
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
         :param pulumi.Input['SubjectModeCredentialsArgs'] credentials: The Cluster API Credentials.
+        :param pulumi.Input[builtins.bool] force: An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
         :param pulumi.Input[builtins.str] mode: The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
         :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "subject_name", subject_name)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if force is not None:
+            pulumi.set(__self__, "force", force)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if rest_endpoint is not None:
@@ -67,6 +71,18 @@ class SubjectModeArgs:
     @credentials.setter
     def credentials(self, value: Optional[pulumi.Input['SubjectModeCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def force(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+        """
+        return pulumi.get(self, "force")
+
+    @force.setter
+    def force(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "force", value)
 
     @property
     @pulumi.getter
@@ -106,6 +122,7 @@ class SubjectModeArgs:
 class _SubjectModeState:
     def __init__(__self__, *,
                  credentials: Optional[pulumi.Input['SubjectModeCredentialsArgs']] = None,
+                 force: Optional[pulumi.Input[builtins.bool]] = None,
                  mode: Optional[pulumi.Input[builtins.str]] = None,
                  rest_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  schema_registry_cluster: Optional[pulumi.Input['SubjectModeSchemaRegistryClusterArgs']] = None,
@@ -113,12 +130,15 @@ class _SubjectModeState:
         """
         Input properties used for looking up and filtering SubjectMode resources.
         :param pulumi.Input['SubjectModeCredentialsArgs'] credentials: The Cluster API Credentials.
+        :param pulumi.Input[builtins.bool] force: An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
         :param pulumi.Input[builtins.str] mode: The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
         :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
         """
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if force is not None:
+            pulumi.set(__self__, "force", force)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if rest_endpoint is not None:
@@ -139,6 +159,18 @@ class _SubjectModeState:
     @credentials.setter
     def credentials(self, value: Optional[pulumi.Input['SubjectModeCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def force(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+        """
+        return pulumi.get(self, "force")
+
+    @force.setter
+    def force(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "force", value)
 
     @property
     @pulumi.getter
@@ -195,6 +227,7 @@ class SubjectMode(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credentials: Optional[pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']]] = None,
+                 force: Optional[pulumi.Input[builtins.bool]] = None,
                  mode: Optional[pulumi.Input[builtins.str]] = None,
                  rest_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  schema_registry_cluster: Optional[pulumi.Input[Union['SubjectModeSchemaRegistryClusterArgs', 'SubjectModeSchemaRegistryClusterArgsDict']]] = None,
@@ -252,6 +285,7 @@ class SubjectMode(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[builtins.bool] force: An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
         :param pulumi.Input[builtins.str] mode: The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
         :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
@@ -327,6 +361,7 @@ class SubjectMode(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credentials: Optional[pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']]] = None,
+                 force: Optional[pulumi.Input[builtins.bool]] = None,
                  mode: Optional[pulumi.Input[builtins.str]] = None,
                  rest_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  schema_registry_cluster: Optional[pulumi.Input[Union['SubjectModeSchemaRegistryClusterArgs', 'SubjectModeSchemaRegistryClusterArgsDict']]] = None,
@@ -341,6 +376,7 @@ class SubjectMode(pulumi.CustomResource):
             __props__ = SubjectModeArgs.__new__(SubjectModeArgs)
 
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
+            __props__.__dict__["force"] = force
             __props__.__dict__["mode"] = mode
             __props__.__dict__["rest_endpoint"] = rest_endpoint
             __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
@@ -360,6 +396,7 @@ class SubjectMode(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             credentials: Optional[pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']]] = None,
+            force: Optional[pulumi.Input[builtins.bool]] = None,
             mode: Optional[pulumi.Input[builtins.str]] = None,
             rest_endpoint: Optional[pulumi.Input[builtins.str]] = None,
             schema_registry_cluster: Optional[pulumi.Input[Union['SubjectModeSchemaRegistryClusterArgs', 'SubjectModeSchemaRegistryClusterArgsDict']]] = None,
@@ -372,6 +409,7 @@ class SubjectMode(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[builtins.bool] force: An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
         :param pulumi.Input[builtins.str] mode: The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
         :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
@@ -381,6 +419,7 @@ class SubjectMode(pulumi.CustomResource):
         __props__ = _SubjectModeState.__new__(_SubjectModeState)
 
         __props__.__dict__["credentials"] = credentials
+        __props__.__dict__["force"] = force
         __props__.__dict__["mode"] = mode
         __props__.__dict__["rest_endpoint"] = rest_endpoint
         __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
@@ -394,6 +433,14 @@ class SubjectMode(pulumi.CustomResource):
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def force(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+        """
+        return pulumi.get(self, "force")
 
     @property
     @pulumi.getter

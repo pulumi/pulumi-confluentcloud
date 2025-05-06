@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class SchemaSchemaReference {
     /**
-     * @return The name of the subject, representing the subject under which the referenced schema is registered.
+     * @return The name of the Schema references (for example, &#34;io.confluent.kafka.example.User&#34;). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
      * 
      */
     private String name;
     /**
-     * @return The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * @return The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      * 
      */
     private String subjectName;
     /**
-     * @return The version, representing the exact version of the schema under the registered subject.
+     * @return (Required Integer) The version of the Schema, for example, `4`.
      * 
      */
     private Integer version;
 
     private SchemaSchemaReference() {}
     /**
-     * @return The name of the subject, representing the subject under which the referenced schema is registered.
+     * @return The name of the Schema references (for example, &#34;io.confluent.kafka.example.User&#34;). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * @return The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      * 
      */
     public String subjectName() {
         return this.subjectName;
     }
     /**
-     * @return The version, representing the exact version of the schema under the registered subject.
+     * @return (Required Integer) The version of the Schema, for example, `4`.
      * 
      */
     public Integer version() {

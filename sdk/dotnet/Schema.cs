@@ -52,25 +52,23 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.SchemaCredentials?> Credentials { get; private set; } = null!;
 
         /// <summary>
-        /// The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+        /// The format of the Schema.
         /// </summary>
         [Output("format")]
         public Output<string> Format { get; private set; } = null!;
 
         /// <summary>
-        /// An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        /// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+        /// destroy. Defaults to `false` (soft delete).
         /// </summary>
         [Output("hardDelete")]
         public Output<bool?> HardDelete { get; private set; } = null!;
 
-        /// <summary>
-        /// See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-        /// </summary>
         [Output("metadata")]
         public Output<Outputs.SchemaMetadata> Metadata { get; private set; } = null!;
 
         /// <summary>
-        /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+        /// Controls whether a schema should be recreated on update.
         /// </summary>
         [Output("recreateOnUpdate")]
         public Output<bool?> RecreateOnUpdate { get; private set; } = null!;
@@ -81,14 +79,11 @@ namespace Pulumi.ConfluentCloud
         [Output("restEndpoint")]
         public Output<string?> RestEndpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-        /// </summary>
         [Output("ruleset")]
         public Output<Outputs.SchemaRuleset> Ruleset { get; private set; } = null!;
 
         /// <summary>
-        /// The schema string, for example, `file("./schema_version_1.avsc")`.
+        /// The definition of the Schema.
         /// </summary>
         [Output("schema")]
         public Output<string> SchemaDetails { get; private set; } = null!;
@@ -100,7 +95,7 @@ namespace Pulumi.ConfluentCloud
         public Output<int> SchemaIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        /// The list of references to other Schemas.
         /// </summary>
         [Output("schemaReferences")]
         public Output<ImmutableArray<Outputs.SchemaSchemaReference>> SchemaReferences { get; private set; } = null!;
@@ -108,9 +103,6 @@ namespace Pulumi.ConfluentCloud
         [Output("schemaRegistryCluster")]
         public Output<Outputs.SchemaSchemaRegistryCluster?> SchemaRegistryCluster { get; private set; } = null!;
 
-        /// <summary>
-        /// An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-        /// </summary>
         [Output("skipValidationDuringPlan")]
         public Output<bool?> SkipValidationDuringPlan { get; private set; } = null!;
 
@@ -193,25 +185,23 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+        /// The format of the Schema.
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
-        /// An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        /// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+        /// destroy. Defaults to `false` (soft delete).
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
 
-        /// <summary>
-        /// See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-        /// </summary>
         [Input("metadata")]
         public Input<Inputs.SchemaMetadataArgs>? Metadata { get; set; }
 
         /// <summary>
-        /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+        /// Controls whether a schema should be recreated on update.
         /// </summary>
         [Input("recreateOnUpdate")]
         public Input<bool>? RecreateOnUpdate { get; set; }
@@ -222,14 +212,11 @@ namespace Pulumi.ConfluentCloud
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
 
-        /// <summary>
-        /// The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-        /// </summary>
         [Input("ruleset")]
         public Input<Inputs.SchemaRulesetArgs>? Ruleset { get; set; }
 
         /// <summary>
-        /// The schema string, for example, `file("./schema_version_1.avsc")`.
+        /// The definition of the Schema.
         /// </summary>
         [Input("schema")]
         public Input<string>? SchemaDetails { get; set; }
@@ -238,7 +225,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<Inputs.SchemaSchemaReferenceArgs>? _schemaReferences;
 
         /// <summary>
-        /// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        /// The list of references to other Schemas.
         /// </summary>
         public InputList<Inputs.SchemaSchemaReferenceArgs> SchemaReferences
         {
@@ -249,9 +236,6 @@ namespace Pulumi.ConfluentCloud
         [Input("schemaRegistryCluster")]
         public Input<Inputs.SchemaSchemaRegistryClusterArgs>? SchemaRegistryCluster { get; set; }
 
-        /// <summary>
-        /// An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-        /// </summary>
         [Input("skipValidationDuringPlan")]
         public Input<bool>? SkipValidationDuringPlan { get; set; }
 
@@ -286,25 +270,23 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+        /// The format of the Schema.
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
 
         /// <summary>
-        /// An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        /// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+        /// destroy. Defaults to `false` (soft delete).
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
 
-        /// <summary>
-        /// See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-        /// </summary>
         [Input("metadata")]
         public Input<Inputs.SchemaMetadataGetArgs>? Metadata { get; set; }
 
         /// <summary>
-        /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+        /// Controls whether a schema should be recreated on update.
         /// </summary>
         [Input("recreateOnUpdate")]
         public Input<bool>? RecreateOnUpdate { get; set; }
@@ -315,14 +297,11 @@ namespace Pulumi.ConfluentCloud
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
 
-        /// <summary>
-        /// The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-        /// </summary>
         [Input("ruleset")]
         public Input<Inputs.SchemaRulesetGetArgs>? Ruleset { get; set; }
 
         /// <summary>
-        /// The schema string, for example, `file("./schema_version_1.avsc")`.
+        /// The definition of the Schema.
         /// </summary>
         [Input("schema")]
         public Input<string>? SchemaDetails { get; set; }
@@ -337,7 +316,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<Inputs.SchemaSchemaReferenceGetArgs>? _schemaReferences;
 
         /// <summary>
-        /// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        /// The list of references to other Schemas.
         /// </summary>
         public InputList<Inputs.SchemaSchemaReferenceGetArgs> SchemaReferences
         {
@@ -348,9 +327,6 @@ namespace Pulumi.ConfluentCloud
         [Input("schemaRegistryCluster")]
         public Input<Inputs.SchemaSchemaRegistryClusterGetArgs>? SchemaRegistryCluster { get; set; }
 
-        /// <summary>
-        /// An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-        /// </summary>
         [Input("skipValidationDuringPlan")]
         public Input<bool>? SkipValidationDuringPlan { get; set; }
 

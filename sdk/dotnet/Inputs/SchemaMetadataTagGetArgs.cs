@@ -12,18 +12,11 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class SchemaMetadataTagGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The setting name.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// The list of tags.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

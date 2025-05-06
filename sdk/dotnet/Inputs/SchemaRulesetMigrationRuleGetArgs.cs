@@ -75,10 +75,6 @@ namespace Pulumi.ConfluentCloud.Inputs
 
         [Input("tags")]
         private InputList<string>? _tags;
-
-        /// <summary>
-        /// The tags to which the rule applies, if any.
-        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());

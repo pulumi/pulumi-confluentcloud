@@ -106,6 +106,10 @@ export class SubjectConfig extends pulumi.CustomResource {
     public readonly schemaRegistryCluster!: pulumi.Output<outputs.SubjectConfigSchemaRegistryCluster | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+     *
+     * > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subjectName = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subjectName = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+     *
+     * > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subjectName = ":.context1:"`.
      */
     public readonly subjectName!: pulumi.Output<string>;
 
@@ -170,6 +174,10 @@ export interface SubjectConfigState {
     schemaRegistryCluster?: pulumi.Input<inputs.SubjectConfigSchemaRegistryCluster>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+     *
+     * > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subjectName = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subjectName = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+     *
+     * > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subjectName = ":.context1:"`.
      */
     subjectName?: pulumi.Input<string>;
 }
@@ -197,6 +205,10 @@ export interface SubjectConfigArgs {
     schemaRegistryCluster?: pulumi.Input<inputs.SubjectConfigSchemaRegistryCluster>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+     *
+     * > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subjectName = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subjectName = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+     *
+     * > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subjectName = ":.context1:"`.
      */
     subjectName: pulumi.Input<string>;
 }

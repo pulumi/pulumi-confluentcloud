@@ -73,56 +73,50 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.credentials);
     }
     /**
-     * The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+     * The format of the Schema.
      * 
      */
     @Export(name="format", refs={String.class}, tree="[0]")
     private Output<String> format;
 
     /**
-     * @return The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+     * @return The format of the Schema.
      * 
      */
     public Output<String> format() {
         return this.format;
     }
     /**
-     * An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+     * destroy. Defaults to `false` (soft delete).
      * 
      */
     @Export(name="hardDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hardDelete;
 
     /**
-     * @return An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * @return Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+     * destroy. Defaults to `false` (soft delete).
      * 
      */
     public Output<Optional<Boolean>> hardDelete() {
         return Codegen.optional(this.hardDelete);
     }
-    /**
-     * See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-     * 
-     */
     @Export(name="metadata", refs={SchemaMetadata.class}, tree="[0]")
     private Output<SchemaMetadata> metadata;
 
-    /**
-     * @return See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-     * 
-     */
     public Output<SchemaMetadata> metadata() {
         return this.metadata;
     }
     /**
-     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+     * Controls whether a schema should be recreated on update.
      * 
      */
     @Export(name="recreateOnUpdate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> recreateOnUpdate;
 
     /**
-     * @return An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+     * @return Controls whether a schema should be recreated on update.
      * 
      */
     public Output<Optional<Boolean>> recreateOnUpdate() {
@@ -142,29 +136,21 @@ public class Schema extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> restEndpoint() {
         return Codegen.optional(this.restEndpoint);
     }
-    /**
-     * The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-     * 
-     */
     @Export(name="ruleset", refs={SchemaRuleset.class}, tree="[0]")
     private Output<SchemaRuleset> ruleset;
 
-    /**
-     * @return The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-     * 
-     */
     public Output<SchemaRuleset> ruleset() {
         return this.ruleset;
     }
     /**
-     * The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
+     * The definition of the Schema.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
+     * @return The definition of the Schema.
      * 
      */
     public Output<String> schema() {
@@ -185,14 +171,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return this.schemaIdentifier;
     }
     /**
-     * The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+     * The list of references to other Schemas.
      * 
      */
     @Export(name="schemaReferences", refs={List.class,SchemaSchemaReference.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SchemaSchemaReference>> schemaReferences;
 
     /**
-     * @return The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+     * @return The list of references to other Schemas.
      * 
      */
     public Output<Optional<List<SchemaSchemaReference>>> schemaReferences() {
@@ -204,17 +190,9 @@ public class Schema extends com.pulumi.resources.CustomResource {
     public Output<Optional<SchemaSchemaRegistryCluster>> schemaRegistryCluster() {
         return Codegen.optional(this.schemaRegistryCluster);
     }
-    /**
-     * An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-     * 
-     */
     @Export(name="skipValidationDuringPlan", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipValidationDuringPlan;
 
-    /**
-     * @return An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-     * 
-     */
     public Output<Optional<Boolean>> skipValidationDuringPlan() {
         return Codegen.optional(this.skipValidationDuringPlan);
     }

@@ -13,6 +13,9 @@ namespace Pulumi.ConfluentCloud.Outputs
     [OutputType]
     public sealed class SchemaRuleset
     {
+        /// <summary>
+        /// supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.SchemaRulesetDomainRule> DomainRules;
         public readonly ImmutableArray<Outputs.SchemaRulesetMigrationRule> MigrationRules;
 

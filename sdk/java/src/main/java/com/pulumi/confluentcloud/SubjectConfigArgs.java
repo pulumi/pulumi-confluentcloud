@@ -88,12 +88,20 @@ public final class SubjectConfigArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
      * 
+     * &gt; **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = &#34;:.context1:test-subject&#34;` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = &#34;test-subject&#34;` to reference the subject named `test-subject` in the `default` context.
+     * 
+     * &gt; **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = &#34;:.context1:&#34;`.
+     * 
      */
     @Import(name="subjectName", required=true)
     private Output<String> subjectName;
 
     /**
      * @return The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+     * 
+     * &gt; **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = &#34;:.context1:test-subject&#34;` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = &#34;test-subject&#34;` to reference the subject named `test-subject` in the `default` context.
+     * 
+     * &gt; **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = &#34;:.context1:&#34;`.
      * 
      */
     public Output<String> subjectName() {
@@ -225,6 +233,10 @@ public final class SubjectConfigArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subjectName The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
          * 
+         * &gt; **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = &#34;:.context1:test-subject&#34;` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = &#34;test-subject&#34;` to reference the subject named `test-subject` in the `default` context.
+         * 
+         * &gt; **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = &#34;:.context1:&#34;`.
+         * 
          * @return builder
          * 
          */
@@ -235,6 +247,10 @@ public final class SubjectConfigArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subjectName The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+         * 
+         * &gt; **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = &#34;:.context1:test-subject&#34;` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = &#34;test-subject&#34;` to reference the subject named `test-subject` in the `default` context.
+         * 
+         * &gt; **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = &#34;:.context1:&#34;`.
          * 
          * @return builder
          * 

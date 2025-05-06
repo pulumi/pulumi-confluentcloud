@@ -33,9 +33,6 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
         /// </summary>
         public readonly string Mode;
-        /// <summary>
-        /// A user-defined name that can be used to reference the rule.
-        /// </summary>
         public readonly string Name;
         /// <summary>
         /// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
@@ -53,9 +50,6 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Params;
-        /// <summary>
-        /// The tags to which the rule applies, if any.
-        /// </summary>
         public readonly ImmutableArray<string> Tags;
         /// <summary>
         /// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.

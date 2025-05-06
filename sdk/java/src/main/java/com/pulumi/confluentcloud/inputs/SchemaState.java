@@ -39,14 +39,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+     * The format of the Schema.
      * 
      */
     @Import(name="format")
     private @Nullable Output<String> format;
 
     /**
-     * @return The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+     * @return The format of the Schema.
      * 
      */
     public Optional<Output<String>> format() {
@@ -54,44 +54,38 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+     * destroy. Defaults to `false` (soft delete).
      * 
      */
     @Import(name="hardDelete")
     private @Nullable Output<Boolean> hardDelete;
 
     /**
-     * @return An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * @return Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+     * destroy. Defaults to `false` (soft delete).
      * 
      */
     public Optional<Output<Boolean>> hardDelete() {
         return Optional.ofNullable(this.hardDelete);
     }
 
-    /**
-     * See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-     * 
-     */
     @Import(name="metadata")
     private @Nullable Output<SchemaMetadataArgs> metadata;
 
-    /**
-     * @return See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-     * 
-     */
     public Optional<Output<SchemaMetadataArgs>> metadata() {
         return Optional.ofNullable(this.metadata);
     }
 
     /**
-     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+     * Controls whether a schema should be recreated on update.
      * 
      */
     @Import(name="recreateOnUpdate")
     private @Nullable Output<Boolean> recreateOnUpdate;
 
     /**
-     * @return An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+     * @return Controls whether a schema should be recreated on update.
      * 
      */
     public Optional<Output<Boolean>> recreateOnUpdate() {
@@ -113,30 +107,22 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.restEndpoint);
     }
 
-    /**
-     * The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-     * 
-     */
     @Import(name="ruleset")
     private @Nullable Output<SchemaRulesetArgs> ruleset;
 
-    /**
-     * @return The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-     * 
-     */
     public Optional<Output<SchemaRulesetArgs>> ruleset() {
         return Optional.ofNullable(this.ruleset);
     }
 
     /**
-     * The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
+     * The definition of the Schema.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
+     * @return The definition of the Schema.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -159,14 +145,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+     * The list of references to other Schemas.
      * 
      */
     @Import(name="schemaReferences")
     private @Nullable Output<List<SchemaSchemaReferenceArgs>> schemaReferences;
 
     /**
-     * @return The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+     * @return The list of references to other Schemas.
      * 
      */
     public Optional<Output<List<SchemaSchemaReferenceArgs>>> schemaReferences() {
@@ -180,17 +166,9 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.schemaRegistryCluster);
     }
 
-    /**
-     * An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-     * 
-     */
     @Import(name="skipValidationDuringPlan")
     private @Nullable Output<Boolean> skipValidationDuringPlan;
 
-    /**
-     * @return An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-     * 
-     */
     public Optional<Output<Boolean>> skipValidationDuringPlan() {
         return Optional.ofNullable(this.skipValidationDuringPlan);
     }
@@ -284,7 +262,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param format The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+         * @param format The format of the Schema.
          * 
          * @return builder
          * 
@@ -295,7 +273,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param format The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+         * @param format The format of the Schema.
          * 
          * @return builder
          * 
@@ -305,7 +283,8 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hardDelete An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+         * @param hardDelete Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+         * destroy. Defaults to `false` (soft delete).
          * 
          * @return builder
          * 
@@ -316,7 +295,8 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hardDelete An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+         * @param hardDelete Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+         * destroy. Defaults to `false` (soft delete).
          * 
          * @return builder
          * 
@@ -325,29 +305,17 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
             return hardDelete(Output.of(hardDelete));
         }
 
-        /**
-         * @param metadata See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadata(@Nullable Output<SchemaMetadataArgs> metadata) {
             $.metadata = metadata;
             return this;
         }
 
-        /**
-         * @param metadata See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadata(SchemaMetadataArgs metadata) {
             return metadata(Output.of(metadata));
         }
 
         /**
-         * @param recreateOnUpdate An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+         * @param recreateOnUpdate Controls whether a schema should be recreated on update.
          * 
          * @return builder
          * 
@@ -358,7 +326,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recreateOnUpdate An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+         * @param recreateOnUpdate Controls whether a schema should be recreated on update.
          * 
          * @return builder
          * 
@@ -388,29 +356,17 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
             return restEndpoint(Output.of(restEndpoint));
         }
 
-        /**
-         * @param ruleset The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleset(@Nullable Output<SchemaRulesetArgs> ruleset) {
             $.ruleset = ruleset;
             return this;
         }
 
-        /**
-         * @param ruleset The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleset(SchemaRulesetArgs ruleset) {
             return ruleset(Output.of(ruleset));
         }
 
         /**
-         * @param schema The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
+         * @param schema The definition of the Schema.
          * 
          * @return builder
          * 
@@ -421,7 +377,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
+         * @param schema The definition of the Schema.
          * 
          * @return builder
          * 
@@ -452,7 +408,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaReferences The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+         * @param schemaReferences The list of references to other Schemas.
          * 
          * @return builder
          * 
@@ -463,7 +419,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaReferences The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+         * @param schemaReferences The list of references to other Schemas.
          * 
          * @return builder
          * 
@@ -473,7 +429,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaReferences The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+         * @param schemaReferences The list of references to other Schemas.
          * 
          * @return builder
          * 
@@ -491,23 +447,11 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
             return schemaRegistryCluster(Output.of(schemaRegistryCluster));
         }
 
-        /**
-         * @param skipValidationDuringPlan An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipValidationDuringPlan(@Nullable Output<Boolean> skipValidationDuringPlan) {
             $.skipValidationDuringPlan = skipValidationDuringPlan;
             return this;
         }
 
-        /**
-         * @param skipValidationDuringPlan An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipValidationDuringPlan(Boolean skipValidationDuringPlan) {
             return skipValidationDuringPlan(Output.of(skipValidationDuringPlan));
         }

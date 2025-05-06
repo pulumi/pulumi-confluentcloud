@@ -14,6 +14,10 @@ namespace Pulumi.ConfluentCloud.Inputs
     {
         [Input("domainRules")]
         private InputList<Inputs.SchemaRulesetDomainRuleArgs>? _domainRules;
+
+        /// <summary>
+        /// supports the following:
+        /// </summary>
         public InputList<Inputs.SchemaRulesetDomainRuleArgs> DomainRules
         {
             get => _domainRules ?? (_domainRules = new InputList<Inputs.SchemaRulesetDomainRuleArgs>());
