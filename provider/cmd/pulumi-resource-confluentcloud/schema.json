@@ -2446,8 +2446,7 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/confluentcloud:index/SchemaMetadataTag:SchemaMetadataTag"
-                    },
-                    "description": "The tags to which the rule applies, if any.\n"
+                    }
                 }
             },
             "type": "object",
@@ -2464,15 +2463,13 @@
         "confluentcloud:index/SchemaMetadataTag:SchemaMetadataTag": {
             "properties": {
                 "key": {
-                    "type": "string",
-                    "description": "The setting name.\n"
+                    "type": "string"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "The list of tags.\n"
+                    }
                 }
             },
             "type": "object",
@@ -2619,7 +2616,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/confluentcloud:index/SchemaRulesetDomainRule:SchemaRulesetDomainRule"
-                    }
+                    },
+                    "description": "supports the following:\n"
                 },
                 "migrationRules": {
                     "type": "array",
@@ -2661,8 +2659,7 @@
                     "description": "The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.\n"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "A user-defined name that can be used to reference the rule.\n"
+                    "type": "string"
                 },
                 "onFailure": {
                     "type": "string",
@@ -2683,8 +2680,7 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "The tags to which the rule applies, if any.\n"
+                    }
                 },
                 "type": {
                     "type": "string",
@@ -2755,8 +2751,7 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "The tags to which the rule applies, if any.\n"
+                    }
                 },
                 "type": {
                     "type": "string",
@@ -2787,15 +2782,15 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "The name of the subject, representing the subject under which the referenced schema is registered.\n"
+                    "description": "The name of the Schema references (for example, \"io.confluent.kafka.example.User\"). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.\n"
                 },
                 "subjectName": {
                     "type": "string",
-                    "description": "The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n"
+                    "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.\n"
                 },
                 "version": {
                     "type": "integer",
-                    "description": "The version, representing the exact version of the schema under the registered subject.\n"
+                    "description": "(Required Integer) The version of the Schema, for example, `4`.\n"
                 }
             },
             "type": "object",
@@ -8377,13 +8372,11 @@
                 },
                 "issuer": {
                     "type": "string",
-                    "description": "A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.\n",
-                    "willReplaceOnChanges": true
+                    "description": "A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.\n"
                 },
                 "jwksUri": {
                     "type": "string",
-                    "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n",
-                    "willReplaceOnChanges": true
+                    "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n"
                 }
             },
             "requiredInputs": [
@@ -8409,13 +8402,11 @@
                     },
                     "issuer": {
                         "type": "string",
-                        "description": "A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.\n",
-                        "willReplaceOnChanges": true
+                        "description": "A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.\n"
                     },
                     "jwksUri": {
                         "type": "string",
-                        "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n",
-                        "willReplaceOnChanges": true
+                        "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n"
                     }
                 },
                 "type": "object"
@@ -10513,11 +10504,14 @@
             }
         },
         "confluentcloud:index/roleBinding:RoleBinding": {
-            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.RoleBinding` provides a Role Binding resource that enables creating, reading, and deleting role bindings on Confluent Cloud.\n\n\u003e **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).\n\n## Import\n\nYou can import a Role Binding by using Role Binding ID, for example:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/roleBinding:RoleBinding my_rb rb-f3a90de\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.RoleBinding` provides a Role Binding resource that enables creating, reading, and deleting role bindings on Confluent Cloud.\n\n\u003e **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).\n\n## Example of using time_sleep\n\nThis configuration introduces a 360-second custom delay after the creation of a role binding, before creating a Kafka topic.\n\nFor context, using `disable_wait_for_ready = false` (the default setting) results in a 90-second hardcoded delay, while opting for `disable_wait_for_ready = true` results in a 0-second delay.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\nimport * as time from \"@pulumi/time\";\n\nconst app_manager_kafka_cluster_admin_skip_sync = new confluentcloud.RoleBinding(\"app-manager-kafka-cluster-admin-skip-sync\", {\n    principal: `User:${app_manager.id}`,\n    roleName: \"CloudClusterAdmin\",\n    crnPattern: standard.rbacCrn,\n    disableWaitForReady: true,\n});\nconst wait360SecondsAfterRoleBinding = new time.index.Sleep(\"wait_360_seconds_after_role_binding\", {createDuration: \"360s\"}, {\n    dependsOn: [app_manager_kafka_cluster_admin_skip_sync],\n});\nconst orders = new confluentcloud.KafkaTopic(\"orders\", {\n    kafkaCluster: {\n        id: standard.id,\n    },\n    topicName: \"orders\",\n    restEndpoint: standard.restEndpoint,\n    credentials: {\n        key: app_manager_kafka_api_key.id,\n        secret: app_manager_kafka_api_key.secret,\n    },\n}, {\n    dependsOn: [wait360SecondsAfterRoleBinding],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\nimport pulumi_time as time\n\napp_manager_kafka_cluster_admin_skip_sync = confluentcloud.RoleBinding(\"app-manager-kafka-cluster-admin-skip-sync\",\n    principal=f\"User:{app_manager['id']}\",\n    role_name=\"CloudClusterAdmin\",\n    crn_pattern=standard[\"rbacCrn\"],\n    disable_wait_for_ready=True)\nwait360_seconds_after_role_binding = time.index.Sleep(\"wait_360_seconds_after_role_binding\", create_duration=360s,\nopts = pulumi.ResourceOptions(depends_on=[app_manager_kafka_cluster_admin_skip_sync]))\norders = confluentcloud.KafkaTopic(\"orders\",\n    kafka_cluster={\n        \"id\": standard[\"id\"],\n    },\n    topic_name=\"orders\",\n    rest_endpoint=standard[\"restEndpoint\"],\n    credentials={\n        \"key\": app_manager_kafka_api_key[\"id\"],\n        \"secret\": app_manager_kafka_api_key[\"secret\"],\n    },\n    opts = pulumi.ResourceOptions(depends_on=[wait360_seconds_after_role_binding]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\nusing Time = Pulumi.Time;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var app_manager_kafka_cluster_admin_skip_sync = new ConfluentCloud.RoleBinding(\"app-manager-kafka-cluster-admin-skip-sync\", new()\n    {\n        Principal = $\"User:{app_manager.Id}\",\n        RoleName = \"CloudClusterAdmin\",\n        CrnPattern = standard.RbacCrn,\n        DisableWaitForReady = true,\n    });\n\n    var wait360SecondsAfterRoleBinding = new Time.Index.Sleep(\"wait_360_seconds_after_role_binding\", new()\n    {\n        CreateDuration = \"360s\",\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            app_manager_kafka_cluster_admin_skip_sync,\n        },\n    });\n\n    var orders = new ConfluentCloud.KafkaTopic(\"orders\", new()\n    {\n        KafkaCluster = new ConfluentCloud.Inputs.KafkaTopicKafkaClusterArgs\n        {\n            Id = standard.Id,\n        },\n        TopicName = \"orders\",\n        RestEndpoint = standard.RestEndpoint,\n        Credentials = new ConfluentCloud.Inputs.KafkaTopicCredentialsArgs\n        {\n            Key = app_manager_kafka_api_key.Id,\n            Secret = app_manager_kafka_api_key.Secret,\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            wait360SecondsAfterRoleBinding,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi-time/sdk/go/time\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tapp_manager_kafka_cluster_admin_skip_sync, err := confluentcloud.NewRoleBinding(ctx, \"app-manager-kafka-cluster-admin-skip-sync\", \u0026confluentcloud.RoleBindingArgs{\n\t\t\tPrincipal:           pulumi.Sprintf(\"User:%v\", app_manager.Id),\n\t\t\tRoleName:            pulumi.String(\"CloudClusterAdmin\"),\n\t\t\tCrnPattern:          pulumi.Any(standard.RbacCrn),\n\t\t\tDisableWaitForReady: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\twait360SecondsAfterRoleBinding, err := time.NewSleep(ctx, \"wait_360_seconds_after_role_binding\", \u0026time.SleepArgs{\n\t\t\tCreateDuration: \"360s\",\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tapp_manager_kafka_cluster_admin_skip_sync,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewKafkaTopic(ctx, \"orders\", \u0026confluentcloud.KafkaTopicArgs{\n\t\t\tKafkaCluster: \u0026confluentcloud.KafkaTopicKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(standard.Id),\n\t\t\t},\n\t\t\tTopicName:    pulumi.String(\"orders\"),\n\t\t\tRestEndpoint: pulumi.Any(standard.RestEndpoint),\n\t\t\tCredentials: \u0026confluentcloud.KafkaTopicCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(app_manager_kafka_api_key.Id),\n\t\t\t\tSecret: pulumi.Any(app_manager_kafka_api_key.Secret),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\twait360SecondsAfterRoleBinding,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.RoleBinding;\nimport com.pulumi.confluentcloud.RoleBindingArgs;\nimport com.pulumi.time.sleep;\nimport com.pulumi.time.sleepArgs;\nimport com.pulumi.confluentcloud.KafkaTopic;\nimport com.pulumi.confluentcloud.KafkaTopicArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaTopicKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaTopicCredentialsArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var app_manager_kafka_cluster_admin_skip_sync = new RoleBinding(\"app-manager-kafka-cluster-admin-skip-sync\", RoleBindingArgs.builder()\n            .principal(String.format(\"User:%s\", app_manager.id()))\n            .roleName(\"CloudClusterAdmin\")\n            .crnPattern(standard.rbacCrn())\n            .disableWaitForReady(true)\n            .build());\n\n        var wait360SecondsAfterRoleBinding = new Sleep(\"wait360SecondsAfterRoleBinding\", SleepArgs.builder()\n            .createDuration(\"360s\")\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(List.of(app_manager_kafka_cluster_admin_skip_sync))\n                .build());\n\n        var orders = new KafkaTopic(\"orders\", KafkaTopicArgs.builder()\n            .kafkaCluster(KafkaTopicKafkaClusterArgs.builder()\n                .id(standard.id())\n                .build())\n            .topicName(\"orders\")\n            .restEndpoint(standard.restEndpoint())\n            .credentials(KafkaTopicCredentialsArgs.builder()\n                .key(app_manager_kafka_api_key.id())\n                .secret(app_manager_kafka_api_key.secret())\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(wait360SecondsAfterRoleBinding)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  app-manager-kafka-cluster-admin-skip-sync:\n    type: confluentcloud:RoleBinding\n    properties:\n      principal: User:${[\"app-manager\"].id}\n      roleName: CloudClusterAdmin\n      crnPattern: ${standard.rbacCrn}\n      disableWaitForReady: true\n  wait360SecondsAfterRoleBinding:\n    type: time:sleep\n    name: wait_360_seconds_after_role_binding\n    properties:\n      createDuration: 360s\n    options:\n      dependsOn:\n        - ${[\"app-manager-kafka-cluster-admin-skip-sync\"]}\n  orders:\n    type: confluentcloud:KafkaTopic\n    properties:\n      kafkaCluster:\n        id: ${standard.id}\n      topicName: orders\n      restEndpoint: ${standard.restEndpoint}\n      credentials:\n        key: ${[\"app-manager-kafka-api-key\"].id}\n        secret: ${[\"app-manager-kafka-api-key\"].secret}\n    options:\n      dependsOn:\n        - ${wait360SecondsAfterRoleBinding}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Role Binding by using Role Binding ID, for example:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/roleBinding:RoleBinding my_rb rb-f3a90de\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "crnPattern": {
                     "type": "string",
-                    "description": "A [Confluent Resource Name(CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.\n"
+                    "description": "A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.\n"
+                },
+                "disableWaitForReady": {
+                    "type": "boolean"
                 },
                 "principal": {
                     "type": "string",
@@ -10536,7 +10530,11 @@
             "inputProperties": {
                 "crnPattern": {
                     "type": "string",
-                    "description": "A [Confluent Resource Name(CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.\n",
+                    "description": "A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.\n",
+                    "willReplaceOnChanges": true
+                },
+                "disableWaitForReady": {
+                    "type": "boolean",
                     "willReplaceOnChanges": true
                 },
                 "principal": {
@@ -10560,7 +10558,11 @@
                 "properties": {
                     "crnPattern": {
                         "type": "string",
-                        "description": "A [Confluent Resource Name(CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.\n",
+                        "description": "A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "disableWaitForReady": {
+                        "type": "boolean",
                         "willReplaceOnChanges": true
                     },
                     "principal": {
@@ -10587,31 +10589,29 @@
                 },
                 "format": {
                     "type": "string",
-                    "description": "The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.\n"
+                    "description": "The format of the Schema.\n"
                 },
                 "hardDelete": {
                     "type": "boolean",
-                    "description": "An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).\n"
+                    "description": "Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on\ndestroy. Defaults to `false` (soft delete).\n"
                 },
                 "metadata": {
-                    "$ref": "#/types/confluentcloud:index/SchemaMetadata:SchemaMetadata",
-                    "description": "See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:\n"
+                    "$ref": "#/types/confluentcloud:index/SchemaMetadata:SchemaMetadata"
                 },
                 "recreateOnUpdate": {
                     "type": "boolean",
-                    "description": "An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.\n"
+                    "description": "Controls whether a schema should be recreated on update.\n"
                 },
                 "restEndpoint": {
                     "type": "string",
                     "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
                 },
                 "ruleset": {
-                    "$ref": "#/types/confluentcloud:index/SchemaRuleset:SchemaRuleset",
-                    "description": "The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.\n"
+                    "$ref": "#/types/confluentcloud:index/SchemaRuleset:SchemaRuleset"
                 },
                 "schema": {
                     "type": "string",
-                    "description": "The schema string, for example, `file(\"./schema_version_1.avsc\")`.\n",
+                    "description": "The definition of the Schema.\n",
                     "language": {
                         "csharp": {
                             "name": "SchemaDetails"
@@ -10627,14 +10627,13 @@
                     "items": {
                         "$ref": "#/types/confluentcloud:index/SchemaSchemaReference:SchemaSchemaReference"
                     },
-                    "description": "The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):\n"
+                    "description": "The list of references to other Schemas.\n"
                 },
                 "schemaRegistryCluster": {
                     "$ref": "#/types/confluentcloud:index/SchemaSchemaRegistryCluster:SchemaSchemaRegistryCluster"
                 },
                 "skipValidationDuringPlan": {
-                    "type": "boolean",
-                    "description": "An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.\n"
+                    "type": "boolean"
                 },
                 "subjectName": {
                     "type": "string",
@@ -10662,20 +10661,19 @@
                 },
                 "format": {
                     "type": "string",
-                    "description": "The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.\n",
+                    "description": "The format of the Schema.\n",
                     "willReplaceOnChanges": true
                 },
                 "hardDelete": {
                     "type": "boolean",
-                    "description": "An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).\n"
+                    "description": "Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on\ndestroy. Defaults to `false` (soft delete).\n"
                 },
                 "metadata": {
-                    "$ref": "#/types/confluentcloud:index/SchemaMetadata:SchemaMetadata",
-                    "description": "See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:\n"
+                    "$ref": "#/types/confluentcloud:index/SchemaMetadata:SchemaMetadata"
                 },
                 "recreateOnUpdate": {
                     "type": "boolean",
-                    "description": "An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.\n",
+                    "description": "Controls whether a schema should be recreated on update.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
@@ -10684,12 +10682,11 @@
                     "willReplaceOnChanges": true
                 },
                 "ruleset": {
-                    "$ref": "#/types/confluentcloud:index/SchemaRuleset:SchemaRuleset",
-                    "description": "The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.\n"
+                    "$ref": "#/types/confluentcloud:index/SchemaRuleset:SchemaRuleset"
                 },
                 "schema": {
                     "type": "string",
-                    "description": "The schema string, for example, `file(\"./schema_version_1.avsc\")`.\n",
+                    "description": "The definition of the Schema.\n",
                     "language": {
                         "csharp": {
                             "name": "SchemaDetails"
@@ -10701,15 +10698,14 @@
                     "items": {
                         "$ref": "#/types/confluentcloud:index/SchemaSchemaReference:SchemaSchemaReference"
                     },
-                    "description": "The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):\n"
+                    "description": "The list of references to other Schemas.\n"
                 },
                 "schemaRegistryCluster": {
                     "$ref": "#/types/confluentcloud:index/SchemaSchemaRegistryCluster:SchemaSchemaRegistryCluster",
                     "willReplaceOnChanges": true
                 },
                 "skipValidationDuringPlan": {
-                    "type": "boolean",
-                    "description": "An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.\n"
+                    "type": "boolean"
                 },
                 "subjectName": {
                     "type": "string",
@@ -10731,20 +10727,19 @@
                     },
                     "format": {
                         "type": "string",
-                        "description": "The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.\n",
+                        "description": "The format of the Schema.\n",
                         "willReplaceOnChanges": true
                     },
                     "hardDelete": {
                         "type": "boolean",
-                        "description": "An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).\n"
+                        "description": "Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on\ndestroy. Defaults to `false` (soft delete).\n"
                     },
                     "metadata": {
-                        "$ref": "#/types/confluentcloud:index/SchemaMetadata:SchemaMetadata",
-                        "description": "See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:\n"
+                        "$ref": "#/types/confluentcloud:index/SchemaMetadata:SchemaMetadata"
                     },
                     "recreateOnUpdate": {
                         "type": "boolean",
-                        "description": "An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.\n",
+                        "description": "Controls whether a schema should be recreated on update.\n",
                         "willReplaceOnChanges": true
                     },
                     "restEndpoint": {
@@ -10753,12 +10748,11 @@
                         "willReplaceOnChanges": true
                     },
                     "ruleset": {
-                        "$ref": "#/types/confluentcloud:index/SchemaRuleset:SchemaRuleset",
-                        "description": "The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.\n"
+                        "$ref": "#/types/confluentcloud:index/SchemaRuleset:SchemaRuleset"
                     },
                     "schema": {
                         "type": "string",
-                        "description": "The schema string, for example, `file(\"./schema_version_1.avsc\")`.\n",
+                        "description": "The definition of the Schema.\n",
                         "language": {
                             "csharp": {
                                 "name": "SchemaDetails"
@@ -10774,15 +10768,14 @@
                         "items": {
                             "$ref": "#/types/confluentcloud:index/SchemaSchemaReference:SchemaSchemaReference"
                         },
-                        "description": "The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):\n"
+                        "description": "The list of references to other Schemas.\n"
                     },
                     "schemaRegistryCluster": {
                         "$ref": "#/types/confluentcloud:index/SchemaSchemaRegistryCluster:SchemaSchemaRegistryCluster",
                         "willReplaceOnChanges": true
                     },
                     "skipValidationDuringPlan": {
-                        "type": "boolean",
-                        "description": "An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.\n"
+                        "type": "boolean"
                     },
                     "subjectName": {
                         "type": "string",
@@ -11077,6 +11070,10 @@
                     "description": "The Cluster API Credentials.\n",
                     "secret": true
                 },
+                "force": {
+                    "type": "boolean",
+                    "description": "An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.\n"
+                },
                 "mode": {
                     "type": "string",
                     "description": "The global Schema Registry mode. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.\n"
@@ -11097,6 +11094,10 @@
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterModeCredentials:SchemaRegistryClusterModeCredentials",
                     "description": "The Cluster API Credentials.\n",
                     "secret": true
+                },
+                "force": {
+                    "type": "boolean",
+                    "description": "An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.\n"
                 },
                 "mode": {
                     "type": "string",
@@ -11119,6 +11120,10 @@
                         "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterModeCredentials:SchemaRegistryClusterModeCredentials",
                         "description": "The Cluster API Credentials.\n",
                         "secret": true
+                    },
+                    "force": {
+                        "type": "boolean",
+                        "description": "An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.\n"
                     },
                     "mode": {
                         "type": "string",
@@ -11530,7 +11535,7 @@
                 },
                 "subjectName": {
                     "type": "string",
-                    "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.\n"
+                    "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.\n\n\u003e **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = \":.context1:test-subject\"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = \"test-subject\"` to reference the subject named `test-subject` in the `default` context.\n\n\u003e **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = \":.context1:\"`.\n"
                 }
             },
             "required": [
@@ -11563,7 +11568,7 @@
                 },
                 "subjectName": {
                     "type": "string",
-                    "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.\n",
+                    "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.\n\n\u003e **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = \":.context1:test-subject\"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = \"test-subject\"` to reference the subject named `test-subject` in the `default` context.\n\n\u003e **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = \":.context1:\"`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -11597,7 +11602,7 @@
                     },
                     "subjectName": {
                         "type": "string",
-                        "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.\n",
+                        "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.\n\n\u003e **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = \":.context1:test-subject\"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = \"test-subject\"` to reference the subject named `test-subject` in the `default` context.\n\n\u003e **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = \":.context1:\"`.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -11611,6 +11616,10 @@
                     "$ref": "#/types/confluentcloud:index/SubjectModeCredentials:SubjectModeCredentials",
                     "description": "The Cluster API Credentials.\n",
                     "secret": true
+                },
+                "force": {
+                    "type": "boolean",
+                    "description": "An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.\n"
                 },
                 "mode": {
                     "type": "string",
@@ -11637,6 +11646,10 @@
                     "$ref": "#/types/confluentcloud:index/SubjectModeCredentials:SubjectModeCredentials",
                     "description": "The Cluster API Credentials.\n",
                     "secret": true
+                },
+                "force": {
+                    "type": "boolean",
+                    "description": "An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.\n"
                 },
                 "mode": {
                     "type": "string",
@@ -11667,6 +11680,10 @@
                         "$ref": "#/types/confluentcloud:index/SubjectModeCredentials:SubjectModeCredentials",
                         "description": "The Cluster API Credentials.\n",
                         "secret": true
+                    },
+                    "force": {
+                        "type": "boolean",
+                        "description": "An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.\n"
                     },
                     "mode": {
                         "type": "string",
