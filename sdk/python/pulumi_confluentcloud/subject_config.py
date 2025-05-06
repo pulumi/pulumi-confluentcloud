@@ -31,6 +31,10 @@ class SubjectConfigArgs:
         """
         The set of arguments for constructing a SubjectConfig resource.
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+               
+               > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+               
+               > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = ":.context1:"`.
         :param pulumi.Input[builtins.str] compatibility_group: The Compatibility Group of the specified subject.
         :param pulumi.Input[builtins.str] compatibility_level: The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input['SubjectConfigCredentialsArgs'] credentials: The Cluster API Credentials.
@@ -53,6 +57,10 @@ class SubjectConfigArgs:
     def subject_name(self) -> pulumi.Input[builtins.str]:
         """
         The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+
+        > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+
+        > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = ":.context1:"`.
         """
         return pulumi.get(self, "subject_name")
 
@@ -134,6 +142,10 @@ class _SubjectConfigState:
         :param pulumi.Input['SubjectConfigCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+               
+               > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+               
+               > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = ":.context1:"`.
         """
         if compatibility_group is not None:
             pulumi.set(__self__, "compatibility_group", compatibility_group)
@@ -210,6 +222,10 @@ class _SubjectConfigState:
     def subject_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+
+        > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+
+        > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = ":.context1:"`.
         """
         return pulumi.get(self, "subject_name")
 
@@ -291,6 +307,10 @@ class SubjectConfig(pulumi.CustomResource):
         :param pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+               
+               > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+               
+               > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = ":.context1:"`.
         """
         ...
     @overload
@@ -417,6 +437,10 @@ class SubjectConfig(pulumi.CustomResource):
         :param pulumi.Input[Union['SubjectConfigCredentialsArgs', 'SubjectConfigCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+               
+               > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+               
+               > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = ":.context1:"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -472,6 +496,10 @@ class SubjectConfig(pulumi.CustomResource):
     def subject_name(self) -> pulumi.Output[builtins.str]:
         """
         The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+
+        > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+
+        > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = ":.context1:"`.
         """
         return pulumi.get(self, "subject_name")
 

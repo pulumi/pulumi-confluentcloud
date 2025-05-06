@@ -86,6 +86,12 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.SubjectModeCredentials?> Credentials { get; private set; } = null!;
 
         /// <summary>
+        /// An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+        /// </summary>
+        [Output("force")]
+        public Output<bool?> Force { get; private set; } = null!;
+
+        /// <summary>
         /// The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
         /// </summary>
         [Output("mode")]
@@ -173,6 +179,12 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
+        /// An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+        /// </summary>
+        [Input("force")]
+        public Input<bool>? Force { get; set; }
+
+        /// <summary>
         /// The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
         /// </summary>
         [Input("mode")]
@@ -216,6 +228,12 @@ namespace Pulumi.ConfluentCloud
                 _credentials = Output.Tuple<Input<Inputs.SubjectModeCredentialsGetArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+        /// </summary>
+        [Input("force")]
+        public Input<bool>? Force { get; set; }
 
         /// <summary>
         /// The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.

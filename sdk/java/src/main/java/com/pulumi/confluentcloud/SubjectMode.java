@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -134,6 +135,20 @@ public class SubjectMode extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<SubjectModeCredentials>> credentials() {
         return Codegen.optional(this.credentials);
+    }
+    /**
+     * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+     * 
+     */
+    @Export(name="force", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> force;
+
+    /**
+     * @return An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+     * 
+     */
+    public Output<Optional<Boolean>> force() {
+        return Codegen.optional(this.force);
     }
     /**
      * The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.

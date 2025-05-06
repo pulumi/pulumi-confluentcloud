@@ -36,17 +36,15 @@ class SchemaArgs:
                  skip_validation_during_plan: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a Schema resource.
-        :param pulumi.Input[builtins.str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+        :param pulumi.Input[builtins.str] format: The format of the Schema.
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         :param pulumi.Input['SchemaCredentialsArgs'] credentials: The Cluster API Credentials.
-        :param pulumi.Input[builtins.bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
-        :param pulumi.Input['SchemaMetadataArgs'] metadata: See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-        :param pulumi.Input[builtins.bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+        :param pulumi.Input[builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+               destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[builtins.bool] recreate_on_update: Controls whether a schema should be recreated on update.
         :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-        :param pulumi.Input['SchemaRulesetArgs'] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-        :param pulumi.Input[builtins.str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
-        :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
-        :param pulumi.Input[builtins.bool] skip_validation_during_plan: An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+        :param pulumi.Input[builtins.str] schema: The definition of the Schema.
+        :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of references to other Schemas.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "subject_name", subject_name)
@@ -75,7 +73,7 @@ class SchemaArgs:
     @pulumi.getter
     def format(self) -> pulumi.Input[builtins.str]:
         """
-        The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+        The format of the Schema.
         """
         return pulumi.get(self, "format")
 
@@ -111,7 +109,8 @@ class SchemaArgs:
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+        destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 
@@ -122,9 +121,6 @@ class SchemaArgs:
     @property
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input['SchemaMetadataArgs']]:
-        """
-        See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-        """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
@@ -135,7 +131,7 @@ class SchemaArgs:
     @pulumi.getter(name="recreateOnUpdate")
     def recreate_on_update(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+        Controls whether a schema should be recreated on update.
         """
         return pulumi.get(self, "recreate_on_update")
 
@@ -158,9 +154,6 @@ class SchemaArgs:
     @property
     @pulumi.getter
     def ruleset(self) -> Optional[pulumi.Input['SchemaRulesetArgs']]:
-        """
-        The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-        """
         return pulumi.get(self, "ruleset")
 
     @ruleset.setter
@@ -171,7 +164,7 @@ class SchemaArgs:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The schema string, for example, `file("./schema_version_1.avsc")`.
+        The definition of the Schema.
         """
         return pulumi.get(self, "schema")
 
@@ -183,7 +176,7 @@ class SchemaArgs:
     @pulumi.getter(name="schemaReferences")
     def schema_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]]:
         """
-        The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        The list of references to other Schemas.
         """
         return pulumi.get(self, "schema_references")
 
@@ -203,9 +196,6 @@ class SchemaArgs:
     @property
     @pulumi.getter(name="skipValidationDuringPlan")
     def skip_validation_during_plan(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-        """
         return pulumi.get(self, "skip_validation_during_plan")
 
     @skip_validation_during_plan.setter
@@ -233,16 +223,14 @@ class _SchemaState:
         """
         Input properties used for looking up and filtering Schema resources.
         :param pulumi.Input['SchemaCredentialsArgs'] credentials: The Cluster API Credentials.
-        :param pulumi.Input[builtins.str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
-        :param pulumi.Input[builtins.bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
-        :param pulumi.Input['SchemaMetadataArgs'] metadata: See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-        :param pulumi.Input[builtins.bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+        :param pulumi.Input[builtins.str] format: The format of the Schema.
+        :param pulumi.Input[builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+               destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[builtins.bool] recreate_on_update: Controls whether a schema should be recreated on update.
         :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-        :param pulumi.Input['SchemaRulesetArgs'] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-        :param pulumi.Input[builtins.str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
+        :param pulumi.Input[builtins.str] schema: The definition of the Schema.
         :param pulumi.Input[builtins.int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
-        :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
-        :param pulumi.Input[builtins.bool] skip_validation_during_plan: An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+        :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of references to other Schemas.
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         :param pulumi.Input[builtins.int] version: (Required Integer) The version of the Schema, for example, `4`.
         """
@@ -291,7 +279,7 @@ class _SchemaState:
     @pulumi.getter
     def format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+        The format of the Schema.
         """
         return pulumi.get(self, "format")
 
@@ -303,7 +291,8 @@ class _SchemaState:
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+        destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 
@@ -314,9 +303,6 @@ class _SchemaState:
     @property
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input['SchemaMetadataArgs']]:
-        """
-        See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-        """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
@@ -327,7 +313,7 @@ class _SchemaState:
     @pulumi.getter(name="recreateOnUpdate")
     def recreate_on_update(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+        Controls whether a schema should be recreated on update.
         """
         return pulumi.get(self, "recreate_on_update")
 
@@ -350,9 +336,6 @@ class _SchemaState:
     @property
     @pulumi.getter
     def ruleset(self) -> Optional[pulumi.Input['SchemaRulesetArgs']]:
-        """
-        The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-        """
         return pulumi.get(self, "ruleset")
 
     @ruleset.setter
@@ -363,7 +346,7 @@ class _SchemaState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The schema string, for example, `file("./schema_version_1.avsc")`.
+        The definition of the Schema.
         """
         return pulumi.get(self, "schema")
 
@@ -387,7 +370,7 @@ class _SchemaState:
     @pulumi.getter(name="schemaReferences")
     def schema_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]]:
         """
-        The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        The list of references to other Schemas.
         """
         return pulumi.get(self, "schema_references")
 
@@ -407,9 +390,6 @@ class _SchemaState:
     @property
     @pulumi.getter(name="skipValidationDuringPlan")
     def skip_validation_during_plan(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-        """
         return pulumi.get(self, "skip_validation_during_plan")
 
     @skip_validation_during_plan.setter
@@ -498,15 +478,13 @@ class Schema(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']] credentials: The Cluster API Credentials.
-        :param pulumi.Input[builtins.str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
-        :param pulumi.Input[builtins.bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
-        :param pulumi.Input[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']] metadata: See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-        :param pulumi.Input[builtins.bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+        :param pulumi.Input[builtins.str] format: The format of the Schema.
+        :param pulumi.Input[builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+               destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[builtins.bool] recreate_on_update: Controls whether a schema should be recreated on update.
         :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-        :param pulumi.Input[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-        :param pulumi.Input[builtins.str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
-        :param pulumi.Input[builtins.bool] skip_validation_during_plan: An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+        :param pulumi.Input[builtins.str] schema: The definition of the Schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]] schema_references: The list of references to other Schemas.
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         """
         ...
@@ -636,16 +614,14 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']] credentials: The Cluster API Credentials.
-        :param pulumi.Input[builtins.str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
-        :param pulumi.Input[builtins.bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
-        :param pulumi.Input[Union['SchemaMetadataArgs', 'SchemaMetadataArgsDict']] metadata: See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-        :param pulumi.Input[builtins.bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+        :param pulumi.Input[builtins.str] format: The format of the Schema.
+        :param pulumi.Input[builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+               destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[builtins.bool] recreate_on_update: Controls whether a schema should be recreated on update.
         :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-        :param pulumi.Input[Union['SchemaRulesetArgs', 'SchemaRulesetArgsDict']] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-        :param pulumi.Input[builtins.str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
+        :param pulumi.Input[builtins.str] schema: The definition of the Schema.
         :param pulumi.Input[builtins.int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
-        :param pulumi.Input[builtins.bool] skip_validation_during_plan: An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]] schema_references: The list of references to other Schemas.
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         :param pulumi.Input[builtins.int] version: (Required Integer) The version of the Schema, for example, `4`.
         """
@@ -681,7 +657,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def format(self) -> pulumi.Output[builtins.str]:
         """
-        The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+        The format of the Schema.
         """
         return pulumi.get(self, "format")
 
@@ -689,23 +665,21 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
+        destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 
     @property
     @pulumi.getter
     def metadata(self) -> pulumi.Output['outputs.SchemaMetadata']:
-        """
-        See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
-        """
         return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter(name="recreateOnUpdate")
     def recreate_on_update(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
+        Controls whether a schema should be recreated on update.
         """
         return pulumi.get(self, "recreate_on_update")
 
@@ -720,16 +694,13 @@ class Schema(pulumi.CustomResource):
     @property
     @pulumi.getter
     def ruleset(self) -> pulumi.Output['outputs.SchemaRuleset']:
-        """
-        The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
-        """
         return pulumi.get(self, "ruleset")
 
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output[builtins.str]:
         """
-        The schema string, for example, `file("./schema_version_1.avsc")`.
+        The definition of the Schema.
         """
         return pulumi.get(self, "schema")
 
@@ -745,7 +716,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="schemaReferences")
     def schema_references(self) -> pulumi.Output[Optional[Sequence['outputs.SchemaSchemaReference']]]:
         """
-        The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        The list of references to other Schemas.
         """
         return pulumi.get(self, "schema_references")
 
@@ -757,9 +728,6 @@ class Schema(pulumi.CustomResource):
     @property
     @pulumi.getter(name="skipValidationDuringPlan")
     def skip_validation_during_plan(self) -> pulumi.Output[Optional[builtins.bool]]:
-        """
-        An optional flag to control whether a schema should be validated during `pulumi preview`. Set it to `true` if you want to skip schema validation during `pulumi preview`. Defaults to `false`. Regardless of `true` or `false` for this flag, schema validation will be performed during `pulumi up`.
-        """
         return pulumi.get(self, "skip_validation_during_plan")
 
     @property

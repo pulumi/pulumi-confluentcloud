@@ -6209,9 +6209,6 @@ if not MYPY:
         A list of metadata properties to be encrypted.
         """
         tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgsDict']]]]
-        """
-        The tags to which the rule applies, if any.
-        """
 elif False:
     SchemaMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6224,7 +6221,6 @@ class SchemaMetadataArgs:
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties: The custom properties to set:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] sensitives: A list of metadata properties to be encrypted.
-        :param pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgs']]] tags: The tags to which the rule applies, if any.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -6260,9 +6256,6 @@ class SchemaMetadataArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]]:
-        """
-        The tags to which the rule applies, if any.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -6273,13 +6266,7 @@ class SchemaMetadataArgs:
 if not MYPY:
     class SchemaMetadataTagArgsDict(TypedDict):
         key: NotRequired[pulumi.Input[builtins.str]]
-        """
-        The setting name.
-        """
         values: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
-        """
-        The list of tags.
-        """
 elif False:
     SchemaMetadataTagArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6288,10 +6275,6 @@ class SchemaMetadataTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
-        """
-        :param pulumi.Input[builtins.str] key: The setting name.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] values: The list of tags.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if values is not None:
@@ -6300,9 +6283,6 @@ class SchemaMetadataTagArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The setting name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -6312,9 +6292,6 @@ class SchemaMetadataTagArgs:
     @property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        The list of tags.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -6649,6 +6626,9 @@ class SchemaRegistryKekSchemaRegistryClusterArgs:
 if not MYPY:
     class SchemaRulesetArgsDict(TypedDict):
         domain_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgsDict']]]]
+        """
+        supports the following:
+        """
         migration_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgsDict']]]]
 elif False:
     SchemaRulesetArgsDict: TypeAlias = Mapping[str, Any]
@@ -6658,6 +6638,9 @@ class SchemaRulesetArgs:
     def __init__(__self__, *,
                  domain_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]] = None,
                  migration_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]] domain_rules: supports the following:
+        """
         if domain_rules is not None:
             pulumi.set(__self__, "domain_rules", domain_rules)
         if migration_rules is not None:
@@ -6666,6 +6649,9 @@ class SchemaRulesetArgs:
     @property
     @pulumi.getter(name="domainRules")
     def domain_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]]:
+        """
+        supports the following:
+        """
         return pulumi.get(self, "domain_rules")
 
     @domain_rules.setter
@@ -6693,9 +6679,6 @@ if not MYPY:
         The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
         """
         name: pulumi.Input[builtins.str]
-        """
-        A user-defined name that can be used to reference the rule.
-        """
         type: pulumi.Input[builtins.str]
         """
         The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
@@ -6729,9 +6712,6 @@ if not MYPY:
         > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         """
         tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
-        """
-        The tags to which the rule applies, if any.
-        """
 elif False:
     SchemaRulesetDomainRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6752,7 +6732,6 @@ class SchemaRulesetDomainRuleArgs:
         """
         :param pulumi.Input[builtins.str] kind: The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
         :param pulumi.Input[builtins.str] mode: The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-        :param pulumi.Input[builtins.str] name: A user-defined name that can be used to reference the rule.
         :param pulumi.Input[builtins.str] type: The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
         :param pulumi.Input[builtins.bool] disabled: The boolean flag to control whether the rule should be disabled. Defaults to `false`.
         :param pulumi.Input[builtins.str] doc: An optional description of the rule. Defaults to "".
@@ -6764,7 +6743,6 @@ class SchemaRulesetDomainRuleArgs:
                > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
                
                > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: The tags to which the rule applies, if any.
         """
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "mode", mode)
@@ -6812,9 +6790,6 @@ class SchemaRulesetDomainRuleArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
-        """
-        A user-defined name that can be used to reference the rule.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -6912,9 +6887,6 @@ class SchemaRulesetDomainRuleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        The tags to which the rule applies, if any.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -6966,9 +6938,6 @@ if not MYPY:
         > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         """
         tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
-        """
-        The tags to which the rule applies, if any.
-        """
 elif False:
     SchemaRulesetMigrationRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7000,7 +6969,6 @@ class SchemaRulesetMigrationRuleArgs:
                > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
                
                > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: The tags to which the rule applies, if any.
         """
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "mode", mode)
@@ -7145,9 +7113,6 @@ class SchemaRulesetMigrationRuleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        The tags to which the rule applies, if any.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -7159,15 +7124,15 @@ if not MYPY:
     class SchemaSchemaReferenceArgsDict(TypedDict):
         name: pulumi.Input[builtins.str]
         """
-        The name of the subject, representing the subject under which the referenced schema is registered.
+        The name of the Schema references (for example, "io.confluent.kafka.example.User"). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
         """
         subject_name: pulumi.Input[builtins.str]
         """
-        The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         """
         version: pulumi.Input[builtins.int]
         """
-        The version, representing the exact version of the schema under the registered subject.
+        (Required Integer) The version of the Schema, for example, `4`.
         """
 elif False:
     SchemaSchemaReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -7179,9 +7144,9 @@ class SchemaSchemaReferenceArgs:
                  subject_name: pulumi.Input[builtins.str],
                  version: pulumi.Input[builtins.int]):
         """
-        :param pulumi.Input[builtins.str] name: The name of the subject, representing the subject under which the referenced schema is registered.
-        :param pulumi.Input[builtins.str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
-        :param pulumi.Input[builtins.int] version: The version, representing the exact version of the schema under the registered subject.
+        :param pulumi.Input[builtins.str] name: The name of the Schema references (for example, "io.confluent.kafka.example.User"). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
+        :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
+        :param pulumi.Input[builtins.int] version: (Required Integer) The version of the Schema, for example, `4`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "subject_name", subject_name)
@@ -7191,7 +7156,7 @@ class SchemaSchemaReferenceArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the subject, representing the subject under which the referenced schema is registered.
+        The name of the Schema references (for example, "io.confluent.kafka.example.User"). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
         """
         return pulumi.get(self, "name")
 
@@ -7203,7 +7168,7 @@ class SchemaSchemaReferenceArgs:
     @pulumi.getter(name="subjectName")
     def subject_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         """
         return pulumi.get(self, "subject_name")
 
@@ -7215,7 +7180,7 @@ class SchemaSchemaReferenceArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[builtins.int]:
         """
-        The version, representing the exact version of the schema under the registered subject.
+        (Required Integer) The version of the Schema, for example, `4`.
         """
         return pulumi.get(self, "version")
 

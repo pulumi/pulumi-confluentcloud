@@ -94,17 +94,9 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         return this.mode;
     }
 
-    /**
-     * A user-defined name that can be used to reference the rule.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return A user-defined name that can be used to reference the rule.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -162,17 +154,9 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.params);
     }
 
-    /**
-     * The tags to which the rule applies, if any.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
-    /**
-     * @return The tags to which the rule applies, if any.
-     * 
-     */
     public Optional<Output<List<String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -331,23 +315,11 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
             return mode(Output.of(mode));
         }
 
-        /**
-         * @param name A user-defined name that can be used to reference the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A user-defined name that can be used to reference the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -423,33 +395,15 @@ public final class SchemaRulesetDomainRuleArgs extends com.pulumi.resources.Reso
             return params(Output.of(params));
         }
 
-        /**
-         * @param tags The tags to which the rule applies, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<List<String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags The tags to which the rule applies, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(List<String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tags The tags to which the rule applies, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(String... tags) {
             return tags(List.of(tags));
         }

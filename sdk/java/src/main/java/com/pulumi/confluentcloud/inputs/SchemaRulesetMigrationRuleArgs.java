@@ -154,17 +154,9 @@ public final class SchemaRulesetMigrationRuleArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.params);
     }
 
-    /**
-     * The tags to which the rule applies, if any.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
-    /**
-     * @return The tags to which the rule applies, if any.
-     * 
-     */
     public Optional<Output<List<String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -403,33 +395,15 @@ public final class SchemaRulesetMigrationRuleArgs extends com.pulumi.resources.R
             return params(Output.of(params));
         }
 
-        /**
-         * @param tags The tags to which the rule applies, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<List<String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags The tags to which the rule applies, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(List<String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tags The tags to which the rule applies, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(String... tags) {
             return tags(List.of(tags));
         }

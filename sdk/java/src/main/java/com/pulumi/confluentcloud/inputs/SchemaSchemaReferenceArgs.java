@@ -16,14 +16,14 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
     public static final SchemaSchemaReferenceArgs Empty = new SchemaSchemaReferenceArgs();
 
     /**
-     * The name of the subject, representing the subject under which the referenced schema is registered.
+     * The name of the Schema references (for example, &#34;io.confluent.kafka.example.User&#34;). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the subject, representing the subject under which the referenced schema is registered.
+     * @return The name of the Schema references (for example, &#34;io.confluent.kafka.example.User&#34;). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
      * 
      */
     public Output<String> name() {
@@ -31,14 +31,14 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      * 
      */
     @Import(name="subjectName", required=true)
     private Output<String> subjectName;
 
     /**
-     * @return The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * @return The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      * 
      */
     public Output<String> subjectName() {
@@ -46,14 +46,14 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The version, representing the exact version of the schema under the registered subject.
+     * (Required Integer) The version of the Schema, for example, `4`.
      * 
      */
     @Import(name="version", required=true)
     private Output<Integer> version;
 
     /**
-     * @return The version, representing the exact version of the schema under the registered subject.
+     * @return (Required Integer) The version of the Schema, for example, `4`.
      * 
      */
     public Output<Integer> version() {
@@ -87,7 +87,7 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the subject, representing the subject under which the referenced schema is registered.
+         * @param name The name of the Schema references (for example, &#34;io.confluent.kafka.example.User&#34;). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the subject, representing the subject under which the referenced schema is registered.
+         * @param name The name of the Schema references (for example, &#34;io.confluent.kafka.example.User&#34;). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subjectName The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+         * @param subjectName The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subjectName The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+         * @param subjectName The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param version The version, representing the exact version of the schema under the registered subject.
+         * @param version (Required Integer) The version of the Schema, for example, `4`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param version The version, representing the exact version of the schema under the registered subject.
+         * @param version (Required Integer) The version of the Schema, for example, `4`.
          * 
          * @return builder
          * 

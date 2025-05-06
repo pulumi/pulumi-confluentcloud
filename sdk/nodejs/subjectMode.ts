@@ -90,6 +90,10 @@ export class SubjectMode extends pulumi.CustomResource {
      */
     public readonly credentials!: pulumi.Output<outputs.SubjectModeCredentials | undefined>;
     /**
+     * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+     */
+    public readonly force!: pulumi.Output<boolean | undefined>;
+    /**
      * The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
      */
     public readonly mode!: pulumi.Output<string>;
@@ -117,6 +121,7 @@ export class SubjectMode extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SubjectModeState | undefined;
             resourceInputs["credentials"] = state ? state.credentials : undefined;
+            resourceInputs["force"] = state ? state.force : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
             resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
             resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
@@ -127,6 +132,7 @@ export class SubjectMode extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subjectName'");
             }
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
+            resourceInputs["force"] = args ? args.force : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
             resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
@@ -147,6 +153,10 @@ export interface SubjectModeState {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.SubjectModeCredentials>;
+    /**
+     * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+     */
+    force?: pulumi.Input<boolean>;
     /**
      * The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
      */
@@ -170,6 +180,10 @@ export interface SubjectModeArgs {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.SubjectModeCredentials>;
+    /**
+     * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+     */
+    force?: pulumi.Input<boolean>;
     /**
      * The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
      */

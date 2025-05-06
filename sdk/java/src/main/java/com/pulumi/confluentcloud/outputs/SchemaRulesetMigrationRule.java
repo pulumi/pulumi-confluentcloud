@@ -60,10 +60,6 @@ public final class SchemaRulesetMigrationRule {
      * 
      */
     private @Nullable Map<String,String> params;
-    /**
-     * @return The tags to which the rule applies, if any.
-     * 
-     */
     private @Nullable List<String> tags;
     /**
      * @return The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
@@ -135,10 +131,6 @@ public final class SchemaRulesetMigrationRule {
     public Map<String,String> params() {
         return this.params == null ? Map.of() : this.params;
     }
-    /**
-     * @return The tags to which the rule applies, if any.
-     * 
-     */
     public List<String> tags() {
         return this.tags == null ? List.of() : this.tags;
     }

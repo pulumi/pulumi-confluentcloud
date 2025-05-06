@@ -2778,20 +2778,11 @@ export interface SchemaMetadata {
      * A list of metadata properties to be encrypted.
      */
     sensitives?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The tags to which the rule applies, if any.
-     */
     tags?: pulumi.Input<pulumi.Input<inputs.SchemaMetadataTag>[]>;
 }
 
 export interface SchemaMetadataTag {
-    /**
-     * The setting name.
-     */
     key?: pulumi.Input<string>;
-    /**
-     * The list of tags.
-     */
     values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -2868,6 +2859,9 @@ export interface SchemaRegistryKekSchemaRegistryCluster {
 }
 
 export interface SchemaRuleset {
+    /**
+     * supports the following:
+     */
     domainRules?: pulumi.Input<pulumi.Input<inputs.SchemaRulesetDomainRule>[]>;
     migrationRules?: pulumi.Input<pulumi.Input<inputs.SchemaRulesetMigrationRule>[]>;
 }
@@ -2893,9 +2887,6 @@ export interface SchemaRulesetDomainRule {
      * The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
      */
     mode: pulumi.Input<string>;
-    /**
-     * A user-defined name that can be used to reference the rule.
-     */
     name: pulumi.Input<string>;
     /**
      * An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
@@ -2913,9 +2904,6 @@ export interface SchemaRulesetDomainRule {
      * > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
      */
     params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The tags to which the rule applies, if any.
-     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
@@ -2961,9 +2949,6 @@ export interface SchemaRulesetMigrationRule {
      * > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
      */
     params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The tags to which the rule applies, if any.
-     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
@@ -2973,15 +2958,15 @@ export interface SchemaRulesetMigrationRule {
 
 export interface SchemaSchemaReference {
     /**
-     * The name of the subject, representing the subject under which the referenced schema is registered.
+     * The name of the Schema references (for example, "io.confluent.kafka.example.User"). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
      */
     name: pulumi.Input<string>;
     /**
-     * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */
     subjectName: pulumi.Input<string>;
     /**
-     * The version, representing the exact version of the schema under the registered subject.
+     * (Required Integer) The version of the Schema, for example, `4`.
      */
     version: pulumi.Input<number>;
 }

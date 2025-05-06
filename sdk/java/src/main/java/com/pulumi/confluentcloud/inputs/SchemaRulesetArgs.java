@@ -17,9 +17,17 @@ public final class SchemaRulesetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SchemaRulesetArgs Empty = new SchemaRulesetArgs();
 
+    /**
+     * supports the following:
+     * 
+     */
     @Import(name="domainRules")
     private @Nullable Output<List<SchemaRulesetDomainRuleArgs>> domainRules;
 
+    /**
+     * @return supports the following:
+     * 
+     */
     public Optional<Output<List<SchemaRulesetDomainRuleArgs>>> domainRules() {
         return Optional.ofNullable(this.domainRules);
     }
@@ -56,15 +64,33 @@ public final class SchemaRulesetArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SchemaRulesetArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainRules supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainRules(@Nullable Output<List<SchemaRulesetDomainRuleArgs>> domainRules) {
             $.domainRules = domainRules;
             return this;
         }
 
+        /**
+         * @param domainRules supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainRules(List<SchemaRulesetDomainRuleArgs> domainRules) {
             return domainRules(Output.of(domainRules));
         }
 
+        /**
+         * @param domainRules supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainRules(SchemaRulesetDomainRuleArgs... domainRules) {
             return domainRules(List.of(domainRules));
         }

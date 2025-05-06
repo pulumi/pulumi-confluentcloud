@@ -13,19 +13,19 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class SchemaSchemaReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the subject, representing the subject under which the referenced schema is registered.
+        /// The name of the Schema references (for example, "io.confluent.kafka.example.User"). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        /// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         /// </summary>
         [Input("subjectName", required: true)]
         public Input<string> SubjectName { get; set; } = null!;
 
         /// <summary>
-        /// The version, representing the exact version of the schema under the registered subject.
+        /// (Required Integer) The version of the Schema, for example, `4`.
         /// </summary>
         [Input("version", required: true)]
         public Input<int> Version { get; set; } = null!;

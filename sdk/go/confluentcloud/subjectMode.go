@@ -96,6 +96,8 @@ type SubjectMode struct {
 
 	// The Cluster API Credentials.
 	Credentials SubjectModeCredentialsPtrOutput `pulumi:"credentials"`
+	// An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+	Force pulumi.BoolPtrOutput `pulumi:"force"`
 	// The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -147,6 +149,8 @@ func GetSubjectMode(ctx *pulumi.Context,
 type subjectModeState struct {
 	// The Cluster API Credentials.
 	Credentials *SubjectModeCredentials `pulumi:"credentials"`
+	// An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+	Force *bool `pulumi:"force"`
 	// The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
 	Mode *string `pulumi:"mode"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -159,6 +163,8 @@ type subjectModeState struct {
 type SubjectModeState struct {
 	// The Cluster API Credentials.
 	Credentials SubjectModeCredentialsPtrInput
+	// An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+	Force pulumi.BoolPtrInput
 	// The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
 	Mode pulumi.StringPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -175,6 +181,8 @@ func (SubjectModeState) ElementType() reflect.Type {
 type subjectModeArgs struct {
 	// The Cluster API Credentials.
 	Credentials *SubjectModeCredentials `pulumi:"credentials"`
+	// An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+	Force *bool `pulumi:"force"`
 	// The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
 	Mode *string `pulumi:"mode"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -188,6 +196,8 @@ type subjectModeArgs struct {
 type SubjectModeArgs struct {
 	// The Cluster API Credentials.
 	Credentials SubjectModeCredentialsPtrInput
+	// An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+	Force pulumi.BoolPtrInput
 	// The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
 	Mode pulumi.StringPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -287,6 +297,11 @@ func (o SubjectModeOutput) ToSubjectModeOutputWithContext(ctx context.Context) S
 // The Cluster API Credentials.
 func (o SubjectModeOutput) Credentials() SubjectModeCredentialsPtrOutput {
 	return o.ApplyT(func(v *SubjectMode) SubjectModeCredentialsPtrOutput { return v.Credentials }).(SubjectModeCredentialsPtrOutput)
+}
+
+// An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
+func (o SubjectModeOutput) Force() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SubjectMode) pulumi.BoolPtrOutput { return v.Force }).(pulumi.BoolPtrOutput)
 }
 
 // The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.

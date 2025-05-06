@@ -42,9 +42,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 
-        /// <summary>
-        /// A user-defined name that can be used to reference the rule.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -78,10 +75,6 @@ namespace Pulumi.ConfluentCloud.Inputs
 
         [Input("tags")]
         private InputList<string>? _tags;
-
-        /// <summary>
-        /// The tags to which the rule applies, if any.
-        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());

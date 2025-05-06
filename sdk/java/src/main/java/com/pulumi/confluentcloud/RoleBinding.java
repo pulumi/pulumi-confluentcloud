@@ -10,7 +10,9 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -19,6 +21,75 @@ import javax.annotation.Nullable;
  * `confluentcloud.RoleBinding` provides a Role Binding resource that enables creating, reading, and deleting role bindings on Confluent Cloud.
  * 
  * &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
+ * 
+ * ## Example of using time_sleep
+ * 
+ * This configuration introduces a 360-second custom delay after the creation of a role binding, before creating a Kafka topic.
+ * 
+ * For context, using `disable_wait_for_ready = false` (the default setting) results in a 90-second hardcoded delay, while opting for `disable_wait_for_ready = true` results in a 0-second delay.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.RoleBinding;
+ * import com.pulumi.confluentcloud.RoleBindingArgs;
+ * import com.pulumi.time.sleep;
+ * import com.pulumi.time.sleepArgs;
+ * import com.pulumi.confluentcloud.KafkaTopic;
+ * import com.pulumi.confluentcloud.KafkaTopicArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaTopicKafkaClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaTopicCredentialsArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var app_manager_kafka_cluster_admin_skip_sync = new RoleBinding("app-manager-kafka-cluster-admin-skip-sync", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", app_manager.id()))
+ *             .roleName("CloudClusterAdmin")
+ *             .crnPattern(standard.rbacCrn())
+ *             .disableWaitForReady(true)
+ *             .build());
+ * 
+ *         var wait360SecondsAfterRoleBinding = new Sleep("wait360SecondsAfterRoleBinding", SleepArgs.builder()
+ *             .createDuration("360s")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(List.of(app_manager_kafka_cluster_admin_skip_sync))
+ *                 .build());
+ * 
+ *         var orders = new KafkaTopic("orders", KafkaTopicArgs.builder()
+ *             .kafkaCluster(KafkaTopicKafkaClusterArgs.builder()
+ *                 .id(standard.id())
+ *                 .build())
+ *             .topicName("orders")
+ *             .restEndpoint(standard.restEndpoint())
+ *             .credentials(KafkaTopicCredentialsArgs.builder()
+ *                 .key(app_manager_kafka_api_key.id())
+ *                 .secret(app_manager_kafka_api_key.secret())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(wait360SecondsAfterRoleBinding)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -38,18 +109,24 @@ import javax.annotation.Nullable;
 @ResourceType(type="confluentcloud:index/roleBinding:RoleBinding")
 public class RoleBinding extends com.pulumi.resources.CustomResource {
     /**
-     * A [Confluent Resource Name(CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
+     * A [Confluent Resource Name (CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
      * 
      */
     @Export(name="crnPattern", refs={String.class}, tree="[0]")
     private Output<String> crnPattern;
 
     /**
-     * @return A [Confluent Resource Name(CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
+     * @return A [Confluent Resource Name (CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
      * 
      */
     public Output<String> crnPattern() {
         return this.crnPattern;
+    }
+    @Export(name="disableWaitForReady", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> disableWaitForReady;
+
+    public Output<Optional<Boolean>> disableWaitForReady() {
+        return Codegen.optional(this.disableWaitForReady);
     }
     /**
      * A principal User to bind the role to, for example, &#34;User:u-111aaa&#34; for binding to a user &#34;u-111aaa&#34;, or &#34;User:sa-111aaa&#34; for binding to a service account &#34;sa-111aaa&#34;.

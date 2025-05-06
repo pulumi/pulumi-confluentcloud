@@ -106,6 +106,10 @@ type SubjectConfig struct {
 	RestEndpoint          pulumi.StringPtrOutput                      `pulumi:"restEndpoint"`
 	SchemaRegistryCluster SubjectConfigSchemaRegistryClusterPtrOutput `pulumi:"schemaRegistryCluster"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+	//
+	// > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subjectName = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subjectName = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+	//
+	// > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subjectName = ":.context1:"`.
 	SubjectName pulumi.StringOutput `pulumi:"subjectName"`
 }
 
@@ -159,6 +163,10 @@ type subjectConfigState struct {
 	RestEndpoint          *string                             `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *SubjectConfigSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+	//
+	// > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subjectName = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subjectName = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+	//
+	// > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subjectName = ":.context1:"`.
 	SubjectName *string `pulumi:"subjectName"`
 }
 
@@ -173,6 +181,10 @@ type SubjectConfigState struct {
 	RestEndpoint          pulumi.StringPtrInput
 	SchemaRegistryCluster SubjectConfigSchemaRegistryClusterPtrInput
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+	//
+	// > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subjectName = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subjectName = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+	//
+	// > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subjectName = ":.context1:"`.
 	SubjectName pulumi.StringPtrInput
 }
 
@@ -191,6 +203,10 @@ type subjectConfigArgs struct {
 	RestEndpoint          *string                             `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *SubjectConfigSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+	//
+	// > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subjectName = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subjectName = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+	//
+	// > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subjectName = ":.context1:"`.
 	SubjectName string `pulumi:"subjectName"`
 }
 
@@ -206,6 +222,10 @@ type SubjectConfigArgs struct {
 	RestEndpoint          pulumi.StringPtrInput
 	SchemaRegistryCluster SubjectConfigSchemaRegistryClusterPtrInput
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+	//
+	// > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subjectName = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subjectName = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+	//
+	// > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subjectName = ":.context1:"`.
 	SubjectName pulumi.StringInput
 }
 
@@ -321,6 +341,10 @@ func (o SubjectConfigOutput) SchemaRegistryCluster() SubjectConfigSchemaRegistry
 }
 
 // The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+//
+// > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subjectName = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subjectName = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+//
+// > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subjectName = ":.context1:"`.
 func (o SubjectConfigOutput) SubjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubjectConfig) pulumi.StringOutput { return v.SubjectName }).(pulumi.StringOutput)
 }

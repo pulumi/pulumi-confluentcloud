@@ -12,10 +12,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SchemaRuleset {
+    /**
+     * @return supports the following:
+     * 
+     */
     private @Nullable List<SchemaRulesetDomainRule> domainRules;
     private @Nullable List<SchemaRulesetMigrationRule> migrationRules;
 
     private SchemaRuleset() {}
+    /**
+     * @return supports the following:
+     * 
+     */
     public List<SchemaRulesetDomainRule> domainRules() {
         return this.domainRules == null ? List.of() : this.domainRules;
     }

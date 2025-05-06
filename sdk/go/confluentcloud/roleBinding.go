@@ -18,6 +18,66 @@ import (
 //
 // > **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
 //
+// ## Example of using timeSleep
+//
+// This configuration introduces a 360-second custom delay after the creation of a role binding, before creating a Kafka topic.
+//
+// For context, using `disableWaitForReady = false` (the default setting) results in a 90-second hardcoded delay, while opting for `disableWaitForReady = true` results in a 0-second delay.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi-time/sdk/go/time"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			app_manager_kafka_cluster_admin_skip_sync, err := confluentcloud.NewRoleBinding(ctx, "app-manager-kafka-cluster-admin-skip-sync", &confluentcloud.RoleBindingArgs{
+//				Principal:           pulumi.Sprintf("User:%v", app_manager.Id),
+//				RoleName:            pulumi.String("CloudClusterAdmin"),
+//				CrnPattern:          pulumi.Any(standard.RbacCrn),
+//				DisableWaitForReady: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			wait360SecondsAfterRoleBinding, err := time.NewSleep(ctx, "wait_360_seconds_after_role_binding", &time.SleepArgs{
+//				CreateDuration: "360s",
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				app_manager_kafka_cluster_admin_skip_sync,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewKafkaTopic(ctx, "orders", &confluentcloud.KafkaTopicArgs{
+//				KafkaCluster: &confluentcloud.KafkaTopicKafkaClusterArgs{
+//					Id: pulumi.Any(standard.Id),
+//				},
+//				TopicName:    pulumi.String("orders"),
+//				RestEndpoint: pulumi.Any(standard.RestEndpoint),
+//				Credentials: &confluentcloud.KafkaTopicCredentialsArgs{
+//					Key:    pulumi.Any(app_manager_kafka_api_key.Id),
+//					Secret: pulumi.Any(app_manager_kafka_api_key.Secret),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				wait360SecondsAfterRoleBinding,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // You can import a Role Binding by using Role Binding ID, for example:
@@ -34,8 +94,9 @@ import (
 type RoleBinding struct {
 	pulumi.CustomResourceState
 
-	// A [Confluent Resource Name(CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
-	CrnPattern pulumi.StringOutput `pulumi:"crnPattern"`
+	// A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
+	CrnPattern          pulumi.StringOutput  `pulumi:"crnPattern"`
+	DisableWaitForReady pulumi.BoolPtrOutput `pulumi:"disableWaitForReady"`
 	// A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// A name of the role to bind to the principal. See [Confluent Cloud RBAC Roles](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#ccloud-rbac-roles) for a full list of supported role names.
@@ -81,8 +142,9 @@ func GetRoleBinding(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleBinding resources.
 type roleBindingState struct {
-	// A [Confluent Resource Name(CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
-	CrnPattern *string `pulumi:"crnPattern"`
+	// A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
+	CrnPattern          *string `pulumi:"crnPattern"`
+	DisableWaitForReady *bool   `pulumi:"disableWaitForReady"`
 	// A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
 	Principal *string `pulumi:"principal"`
 	// A name of the role to bind to the principal. See [Confluent Cloud RBAC Roles](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#ccloud-rbac-roles) for a full list of supported role names.
@@ -90,8 +152,9 @@ type roleBindingState struct {
 }
 
 type RoleBindingState struct {
-	// A [Confluent Resource Name(CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
-	CrnPattern pulumi.StringPtrInput
+	// A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
+	CrnPattern          pulumi.StringPtrInput
+	DisableWaitForReady pulumi.BoolPtrInput
 	// A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
 	Principal pulumi.StringPtrInput
 	// A name of the role to bind to the principal. See [Confluent Cloud RBAC Roles](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#ccloud-rbac-roles) for a full list of supported role names.
@@ -103,8 +166,9 @@ func (RoleBindingState) ElementType() reflect.Type {
 }
 
 type roleBindingArgs struct {
-	// A [Confluent Resource Name(CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
-	CrnPattern string `pulumi:"crnPattern"`
+	// A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
+	CrnPattern          string `pulumi:"crnPattern"`
+	DisableWaitForReady *bool  `pulumi:"disableWaitForReady"`
 	// A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
 	Principal string `pulumi:"principal"`
 	// A name of the role to bind to the principal. See [Confluent Cloud RBAC Roles](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#ccloud-rbac-roles) for a full list of supported role names.
@@ -113,8 +177,9 @@ type roleBindingArgs struct {
 
 // The set of arguments for constructing a RoleBinding resource.
 type RoleBindingArgs struct {
-	// A [Confluent Resource Name(CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
-	CrnPattern pulumi.StringInput
+	// A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
+	CrnPattern          pulumi.StringInput
+	DisableWaitForReady pulumi.BoolPtrInput
 	// A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
 	Principal pulumi.StringInput
 	// A name of the role to bind to the principal. See [Confluent Cloud RBAC Roles](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#ccloud-rbac-roles) for a full list of supported role names.
@@ -208,9 +273,13 @@ func (o RoleBindingOutput) ToRoleBindingOutputWithContext(ctx context.Context) R
 	return o
 }
 
-// A [Confluent Resource Name(CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
+// A [Confluent Resource Name (CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
 func (o RoleBindingOutput) CrnPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleBinding) pulumi.StringOutput { return v.CrnPattern }).(pulumi.StringOutput)
+}
+
+func (o RoleBindingOutput) DisableWaitForReady() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleBinding) pulumi.BoolPtrOutput { return v.DisableWaitForReady }).(pulumi.BoolPtrOutput)
 }
 
 // A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".

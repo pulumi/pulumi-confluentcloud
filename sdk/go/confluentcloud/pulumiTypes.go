@@ -18072,9 +18072,8 @@ type SchemaMetadata struct {
 	// The custom properties to set:
 	Properties map[string]string `pulumi:"properties"`
 	// A list of metadata properties to be encrypted.
-	Sensitives []string `pulumi:"sensitives"`
-	// The tags to which the rule applies, if any.
-	Tags []SchemaMetadataTag `pulumi:"tags"`
+	Sensitives []string            `pulumi:"sensitives"`
+	Tags       []SchemaMetadataTag `pulumi:"tags"`
 }
 
 // SchemaMetadataInput is an input type that accepts SchemaMetadataArgs and SchemaMetadataOutput values.
@@ -18092,9 +18091,8 @@ type SchemaMetadataArgs struct {
 	// The custom properties to set:
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// A list of metadata properties to be encrypted.
-	Sensitives pulumi.StringArrayInput `pulumi:"sensitives"`
-	// The tags to which the rule applies, if any.
-	Tags SchemaMetadataTagArrayInput `pulumi:"tags"`
+	Sensitives pulumi.StringArrayInput     `pulumi:"sensitives"`
+	Tags       SchemaMetadataTagArrayInput `pulumi:"tags"`
 }
 
 func (SchemaMetadataArgs) ElementType() reflect.Type {
@@ -18184,7 +18182,6 @@ func (o SchemaMetadataOutput) Sensitives() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaMetadata) []string { return v.Sensitives }).(pulumi.StringArrayOutput)
 }
 
-// The tags to which the rule applies, if any.
 func (o SchemaMetadataOutput) Tags() SchemaMetadataTagArrayOutput {
 	return o.ApplyT(func(v SchemaMetadata) []SchemaMetadataTag { return v.Tags }).(SchemaMetadataTagArrayOutput)
 }
@@ -18233,7 +18230,6 @@ func (o SchemaMetadataPtrOutput) Sensitives() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The tags to which the rule applies, if any.
 func (o SchemaMetadataPtrOutput) Tags() SchemaMetadataTagArrayOutput {
 	return o.ApplyT(func(v *SchemaMetadata) []SchemaMetadataTag {
 		if v == nil {
@@ -18244,9 +18240,7 @@ func (o SchemaMetadataPtrOutput) Tags() SchemaMetadataTagArrayOutput {
 }
 
 type SchemaMetadataTag struct {
-	// The setting name.
-	Key *string `pulumi:"key"`
-	// The list of tags.
+	Key    *string  `pulumi:"key"`
 	Values []string `pulumi:"values"`
 }
 
@@ -18262,9 +18256,7 @@ type SchemaMetadataTagInput interface {
 }
 
 type SchemaMetadataTagArgs struct {
-	// The setting name.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The list of tags.
+	Key    pulumi.StringPtrInput   `pulumi:"key"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -18319,12 +18311,10 @@ func (o SchemaMetadataTagOutput) ToSchemaMetadataTagOutputWithContext(ctx contex
 	return o
 }
 
-// The setting name.
 func (o SchemaMetadataTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaMetadataTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The list of tags.
 func (o SchemaMetadataTagOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaMetadataTag) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -19522,6 +19512,7 @@ func (o SchemaRegistryKekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOu
 }
 
 type SchemaRuleset struct {
+	// supports the following:
 	DomainRules    []SchemaRulesetDomainRule    `pulumi:"domainRules"`
 	MigrationRules []SchemaRulesetMigrationRule `pulumi:"migrationRules"`
 }
@@ -19538,6 +19529,7 @@ type SchemaRulesetInput interface {
 }
 
 type SchemaRulesetArgs struct {
+	// supports the following:
 	DomainRules    SchemaRulesetDomainRuleArrayInput    `pulumi:"domainRules"`
 	MigrationRules SchemaRulesetMigrationRuleArrayInput `pulumi:"migrationRules"`
 }
@@ -19619,6 +19611,7 @@ func (o SchemaRulesetOutput) ToSchemaRulesetPtrOutputWithContext(ctx context.Con
 	}).(SchemaRulesetPtrOutput)
 }
 
+// supports the following:
 func (o SchemaRulesetOutput) DomainRules() SchemaRulesetDomainRuleArrayOutput {
 	return o.ApplyT(func(v SchemaRuleset) []SchemaRulesetDomainRule { return v.DomainRules }).(SchemaRulesetDomainRuleArrayOutput)
 }
@@ -19651,6 +19644,7 @@ func (o SchemaRulesetPtrOutput) Elem() SchemaRulesetOutput {
 	}).(SchemaRulesetOutput)
 }
 
+// supports the following:
 func (o SchemaRulesetPtrOutput) DomainRules() SchemaRulesetDomainRuleArrayOutput {
 	return o.ApplyT(func(v *SchemaRuleset) []SchemaRulesetDomainRule {
 		if v == nil {
@@ -19680,7 +19674,6 @@ type SchemaRulesetDomainRule struct {
 	Kind string `pulumi:"kind"`
 	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 	Mode string `pulumi:"mode"`
-	// A user-defined name that can be used to reference the rule.
 	Name string `pulumi:"name"`
 	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure *string `pulumi:"onFailure"`
@@ -19692,8 +19685,7 @@ type SchemaRulesetDomainRule struct {
 	//
 	// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
 	Params map[string]string `pulumi:"params"`
-	// The tags to which the rule applies, if any.
-	Tags []string `pulumi:"tags"`
+	Tags   []string          `pulumi:"tags"`
 	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type string `pulumi:"type"`
 }
@@ -19720,7 +19712,6 @@ type SchemaRulesetDomainRuleArgs struct {
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// A user-defined name that can be used to reference the rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
@@ -19731,9 +19722,8 @@ type SchemaRulesetDomainRuleArgs struct {
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
 	//
 	// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
-	Params pulumi.StringMapInput `pulumi:"params"`
-	// The tags to which the rule applies, if any.
-	Tags pulumi.StringArrayInput `pulumi:"tags"`
+	Params pulumi.StringMapInput   `pulumi:"params"`
+	Tags   pulumi.StringArrayInput `pulumi:"tags"`
 	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -19814,7 +19804,6 @@ func (o SchemaRulesetDomainRuleOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// A user-defined name that can be used to reference the rule.
 func (o SchemaRulesetDomainRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -19838,7 +19827,6 @@ func (o SchemaRulesetDomainRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }
 
-// The tags to which the rule applies, if any.
 func (o SchemaRulesetDomainRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
@@ -19890,8 +19878,7 @@ type SchemaRulesetMigrationRule struct {
 	//
 	// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
 	Params map[string]string `pulumi:"params"`
-	// The tags to which the rule applies, if any.
-	Tags []string `pulumi:"tags"`
+	Tags   []string          `pulumi:"tags"`
 	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type string `pulumi:"type"`
 }
@@ -19928,9 +19915,8 @@ type SchemaRulesetMigrationRuleArgs struct {
 	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
 	//
 	// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
-	Params pulumi.StringMapInput `pulumi:"params"`
-	// The tags to which the rule applies, if any.
-	Tags pulumi.StringArrayInput `pulumi:"tags"`
+	Params pulumi.StringMapInput   `pulumi:"params"`
+	Tags   pulumi.StringArrayInput `pulumi:"tags"`
 	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -20034,7 +20020,6 @@ func (o SchemaRulesetMigrationRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }
 
-// The tags to which the rule applies, if any.
 func (o SchemaRulesetMigrationRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
@@ -20065,11 +20050,11 @@ func (o SchemaRulesetMigrationRuleArrayOutput) Index(i pulumi.IntInput) SchemaRu
 }
 
 type SchemaSchemaReference struct {
-	// The name of the subject, representing the subject under which the referenced schema is registered.
+	// The name of the Schema references (for example, "io.confluent.kafka.example.User"). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
 	Name string `pulumi:"name"`
-	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName string `pulumi:"subjectName"`
-	// The version, representing the exact version of the schema under the registered subject.
+	// (Required Integer) The version of the Schema, for example, `4`.
 	Version int `pulumi:"version"`
 }
 
@@ -20085,11 +20070,11 @@ type SchemaSchemaReferenceInput interface {
 }
 
 type SchemaSchemaReferenceArgs struct {
-	// The name of the subject, representing the subject under which the referenced schema is registered.
+	// The name of the Schema references (for example, "io.confluent.kafka.example.User"). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName pulumi.StringInput `pulumi:"subjectName"`
-	// The version, representing the exact version of the schema under the registered subject.
+	// (Required Integer) The version of the Schema, for example, `4`.
 	Version pulumi.IntInput `pulumi:"version"`
 }
 
@@ -20144,17 +20129,17 @@ func (o SchemaSchemaReferenceOutput) ToSchemaSchemaReferenceOutputWithContext(ct
 	return o
 }
 
-// The name of the subject, representing the subject under which the referenced schema is registered.
+// The name of the Schema references (for example, "io.confluent.kafka.example.User"). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
 func (o SchemaSchemaReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaSchemaReference) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 func (o SchemaSchemaReferenceOutput) SubjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaSchemaReference) string { return v.SubjectName }).(pulumi.StringOutput)
 }
 
-// The version, representing the exact version of the schema under the registered subject.
+// (Required Integer) The version of the Schema, for example, `4`.
 func (o SchemaSchemaReferenceOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v SchemaSchemaReference) int { return v.Version }).(pulumi.IntOutput)
 }

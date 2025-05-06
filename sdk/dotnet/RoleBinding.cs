@@ -16,6 +16,64 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
     /// 
+    /// ## Example of using time_sleep
+    /// 
+    /// This configuration introduces a 360-second custom delay after the creation of a role binding, before creating a Kafka topic.
+    /// 
+    /// For context, using `disable_wait_for_ready = false` (the default setting) results in a 90-second hardcoded delay, while opting for `disable_wait_for_ready = true` results in a 0-second delay.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// using Time = Pulumi.Time;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var app_manager_kafka_cluster_admin_skip_sync = new ConfluentCloud.RoleBinding("app-manager-kafka-cluster-admin-skip-sync", new()
+    ///     {
+    ///         Principal = $"User:{app_manager.Id}",
+    ///         RoleName = "CloudClusterAdmin",
+    ///         CrnPattern = standard.RbacCrn,
+    ///         DisableWaitForReady = true,
+    ///     });
+    /// 
+    ///     var wait360SecondsAfterRoleBinding = new Time.Index.Sleep("wait_360_seconds_after_role_binding", new()
+    ///     {
+    ///         CreateDuration = "360s",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             app_manager_kafka_cluster_admin_skip_sync,
+    ///         },
+    ///     });
+    /// 
+    ///     var orders = new ConfluentCloud.KafkaTopic("orders", new()
+    ///     {
+    ///         KafkaCluster = new ConfluentCloud.Inputs.KafkaTopicKafkaClusterArgs
+    ///         {
+    ///             Id = standard.Id,
+    ///         },
+    ///         TopicName = "orders",
+    ///         RestEndpoint = standard.RestEndpoint,
+    ///         Credentials = new ConfluentCloud.Inputs.KafkaTopicCredentialsArgs
+    ///         {
+    ///             Key = app_manager_kafka_api_key.Id,
+    ///             Secret = app_manager_kafka_api_key.Secret,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             wait360SecondsAfterRoleBinding,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// You can import a Role Binding by using Role Binding ID, for example:
@@ -34,10 +92,13 @@ namespace Pulumi.ConfluentCloud
     public partial class RoleBinding : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A [Confluent Resource Name(CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+        /// A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
         /// </summary>
         [Output("crnPattern")]
         public Output<string> CrnPattern { get; private set; } = null!;
+
+        [Output("disableWaitForReady")]
+        public Output<bool?> DisableWaitForReady { get; private set; } = null!;
 
         /// <summary>
         /// A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
@@ -98,10 +159,13 @@ namespace Pulumi.ConfluentCloud
     public sealed class RoleBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A [Confluent Resource Name(CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+        /// A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
         /// </summary>
         [Input("crnPattern", required: true)]
         public Input<string> CrnPattern { get; set; } = null!;
+
+        [Input("disableWaitForReady")]
+        public Input<bool>? DisableWaitForReady { get; set; }
 
         /// <summary>
         /// A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
@@ -124,10 +188,13 @@ namespace Pulumi.ConfluentCloud
     public sealed class RoleBindingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A [Confluent Resource Name(CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
+        /// A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
         /// </summary>
         [Input("crnPattern")]
         public Input<string>? CrnPattern { get; set; }
+
+        [Input("disableWaitForReady")]
+        public Input<bool>? DisableWaitForReady { get; set; }
 
         /// <summary>
         /// A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".

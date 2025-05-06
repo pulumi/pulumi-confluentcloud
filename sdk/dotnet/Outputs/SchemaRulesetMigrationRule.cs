@@ -50,9 +50,6 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Params;
-        /// <summary>
-        /// The tags to which the rule applies, if any.
-        /// </summary>
         public readonly ImmutableArray<string> Tags;
         /// <summary>
         /// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.

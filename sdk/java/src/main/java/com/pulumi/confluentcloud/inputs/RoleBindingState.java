@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,18 +17,25 @@ public final class RoleBindingState extends com.pulumi.resources.ResourceArgs {
     public static final RoleBindingState Empty = new RoleBindingState();
 
     /**
-     * A [Confluent Resource Name(CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
+     * A [Confluent Resource Name (CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
      * 
      */
     @Import(name="crnPattern")
     private @Nullable Output<String> crnPattern;
 
     /**
-     * @return A [Confluent Resource Name(CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
+     * @return A [Confluent Resource Name (CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
      * 
      */
     public Optional<Output<String>> crnPattern() {
         return Optional.ofNullable(this.crnPattern);
+    }
+
+    @Import(name="disableWaitForReady")
+    private @Nullable Output<Boolean> disableWaitForReady;
+
+    public Optional<Output<Boolean>> disableWaitForReady() {
+        return Optional.ofNullable(this.disableWaitForReady);
     }
 
     /**
@@ -64,6 +72,7 @@ public final class RoleBindingState extends com.pulumi.resources.ResourceArgs {
 
     private RoleBindingState(RoleBindingState $) {
         this.crnPattern = $.crnPattern;
+        this.disableWaitForReady = $.disableWaitForReady;
         this.principal = $.principal;
         this.roleName = $.roleName;
     }
@@ -87,7 +96,7 @@ public final class RoleBindingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crnPattern A [Confluent Resource Name(CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
+         * @param crnPattern A [Confluent Resource Name (CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
          * 
          * @return builder
          * 
@@ -98,13 +107,22 @@ public final class RoleBindingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crnPattern A [Confluent Resource Name(CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
+         * @param crnPattern A [Confluent Resource Name (CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
          * 
          * @return builder
          * 
          */
         public Builder crnPattern(String crnPattern) {
             return crnPattern(Output.of(crnPattern));
+        }
+
+        public Builder disableWaitForReady(@Nullable Output<Boolean> disableWaitForReady) {
+            $.disableWaitForReady = disableWaitForReady;
+            return this;
+        }
+
+        public Builder disableWaitForReady(Boolean disableWaitForReady) {
+            return disableWaitForReady(Output.of(disableWaitForReady));
         }
 
         /**
