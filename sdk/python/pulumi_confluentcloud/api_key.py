@@ -214,10 +214,8 @@ class _ApiKeyState:
         pulumi.set(self, "secret", value)
 
 
+@pulumi.type_token("confluentcloud:index/apiKey:ApiKey")
 class ApiKey(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/apiKey:ApiKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

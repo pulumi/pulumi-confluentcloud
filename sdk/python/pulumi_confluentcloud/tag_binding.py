@@ -216,10 +216,8 @@ class _TagBindingState:
         pulumi.set(self, "tag_name", value)
 
 
+@pulumi.type_token("confluentcloud:index/tagBinding:TagBinding")
 class TagBinding(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/tagBinding:TagBinding"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

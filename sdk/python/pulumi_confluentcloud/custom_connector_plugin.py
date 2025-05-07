@@ -285,10 +285,8 @@ class _CustomConnectorPluginState:
         pulumi.set(self, "sensitive_config_properties", value)
 
 
+@pulumi.type_token("confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin")
 class CustomConnectorPlugin(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

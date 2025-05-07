@@ -205,10 +205,8 @@ class _PeeringState:
         pulumi.set(self, "network", value)
 
 
+@pulumi.type_token("confluentcloud:index/peering:Peering")
 class Peering(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/peering:Peering"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -190,10 +190,8 @@ class _IdentityPoolState:
         pulumi.set(self, "identity_provider", value)
 
 
+@pulumi.type_token("confluentcloud:index/identityPool:IdentityPool")
 class IdentityPool(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/identityPool:IdentityPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

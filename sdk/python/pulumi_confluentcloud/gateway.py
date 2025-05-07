@@ -193,10 +193,8 @@ class _GatewayState:
         pulumi.set(self, "environment", value)
 
 
+@pulumi.type_token("confluentcloud:index/gateway:Gateway")
 class Gateway(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/gateway:Gateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

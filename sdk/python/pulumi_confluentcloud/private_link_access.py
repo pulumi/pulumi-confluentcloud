@@ -205,10 +205,8 @@ class _PrivateLinkAccessState:
         pulumi.set(self, "network", value)
 
 
+@pulumi.type_token("confluentcloud:index/privateLinkAccess:PrivateLinkAccess")
 class PrivateLinkAccess(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/privateLinkAccess:PrivateLinkAccess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

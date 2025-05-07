@@ -360,10 +360,8 @@ class _TableflowTopicState:
         pulumi.set(self, "table_formats", value)
 
 
+@pulumi.type_token("confluentcloud:index/tableflowTopic:TableflowTopic")
 class TableflowTopic(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/tableflowTopic:TableflowTopic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

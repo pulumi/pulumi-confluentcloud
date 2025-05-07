@@ -214,10 +214,8 @@ class _KafkaClientQuotaState:
         pulumi.set(self, "throughput", value)
 
 
+@pulumi.type_token("confluentcloud:index/kafkaClientQuota:KafkaClientQuota")
 class KafkaClientQuota(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/kafkaClientQuota:KafkaClientQuota"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

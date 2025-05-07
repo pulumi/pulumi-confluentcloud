@@ -131,10 +131,8 @@ class _ByokKeyState:
         pulumi.set(self, "gcp", value)
 
 
+@pulumi.type_token("confluentcloud:index/byokKey:ByokKey")
 class ByokKey(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/byokKey:ByokKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

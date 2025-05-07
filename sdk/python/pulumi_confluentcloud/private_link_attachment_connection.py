@@ -216,10 +216,8 @@ class _PrivateLinkAttachmentConnectionState:
         pulumi.set(self, "resource_name", value)
 
 
+@pulumi.type_token("confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection")
 class PrivateLinkAttachmentConnection(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

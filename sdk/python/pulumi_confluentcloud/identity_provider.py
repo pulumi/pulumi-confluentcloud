@@ -205,10 +205,8 @@ class _IdentityProviderState:
         pulumi.set(self, "jwks_uri", value)
 
 
+@pulumi.type_token("confluentcloud:index/identityProvider:IdentityProvider")
 class IdentityProvider(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/identityProvider:IdentityProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

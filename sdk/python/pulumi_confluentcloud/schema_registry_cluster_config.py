@@ -187,10 +187,8 @@ class _SchemaRegistryClusterConfigState:
         pulumi.set(self, "schema_registry_cluster", value)
 
 
+@pulumi.type_token("confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig")
 class SchemaRegistryClusterConfig(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

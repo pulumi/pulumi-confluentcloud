@@ -333,10 +333,8 @@ class _SchemaRegistryDekState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("confluentcloud:index/schemaRegistryDek:SchemaRegistryDek")
 class SchemaRegistryDek(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/schemaRegistryDek:SchemaRegistryDek"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

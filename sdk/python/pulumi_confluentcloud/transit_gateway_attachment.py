@@ -165,10 +165,8 @@ class _TransitGatewayAttachmentState:
         pulumi.set(self, "network", value)
 
 
+@pulumi.type_token("confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment")
 class TransitGatewayAttachment(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

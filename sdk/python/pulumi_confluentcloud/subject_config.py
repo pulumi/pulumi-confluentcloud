@@ -234,10 +234,8 @@ class _SubjectConfigState:
         pulumi.set(self, "subject_name", value)
 
 
+@pulumi.type_token("confluentcloud:index/subjectConfig:SubjectConfig")
 class SubjectConfig(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/subjectConfig:SubjectConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

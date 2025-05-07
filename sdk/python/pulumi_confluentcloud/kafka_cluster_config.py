@@ -154,10 +154,8 @@ class _KafkaClusterConfigState:
         pulumi.set(self, "rest_endpoint", value)
 
 
+@pulumi.type_token("confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig")
 class KafkaClusterConfig(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
