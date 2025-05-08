@@ -275,10 +275,8 @@ class _ClusterLinkState:
         pulumi.set(self, "source_kafka_cluster", value)
 
 
+@pulumi.type_token("confluentcloud:index/clusterLink:ClusterLink")
 class ClusterLink(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/clusterLink:ClusterLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

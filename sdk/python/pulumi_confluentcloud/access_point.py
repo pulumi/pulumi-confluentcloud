@@ -249,10 +249,8 @@ class _AccessPointState:
         pulumi.set(self, "gcp_egress_private_service_connect_endpoint", value)
 
 
+@pulumi.type_token("confluentcloud:index/accessPoint:AccessPoint")
 class AccessPoint(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/accessPoint:AccessPoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -239,10 +239,8 @@ class _FlinkComputePoolState:
         pulumi.set(self, "resource_name", value)
 
 
+@pulumi.type_token("confluentcloud:index/flinkComputePool:FlinkComputePool")
 class FlinkComputePool(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/flinkComputePool:FlinkComputePool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

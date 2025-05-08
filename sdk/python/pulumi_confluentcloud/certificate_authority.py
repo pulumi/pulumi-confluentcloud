@@ -301,10 +301,8 @@ class _CertificateAuthorityState:
         pulumi.set(self, "serial_numbers", value)
 
 
+@pulumi.type_token("confluentcloud:index/certificateAuthority:CertificateAuthority")
 class CertificateAuthority(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/certificateAuthority:CertificateAuthority"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

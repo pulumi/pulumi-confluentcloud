@@ -361,10 +361,8 @@ class _SchemaRegistryKekState:
         pulumi.set(self, "shared", value)
 
 
+@pulumi.type_token("confluentcloud:index/schemaRegistryKek:SchemaRegistryKek")
 class SchemaRegistryKek(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/schemaRegistryKek:SchemaRegistryKek"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

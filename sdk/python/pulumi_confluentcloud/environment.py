@@ -115,10 +115,8 @@ class _EnvironmentState:
         pulumi.set(self, "stream_governance", value)
 
 
+@pulumi.type_token("confluentcloud:index/environment:Environment")
 class Environment(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/environment:Environment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

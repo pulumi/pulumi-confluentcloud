@@ -150,10 +150,8 @@ class _RoleBindingState:
         pulumi.set(self, "role_name", value)
 
 
+@pulumi.type_token("confluentcloud:index/roleBinding:RoleBinding")
 class RoleBinding(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/roleBinding:RoleBinding"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
