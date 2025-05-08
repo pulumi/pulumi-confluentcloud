@@ -547,10 +547,8 @@ class _NetworkState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("confluentcloud:index/network:Network")
 class Network(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/network:Network"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

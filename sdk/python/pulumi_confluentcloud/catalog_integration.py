@@ -232,10 +232,8 @@ class _CatalogIntegrationState:
         pulumi.set(self, "suspended", value)
 
 
+@pulumi.type_token("confluentcloud:index/catalogIntegration:CatalogIntegration")
 class CatalogIntegration(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/catalogIntegration:CatalogIntegration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

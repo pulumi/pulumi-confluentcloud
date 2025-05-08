@@ -217,10 +217,8 @@ class _CatalogEntityAttributesState:
         pulumi.set(self, "schema_registry_cluster", value)
 
 
+@pulumi.type_token("confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes")
 class CatalogEntityAttributes(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

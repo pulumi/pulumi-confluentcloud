@@ -248,10 +248,8 @@ class _BusinessMetadataBindingState:
         pulumi.set(self, "schema_registry_cluster", value)
 
 
+@pulumi.type_token("confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding")
 class BusinessMetadataBinding(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

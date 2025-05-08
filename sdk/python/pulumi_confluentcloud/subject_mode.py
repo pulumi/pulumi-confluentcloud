@@ -218,10 +218,8 @@ class _SubjectModeState:
         pulumi.set(self, "subject_name", value)
 
 
+@pulumi.type_token("confluentcloud:index/subjectMode:SubjectMode")
 class SubjectMode(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/subjectMode:SubjectMode"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

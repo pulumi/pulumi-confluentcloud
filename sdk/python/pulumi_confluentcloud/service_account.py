@@ -129,10 +129,8 @@ class _ServiceAccountState:
         pulumi.set(self, "kind", value)
 
 
+@pulumi.type_token("confluentcloud:index/serviceAccount:ServiceAccount")
 class ServiceAccount(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/serviceAccount:ServiceAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

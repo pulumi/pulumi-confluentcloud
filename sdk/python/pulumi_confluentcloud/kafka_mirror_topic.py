@@ -160,10 +160,8 @@ class _KafkaMirrorTopicState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic")
 class KafkaMirrorTopic(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

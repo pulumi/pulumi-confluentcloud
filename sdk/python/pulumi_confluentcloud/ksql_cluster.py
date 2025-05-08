@@ -302,10 +302,8 @@ class _KsqlClusterState:
         pulumi.set(self, "use_detailed_processing_log", value)
 
 
+@pulumi.type_token("confluentcloud:index/ksqlCluster:KsqlCluster")
 class KsqlCluster(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/ksqlCluster:KsqlCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -182,10 +182,8 @@ class _CertificatePoolState:
         pulumi.set(self, "filter", value)
 
 
+@pulumi.type_token("confluentcloud:index/certificatePool:CertificatePool")
 class CertificatePool(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/certificatePool:CertificatePool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

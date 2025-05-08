@@ -205,10 +205,8 @@ class _NetworkLinkServiceState:
         pulumi.set(self, "resource_name", value)
 
 
+@pulumi.type_token("confluentcloud:index/networkLinkService:NetworkLinkService")
 class NetworkLinkService(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/networkLinkService:NetworkLinkService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -340,10 +340,8 @@ class _KafkaAclState:
         pulumi.set(self, "rest_endpoint", value)
 
 
+@pulumi.type_token("confluentcloud:index/kafkaAcl:KafkaAcl")
 class KafkaAcl(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/kafkaAcl:KafkaAcl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

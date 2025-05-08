@@ -200,10 +200,8 @@ class _DnsForwarderState:
         pulumi.set(self, "gateway", value)
 
 
+@pulumi.type_token("confluentcloud:index/dnsForwarder:DnsForwarder")
 class DnsForwarder(pulumi.CustomResource):
-
-    pulumi_type = "confluentcloud:index/dnsForwarder:DnsForwarder"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
