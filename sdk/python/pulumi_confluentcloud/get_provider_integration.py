@@ -130,7 +130,7 @@ def get_provider_integration(display_name: Optional[builtins.str] = None,
     ## Getting Started
 
     The following end-to-end examples might help to get started with `ProviderIntegration` data source:
-    * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
+    * s3-sink-connector-assume-role: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
 
 
     :param builtins.str display_name: A human-readable name for the Provider Integration.
@@ -180,7 +180,7 @@ def get_provider_integration_output(display_name: Optional[pulumi.Input[Optional
     ## Getting Started
 
     The following end-to-end examples might help to get started with `ProviderIntegration` data source:
-    * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
+    * s3-sink-connector-assume-role: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
 
 
     :param builtins.str display_name: A human-readable name for the Provider Integration.

@@ -199,8 +199,8 @@ class KafkaMirrorTopic(pulumi.CustomResource):
         ## Getting Started
 
         The following end-to-end examples might help to get started with `KafkaMirrorTopic` resource:
-          * `destination-initiated-cluster-link-rbac`: An example of setting up a _destination_ initiated cluster link with a mirror topic
-          * `source-initiated-cluster-link-rbac`: An example of setting up a _source_ initiated cluster link with a mirror topic
+          * destination-initiated-cluster-link-rbac: An example of setting up a _destination_ initiated cluster link with a mirror topic
+          * source-initiated-cluster-link-rbac: An example of setting up a _source_ initiated cluster link with a mirror topic
 
         See [Mirror Topics on Confluent Cloud](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/mirror-topics-cc.html) to learn more about Mirror Topics on Confluent Cloud.
 
@@ -257,8 +257,8 @@ class KafkaMirrorTopic(pulumi.CustomResource):
         ## Getting Started
 
         The following end-to-end examples might help to get started with `KafkaMirrorTopic` resource:
-          * `destination-initiated-cluster-link-rbac`: An example of setting up a _destination_ initiated cluster link with a mirror topic
-          * `source-initiated-cluster-link-rbac`: An example of setting up a _source_ initiated cluster link with a mirror topic
+          * destination-initiated-cluster-link-rbac: An example of setting up a _destination_ initiated cluster link with a mirror topic
+          * source-initiated-cluster-link-rbac: An example of setting up a _source_ initiated cluster link with a mirror topic
 
         See [Mirror Topics on Confluent Cloud](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/mirror-topics-cc.html) to learn more about Mirror Topics on Confluent Cloud.
 

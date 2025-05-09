@@ -56,7 +56,7 @@ import (
 // ## Getting Started
 //
 // The following end-to-end examples might help to get started with `ProviderIntegration` resource:
-// * `s3-sink-connector-assume-role`: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
+// * s3-sink-connector-assume-role: Amazon S3 Sink Connector with IAM role-based authorization using a Provider Integration
 //
 // ## Import
 //

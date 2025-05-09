@@ -101,10 +101,10 @@ import javax.annotation.Nullable;
  * ## Getting Started
  * 
  * The following end-to-end examples might help to get started with `confluentcloud.ClusterLink` resource:
- *   * `destination-initiated-cluster-link-rbac`: An example of setting up a _destination_ initiated cluster link with a mirror topic
- *   * `source-initiated-cluster-link-rbac`: An example of setting up a _source_ initiated cluster link with a mirror topic
- *   * `regular-bidirectional-cluster-link-rbac`: An example of setting up a bidirectional cluster link with 2 mirror topics
- *   * `advanced-bidirectional-cluster-link-rbac`: An example of setting up a bidirectional cluster link with 2 mirror topics ([advanced option](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode))
+ *   * destination-initiated-cluster-link-rbac: An example of setting up a _destination_ initiated cluster link with a mirror topic
+ *   * source-initiated-cluster-link-rbac: An example of setting up a _source_ initiated cluster link with a mirror topic
+ *   * regular-bidirectional-cluster-link-rbac: An example of setting up a bidirectional cluster link with 2 mirror topics
+ *   * advanced-bidirectional-cluster-link-rbac: An example of setting up a bidirectional cluster link with 2 mirror topics ([advanced option](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode))
  * 
  * See [Cluster Linking on Confluent Cloud](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/index.html) to learn more about Cluster Linking on Confluent Cloud.
  * 
