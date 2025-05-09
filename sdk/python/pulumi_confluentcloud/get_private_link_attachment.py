@@ -179,8 +179,8 @@ def get_private_link_attachment(environment: Optional[Union['GetPrivateLinkAttac
     ## Getting Started
 
     The following end-to-end examples might help to get started with `PrivateLinkAttachment` data source:
-    * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-    * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+    * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    * enterprise-privatelinkattachment-azure-kafka-acls: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
 
 
     :param builtins.str id: The ID of the Private Link Attachment, for example, `platt-61ovvd`.
@@ -226,8 +226,8 @@ def get_private_link_attachment_output(environment: Optional[pulumi.Input[Union[
     ## Getting Started
 
     The following end-to-end examples might help to get started with `PrivateLinkAttachment` data source:
-    * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-    * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+    * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    * enterprise-privatelinkattachment-azure-kafka-acls: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
 
 
     :param builtins.str id: The ID of the Private Link Attachment, for example, `platt-61ovvd`.

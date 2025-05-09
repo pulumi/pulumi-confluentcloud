@@ -157,8 +157,8 @@ def get_private_link_attachment_connection(environment: Optional[Union['GetPriva
     ## Getting Started
 
     The following end-to-end examples might help to get started with `PrivateLinkAttachmentConnection` data source:
-    * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-    * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+    * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    * enterprise-privatelinkattachment-azure-kafka-acls: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
 
 
     :param builtins.str id: The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
@@ -202,8 +202,8 @@ def get_private_link_attachment_connection_output(environment: Optional[pulumi.I
     ## Getting Started
 
     The following end-to-end examples might help to get started with `PrivateLinkAttachmentConnection` data source:
-    * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
-    * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+    * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    * enterprise-privatelinkattachment-azure-kafka-acls: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
 
 
     :param builtins.str id: The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.

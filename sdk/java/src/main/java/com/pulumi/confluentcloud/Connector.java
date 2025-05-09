@@ -456,20 +456,20 @@ import javax.annotation.Nullable;
  * ## Getting Started
  * 
  * The following end-to-end examples might help to get started with `confluentcloud.Connector` resource:
- * * `s3-sink-connector`
- * * `s3-sink-connector-assume-role`
- * * `snowflake-sink-connector`
- * * `managed-datagen-source-connector`
- * * `elasticsearch-sink-connector`
- * * `dynamo-db-sink-connector`
- * * `mongo-db-source-connector`
- * * `mongo-db-sink-connector`
- * * `sql-server-cdc-debezium-source-connector`
- * * `postgre-sql-cdc-debezium-source-connector`
- * * `custom-datagen-source-connector`
- * * `manage-offsets-github-source-connector`
- * * `manage-offsets-mongo-db-source-connector`
- * * `manage-offsets-mysql-sink-connector`
+ * * s3-sink-connector
+ * * s3-sink-connector-assume-role
+ * * snowflake-sink-connector
+ * * managed-datagen-source-connector
+ * * elasticsearch-sink-connector
+ * * dynamo-db-sink-connector
+ * * mongo-db-source-connector
+ * * mongo-db-sink-connector
+ * * sql-server-cdc-debezium-source-connector
+ * * postgre-sql-cdc-debezium-source-connector
+ * * custom-datagen-source-connector
+ * * manage-offsets-github-source-connector
+ * * manage-offsets-mongo-db-source-connector
+ * * manage-offsets-mysql-sink-connector
  * 
  * &gt; **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.
  * 
