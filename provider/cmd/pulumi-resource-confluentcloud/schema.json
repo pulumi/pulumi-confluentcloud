@@ -7592,7 +7592,7 @@
                 },
                 "cloud": {
                     "type": "string",
-                    "description": "The cloud service provider that runs the Flink Artifact.\n"
+                    "description": "The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.\n"
                 },
                 "contentFormat": {
                     "type": "string",
@@ -7658,7 +7658,7 @@
                 },
                 "cloud": {
                     "type": "string",
-                    "description": "The cloud service provider that runs the Flink Artifact.\n",
+                    "description": "The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.\n",
                     "willReplaceOnChanges": true
                 },
                 "contentFormat": {
@@ -7722,7 +7722,7 @@
                     },
                     "cloud": {
                         "type": "string",
-                        "description": "The cloud service provider that runs the Flink Artifact.\n",
+                        "description": "The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.\n",
                         "willReplaceOnChanges": true
                     },
                     "contentFormat": {
