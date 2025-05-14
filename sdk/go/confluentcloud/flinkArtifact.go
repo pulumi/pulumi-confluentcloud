@@ -74,7 +74,7 @@ type FlinkArtifact struct {
 	//
 	// Deprecated: The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
 	Class pulumi.StringPtrOutput `pulumi:"class"`
-	// The cloud service provider that runs the Flink Artifact.
+	// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
 	// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
 	ContentFormat pulumi.StringOutput `pulumi:"contentFormat"`
@@ -146,7 +146,7 @@ type flinkArtifactState struct {
 	//
 	// Deprecated: The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
 	Class *string `pulumi:"class"`
-	// The cloud service provider that runs the Flink Artifact.
+	// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
 	Cloud *string `pulumi:"cloud"`
 	// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
 	ContentFormat *string `pulumi:"contentFormat"`
@@ -177,7 +177,7 @@ type FlinkArtifactState struct {
 	//
 	// Deprecated: The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
 	Class pulumi.StringPtrInput
-	// The cloud service provider that runs the Flink Artifact.
+	// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
 	Cloud pulumi.StringPtrInput
 	// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
 	ContentFormat pulumi.StringPtrInput
@@ -210,7 +210,7 @@ type flinkArtifactArgs struct {
 	//
 	// Deprecated: The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
 	Class *string `pulumi:"class"`
-	// The cloud service provider that runs the Flink Artifact.
+	// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
 	Cloud string `pulumi:"cloud"`
 	// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
 	ContentFormat *string `pulumi:"contentFormat"`
@@ -236,7 +236,7 @@ type FlinkArtifactArgs struct {
 	//
 	// Deprecated: The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
 	Class pulumi.StringPtrInput
-	// The cloud service provider that runs the Flink Artifact.
+	// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
 	Cloud pulumi.StringInput
 	// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
 	ContentFormat pulumi.StringPtrInput
@@ -358,7 +358,7 @@ func (o FlinkArtifactOutput) Class() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkArtifact) pulumi.StringPtrOutput { return v.Class }).(pulumi.StringPtrOutput)
 }
 
-// The cloud service provider that runs the Flink Artifact.
+// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
 func (o FlinkArtifactOutput) Cloud() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlinkArtifact) pulumi.StringOutput { return v.Cloud }).(pulumi.StringOutput)
 }

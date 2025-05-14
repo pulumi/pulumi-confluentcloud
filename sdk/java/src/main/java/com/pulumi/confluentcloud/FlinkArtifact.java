@@ -130,14 +130,14 @@ public class FlinkArtifact extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.class_);
     }
     /**
-     * The cloud service provider that runs the Flink Artifact.
+     * The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
      * 
      */
     @Export(name="cloud", refs={String.class}, tree="[0]")
     private Output<String> cloud;
 
     /**
-     * @return The cloud service provider that runs the Flink Artifact.
+     * @return The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
      * 
      */
     public Output<String> cloud() {
