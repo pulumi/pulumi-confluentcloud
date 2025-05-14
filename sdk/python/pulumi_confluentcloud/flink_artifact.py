@@ -34,7 +34,7 @@ class FlinkArtifactArgs:
                  runtime_language: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FlinkArtifact resource.
-        :param pulumi.Input[builtins.str] cloud: The cloud service provider that runs the Flink Artifact.
+        :param pulumi.Input[builtins.str] cloud: The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
         :param pulumi.Input[builtins.str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
         :param pulumi.Input['FlinkArtifactEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[builtins.str] region: The cloud service provider region that hosts the Flink Artifact.
@@ -69,7 +69,7 @@ class FlinkArtifactArgs:
     @pulumi.getter
     def cloud(self) -> pulumi.Input[builtins.str]:
         """
-        The cloud service provider that runs the Flink Artifact.
+        The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
         """
         return pulumi.get(self, "cloud")
 
@@ -208,7 +208,7 @@ class _FlinkArtifactState:
         :param pulumi.Input[builtins.str] api_version: (Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.
         :param pulumi.Input[builtins.str] artifact_file: The artifact file for Flink Artifact.
         :param pulumi.Input[builtins.str] class_: Java class or alias for the Flink Artifact as provided by developer.
-        :param pulumi.Input[builtins.str] cloud: The cloud service provider that runs the Flink Artifact.
+        :param pulumi.Input[builtins.str] cloud: The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
         :param pulumi.Input[builtins.str] content_format: (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         :param pulumi.Input[builtins.str] description: (Optional String) Description of the Flink Artifact.
         :param pulumi.Input[builtins.str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
@@ -290,7 +290,7 @@ class _FlinkArtifactState:
     @pulumi.getter
     def cloud(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The cloud service provider that runs the Flink Artifact.
+        The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
         """
         return pulumi.get(self, "cloud")
 
@@ -460,7 +460,7 @@ class FlinkArtifact(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] artifact_file: The artifact file for Flink Artifact.
         :param pulumi.Input[builtins.str] class_: Java class or alias for the Flink Artifact as provided by developer.
-        :param pulumi.Input[builtins.str] cloud: The cloud service provider that runs the Flink Artifact.
+        :param pulumi.Input[builtins.str] cloud: The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
         :param pulumi.Input[builtins.str] content_format: (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         :param pulumi.Input[builtins.str] description: (Optional String) Description of the Flink Artifact.
         :param pulumi.Input[builtins.str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
@@ -595,7 +595,7 @@ class FlinkArtifact(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_version: (Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.
         :param pulumi.Input[builtins.str] artifact_file: The artifact file for Flink Artifact.
         :param pulumi.Input[builtins.str] class_: Java class or alias for the Flink Artifact as provided by developer.
-        :param pulumi.Input[builtins.str] cloud: The cloud service provider that runs the Flink Artifact.
+        :param pulumi.Input[builtins.str] cloud: The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
         :param pulumi.Input[builtins.str] content_format: (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
         :param pulumi.Input[builtins.str] description: (Optional String) Description of the Flink Artifact.
         :param pulumi.Input[builtins.str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
@@ -654,7 +654,7 @@ class FlinkArtifact(pulumi.CustomResource):
     @pulumi.getter
     def cloud(self) -> pulumi.Output[builtins.str]:
         """
-        The cloud service provider that runs the Flink Artifact.
+        The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
         """
         return pulumi.get(self, "cloud")
 

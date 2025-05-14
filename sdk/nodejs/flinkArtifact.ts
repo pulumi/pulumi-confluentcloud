@@ -82,7 +82,7 @@ export class FlinkArtifact extends pulumi.CustomResource {
      */
     public readonly class!: pulumi.Output<string | undefined>;
     /**
-     * The cloud service provider that runs the Flink Artifact.
+     * The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
      */
     public readonly cloud!: pulumi.Output<string>;
     /**
@@ -200,7 +200,7 @@ export interface FlinkArtifactState {
      */
     class?: pulumi.Input<string>;
     /**
-     * The cloud service provider that runs the Flink Artifact.
+     * The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
      */
     cloud?: pulumi.Input<string>;
     /**
@@ -256,7 +256,7 @@ export interface FlinkArtifactArgs {
      */
     class?: pulumi.Input<string>;
     /**
-     * The cloud service provider that runs the Flink Artifact.
+     * The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
      */
     cloud: pulumi.Input<string>;
     /**

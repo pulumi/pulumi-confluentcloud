@@ -72,14 +72,14 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The cloud service provider that runs the Flink Artifact.
+     * The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
      * 
      */
     @Import(name="cloud")
     private @Nullable Output<String> cloud;
 
     /**
-     * @return The cloud service provider that runs the Flink Artifact.
+     * @return The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
      * 
      */
     public Optional<Output<String>> cloud() {
@@ -329,7 +329,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param cloud The cloud service provider that runs the Flink Artifact.
+         * @param cloud The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param cloud The cloud service provider that runs the Flink Artifact.
+         * @param cloud The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
          * 
          * @return builder
          * 

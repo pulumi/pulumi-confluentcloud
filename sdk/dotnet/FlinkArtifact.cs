@@ -76,7 +76,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> Class { get; private set; } = null!;
 
         /// <summary>
-        /// The cloud service provider that runs the Flink Artifact.
+        /// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
         /// </summary>
         [Output("cloud")]
         public Output<string> Cloud { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Class { get; set; }
 
         /// <summary>
-        /// The cloud service provider that runs the Flink Artifact.
+        /// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
         /// </summary>
         [Input("cloud", required: true)]
         public Input<string> Cloud { get; set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Class { get; set; }
 
         /// <summary>
-        /// The cloud service provider that runs the Flink Artifact.
+        /// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
         /// </summary>
         [Input("cloud")]
         public Input<string>? Cloud { get; set; }
