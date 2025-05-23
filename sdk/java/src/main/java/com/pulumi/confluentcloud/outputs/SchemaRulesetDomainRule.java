@@ -51,14 +51,6 @@ public final class SchemaRulesetDomainRule {
      * 
      */
     private @Nullable String onSuccess;
-    /**
-     * @return A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-     * 
-     * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     * 
-     * &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = &#34;NONE&#34;` and `on_failure = &#34;ERROR&#34;`. However, the TF Provider sets its defaults to `on_success = &#34;NONE,NONE&#34;` and `on_failure = &#34;ERROR,ERROR&#34;`.
-     * 
-     */
     private @Nullable Map<String,String> params;
     private @Nullable List<String> tags;
     /**
@@ -120,14 +112,6 @@ public final class SchemaRulesetDomainRule {
     public Optional<String> onSuccess() {
         return Optional.ofNullable(this.onSuccess);
     }
-    /**
-     * @return A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-     * 
-     * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     * 
-     * &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = &#34;NONE&#34;` and `on_failure = &#34;ERROR&#34;`. However, the TF Provider sets its defaults to `on_success = &#34;NONE,NONE&#34;` and `on_failure = &#34;ERROR,ERROR&#34;`.
-     * 
-     */
     public Map<String,String> params() {
         return this.params == null ? Map.of() : this.params;
     }

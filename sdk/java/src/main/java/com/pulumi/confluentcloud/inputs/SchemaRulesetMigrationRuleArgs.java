@@ -131,25 +131,9 @@ public final class SchemaRulesetMigrationRuleArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.onSuccess);
     }
 
-    /**
-     * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-     * 
-     * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     * 
-     * &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = &#34;NONE&#34;` and `on_failure = &#34;ERROR&#34;`. However, the TF Provider sets its defaults to `on_success = &#34;NONE,NONE&#34;` and `on_failure = &#34;ERROR,ERROR&#34;`.
-     * 
-     */
     @Import(name="params")
     private @Nullable Output<Map<String,String>> params;
 
-    /**
-     * @return A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-     * 
-     * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     * 
-     * &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = &#34;NONE&#34;` and `on_failure = &#34;ERROR&#34;`. However, the TF Provider sets its defaults to `on_success = &#34;NONE,NONE&#34;` and `on_failure = &#34;ERROR,ERROR&#34;`.
-     * 
-     */
     public Optional<Output<Map<String,String>>> params() {
         return Optional.ofNullable(this.params);
     }
@@ -366,31 +350,11 @@ public final class SchemaRulesetMigrationRuleArgs extends com.pulumi.resources.R
             return onSuccess(Output.of(onSuccess));
         }
 
-        /**
-         * @param params A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-         * 
-         * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-         * 
-         * &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = &#34;NONE&#34;` and `on_failure = &#34;ERROR&#34;`. However, the TF Provider sets its defaults to `on_success = &#34;NONE,NONE&#34;` and `on_failure = &#34;ERROR,ERROR&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder params(@Nullable Output<Map<String,String>> params) {
             $.params = params;
             return this;
         }
 
-        /**
-         * @param params A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-         * 
-         * &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-         * 
-         * &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = &#34;NONE&#34;` and `on_failure = &#34;ERROR&#34;`. However, the TF Provider sets its defaults to `on_success = &#34;NONE,NONE&#34;` and `on_failure = &#34;ERROR,ERROR&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder params(Map<String,String> params) {
             return params(Output.of(params));
         }

@@ -89,7 +89,7 @@ export class Schema extends pulumi.CustomResource {
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly ruleset!: pulumi.Output<outputs.SchemaRuleset>;
+    public readonly ruleset!: pulumi.Output<outputs.SchemaRuleset | undefined>;
     /**
      * The definition of the Schema.
      */

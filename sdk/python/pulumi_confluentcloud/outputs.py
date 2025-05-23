@@ -4631,11 +4631,6 @@ class SchemaRulesetDomainRule(dict):
         :param builtins.str expr: The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
         :param builtins.str on_failure: An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
         :param builtins.str on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
-        :param Mapping[str, builtins.str] params: A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-               
-               > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-               
-               > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         """
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "mode", mode)
@@ -4728,13 +4723,6 @@ class SchemaRulesetDomainRule(dict):
     @property
     @pulumi.getter
     def params(self) -> Optional[Mapping[str, builtins.str]]:
-        """
-        A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-
-        > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-
-        > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
-        """
         return pulumi.get(self, "params")
 
     @property
@@ -4785,11 +4773,6 @@ class SchemaRulesetMigrationRule(dict):
         :param builtins.str expr: The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
         :param builtins.str on_failure: An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
         :param builtins.str on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
-        :param Mapping[str, builtins.str] params: A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-               
-               > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-               
-               > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
         """
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "mode", mode)
@@ -4882,13 +4865,6 @@ class SchemaRulesetMigrationRule(dict):
     @property
     @pulumi.getter
     def params(self) -> Optional[Mapping[str, builtins.str]]:
-        """
-        A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-
-        > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-
-        > **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
-        """
         return pulumi.get(self, "params")
 
     @property
