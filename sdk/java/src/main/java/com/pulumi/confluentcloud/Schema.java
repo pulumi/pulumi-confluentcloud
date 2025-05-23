@@ -137,10 +137,10 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.restEndpoint);
     }
     @Export(name="ruleset", refs={SchemaRuleset.class}, tree="[0]")
-    private Output<SchemaRuleset> ruleset;
+    private Output</* @Nullable */ SchemaRuleset> ruleset;
 
-    public Output<SchemaRuleset> ruleset() {
-        return this.ruleset;
+    public Output<Optional<SchemaRuleset>> ruleset() {
+        return Codegen.optional(this.ruleset);
     }
     /**
      * The definition of the Schema.

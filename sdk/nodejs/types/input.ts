@@ -2896,13 +2896,6 @@ export interface SchemaRulesetDomainRule {
      * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      */
     onSuccess?: pulumi.Input<string>;
-    /**
-     * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-     *
-     * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     *
-     * > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
-     */
     params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -2941,13 +2934,6 @@ export interface SchemaRulesetMigrationRule {
      * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
      */
     onSuccess?: pulumi.Input<string>;
-    /**
-     * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-     *
-     * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     *
-     * > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
-     */
     params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -59,14 +59,6 @@ namespace Pulumi.ConfluentCloud.Inputs
 
         [Input("params")]
         private InputMap<string>? _params;
-
-        /// <summary>
-        /// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-        /// 
-        /// &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-        /// 
-        /// &gt; **Note:** The Confluent Cloud Console uses the following default values: `on_success = "NONE"` and `on_failure = "ERROR"`. However, the TF Provider sets its defaults to `on_success = "NONE,NONE"` and `on_failure = "ERROR,ERROR"`.
-        /// </summary>
         public InputMap<string> Params
         {
             get => _params ?? (_params = new InputMap<string>());

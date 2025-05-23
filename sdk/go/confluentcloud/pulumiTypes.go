@@ -19678,14 +19678,9 @@ type SchemaRulesetDomainRule struct {
 	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure *string `pulumi:"onFailure"`
 	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
-	OnSuccess *string `pulumi:"onSuccess"`
-	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-	//
-	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-	//
-	// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
-	Params map[string]string `pulumi:"params"`
-	Tags   []string          `pulumi:"tags"`
+	OnSuccess *string           `pulumi:"onSuccess"`
+	Params    map[string]string `pulumi:"params"`
+	Tags      []string          `pulumi:"tags"`
 	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type string `pulumi:"type"`
 }
@@ -19716,14 +19711,9 @@ type SchemaRulesetDomainRuleArgs struct {
 	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
 	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
-	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
-	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-	//
-	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-	//
-	// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
-	Params pulumi.StringMapInput   `pulumi:"params"`
-	Tags   pulumi.StringArrayInput `pulumi:"tags"`
+	OnSuccess pulumi.StringPtrInput   `pulumi:"onSuccess"`
+	Params    pulumi.StringMapInput   `pulumi:"params"`
+	Tags      pulumi.StringArrayInput `pulumi:"tags"`
 	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -19818,11 +19808,6 @@ func (o SchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
 
-// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-//
-// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-//
-// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
 func (o SchemaRulesetDomainRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }
@@ -19871,14 +19856,9 @@ type SchemaRulesetMigrationRule struct {
 	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure *string `pulumi:"onFailure"`
 	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
-	OnSuccess *string `pulumi:"onSuccess"`
-	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-	//
-	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-	//
-	// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
-	Params map[string]string `pulumi:"params"`
-	Tags   []string          `pulumi:"tags"`
+	OnSuccess *string           `pulumi:"onSuccess"`
+	Params    map[string]string `pulumi:"params"`
+	Tags      []string          `pulumi:"tags"`
 	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type string `pulumi:"type"`
 }
@@ -19909,14 +19889,9 @@ type SchemaRulesetMigrationRuleArgs struct {
 	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
 	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
-	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
-	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-	//
-	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-	//
-	// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
-	Params pulumi.StringMapInput   `pulumi:"params"`
-	Tags   pulumi.StringArrayInput `pulumi:"tags"`
+	OnSuccess pulumi.StringPtrInput   `pulumi:"onSuccess"`
+	Params    pulumi.StringMapInput   `pulumi:"params"`
+	Tags      pulumi.StringArrayInput `pulumi:"tags"`
 	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -20011,11 +19986,6 @@ func (o SchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
 
-// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-//
-// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-//
-// > **Note:** The Confluent Cloud Console uses the following default values: `onSuccess = "NONE"` and `onFailure = "ERROR"`. However, the TF Provider sets its defaults to `onSuccess = "NONE,NONE"` and `onFailure = "ERROR,ERROR"`.
 func (o SchemaRulesetMigrationRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }

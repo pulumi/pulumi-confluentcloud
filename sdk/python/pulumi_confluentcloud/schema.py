@@ -691,7 +691,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ruleset(self) -> pulumi.Output['outputs.SchemaRuleset']:
+    def ruleset(self) -> pulumi.Output[Optional['outputs.SchemaRuleset']]:
         return pulumi.get(self, "ruleset")
 
     @property

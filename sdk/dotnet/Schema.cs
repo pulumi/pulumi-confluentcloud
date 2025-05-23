@@ -80,7 +80,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> RestEndpoint { get; private set; } = null!;
 
         [Output("ruleset")]
-        public Output<Outputs.SchemaRuleset> Ruleset { get; private set; } = null!;
+        public Output<Outputs.SchemaRuleset?> Ruleset { get; private set; } = null!;
 
         /// <summary>
         /// The definition of the Schema.
