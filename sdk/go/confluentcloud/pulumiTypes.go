@@ -5427,6 +5427,143 @@ func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Secret() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConnectArtifactEnvironment struct {
+	// The ID of the Environment that the Connect Artifact belongs to.
+	Id string `pulumi:"id"`
+}
+
+// ConnectArtifactEnvironmentInput is an input type that accepts ConnectArtifactEnvironmentArgs and ConnectArtifactEnvironmentOutput values.
+// You can construct a concrete instance of `ConnectArtifactEnvironmentInput` via:
+//
+//	ConnectArtifactEnvironmentArgs{...}
+type ConnectArtifactEnvironmentInput interface {
+	pulumi.Input
+
+	ToConnectArtifactEnvironmentOutput() ConnectArtifactEnvironmentOutput
+	ToConnectArtifactEnvironmentOutputWithContext(context.Context) ConnectArtifactEnvironmentOutput
+}
+
+type ConnectArtifactEnvironmentArgs struct {
+	// The ID of the Environment that the Connect Artifact belongs to.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (ConnectArtifactEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectArtifactEnvironment)(nil)).Elem()
+}
+
+func (i ConnectArtifactEnvironmentArgs) ToConnectArtifactEnvironmentOutput() ConnectArtifactEnvironmentOutput {
+	return i.ToConnectArtifactEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ConnectArtifactEnvironmentArgs) ToConnectArtifactEnvironmentOutputWithContext(ctx context.Context) ConnectArtifactEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectArtifactEnvironmentOutput)
+}
+
+func (i ConnectArtifactEnvironmentArgs) ToConnectArtifactEnvironmentPtrOutput() ConnectArtifactEnvironmentPtrOutput {
+	return i.ToConnectArtifactEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectArtifactEnvironmentArgs) ToConnectArtifactEnvironmentPtrOutputWithContext(ctx context.Context) ConnectArtifactEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectArtifactEnvironmentOutput).ToConnectArtifactEnvironmentPtrOutputWithContext(ctx)
+}
+
+// ConnectArtifactEnvironmentPtrInput is an input type that accepts ConnectArtifactEnvironmentArgs, ConnectArtifactEnvironmentPtr and ConnectArtifactEnvironmentPtrOutput values.
+// You can construct a concrete instance of `ConnectArtifactEnvironmentPtrInput` via:
+//
+//	        ConnectArtifactEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectArtifactEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToConnectArtifactEnvironmentPtrOutput() ConnectArtifactEnvironmentPtrOutput
+	ToConnectArtifactEnvironmentPtrOutputWithContext(context.Context) ConnectArtifactEnvironmentPtrOutput
+}
+
+type connectArtifactEnvironmentPtrType ConnectArtifactEnvironmentArgs
+
+func ConnectArtifactEnvironmentPtr(v *ConnectArtifactEnvironmentArgs) ConnectArtifactEnvironmentPtrInput {
+	return (*connectArtifactEnvironmentPtrType)(v)
+}
+
+func (*connectArtifactEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectArtifactEnvironment)(nil)).Elem()
+}
+
+func (i *connectArtifactEnvironmentPtrType) ToConnectArtifactEnvironmentPtrOutput() ConnectArtifactEnvironmentPtrOutput {
+	return i.ToConnectArtifactEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *connectArtifactEnvironmentPtrType) ToConnectArtifactEnvironmentPtrOutputWithContext(ctx context.Context) ConnectArtifactEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectArtifactEnvironmentPtrOutput)
+}
+
+type ConnectArtifactEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (ConnectArtifactEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectArtifactEnvironment)(nil)).Elem()
+}
+
+func (o ConnectArtifactEnvironmentOutput) ToConnectArtifactEnvironmentOutput() ConnectArtifactEnvironmentOutput {
+	return o
+}
+
+func (o ConnectArtifactEnvironmentOutput) ToConnectArtifactEnvironmentOutputWithContext(ctx context.Context) ConnectArtifactEnvironmentOutput {
+	return o
+}
+
+func (o ConnectArtifactEnvironmentOutput) ToConnectArtifactEnvironmentPtrOutput() ConnectArtifactEnvironmentPtrOutput {
+	return o.ToConnectArtifactEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectArtifactEnvironmentOutput) ToConnectArtifactEnvironmentPtrOutputWithContext(ctx context.Context) ConnectArtifactEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectArtifactEnvironment) *ConnectArtifactEnvironment {
+		return &v
+	}).(ConnectArtifactEnvironmentPtrOutput)
+}
+
+// The ID of the Environment that the Connect Artifact belongs to.
+func (o ConnectArtifactEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectArtifactEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type ConnectArtifactEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectArtifactEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectArtifactEnvironment)(nil)).Elem()
+}
+
+func (o ConnectArtifactEnvironmentPtrOutput) ToConnectArtifactEnvironmentPtrOutput() ConnectArtifactEnvironmentPtrOutput {
+	return o
+}
+
+func (o ConnectArtifactEnvironmentPtrOutput) ToConnectArtifactEnvironmentPtrOutputWithContext(ctx context.Context) ConnectArtifactEnvironmentPtrOutput {
+	return o
+}
+
+func (o ConnectArtifactEnvironmentPtrOutput) Elem() ConnectArtifactEnvironmentOutput {
+	return o.ApplyT(func(v *ConnectArtifactEnvironment) ConnectArtifactEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectArtifactEnvironment
+		return ret
+	}).(ConnectArtifactEnvironmentOutput)
+}
+
+// The ID of the Environment that the Connect Artifact belongs to.
+func (o ConnectArtifactEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectArtifactEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConnectorEnvironment struct {
 	// The ID of the Environment that the connector belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
@@ -7283,6 +7420,694 @@ func (o FlinkComputePoolEnvironmentPtrOutput) Elem() FlinkComputePoolEnvironment
 // The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
 func (o FlinkComputePoolEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkComputePoolEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkConnectionComputePool struct {
+	Id string `pulumi:"id"`
+}
+
+// FlinkConnectionComputePoolInput is an input type that accepts FlinkConnectionComputePoolArgs and FlinkConnectionComputePoolOutput values.
+// You can construct a concrete instance of `FlinkConnectionComputePoolInput` via:
+//
+//	FlinkConnectionComputePoolArgs{...}
+type FlinkConnectionComputePoolInput interface {
+	pulumi.Input
+
+	ToFlinkConnectionComputePoolOutput() FlinkConnectionComputePoolOutput
+	ToFlinkConnectionComputePoolOutputWithContext(context.Context) FlinkConnectionComputePoolOutput
+}
+
+type FlinkConnectionComputePoolArgs struct {
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkConnectionComputePoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkConnectionComputePool)(nil)).Elem()
+}
+
+func (i FlinkConnectionComputePoolArgs) ToFlinkConnectionComputePoolOutput() FlinkConnectionComputePoolOutput {
+	return i.ToFlinkConnectionComputePoolOutputWithContext(context.Background())
+}
+
+func (i FlinkConnectionComputePoolArgs) ToFlinkConnectionComputePoolOutputWithContext(ctx context.Context) FlinkConnectionComputePoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionComputePoolOutput)
+}
+
+func (i FlinkConnectionComputePoolArgs) ToFlinkConnectionComputePoolPtrOutput() FlinkConnectionComputePoolPtrOutput {
+	return i.ToFlinkConnectionComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkConnectionComputePoolArgs) ToFlinkConnectionComputePoolPtrOutputWithContext(ctx context.Context) FlinkConnectionComputePoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionComputePoolOutput).ToFlinkConnectionComputePoolPtrOutputWithContext(ctx)
+}
+
+// FlinkConnectionComputePoolPtrInput is an input type that accepts FlinkConnectionComputePoolArgs, FlinkConnectionComputePoolPtr and FlinkConnectionComputePoolPtrOutput values.
+// You can construct a concrete instance of `FlinkConnectionComputePoolPtrInput` via:
+//
+//	        FlinkConnectionComputePoolArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkConnectionComputePoolPtrInput interface {
+	pulumi.Input
+
+	ToFlinkConnectionComputePoolPtrOutput() FlinkConnectionComputePoolPtrOutput
+	ToFlinkConnectionComputePoolPtrOutputWithContext(context.Context) FlinkConnectionComputePoolPtrOutput
+}
+
+type flinkConnectionComputePoolPtrType FlinkConnectionComputePoolArgs
+
+func FlinkConnectionComputePoolPtr(v *FlinkConnectionComputePoolArgs) FlinkConnectionComputePoolPtrInput {
+	return (*flinkConnectionComputePoolPtrType)(v)
+}
+
+func (*flinkConnectionComputePoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkConnectionComputePool)(nil)).Elem()
+}
+
+func (i *flinkConnectionComputePoolPtrType) ToFlinkConnectionComputePoolPtrOutput() FlinkConnectionComputePoolPtrOutput {
+	return i.ToFlinkConnectionComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkConnectionComputePoolPtrType) ToFlinkConnectionComputePoolPtrOutputWithContext(ctx context.Context) FlinkConnectionComputePoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionComputePoolPtrOutput)
+}
+
+type FlinkConnectionComputePoolOutput struct{ *pulumi.OutputState }
+
+func (FlinkConnectionComputePoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkConnectionComputePool)(nil)).Elem()
+}
+
+func (o FlinkConnectionComputePoolOutput) ToFlinkConnectionComputePoolOutput() FlinkConnectionComputePoolOutput {
+	return o
+}
+
+func (o FlinkConnectionComputePoolOutput) ToFlinkConnectionComputePoolOutputWithContext(ctx context.Context) FlinkConnectionComputePoolOutput {
+	return o
+}
+
+func (o FlinkConnectionComputePoolOutput) ToFlinkConnectionComputePoolPtrOutput() FlinkConnectionComputePoolPtrOutput {
+	return o.ToFlinkConnectionComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkConnectionComputePoolOutput) ToFlinkConnectionComputePoolPtrOutputWithContext(ctx context.Context) FlinkConnectionComputePoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkConnectionComputePool) *FlinkConnectionComputePool {
+		return &v
+	}).(FlinkConnectionComputePoolPtrOutput)
+}
+
+func (o FlinkConnectionComputePoolOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkConnectionComputePool) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkConnectionComputePoolPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkConnectionComputePoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkConnectionComputePool)(nil)).Elem()
+}
+
+func (o FlinkConnectionComputePoolPtrOutput) ToFlinkConnectionComputePoolPtrOutput() FlinkConnectionComputePoolPtrOutput {
+	return o
+}
+
+func (o FlinkConnectionComputePoolPtrOutput) ToFlinkConnectionComputePoolPtrOutputWithContext(ctx context.Context) FlinkConnectionComputePoolPtrOutput {
+	return o
+}
+
+func (o FlinkConnectionComputePoolPtrOutput) Elem() FlinkConnectionComputePoolOutput {
+	return o.ApplyT(func(v *FlinkConnectionComputePool) FlinkConnectionComputePool {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkConnectionComputePool
+		return ret
+	}).(FlinkConnectionComputePoolOutput)
+}
+
+func (o FlinkConnectionComputePoolPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkConnectionComputePool) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkConnectionCredentials struct {
+	// The Cluster API Key for your Confluent Cloud cluster.
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
+	Secret string `pulumi:"secret"`
+}
+
+// FlinkConnectionCredentialsInput is an input type that accepts FlinkConnectionCredentialsArgs and FlinkConnectionCredentialsOutput values.
+// You can construct a concrete instance of `FlinkConnectionCredentialsInput` via:
+//
+//	FlinkConnectionCredentialsArgs{...}
+type FlinkConnectionCredentialsInput interface {
+	pulumi.Input
+
+	ToFlinkConnectionCredentialsOutput() FlinkConnectionCredentialsOutput
+	ToFlinkConnectionCredentialsOutputWithContext(context.Context) FlinkConnectionCredentialsOutput
+}
+
+type FlinkConnectionCredentialsArgs struct {
+	// The Cluster API Key for your Confluent Cloud cluster.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (FlinkConnectionCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkConnectionCredentials)(nil)).Elem()
+}
+
+func (i FlinkConnectionCredentialsArgs) ToFlinkConnectionCredentialsOutput() FlinkConnectionCredentialsOutput {
+	return i.ToFlinkConnectionCredentialsOutputWithContext(context.Background())
+}
+
+func (i FlinkConnectionCredentialsArgs) ToFlinkConnectionCredentialsOutputWithContext(ctx context.Context) FlinkConnectionCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionCredentialsOutput)
+}
+
+func (i FlinkConnectionCredentialsArgs) ToFlinkConnectionCredentialsPtrOutput() FlinkConnectionCredentialsPtrOutput {
+	return i.ToFlinkConnectionCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkConnectionCredentialsArgs) ToFlinkConnectionCredentialsPtrOutputWithContext(ctx context.Context) FlinkConnectionCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionCredentialsOutput).ToFlinkConnectionCredentialsPtrOutputWithContext(ctx)
+}
+
+// FlinkConnectionCredentialsPtrInput is an input type that accepts FlinkConnectionCredentialsArgs, FlinkConnectionCredentialsPtr and FlinkConnectionCredentialsPtrOutput values.
+// You can construct a concrete instance of `FlinkConnectionCredentialsPtrInput` via:
+//
+//	        FlinkConnectionCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkConnectionCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToFlinkConnectionCredentialsPtrOutput() FlinkConnectionCredentialsPtrOutput
+	ToFlinkConnectionCredentialsPtrOutputWithContext(context.Context) FlinkConnectionCredentialsPtrOutput
+}
+
+type flinkConnectionCredentialsPtrType FlinkConnectionCredentialsArgs
+
+func FlinkConnectionCredentialsPtr(v *FlinkConnectionCredentialsArgs) FlinkConnectionCredentialsPtrInput {
+	return (*flinkConnectionCredentialsPtrType)(v)
+}
+
+func (*flinkConnectionCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkConnectionCredentials)(nil)).Elem()
+}
+
+func (i *flinkConnectionCredentialsPtrType) ToFlinkConnectionCredentialsPtrOutput() FlinkConnectionCredentialsPtrOutput {
+	return i.ToFlinkConnectionCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkConnectionCredentialsPtrType) ToFlinkConnectionCredentialsPtrOutputWithContext(ctx context.Context) FlinkConnectionCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionCredentialsPtrOutput)
+}
+
+type FlinkConnectionCredentialsOutput struct{ *pulumi.OutputState }
+
+func (FlinkConnectionCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkConnectionCredentials)(nil)).Elem()
+}
+
+func (o FlinkConnectionCredentialsOutput) ToFlinkConnectionCredentialsOutput() FlinkConnectionCredentialsOutput {
+	return o
+}
+
+func (o FlinkConnectionCredentialsOutput) ToFlinkConnectionCredentialsOutputWithContext(ctx context.Context) FlinkConnectionCredentialsOutput {
+	return o
+}
+
+func (o FlinkConnectionCredentialsOutput) ToFlinkConnectionCredentialsPtrOutput() FlinkConnectionCredentialsPtrOutput {
+	return o.ToFlinkConnectionCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkConnectionCredentialsOutput) ToFlinkConnectionCredentialsPtrOutputWithContext(ctx context.Context) FlinkConnectionCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkConnectionCredentials) *FlinkConnectionCredentials {
+		return &v
+	}).(FlinkConnectionCredentialsPtrOutput)
+}
+
+// The Cluster API Key for your Confluent Cloud cluster.
+func (o FlinkConnectionCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkConnectionCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Cluster API Secret for your Confluent Cloud cluster.
+func (o FlinkConnectionCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkConnectionCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type FlinkConnectionCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkConnectionCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkConnectionCredentials)(nil)).Elem()
+}
+
+func (o FlinkConnectionCredentialsPtrOutput) ToFlinkConnectionCredentialsPtrOutput() FlinkConnectionCredentialsPtrOutput {
+	return o
+}
+
+func (o FlinkConnectionCredentialsPtrOutput) ToFlinkConnectionCredentialsPtrOutputWithContext(ctx context.Context) FlinkConnectionCredentialsPtrOutput {
+	return o
+}
+
+func (o FlinkConnectionCredentialsPtrOutput) Elem() FlinkConnectionCredentialsOutput {
+	return o.ApplyT(func(v *FlinkConnectionCredentials) FlinkConnectionCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkConnectionCredentials
+		return ret
+	}).(FlinkConnectionCredentialsOutput)
+}
+
+// The Cluster API Key for your Confluent Cloud cluster.
+func (o FlinkConnectionCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkConnectionCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Cluster API Secret for your Confluent Cloud cluster.
+func (o FlinkConnectionCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkConnectionCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkConnectionEnvironment struct {
+	Id string `pulumi:"id"`
+}
+
+// FlinkConnectionEnvironmentInput is an input type that accepts FlinkConnectionEnvironmentArgs and FlinkConnectionEnvironmentOutput values.
+// You can construct a concrete instance of `FlinkConnectionEnvironmentInput` via:
+//
+//	FlinkConnectionEnvironmentArgs{...}
+type FlinkConnectionEnvironmentInput interface {
+	pulumi.Input
+
+	ToFlinkConnectionEnvironmentOutput() FlinkConnectionEnvironmentOutput
+	ToFlinkConnectionEnvironmentOutputWithContext(context.Context) FlinkConnectionEnvironmentOutput
+}
+
+type FlinkConnectionEnvironmentArgs struct {
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkConnectionEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkConnectionEnvironment)(nil)).Elem()
+}
+
+func (i FlinkConnectionEnvironmentArgs) ToFlinkConnectionEnvironmentOutput() FlinkConnectionEnvironmentOutput {
+	return i.ToFlinkConnectionEnvironmentOutputWithContext(context.Background())
+}
+
+func (i FlinkConnectionEnvironmentArgs) ToFlinkConnectionEnvironmentOutputWithContext(ctx context.Context) FlinkConnectionEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionEnvironmentOutput)
+}
+
+func (i FlinkConnectionEnvironmentArgs) ToFlinkConnectionEnvironmentPtrOutput() FlinkConnectionEnvironmentPtrOutput {
+	return i.ToFlinkConnectionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkConnectionEnvironmentArgs) ToFlinkConnectionEnvironmentPtrOutputWithContext(ctx context.Context) FlinkConnectionEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionEnvironmentOutput).ToFlinkConnectionEnvironmentPtrOutputWithContext(ctx)
+}
+
+// FlinkConnectionEnvironmentPtrInput is an input type that accepts FlinkConnectionEnvironmentArgs, FlinkConnectionEnvironmentPtr and FlinkConnectionEnvironmentPtrOutput values.
+// You can construct a concrete instance of `FlinkConnectionEnvironmentPtrInput` via:
+//
+//	        FlinkConnectionEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkConnectionEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToFlinkConnectionEnvironmentPtrOutput() FlinkConnectionEnvironmentPtrOutput
+	ToFlinkConnectionEnvironmentPtrOutputWithContext(context.Context) FlinkConnectionEnvironmentPtrOutput
+}
+
+type flinkConnectionEnvironmentPtrType FlinkConnectionEnvironmentArgs
+
+func FlinkConnectionEnvironmentPtr(v *FlinkConnectionEnvironmentArgs) FlinkConnectionEnvironmentPtrInput {
+	return (*flinkConnectionEnvironmentPtrType)(v)
+}
+
+func (*flinkConnectionEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkConnectionEnvironment)(nil)).Elem()
+}
+
+func (i *flinkConnectionEnvironmentPtrType) ToFlinkConnectionEnvironmentPtrOutput() FlinkConnectionEnvironmentPtrOutput {
+	return i.ToFlinkConnectionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkConnectionEnvironmentPtrType) ToFlinkConnectionEnvironmentPtrOutputWithContext(ctx context.Context) FlinkConnectionEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionEnvironmentPtrOutput)
+}
+
+type FlinkConnectionEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (FlinkConnectionEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkConnectionEnvironment)(nil)).Elem()
+}
+
+func (o FlinkConnectionEnvironmentOutput) ToFlinkConnectionEnvironmentOutput() FlinkConnectionEnvironmentOutput {
+	return o
+}
+
+func (o FlinkConnectionEnvironmentOutput) ToFlinkConnectionEnvironmentOutputWithContext(ctx context.Context) FlinkConnectionEnvironmentOutput {
+	return o
+}
+
+func (o FlinkConnectionEnvironmentOutput) ToFlinkConnectionEnvironmentPtrOutput() FlinkConnectionEnvironmentPtrOutput {
+	return o.ToFlinkConnectionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkConnectionEnvironmentOutput) ToFlinkConnectionEnvironmentPtrOutputWithContext(ctx context.Context) FlinkConnectionEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkConnectionEnvironment) *FlinkConnectionEnvironment {
+		return &v
+	}).(FlinkConnectionEnvironmentPtrOutput)
+}
+
+func (o FlinkConnectionEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkConnectionEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkConnectionEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkConnectionEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkConnectionEnvironment)(nil)).Elem()
+}
+
+func (o FlinkConnectionEnvironmentPtrOutput) ToFlinkConnectionEnvironmentPtrOutput() FlinkConnectionEnvironmentPtrOutput {
+	return o
+}
+
+func (o FlinkConnectionEnvironmentPtrOutput) ToFlinkConnectionEnvironmentPtrOutputWithContext(ctx context.Context) FlinkConnectionEnvironmentPtrOutput {
+	return o
+}
+
+func (o FlinkConnectionEnvironmentPtrOutput) Elem() FlinkConnectionEnvironmentOutput {
+	return o.ApplyT(func(v *FlinkConnectionEnvironment) FlinkConnectionEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkConnectionEnvironment
+		return ret
+	}).(FlinkConnectionEnvironmentOutput)
+}
+
+func (o FlinkConnectionEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkConnectionEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkConnectionOrganization struct {
+	Id string `pulumi:"id"`
+}
+
+// FlinkConnectionOrganizationInput is an input type that accepts FlinkConnectionOrganizationArgs and FlinkConnectionOrganizationOutput values.
+// You can construct a concrete instance of `FlinkConnectionOrganizationInput` via:
+//
+//	FlinkConnectionOrganizationArgs{...}
+type FlinkConnectionOrganizationInput interface {
+	pulumi.Input
+
+	ToFlinkConnectionOrganizationOutput() FlinkConnectionOrganizationOutput
+	ToFlinkConnectionOrganizationOutputWithContext(context.Context) FlinkConnectionOrganizationOutput
+}
+
+type FlinkConnectionOrganizationArgs struct {
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkConnectionOrganizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkConnectionOrganization)(nil)).Elem()
+}
+
+func (i FlinkConnectionOrganizationArgs) ToFlinkConnectionOrganizationOutput() FlinkConnectionOrganizationOutput {
+	return i.ToFlinkConnectionOrganizationOutputWithContext(context.Background())
+}
+
+func (i FlinkConnectionOrganizationArgs) ToFlinkConnectionOrganizationOutputWithContext(ctx context.Context) FlinkConnectionOrganizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionOrganizationOutput)
+}
+
+func (i FlinkConnectionOrganizationArgs) ToFlinkConnectionOrganizationPtrOutput() FlinkConnectionOrganizationPtrOutput {
+	return i.ToFlinkConnectionOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkConnectionOrganizationArgs) ToFlinkConnectionOrganizationPtrOutputWithContext(ctx context.Context) FlinkConnectionOrganizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionOrganizationOutput).ToFlinkConnectionOrganizationPtrOutputWithContext(ctx)
+}
+
+// FlinkConnectionOrganizationPtrInput is an input type that accepts FlinkConnectionOrganizationArgs, FlinkConnectionOrganizationPtr and FlinkConnectionOrganizationPtrOutput values.
+// You can construct a concrete instance of `FlinkConnectionOrganizationPtrInput` via:
+//
+//	        FlinkConnectionOrganizationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkConnectionOrganizationPtrInput interface {
+	pulumi.Input
+
+	ToFlinkConnectionOrganizationPtrOutput() FlinkConnectionOrganizationPtrOutput
+	ToFlinkConnectionOrganizationPtrOutputWithContext(context.Context) FlinkConnectionOrganizationPtrOutput
+}
+
+type flinkConnectionOrganizationPtrType FlinkConnectionOrganizationArgs
+
+func FlinkConnectionOrganizationPtr(v *FlinkConnectionOrganizationArgs) FlinkConnectionOrganizationPtrInput {
+	return (*flinkConnectionOrganizationPtrType)(v)
+}
+
+func (*flinkConnectionOrganizationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkConnectionOrganization)(nil)).Elem()
+}
+
+func (i *flinkConnectionOrganizationPtrType) ToFlinkConnectionOrganizationPtrOutput() FlinkConnectionOrganizationPtrOutput {
+	return i.ToFlinkConnectionOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkConnectionOrganizationPtrType) ToFlinkConnectionOrganizationPtrOutputWithContext(ctx context.Context) FlinkConnectionOrganizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionOrganizationPtrOutput)
+}
+
+type FlinkConnectionOrganizationOutput struct{ *pulumi.OutputState }
+
+func (FlinkConnectionOrganizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkConnectionOrganization)(nil)).Elem()
+}
+
+func (o FlinkConnectionOrganizationOutput) ToFlinkConnectionOrganizationOutput() FlinkConnectionOrganizationOutput {
+	return o
+}
+
+func (o FlinkConnectionOrganizationOutput) ToFlinkConnectionOrganizationOutputWithContext(ctx context.Context) FlinkConnectionOrganizationOutput {
+	return o
+}
+
+func (o FlinkConnectionOrganizationOutput) ToFlinkConnectionOrganizationPtrOutput() FlinkConnectionOrganizationPtrOutput {
+	return o.ToFlinkConnectionOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkConnectionOrganizationOutput) ToFlinkConnectionOrganizationPtrOutputWithContext(ctx context.Context) FlinkConnectionOrganizationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkConnectionOrganization) *FlinkConnectionOrganization {
+		return &v
+	}).(FlinkConnectionOrganizationPtrOutput)
+}
+
+func (o FlinkConnectionOrganizationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkConnectionOrganization) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkConnectionOrganizationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkConnectionOrganizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkConnectionOrganization)(nil)).Elem()
+}
+
+func (o FlinkConnectionOrganizationPtrOutput) ToFlinkConnectionOrganizationPtrOutput() FlinkConnectionOrganizationPtrOutput {
+	return o
+}
+
+func (o FlinkConnectionOrganizationPtrOutput) ToFlinkConnectionOrganizationPtrOutputWithContext(ctx context.Context) FlinkConnectionOrganizationPtrOutput {
+	return o
+}
+
+func (o FlinkConnectionOrganizationPtrOutput) Elem() FlinkConnectionOrganizationOutput {
+	return o.ApplyT(func(v *FlinkConnectionOrganization) FlinkConnectionOrganization {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkConnectionOrganization
+		return ret
+	}).(FlinkConnectionOrganizationOutput)
+}
+
+func (o FlinkConnectionOrganizationPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkConnectionOrganization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkConnectionPrincipal struct {
+	Id string `pulumi:"id"`
+}
+
+// FlinkConnectionPrincipalInput is an input type that accepts FlinkConnectionPrincipalArgs and FlinkConnectionPrincipalOutput values.
+// You can construct a concrete instance of `FlinkConnectionPrincipalInput` via:
+//
+//	FlinkConnectionPrincipalArgs{...}
+type FlinkConnectionPrincipalInput interface {
+	pulumi.Input
+
+	ToFlinkConnectionPrincipalOutput() FlinkConnectionPrincipalOutput
+	ToFlinkConnectionPrincipalOutputWithContext(context.Context) FlinkConnectionPrincipalOutput
+}
+
+type FlinkConnectionPrincipalArgs struct {
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkConnectionPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkConnectionPrincipal)(nil)).Elem()
+}
+
+func (i FlinkConnectionPrincipalArgs) ToFlinkConnectionPrincipalOutput() FlinkConnectionPrincipalOutput {
+	return i.ToFlinkConnectionPrincipalOutputWithContext(context.Background())
+}
+
+func (i FlinkConnectionPrincipalArgs) ToFlinkConnectionPrincipalOutputWithContext(ctx context.Context) FlinkConnectionPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionPrincipalOutput)
+}
+
+func (i FlinkConnectionPrincipalArgs) ToFlinkConnectionPrincipalPtrOutput() FlinkConnectionPrincipalPtrOutput {
+	return i.ToFlinkConnectionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkConnectionPrincipalArgs) ToFlinkConnectionPrincipalPtrOutputWithContext(ctx context.Context) FlinkConnectionPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionPrincipalOutput).ToFlinkConnectionPrincipalPtrOutputWithContext(ctx)
+}
+
+// FlinkConnectionPrincipalPtrInput is an input type that accepts FlinkConnectionPrincipalArgs, FlinkConnectionPrincipalPtr and FlinkConnectionPrincipalPtrOutput values.
+// You can construct a concrete instance of `FlinkConnectionPrincipalPtrInput` via:
+//
+//	        FlinkConnectionPrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkConnectionPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToFlinkConnectionPrincipalPtrOutput() FlinkConnectionPrincipalPtrOutput
+	ToFlinkConnectionPrincipalPtrOutputWithContext(context.Context) FlinkConnectionPrincipalPtrOutput
+}
+
+type flinkConnectionPrincipalPtrType FlinkConnectionPrincipalArgs
+
+func FlinkConnectionPrincipalPtr(v *FlinkConnectionPrincipalArgs) FlinkConnectionPrincipalPtrInput {
+	return (*flinkConnectionPrincipalPtrType)(v)
+}
+
+func (*flinkConnectionPrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkConnectionPrincipal)(nil)).Elem()
+}
+
+func (i *flinkConnectionPrincipalPtrType) ToFlinkConnectionPrincipalPtrOutput() FlinkConnectionPrincipalPtrOutput {
+	return i.ToFlinkConnectionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkConnectionPrincipalPtrType) ToFlinkConnectionPrincipalPtrOutputWithContext(ctx context.Context) FlinkConnectionPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkConnectionPrincipalPtrOutput)
+}
+
+type FlinkConnectionPrincipalOutput struct{ *pulumi.OutputState }
+
+func (FlinkConnectionPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkConnectionPrincipal)(nil)).Elem()
+}
+
+func (o FlinkConnectionPrincipalOutput) ToFlinkConnectionPrincipalOutput() FlinkConnectionPrincipalOutput {
+	return o
+}
+
+func (o FlinkConnectionPrincipalOutput) ToFlinkConnectionPrincipalOutputWithContext(ctx context.Context) FlinkConnectionPrincipalOutput {
+	return o
+}
+
+func (o FlinkConnectionPrincipalOutput) ToFlinkConnectionPrincipalPtrOutput() FlinkConnectionPrincipalPtrOutput {
+	return o.ToFlinkConnectionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkConnectionPrincipalOutput) ToFlinkConnectionPrincipalPtrOutputWithContext(ctx context.Context) FlinkConnectionPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkConnectionPrincipal) *FlinkConnectionPrincipal {
+		return &v
+	}).(FlinkConnectionPrincipalPtrOutput)
+}
+
+func (o FlinkConnectionPrincipalOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkConnectionPrincipal) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkConnectionPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkConnectionPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkConnectionPrincipal)(nil)).Elem()
+}
+
+func (o FlinkConnectionPrincipalPtrOutput) ToFlinkConnectionPrincipalPtrOutput() FlinkConnectionPrincipalPtrOutput {
+	return o
+}
+
+func (o FlinkConnectionPrincipalPtrOutput) ToFlinkConnectionPrincipalPtrOutputWithContext(ctx context.Context) FlinkConnectionPrincipalPtrOutput {
+	return o
+}
+
+func (o FlinkConnectionPrincipalPtrOutput) Elem() FlinkConnectionPrincipalOutput {
+	return o.ApplyT(func(v *FlinkConnectionPrincipal) FlinkConnectionPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkConnectionPrincipal
+		return ret
+	}).(FlinkConnectionPrincipalOutput)
+}
+
+func (o FlinkConnectionPrincipalPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkConnectionPrincipal) *string {
 		if v == nil {
 			return nil
 		}
@@ -25168,6 +25993,58 @@ func (o GetClusterLinkKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetConnectArtifactEnvironment struct {
+	// The ID of the Environment that the Connect Artifact belongs to.
+	Id string `pulumi:"id"`
+}
+
+// GetConnectArtifactEnvironmentInput is an input type that accepts GetConnectArtifactEnvironmentArgs and GetConnectArtifactEnvironmentOutput values.
+// You can construct a concrete instance of `GetConnectArtifactEnvironmentInput` via:
+//
+//	GetConnectArtifactEnvironmentArgs{...}
+type GetConnectArtifactEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetConnectArtifactEnvironmentOutput() GetConnectArtifactEnvironmentOutput
+	ToGetConnectArtifactEnvironmentOutputWithContext(context.Context) GetConnectArtifactEnvironmentOutput
+}
+
+type GetConnectArtifactEnvironmentArgs struct {
+	// The ID of the Environment that the Connect Artifact belongs to.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetConnectArtifactEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectArtifactEnvironment)(nil)).Elem()
+}
+
+func (i GetConnectArtifactEnvironmentArgs) ToGetConnectArtifactEnvironmentOutput() GetConnectArtifactEnvironmentOutput {
+	return i.ToGetConnectArtifactEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetConnectArtifactEnvironmentArgs) ToGetConnectArtifactEnvironmentOutputWithContext(ctx context.Context) GetConnectArtifactEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectArtifactEnvironmentOutput)
+}
+
+type GetConnectArtifactEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetConnectArtifactEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectArtifactEnvironment)(nil)).Elem()
+}
+
+func (o GetConnectArtifactEnvironmentOutput) ToGetConnectArtifactEnvironmentOutput() GetConnectArtifactEnvironmentOutput {
+	return o
+}
+
+func (o GetConnectArtifactEnvironmentOutput) ToGetConnectArtifactEnvironmentOutputWithContext(ctx context.Context) GetConnectArtifactEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Connect Artifact belongs to.
+func (o GetConnectArtifactEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectArtifactEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
 type GetDnsRecordEnvironment struct {
 	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
 	Id string `pulumi:"id"`
@@ -25756,6 +26633,726 @@ func (o GetFlinkComputePoolEnvironmentOutput) ToGetFlinkComputePoolEnvironmentOu
 // > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 func (o GetFlinkComputePoolEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFlinkComputePoolEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetFlinkConnectionComputePool struct {
+	// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetFlinkConnectionComputePoolInput is an input type that accepts GetFlinkConnectionComputePoolArgs and GetFlinkConnectionComputePoolOutput values.
+// You can construct a concrete instance of `GetFlinkConnectionComputePoolInput` via:
+//
+//	GetFlinkConnectionComputePoolArgs{...}
+type GetFlinkConnectionComputePoolInput interface {
+	pulumi.Input
+
+	ToGetFlinkConnectionComputePoolOutput() GetFlinkConnectionComputePoolOutput
+	ToGetFlinkConnectionComputePoolOutputWithContext(context.Context) GetFlinkConnectionComputePoolOutput
+}
+
+type GetFlinkConnectionComputePoolArgs struct {
+	// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetFlinkConnectionComputePoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkConnectionComputePool)(nil)).Elem()
+}
+
+func (i GetFlinkConnectionComputePoolArgs) ToGetFlinkConnectionComputePoolOutput() GetFlinkConnectionComputePoolOutput {
+	return i.ToGetFlinkConnectionComputePoolOutputWithContext(context.Background())
+}
+
+func (i GetFlinkConnectionComputePoolArgs) ToGetFlinkConnectionComputePoolOutputWithContext(ctx context.Context) GetFlinkConnectionComputePoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionComputePoolOutput)
+}
+
+func (i GetFlinkConnectionComputePoolArgs) ToGetFlinkConnectionComputePoolPtrOutput() GetFlinkConnectionComputePoolPtrOutput {
+	return i.ToGetFlinkConnectionComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (i GetFlinkConnectionComputePoolArgs) ToGetFlinkConnectionComputePoolPtrOutputWithContext(ctx context.Context) GetFlinkConnectionComputePoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionComputePoolOutput).ToGetFlinkConnectionComputePoolPtrOutputWithContext(ctx)
+}
+
+// GetFlinkConnectionComputePoolPtrInput is an input type that accepts GetFlinkConnectionComputePoolArgs, GetFlinkConnectionComputePoolPtr and GetFlinkConnectionComputePoolPtrOutput values.
+// You can construct a concrete instance of `GetFlinkConnectionComputePoolPtrInput` via:
+//
+//	        GetFlinkConnectionComputePoolArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFlinkConnectionComputePoolPtrInput interface {
+	pulumi.Input
+
+	ToGetFlinkConnectionComputePoolPtrOutput() GetFlinkConnectionComputePoolPtrOutput
+	ToGetFlinkConnectionComputePoolPtrOutputWithContext(context.Context) GetFlinkConnectionComputePoolPtrOutput
+}
+
+type getFlinkConnectionComputePoolPtrType GetFlinkConnectionComputePoolArgs
+
+func GetFlinkConnectionComputePoolPtr(v *GetFlinkConnectionComputePoolArgs) GetFlinkConnectionComputePoolPtrInput {
+	return (*getFlinkConnectionComputePoolPtrType)(v)
+}
+
+func (*getFlinkConnectionComputePoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkConnectionComputePool)(nil)).Elem()
+}
+
+func (i *getFlinkConnectionComputePoolPtrType) ToGetFlinkConnectionComputePoolPtrOutput() GetFlinkConnectionComputePoolPtrOutput {
+	return i.ToGetFlinkConnectionComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (i *getFlinkConnectionComputePoolPtrType) ToGetFlinkConnectionComputePoolPtrOutputWithContext(ctx context.Context) GetFlinkConnectionComputePoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionComputePoolPtrOutput)
+}
+
+type GetFlinkConnectionComputePoolOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkConnectionComputePoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkConnectionComputePool)(nil)).Elem()
+}
+
+func (o GetFlinkConnectionComputePoolOutput) ToGetFlinkConnectionComputePoolOutput() GetFlinkConnectionComputePoolOutput {
+	return o
+}
+
+func (o GetFlinkConnectionComputePoolOutput) ToGetFlinkConnectionComputePoolOutputWithContext(ctx context.Context) GetFlinkConnectionComputePoolOutput {
+	return o
+}
+
+func (o GetFlinkConnectionComputePoolOutput) ToGetFlinkConnectionComputePoolPtrOutput() GetFlinkConnectionComputePoolPtrOutput {
+	return o.ToGetFlinkConnectionComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (o GetFlinkConnectionComputePoolOutput) ToGetFlinkConnectionComputePoolPtrOutputWithContext(ctx context.Context) GetFlinkConnectionComputePoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFlinkConnectionComputePool) *GetFlinkConnectionComputePool {
+		return &v
+	}).(GetFlinkConnectionComputePoolPtrOutput)
+}
+
+// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+func (o GetFlinkConnectionComputePoolOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkConnectionComputePool) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetFlinkConnectionComputePoolPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkConnectionComputePoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkConnectionComputePool)(nil)).Elem()
+}
+
+func (o GetFlinkConnectionComputePoolPtrOutput) ToGetFlinkConnectionComputePoolPtrOutput() GetFlinkConnectionComputePoolPtrOutput {
+	return o
+}
+
+func (o GetFlinkConnectionComputePoolPtrOutput) ToGetFlinkConnectionComputePoolPtrOutputWithContext(ctx context.Context) GetFlinkConnectionComputePoolPtrOutput {
+	return o
+}
+
+func (o GetFlinkConnectionComputePoolPtrOutput) Elem() GetFlinkConnectionComputePoolOutput {
+	return o.ApplyT(func(v *GetFlinkConnectionComputePool) GetFlinkConnectionComputePool {
+		if v != nil {
+			return *v
+		}
+		var ret GetFlinkConnectionComputePool
+		return ret
+	}).(GetFlinkConnectionComputePoolOutput)
+}
+
+// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+func (o GetFlinkConnectionComputePoolPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFlinkConnectionComputePool) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFlinkConnectionCredentials struct {
+	// The Flink API Key.
+	Key string `pulumi:"key"`
+	// The Flink API Secret.
+	//
+	// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+	Secret string `pulumi:"secret"`
+}
+
+// GetFlinkConnectionCredentialsInput is an input type that accepts GetFlinkConnectionCredentialsArgs and GetFlinkConnectionCredentialsOutput values.
+// You can construct a concrete instance of `GetFlinkConnectionCredentialsInput` via:
+//
+//	GetFlinkConnectionCredentialsArgs{...}
+type GetFlinkConnectionCredentialsInput interface {
+	pulumi.Input
+
+	ToGetFlinkConnectionCredentialsOutput() GetFlinkConnectionCredentialsOutput
+	ToGetFlinkConnectionCredentialsOutputWithContext(context.Context) GetFlinkConnectionCredentialsOutput
+}
+
+type GetFlinkConnectionCredentialsArgs struct {
+	// The Flink API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Flink API Secret.
+	//
+	// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetFlinkConnectionCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkConnectionCredentials)(nil)).Elem()
+}
+
+func (i GetFlinkConnectionCredentialsArgs) ToGetFlinkConnectionCredentialsOutput() GetFlinkConnectionCredentialsOutput {
+	return i.ToGetFlinkConnectionCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetFlinkConnectionCredentialsArgs) ToGetFlinkConnectionCredentialsOutputWithContext(ctx context.Context) GetFlinkConnectionCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionCredentialsOutput)
+}
+
+func (i GetFlinkConnectionCredentialsArgs) ToGetFlinkConnectionCredentialsPtrOutput() GetFlinkConnectionCredentialsPtrOutput {
+	return i.ToGetFlinkConnectionCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetFlinkConnectionCredentialsArgs) ToGetFlinkConnectionCredentialsPtrOutputWithContext(ctx context.Context) GetFlinkConnectionCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionCredentialsOutput).ToGetFlinkConnectionCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetFlinkConnectionCredentialsPtrInput is an input type that accepts GetFlinkConnectionCredentialsArgs, GetFlinkConnectionCredentialsPtr and GetFlinkConnectionCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetFlinkConnectionCredentialsPtrInput` via:
+//
+//	        GetFlinkConnectionCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFlinkConnectionCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetFlinkConnectionCredentialsPtrOutput() GetFlinkConnectionCredentialsPtrOutput
+	ToGetFlinkConnectionCredentialsPtrOutputWithContext(context.Context) GetFlinkConnectionCredentialsPtrOutput
+}
+
+type getFlinkConnectionCredentialsPtrType GetFlinkConnectionCredentialsArgs
+
+func GetFlinkConnectionCredentialsPtr(v *GetFlinkConnectionCredentialsArgs) GetFlinkConnectionCredentialsPtrInput {
+	return (*getFlinkConnectionCredentialsPtrType)(v)
+}
+
+func (*getFlinkConnectionCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkConnectionCredentials)(nil)).Elem()
+}
+
+func (i *getFlinkConnectionCredentialsPtrType) ToGetFlinkConnectionCredentialsPtrOutput() GetFlinkConnectionCredentialsPtrOutput {
+	return i.ToGetFlinkConnectionCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getFlinkConnectionCredentialsPtrType) ToGetFlinkConnectionCredentialsPtrOutputWithContext(ctx context.Context) GetFlinkConnectionCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionCredentialsPtrOutput)
+}
+
+type GetFlinkConnectionCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkConnectionCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkConnectionCredentials)(nil)).Elem()
+}
+
+func (o GetFlinkConnectionCredentialsOutput) ToGetFlinkConnectionCredentialsOutput() GetFlinkConnectionCredentialsOutput {
+	return o
+}
+
+func (o GetFlinkConnectionCredentialsOutput) ToGetFlinkConnectionCredentialsOutputWithContext(ctx context.Context) GetFlinkConnectionCredentialsOutput {
+	return o
+}
+
+func (o GetFlinkConnectionCredentialsOutput) ToGetFlinkConnectionCredentialsPtrOutput() GetFlinkConnectionCredentialsPtrOutput {
+	return o.ToGetFlinkConnectionCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetFlinkConnectionCredentialsOutput) ToGetFlinkConnectionCredentialsPtrOutputWithContext(ctx context.Context) GetFlinkConnectionCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFlinkConnectionCredentials) *GetFlinkConnectionCredentials {
+		return &v
+	}).(GetFlinkConnectionCredentialsPtrOutput)
+}
+
+// The Flink API Key.
+func (o GetFlinkConnectionCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkConnectionCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Flink API Secret.
+//
+// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+//
+// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+func (o GetFlinkConnectionCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkConnectionCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetFlinkConnectionCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkConnectionCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkConnectionCredentials)(nil)).Elem()
+}
+
+func (o GetFlinkConnectionCredentialsPtrOutput) ToGetFlinkConnectionCredentialsPtrOutput() GetFlinkConnectionCredentialsPtrOutput {
+	return o
+}
+
+func (o GetFlinkConnectionCredentialsPtrOutput) ToGetFlinkConnectionCredentialsPtrOutputWithContext(ctx context.Context) GetFlinkConnectionCredentialsPtrOutput {
+	return o
+}
+
+func (o GetFlinkConnectionCredentialsPtrOutput) Elem() GetFlinkConnectionCredentialsOutput {
+	return o.ApplyT(func(v *GetFlinkConnectionCredentials) GetFlinkConnectionCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetFlinkConnectionCredentials
+		return ret
+	}).(GetFlinkConnectionCredentialsOutput)
+}
+
+// The Flink API Key.
+func (o GetFlinkConnectionCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFlinkConnectionCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Flink API Secret.
+//
+// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+//
+// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+func (o GetFlinkConnectionCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFlinkConnectionCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFlinkConnectionEnvironment struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetFlinkConnectionEnvironmentInput is an input type that accepts GetFlinkConnectionEnvironmentArgs and GetFlinkConnectionEnvironmentOutput values.
+// You can construct a concrete instance of `GetFlinkConnectionEnvironmentInput` via:
+//
+//	GetFlinkConnectionEnvironmentArgs{...}
+type GetFlinkConnectionEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetFlinkConnectionEnvironmentOutput() GetFlinkConnectionEnvironmentOutput
+	ToGetFlinkConnectionEnvironmentOutputWithContext(context.Context) GetFlinkConnectionEnvironmentOutput
+}
+
+type GetFlinkConnectionEnvironmentArgs struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetFlinkConnectionEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkConnectionEnvironment)(nil)).Elem()
+}
+
+func (i GetFlinkConnectionEnvironmentArgs) ToGetFlinkConnectionEnvironmentOutput() GetFlinkConnectionEnvironmentOutput {
+	return i.ToGetFlinkConnectionEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetFlinkConnectionEnvironmentArgs) ToGetFlinkConnectionEnvironmentOutputWithContext(ctx context.Context) GetFlinkConnectionEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionEnvironmentOutput)
+}
+
+func (i GetFlinkConnectionEnvironmentArgs) ToGetFlinkConnectionEnvironmentPtrOutput() GetFlinkConnectionEnvironmentPtrOutput {
+	return i.ToGetFlinkConnectionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i GetFlinkConnectionEnvironmentArgs) ToGetFlinkConnectionEnvironmentPtrOutputWithContext(ctx context.Context) GetFlinkConnectionEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionEnvironmentOutput).ToGetFlinkConnectionEnvironmentPtrOutputWithContext(ctx)
+}
+
+// GetFlinkConnectionEnvironmentPtrInput is an input type that accepts GetFlinkConnectionEnvironmentArgs, GetFlinkConnectionEnvironmentPtr and GetFlinkConnectionEnvironmentPtrOutput values.
+// You can construct a concrete instance of `GetFlinkConnectionEnvironmentPtrInput` via:
+//
+//	        GetFlinkConnectionEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFlinkConnectionEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToGetFlinkConnectionEnvironmentPtrOutput() GetFlinkConnectionEnvironmentPtrOutput
+	ToGetFlinkConnectionEnvironmentPtrOutputWithContext(context.Context) GetFlinkConnectionEnvironmentPtrOutput
+}
+
+type getFlinkConnectionEnvironmentPtrType GetFlinkConnectionEnvironmentArgs
+
+func GetFlinkConnectionEnvironmentPtr(v *GetFlinkConnectionEnvironmentArgs) GetFlinkConnectionEnvironmentPtrInput {
+	return (*getFlinkConnectionEnvironmentPtrType)(v)
+}
+
+func (*getFlinkConnectionEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkConnectionEnvironment)(nil)).Elem()
+}
+
+func (i *getFlinkConnectionEnvironmentPtrType) ToGetFlinkConnectionEnvironmentPtrOutput() GetFlinkConnectionEnvironmentPtrOutput {
+	return i.ToGetFlinkConnectionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *getFlinkConnectionEnvironmentPtrType) ToGetFlinkConnectionEnvironmentPtrOutputWithContext(ctx context.Context) GetFlinkConnectionEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionEnvironmentPtrOutput)
+}
+
+type GetFlinkConnectionEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkConnectionEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkConnectionEnvironment)(nil)).Elem()
+}
+
+func (o GetFlinkConnectionEnvironmentOutput) ToGetFlinkConnectionEnvironmentOutput() GetFlinkConnectionEnvironmentOutput {
+	return o
+}
+
+func (o GetFlinkConnectionEnvironmentOutput) ToGetFlinkConnectionEnvironmentOutputWithContext(ctx context.Context) GetFlinkConnectionEnvironmentOutput {
+	return o
+}
+
+func (o GetFlinkConnectionEnvironmentOutput) ToGetFlinkConnectionEnvironmentPtrOutput() GetFlinkConnectionEnvironmentPtrOutput {
+	return o.ToGetFlinkConnectionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o GetFlinkConnectionEnvironmentOutput) ToGetFlinkConnectionEnvironmentPtrOutputWithContext(ctx context.Context) GetFlinkConnectionEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFlinkConnectionEnvironment) *GetFlinkConnectionEnvironment {
+		return &v
+	}).(GetFlinkConnectionEnvironmentPtrOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o GetFlinkConnectionEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkConnectionEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetFlinkConnectionEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkConnectionEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkConnectionEnvironment)(nil)).Elem()
+}
+
+func (o GetFlinkConnectionEnvironmentPtrOutput) ToGetFlinkConnectionEnvironmentPtrOutput() GetFlinkConnectionEnvironmentPtrOutput {
+	return o
+}
+
+func (o GetFlinkConnectionEnvironmentPtrOutput) ToGetFlinkConnectionEnvironmentPtrOutputWithContext(ctx context.Context) GetFlinkConnectionEnvironmentPtrOutput {
+	return o
+}
+
+func (o GetFlinkConnectionEnvironmentPtrOutput) Elem() GetFlinkConnectionEnvironmentOutput {
+	return o.ApplyT(func(v *GetFlinkConnectionEnvironment) GetFlinkConnectionEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret GetFlinkConnectionEnvironment
+		return ret
+	}).(GetFlinkConnectionEnvironmentOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o GetFlinkConnectionEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFlinkConnectionEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFlinkConnectionOrganization struct {
+	// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+	Id string `pulumi:"id"`
+}
+
+// GetFlinkConnectionOrganizationInput is an input type that accepts GetFlinkConnectionOrganizationArgs and GetFlinkConnectionOrganizationOutput values.
+// You can construct a concrete instance of `GetFlinkConnectionOrganizationInput` via:
+//
+//	GetFlinkConnectionOrganizationArgs{...}
+type GetFlinkConnectionOrganizationInput interface {
+	pulumi.Input
+
+	ToGetFlinkConnectionOrganizationOutput() GetFlinkConnectionOrganizationOutput
+	ToGetFlinkConnectionOrganizationOutputWithContext(context.Context) GetFlinkConnectionOrganizationOutput
+}
+
+type GetFlinkConnectionOrganizationArgs struct {
+	// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetFlinkConnectionOrganizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkConnectionOrganization)(nil)).Elem()
+}
+
+func (i GetFlinkConnectionOrganizationArgs) ToGetFlinkConnectionOrganizationOutput() GetFlinkConnectionOrganizationOutput {
+	return i.ToGetFlinkConnectionOrganizationOutputWithContext(context.Background())
+}
+
+func (i GetFlinkConnectionOrganizationArgs) ToGetFlinkConnectionOrganizationOutputWithContext(ctx context.Context) GetFlinkConnectionOrganizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionOrganizationOutput)
+}
+
+func (i GetFlinkConnectionOrganizationArgs) ToGetFlinkConnectionOrganizationPtrOutput() GetFlinkConnectionOrganizationPtrOutput {
+	return i.ToGetFlinkConnectionOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (i GetFlinkConnectionOrganizationArgs) ToGetFlinkConnectionOrganizationPtrOutputWithContext(ctx context.Context) GetFlinkConnectionOrganizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionOrganizationOutput).ToGetFlinkConnectionOrganizationPtrOutputWithContext(ctx)
+}
+
+// GetFlinkConnectionOrganizationPtrInput is an input type that accepts GetFlinkConnectionOrganizationArgs, GetFlinkConnectionOrganizationPtr and GetFlinkConnectionOrganizationPtrOutput values.
+// You can construct a concrete instance of `GetFlinkConnectionOrganizationPtrInput` via:
+//
+//	        GetFlinkConnectionOrganizationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFlinkConnectionOrganizationPtrInput interface {
+	pulumi.Input
+
+	ToGetFlinkConnectionOrganizationPtrOutput() GetFlinkConnectionOrganizationPtrOutput
+	ToGetFlinkConnectionOrganizationPtrOutputWithContext(context.Context) GetFlinkConnectionOrganizationPtrOutput
+}
+
+type getFlinkConnectionOrganizationPtrType GetFlinkConnectionOrganizationArgs
+
+func GetFlinkConnectionOrganizationPtr(v *GetFlinkConnectionOrganizationArgs) GetFlinkConnectionOrganizationPtrInput {
+	return (*getFlinkConnectionOrganizationPtrType)(v)
+}
+
+func (*getFlinkConnectionOrganizationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkConnectionOrganization)(nil)).Elem()
+}
+
+func (i *getFlinkConnectionOrganizationPtrType) ToGetFlinkConnectionOrganizationPtrOutput() GetFlinkConnectionOrganizationPtrOutput {
+	return i.ToGetFlinkConnectionOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (i *getFlinkConnectionOrganizationPtrType) ToGetFlinkConnectionOrganizationPtrOutputWithContext(ctx context.Context) GetFlinkConnectionOrganizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionOrganizationPtrOutput)
+}
+
+type GetFlinkConnectionOrganizationOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkConnectionOrganizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkConnectionOrganization)(nil)).Elem()
+}
+
+func (o GetFlinkConnectionOrganizationOutput) ToGetFlinkConnectionOrganizationOutput() GetFlinkConnectionOrganizationOutput {
+	return o
+}
+
+func (o GetFlinkConnectionOrganizationOutput) ToGetFlinkConnectionOrganizationOutputWithContext(ctx context.Context) GetFlinkConnectionOrganizationOutput {
+	return o
+}
+
+func (o GetFlinkConnectionOrganizationOutput) ToGetFlinkConnectionOrganizationPtrOutput() GetFlinkConnectionOrganizationPtrOutput {
+	return o.ToGetFlinkConnectionOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (o GetFlinkConnectionOrganizationOutput) ToGetFlinkConnectionOrganizationPtrOutputWithContext(ctx context.Context) GetFlinkConnectionOrganizationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFlinkConnectionOrganization) *GetFlinkConnectionOrganization {
+		return &v
+	}).(GetFlinkConnectionOrganizationPtrOutput)
+}
+
+// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+func (o GetFlinkConnectionOrganizationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkConnectionOrganization) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetFlinkConnectionOrganizationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkConnectionOrganizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkConnectionOrganization)(nil)).Elem()
+}
+
+func (o GetFlinkConnectionOrganizationPtrOutput) ToGetFlinkConnectionOrganizationPtrOutput() GetFlinkConnectionOrganizationPtrOutput {
+	return o
+}
+
+func (o GetFlinkConnectionOrganizationPtrOutput) ToGetFlinkConnectionOrganizationPtrOutputWithContext(ctx context.Context) GetFlinkConnectionOrganizationPtrOutput {
+	return o
+}
+
+func (o GetFlinkConnectionOrganizationPtrOutput) Elem() GetFlinkConnectionOrganizationOutput {
+	return o.ApplyT(func(v *GetFlinkConnectionOrganization) GetFlinkConnectionOrganization {
+		if v != nil {
+			return *v
+		}
+		var ret GetFlinkConnectionOrganization
+		return ret
+	}).(GetFlinkConnectionOrganizationOutput)
+}
+
+// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+func (o GetFlinkConnectionOrganizationPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFlinkConnectionOrganization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFlinkConnectionPrincipal struct {
+	// The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetFlinkConnectionPrincipalInput is an input type that accepts GetFlinkConnectionPrincipalArgs and GetFlinkConnectionPrincipalOutput values.
+// You can construct a concrete instance of `GetFlinkConnectionPrincipalInput` via:
+//
+//	GetFlinkConnectionPrincipalArgs{...}
+type GetFlinkConnectionPrincipalInput interface {
+	pulumi.Input
+
+	ToGetFlinkConnectionPrincipalOutput() GetFlinkConnectionPrincipalOutput
+	ToGetFlinkConnectionPrincipalOutputWithContext(context.Context) GetFlinkConnectionPrincipalOutput
+}
+
+type GetFlinkConnectionPrincipalArgs struct {
+	// The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetFlinkConnectionPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkConnectionPrincipal)(nil)).Elem()
+}
+
+func (i GetFlinkConnectionPrincipalArgs) ToGetFlinkConnectionPrincipalOutput() GetFlinkConnectionPrincipalOutput {
+	return i.ToGetFlinkConnectionPrincipalOutputWithContext(context.Background())
+}
+
+func (i GetFlinkConnectionPrincipalArgs) ToGetFlinkConnectionPrincipalOutputWithContext(ctx context.Context) GetFlinkConnectionPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionPrincipalOutput)
+}
+
+func (i GetFlinkConnectionPrincipalArgs) ToGetFlinkConnectionPrincipalPtrOutput() GetFlinkConnectionPrincipalPtrOutput {
+	return i.ToGetFlinkConnectionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i GetFlinkConnectionPrincipalArgs) ToGetFlinkConnectionPrincipalPtrOutputWithContext(ctx context.Context) GetFlinkConnectionPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionPrincipalOutput).ToGetFlinkConnectionPrincipalPtrOutputWithContext(ctx)
+}
+
+// GetFlinkConnectionPrincipalPtrInput is an input type that accepts GetFlinkConnectionPrincipalArgs, GetFlinkConnectionPrincipalPtr and GetFlinkConnectionPrincipalPtrOutput values.
+// You can construct a concrete instance of `GetFlinkConnectionPrincipalPtrInput` via:
+//
+//	        GetFlinkConnectionPrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFlinkConnectionPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToGetFlinkConnectionPrincipalPtrOutput() GetFlinkConnectionPrincipalPtrOutput
+	ToGetFlinkConnectionPrincipalPtrOutputWithContext(context.Context) GetFlinkConnectionPrincipalPtrOutput
+}
+
+type getFlinkConnectionPrincipalPtrType GetFlinkConnectionPrincipalArgs
+
+func GetFlinkConnectionPrincipalPtr(v *GetFlinkConnectionPrincipalArgs) GetFlinkConnectionPrincipalPtrInput {
+	return (*getFlinkConnectionPrincipalPtrType)(v)
+}
+
+func (*getFlinkConnectionPrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkConnectionPrincipal)(nil)).Elem()
+}
+
+func (i *getFlinkConnectionPrincipalPtrType) ToGetFlinkConnectionPrincipalPtrOutput() GetFlinkConnectionPrincipalPtrOutput {
+	return i.ToGetFlinkConnectionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *getFlinkConnectionPrincipalPtrType) ToGetFlinkConnectionPrincipalPtrOutputWithContext(ctx context.Context) GetFlinkConnectionPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkConnectionPrincipalPtrOutput)
+}
+
+type GetFlinkConnectionPrincipalOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkConnectionPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkConnectionPrincipal)(nil)).Elem()
+}
+
+func (o GetFlinkConnectionPrincipalOutput) ToGetFlinkConnectionPrincipalOutput() GetFlinkConnectionPrincipalOutput {
+	return o
+}
+
+func (o GetFlinkConnectionPrincipalOutput) ToGetFlinkConnectionPrincipalOutputWithContext(ctx context.Context) GetFlinkConnectionPrincipalOutput {
+	return o
+}
+
+func (o GetFlinkConnectionPrincipalOutput) ToGetFlinkConnectionPrincipalPtrOutput() GetFlinkConnectionPrincipalPtrOutput {
+	return o.ToGetFlinkConnectionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o GetFlinkConnectionPrincipalOutput) ToGetFlinkConnectionPrincipalPtrOutputWithContext(ctx context.Context) GetFlinkConnectionPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFlinkConnectionPrincipal) *GetFlinkConnectionPrincipal {
+		return &v
+	}).(GetFlinkConnectionPrincipalPtrOutput)
+}
+
+// The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
+func (o GetFlinkConnectionPrincipalOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkConnectionPrincipal) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetFlinkConnectionPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkConnectionPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkConnectionPrincipal)(nil)).Elem()
+}
+
+func (o GetFlinkConnectionPrincipalPtrOutput) ToGetFlinkConnectionPrincipalPtrOutput() GetFlinkConnectionPrincipalPtrOutput {
+	return o
+}
+
+func (o GetFlinkConnectionPrincipalPtrOutput) ToGetFlinkConnectionPrincipalPtrOutputWithContext(ctx context.Context) GetFlinkConnectionPrincipalPtrOutput {
+	return o
+}
+
+func (o GetFlinkConnectionPrincipalPtrOutput) Elem() GetFlinkConnectionPrincipalOutput {
+	return o.ApplyT(func(v *GetFlinkConnectionPrincipal) GetFlinkConnectionPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret GetFlinkConnectionPrincipal
+		return ret
+	}).(GetFlinkConnectionPrincipalOutput)
+}
+
+// The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
+func (o GetFlinkConnectionPrincipalPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFlinkConnectionPrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetGatewayAwsEgressPrivateLinkGateway struct {
@@ -37524,6 +39121,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkSourceKafkaClusterPtrInput)(nil)).Elem(), ClusterLinkSourceKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkSourceKafkaClusterCredentialsInput)(nil)).Elem(), ClusterLinkSourceKafkaClusterCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkSourceKafkaClusterCredentialsPtrInput)(nil)).Elem(), ClusterLinkSourceKafkaClusterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectArtifactEnvironmentInput)(nil)).Elem(), ConnectArtifactEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectArtifactEnvironmentPtrInput)(nil)).Elem(), ConnectArtifactEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEnvironmentInput)(nil)).Elem(), ConnectorEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEnvironmentPtrInput)(nil)).Elem(), ConnectorEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
@@ -37552,6 +39151,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkArtifactVersionArrayInput)(nil)).Elem(), FlinkArtifactVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentPtrInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionComputePoolInput)(nil)).Elem(), FlinkConnectionComputePoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionComputePoolPtrInput)(nil)).Elem(), FlinkConnectionComputePoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionCredentialsInput)(nil)).Elem(), FlinkConnectionCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionCredentialsPtrInput)(nil)).Elem(), FlinkConnectionCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionEnvironmentInput)(nil)).Elem(), FlinkConnectionEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionEnvironmentPtrInput)(nil)).Elem(), FlinkConnectionEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionOrganizationInput)(nil)).Elem(), FlinkConnectionOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionOrganizationPtrInput)(nil)).Elem(), FlinkConnectionOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionPrincipalInput)(nil)).Elem(), FlinkConnectionPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionPrincipalPtrInput)(nil)).Elem(), FlinkConnectionPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementComputePoolInput)(nil)).Elem(), FlinkStatementComputePoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementComputePoolPtrInput)(nil)).Elem(), FlinkStatementComputePoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementCredentialsInput)(nil)).Elem(), FlinkStatementCredentialsArgs{})
@@ -37806,6 +39415,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkCredentialsPtrInput)(nil)).Elem(), GetClusterLinkCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkKafkaClusterInput)(nil)).Elem(), GetClusterLinkKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkKafkaClusterPtrInput)(nil)).Elem(), GetClusterLinkKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectArtifactEnvironmentInput)(nil)).Elem(), GetConnectArtifactEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordEnvironmentInput)(nil)).Elem(), GetDnsRecordEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordGatewayInput)(nil)).Elem(), GetDnsRecordGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordGatewayArrayInput)(nil)).Elem(), GetDnsRecordGatewayArray{})
@@ -37817,6 +39427,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkArtifactVersionInput)(nil)).Elem(), GetFlinkArtifactVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkArtifactVersionArrayInput)(nil)).Elem(), GetFlinkArtifactVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkComputePoolEnvironmentInput)(nil)).Elem(), GetFlinkComputePoolEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionComputePoolInput)(nil)).Elem(), GetFlinkConnectionComputePoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionComputePoolPtrInput)(nil)).Elem(), GetFlinkConnectionComputePoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionCredentialsInput)(nil)).Elem(), GetFlinkConnectionCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionCredentialsPtrInput)(nil)).Elem(), GetFlinkConnectionCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionEnvironmentInput)(nil)).Elem(), GetFlinkConnectionEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionEnvironmentPtrInput)(nil)).Elem(), GetFlinkConnectionEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionOrganizationInput)(nil)).Elem(), GetFlinkConnectionOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionOrganizationPtrInput)(nil)).Elem(), GetFlinkConnectionOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionPrincipalInput)(nil)).Elem(), GetFlinkConnectionPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionPrincipalPtrInput)(nil)).Elem(), GetFlinkConnectionPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayArrayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsPeeringGatewayInput)(nil)).Elem(), GetGatewayAwsPeeringGatewayArgs{})
@@ -38074,6 +39694,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterLinkSourceKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkSourceKafkaClusterCredentialsOutput{})
 	pulumi.RegisterOutputType(ClusterLinkSourceKafkaClusterCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectArtifactEnvironmentOutput{})
+	pulumi.RegisterOutputType(ConnectArtifactEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorEnvironmentOutput{})
 	pulumi.RegisterOutputType(ConnectorEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterOutput{})
@@ -38102,6 +39724,16 @@ func init() {
 	pulumi.RegisterOutputType(FlinkArtifactVersionArrayOutput{})
 	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentOutput{})
 	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(FlinkConnectionComputePoolOutput{})
+	pulumi.RegisterOutputType(FlinkConnectionComputePoolPtrOutput{})
+	pulumi.RegisterOutputType(FlinkConnectionCredentialsOutput{})
+	pulumi.RegisterOutputType(FlinkConnectionCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(FlinkConnectionEnvironmentOutput{})
+	pulumi.RegisterOutputType(FlinkConnectionEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(FlinkConnectionOrganizationOutput{})
+	pulumi.RegisterOutputType(FlinkConnectionOrganizationPtrOutput{})
+	pulumi.RegisterOutputType(FlinkConnectionPrincipalOutput{})
+	pulumi.RegisterOutputType(FlinkConnectionPrincipalPtrOutput{})
 	pulumi.RegisterOutputType(FlinkStatementComputePoolOutput{})
 	pulumi.RegisterOutputType(FlinkStatementComputePoolPtrOutput{})
 	pulumi.RegisterOutputType(FlinkStatementCredentialsOutput{})
@@ -38356,6 +39988,7 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterLinkCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterLinkKafkaClusterOutput{})
 	pulumi.RegisterOutputType(GetClusterLinkKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(GetConnectArtifactEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordGatewayOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordGatewayArrayOutput{})
@@ -38367,6 +40000,16 @@ func init() {
 	pulumi.RegisterOutputType(GetFlinkArtifactVersionOutput{})
 	pulumi.RegisterOutputType(GetFlinkArtifactVersionArrayOutput{})
 	pulumi.RegisterOutputType(GetFlinkComputePoolEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetFlinkConnectionComputePoolOutput{})
+	pulumi.RegisterOutputType(GetFlinkConnectionComputePoolPtrOutput{})
+	pulumi.RegisterOutputType(GetFlinkConnectionCredentialsOutput{})
+	pulumi.RegisterOutputType(GetFlinkConnectionCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetFlinkConnectionEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetFlinkConnectionEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(GetFlinkConnectionOrganizationOutput{})
+	pulumi.RegisterOutputType(GetFlinkConnectionOrganizationPtrOutput{})
+	pulumi.RegisterOutputType(GetFlinkConnectionPrincipalOutput{})
+	pulumi.RegisterOutputType(GetFlinkConnectionPrincipalPtrOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsPeeringGatewayOutput{})

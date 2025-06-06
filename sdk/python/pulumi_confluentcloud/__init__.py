@@ -16,6 +16,7 @@ from .catalog_integration import *
 from .certificate_authority import *
 from .certificate_pool import *
 from .cluster_link import *
+from .connect_artifact import *
 from .connector import *
 from .custom_connector_plugin import *
 from .dns_forwarder import *
@@ -23,6 +24,7 @@ from .dns_record import *
 from .environment import *
 from .flink_artifact import *
 from .flink_compute_pool import *
+from .flink_connection import *
 from .flink_statement import *
 from .gateway import *
 from .get_access_point import *
@@ -33,11 +35,13 @@ from .get_catalog_integration import *
 from .get_certificate_authority import *
 from .get_certificate_pool import *
 from .get_cluster_link import *
+from .get_connect_artifact import *
 from .get_dns_record import *
 from .get_environment import *
 from .get_environments import *
 from .get_flink_artifact import *
 from .get_flink_compute_pool import *
+from .get_flink_connection import *
 from .get_flink_region import *
 from .get_gateway import *
 from .get_group_mapping import *
@@ -206,6 +210,14 @@ _utilities.register(
  },
  {
   "pkg": "confluentcloud",
+  "mod": "index/connectArtifact",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/connectArtifact:ConnectArtifact": "ConnectArtifact"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
   "mod": "index/connector",
   "fqn": "pulumi_confluentcloud",
   "classes": {
@@ -258,6 +270,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/flinkComputePool:FlinkComputePool": "FlinkComputePool"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/flinkConnection",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/flinkConnection:FlinkConnection": "FlinkConnection"
   }
  },
  {

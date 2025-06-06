@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  *             .region("us-west-2")
  *             .displayName("my_flink_sumscalar_artifact")
  *             .contentFormat("JAR")
+ *             .artifactFile("path/to/your/artifact.jar")
  *             .environment(FlinkArtifactEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
@@ -98,14 +99,14 @@ public class FlinkArtifact extends com.pulumi.resources.CustomResource {
         return this.apiVersion;
     }
     /**
-     * The artifact file for Flink Artifact.
+     * The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
      * 
      */
     @Export(name="artifactFile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> artifactFile;
 
     /**
-     * @return The artifact file for Flink Artifact.
+     * @return The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
      * 
      */
     public Output<Optional<String>> artifactFile() {
@@ -144,14 +145,14 @@ public class FlinkArtifact extends com.pulumi.resources.CustomResource {
         return this.cloud;
     }
     /**
-     * (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+     * Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
      * 
      */
     @Export(name="contentFormat", refs={String.class}, tree="[0]")
     private Output<String> contentFormat;
 
     /**
-     * @return (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+     * @return Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
      * 
      */
     public Output<String> contentFormat() {

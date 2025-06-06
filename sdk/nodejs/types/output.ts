@@ -439,6 +439,13 @@ export interface ClusterLinkSourceKafkaClusterCredentials {
     secret: string;
 }
 
+export interface ConnectArtifactEnvironment {
+    /**
+     * The ID of the Environment that the Connect Artifact belongs to.
+     */
+    id: string;
+}
+
 export interface ConnectorEnvironment {
     /**
      * The ID of the Environment that the connector belongs to, for example, `env-abc123`.
@@ -542,6 +549,33 @@ export interface FlinkComputePoolEnvironment {
     /**
      * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
      */
+    id: string;
+}
+
+export interface FlinkConnectionComputePool {
+    id: string;
+}
+
+export interface FlinkConnectionCredentials {
+    /**
+     * The Cluster API Key for your Confluent Cloud cluster.
+     */
+    key: string;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
+    secret: string;
+}
+
+export interface FlinkConnectionEnvironment {
+    id: string;
+}
+
+export interface FlinkConnectionOrganization {
+    id: string;
+}
+
+export interface FlinkConnectionPrincipal {
     id: string;
 }
 
@@ -904,6 +938,13 @@ export interface GetClusterLinkKafkaCluster {
     id: string;
 }
 
+export interface GetConnectArtifactEnvironment {
+    /**
+     * The ID of the Environment that the Connect Artifact belongs to.
+     */
+    id: string;
+}
+
 export interface GetDnsRecordEnvironment {
     /**
      * The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
@@ -951,6 +992,49 @@ export interface GetFlinkComputePoolEnvironment {
      * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
      *
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     */
+    id: string;
+}
+
+export interface GetFlinkConnectionComputePool {
+    /**
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+     */
+    id: string;
+}
+
+export interface GetFlinkConnectionCredentials {
+    /**
+     * The Flink API Key.
+     */
+    key: string;
+    /**
+     * The Flink API Secret.
+     *
+     * > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+     *
+     * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+     */
+    secret: string;
+}
+
+export interface GetFlinkConnectionEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface GetFlinkConnectionOrganization {
+    /**
+     * The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+     */
+    id: string;
+}
+
+export interface GetFlinkConnectionPrincipal {
+    /**
+     * The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
      */
     id: string;
 }

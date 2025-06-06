@@ -19,6 +19,7 @@ import * as utilities from "./utilities";
  *     region: "us-west-2",
  *     displayName: "my_flink_sumscalar_artifact",
  *     contentFormat: "JAR",
+ *     artifactFile: "path/to/your/artifact.jar",
  *     environment: {
  *         id: development.id,
  *     },
@@ -72,7 +73,7 @@ export class FlinkArtifact extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiVersion!: pulumi.Output<string>;
     /**
-     * The artifact file for Flink Artifact.
+     * The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
      */
     public readonly artifactFile!: pulumi.Output<string | undefined>;
     /**
@@ -86,7 +87,7 @@ export class FlinkArtifact extends pulumi.CustomResource {
      */
     public readonly cloud!: pulumi.Output<string>;
     /**
-     * (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+     * Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
      */
     public readonly contentFormat!: pulumi.Output<string>;
     /**
@@ -190,7 +191,7 @@ export interface FlinkArtifactState {
      */
     apiVersion?: pulumi.Input<string>;
     /**
-     * The artifact file for Flink Artifact.
+     * The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
      */
     artifactFile?: pulumi.Input<string>;
     /**
@@ -204,7 +205,7 @@ export interface FlinkArtifactState {
      */
     cloud?: pulumi.Input<string>;
     /**
-     * (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+     * Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
      */
     contentFormat?: pulumi.Input<string>;
     /**
@@ -246,7 +247,7 @@ export interface FlinkArtifactState {
  */
 export interface FlinkArtifactArgs {
     /**
-     * The artifact file for Flink Artifact.
+     * The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
      */
     artifactFile?: pulumi.Input<string>;
     /**
@@ -260,7 +261,7 @@ export interface FlinkArtifactArgs {
      */
     cloud: pulumi.Input<string>;
     /**
-     * (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+     * Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
      */
     contentFormat?: pulumi.Input<string>;
     /**

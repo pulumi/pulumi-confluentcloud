@@ -20,6 +20,8 @@ import com.pulumi.confluentcloud.inputs.GetCertificatePoolArgs;
 import com.pulumi.confluentcloud.inputs.GetCertificatePoolPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetClusterLinkArgs;
 import com.pulumi.confluentcloud.inputs.GetClusterLinkPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
+import com.pulumi.confluentcloud.inputs.GetConnectArtifactPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
 import com.pulumi.confluentcloud.inputs.GetDnsRecordPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;
@@ -28,6 +30,8 @@ import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkArtifactPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
+import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkRegionPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
@@ -108,11 +112,13 @@ import com.pulumi.confluentcloud.outputs.GetCatalogIntegrationResult;
 import com.pulumi.confluentcloud.outputs.GetCertificateAuthorityResult;
 import com.pulumi.confluentcloud.outputs.GetCertificatePoolResult;
 import com.pulumi.confluentcloud.outputs.GetClusterLinkResult;
+import com.pulumi.confluentcloud.outputs.GetConnectArtifactResult;
 import com.pulumi.confluentcloud.outputs.GetDnsRecordResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentsResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkArtifactResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkComputePoolResult;
+import com.pulumi.confluentcloud.outputs.GetFlinkConnectionResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkRegionResult;
 import com.pulumi.confluentcloud.outputs.GetGatewayResult;
 import com.pulumi.confluentcloud.outputs.GetGroupMappingResult;
@@ -2563,6 +2569,271 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
+     * `confluentcloud.ConnectArtifact` data source represents a Connect Artifact in Confluent Cloud. Connect Artifacts are used to store and manage custom connector plugins in Confluent Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
+     * import com.pulumi.confluentcloud.inputs.GetConnectArtifactEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getConnectArtifact(GetConnectArtifactArgs.builder()
+     *             .id("ca-123456")
+     *             .environment(GetConnectArtifactEnvironmentArgs.builder()
+     *                 .id("env-123456")
+     *                 .build())
+     *             .cloud("AWS")
+     *             .build());
+     * 
+     *         ctx.export("artifactName", example.displayName());
+     *         ctx.export("artifactCloud", example.cloud());
+     *         ctx.export("artifactContentFormat", example.contentFormat());
+     *         ctx.export("artifactDescription", example.description());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetConnectArtifactResult> getConnectArtifact(GetConnectArtifactArgs args) {
+        return getConnectArtifact(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ConnectArtifact` data source represents a Connect Artifact in Confluent Cloud. Connect Artifacts are used to store and manage custom connector plugins in Confluent Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
+     * import com.pulumi.confluentcloud.inputs.GetConnectArtifactEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getConnectArtifact(GetConnectArtifactArgs.builder()
+     *             .id("ca-123456")
+     *             .environment(GetConnectArtifactEnvironmentArgs.builder()
+     *                 .id("env-123456")
+     *                 .build())
+     *             .cloud("AWS")
+     *             .build());
+     * 
+     *         ctx.export("artifactName", example.displayName());
+     *         ctx.export("artifactCloud", example.cloud());
+     *         ctx.export("artifactContentFormat", example.contentFormat());
+     *         ctx.export("artifactDescription", example.description());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetConnectArtifactResult> getConnectArtifactPlain(GetConnectArtifactPlainArgs args) {
+        return getConnectArtifactPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ConnectArtifact` data source represents a Connect Artifact in Confluent Cloud. Connect Artifacts are used to store and manage custom connector plugins in Confluent Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
+     * import com.pulumi.confluentcloud.inputs.GetConnectArtifactEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getConnectArtifact(GetConnectArtifactArgs.builder()
+     *             .id("ca-123456")
+     *             .environment(GetConnectArtifactEnvironmentArgs.builder()
+     *                 .id("env-123456")
+     *                 .build())
+     *             .cloud("AWS")
+     *             .build());
+     * 
+     *         ctx.export("artifactName", example.displayName());
+     *         ctx.export("artifactCloud", example.cloud());
+     *         ctx.export("artifactContentFormat", example.contentFormat());
+     *         ctx.export("artifactDescription", example.description());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetConnectArtifactResult> getConnectArtifact(GetConnectArtifactArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getConnectArtifact:getConnectArtifact", TypeShape.of(GetConnectArtifactResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ConnectArtifact` data source represents a Connect Artifact in Confluent Cloud. Connect Artifacts are used to store and manage custom connector plugins in Confluent Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
+     * import com.pulumi.confluentcloud.inputs.GetConnectArtifactEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getConnectArtifact(GetConnectArtifactArgs.builder()
+     *             .id("ca-123456")
+     *             .environment(GetConnectArtifactEnvironmentArgs.builder()
+     *                 .id("env-123456")
+     *                 .build())
+     *             .cloud("AWS")
+     *             .build());
+     * 
+     *         ctx.export("artifactName", example.displayName());
+     *         ctx.export("artifactCloud", example.cloud());
+     *         ctx.export("artifactContentFormat", example.contentFormat());
+     *         ctx.export("artifactDescription", example.description());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetConnectArtifactResult> getConnectArtifact(GetConnectArtifactArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getConnectArtifact:getConnectArtifact", TypeShape.of(GetConnectArtifactResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ConnectArtifact` data source represents a Connect Artifact in Confluent Cloud. Connect Artifacts are used to store and manage custom connector plugins in Confluent Cloud.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
+     * import com.pulumi.confluentcloud.inputs.GetConnectArtifactEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getConnectArtifact(GetConnectArtifactArgs.builder()
+     *             .id("ca-123456")
+     *             .environment(GetConnectArtifactEnvironmentArgs.builder()
+     *                 .id("env-123456")
+     *                 .build())
+     *             .cloud("AWS")
+     *             .build());
+     * 
+     *         ctx.export("artifactName", example.displayName());
+     *         ctx.export("artifactCloud", example.cloud());
+     *         ctx.export("artifactContentFormat", example.contentFormat());
+     *         ctx.export("artifactDescription", example.description());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetConnectArtifactResult> getConnectArtifactPlain(GetConnectArtifactPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getConnectArtifact:getConnectArtifact", TypeShape.of(GetConnectArtifactResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
      * `confluentcloud.DnsRecord` describes a DNS Record data source.
      * 
      * ## Example Usage
@@ -4102,6 +4373,61 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetFlinkComputePoolResult> getFlinkComputePoolPlain(GetFlinkComputePoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", TypeShape.of(GetFlinkComputePoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkConnection` describes a Flink Connection data source.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetFlinkConnectionResult> getFlinkConnection(GetFlinkConnectionArgs args) {
+        return getFlinkConnection(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkConnection` describes a Flink Connection data source.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetFlinkConnectionResult> getFlinkConnectionPlain(GetFlinkConnectionPlainArgs args) {
+        return getFlinkConnectionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkConnection` describes a Flink Connection data source.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetFlinkConnectionResult> getFlinkConnection(GetFlinkConnectionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getFlinkConnection:getFlinkConnection", TypeShape.of(GetFlinkConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkConnection` describes a Flink Connection data source.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetFlinkConnectionResult> getFlinkConnection(GetFlinkConnectionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getFlinkConnection:getFlinkConnection", TypeShape.of(GetFlinkConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkConnection` describes a Flink Connection data source.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetFlinkConnectionResult> getFlinkConnectionPlain(GetFlinkConnectionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getFlinkConnection:getFlinkConnection", TypeShape.of(GetFlinkConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

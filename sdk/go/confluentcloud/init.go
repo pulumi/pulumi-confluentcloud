@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CertificatePool{}
 	case "confluentcloud:index/clusterLink:ClusterLink":
 		r = &ClusterLink{}
+	case "confluentcloud:index/connectArtifact:ConnectArtifact":
+		r = &ConnectArtifact{}
 	case "confluentcloud:index/connector:Connector":
 		r = &Connector{}
 	case "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin":
@@ -55,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FlinkArtifact{}
 	case "confluentcloud:index/flinkComputePool:FlinkComputePool":
 		r = &FlinkComputePool{}
+	case "confluentcloud:index/flinkConnection:FlinkConnection":
+		r = &FlinkConnection{}
 	case "confluentcloud:index/flinkStatement:FlinkStatement":
 		r = &FlinkStatement{}
 	case "confluentcloud:index/gateway:Gateway":
@@ -210,6 +214,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
+		"index/connectArtifact",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
 		"index/connector",
 		&module{version},
 	)
@@ -241,6 +250,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/flinkComputePool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/flinkConnection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

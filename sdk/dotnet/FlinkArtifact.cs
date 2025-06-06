@@ -31,6 +31,7 @@ namespace Pulumi.ConfluentCloud
     ///         Region = "us-west-2",
     ///         DisplayName = "my_flink_sumscalar_artifact",
     ///         ContentFormat = "JAR",
+    ///         ArtifactFile = "path/to/your/artifact.jar",
     ///         Environment = new ConfluentCloud.Inputs.FlinkArtifactEnvironmentArgs
     ///         {
     ///             Id = development.Id,
@@ -64,7 +65,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> ApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The artifact file for Flink Artifact.
+        /// The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         /// </summary>
         [Output("artifactFile")]
         public Output<string?> ArtifactFile { get; private set; } = null!;
@@ -82,7 +83,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Cloud { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+        /// Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
         /// </summary>
         [Output("contentFormat")]
         public Output<string> ContentFormat { get; private set; } = null!;
@@ -182,7 +183,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class FlinkArtifactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The artifact file for Flink Artifact.
+        /// The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         /// </summary>
         [Input("artifactFile")]
         public Input<string>? ArtifactFile { get; set; }
@@ -200,7 +201,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> Cloud { get; set; } = null!;
 
         /// <summary>
-        /// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+        /// Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
         /// </summary>
         [Input("contentFormat")]
         public Input<string>? ContentFormat { get; set; }
@@ -256,7 +257,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? ApiVersion { get; set; }
 
         /// <summary>
-        /// The artifact file for Flink Artifact.
+        /// The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         /// </summary>
         [Input("artifactFile")]
         public Input<string>? ArtifactFile { get; set; }
@@ -274,7 +275,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Cloud { get; set; }
 
         /// <summary>
-        /// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+        /// Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
         /// </summary>
         [Input("contentFormat")]
         public Input<string>? ContentFormat { get; set; }

@@ -38,9 +38,9 @@ class FlinkArtifactArgs:
         :param pulumi.Input[builtins.str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
         :param pulumi.Input['FlinkArtifactEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[builtins.str] region: The cloud service provider region that hosts the Flink Artifact.
-        :param pulumi.Input[builtins.str] artifact_file: The artifact file for Flink Artifact.
+        :param pulumi.Input[builtins.str] artifact_file: The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         :param pulumi.Input[builtins.str] class_: Java class or alias for the Flink Artifact as provided by developer.
-        :param pulumi.Input[builtins.str] content_format: (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+        :param pulumi.Input[builtins.str] content_format: Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
         :param pulumi.Input[builtins.str] description: (Optional String) Description of the Flink Artifact.
         :param pulumi.Input[builtins.str] documentation_link: (Optional String) Documentation link of the Flink Artifact.
         :param pulumi.Input[builtins.str] runtime_language: (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
@@ -117,7 +117,7 @@ class FlinkArtifactArgs:
     @pulumi.getter(name="artifactFile")
     def artifact_file(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The artifact file for Flink Artifact.
+        The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         """
         return pulumi.get(self, "artifact_file")
 
@@ -142,7 +142,7 @@ class FlinkArtifactArgs:
     @pulumi.getter(name="contentFormat")
     def content_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+        Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
         """
         return pulumi.get(self, "content_format")
 
@@ -206,10 +206,10 @@ class _FlinkArtifactState:
         """
         Input properties used for looking up and filtering FlinkArtifact resources.
         :param pulumi.Input[builtins.str] api_version: (Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.
-        :param pulumi.Input[builtins.str] artifact_file: The artifact file for Flink Artifact.
+        :param pulumi.Input[builtins.str] artifact_file: The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         :param pulumi.Input[builtins.str] class_: Java class or alias for the Flink Artifact as provided by developer.
         :param pulumi.Input[builtins.str] cloud: The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
-        :param pulumi.Input[builtins.str] content_format: (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+        :param pulumi.Input[builtins.str] content_format: Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
         :param pulumi.Input[builtins.str] description: (Optional String) Description of the Flink Artifact.
         :param pulumi.Input[builtins.str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
         :param pulumi.Input[builtins.str] documentation_link: (Optional String) Documentation link of the Flink Artifact.
@@ -265,7 +265,7 @@ class _FlinkArtifactState:
     @pulumi.getter(name="artifactFile")
     def artifact_file(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The artifact file for Flink Artifact.
+        The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         """
         return pulumi.get(self, "artifact_file")
 
@@ -302,7 +302,7 @@ class _FlinkArtifactState:
     @pulumi.getter(name="contentFormat")
     def content_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+        Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
         """
         return pulumi.get(self, "content_format")
 
@@ -437,6 +437,7 @@ class FlinkArtifact(pulumi.CustomResource):
             region="us-west-2",
             display_name="my_flink_sumscalar_artifact",
             content_format="JAR",
+            artifact_file="path/to/your/artifact.jar",
             environment={
                 "id": development.id,
             })
@@ -458,10 +459,10 @@ class FlinkArtifact(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] artifact_file: The artifact file for Flink Artifact.
+        :param pulumi.Input[builtins.str] artifact_file: The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         :param pulumi.Input[builtins.str] class_: Java class or alias for the Flink Artifact as provided by developer.
         :param pulumi.Input[builtins.str] cloud: The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
-        :param pulumi.Input[builtins.str] content_format: (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+        :param pulumi.Input[builtins.str] content_format: Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
         :param pulumi.Input[builtins.str] description: (Optional String) Description of the Flink Artifact.
         :param pulumi.Input[builtins.str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
         :param pulumi.Input[builtins.str] documentation_link: (Optional String) Documentation link of the Flink Artifact.
@@ -488,6 +489,7 @@ class FlinkArtifact(pulumi.CustomResource):
             region="us-west-2",
             display_name="my_flink_sumscalar_artifact",
             content_format="JAR",
+            artifact_file="path/to/your/artifact.jar",
             environment={
                 "id": development.id,
             })
@@ -593,10 +595,10 @@ class FlinkArtifact(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] api_version: (Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.
-        :param pulumi.Input[builtins.str] artifact_file: The artifact file for Flink Artifact.
+        :param pulumi.Input[builtins.str] artifact_file: The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         :param pulumi.Input[builtins.str] class_: Java class or alias for the Flink Artifact as provided by developer.
         :param pulumi.Input[builtins.str] cloud: The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
-        :param pulumi.Input[builtins.str] content_format: (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+        :param pulumi.Input[builtins.str] content_format: Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
         :param pulumi.Input[builtins.str] description: (Optional String) Description of the Flink Artifact.
         :param pulumi.Input[builtins.str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
         :param pulumi.Input[builtins.str] documentation_link: (Optional String) Documentation link of the Flink Artifact.
@@ -637,7 +639,7 @@ class FlinkArtifact(pulumi.CustomResource):
     @pulumi.getter(name="artifactFile")
     def artifact_file(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The artifact file for Flink Artifact.
+        The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         """
         return pulumi.get(self, "artifact_file")
 
@@ -662,7 +664,7 @@ class FlinkArtifact(pulumi.CustomResource):
     @pulumi.getter(name="contentFormat")
     def content_format(self) -> pulumi.Output[builtins.str]:
         """
-        (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+        Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
         """
         return pulumi.get(self, "content_format")
 

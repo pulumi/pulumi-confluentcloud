@@ -37,6 +37,7 @@ import (
 //				Region:        pulumi.String("us-west-2"),
 //				DisplayName:   pulumi.String("my_flink_sumscalar_artifact"),
 //				ContentFormat: pulumi.String("JAR"),
+//				ArtifactFile:  pulumi.String("path/to/your/artifact.jar"),
 //				Environment: &confluentcloud.FlinkArtifactEnvironmentArgs{
 //					Id: development.ID(),
 //				},
@@ -68,7 +69,7 @@ type FlinkArtifact struct {
 
 	// (Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.
 	ApiVersion pulumi.StringOutput `pulumi:"apiVersion"`
-	// The artifact file for Flink Artifact.
+	// The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
 	ArtifactFile pulumi.StringPtrOutput `pulumi:"artifactFile"`
 	// Java class or alias for the Flink Artifact as provided by developer.
 	//
@@ -76,7 +77,7 @@ type FlinkArtifact struct {
 	Class pulumi.StringPtrOutput `pulumi:"class"`
 	// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
-	// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+	// Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
 	ContentFormat pulumi.StringOutput `pulumi:"contentFormat"`
 	// (Optional String) Description of the Flink Artifact.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -140,7 +141,7 @@ func GetFlinkArtifact(ctx *pulumi.Context,
 type flinkArtifactState struct {
 	// (Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.
 	ApiVersion *string `pulumi:"apiVersion"`
-	// The artifact file for Flink Artifact.
+	// The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
 	ArtifactFile *string `pulumi:"artifactFile"`
 	// Java class or alias for the Flink Artifact as provided by developer.
 	//
@@ -148,7 +149,7 @@ type flinkArtifactState struct {
 	Class *string `pulumi:"class"`
 	// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
 	Cloud *string `pulumi:"cloud"`
-	// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+	// Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
 	ContentFormat *string `pulumi:"contentFormat"`
 	// (Optional String) Description of the Flink Artifact.
 	Description *string `pulumi:"description"`
@@ -171,7 +172,7 @@ type flinkArtifactState struct {
 type FlinkArtifactState struct {
 	// (Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.
 	ApiVersion pulumi.StringPtrInput
-	// The artifact file for Flink Artifact.
+	// The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
 	ArtifactFile pulumi.StringPtrInput
 	// Java class or alias for the Flink Artifact as provided by developer.
 	//
@@ -179,7 +180,7 @@ type FlinkArtifactState struct {
 	Class pulumi.StringPtrInput
 	// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
 	Cloud pulumi.StringPtrInput
-	// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+	// Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
 	ContentFormat pulumi.StringPtrInput
 	// (Optional String) Description of the Flink Artifact.
 	Description pulumi.StringPtrInput
@@ -204,7 +205,7 @@ func (FlinkArtifactState) ElementType() reflect.Type {
 }
 
 type flinkArtifactArgs struct {
-	// The artifact file for Flink Artifact.
+	// The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
 	ArtifactFile *string `pulumi:"artifactFile"`
 	// Java class or alias for the Flink Artifact as provided by developer.
 	//
@@ -212,7 +213,7 @@ type flinkArtifactArgs struct {
 	Class *string `pulumi:"class"`
 	// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
 	Cloud string `pulumi:"cloud"`
-	// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+	// Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
 	ContentFormat *string `pulumi:"contentFormat"`
 	// (Optional String) Description of the Flink Artifact.
 	Description *string `pulumi:"description"`
@@ -230,7 +231,7 @@ type flinkArtifactArgs struct {
 
 // The set of arguments for constructing a FlinkArtifact resource.
 type FlinkArtifactArgs struct {
-	// The artifact file for Flink Artifact.
+	// The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
 	ArtifactFile pulumi.StringPtrInput
 	// Java class or alias for the Flink Artifact as provided by developer.
 	//
@@ -238,7 +239,7 @@ type FlinkArtifactArgs struct {
 	Class pulumi.StringPtrInput
 	// The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
 	Cloud pulumi.StringInput
-	// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+	// Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
 	ContentFormat pulumi.StringPtrInput
 	// (Optional String) Description of the Flink Artifact.
 	Description pulumi.StringPtrInput
@@ -346,7 +347,7 @@ func (o FlinkArtifactOutput) ApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlinkArtifact) pulumi.StringOutput { return v.ApiVersion }).(pulumi.StringOutput)
 }
 
-// The artifact file for Flink Artifact.
+// The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
 func (o FlinkArtifactOutput) ArtifactFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkArtifact) pulumi.StringPtrOutput { return v.ArtifactFile }).(pulumi.StringPtrOutput)
 }
@@ -363,7 +364,7 @@ func (o FlinkArtifactOutput) Cloud() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlinkArtifact) pulumi.StringOutput { return v.Cloud }).(pulumi.StringOutput)
 }
 
-// (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+// Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
 func (o FlinkArtifactOutput) ContentFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlinkArtifact) pulumi.StringOutput { return v.ContentFormat }).(pulumi.StringOutput)
 }
