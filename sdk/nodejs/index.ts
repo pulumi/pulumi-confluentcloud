@@ -55,6 +55,11 @@ export type ClusterLink = import("./clusterLink").ClusterLink;
 export const ClusterLink: typeof import("./clusterLink").ClusterLink = null as any;
 utilities.lazyLoad(exports, ["ClusterLink"], () => require("./clusterLink"));
 
+export { ConnectArtifactArgs, ConnectArtifactState } from "./connectArtifact";
+export type ConnectArtifact = import("./connectArtifact").ConnectArtifact;
+export const ConnectArtifact: typeof import("./connectArtifact").ConnectArtifact = null as any;
+utilities.lazyLoad(exports, ["ConnectArtifact"], () => require("./connectArtifact"));
+
 export { ConnectorArgs, ConnectorState } from "./connector";
 export type Connector = import("./connector").Connector;
 export const Connector: typeof import("./connector").Connector = null as any;
@@ -89,6 +94,11 @@ export { FlinkComputePoolArgs, FlinkComputePoolState } from "./flinkComputePool"
 export type FlinkComputePool = import("./flinkComputePool").FlinkComputePool;
 export const FlinkComputePool: typeof import("./flinkComputePool").FlinkComputePool = null as any;
 utilities.lazyLoad(exports, ["FlinkComputePool"], () => require("./flinkComputePool"));
+
+export { FlinkConnectionArgs, FlinkConnectionState } from "./flinkConnection";
+export type FlinkConnection = import("./flinkConnection").FlinkConnection;
+export const FlinkConnection: typeof import("./flinkConnection").FlinkConnection = null as any;
+utilities.lazyLoad(exports, ["FlinkConnection"], () => require("./flinkConnection"));
 
 export { FlinkStatementArgs, FlinkStatementState } from "./flinkStatement";
 export type FlinkStatement = import("./flinkStatement").FlinkStatement;
@@ -140,6 +150,11 @@ export const getClusterLink: typeof import("./getClusterLink").getClusterLink = 
 export const getClusterLinkOutput: typeof import("./getClusterLink").getClusterLinkOutput = null as any;
 utilities.lazyLoad(exports, ["getClusterLink","getClusterLinkOutput"], () => require("./getClusterLink"));
 
+export { GetConnectArtifactArgs, GetConnectArtifactResult, GetConnectArtifactOutputArgs } from "./getConnectArtifact";
+export const getConnectArtifact: typeof import("./getConnectArtifact").getConnectArtifact = null as any;
+export const getConnectArtifactOutput: typeof import("./getConnectArtifact").getConnectArtifactOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectArtifact","getConnectArtifactOutput"], () => require("./getConnectArtifact"));
+
 export { GetDnsRecordArgs, GetDnsRecordResult, GetDnsRecordOutputArgs } from "./getDnsRecord";
 export const getDnsRecord: typeof import("./getDnsRecord").getDnsRecord = null as any;
 export const getDnsRecordOutput: typeof import("./getDnsRecord").getDnsRecordOutput = null as any;
@@ -164,6 +179,11 @@ export { GetFlinkComputePoolArgs, GetFlinkComputePoolResult, GetFlinkComputePool
 export const getFlinkComputePool: typeof import("./getFlinkComputePool").getFlinkComputePool = null as any;
 export const getFlinkComputePoolOutput: typeof import("./getFlinkComputePool").getFlinkComputePoolOutput = null as any;
 utilities.lazyLoad(exports, ["getFlinkComputePool","getFlinkComputePoolOutput"], () => require("./getFlinkComputePool"));
+
+export { GetFlinkConnectionArgs, GetFlinkConnectionResult, GetFlinkConnectionOutputArgs } from "./getFlinkConnection";
+export const getFlinkConnection: typeof import("./getFlinkConnection").getFlinkConnection = null as any;
+export const getFlinkConnectionOutput: typeof import("./getFlinkConnection").getFlinkConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getFlinkConnection","getFlinkConnectionOutput"], () => require("./getFlinkConnection"));
 
 export { GetFlinkRegionArgs, GetFlinkRegionResult, GetFlinkRegionOutputArgs } from "./getFlinkRegion";
 export const getFlinkRegion: typeof import("./getFlinkRegion").getFlinkRegion = null as any;
@@ -562,6 +582,8 @@ const _module = {
                 return new CertificatePool(name, <any>undefined, { urn })
             case "confluentcloud:index/clusterLink:ClusterLink":
                 return new ClusterLink(name, <any>undefined, { urn })
+            case "confluentcloud:index/connectArtifact:ConnectArtifact":
+                return new ConnectArtifact(name, <any>undefined, { urn })
             case "confluentcloud:index/connector:Connector":
                 return new Connector(name, <any>undefined, { urn })
             case "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin":
@@ -576,6 +598,8 @@ const _module = {
                 return new FlinkArtifact(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkComputePool:FlinkComputePool":
                 return new FlinkComputePool(name, <any>undefined, { urn })
+            case "confluentcloud:index/flinkConnection:FlinkConnection":
+                return new FlinkConnection(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkStatement:FlinkStatement":
                 return new FlinkStatement(name, <any>undefined, { urn })
             case "confluentcloud:index/gateway:Gateway":
@@ -663,6 +687,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/catalogIntegratio
 pulumi.runtime.registerResourceModule("confluentcloud", "index/certificateAuthority", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/certificatePool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/clusterLink", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/connectArtifact", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/connector", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/customConnectorPlugin", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/dnsForwarder", _module)
@@ -670,6 +695,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/dnsRecord", _modu
 pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkArtifact", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkComputePool", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkConnection", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkStatement", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/gateway", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/groupMapping", _module)

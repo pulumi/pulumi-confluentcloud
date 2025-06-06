@@ -50,6 +50,7 @@ __all__ = [
     'ClusterLinkRemoteKafkaClusterCredentials',
     'ClusterLinkSourceKafkaCluster',
     'ClusterLinkSourceKafkaClusterCredentials',
+    'ConnectArtifactEnvironment',
     'ConnectorEnvironment',
     'ConnectorKafkaCluster',
     'ConnectorOffset',
@@ -64,6 +65,11 @@ __all__ = [
     'FlinkArtifactEnvironment',
     'FlinkArtifactVersion',
     'FlinkComputePoolEnvironment',
+    'FlinkConnectionComputePool',
+    'FlinkConnectionCredentials',
+    'FlinkConnectionEnvironment',
+    'FlinkConnectionOrganization',
+    'FlinkConnectionPrincipal',
     'FlinkStatementComputePool',
     'FlinkStatementCredentials',
     'FlinkStatementEnvironment',
@@ -192,6 +198,7 @@ __all__ = [
     'GetCertificatePoolCertificateAuthorityResult',
     'GetClusterLinkCredentialsResult',
     'GetClusterLinkKafkaClusterResult',
+    'GetConnectArtifactEnvironmentResult',
     'GetDnsRecordEnvironmentResult',
     'GetDnsRecordGatewayResult',
     'GetDnsRecordPrivateLinkAccessPointResult',
@@ -199,6 +206,11 @@ __all__ = [
     'GetFlinkArtifactEnvironmentResult',
     'GetFlinkArtifactVersionResult',
     'GetFlinkComputePoolEnvironmentResult',
+    'GetFlinkConnectionComputePoolResult',
+    'GetFlinkConnectionCredentialsResult',
+    'GetFlinkConnectionEnvironmentResult',
+    'GetFlinkConnectionOrganizationResult',
+    'GetFlinkConnectionPrincipalResult',
     'GetGatewayAwsEgressPrivateLinkGatewayResult',
     'GetGatewayAwsPeeringGatewayResult',
     'GetGatewayAwsPrivateNetworkInterfaceGatewayResult',
@@ -1809,6 +1821,24 @@ class ClusterLinkSourceKafkaClusterCredentials(dict):
 
 
 @pulumi.output_type
+class ConnectArtifactEnvironment(dict):
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Environment that the Connect Artifact belongs to.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Environment that the Connect Artifact belongs to.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class ConnectorEnvironment(dict):
     def __init__(__self__, *,
                  id: builtins.str):
@@ -2112,6 +2142,83 @@ class FlinkComputePoolEnvironment(dict):
         """
         The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
         """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkConnectionComputePool(dict):
+    def __init__(__self__, *,
+                 id: builtins.str):
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkConnectionCredentials(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 secret: builtins.str):
+        """
+        :param builtins.str key: The Cluster API Key for your Confluent Cloud cluster.
+        :param builtins.str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        The Cluster API Key for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> builtins.str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class FlinkConnectionEnvironment(dict):
+    def __init__(__self__, *,
+                 id: builtins.str):
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkConnectionOrganization(dict):
+    def __init__(__self__, *,
+                 id: builtins.str):
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkConnectionPrincipal(dict):
+    def __init__(__self__, *,
+                 id: builtins.str):
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
         return pulumi.get(self, "id")
 
 
@@ -6099,6 +6206,24 @@ class GetClusterLinkKafkaClusterResult(dict):
 
 
 @pulumi.output_type
+class GetConnectArtifactEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Environment that the Connect Artifact belongs to.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Environment that the Connect Artifact belongs to.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class GetDnsRecordEnvironmentResult(dict):
     def __init__(__self__, *,
                  id: builtins.str):
@@ -6224,6 +6349,115 @@ class GetFlinkComputePoolEnvironmentResult(dict):
         The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
 
         > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetFlinkConnectionComputePoolResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetFlinkConnectionCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 secret: builtins.str):
+        """
+        :param builtins.str key: The Flink API Key.
+        :param builtins.str secret: The Flink API Secret.
+               
+               > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        The Flink API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> builtins.str:
+        """
+        The Flink API Secret.
+
+        > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetFlinkConnectionEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetFlinkConnectionOrganizationResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetFlinkConnectionPrincipalResult(dict):
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
         """
         return pulumi.get(self, "id")
 

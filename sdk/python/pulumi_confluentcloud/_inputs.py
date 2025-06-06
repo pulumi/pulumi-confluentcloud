@@ -82,6 +82,8 @@ __all__ = [
     'ClusterLinkSourceKafkaClusterArgsDict',
     'ClusterLinkSourceKafkaClusterCredentialsArgs',
     'ClusterLinkSourceKafkaClusterCredentialsArgsDict',
+    'ConnectArtifactEnvironmentArgs',
+    'ConnectArtifactEnvironmentArgsDict',
     'ConnectorEnvironmentArgs',
     'ConnectorEnvironmentArgsDict',
     'ConnectorKafkaClusterArgs',
@@ -110,6 +112,16 @@ __all__ = [
     'FlinkArtifactVersionArgsDict',
     'FlinkComputePoolEnvironmentArgs',
     'FlinkComputePoolEnvironmentArgsDict',
+    'FlinkConnectionComputePoolArgs',
+    'FlinkConnectionComputePoolArgsDict',
+    'FlinkConnectionCredentialsArgs',
+    'FlinkConnectionCredentialsArgsDict',
+    'FlinkConnectionEnvironmentArgs',
+    'FlinkConnectionEnvironmentArgsDict',
+    'FlinkConnectionOrganizationArgs',
+    'FlinkConnectionOrganizationArgsDict',
+    'FlinkConnectionPrincipalArgs',
+    'FlinkConnectionPrincipalArgsDict',
     'FlinkStatementComputePoolArgs',
     'FlinkStatementComputePoolArgsDict',
     'FlinkStatementCredentialsArgs',
@@ -348,6 +360,8 @@ __all__ = [
     'GetClusterLinkCredentialsArgsDict',
     'GetClusterLinkKafkaClusterArgs',
     'GetClusterLinkKafkaClusterArgsDict',
+    'GetConnectArtifactEnvironmentArgs',
+    'GetConnectArtifactEnvironmentArgsDict',
     'GetDnsRecordEnvironmentArgs',
     'GetDnsRecordEnvironmentArgsDict',
     'GetEnvironmentStreamGovernanceArgs',
@@ -356,6 +370,16 @@ __all__ = [
     'GetFlinkArtifactEnvironmentArgsDict',
     'GetFlinkComputePoolEnvironmentArgs',
     'GetFlinkComputePoolEnvironmentArgsDict',
+    'GetFlinkConnectionComputePoolArgs',
+    'GetFlinkConnectionComputePoolArgsDict',
+    'GetFlinkConnectionCredentialsArgs',
+    'GetFlinkConnectionCredentialsArgsDict',
+    'GetFlinkConnectionEnvironmentArgs',
+    'GetFlinkConnectionEnvironmentArgsDict',
+    'GetFlinkConnectionOrganizationArgs',
+    'GetFlinkConnectionOrganizationArgsDict',
+    'GetFlinkConnectionPrincipalArgs',
+    'GetFlinkConnectionPrincipalArgsDict',
     'GetGatewayEnvironmentArgs',
     'GetGatewayEnvironmentArgsDict',
     'GetIdentityPoolIdentityProviderArgs',
@@ -2498,6 +2522,37 @@ class ClusterLinkSourceKafkaClusterCredentialsArgs:
 
 
 if not MYPY:
+    class ConnectArtifactEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[builtins.str]
+        """
+        The ID of the Environment that the Connect Artifact belongs to.
+        """
+elif False:
+    ConnectArtifactEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectArtifactEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] id: The ID of the Environment that the Connect Artifact belongs to.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the Environment that the Connect Artifact belongs to.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
     class ConnectorEnvironmentArgsDict(TypedDict):
         id: pulumi.Input[builtins.str]
         """
@@ -2957,6 +3012,144 @@ class FlinkComputePoolEnvironmentArgs:
         """
         The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
         """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class FlinkConnectionComputePoolArgsDict(TypedDict):
+        id: pulumi.Input[builtins.str]
+elif False:
+    FlinkConnectionComputePoolArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlinkConnectionComputePoolArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class FlinkConnectionCredentialsArgsDict(TypedDict):
+        key: pulumi.Input[builtins.str]
+        """
+        The Cluster API Key for your Confluent Cloud cluster.
+        """
+        secret: pulumi.Input[builtins.str]
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+elif False:
+    FlinkConnectionCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlinkConnectionCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[builtins.str],
+                 secret: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] key: The Cluster API Key for your Confluent Cloud cluster.
+        :param pulumi.Input[builtins.str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[builtins.str]:
+        """
+        The Cluster API Key for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[builtins.str]:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "secret", value)
+
+
+if not MYPY:
+    class FlinkConnectionEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[builtins.str]
+elif False:
+    FlinkConnectionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlinkConnectionEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class FlinkConnectionOrganizationArgsDict(TypedDict):
+        id: pulumi.Input[builtins.str]
+elif False:
+    FlinkConnectionOrganizationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlinkConnectionOrganizationArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class FlinkConnectionPrincipalArgsDict(TypedDict):
+        id: pulumi.Input[builtins.str]
+elif False:
+    FlinkConnectionPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlinkConnectionPrincipalArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[builtins.str]:
         return pulumi.get(self, "id")
 
     @id.setter
@@ -8369,6 +8562,37 @@ class GetClusterLinkKafkaClusterArgs:
 
 
 if not MYPY:
+    class GetConnectArtifactEnvironmentArgsDict(TypedDict):
+        id: builtins.str
+        """
+        The ID of the Environment that the Connect Artifact belongs to.
+        """
+elif False:
+    GetConnectArtifactEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetConnectArtifactEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Environment that the Connect Artifact belongs to.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Environment that the Connect Artifact belongs to.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: builtins.str):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
     class GetDnsRecordEnvironmentArgsDict(TypedDict):
         id: builtins.str
         """
@@ -8490,6 +8714,192 @@ class GetFlinkComputePoolEnvironmentArgs:
         The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
 
         > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: builtins.str):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class GetFlinkConnectionComputePoolArgsDict(TypedDict):
+        id: builtins.str
+        """
+        The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+        """
+elif False:
+    GetFlinkConnectionComputePoolArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetFlinkConnectionComputePoolArgs:
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: builtins.str):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class GetFlinkConnectionCredentialsArgsDict(TypedDict):
+        key: builtins.str
+        """
+        The Flink API Key.
+        """
+        secret: builtins.str
+        """
+        The Flink API Secret.
+
+        > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+        """
+elif False:
+    GetFlinkConnectionCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetFlinkConnectionCredentialsArgs:
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 secret: builtins.str):
+        """
+        :param builtins.str key: The Flink API Key.
+        :param builtins.str secret: The Flink API Secret.
+               
+               > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        The Flink API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: builtins.str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> builtins.str:
+        """
+        The Flink API Secret.
+
+        > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: builtins.str):
+        pulumi.set(self, "secret", value)
+
+
+if not MYPY:
+    class GetFlinkConnectionEnvironmentArgsDict(TypedDict):
+        id: builtins.str
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+elif False:
+    GetFlinkConnectionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetFlinkConnectionEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: builtins.str):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class GetFlinkConnectionOrganizationArgsDict(TypedDict):
+        id: builtins.str
+        """
+        The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+        """
+elif False:
+    GetFlinkConnectionOrganizationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetFlinkConnectionOrganizationArgs:
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: builtins.str):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class GetFlinkConnectionPrincipalArgsDict(TypedDict):
+        id: builtins.str
+        """
+        The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
+        """
+elif False:
+    GetFlinkConnectionPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetFlinkConnectionPrincipalArgs:
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
         """
         return pulumi.get(self, "id")
 

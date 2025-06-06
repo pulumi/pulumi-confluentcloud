@@ -34,14 +34,14 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The artifact file for Flink Artifact.
+     * The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
      * 
      */
     @Import(name="artifactFile")
     private @Nullable Output<String> artifactFile;
 
     /**
-     * @return The artifact file for Flink Artifact.
+     * @return The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
      * 
      */
     public Optional<Output<String>> artifactFile() {
@@ -87,14 +87,14 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+     * Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
      * 
      */
     @Import(name="contentFormat")
     private @Nullable Output<String> contentFormat;
 
     /**
-     * @return (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+     * @return Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
      * 
      */
     public Optional<Output<String>> contentFormat() {
@@ -279,7 +279,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param artifactFile The artifact file for Flink Artifact.
+         * @param artifactFile The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param artifactFile The artifact file for Flink Artifact.
+         * @param artifactFile The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param contentFormat (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+         * @param contentFormat Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class FlinkArtifactState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param contentFormat (Optional String) Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`.
+         * @param contentFormat Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
          * 
          * @return builder
          * 

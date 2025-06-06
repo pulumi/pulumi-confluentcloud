@@ -200,6 +200,14 @@
                     }
                 }
             },
+            "confluent_connect_artifact": {
+                "current": "confluentcloud:index/connectArtifact:ConnectArtifact",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_connector": {
                 "current": "confluentcloud:index/connector:Connector",
                 "fields": {
@@ -286,6 +294,26 @@
                 "current": "confluentcloud:index/flinkComputePool:FlinkComputePool",
                 "fields": {
                     "environment": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "confluent_flink_connection": {
+                "current": "confluentcloud:index/flinkConnection:FlinkConnection",
+                "fields": {
+                    "compute_pool": {
+                        "maxItemsOne": true
+                    },
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "organization": {
+                        "maxItemsOne": true
+                    },
+                    "principal": {
                         "maxItemsOne": true
                     }
                 }
@@ -1027,6 +1055,14 @@
                     }
                 }
             },
+            "confluent_connect_artifact": {
+                "current": "confluentcloud:index/getConnectArtifact:getConnectArtifact",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_dns_record": {
                 "current": "confluentcloud:index/getDnsRecord:getDnsRecord",
                 "fields": {
@@ -1072,6 +1108,26 @@
                 "current": "confluentcloud:index/getFlinkComputePool:getFlinkComputePool",
                 "fields": {
                     "environment": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "confluent_flink_connection": {
+                "current": "confluentcloud:index/getFlinkConnection:getFlinkConnection",
+                "fields": {
+                    "compute_pool": {
+                        "maxItemsOne": true
+                    },
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "organization": {
+                        "maxItemsOne": true
+                    },
+                    "principal": {
                         "maxItemsOne": true
                     }
                 }
