@@ -11,9 +11,9 @@ replace (
 
 require (
 	github.com/confluentinc/terraform-provider-confluent v1.32.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.109.0
-	github.com/pulumi/pulumi/pkg/v3 v3.172.0
-	github.com/pulumi/pulumi/sdk/v3 v3.172.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.109.1-0.20250610163142-50486d5517ae
+	github.com/pulumi/pulumi/pkg/v3 v3.175.0
+	github.com/pulumi/pulumi/sdk/v3 v3.175.0
 )
 
 require (
