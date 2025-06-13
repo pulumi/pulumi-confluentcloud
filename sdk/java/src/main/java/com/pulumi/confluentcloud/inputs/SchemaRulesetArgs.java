@@ -32,9 +32,17 @@ public final class SchemaRulesetArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.domainRules);
     }
 
+    /**
+     * supports the following:
+     * 
+     */
     @Import(name="migrationRules")
     private @Nullable Output<List<SchemaRulesetMigrationRuleArgs>> migrationRules;
 
+    /**
+     * @return supports the following:
+     * 
+     */
     public Optional<Output<List<SchemaRulesetMigrationRuleArgs>>> migrationRules() {
         return Optional.ofNullable(this.migrationRules);
     }
@@ -95,15 +103,33 @@ public final class SchemaRulesetArgs extends com.pulumi.resources.ResourceArgs {
             return domainRules(List.of(domainRules));
         }
 
+        /**
+         * @param migrationRules supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder migrationRules(@Nullable Output<List<SchemaRulesetMigrationRuleArgs>> migrationRules) {
             $.migrationRules = migrationRules;
             return this;
         }
 
+        /**
+         * @param migrationRules supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder migrationRules(List<SchemaRulesetMigrationRuleArgs> migrationRules) {
             return migrationRules(Output.of(migrationRules));
         }
 
+        /**
+         * @param migrationRules supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder migrationRules(SchemaRulesetMigrationRuleArgs... migrationRules) {
             return migrationRules(List.of(migrationRules));
         }

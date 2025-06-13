@@ -177,7 +177,9 @@ type FlinkStatement struct {
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
 	// Block for sensitive statement properties:
 	PropertiesSensitive pulumi.StringMapOutput `pulumi:"propertiesSensitive"`
-	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+	// The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+	// - `data.confluent_flink_region.main.private_rest_endpoint`, or
+	// - `https://flink${data.confluent_network.main.endpoint_suffix}`
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement pulumi.StringOutput `pulumi:"statement"`
@@ -245,7 +247,9 @@ type flinkStatementState struct {
 	Properties map[string]string `pulumi:"properties"`
 	// Block for sensitive statement properties:
 	PropertiesSensitive map[string]string `pulumi:"propertiesSensitive"`
-	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+	// The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+	// - `data.confluent_flink_region.main.private_rest_endpoint`, or
+	// - `https://flink${data.confluent_network.main.endpoint_suffix}`
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement *string `pulumi:"statement"`
@@ -270,7 +274,9 @@ type FlinkStatementState struct {
 	Properties pulumi.StringMapInput
 	// Block for sensitive statement properties:
 	PropertiesSensitive pulumi.StringMapInput
-	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+	// The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+	// - `data.confluent_flink_region.main.private_rest_endpoint`, or
+	// - `https://flink${data.confluent_network.main.endpoint_suffix}`
 	RestEndpoint pulumi.StringPtrInput
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement pulumi.StringPtrInput
@@ -295,7 +301,9 @@ type flinkStatementArgs struct {
 	Properties map[string]string `pulumi:"properties"`
 	// Block for sensitive statement properties:
 	PropertiesSensitive map[string]string `pulumi:"propertiesSensitive"`
-	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+	// The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+	// - `data.confluent_flink_region.main.private_rest_endpoint`, or
+	// - `https://flink${data.confluent_network.main.endpoint_suffix}`
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement string `pulumi:"statement"`
@@ -317,7 +325,9 @@ type FlinkStatementArgs struct {
 	Properties pulumi.StringMapInput
 	// Block for sensitive statement properties:
 	PropertiesSensitive pulumi.StringMapInput
-	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+	// The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+	// - `data.confluent_flink_region.main.private_rest_endpoint`, or
+	// - `https://flink${data.confluent_network.main.endpoint_suffix}`
 	RestEndpoint pulumi.StringPtrInput
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement pulumi.StringInput
@@ -455,7 +465,9 @@ func (o FlinkStatementOutput) PropertiesSensitive() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlinkStatement) pulumi.StringMapOutput { return v.PropertiesSensitive }).(pulumi.StringMapOutput)
 }
 
-// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+// The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+// - `data.confluent_flink_region.main.private_rest_endpoint`, or
+// - `https://flink${data.confluent_network.main.endpoint_suffix}`
 func (o FlinkStatementOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkStatement) pulumi.StringPtrOutput { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }

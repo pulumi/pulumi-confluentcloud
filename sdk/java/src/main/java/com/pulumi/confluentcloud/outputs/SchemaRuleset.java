@@ -17,6 +17,10 @@ public final class SchemaRuleset {
      * 
      */
     private @Nullable List<SchemaRulesetDomainRule> domainRules;
+    /**
+     * @return supports the following:
+     * 
+     */
     private @Nullable List<SchemaRulesetMigrationRule> migrationRules;
 
     private SchemaRuleset() {}
@@ -27,6 +31,10 @@ public final class SchemaRuleset {
     public List<SchemaRulesetDomainRule> domainRules() {
         return this.domainRules == null ? List.of() : this.domainRules;
     }
+    /**
+     * @return supports the following:
+     * 
+     */
     public List<SchemaRulesetMigrationRule> migrationRules() {
         return this.migrationRules == null ? List.of() : this.migrationRules;
     }

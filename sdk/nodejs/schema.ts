@@ -86,7 +86,9 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly recreateOnUpdate!: pulumi.Output<boolean | undefined>;
     /**
-     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+     * - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+     * - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
      */
     public readonly restEndpoint!: pulumi.Output<string | undefined>;
     public readonly ruleset!: pulumi.Output<outputs.SchemaRuleset | undefined>;
@@ -193,7 +195,9 @@ export interface SchemaState {
      */
     recreateOnUpdate?: pulumi.Input<boolean>;
     /**
-     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+     * - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+     * - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
      */
     restEndpoint?: pulumi.Input<string>;
     ruleset?: pulumi.Input<inputs.SchemaRuleset>;
@@ -244,7 +248,9 @@ export interface SchemaArgs {
      */
     recreateOnUpdate?: pulumi.Input<boolean>;
     /**
-     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+     * - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+     * - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
      */
     restEndpoint?: pulumi.Input<string>;
     ruleset?: pulumi.Input<inputs.SchemaRuleset>;

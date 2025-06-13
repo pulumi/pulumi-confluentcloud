@@ -17,6 +17,9 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.SchemaRulesetDomainRule> DomainRules;
+        /// <summary>
+        /// supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.SchemaRulesetMigrationRule> MigrationRules;
 
         [OutputConstructor]

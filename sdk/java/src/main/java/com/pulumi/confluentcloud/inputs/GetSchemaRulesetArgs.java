@@ -7,9 +7,10 @@ import com.pulumi.confluentcloud.inputs.GetSchemaRulesetDomainRuleArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRulesetMigrationRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSchemaRulesetArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,22 +21,30 @@ public final class GetSchemaRulesetArgs extends com.pulumi.resources.ResourceArg
      * (Optional List of Blocks) supports the following:
      * 
      */
-    @Import(name="domainRules", required=true)
-    private Output<List<GetSchemaRulesetDomainRuleArgs>> domainRules;
+    @Import(name="domainRules")
+    private @Nullable Output<List<GetSchemaRulesetDomainRuleArgs>> domainRules;
 
     /**
      * @return (Optional List of Blocks) supports the following:
      * 
      */
-    public Output<List<GetSchemaRulesetDomainRuleArgs>> domainRules() {
-        return this.domainRules;
+    public Optional<Output<List<GetSchemaRulesetDomainRuleArgs>>> domainRules() {
+        return Optional.ofNullable(this.domainRules);
     }
 
-    @Import(name="migrationRules", required=true)
-    private Output<List<GetSchemaRulesetMigrationRuleArgs>> migrationRules;
+    /**
+     * (Optional List of Blocks) supports the following:
+     * 
+     */
+    @Import(name="migrationRules")
+    private @Nullable Output<List<GetSchemaRulesetMigrationRuleArgs>> migrationRules;
 
-    public Output<List<GetSchemaRulesetMigrationRuleArgs>> migrationRules() {
-        return this.migrationRules;
+    /**
+     * @return (Optional List of Blocks) supports the following:
+     * 
+     */
+    public Optional<Output<List<GetSchemaRulesetMigrationRuleArgs>>> migrationRules() {
+        return Optional.ofNullable(this.migrationRules);
     }
 
     private GetSchemaRulesetArgs() {}
@@ -69,7 +78,7 @@ public final class GetSchemaRulesetArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder domainRules(Output<List<GetSchemaRulesetDomainRuleArgs>> domainRules) {
+        public Builder domainRules(@Nullable Output<List<GetSchemaRulesetDomainRuleArgs>> domainRules) {
             $.domainRules = domainRules;
             return this;
         }
@@ -94,26 +103,38 @@ public final class GetSchemaRulesetArgs extends com.pulumi.resources.ResourceArg
             return domainRules(List.of(domainRules));
         }
 
-        public Builder migrationRules(Output<List<GetSchemaRulesetMigrationRuleArgs>> migrationRules) {
+        /**
+         * @param migrationRules (Optional List of Blocks) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder migrationRules(@Nullable Output<List<GetSchemaRulesetMigrationRuleArgs>> migrationRules) {
             $.migrationRules = migrationRules;
             return this;
         }
 
+        /**
+         * @param migrationRules (Optional List of Blocks) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder migrationRules(List<GetSchemaRulesetMigrationRuleArgs> migrationRules) {
             return migrationRules(Output.of(migrationRules));
         }
 
+        /**
+         * @param migrationRules (Optional List of Blocks) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder migrationRules(GetSchemaRulesetMigrationRuleArgs... migrationRules) {
             return migrationRules(List.of(migrationRules));
         }
 
         public GetSchemaRulesetArgs build() {
-            if ($.domainRules == null) {
-                throw new MissingRequiredPropertyException("GetSchemaRulesetArgs", "domainRules");
-            }
-            if ($.migrationRules == null) {
-                throw new MissingRequiredPropertyException("GetSchemaRulesetArgs", "migrationRules");
-            }
             return $;
         }
     }

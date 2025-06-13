@@ -15,100 +15,40 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SchemaRulesetMigrationRule {
-    /**
-     * @return The boolean flag to control whether the rule should be disabled. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean disabled;
-    /**
-     * @return An optional description of the rule. Defaults to &#34;&#34;.
-     * 
-     */
     private @Nullable String doc;
-    /**
-     * @return The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to &#34;&#34;.
-     * 
-     */
     private @Nullable String expr;
-    /**
-     * @return The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
-     * 
-     */
     private String kind;
-    /**
-     * @return The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-     * 
-     */
     private String mode;
     private String name;
-    /**
-     * @return An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
-     * 
-     */
     private @Nullable String onFailure;
-    /**
-     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
-     * 
-     */
     private @Nullable String onSuccess;
     private @Nullable Map<String,String> params;
     private @Nullable List<String> tags;
-    /**
-     * @return The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
-     * 
-     */
     private String type;
 
     private SchemaRulesetMigrationRule() {}
-    /**
-     * @return The boolean flag to control whether the rule should be disabled. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> disabled() {
         return Optional.ofNullable(this.disabled);
     }
-    /**
-     * @return An optional description of the rule. Defaults to &#34;&#34;.
-     * 
-     */
     public Optional<String> doc() {
         return Optional.ofNullable(this.doc);
     }
-    /**
-     * @return The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to &#34;&#34;.
-     * 
-     */
     public Optional<String> expr() {
         return Optional.ofNullable(this.expr);
     }
-    /**
-     * @return The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
-     * 
-     */
     public String kind() {
         return this.kind;
     }
-    /**
-     * @return The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-     * 
-     */
     public String mode() {
         return this.mode;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
-     * 
-     */
     public Optional<String> onFailure() {
         return Optional.ofNullable(this.onFailure);
     }
-    /**
-     * @return An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
-     * 
-     */
     public Optional<String> onSuccess() {
         return Optional.ofNullable(this.onSuccess);
     }
@@ -118,10 +58,6 @@ public final class SchemaRulesetMigrationRule {
     public List<String> tags() {
         return this.tags == null ? List.of() : this.tags;
     }
-    /**
-     * @return The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
-     * 
-     */
     public String type() {
         return this.type;
     }

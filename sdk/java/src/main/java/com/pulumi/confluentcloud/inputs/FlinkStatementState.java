@@ -126,14 +126,18 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+     * The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+     * - `data.confluent_flink_region.main.private_rest_endpoint`, or
+     * - `https://flink${data.confluent_network.main.endpoint_suffix}`
      * 
      */
     @Import(name="restEndpoint")
     private @Nullable Output<String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+     * @return The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+     * - `data.confluent_flink_region.main.private_rest_endpoint`, or
+     * - `https://flink${data.confluent_network.main.endpoint_suffix}`
      * 
      */
     public Optional<Output<String>> restEndpoint() {
@@ -363,7 +367,9 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+         * @param restEndpoint The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+         * - `data.confluent_flink_region.main.private_rest_endpoint`, or
+         * - `https://flink${data.confluent_network.main.endpoint_suffix}`
          * 
          * @return builder
          * 
@@ -374,7 +380,9 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+         * @param restEndpoint The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+         * - `data.confluent_flink_region.main.private_rest_endpoint`, or
+         * - `https://flink${data.confluent_network.main.endpoint_suffix}`
          * 
          * @return builder
          * 

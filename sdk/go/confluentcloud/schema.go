@@ -56,7 +56,9 @@ type Schema struct {
 	Metadata   SchemaMetadataOutput `pulumi:"metadata"`
 	// Controls whether a schema should be recreated on update.
 	RecreateOnUpdate pulumi.BoolPtrOutput `pulumi:"recreateOnUpdate"`
-	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+	// - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+	// - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
 	Ruleset      SchemaRulesetPtrOutput `pulumi:"ruleset"`
 	// The definition of the Schema.
@@ -126,7 +128,9 @@ type schemaState struct {
 	Metadata   *SchemaMetadata `pulumi:"metadata"`
 	// Controls whether a schema should be recreated on update.
 	RecreateOnUpdate *bool `pulumi:"recreateOnUpdate"`
-	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+	// - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+	// - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
 	RestEndpoint *string        `pulumi:"restEndpoint"`
 	Ruleset      *SchemaRuleset `pulumi:"ruleset"`
 	// The definition of the Schema.
@@ -154,7 +158,9 @@ type SchemaState struct {
 	Metadata   SchemaMetadataPtrInput
 	// Controls whether a schema should be recreated on update.
 	RecreateOnUpdate pulumi.BoolPtrInput
-	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+	// - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+	// - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
 	RestEndpoint pulumi.StringPtrInput
 	Ruleset      SchemaRulesetPtrInput
 	// The definition of the Schema.
@@ -186,7 +192,9 @@ type schemaArgs struct {
 	Metadata   *SchemaMetadata `pulumi:"metadata"`
 	// Controls whether a schema should be recreated on update.
 	RecreateOnUpdate *bool `pulumi:"recreateOnUpdate"`
-	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+	// - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+	// - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
 	RestEndpoint *string        `pulumi:"restEndpoint"`
 	Ruleset      *SchemaRuleset `pulumi:"ruleset"`
 	// The definition of the Schema.
@@ -211,7 +219,9 @@ type SchemaArgs struct {
 	Metadata   SchemaMetadataPtrInput
 	// Controls whether a schema should be recreated on update.
 	RecreateOnUpdate pulumi.BoolPtrInput
-	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+	// - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+	// - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
 	RestEndpoint pulumi.StringPtrInput
 	Ruleset      SchemaRulesetPtrInput
 	// The definition of the Schema.
@@ -336,7 +346,9 @@ func (o SchemaOutput) RecreateOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Schema) pulumi.BoolPtrOutput { return v.RecreateOnUpdate }).(pulumi.BoolPtrOutput)
 }
 
-// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+// - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+// - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
 func (o SchemaOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }

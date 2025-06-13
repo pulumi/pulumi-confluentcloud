@@ -6,9 +6,9 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetSchemaRulesetDomainRule;
 import com.pulumi.confluentcloud.outputs.GetSchemaRulesetMigrationRule;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSchemaRuleset {
@@ -16,8 +16,12 @@ public final class GetSchemaRuleset {
      * @return (Optional List of Blocks) supports the following:
      * 
      */
-    private List<GetSchemaRulesetDomainRule> domainRules;
-    private List<GetSchemaRulesetMigrationRule> migrationRules;
+    private @Nullable List<GetSchemaRulesetDomainRule> domainRules;
+    /**
+     * @return (Optional List of Blocks) supports the following:
+     * 
+     */
+    private @Nullable List<GetSchemaRulesetMigrationRule> migrationRules;
 
     private GetSchemaRuleset() {}
     /**
@@ -25,10 +29,14 @@ public final class GetSchemaRuleset {
      * 
      */
     public List<GetSchemaRulesetDomainRule> domainRules() {
-        return this.domainRules;
+        return this.domainRules == null ? List.of() : this.domainRules;
     }
+    /**
+     * @return (Optional List of Blocks) supports the following:
+     * 
+     */
     public List<GetSchemaRulesetMigrationRule> migrationRules() {
-        return this.migrationRules;
+        return this.migrationRules == null ? List.of() : this.migrationRules;
     }
 
     public static Builder builder() {
@@ -40,8 +48,8 @@ public final class GetSchemaRuleset {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetSchemaRulesetDomainRule> domainRules;
-        private List<GetSchemaRulesetMigrationRule> migrationRules;
+        private @Nullable List<GetSchemaRulesetDomainRule> domainRules;
+        private @Nullable List<GetSchemaRulesetMigrationRule> migrationRules;
         public Builder() {}
         public Builder(GetSchemaRuleset defaults) {
     	      Objects.requireNonNull(defaults);
@@ -50,10 +58,8 @@ public final class GetSchemaRuleset {
         }
 
         @CustomType.Setter
-        public Builder domainRules(List<GetSchemaRulesetDomainRule> domainRules) {
-            if (domainRules == null) {
-              throw new MissingRequiredPropertyException("GetSchemaRuleset", "domainRules");
-            }
+        public Builder domainRules(@Nullable List<GetSchemaRulesetDomainRule> domainRules) {
+
             this.domainRules = domainRules;
             return this;
         }
@@ -61,10 +67,8 @@ public final class GetSchemaRuleset {
             return domainRules(List.of(domainRules));
         }
         @CustomType.Setter
-        public Builder migrationRules(List<GetSchemaRulesetMigrationRule> migrationRules) {
-            if (migrationRules == null) {
-              throw new MissingRequiredPropertyException("GetSchemaRuleset", "migrationRules");
-            }
+        public Builder migrationRules(@Nullable List<GetSchemaRulesetMigrationRule> migrationRules) {
+
             this.migrationRules = migrationRules;
             return this;
         }

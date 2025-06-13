@@ -300,14 +300,18 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
         return this.propertiesSensitive;
     }
     /**
-     * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+     * The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+     * - `data.confluent_flink_region.main.private_rest_endpoint`, or
+     * - `https://flink${data.confluent_network.main.endpoint_suffix}`
      * 
      */
     @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+     * @return The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+     * - `data.confluent_flink_region.main.private_rest_endpoint`, or
+     * - `https://flink${data.confluent_network.main.endpoint_suffix}`
      * 
      */
     public Output<Optional<String>> restEndpoint() {

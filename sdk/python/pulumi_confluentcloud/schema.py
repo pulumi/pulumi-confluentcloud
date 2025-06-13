@@ -42,7 +42,9 @@ class SchemaArgs:
         :param pulumi.Input[builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
                destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[builtins.bool] recreate_on_update: Controls whether a schema should be recreated on update.
-        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+               - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+               - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
         :param pulumi.Input[builtins.str] schema: The definition of the Schema.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of references to other Schemas.
         """
@@ -143,7 +145,9 @@ class SchemaArgs:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+        - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+        - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -227,7 +231,9 @@ class _SchemaState:
         :param pulumi.Input[builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
                destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[builtins.bool] recreate_on_update: Controls whether a schema should be recreated on update.
-        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+               - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+               - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
         :param pulumi.Input[builtins.str] schema: The definition of the Schema.
         :param pulumi.Input[builtins.int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of references to other Schemas.
@@ -325,7 +331,9 @@ class _SchemaState:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+        - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+        - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -480,7 +488,9 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
                destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[builtins.bool] recreate_on_update: Controls whether a schema should be recreated on update.
-        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+               - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+               - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
         :param pulumi.Input[builtins.str] schema: The definition of the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]] schema_references: The list of references to other Schemas.
         :param pulumi.Input[builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
@@ -616,7 +626,9 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
                destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[builtins.bool] recreate_on_update: Controls whether a schema should be recreated on update.
-        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+               - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+               - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
         :param pulumi.Input[builtins.str] schema: The definition of the Schema.
         :param pulumi.Input[builtins.int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaSchemaReferenceArgs', 'SchemaSchemaReferenceArgsDict']]]] schema_references: The list of references to other Schemas.
@@ -685,7 +697,9 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+        - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
+        - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
         """
         return pulumi.get(self, "rest_endpoint")
 
