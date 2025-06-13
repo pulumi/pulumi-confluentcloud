@@ -2701,51 +2701,37 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/confluentcloud:index/SchemaRulesetMigrationRule:SchemaRulesetMigrationRule"
-                    }
+                    },
+                    "description": "supports the following:\n"
                 }
             },
-            "type": "object",
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "domainRules",
-                        "migrationRules"
-                    ]
-                }
-            }
+            "type": "object"
         },
         "confluentcloud:index/SchemaRulesetDomainRule:SchemaRulesetDomainRule": {
             "properties": {
                 "disabled": {
-                    "type": "boolean",
-                    "description": "The boolean flag to control whether the rule should be disabled. Defaults to `false`.\n"
+                    "type": "boolean"
                 },
                 "doc": {
-                    "type": "string",
-                    "description": "An optional description of the rule. Defaults to \"\".\n"
+                    "type": "string"
                 },
                 "expr": {
-                    "type": "string",
-                    "description": "The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to \"\".\n"
+                    "type": "string"
                 },
                 "kind": {
-                    "type": "string",
-                    "description": "The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.\n"
+                    "type": "string"
                 },
                 "mode": {
-                    "type": "string",
-                    "description": "The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.\n"
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
                 },
                 "onFailure": {
-                    "type": "string",
-                    "description": "An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.\n"
+                    "type": "string"
                 },
                 "onSuccess": {
-                    "type": "string",
-                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.\n"
+                    "type": "string"
                 },
                 "params": {
                     "type": "object",
@@ -2760,8 +2746,7 @@
                     }
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2787,35 +2772,28 @@
         "confluentcloud:index/SchemaRulesetMigrationRule:SchemaRulesetMigrationRule": {
             "properties": {
                 "disabled": {
-                    "type": "boolean",
-                    "description": "The boolean flag to control whether the rule should be disabled. Defaults to `false`.\n"
+                    "type": "boolean"
                 },
                 "doc": {
-                    "type": "string",
-                    "description": "An optional description of the rule. Defaults to \"\".\n"
+                    "type": "string"
                 },
                 "expr": {
-                    "type": "string",
-                    "description": "The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to \"\".\n"
+                    "type": "string"
                 },
                 "kind": {
-                    "type": "string",
-                    "description": "The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.\n"
+                    "type": "string"
                 },
                 "mode": {
-                    "type": "string",
-                    "description": "The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.\n"
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
                 },
                 "onFailure": {
-                    "type": "string",
-                    "description": "An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.\n"
+                    "type": "string"
                 },
                 "onSuccess": {
-                    "type": "string",
-                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.\n"
+                    "type": "string"
                 },
                 "params": {
                     "type": "object",
@@ -2830,8 +2808,7 @@
                     }
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -5325,19 +5302,11 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/confluentcloud:index/getSchemaRulesetMigrationRule:getSchemaRulesetMigrationRule"
-                    }
+                    },
+                    "description": "(Optional List of Blocks) supports the following:\n"
                 }
             },
-            "type": "object",
-            "required": [
-                "domainRules",
-                "migrationRules"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": []
-                }
-            }
+            "type": "object"
         },
         "confluentcloud:index/getSchemaRulesetDomainRule:getSchemaRulesetDomainRule": {
             "properties": {
@@ -8442,7 +8411,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).\n"
+                    "description": "The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:\n- `data.confluent_flink_region.main.private_rest_endpoint`, or\n- `https://flink${data.confluent_network.main.endpoint_suffix}`\n"
                 },
                 "statement": {
                     "type": "string",
@@ -8505,7 +8474,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).\n",
+                    "description": "The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:\n- `data.confluent_flink_region.main.private_rest_endpoint`, or\n- `https://flink${data.confluent_network.main.endpoint_suffix}`\n",
                     "willReplaceOnChanges": true
                 },
                 "statement": {
@@ -8573,7 +8542,7 @@
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).\n",
+                        "description": "The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:\n- `data.confluent_flink_region.main.private_rest_endpoint`, or\n- `https://flink${data.confluent_network.main.endpoint_suffix}`\n",
                         "willReplaceOnChanges": true
                     },
                     "statement": {
@@ -10030,7 +9999,7 @@
                 },
                 "endpointSuffix": {
                     "type": "string",
-                    "description": "(Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.\n"
+                    "description": "(Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. \n- The Flink REST API endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud` or `https://flink${data.confluent_network.main.endpoint_suffix}`\n- The Schema Registry REST API endpoint can be constructed by adding the Schema Registry Cluster ID — that is, `https://lsrc-abc123` + `endpoint_suffix`; namely, `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud` or `https://${data.confluent_schema_registry_cluster.example.id}${data.confluent_network.main.endpoint_suffix}`.\n"
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/NetworkEnvironment:NetworkEnvironment",
@@ -10239,7 +10208,7 @@
                     },
                     "endpointSuffix": {
                         "type": "string",
-                        "description": "(Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.\n"
+                        "description": "(Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. \n- The Flink REST API endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud` or `https://flink${data.confluent_network.main.endpoint_suffix}`\n- The Schema Registry REST API endpoint can be constructed by adding the Schema Registry Cluster ID — that is, `https://lsrc-abc123` + `endpoint_suffix`; namely, `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud` or `https://${data.confluent_schema_registry_cluster.example.id}${data.confluent_network.main.endpoint_suffix}`.\n"
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/NetworkEnvironment:NetworkEnvironment",
@@ -11106,7 +11075,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                    "description": "The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:\n- `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints[\"us-east-2\"]`, or\n- `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`\n"
                 },
                 "ruleset": {
                     "$ref": "#/types/confluentcloud:index/SchemaRuleset:SchemaRuleset"
@@ -11179,7 +11148,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:\n- `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints[\"us-east-2\"]`, or\n- `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`\n",
                     "willReplaceOnChanges": true
                 },
                 "ruleset": {
@@ -11245,7 +11214,7 @@
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "description": "The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:\n- `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints[\"us-east-2\"]`, or\n- `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`\n",
                         "willReplaceOnChanges": true
                     },
                     "ruleset": {
