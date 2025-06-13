@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class GetSchemaRulesetArgs : global::Pulumi.InvokeArgs
     {
-        [Input("domainRules", required: true)]
+        [Input("domainRules")]
         private List<Inputs.GetSchemaRulesetDomainRuleArgs>? _domainRules;
 
         /// <summary>
@@ -24,8 +24,12 @@ namespace Pulumi.ConfluentCloud.Inputs
             set => _domainRules = value;
         }
 
-        [Input("migrationRules", required: true)]
+        [Input("migrationRules")]
         private List<Inputs.GetSchemaRulesetMigrationRuleArgs>? _migrationRules;
+
+        /// <summary>
+        /// (Optional List of Blocks) supports the following:
+        /// </summary>
         public List<Inputs.GetSchemaRulesetMigrationRuleArgs> MigrationRules
         {
             get => _migrationRules ?? (_migrationRules = new List<Inputs.GetSchemaRulesetMigrationRuleArgs>());

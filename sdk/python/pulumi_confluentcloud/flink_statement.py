@@ -39,7 +39,9 @@ class FlinkStatementArgs:
         :param pulumi.Input['FlinkStatementCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties: The custom topic settings to set:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties_sensitive: Block for sensitive statement properties:
-        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+               - `data.confluent_flink_region.main.private_rest_endpoint`, or
+               - `https://flink${data.confluent_network.main.endpoint_suffix}`
         :param pulumi.Input[builtins.str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[builtins.bool] stopped: Indicates whether the statement should be stopped.
         """
@@ -153,7 +155,9 @@ class FlinkStatementArgs:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+        - `data.confluent_flink_region.main.private_rest_endpoint`, or
+        - `https://flink${data.confluent_network.main.endpoint_suffix}`
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -215,7 +219,9 @@ class _FlinkStatementState:
         :param pulumi.Input[builtins.str] latest_offsets_timestamp: (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties: The custom topic settings to set:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties_sensitive: Block for sensitive statement properties:
-        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+               - `data.confluent_flink_region.main.private_rest_endpoint`, or
+               - `https://flink${data.confluent_network.main.endpoint_suffix}`
         :param pulumi.Input[builtins.str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input[builtins.str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[builtins.bool] stopped: Indicates whether the statement should be stopped.
@@ -353,7 +359,9 @@ class _FlinkStatementState:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+        - `data.confluent_flink_region.main.private_rest_endpoint`, or
+        - `https://flink${data.confluent_network.main.endpoint_suffix}`
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -523,7 +531,9 @@ class FlinkStatement(pulumi.CustomResource):
         :param pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties: The custom topic settings to set:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties_sensitive: Block for sensitive statement properties:
-        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+               - `data.confluent_flink_region.main.private_rest_endpoint`, or
+               - `https://flink${data.confluent_network.main.endpoint_suffix}`
         :param pulumi.Input[builtins.str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input[builtins.str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[builtins.bool] stopped: Indicates whether the statement should be stopped.
@@ -729,7 +739,9 @@ class FlinkStatement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] latest_offsets_timestamp: (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties: The custom topic settings to set:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties_sensitive: Block for sensitive statement properties:
-        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        :param pulumi.Input[builtins.str] rest_endpoint: The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+               - `data.confluent_flink_region.main.private_rest_endpoint`, or
+               - `https://flink${data.confluent_network.main.endpoint_suffix}`
         :param pulumi.Input[builtins.str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input[builtins.str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[builtins.bool] stopped: Indicates whether the statement should be stopped.
@@ -823,7 +835,9 @@ class FlinkStatement(pulumi.CustomResource):
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
+        - `data.confluent_flink_region.main.private_rest_endpoint`, or
+        - `https://flink${data.confluent_network.main.endpoint_suffix}`
         """
         return pulumi.get(self, "rest_endpoint")
 

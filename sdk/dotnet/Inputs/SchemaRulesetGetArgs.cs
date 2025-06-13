@@ -26,6 +26,10 @@ namespace Pulumi.ConfluentCloud.Inputs
 
         [Input("migrationRules")]
         private InputList<Inputs.SchemaRulesetMigrationRuleGetArgs>? _migrationRules;
+
+        /// <summary>
+        /// supports the following:
+        /// </summary>
         public InputList<Inputs.SchemaRulesetMigrationRuleGetArgs> MigrationRules
         {
             get => _migrationRules ?? (_migrationRules = new InputList<Inputs.SchemaRulesetMigrationRuleGetArgs>());

@@ -6,9 +6,10 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRulesetDomainRule;
 import com.pulumi.confluentcloud.inputs.GetSchemaRulesetMigrationRule;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSchemaRuleset extends com.pulumi.resources.InvokeArgs {
@@ -19,22 +20,30 @@ public final class GetSchemaRuleset extends com.pulumi.resources.InvokeArgs {
      * (Optional List of Blocks) supports the following:
      * 
      */
-    @Import(name="domainRules", required=true)
-    private List<GetSchemaRulesetDomainRule> domainRules;
+    @Import(name="domainRules")
+    private @Nullable List<GetSchemaRulesetDomainRule> domainRules;
 
     /**
      * @return (Optional List of Blocks) supports the following:
      * 
      */
-    public List<GetSchemaRulesetDomainRule> domainRules() {
-        return this.domainRules;
+    public Optional<List<GetSchemaRulesetDomainRule>> domainRules() {
+        return Optional.ofNullable(this.domainRules);
     }
 
-    @Import(name="migrationRules", required=true)
-    private List<GetSchemaRulesetMigrationRule> migrationRules;
+    /**
+     * (Optional List of Blocks) supports the following:
+     * 
+     */
+    @Import(name="migrationRules")
+    private @Nullable List<GetSchemaRulesetMigrationRule> migrationRules;
 
-    public List<GetSchemaRulesetMigrationRule> migrationRules() {
-        return this.migrationRules;
+    /**
+     * @return (Optional List of Blocks) supports the following:
+     * 
+     */
+    public Optional<List<GetSchemaRulesetMigrationRule>> migrationRules() {
+        return Optional.ofNullable(this.migrationRules);
     }
 
     private GetSchemaRuleset() {}
@@ -68,7 +77,7 @@ public final class GetSchemaRuleset extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          */
-        public Builder domainRules(List<GetSchemaRulesetDomainRule> domainRules) {
+        public Builder domainRules(@Nullable List<GetSchemaRulesetDomainRule> domainRules) {
             $.domainRules = domainRules;
             return this;
         }
@@ -83,22 +92,28 @@ public final class GetSchemaRuleset extends com.pulumi.resources.InvokeArgs {
             return domainRules(List.of(domainRules));
         }
 
-        public Builder migrationRules(List<GetSchemaRulesetMigrationRule> migrationRules) {
+        /**
+         * @param migrationRules (Optional List of Blocks) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder migrationRules(@Nullable List<GetSchemaRulesetMigrationRule> migrationRules) {
             $.migrationRules = migrationRules;
             return this;
         }
 
+        /**
+         * @param migrationRules (Optional List of Blocks) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder migrationRules(GetSchemaRulesetMigrationRule... migrationRules) {
             return migrationRules(List.of(migrationRules));
         }
 
         public GetSchemaRuleset build() {
-            if ($.domainRules == null) {
-                throw new MissingRequiredPropertyException("GetSchemaRuleset", "domainRules");
-            }
-            if ($.migrationRules == null) {
-                throw new MissingRequiredPropertyException("GetSchemaRuleset", "migrationRules");
-            }
             return $;
         }
     }

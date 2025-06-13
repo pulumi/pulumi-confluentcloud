@@ -1773,6 +1773,9 @@ export interface GetSchemaRuleset {
      * (Optional List of Blocks) supports the following:
      */
     domainRules?: inputs.GetSchemaRulesetDomainRule[];
+    /**
+     * (Optional List of Blocks) supports the following:
+     */
     migrationRules?: inputs.GetSchemaRulesetMigrationRule[];
 }
 
@@ -1781,6 +1784,9 @@ export interface GetSchemaRulesetArgs {
      * (Optional List of Blocks) supports the following:
      */
     domainRules?: pulumi.Input<pulumi.Input<inputs.GetSchemaRulesetDomainRuleArgs>[]>;
+    /**
+     * (Optional List of Blocks) supports the following:
+     */
     migrationRules?: pulumi.Input<pulumi.Input<inputs.GetSchemaRulesetMigrationRuleArgs>[]>;
 }
 
@@ -2997,82 +3003,37 @@ export interface SchemaRuleset {
      * supports the following:
      */
     domainRules?: pulumi.Input<pulumi.Input<inputs.SchemaRulesetDomainRule>[]>;
+    /**
+     * supports the following:
+     */
     migrationRules?: pulumi.Input<pulumi.Input<inputs.SchemaRulesetMigrationRule>[]>;
 }
 
 export interface SchemaRulesetDomainRule {
-    /**
-     * The boolean flag to control whether the rule should be disabled. Defaults to `false`.
-     */
     disabled?: pulumi.Input<boolean>;
-    /**
-     * An optional description of the rule. Defaults to "".
-     */
     doc?: pulumi.Input<string>;
-    /**
-     * The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
-     */
     expr?: pulumi.Input<string>;
-    /**
-     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
-     */
     kind: pulumi.Input<string>;
-    /**
-     * The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-     */
     mode: pulumi.Input<string>;
     name: pulumi.Input<string>;
-    /**
-     * An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
-     */
     onFailure?: pulumi.Input<string>;
-    /**
-     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
-     */
     onSuccess?: pulumi.Input<string>;
     params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tags?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
-     */
     type: pulumi.Input<string>;
 }
 
 export interface SchemaRulesetMigrationRule {
-    /**
-     * The boolean flag to control whether the rule should be disabled. Defaults to `false`.
-     */
     disabled?: pulumi.Input<boolean>;
-    /**
-     * An optional description of the rule. Defaults to "".
-     */
     doc?: pulumi.Input<string>;
-    /**
-     * The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
-     */
     expr?: pulumi.Input<string>;
-    /**
-     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
-     */
     kind: pulumi.Input<string>;
-    /**
-     * The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-     */
     mode: pulumi.Input<string>;
     name: pulumi.Input<string>;
-    /**
-     * An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
-     */
     onFailure?: pulumi.Input<string>;
-    /**
-     * An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
-     */
     onSuccess?: pulumi.Input<string>;
     params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tags?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
-     */
     type: pulumi.Input<string>;
 }
 

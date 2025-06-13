@@ -20338,7 +20338,8 @@ func (o SchemaRegistryKekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOu
 
 type SchemaRuleset struct {
 	// supports the following:
-	DomainRules    []SchemaRulesetDomainRule    `pulumi:"domainRules"`
+	DomainRules []SchemaRulesetDomainRule `pulumi:"domainRules"`
+	// supports the following:
 	MigrationRules []SchemaRulesetMigrationRule `pulumi:"migrationRules"`
 }
 
@@ -20355,7 +20356,8 @@ type SchemaRulesetInput interface {
 
 type SchemaRulesetArgs struct {
 	// supports the following:
-	DomainRules    SchemaRulesetDomainRuleArrayInput    `pulumi:"domainRules"`
+	DomainRules SchemaRulesetDomainRuleArrayInput `pulumi:"domainRules"`
+	// supports the following:
 	MigrationRules SchemaRulesetMigrationRuleArrayInput `pulumi:"migrationRules"`
 }
 
@@ -20441,6 +20443,7 @@ func (o SchemaRulesetOutput) DomainRules() SchemaRulesetDomainRuleArrayOutput {
 	return o.ApplyT(func(v SchemaRuleset) []SchemaRulesetDomainRule { return v.DomainRules }).(SchemaRulesetDomainRuleArrayOutput)
 }
 
+// supports the following:
 func (o SchemaRulesetOutput) MigrationRules() SchemaRulesetMigrationRuleArrayOutput {
 	return o.ApplyT(func(v SchemaRuleset) []SchemaRulesetMigrationRule { return v.MigrationRules }).(SchemaRulesetMigrationRuleArrayOutput)
 }
@@ -20479,6 +20482,7 @@ func (o SchemaRulesetPtrOutput) DomainRules() SchemaRulesetDomainRuleArrayOutput
 	}).(SchemaRulesetDomainRuleArrayOutput)
 }
 
+// supports the following:
 func (o SchemaRulesetPtrOutput) MigrationRules() SchemaRulesetMigrationRuleArrayOutput {
 	return o.ApplyT(func(v *SchemaRuleset) []SchemaRulesetMigrationRule {
 		if v == nil {
@@ -20489,25 +20493,17 @@ func (o SchemaRulesetPtrOutput) MigrationRules() SchemaRulesetMigrationRuleArray
 }
 
 type SchemaRulesetDomainRule struct {
-	// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
-	Disabled *bool `pulumi:"disabled"`
-	// An optional description of the rule. Defaults to "".
-	Doc *string `pulumi:"doc"`
-	// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
-	Expr *string `pulumi:"expr"`
-	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
-	Kind string `pulumi:"kind"`
-	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-	Mode string `pulumi:"mode"`
-	Name string `pulumi:"name"`
-	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
-	OnFailure *string `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+	Disabled  *bool             `pulumi:"disabled"`
+	Doc       *string           `pulumi:"doc"`
+	Expr      *string           `pulumi:"expr"`
+	Kind      string            `pulumi:"kind"`
+	Mode      string            `pulumi:"mode"`
+	Name      string            `pulumi:"name"`
+	OnFailure *string           `pulumi:"onFailure"`
 	OnSuccess *string           `pulumi:"onSuccess"`
 	Params    map[string]string `pulumi:"params"`
 	Tags      []string          `pulumi:"tags"`
-	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
-	Type string `pulumi:"type"`
+	Type      string            `pulumi:"type"`
 }
 
 // SchemaRulesetDomainRuleInput is an input type that accepts SchemaRulesetDomainRuleArgs and SchemaRulesetDomainRuleOutput values.
@@ -20522,25 +20518,17 @@ type SchemaRulesetDomainRuleInput interface {
 }
 
 type SchemaRulesetDomainRuleArgs struct {
-	// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
-	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
-	// An optional description of the rule. Defaults to "".
-	Doc pulumi.StringPtrInput `pulumi:"doc"`
-	// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
-	Expr pulumi.StringPtrInput `pulumi:"expr"`
-	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-	Mode pulumi.StringInput `pulumi:"mode"`
-	Name pulumi.StringInput `pulumi:"name"`
-	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
-	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+	Disabled  pulumi.BoolPtrInput     `pulumi:"disabled"`
+	Doc       pulumi.StringPtrInput   `pulumi:"doc"`
+	Expr      pulumi.StringPtrInput   `pulumi:"expr"`
+	Kind      pulumi.StringInput      `pulumi:"kind"`
+	Mode      pulumi.StringInput      `pulumi:"mode"`
+	Name      pulumi.StringInput      `pulumi:"name"`
+	OnFailure pulumi.StringPtrInput   `pulumi:"onFailure"`
 	OnSuccess pulumi.StringPtrInput   `pulumi:"onSuccess"`
 	Params    pulumi.StringMapInput   `pulumi:"params"`
 	Tags      pulumi.StringArrayInput `pulumi:"tags"`
-	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type      pulumi.StringInput      `pulumi:"type"`
 }
 
 func (SchemaRulesetDomainRuleArgs) ElementType() reflect.Type {
@@ -20594,27 +20582,22 @@ func (o SchemaRulesetDomainRuleOutput) ToSchemaRulesetDomainRuleOutputWithContex
 	return o
 }
 
-// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
 func (o SchemaRulesetDomainRuleOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// An optional description of the rule. Defaults to "".
 func (o SchemaRulesetDomainRuleOutput) Doc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
 }
 
-// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
 func (o SchemaRulesetDomainRuleOutput) Expr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
 func (o SchemaRulesetDomainRuleOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 func (o SchemaRulesetDomainRuleOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -20623,12 +20606,10 @@ func (o SchemaRulesetDomainRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 func (o SchemaRulesetDomainRuleOutput) OnFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
-// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 func (o SchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
@@ -20641,7 +20622,6 @@ func (o SchemaRulesetDomainRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 func (o SchemaRulesetDomainRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20667,25 +20647,17 @@ func (o SchemaRulesetDomainRuleArrayOutput) Index(i pulumi.IntInput) SchemaRules
 }
 
 type SchemaRulesetMigrationRule struct {
-	// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
-	Disabled *bool `pulumi:"disabled"`
-	// An optional description of the rule. Defaults to "".
-	Doc *string `pulumi:"doc"`
-	// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
-	Expr *string `pulumi:"expr"`
-	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
-	Kind string `pulumi:"kind"`
-	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-	Mode string `pulumi:"mode"`
-	Name string `pulumi:"name"`
-	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
-	OnFailure *string `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+	Disabled  *bool             `pulumi:"disabled"`
+	Doc       *string           `pulumi:"doc"`
+	Expr      *string           `pulumi:"expr"`
+	Kind      string            `pulumi:"kind"`
+	Mode      string            `pulumi:"mode"`
+	Name      string            `pulumi:"name"`
+	OnFailure *string           `pulumi:"onFailure"`
 	OnSuccess *string           `pulumi:"onSuccess"`
 	Params    map[string]string `pulumi:"params"`
 	Tags      []string          `pulumi:"tags"`
-	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
-	Type string `pulumi:"type"`
+	Type      string            `pulumi:"type"`
 }
 
 // SchemaRulesetMigrationRuleInput is an input type that accepts SchemaRulesetMigrationRuleArgs and SchemaRulesetMigrationRuleOutput values.
@@ -20700,25 +20672,17 @@ type SchemaRulesetMigrationRuleInput interface {
 }
 
 type SchemaRulesetMigrationRuleArgs struct {
-	// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
-	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
-	// An optional description of the rule. Defaults to "".
-	Doc pulumi.StringPtrInput `pulumi:"doc"`
-	// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
-	Expr pulumi.StringPtrInput `pulumi:"expr"`
-	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-	Mode pulumi.StringInput `pulumi:"mode"`
-	Name pulumi.StringInput `pulumi:"name"`
-	// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
-	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
+	Disabled  pulumi.BoolPtrInput     `pulumi:"disabled"`
+	Doc       pulumi.StringPtrInput   `pulumi:"doc"`
+	Expr      pulumi.StringPtrInput   `pulumi:"expr"`
+	Kind      pulumi.StringInput      `pulumi:"kind"`
+	Mode      pulumi.StringInput      `pulumi:"mode"`
+	Name      pulumi.StringInput      `pulumi:"name"`
+	OnFailure pulumi.StringPtrInput   `pulumi:"onFailure"`
 	OnSuccess pulumi.StringPtrInput   `pulumi:"onSuccess"`
 	Params    pulumi.StringMapInput   `pulumi:"params"`
 	Tags      pulumi.StringArrayInput `pulumi:"tags"`
-	// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type      pulumi.StringInput      `pulumi:"type"`
 }
 
 func (SchemaRulesetMigrationRuleArgs) ElementType() reflect.Type {
@@ -20772,27 +20736,22 @@ func (o SchemaRulesetMigrationRuleOutput) ToSchemaRulesetMigrationRuleOutputWith
 	return o
 }
 
-// The boolean flag to control whether the rule should be disabled. Defaults to `false`.
 func (o SchemaRulesetMigrationRuleOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// An optional description of the rule. Defaults to "".
 func (o SchemaRulesetMigrationRuleOutput) Doc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
 }
 
-// The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
 func (o SchemaRulesetMigrationRuleOutput) Expr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
 func (o SchemaRulesetMigrationRuleOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 func (o SchemaRulesetMigrationRuleOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -20801,12 +20760,10 @@ func (o SchemaRulesetMigrationRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above. Defaults to `ERROR,ERROR`.
 func (o SchemaRulesetMigrationRuleOutput) OnFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
-// An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`. Defaults to `NONE,NONE`.
 func (o SchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
@@ -20819,7 +20776,6 @@ func (o SchemaRulesetMigrationRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 func (o SchemaRulesetMigrationRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -35639,7 +35595,8 @@ func (o GetSchemaRegistryKekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPt
 
 type GetSchemaRuleset struct {
 	// (Optional List of Blocks) supports the following:
-	DomainRules    []GetSchemaRulesetDomainRule    `pulumi:"domainRules"`
+	DomainRules []GetSchemaRulesetDomainRule `pulumi:"domainRules"`
+	// (Optional List of Blocks) supports the following:
 	MigrationRules []GetSchemaRulesetMigrationRule `pulumi:"migrationRules"`
 }
 
@@ -35656,7 +35613,8 @@ type GetSchemaRulesetInput interface {
 
 type GetSchemaRulesetArgs struct {
 	// (Optional List of Blocks) supports the following:
-	DomainRules    GetSchemaRulesetDomainRuleArrayInput    `pulumi:"domainRules"`
+	DomainRules GetSchemaRulesetDomainRuleArrayInput `pulumi:"domainRules"`
+	// (Optional List of Blocks) supports the following:
 	MigrationRules GetSchemaRulesetMigrationRuleArrayInput `pulumi:"migrationRules"`
 }
 
@@ -35742,6 +35700,7 @@ func (o GetSchemaRulesetOutput) DomainRules() GetSchemaRulesetDomainRuleArrayOut
 	return o.ApplyT(func(v GetSchemaRuleset) []GetSchemaRulesetDomainRule { return v.DomainRules }).(GetSchemaRulesetDomainRuleArrayOutput)
 }
 
+// (Optional List of Blocks) supports the following:
 func (o GetSchemaRulesetOutput) MigrationRules() GetSchemaRulesetMigrationRuleArrayOutput {
 	return o.ApplyT(func(v GetSchemaRuleset) []GetSchemaRulesetMigrationRule { return v.MigrationRules }).(GetSchemaRulesetMigrationRuleArrayOutput)
 }
@@ -35780,6 +35739,7 @@ func (o GetSchemaRulesetPtrOutput) DomainRules() GetSchemaRulesetDomainRuleArray
 	}).(GetSchemaRulesetDomainRuleArrayOutput)
 }
 
+// (Optional List of Blocks) supports the following:
 func (o GetSchemaRulesetPtrOutput) MigrationRules() GetSchemaRulesetMigrationRuleArrayOutput {
 	return o.ApplyT(func(v *GetSchemaRuleset) []GetSchemaRulesetMigrationRule {
 		if v == nil {
