@@ -1,8 +1,6 @@
 module github.com/pulumi/pulumi-confluentcloud/provider/v2
 
-go 1.23.0
-
-toolchain go1.23.8
+go 1.24.4
 
 replace (
 	github.com/confluentinc/terraform-provider-confluent => ../upstream
