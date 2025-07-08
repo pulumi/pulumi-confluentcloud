@@ -18,14 +18,14 @@ public final class CustomConnectorPluginArgs extends com.pulumi.resources.Resour
     public static final CustomConnectorPluginArgs Empty = new CustomConnectorPluginArgs();
 
     /**
-     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
      * 
      */
     @Import(name="cloud")
     private @Nullable Output<String> cloud;
 
     /**
-     * @return Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     * @return Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
      * 
      */
     public Optional<Output<String>> cloud() {
@@ -169,7 +169,7 @@ public final class CustomConnectorPluginArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cloud Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+         * @param cloud Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class CustomConnectorPluginArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cloud Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+         * @param cloud Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
          * 
          * @return builder
          * 

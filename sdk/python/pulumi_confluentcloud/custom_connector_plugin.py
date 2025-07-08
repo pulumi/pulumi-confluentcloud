@@ -34,7 +34,7 @@ class CustomConnectorPluginArgs:
         :param pulumi.Input[builtins.str] connector_type: The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
         :param pulumi.Input[builtins.str] display_name: The name of the Custom Connector Plugin.
         :param pulumi.Input[builtins.str] filename: The path to the Custom Connector Plugin archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.
-        :param pulumi.Input[builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+        :param pulumi.Input[builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
         :param pulumi.Input[builtins.str] description: The description of the Custom Connector Plugin.
         :param pulumi.Input[builtins.str] documentation_link: The documentation link of the Custom Connector Plugin.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] sensitive_config_properties: The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.
@@ -104,7 +104,7 @@ class CustomConnectorPluginArgs:
     @pulumi.getter
     def cloud(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+        Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
         """
         return pulumi.get(self, "cloud")
 
@@ -162,7 +162,7 @@ class _CustomConnectorPluginState:
                  sensitive_config_properties: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomConnectorPlugin resources.
-        :param pulumi.Input[builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+        :param pulumi.Input[builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
         :param pulumi.Input[builtins.str] connector_class: The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
         :param pulumi.Input[builtins.str] connector_type: The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
         :param pulumi.Input[builtins.str] description: The description of the Custom Connector Plugin.
@@ -192,7 +192,7 @@ class _CustomConnectorPluginState:
     @pulumi.getter
     def cloud(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+        Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
         """
         return pulumi.get(self, "cloud")
 
@@ -332,7 +332,7 @@ class CustomConnectorPlugin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+        :param pulumi.Input[builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
         :param pulumi.Input[builtins.str] connector_class: The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
         :param pulumi.Input[builtins.str] connector_type: The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
         :param pulumi.Input[builtins.str] description: The description of the Custom Connector Plugin.
@@ -450,7 +450,7 @@ class CustomConnectorPlugin(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+        :param pulumi.Input[builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
         :param pulumi.Input[builtins.str] connector_class: The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
         :param pulumi.Input[builtins.str] connector_type: The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
         :param pulumi.Input[builtins.str] description: The description of the Custom Connector Plugin.
@@ -477,7 +477,7 @@ class CustomConnectorPlugin(pulumi.CustomResource):
     @pulumi.getter
     def cloud(self) -> pulumi.Output[builtins.str]:
         """
-        Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+        Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
         """
         return pulumi.get(self, "cloud")
 

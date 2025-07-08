@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin")
 public class CustomConnectorPlugin extends com.pulumi.resources.CustomResource {
     /**
-     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
      * 
      */
     @Export(name="cloud", refs={String.class}, tree="[0]")
     private Output<String> cloud;
 
     /**
-     * @return Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     * @return Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
      * 
      */
     public Output<String> cloud() {

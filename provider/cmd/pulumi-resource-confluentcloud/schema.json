@@ -1579,7 +1579,7 @@
             "properties": {
                 "cku": {
                     "type": "integer",
-                    "description": "The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.\n\n\u003e **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.\n\n\u003e **Note:** The `freight` Kafka cluster type is currently available only on AWS.\n\n\u003e **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.\n\n!\u003e **Warning:** You can only upgrade clusters from `basic` to `standard`.\n\n\u003e **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.\n"
+                    "description": "The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.\n\n\u003e **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.\n\n\u003e **Note:** The `freight` Kafka cluster type is currently available only on AWS.\n\n!\u003e **Warning:** You can only upgrade clusters from `basic` to `standard`.\n\n\u003e **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.\n"
                 },
                 "encryptionKey": {
                     "type": "string",
@@ -7442,7 +7442,7 @@
             "properties": {
                 "cloud": {
                     "type": "string",
-                    "description": "Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.\n"
+                    "description": "Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.\n"
                 },
                 "connectorClass": {
                     "type": "string",
@@ -7486,7 +7486,7 @@
             "inputProperties": {
                 "cloud": {
                     "type": "string",
-                    "description": "Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.\n",
+                    "description": "Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.\n",
                     "willReplaceOnChanges": true
                 },
                 "connectorClass": {
@@ -7535,7 +7535,7 @@
                 "properties": {
                     "cloud": {
                         "type": "string",
-                        "description": "Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.\n",
+                        "description": "Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.\n",
                         "willReplaceOnChanges": true
                     },
                     "connectorClass": {

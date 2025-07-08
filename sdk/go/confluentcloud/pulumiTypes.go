@@ -11100,8 +11100,6 @@ type KafkaClusterDedicated struct {
 	//
 	// > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 	//
-	// > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
-	//
 	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 	//
 	// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
@@ -11130,8 +11128,6 @@ type KafkaClusterDedicatedArgs struct {
 	// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
 	//
 	// > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
-	//
-	// > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
 	//
 	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 	//
@@ -11227,8 +11223,6 @@ func (o KafkaClusterDedicatedOutput) ToKafkaClusterDedicatedPtrOutputWithContext
 //
 // > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 //
-// > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
-//
 // !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 //
 // > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
@@ -11276,8 +11270,6 @@ func (o KafkaClusterDedicatedPtrOutput) Elem() KafkaClusterDedicatedOutput {
 // > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
 //
 // > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
-//
-// > **Note:** The `enterprise` Kafka cluster type is currently available only on AWS and Azure.
 //
 // !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 //
