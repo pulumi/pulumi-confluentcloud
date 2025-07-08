@@ -64,7 +64,7 @@ export class CustomConnectorPlugin extends pulumi.CustomResource {
     }
 
     /**
-     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
     public readonly cloud!: pulumi.Output<string>;
     /**
@@ -150,7 +150,7 @@ export class CustomConnectorPlugin extends pulumi.CustomResource {
  */
 export interface CustomConnectorPluginState {
     /**
-     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
     cloud?: pulumi.Input<string>;
     /**
@@ -188,7 +188,7 @@ export interface CustomConnectorPluginState {
  */
 export interface CustomConnectorPluginArgs {
     /**
-     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
     cloud?: pulumi.Input<string>;
     /**
