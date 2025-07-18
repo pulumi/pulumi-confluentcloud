@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connector{}
 	case "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin":
 		r = &CustomConnectorPlugin{}
+	case "confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion":
+		r = &CustomConnectorPluginVersion{}
 	case "confluentcloud:index/dnsForwarder:DnsForwarder":
 		r = &DnsForwarder{}
 	case "confluentcloud:index/dnsRecord:DnsRecord":
@@ -93,6 +95,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkLinkService{}
 	case "confluentcloud:index/peering:Peering":
 		r = &Peering{}
+	case "confluentcloud:index/plugin:Plugin":
+		r = &Plugin{}
 	case "confluentcloud:index/privateLinkAccess:PrivateLinkAccess":
 		r = &PrivateLinkAccess{}
 	case "confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment":
@@ -229,6 +233,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
+		"index/customConnectorPluginVersion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
 		"index/dnsForwarder",
 		&module{version},
 	)
@@ -340,6 +349,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/peering",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/plugin",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
