@@ -1023,6 +1023,38 @@
                 "partition"
             ]
         },
+        "confluentcloud:index/CustomConnectorPluginVersionConnectorClass:CustomConnectorPluginVersionConnectorClass": {
+            "properties": {
+                "connectorClassName": {
+                    "type": "string",
+                    "description": "The name of the connector class.\n",
+                    "willReplaceOnChanges": true
+                },
+                "connectorType": {
+                    "type": "string",
+                    "description": "The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "connectorClassName",
+                "connectorType"
+            ]
+        },
+        "confluentcloud:index/CustomConnectorPluginVersionEnvironment:CustomConnectorPluginVersionEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment, for example, `env-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/DnsForwarderEnvironment:DnsForwarderEnvironment": {
             "properties": {
                 "id": {
@@ -2127,6 +2159,19 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Network that the Peering belongs to, for example, `n-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/PluginEnvironment:PluginEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -7576,6 +7621,183 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion": {
+            "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst source = new confluentcloud.CustomConnectorPluginVersion(\"source\", {\n    version: \"v1.2.4\",\n    cloud: \"AWS\",\n    documentationLink: \"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\",\n    connectorClasses: [{\n        connectorClassName: \"io.confluent.kafka.connect.datagen.DatagenConnector\",\n        connectorType: \"SOURCE\",\n    }],\n    sensitiveConfigProperties: [],\n    filename: \"confluentinc-kafka-connect-datagen-0.6.2.zip\",\n    pluginId: \"ccp-dev-123\",\n    environment: {\n        id: \"env-devc0k7oxp\",\n    },\n}, {\n    dependsOn: [plugin],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nsource = confluentcloud.CustomConnectorPluginVersion(\"source\",\n    version=\"v1.2.4\",\n    cloud=\"AWS\",\n    documentation_link=\"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\",\n    connector_classes=[{\n        \"connector_class_name\": \"io.confluent.kafka.connect.datagen.DatagenConnector\",\n        \"connector_type\": \"SOURCE\",\n    }],\n    sensitive_config_properties=[],\n    filename=\"confluentinc-kafka-connect-datagen-0.6.2.zip\",\n    plugin_id=\"ccp-dev-123\",\n    environment={\n        \"id\": \"env-devc0k7oxp\",\n    },\n    opts = pulumi.ResourceOptions(depends_on=[plugin]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var source = new ConfluentCloud.CustomConnectorPluginVersion(\"source\", new()\n    {\n        Version = \"v1.2.4\",\n        Cloud = \"AWS\",\n        DocumentationLink = \"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\",\n        ConnectorClasses = new[]\n        {\n            new ConfluentCloud.Inputs.CustomConnectorPluginVersionConnectorClassArgs\n            {\n                ConnectorClassName = \"io.confluent.kafka.connect.datagen.DatagenConnector\",\n                ConnectorType = \"SOURCE\",\n            },\n        },\n        SensitiveConfigProperties = new[] {},\n        Filename = \"confluentinc-kafka-connect-datagen-0.6.2.zip\",\n        PluginId = \"ccp-dev-123\",\n        Environment = new ConfluentCloud.Inputs.CustomConnectorPluginVersionEnvironmentArgs\n        {\n            Id = \"env-devc0k7oxp\",\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            plugin,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewCustomConnectorPluginVersion(ctx, \"source\", \u0026confluentcloud.CustomConnectorPluginVersionArgs{\n\t\t\tVersion:           pulumi.String(\"v1.2.4\"),\n\t\t\tCloud:             pulumi.String(\"AWS\"),\n\t\t\tDocumentationLink: pulumi.String(\"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\"),\n\t\t\tConnectorClasses: confluentcloud.CustomConnectorPluginVersionConnectorClassArray{\n\t\t\t\t\u0026confluentcloud.CustomConnectorPluginVersionConnectorClassArgs{\n\t\t\t\t\tConnectorClassName: pulumi.String(\"io.confluent.kafka.connect.datagen.DatagenConnector\"),\n\t\t\t\t\tConnectorType:      pulumi.String(\"SOURCE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSensitiveConfigProperties: pulumi.StringArray{},\n\t\t\tFilename:                  pulumi.String(\"confluentinc-kafka-connect-datagen-0.6.2.zip\"),\n\t\t\tPluginId:                  pulumi.String(\"ccp-dev-123\"),\n\t\t\tEnvironment: \u0026confluentcloud.CustomConnectorPluginVersionEnvironmentArgs{\n\t\t\t\tId: pulumi.String(\"env-devc0k7oxp\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tplugin,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.CustomConnectorPluginVersion;\nimport com.pulumi.confluentcloud.CustomConnectorPluginVersionArgs;\nimport com.pulumi.confluentcloud.inputs.CustomConnectorPluginVersionConnectorClassArgs;\nimport com.pulumi.confluentcloud.inputs.CustomConnectorPluginVersionEnvironmentArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var source = new CustomConnectorPluginVersion(\"source\", CustomConnectorPluginVersionArgs.builder()\n            .version(\"v1.2.4\")\n            .cloud(\"AWS\")\n            .documentationLink(\"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\")\n            .connectorClasses(CustomConnectorPluginVersionConnectorClassArgs.builder()\n                .connectorClassName(\"io.confluent.kafka.connect.datagen.DatagenConnector\")\n                .connectorType(\"SOURCE\")\n                .build())\n            .sensitiveConfigProperties()\n            .filename(\"confluentinc-kafka-connect-datagen-0.6.2.zip\")\n            .pluginId(\"ccp-dev-123\")\n            .environment(CustomConnectorPluginVersionEnvironmentArgs.builder()\n                .id(\"env-devc0k7oxp\")\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(plugin)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  source:\n    type: confluentcloud:CustomConnectorPluginVersion\n    properties:\n      version: v1.2.4\n      cloud: AWS\n      documentationLink: https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\n      connectorClasses:\n        - connectorClassName: io.confluent.kafka.connect.datagen.DatagenConnector\n          connectorType: SOURCE\n      sensitiveConfigProperties: []\n      filename: confluentinc-kafka-connect-datagen-0.6.2.zip\n      pluginId: ccp-dev-123\n      environment:\n        id: env-devc0k7oxp\n    options:\n      dependsOn:\n        - ${plugin}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Custom Connector Plugin by using a Custom Connector Plugin ID, in the format `\u003cEnvironment ID\u003e/\u003cPlugin ID\u003e/\u003cVersion ID\u003e`. The following example shows how to import a Custom Connector Plugin:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion main env-123/plug-123/ccp-ver123xyz\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "(Required String) The API Version of the schema version of the plugin version, for example, `ccpm/v1`.\n"
+                },
+                "cloud": {
+                    "type": "string",
+                    "description": "Cloud provider where the Custom Connector Plugin Version archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.\n"
+                },
+                "connectorClasses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/CustomConnectorPluginVersionConnectorClass:CustomConnectorPluginVersionConnectorClass"
+                    },
+                    "description": "The Java class name or alias for the connector. You can get the connector class from the connector documentation provided by the developer.\n"
+                },
+                "documentationLink": {
+                    "type": "string",
+                    "description": "The documentation link of the Custom Connector Plugin Version.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/CustomConnectorPluginVersionEnvironment:CustomConnectorPluginVersionEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "filename": {
+                    "type": "string",
+                    "description": "The path to the Custom Connector Plugin Version archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Required String) The kind of the Plugin Version, for example, `CustomConnectPluginVersion`.\n"
+                },
+                "pluginId": {
+                    "type": "string",
+                    "description": "The ID of the plugin created using `confluentcloud.Plugin` resource, or through other ways.\n"
+                },
+                "sensitiveConfigProperties": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The version number of the plugin version we want to create. This must start with the character `v` and follow semantic versioning.\n"
+                }
+            },
+            "required": [
+                "apiVersion",
+                "cloud",
+                "connectorClasses",
+                "environment",
+                "filename",
+                "kind",
+                "pluginId",
+                "version"
+            ],
+            "inputProperties": {
+                "cloud": {
+                    "type": "string",
+                    "description": "Cloud provider where the Custom Connector Plugin Version archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "connectorClasses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/CustomConnectorPluginVersionConnectorClass:CustomConnectorPluginVersionConnectorClass"
+                    },
+                    "description": "The Java class name or alias for the connector. You can get the connector class from the connector documentation provided by the developer.\n",
+                    "willReplaceOnChanges": true
+                },
+                "documentationLink": {
+                    "type": "string",
+                    "description": "The documentation link of the Custom Connector Plugin Version.\n",
+                    "willReplaceOnChanges": true
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/CustomConnectorPluginVersionEnvironment:CustomConnectorPluginVersionEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "filename": {
+                    "type": "string",
+                    "description": "The path to the Custom Connector Plugin Version archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "pluginId": {
+                    "type": "string",
+                    "description": "The ID of the plugin created using `confluentcloud.Plugin` resource, or through other ways.\n",
+                    "willReplaceOnChanges": true
+                },
+                "sensitiveConfigProperties": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.\n",
+                    "willReplaceOnChanges": true
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The version number of the plugin version we want to create. This must start with the character `v` and follow semantic versioning.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "cloud",
+                "connectorClasses",
+                "environment",
+                "filename",
+                "pluginId",
+                "version"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CustomConnectorPluginVersion resources.\n",
+                "properties": {
+                    "apiVersion": {
+                        "type": "string",
+                        "description": "(Required String) The API Version of the schema version of the plugin version, for example, `ccpm/v1`.\n"
+                    },
+                    "cloud": {
+                        "type": "string",
+                        "description": "Cloud provider where the Custom Connector Plugin Version archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "connectorClasses": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/CustomConnectorPluginVersionConnectorClass:CustomConnectorPluginVersionConnectorClass"
+                        },
+                        "description": "The Java class name or alias for the connector. You can get the connector class from the connector documentation provided by the developer.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "documentationLink": {
+                        "type": "string",
+                        "description": "The documentation link of the Custom Connector Plugin Version.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/CustomConnectorPluginVersionEnvironment:CustomConnectorPluginVersionEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "filename": {
+                        "type": "string",
+                        "description": "The path to the Custom Connector Plugin Version archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "(Required String) The kind of the Plugin Version, for example, `CustomConnectPluginVersion`.\n"
+                    },
+                    "pluginId": {
+                        "type": "string",
+                        "description": "The ID of the plugin created using `confluentcloud.Plugin` resource, or through other ways.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "sensitiveConfigProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The version number of the plugin version we want to create. This must start with the character `v` and follow semantic versioning.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/dnsForwarder:DnsForwarder": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.DnsForwarder` provides a DNS Forwarder resource that enables creating, editing, and deleting DNS Forwarders on Confluent Cloud.\n\n## Example Usage\n\n### Option #1: Create using ForwardViaIp method\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst main = new confluentcloud.DnsForwarder(\"main\", {\n    displayName: \"dns_forwarder\",\n    environment: {\n        id: development.id,\n    },\n    domains: [\n        \"example.com\",\n        \"domainname.com\",\n    ],\n    gateway: {\n        id: mainConfluentNetwork.gateway[0].id,\n    },\n    forwardViaIp: {\n        dnsServerIps: [\n            \"10.200.0.0\",\n            \"10.200.0.1\",\n        ],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\nmain = confluentcloud.DnsForwarder(\"main\",\n    display_name=\"dns_forwarder\",\n    environment={\n        \"id\": development.id,\n    },\n    domains=[\n        \"example.com\",\n        \"domainname.com\",\n    ],\n    gateway={\n        \"id\": main_confluent_network[\"gateway\"][0][\"id\"],\n    },\n    forward_via_ip={\n        \"dns_server_ips\": [\n            \"10.200.0.0\",\n            \"10.200.0.1\",\n        ],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var main = new ConfluentCloud.DnsForwarder(\"main\", new()\n    {\n        DisplayName = \"dns_forwarder\",\n        Environment = new ConfluentCloud.Inputs.DnsForwarderEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Domains = new[]\n        {\n            \"example.com\",\n            \"domainname.com\",\n        },\n        Gateway = new ConfluentCloud.Inputs.DnsForwarderGatewayArgs\n        {\n            Id = mainConfluentNetwork.Gateway[0].Id,\n        },\n        ForwardViaIp = new ConfluentCloud.Inputs.DnsForwarderForwardViaIpArgs\n        {\n            DnsServerIps = new[]\n            {\n                \"10.200.0.0\",\n                \"10.200.0.1\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewDnsForwarder(ctx, \"main\", \u0026confluentcloud.DnsForwarderArgs{\n\t\t\tDisplayName: pulumi.String(\"dns_forwarder\"),\n\t\t\tEnvironment: \u0026confluentcloud.DnsForwarderEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t\tDomains: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"example.com\"),\n\t\t\t\tpulumi.String(\"domainname.com\"),\n\t\t\t},\n\t\t\tGateway: \u0026confluentcloud.DnsForwarderGatewayArgs{\n\t\t\t\tId: pulumi.Any(mainConfluentNetwork.Gateway[0].Id),\n\t\t\t},\n\t\t\tForwardViaIp: \u0026confluentcloud.DnsForwarderForwardViaIpArgs{\n\t\t\t\tDnsServerIps: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"10.200.0.0\"),\n\t\t\t\t\tpulumi.String(\"10.200.0.1\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.DnsForwarder;\nimport com.pulumi.confluentcloud.DnsForwarderArgs;\nimport com.pulumi.confluentcloud.inputs.DnsForwarderEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.DnsForwarderGatewayArgs;\nimport com.pulumi.confluentcloud.inputs.DnsForwarderForwardViaIpArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var main = new DnsForwarder(\"main\", DnsForwarderArgs.builder()\n            .displayName(\"dns_forwarder\")\n            .environment(DnsForwarderEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .domains(            \n                \"example.com\",\n                \"domainname.com\")\n            .gateway(DnsForwarderGatewayArgs.builder()\n                .id(mainConfluentNetwork.gateway()[0].id())\n                .build())\n            .forwardViaIp(DnsForwarderForwardViaIpArgs.builder()\n                .dnsServerIps(                \n                    \"10.200.0.0\",\n                    \"10.200.0.1\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  main:\n    type: confluentcloud:DnsForwarder\n    properties:\n      displayName: dns_forwarder\n      environment:\n        id: ${development.id}\n      domains:\n        - example.com\n        - domainname.com\n      gateway:\n        id: ${mainConfluentNetwork.gateway[0].id}\n      forwardViaIp:\n        dnsServerIps:\n          - 10.200.0.0\n          - 10.200.0.1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Create using ForwardViaGcpDnsZones method\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  main:\n    type: confluentcloud:DnsForwarder\n    properties:\n      displayName: dns_forwarder\n      environment:\n        id: ${development.id}\n      domains:\n        - example.com\n        - domainname.com\n      gateway:\n        id: ${mainConfluentNetwork.gateway[0].id}\n      forwardViaGcpZones:\n        - domainMappings:\n            com: zone-1,project-1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a DNS Forwarder by using Environment ID and DNS Forwarder ID, in the format `\u003cEnvironment ID\u003e/\u003cDNS Forwarder ID\u003e`. The following example shows how to import a DNS Forwarder:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/dnsForwarder:DnsForwarder main env-abc123/dnsf-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
@@ -10551,6 +10773,110 @@
                         "$ref": "#/types/confluentcloud:index/PeeringNetwork:PeeringNetwork",
                         "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
                         "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/plugin:Plugin": {
+            "description": "## Example Usage\n\n## Import\n\nYou can import a Custom Connector Plugin by using a Plugin ID, in the format `\u003cEnvironment ID/Custom Connector Plugin ID\u003e`. The following example shows how to import a Plugin:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/plugin:Plugin main env-123/ccpm-abc123xyz\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "(Required String) The API Version of the schema version of the plugin, for example, `ccpm/v1`.\n"
+                },
+                "cloud": {
+                    "type": "string",
+                    "description": "Cloud provider where the Custom Connector Plugin archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Plugin.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Plugin.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/PluginEnvironment:PluginEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Required String) The kind of the Plugin, for example, `CustomConnectPlugin`.\n"
+                },
+                "runtimeLanguage": {
+                    "type": "string",
+                    "description": "(Optional String) Runtime language of the plugin.\n"
+                }
+            },
+            "required": [
+                "apiVersion",
+                "cloud",
+                "displayName",
+                "environment",
+                "kind",
+                "runtimeLanguage"
+            ],
+            "inputProperties": {
+                "cloud": {
+                    "type": "string",
+                    "description": "Cloud provider where the Custom Connector Plugin archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Plugin.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Plugin.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/PluginEnvironment:PluginEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "runtimeLanguage": {
+                    "type": "string",
+                    "description": "(Optional String) Runtime language of the plugin.\n"
+                }
+            },
+            "requiredInputs": [
+                "cloud",
+                "displayName",
+                "environment"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Plugin resources.\n",
+                "properties": {
+                    "apiVersion": {
+                        "type": "string",
+                        "description": "(Required String) The API Version of the schema version of the plugin, for example, `ccpm/v1`.\n"
+                    },
+                    "cloud": {
+                        "type": "string",
+                        "description": "Cloud provider where the Custom Connector Plugin archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the Plugin.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Plugin.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/PluginEnvironment:PluginEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "(Required String) The kind of the Plugin, for example, `CustomConnectPlugin`.\n"
+                    },
+                    "runtimeLanguage": {
+                        "type": "string",
+                        "description": "(Optional String) Runtime language of the plugin.\n"
                     }
                 },
                 "type": "object"

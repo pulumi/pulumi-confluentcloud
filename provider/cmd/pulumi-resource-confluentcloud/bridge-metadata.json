@@ -230,6 +230,20 @@
                     }
                 }
             },
+            "confluent_custom_connector_plugin_version": {
+                "current": "confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion",
+                "fields": {
+                    "connector_class": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "sensitive_config_properties": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_dns_forwarder": {
                 "current": "confluentcloud:index/dnsForwarder:DnsForwarder",
                 "fields": {
@@ -608,6 +622,14 @@
                         "maxItemsOne": true
                     },
                     "network": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "confluent_plugin": {
+                "current": "confluentcloud:index/plugin:Plugin",
+                "fields": {
+                    "environment": {
                         "maxItemsOne": true
                     }
                 }
