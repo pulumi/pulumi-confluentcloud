@@ -471,6 +471,24 @@ export interface ConnectorOffset {
     partition: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
+export interface CustomConnectorPluginVersionConnectorClass {
+    /**
+     * The name of the connector class.
+     */
+    connectorClassName: pulumi.Input<string>;
+    /**
+     * The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
+     */
+    connectorType: pulumi.Input<string>;
+}
+
+export interface CustomConnectorPluginVersionEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface DnsForwarderEnvironment {
     /**
      * The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
@@ -2690,6 +2708,13 @@ export interface PeeringGcp {
 export interface PeeringNetwork {
     /**
      * The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface PluginEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }

@@ -5944,6 +5944,249 @@ func (o ConnectorOffsetArrayOutput) Index(i pulumi.IntInput) ConnectorOffsetOutp
 	}).(ConnectorOffsetOutput)
 }
 
+type CustomConnectorPluginVersionConnectorClass struct {
+	// The name of the connector class.
+	ConnectorClassName string `pulumi:"connectorClassName"`
+	// The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
+	ConnectorType string `pulumi:"connectorType"`
+}
+
+// CustomConnectorPluginVersionConnectorClassInput is an input type that accepts CustomConnectorPluginVersionConnectorClassArgs and CustomConnectorPluginVersionConnectorClassOutput values.
+// You can construct a concrete instance of `CustomConnectorPluginVersionConnectorClassInput` via:
+//
+//	CustomConnectorPluginVersionConnectorClassArgs{...}
+type CustomConnectorPluginVersionConnectorClassInput interface {
+	pulumi.Input
+
+	ToCustomConnectorPluginVersionConnectorClassOutput() CustomConnectorPluginVersionConnectorClassOutput
+	ToCustomConnectorPluginVersionConnectorClassOutputWithContext(context.Context) CustomConnectorPluginVersionConnectorClassOutput
+}
+
+type CustomConnectorPluginVersionConnectorClassArgs struct {
+	// The name of the connector class.
+	ConnectorClassName pulumi.StringInput `pulumi:"connectorClassName"`
+	// The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
+	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
+}
+
+func (CustomConnectorPluginVersionConnectorClassArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomConnectorPluginVersionConnectorClass)(nil)).Elem()
+}
+
+func (i CustomConnectorPluginVersionConnectorClassArgs) ToCustomConnectorPluginVersionConnectorClassOutput() CustomConnectorPluginVersionConnectorClassOutput {
+	return i.ToCustomConnectorPluginVersionConnectorClassOutputWithContext(context.Background())
+}
+
+func (i CustomConnectorPluginVersionConnectorClassArgs) ToCustomConnectorPluginVersionConnectorClassOutputWithContext(ctx context.Context) CustomConnectorPluginVersionConnectorClassOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomConnectorPluginVersionConnectorClassOutput)
+}
+
+// CustomConnectorPluginVersionConnectorClassArrayInput is an input type that accepts CustomConnectorPluginVersionConnectorClassArray and CustomConnectorPluginVersionConnectorClassArrayOutput values.
+// You can construct a concrete instance of `CustomConnectorPluginVersionConnectorClassArrayInput` via:
+//
+//	CustomConnectorPluginVersionConnectorClassArray{ CustomConnectorPluginVersionConnectorClassArgs{...} }
+type CustomConnectorPluginVersionConnectorClassArrayInput interface {
+	pulumi.Input
+
+	ToCustomConnectorPluginVersionConnectorClassArrayOutput() CustomConnectorPluginVersionConnectorClassArrayOutput
+	ToCustomConnectorPluginVersionConnectorClassArrayOutputWithContext(context.Context) CustomConnectorPluginVersionConnectorClassArrayOutput
+}
+
+type CustomConnectorPluginVersionConnectorClassArray []CustomConnectorPluginVersionConnectorClassInput
+
+func (CustomConnectorPluginVersionConnectorClassArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomConnectorPluginVersionConnectorClass)(nil)).Elem()
+}
+
+func (i CustomConnectorPluginVersionConnectorClassArray) ToCustomConnectorPluginVersionConnectorClassArrayOutput() CustomConnectorPluginVersionConnectorClassArrayOutput {
+	return i.ToCustomConnectorPluginVersionConnectorClassArrayOutputWithContext(context.Background())
+}
+
+func (i CustomConnectorPluginVersionConnectorClassArray) ToCustomConnectorPluginVersionConnectorClassArrayOutputWithContext(ctx context.Context) CustomConnectorPluginVersionConnectorClassArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomConnectorPluginVersionConnectorClassArrayOutput)
+}
+
+type CustomConnectorPluginVersionConnectorClassOutput struct{ *pulumi.OutputState }
+
+func (CustomConnectorPluginVersionConnectorClassOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomConnectorPluginVersionConnectorClass)(nil)).Elem()
+}
+
+func (o CustomConnectorPluginVersionConnectorClassOutput) ToCustomConnectorPluginVersionConnectorClassOutput() CustomConnectorPluginVersionConnectorClassOutput {
+	return o
+}
+
+func (o CustomConnectorPluginVersionConnectorClassOutput) ToCustomConnectorPluginVersionConnectorClassOutputWithContext(ctx context.Context) CustomConnectorPluginVersionConnectorClassOutput {
+	return o
+}
+
+// The name of the connector class.
+func (o CustomConnectorPluginVersionConnectorClassOutput) ConnectorClassName() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomConnectorPluginVersionConnectorClass) string { return v.ConnectorClassName }).(pulumi.StringOutput)
+}
+
+// The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
+func (o CustomConnectorPluginVersionConnectorClassOutput) ConnectorType() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomConnectorPluginVersionConnectorClass) string { return v.ConnectorType }).(pulumi.StringOutput)
+}
+
+type CustomConnectorPluginVersionConnectorClassArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomConnectorPluginVersionConnectorClassArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomConnectorPluginVersionConnectorClass)(nil)).Elem()
+}
+
+func (o CustomConnectorPluginVersionConnectorClassArrayOutput) ToCustomConnectorPluginVersionConnectorClassArrayOutput() CustomConnectorPluginVersionConnectorClassArrayOutput {
+	return o
+}
+
+func (o CustomConnectorPluginVersionConnectorClassArrayOutput) ToCustomConnectorPluginVersionConnectorClassArrayOutputWithContext(ctx context.Context) CustomConnectorPluginVersionConnectorClassArrayOutput {
+	return o
+}
+
+func (o CustomConnectorPluginVersionConnectorClassArrayOutput) Index(i pulumi.IntInput) CustomConnectorPluginVersionConnectorClassOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomConnectorPluginVersionConnectorClass {
+		return vs[0].([]CustomConnectorPluginVersionConnectorClass)[vs[1].(int)]
+	}).(CustomConnectorPluginVersionConnectorClassOutput)
+}
+
+type CustomConnectorPluginVersionEnvironment struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// CustomConnectorPluginVersionEnvironmentInput is an input type that accepts CustomConnectorPluginVersionEnvironmentArgs and CustomConnectorPluginVersionEnvironmentOutput values.
+// You can construct a concrete instance of `CustomConnectorPluginVersionEnvironmentInput` via:
+//
+//	CustomConnectorPluginVersionEnvironmentArgs{...}
+type CustomConnectorPluginVersionEnvironmentInput interface {
+	pulumi.Input
+
+	ToCustomConnectorPluginVersionEnvironmentOutput() CustomConnectorPluginVersionEnvironmentOutput
+	ToCustomConnectorPluginVersionEnvironmentOutputWithContext(context.Context) CustomConnectorPluginVersionEnvironmentOutput
+}
+
+type CustomConnectorPluginVersionEnvironmentArgs struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (CustomConnectorPluginVersionEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomConnectorPluginVersionEnvironment)(nil)).Elem()
+}
+
+func (i CustomConnectorPluginVersionEnvironmentArgs) ToCustomConnectorPluginVersionEnvironmentOutput() CustomConnectorPluginVersionEnvironmentOutput {
+	return i.ToCustomConnectorPluginVersionEnvironmentOutputWithContext(context.Background())
+}
+
+func (i CustomConnectorPluginVersionEnvironmentArgs) ToCustomConnectorPluginVersionEnvironmentOutputWithContext(ctx context.Context) CustomConnectorPluginVersionEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomConnectorPluginVersionEnvironmentOutput)
+}
+
+func (i CustomConnectorPluginVersionEnvironmentArgs) ToCustomConnectorPluginVersionEnvironmentPtrOutput() CustomConnectorPluginVersionEnvironmentPtrOutput {
+	return i.ToCustomConnectorPluginVersionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i CustomConnectorPluginVersionEnvironmentArgs) ToCustomConnectorPluginVersionEnvironmentPtrOutputWithContext(ctx context.Context) CustomConnectorPluginVersionEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomConnectorPluginVersionEnvironmentOutput).ToCustomConnectorPluginVersionEnvironmentPtrOutputWithContext(ctx)
+}
+
+// CustomConnectorPluginVersionEnvironmentPtrInput is an input type that accepts CustomConnectorPluginVersionEnvironmentArgs, CustomConnectorPluginVersionEnvironmentPtr and CustomConnectorPluginVersionEnvironmentPtrOutput values.
+// You can construct a concrete instance of `CustomConnectorPluginVersionEnvironmentPtrInput` via:
+//
+//	        CustomConnectorPluginVersionEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomConnectorPluginVersionEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToCustomConnectorPluginVersionEnvironmentPtrOutput() CustomConnectorPluginVersionEnvironmentPtrOutput
+	ToCustomConnectorPluginVersionEnvironmentPtrOutputWithContext(context.Context) CustomConnectorPluginVersionEnvironmentPtrOutput
+}
+
+type customConnectorPluginVersionEnvironmentPtrType CustomConnectorPluginVersionEnvironmentArgs
+
+func CustomConnectorPluginVersionEnvironmentPtr(v *CustomConnectorPluginVersionEnvironmentArgs) CustomConnectorPluginVersionEnvironmentPtrInput {
+	return (*customConnectorPluginVersionEnvironmentPtrType)(v)
+}
+
+func (*customConnectorPluginVersionEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomConnectorPluginVersionEnvironment)(nil)).Elem()
+}
+
+func (i *customConnectorPluginVersionEnvironmentPtrType) ToCustomConnectorPluginVersionEnvironmentPtrOutput() CustomConnectorPluginVersionEnvironmentPtrOutput {
+	return i.ToCustomConnectorPluginVersionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *customConnectorPluginVersionEnvironmentPtrType) ToCustomConnectorPluginVersionEnvironmentPtrOutputWithContext(ctx context.Context) CustomConnectorPluginVersionEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomConnectorPluginVersionEnvironmentPtrOutput)
+}
+
+type CustomConnectorPluginVersionEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (CustomConnectorPluginVersionEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomConnectorPluginVersionEnvironment)(nil)).Elem()
+}
+
+func (o CustomConnectorPluginVersionEnvironmentOutput) ToCustomConnectorPluginVersionEnvironmentOutput() CustomConnectorPluginVersionEnvironmentOutput {
+	return o
+}
+
+func (o CustomConnectorPluginVersionEnvironmentOutput) ToCustomConnectorPluginVersionEnvironmentOutputWithContext(ctx context.Context) CustomConnectorPluginVersionEnvironmentOutput {
+	return o
+}
+
+func (o CustomConnectorPluginVersionEnvironmentOutput) ToCustomConnectorPluginVersionEnvironmentPtrOutput() CustomConnectorPluginVersionEnvironmentPtrOutput {
+	return o.ToCustomConnectorPluginVersionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o CustomConnectorPluginVersionEnvironmentOutput) ToCustomConnectorPluginVersionEnvironmentPtrOutputWithContext(ctx context.Context) CustomConnectorPluginVersionEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomConnectorPluginVersionEnvironment) *CustomConnectorPluginVersionEnvironment {
+		return &v
+	}).(CustomConnectorPluginVersionEnvironmentPtrOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o CustomConnectorPluginVersionEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomConnectorPluginVersionEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type CustomConnectorPluginVersionEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomConnectorPluginVersionEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomConnectorPluginVersionEnvironment)(nil)).Elem()
+}
+
+func (o CustomConnectorPluginVersionEnvironmentPtrOutput) ToCustomConnectorPluginVersionEnvironmentPtrOutput() CustomConnectorPluginVersionEnvironmentPtrOutput {
+	return o
+}
+
+func (o CustomConnectorPluginVersionEnvironmentPtrOutput) ToCustomConnectorPluginVersionEnvironmentPtrOutputWithContext(ctx context.Context) CustomConnectorPluginVersionEnvironmentPtrOutput {
+	return o
+}
+
+func (o CustomConnectorPluginVersionEnvironmentPtrOutput) Elem() CustomConnectorPluginVersionEnvironmentOutput {
+	return o.ApplyT(func(v *CustomConnectorPluginVersionEnvironment) CustomConnectorPluginVersionEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret CustomConnectorPluginVersionEnvironment
+		return ret
+	}).(CustomConnectorPluginVersionEnvironmentOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o CustomConnectorPluginVersionEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomConnectorPluginVersionEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type DnsForwarderEnvironment struct {
 	// The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
@@ -15709,6 +15952,143 @@ func (o PeeringNetworkPtrOutput) Elem() PeeringNetworkOutput {
 // The ID of the Network that the Peering belongs to, for example, `n-abc123`.
 func (o PeeringNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type PluginEnvironment struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// PluginEnvironmentInput is an input type that accepts PluginEnvironmentArgs and PluginEnvironmentOutput values.
+// You can construct a concrete instance of `PluginEnvironmentInput` via:
+//
+//	PluginEnvironmentArgs{...}
+type PluginEnvironmentInput interface {
+	pulumi.Input
+
+	ToPluginEnvironmentOutput() PluginEnvironmentOutput
+	ToPluginEnvironmentOutputWithContext(context.Context) PluginEnvironmentOutput
+}
+
+type PluginEnvironmentArgs struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (PluginEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PluginEnvironment)(nil)).Elem()
+}
+
+func (i PluginEnvironmentArgs) ToPluginEnvironmentOutput() PluginEnvironmentOutput {
+	return i.ToPluginEnvironmentOutputWithContext(context.Background())
+}
+
+func (i PluginEnvironmentArgs) ToPluginEnvironmentOutputWithContext(ctx context.Context) PluginEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PluginEnvironmentOutput)
+}
+
+func (i PluginEnvironmentArgs) ToPluginEnvironmentPtrOutput() PluginEnvironmentPtrOutput {
+	return i.ToPluginEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i PluginEnvironmentArgs) ToPluginEnvironmentPtrOutputWithContext(ctx context.Context) PluginEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PluginEnvironmentOutput).ToPluginEnvironmentPtrOutputWithContext(ctx)
+}
+
+// PluginEnvironmentPtrInput is an input type that accepts PluginEnvironmentArgs, PluginEnvironmentPtr and PluginEnvironmentPtrOutput values.
+// You can construct a concrete instance of `PluginEnvironmentPtrInput` via:
+//
+//	        PluginEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type PluginEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToPluginEnvironmentPtrOutput() PluginEnvironmentPtrOutput
+	ToPluginEnvironmentPtrOutputWithContext(context.Context) PluginEnvironmentPtrOutput
+}
+
+type pluginEnvironmentPtrType PluginEnvironmentArgs
+
+func PluginEnvironmentPtr(v *PluginEnvironmentArgs) PluginEnvironmentPtrInput {
+	return (*pluginEnvironmentPtrType)(v)
+}
+
+func (*pluginEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PluginEnvironment)(nil)).Elem()
+}
+
+func (i *pluginEnvironmentPtrType) ToPluginEnvironmentPtrOutput() PluginEnvironmentPtrOutput {
+	return i.ToPluginEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *pluginEnvironmentPtrType) ToPluginEnvironmentPtrOutputWithContext(ctx context.Context) PluginEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PluginEnvironmentPtrOutput)
+}
+
+type PluginEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (PluginEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PluginEnvironment)(nil)).Elem()
+}
+
+func (o PluginEnvironmentOutput) ToPluginEnvironmentOutput() PluginEnvironmentOutput {
+	return o
+}
+
+func (o PluginEnvironmentOutput) ToPluginEnvironmentOutputWithContext(ctx context.Context) PluginEnvironmentOutput {
+	return o
+}
+
+func (o PluginEnvironmentOutput) ToPluginEnvironmentPtrOutput() PluginEnvironmentPtrOutput {
+	return o.ToPluginEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o PluginEnvironmentOutput) ToPluginEnvironmentPtrOutputWithContext(ctx context.Context) PluginEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PluginEnvironment) *PluginEnvironment {
+		return &v
+	}).(PluginEnvironmentPtrOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o PluginEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PluginEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PluginEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (PluginEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PluginEnvironment)(nil)).Elem()
+}
+
+func (o PluginEnvironmentPtrOutput) ToPluginEnvironmentPtrOutput() PluginEnvironmentPtrOutput {
+	return o
+}
+
+func (o PluginEnvironmentPtrOutput) ToPluginEnvironmentPtrOutputWithContext(ctx context.Context) PluginEnvironmentPtrOutput {
+	return o
+}
+
+func (o PluginEnvironmentPtrOutput) Elem() PluginEnvironmentOutput {
+	return o.ApplyT(func(v *PluginEnvironment) PluginEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret PluginEnvironment
+		return ret
+	}).(PluginEnvironmentOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o PluginEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PluginEnvironment) *string {
 		if v == nil {
 			return nil
 		}
@@ -39081,6 +39461,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterPtrInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorOffsetInput)(nil)).Elem(), ConnectorOffsetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorOffsetArrayInput)(nil)).Elem(), ConnectorOffsetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomConnectorPluginVersionConnectorClassInput)(nil)).Elem(), CustomConnectorPluginVersionConnectorClassArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomConnectorPluginVersionConnectorClassArrayInput)(nil)).Elem(), CustomConnectorPluginVersionConnectorClassArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomConnectorPluginVersionEnvironmentInput)(nil)).Elem(), CustomConnectorPluginVersionEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomConnectorPluginVersionEnvironmentPtrInput)(nil)).Elem(), CustomConnectorPluginVersionEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsForwarderEnvironmentInput)(nil)).Elem(), DnsForwarderEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsForwarderEnvironmentPtrInput)(nil)).Elem(), DnsForwarderEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsForwarderForwardViaGcpDnsZonesInput)(nil)).Elem(), DnsForwarderForwardViaGcpDnsZonesArgs{})
@@ -39221,6 +39605,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringGcpPtrInput)(nil)).Elem(), PeeringGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringNetworkInput)(nil)).Elem(), PeeringNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringNetworkPtrInput)(nil)).Elem(), PeeringNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PluginEnvironmentInput)(nil)).Elem(), PluginEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PluginEnvironmentPtrInput)(nil)).Elem(), PluginEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessAwsInput)(nil)).Elem(), PrivateLinkAccessAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessAwsPtrInput)(nil)).Elem(), PrivateLinkAccessAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessAzureInput)(nil)).Elem(), PrivateLinkAccessAzureArgs{})
@@ -39654,6 +40040,10 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorOffsetOutput{})
 	pulumi.RegisterOutputType(ConnectorOffsetArrayOutput{})
+	pulumi.RegisterOutputType(CustomConnectorPluginVersionConnectorClassOutput{})
+	pulumi.RegisterOutputType(CustomConnectorPluginVersionConnectorClassArrayOutput{})
+	pulumi.RegisterOutputType(CustomConnectorPluginVersionEnvironmentOutput{})
+	pulumi.RegisterOutputType(CustomConnectorPluginVersionEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(DnsForwarderEnvironmentOutput{})
 	pulumi.RegisterOutputType(DnsForwarderEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(DnsForwarderForwardViaGcpDnsZonesOutput{})
@@ -39794,6 +40184,8 @@ func init() {
 	pulumi.RegisterOutputType(PeeringGcpPtrOutput{})
 	pulumi.RegisterOutputType(PeeringNetworkOutput{})
 	pulumi.RegisterOutputType(PeeringNetworkPtrOutput{})
+	pulumi.RegisterOutputType(PluginEnvironmentOutput{})
+	pulumi.RegisterOutputType(PluginEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessAwsOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessAwsPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessAzureOutput{})

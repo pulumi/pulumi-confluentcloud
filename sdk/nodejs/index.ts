@@ -70,6 +70,11 @@ export type CustomConnectorPlugin = import("./customConnectorPlugin").CustomConn
 export const CustomConnectorPlugin: typeof import("./customConnectorPlugin").CustomConnectorPlugin = null as any;
 utilities.lazyLoad(exports, ["CustomConnectorPlugin"], () => require("./customConnectorPlugin"));
 
+export { CustomConnectorPluginVersionArgs, CustomConnectorPluginVersionState } from "./customConnectorPluginVersion";
+export type CustomConnectorPluginVersion = import("./customConnectorPluginVersion").CustomConnectorPluginVersion;
+export const CustomConnectorPluginVersion: typeof import("./customConnectorPluginVersion").CustomConnectorPluginVersion = null as any;
+utilities.lazyLoad(exports, ["CustomConnectorPluginVersion"], () => require("./customConnectorPluginVersion"));
+
 export { DnsForwarderArgs, DnsForwarderState } from "./dnsForwarder";
 export type DnsForwarder = import("./dnsForwarder").DnsForwarder;
 export const DnsForwarder: typeof import("./dnsForwarder").DnsForwarder = null as any;
@@ -450,6 +455,11 @@ export type Peering = import("./peering").Peering;
 export const Peering: typeof import("./peering").Peering = null as any;
 utilities.lazyLoad(exports, ["Peering"], () => require("./peering"));
 
+export { PluginArgs, PluginState } from "./plugin";
+export type Plugin = import("./plugin").Plugin;
+export const Plugin: typeof import("./plugin").Plugin = null as any;
+utilities.lazyLoad(exports, ["Plugin"], () => require("./plugin"));
+
 export { PrivateLinkAccessArgs, PrivateLinkAccessState } from "./privateLinkAccess";
 export type PrivateLinkAccess = import("./privateLinkAccess").PrivateLinkAccess;
 export const PrivateLinkAccess: typeof import("./privateLinkAccess").PrivateLinkAccess = null as any;
@@ -588,6 +598,8 @@ const _module = {
                 return new Connector(name, <any>undefined, { urn })
             case "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin":
                 return new CustomConnectorPlugin(name, <any>undefined, { urn })
+            case "confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion":
+                return new CustomConnectorPluginVersion(name, <any>undefined, { urn })
             case "confluentcloud:index/dnsForwarder:DnsForwarder":
                 return new DnsForwarder(name, <any>undefined, { urn })
             case "confluentcloud:index/dnsRecord:DnsRecord":
@@ -634,6 +646,8 @@ const _module = {
                 return new NetworkLinkService(name, <any>undefined, { urn })
             case "confluentcloud:index/peering:Peering":
                 return new Peering(name, <any>undefined, { urn })
+            case "confluentcloud:index/plugin:Plugin":
+                return new Plugin(name, <any>undefined, { urn })
             case "confluentcloud:index/privateLinkAccess:PrivateLinkAccess":
                 return new PrivateLinkAccess(name, <any>undefined, { urn })
             case "confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment":
@@ -690,6 +704,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/clusterLink", _mo
 pulumi.runtime.registerResourceModule("confluentcloud", "index/connectArtifact", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/connector", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/customConnectorPlugin", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/customConnectorPluginVersion", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/dnsForwarder", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/dnsRecord", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _module)
@@ -713,6 +728,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/network", _module
 pulumi.runtime.registerResourceModule("confluentcloud", "index/networkLinkEndpoint", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/networkLinkService", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/peering", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/plugin", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAccess", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAttachment", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAttachmentConnection", _module)

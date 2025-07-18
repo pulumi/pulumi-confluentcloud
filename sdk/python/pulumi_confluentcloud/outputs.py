@@ -54,6 +54,8 @@ __all__ = [
     'ConnectorEnvironment',
     'ConnectorKafkaCluster',
     'ConnectorOffset',
+    'CustomConnectorPluginVersionConnectorClass',
+    'CustomConnectorPluginVersionEnvironment',
     'DnsForwarderEnvironment',
     'DnsForwarderForwardViaGcpDnsZones',
     'DnsForwarderForwardViaIp',
@@ -124,6 +126,7 @@ __all__ = [
     'PeeringEnvironment',
     'PeeringGcp',
     'PeeringNetwork',
+    'PluginEnvironment',
     'PrivateLinkAccessAws',
     'PrivateLinkAccessAzure',
     'PrivateLinkAccessEnvironment',
@@ -1901,6 +1904,72 @@ class ConnectorOffset(dict):
         Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafka_partition` and `kafka_topic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
         """
         return pulumi.get(self, "partition")
+
+
+@pulumi.output_type
+class CustomConnectorPluginVersionConnectorClass(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorClassName":
+            suggest = "connector_class_name"
+        elif key == "connectorType":
+            suggest = "connector_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomConnectorPluginVersionConnectorClass. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomConnectorPluginVersionConnectorClass.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomConnectorPluginVersionConnectorClass.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_class_name: builtins.str,
+                 connector_type: builtins.str):
+        """
+        :param builtins.str connector_class_name: The name of the connector class.
+        :param builtins.str connector_type: The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
+        """
+        pulumi.set(__self__, "connector_class_name", connector_class_name)
+        pulumi.set(__self__, "connector_type", connector_type)
+
+    @property
+    @pulumi.getter(name="connectorClassName")
+    def connector_class_name(self) -> builtins.str:
+        """
+        The name of the connector class.
+        """
+        return pulumi.get(self, "connector_class_name")
+
+    @property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> builtins.str:
+        """
+        The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
+        """
+        return pulumi.get(self, "connector_type")
+
+
+@pulumi.output_type
+class CustomConnectorPluginVersionEnvironment(dict):
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -3775,6 +3844,24 @@ class PeeringNetwork(dict):
     def id(self) -> builtins.str:
         """
         The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PluginEnvironment(dict):
+    def __init__(__self__, *,
+                 id: builtins.str):
+        """
+        :param builtins.str id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The ID of the Environment, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 

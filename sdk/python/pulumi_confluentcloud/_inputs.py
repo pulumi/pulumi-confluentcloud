@@ -90,6 +90,10 @@ __all__ = [
     'ConnectorKafkaClusterArgsDict',
     'ConnectorOffsetArgs',
     'ConnectorOffsetArgsDict',
+    'CustomConnectorPluginVersionConnectorClassArgs',
+    'CustomConnectorPluginVersionConnectorClassArgsDict',
+    'CustomConnectorPluginVersionEnvironmentArgs',
+    'CustomConnectorPluginVersionEnvironmentArgsDict',
     'DnsForwarderEnvironmentArgs',
     'DnsForwarderEnvironmentArgsDict',
     'DnsForwarderForwardViaGcpDnsZonesArgs',
@@ -230,6 +234,8 @@ __all__ = [
     'PeeringGcpArgsDict',
     'PeeringNetworkArgs',
     'PeeringNetworkArgsDict',
+    'PluginEnvironmentArgs',
+    'PluginEnvironmentArgsDict',
     'PrivateLinkAccessAwsArgs',
     'PrivateLinkAccessAwsArgsDict',
     'PrivateLinkAccessAzureArgs',
@@ -2662,6 +2668,87 @@ class ConnectorOffsetArgs:
     @partition.setter
     def partition(self, value: pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]):
         pulumi.set(self, "partition", value)
+
+
+if not MYPY:
+    class CustomConnectorPluginVersionConnectorClassArgsDict(TypedDict):
+        connector_class_name: pulumi.Input[builtins.str]
+        """
+        The name of the connector class.
+        """
+        connector_type: pulumi.Input[builtins.str]
+        """
+        The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
+        """
+elif False:
+    CustomConnectorPluginVersionConnectorClassArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomConnectorPluginVersionConnectorClassArgs:
+    def __init__(__self__, *,
+                 connector_class_name: pulumi.Input[builtins.str],
+                 connector_type: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] connector_class_name: The name of the connector class.
+        :param pulumi.Input[builtins.str] connector_type: The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
+        """
+        pulumi.set(__self__, "connector_class_name", connector_class_name)
+        pulumi.set(__self__, "connector_type", connector_type)
+
+    @property
+    @pulumi.getter(name="connectorClassName")
+    def connector_class_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the connector class.
+        """
+        return pulumi.get(self, "connector_class_name")
+
+    @connector_class_name.setter
+    def connector_class_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "connector_class_name", value)
+
+    @property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> pulumi.Input[builtins.str]:
+        """
+        The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
+        """
+        return pulumi.get(self, "connector_type")
+
+    @connector_type.setter
+    def connector_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "connector_type", value)
+
+
+if not MYPY:
+    class CustomConnectorPluginVersionEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[builtins.str]
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+elif False:
+    CustomConnectorPluginVersionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomConnectorPluginVersionEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "id", value)
 
 
 if not MYPY:
@@ -5413,6 +5500,37 @@ class PeeringNetworkArgs:
     def id(self) -> pulumi.Input[builtins.str]:
         """
         The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class PluginEnvironmentArgsDict(TypedDict):
+        id: pulumi.Input[builtins.str]
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+elif False:
+    PluginEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PluginEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ID of the Environment, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 

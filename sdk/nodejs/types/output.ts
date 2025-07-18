@@ -471,6 +471,24 @@ export interface ConnectorOffset {
     partition: {[key: string]: string};
 }
 
+export interface CustomConnectorPluginVersionConnectorClass {
+    /**
+     * The name of the connector class.
+     */
+    connectorClassName: string;
+    /**
+     * The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
+     */
+    connectorType: string;
+}
+
+export interface CustomConnectorPluginVersionEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: string;
+}
+
 export interface DnsForwarderEnvironment {
     /**
      * The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
@@ -2595,6 +2613,13 @@ export interface PeeringGcp {
 export interface PeeringNetwork {
     /**
      * The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+     */
+    id: string;
+}
+
+export interface PluginEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
      */
     id: string;
 }

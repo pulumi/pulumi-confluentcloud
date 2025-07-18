@@ -19,6 +19,7 @@ from .cluster_link import *
 from .connect_artifact import *
 from .connector import *
 from .custom_connector_plugin import *
+from .custom_connector_plugin_version import *
 from .dns_forwarder import *
 from .dns_record import *
 from .environment import *
@@ -95,6 +96,7 @@ from .network import *
 from .network_link_endpoint import *
 from .network_link_service import *
 from .peering import *
+from .plugin import *
 from .private_link_access import *
 from .private_link_attachment import *
 from .private_link_attachment_connection import *
@@ -230,6 +232,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin": "CustomConnectorPlugin"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/customConnectorPluginVersion",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion": "CustomConnectorPluginVersion"
   }
  },
  {
@@ -414,6 +424,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/peering:Peering": "Peering"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/plugin",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/plugin:Plugin": "Plugin"
   }
  },
  {
