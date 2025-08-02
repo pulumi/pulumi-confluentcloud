@@ -177,7 +177,8 @@ class _TableflowTopicState:
                  record_failure_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_ms: Optional[pulumi.Input[_builtins.str]] = None,
                  suspended: Optional[pulumi.Input[_builtins.bool]] = None,
-                 table_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 table_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 table_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableflowTopic resources.
         :param pulumi.Input['TableflowTopicByobAwsArgs'] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
@@ -191,6 +192,7 @@ class _TableflowTopicState:
         :param pulumi.Input[_builtins.str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
         :param pulumi.Input[_builtins.bool] suspended: (Optional Boolean) Indicates whether the Tableflow should be suspended.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] table_formats: The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
+        :param pulumi.Input[_builtins.str] table_path: (Optional String) The current storage path where the data and metadata is stored for this table.
         """
         if byob_aws is not None:
             pulumi.set(__self__, "byob_aws", byob_aws)
@@ -216,6 +218,8 @@ class _TableflowTopicState:
             pulumi.set(__self__, "suspended", suspended)
         if table_formats is not None:
             pulumi.set(__self__, "table_formats", table_formats)
+        if table_path is not None:
+            pulumi.set(__self__, "table_path", table_path)
 
     @_builtins.property
     @pulumi.getter(name="byobAws")
@@ -357,6 +361,18 @@ class _TableflowTopicState:
     @table_formats.setter
     def table_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "table_formats", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tablePath")
+    def table_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Optional String) The current storage path where the data and metadata is stored for this table.
+        """
+        return pulumi.get(self, "table_path")
+
+    @table_path.setter
+    def table_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "table_path", value)
 
 
 @pulumi.type_token("confluentcloud:index/tableflowTopic:TableflowTopic")
@@ -599,6 +615,7 @@ class TableflowTopic(pulumi.CustomResource):
             __props__.__dict__["enable_compaction"] = None
             __props__.__dict__["enable_partitioning"] = None
             __props__.__dict__["suspended"] = None
+            __props__.__dict__["table_path"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(TableflowTopic, __self__).__init__(
@@ -622,7 +639,8 @@ class TableflowTopic(pulumi.CustomResource):
             record_failure_strategy: Optional[pulumi.Input[_builtins.str]] = None,
             retention_ms: Optional[pulumi.Input[_builtins.str]] = None,
             suspended: Optional[pulumi.Input[_builtins.bool]] = None,
-            table_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'TableflowTopic':
+            table_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            table_path: Optional[pulumi.Input[_builtins.str]] = None) -> 'TableflowTopic':
         """
         Get an existing TableflowTopic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -641,6 +659,7 @@ class TableflowTopic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] retention_ms: The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
         :param pulumi.Input[_builtins.bool] suspended: (Optional Boolean) Indicates whether the Tableflow should be suspended.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] table_formats: The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
+        :param pulumi.Input[_builtins.str] table_path: (Optional String) The current storage path where the data and metadata is stored for this table.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -658,6 +677,7 @@ class TableflowTopic(pulumi.CustomResource):
         __props__.__dict__["retention_ms"] = retention_ms
         __props__.__dict__["suspended"] = suspended
         __props__.__dict__["table_formats"] = table_formats
+        __props__.__dict__["table_path"] = table_path
         return TableflowTopic(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -752,4 +772,12 @@ class TableflowTopic(pulumi.CustomResource):
         The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
         """
         return pulumi.get(self, "table_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="tablePath")
+    def table_path(self) -> pulumi.Output[_builtins.str]:
+        """
+        (Optional String) The current storage path where the data and metadata is stored for this table.
+        """
+        return pulumi.get(self, "table_path")
 

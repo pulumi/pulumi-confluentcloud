@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterBasic;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterByokKey;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterDedicated;
+import com.pulumi.confluentcloud.outputs.GetKafkaClusterEndpoint;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterEnterprise;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterEnvironment;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterFreight;
@@ -37,7 +38,7 @@ public final class GetKafkaClusterResult {
      */
     private @Nullable List<GetKafkaClusterBasic> basics;
     /**
-     * @return (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * @return (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
      * 
      */
     private String bootstrapEndpoint;
@@ -61,6 +62,11 @@ public final class GetKafkaClusterResult {
      * 
      */
     private String displayName;
+    /**
+     * @return (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+     * 
+     */
+    private List<GetKafkaClusterEndpoint> endpoints;
     /**
      * @return (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
      * 
@@ -98,7 +104,7 @@ public final class GetKafkaClusterResult {
      */
     private String region;
     /**
-     * @return (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * @return (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
      * 
      */
     private String restEndpoint;
@@ -131,7 +137,7 @@ public final class GetKafkaClusterResult {
         return this.basics == null ? List.of() : this.basics;
     }
     /**
-     * @return (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * @return (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
      * 
      */
     public String bootstrapEndpoint() {
@@ -164,6 +170,13 @@ public final class GetKafkaClusterResult {
      */
     public String displayName() {
         return this.displayName;
+    }
+    /**
+     * @return (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+     * 
+     */
+    public List<GetKafkaClusterEndpoint> endpoints() {
+        return this.endpoints;
     }
     /**
      * @return (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
@@ -218,7 +231,7 @@ public final class GetKafkaClusterResult {
         return this.region;
     }
     /**
-     * @return (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * @return (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
      * 
      */
     public String restEndpoint() {
@@ -249,6 +262,7 @@ public final class GetKafkaClusterResult {
         private String cloud;
         private @Nullable GetKafkaClusterDedicated dedicated;
         private String displayName;
+        private List<GetKafkaClusterEndpoint> endpoints;
         private @Nullable List<GetKafkaClusterEnterprise> enterprises;
         private GetKafkaClusterEnvironment environment;
         private @Nullable List<GetKafkaClusterFreight> freights;
@@ -270,6 +284,7 @@ public final class GetKafkaClusterResult {
     	      this.cloud = defaults.cloud;
     	      this.dedicated = defaults.dedicated;
     	      this.displayName = defaults.displayName;
+    	      this.endpoints = defaults.endpoints;
     	      this.enterprises = defaults.enterprises;
     	      this.environment = defaults.environment;
     	      this.freights = defaults.freights;
@@ -347,6 +362,17 @@ public final class GetKafkaClusterResult {
             }
             this.displayName = displayName;
             return this;
+        }
+        @CustomType.Setter
+        public Builder endpoints(List<GetKafkaClusterEndpoint> endpoints) {
+            if (endpoints == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "endpoints");
+            }
+            this.endpoints = endpoints;
+            return this;
+        }
+        public Builder endpoints(GetKafkaClusterEndpoint... endpoints) {
+            return endpoints(List.of(endpoints));
         }
         @CustomType.Setter
         public Builder enterprises(@Nullable List<GetKafkaClusterEnterprise> enterprises) {
@@ -444,6 +470,7 @@ public final class GetKafkaClusterResult {
             _resultValue.cloud = cloud;
             _resultValue.dedicated = dedicated;
             _resultValue.displayName = displayName;
+            _resultValue.endpoints = endpoints;
             _resultValue.enterprises = enterprises;
             _resultValue.environment = environment;
             _resultValue.freights = freights;

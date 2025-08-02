@@ -159,6 +159,10 @@ export class TableflowTopic extends pulumi.CustomResource {
      * The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
      */
     public readonly tableFormats!: pulumi.Output<string[]>;
+    /**
+     * (Optional String) The current storage path where the data and metadata is stored for this table.
+     */
+    public /*out*/ readonly tablePath!: pulumi.Output<string>;
 
     /**
      * Create a TableflowTopic resource with the given unique name, arguments, and options.
@@ -185,6 +189,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             resourceInputs["retentionMs"] = state ? state.retentionMs : undefined;
             resourceInputs["suspended"] = state ? state.suspended : undefined;
             resourceInputs["tableFormats"] = state ? state.tableFormats : undefined;
+            resourceInputs["tablePath"] = state ? state.tablePath : undefined;
         } else {
             const args = argsOrState as TableflowTopicArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -208,6 +213,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             resourceInputs["enableCompaction"] = undefined /*out*/;
             resourceInputs["enablePartitioning"] = undefined /*out*/;
             resourceInputs["suspended"] = undefined /*out*/;
+            resourceInputs["tablePath"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };
@@ -265,6 +271,10 @@ export interface TableflowTopicState {
      * The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
      */
     tableFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Optional String) The current storage path where the data and metadata is stored for this table.
+     */
+    tablePath?: pulumi.Input<string>;
 }
 
 /**

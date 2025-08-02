@@ -265,6 +265,7 @@ namespace Pulumi.ConfluentCloud
     ///   * dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
     ///   * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
     ///   * enterprise-privatelinkattachment-azure-kafka-acls: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+    ///   * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
     /// 
     /// ## Import
     /// 
@@ -302,7 +303,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.KafkaClusterBasic?> Basic { get; private set; } = null!;
 
         /// <summary>
-        /// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        /// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         /// </summary>
         [Output("bootstrapEndpoint")]
         public Output<string> BootstrapEndpoint { get; private set; } = null!;
@@ -327,6 +328,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+        /// </summary>
+        [Output("endpoints")]
+        public Output<ImmutableArray<Outputs.KafkaClusterEndpoint>> Endpoints { get; private set; } = null!;
 
         /// <summary>
         /// The configuration of the Enterprise Kafka cluster.
@@ -372,7 +379,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
         /// </summary>
         [Output("restEndpoint")]
         public Output<string> RestEndpoint { get; private set; } = null!;
@@ -538,7 +545,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.KafkaClusterBasicGetArgs>? Basic { get; set; }
 
         /// <summary>
-        /// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        /// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         /// </summary>
         [Input("bootstrapEndpoint")]
         public Input<string>? BootstrapEndpoint { get; set; }
@@ -563,6 +570,18 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        [Input("endpoints")]
+        private InputList<Inputs.KafkaClusterEndpointGetArgs>? _endpoints;
+
+        /// <summary>
+        /// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+        /// </summary>
+        public InputList<Inputs.KafkaClusterEndpointGetArgs> Endpoints
+        {
+            get => _endpoints ?? (_endpoints = new InputList<Inputs.KafkaClusterEndpointGetArgs>());
+            set => _endpoints = value;
+        }
 
         [Input("enterprises")]
         private InputList<Inputs.KafkaClusterEnterpriseGetArgs>? _enterprises;
@@ -620,7 +639,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }

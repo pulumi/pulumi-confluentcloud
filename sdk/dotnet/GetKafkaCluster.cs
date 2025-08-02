@@ -331,7 +331,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKafkaClusterBasicResult> Basics;
         /// <summary>
-        /// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        /// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         /// </summary>
         public readonly string BootstrapEndpoint;
         /// <summary>
@@ -350,6 +350,10 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) The name of the Kafka cluster.
         /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKafkaClusterEndpointResult> Endpoints;
         /// <summary>
         /// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
         /// </summary>
@@ -380,7 +384,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
         /// </summary>
         public readonly string RestEndpoint;
         /// <summary>
@@ -405,6 +409,8 @@ namespace Pulumi.ConfluentCloud
             Outputs.GetKafkaClusterDedicatedResult? dedicated,
 
             string displayName,
+
+            ImmutableArray<Outputs.GetKafkaClusterEndpointResult> endpoints,
 
             ImmutableArray<Outputs.GetKafkaClusterEnterpriseResult> enterprises,
 
@@ -434,6 +440,7 @@ namespace Pulumi.ConfluentCloud
             Cloud = cloud;
             Dedicated = dedicated;
             DisplayName = displayName;
+            Endpoints = endpoints;
             Enterprises = enterprises;
             Environment = environment;
             Freights = freights;

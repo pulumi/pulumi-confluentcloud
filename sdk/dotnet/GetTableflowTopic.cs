@@ -318,6 +318,10 @@ namespace Pulumi.ConfluentCloud
         /// (Optional List) The supported table formats for the Tableflow-enabled topic.
         /// </summary>
         public readonly ImmutableArray<string> TableFormats;
+        /// <summary>
+        /// (Optional String) The current storage path where the data and metadata is stored for this table.
+        /// </summary>
+        public readonly string TablePath;
 
         [OutputConstructor]
         private GetTableflowTopicResult(
@@ -345,7 +349,9 @@ namespace Pulumi.ConfluentCloud
 
             bool suspended,
 
-            ImmutableArray<string> tableFormats)
+            ImmutableArray<string> tableFormats,
+
+            string tablePath)
         {
             ByobAws = byobAws;
             Credentials = credentials;
@@ -360,6 +366,7 @@ namespace Pulumi.ConfluentCloud
             RetentionMs = retentionMs;
             Suspended = suspended;
             TableFormats = tableFormats;
+            TablePath = tablePath;
         }
     }
 }

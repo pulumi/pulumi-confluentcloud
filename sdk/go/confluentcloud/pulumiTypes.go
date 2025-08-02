@@ -11547,6 +11547,130 @@ func (o KafkaClusterDedicatedPtrOutput) Zones() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type KafkaClusterEndpoint struct {
+	// (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+	AccessPointId *string `pulumi:"accessPointId"`
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
+	// (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+	ConnectionType *string `pulumi:"connectionType"`
+	// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+	RestEndpoint *string `pulumi:"restEndpoint"`
+}
+
+// KafkaClusterEndpointInput is an input type that accepts KafkaClusterEndpointArgs and KafkaClusterEndpointOutput values.
+// You can construct a concrete instance of `KafkaClusterEndpointInput` via:
+//
+//	KafkaClusterEndpointArgs{...}
+type KafkaClusterEndpointInput interface {
+	pulumi.Input
+
+	ToKafkaClusterEndpointOutput() KafkaClusterEndpointOutput
+	ToKafkaClusterEndpointOutputWithContext(context.Context) KafkaClusterEndpointOutput
+}
+
+type KafkaClusterEndpointArgs struct {
+	// (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+	AccessPointId pulumi.StringPtrInput `pulumi:"accessPointId"`
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+	BootstrapEndpoint pulumi.StringPtrInput `pulumi:"bootstrapEndpoint"`
+	// (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+	ConnectionType pulumi.StringPtrInput `pulumi:"connectionType"`
+	// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+	RestEndpoint pulumi.StringPtrInput `pulumi:"restEndpoint"`
+}
+
+func (KafkaClusterEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterEndpoint)(nil)).Elem()
+}
+
+func (i KafkaClusterEndpointArgs) ToKafkaClusterEndpointOutput() KafkaClusterEndpointOutput {
+	return i.ToKafkaClusterEndpointOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterEndpointArgs) ToKafkaClusterEndpointOutputWithContext(ctx context.Context) KafkaClusterEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterEndpointOutput)
+}
+
+// KafkaClusterEndpointArrayInput is an input type that accepts KafkaClusterEndpointArray and KafkaClusterEndpointArrayOutput values.
+// You can construct a concrete instance of `KafkaClusterEndpointArrayInput` via:
+//
+//	KafkaClusterEndpointArray{ KafkaClusterEndpointArgs{...} }
+type KafkaClusterEndpointArrayInput interface {
+	pulumi.Input
+
+	ToKafkaClusterEndpointArrayOutput() KafkaClusterEndpointArrayOutput
+	ToKafkaClusterEndpointArrayOutputWithContext(context.Context) KafkaClusterEndpointArrayOutput
+}
+
+type KafkaClusterEndpointArray []KafkaClusterEndpointInput
+
+func (KafkaClusterEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterEndpoint)(nil)).Elem()
+}
+
+func (i KafkaClusterEndpointArray) ToKafkaClusterEndpointArrayOutput() KafkaClusterEndpointArrayOutput {
+	return i.ToKafkaClusterEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterEndpointArray) ToKafkaClusterEndpointArrayOutputWithContext(ctx context.Context) KafkaClusterEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterEndpointArrayOutput)
+}
+
+type KafkaClusterEndpointOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterEndpoint)(nil)).Elem()
+}
+
+func (o KafkaClusterEndpointOutput) ToKafkaClusterEndpointOutput() KafkaClusterEndpointOutput {
+	return o
+}
+
+func (o KafkaClusterEndpointOutput) ToKafkaClusterEndpointOutputWithContext(ctx context.Context) KafkaClusterEndpointOutput {
+	return o
+}
+
+// (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+func (o KafkaClusterEndpointOutput) AccessPointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterEndpoint) *string { return v.AccessPointId }).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+func (o KafkaClusterEndpointOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterEndpoint) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+func (o KafkaClusterEndpointOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterEndpoint) *string { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+func (o KafkaClusterEndpointOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterEndpoint) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type KafkaClusterEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterEndpoint)(nil)).Elem()
+}
+
+func (o KafkaClusterEndpointArrayOutput) ToKafkaClusterEndpointArrayOutput() KafkaClusterEndpointArrayOutput {
+	return o
+}
+
+func (o KafkaClusterEndpointArrayOutput) ToKafkaClusterEndpointArrayOutputWithContext(ctx context.Context) KafkaClusterEndpointArrayOutput {
+	return o
+}
+
+func (o KafkaClusterEndpointArrayOutput) Index(i pulumi.IntInput) KafkaClusterEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KafkaClusterEndpoint {
+		return vs[0].([]KafkaClusterEndpoint)[vs[1].(int)]
+	}).(KafkaClusterEndpointOutput)
+}
+
 type KafkaClusterEnterprise struct {
 }
 
@@ -29737,6 +29861,130 @@ func (o GetKafkaClusterDedicatedPtrOutput) Zones() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type GetKafkaClusterEndpoint struct {
+	// (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+	AccessPointId string `pulumi:"accessPointId"`
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+	BootstrapEndpoint string `pulumi:"bootstrapEndpoint"`
+	// (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+	ConnectionType string `pulumi:"connectionType"`
+	// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+	RestEndpoint string `pulumi:"restEndpoint"`
+}
+
+// GetKafkaClusterEndpointInput is an input type that accepts GetKafkaClusterEndpointArgs and GetKafkaClusterEndpointOutput values.
+// You can construct a concrete instance of `GetKafkaClusterEndpointInput` via:
+//
+//	GetKafkaClusterEndpointArgs{...}
+type GetKafkaClusterEndpointInput interface {
+	pulumi.Input
+
+	ToGetKafkaClusterEndpointOutput() GetKafkaClusterEndpointOutput
+	ToGetKafkaClusterEndpointOutputWithContext(context.Context) GetKafkaClusterEndpointOutput
+}
+
+type GetKafkaClusterEndpointArgs struct {
+	// (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+	AccessPointId pulumi.StringInput `pulumi:"accessPointId"`
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+	BootstrapEndpoint pulumi.StringInput `pulumi:"bootstrapEndpoint"`
+	// (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+	ConnectionType pulumi.StringInput `pulumi:"connectionType"`
+	// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+	RestEndpoint pulumi.StringInput `pulumi:"restEndpoint"`
+}
+
+func (GetKafkaClusterEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClusterEndpoint)(nil)).Elem()
+}
+
+func (i GetKafkaClusterEndpointArgs) ToGetKafkaClusterEndpointOutput() GetKafkaClusterEndpointOutput {
+	return i.ToGetKafkaClusterEndpointOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClusterEndpointArgs) ToGetKafkaClusterEndpointOutputWithContext(ctx context.Context) GetKafkaClusterEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterEndpointOutput)
+}
+
+// GetKafkaClusterEndpointArrayInput is an input type that accepts GetKafkaClusterEndpointArray and GetKafkaClusterEndpointArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClusterEndpointArrayInput` via:
+//
+//	GetKafkaClusterEndpointArray{ GetKafkaClusterEndpointArgs{...} }
+type GetKafkaClusterEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClusterEndpointArrayOutput() GetKafkaClusterEndpointArrayOutput
+	ToGetKafkaClusterEndpointArrayOutputWithContext(context.Context) GetKafkaClusterEndpointArrayOutput
+}
+
+type GetKafkaClusterEndpointArray []GetKafkaClusterEndpointInput
+
+func (GetKafkaClusterEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClusterEndpoint)(nil)).Elem()
+}
+
+func (i GetKafkaClusterEndpointArray) ToGetKafkaClusterEndpointArrayOutput() GetKafkaClusterEndpointArrayOutput {
+	return i.ToGetKafkaClusterEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClusterEndpointArray) ToGetKafkaClusterEndpointArrayOutputWithContext(ctx context.Context) GetKafkaClusterEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterEndpointArrayOutput)
+}
+
+type GetKafkaClusterEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClusterEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClusterEndpoint)(nil)).Elem()
+}
+
+func (o GetKafkaClusterEndpointOutput) ToGetKafkaClusterEndpointOutput() GetKafkaClusterEndpointOutput {
+	return o
+}
+
+func (o GetKafkaClusterEndpointOutput) ToGetKafkaClusterEndpointOutputWithContext(ctx context.Context) GetKafkaClusterEndpointOutput {
+	return o
+}
+
+// (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+func (o GetKafkaClusterEndpointOutput) AccessPointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClusterEndpoint) string { return v.AccessPointId }).(pulumi.StringOutput)
+}
+
+// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+func (o GetKafkaClusterEndpointOutput) BootstrapEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClusterEndpoint) string { return v.BootstrapEndpoint }).(pulumi.StringOutput)
+}
+
+// (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+func (o GetKafkaClusterEndpointOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClusterEndpoint) string { return v.ConnectionType }).(pulumi.StringOutput)
+}
+
+// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+func (o GetKafkaClusterEndpointOutput) RestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClusterEndpoint) string { return v.RestEndpoint }).(pulumi.StringOutput)
+}
+
+type GetKafkaClusterEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClusterEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClusterEndpoint)(nil)).Elem()
+}
+
+func (o GetKafkaClusterEndpointArrayOutput) ToGetKafkaClusterEndpointArrayOutput() GetKafkaClusterEndpointArrayOutput {
+	return o
+}
+
+func (o GetKafkaClusterEndpointArrayOutput) ToGetKafkaClusterEndpointArrayOutputWithContext(ctx context.Context) GetKafkaClusterEndpointArrayOutput {
+	return o
+}
+
+func (o GetKafkaClusterEndpointArrayOutput) Index(i pulumi.IntInput) GetKafkaClusterEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClusterEndpoint {
+		return vs[0].([]GetKafkaClusterEndpoint)[vs[1].(int)]
+	}).(GetKafkaClusterEndpointOutput)
+}
+
 type GetKafkaClusterEnterprise struct {
 }
 
@@ -39541,6 +39789,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterConfigKafkaClusterPtrInput)(nil)).Elem(), KafkaClusterConfigKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterDedicatedInput)(nil)).Elem(), KafkaClusterDedicatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterDedicatedPtrInput)(nil)).Elem(), KafkaClusterDedicatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEndpointInput)(nil)).Elem(), KafkaClusterEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEndpointArrayInput)(nil)).Elem(), KafkaClusterEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEnterpriseInput)(nil)).Elem(), KafkaClusterEnterpriseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEnterpriseArrayInput)(nil)).Elem(), KafkaClusterEnterpriseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEnvironmentInput)(nil)).Elem(), KafkaClusterEnvironmentArgs{})
@@ -39811,6 +40061,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterByokKeyArrayInput)(nil)).Elem(), GetKafkaClusterByokKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterDedicatedInput)(nil)).Elem(), GetKafkaClusterDedicatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterDedicatedPtrInput)(nil)).Elem(), GetKafkaClusterDedicatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterEndpointInput)(nil)).Elem(), GetKafkaClusterEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterEndpointArrayInput)(nil)).Elem(), GetKafkaClusterEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterEnterpriseInput)(nil)).Elem(), GetKafkaClusterEnterpriseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterEnterpriseArrayInput)(nil)).Elem(), GetKafkaClusterEnterpriseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterEnvironmentInput)(nil)).Elem(), GetKafkaClusterEnvironmentArgs{})
@@ -40120,6 +40372,8 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterConfigKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterDedicatedOutput{})
 	pulumi.RegisterOutputType(KafkaClusterDedicatedPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterEndpointOutput{})
+	pulumi.RegisterOutputType(KafkaClusterEndpointArrayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterEnterpriseOutput{})
 	pulumi.RegisterOutputType(KafkaClusterEnterpriseArrayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterEnvironmentOutput{})
@@ -40390,6 +40644,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKafkaClusterByokKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterDedicatedOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterDedicatedPtrOutput{})
+	pulumi.RegisterOutputType(GetKafkaClusterEndpointOutput{})
+	pulumi.RegisterOutputType(GetKafkaClusterEndpointArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterEnterpriseOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterEnterpriseArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterEnvironmentOutput{})

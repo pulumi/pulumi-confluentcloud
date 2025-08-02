@@ -2412,6 +2412,25 @@ export interface KafkaClusterDedicated {
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface KafkaClusterEndpoint {
+    /**
+     * (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+     */
+    accessPointId?: pulumi.Input<string>;
+    /**
+     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+     */
+    bootstrapEndpoint?: pulumi.Input<string>;
+    /**
+     * (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+     */
+    connectionType?: pulumi.Input<string>;
+    /**
+     * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+     */
+    restEndpoint?: pulumi.Input<string>;
+}
+
 export interface KafkaClusterEnterprise {
 }
 

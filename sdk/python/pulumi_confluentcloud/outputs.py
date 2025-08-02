@@ -93,6 +93,7 @@ __all__ = [
     'KafkaClusterConfigCredentials',
     'KafkaClusterConfigKafkaCluster',
     'KafkaClusterDedicated',
+    'KafkaClusterEndpoint',
     'KafkaClusterEnterprise',
     'KafkaClusterEnvironment',
     'KafkaClusterFreight',
@@ -232,6 +233,7 @@ __all__ = [
     'GetKafkaClusterBasicResult',
     'GetKafkaClusterByokKeyResult',
     'GetKafkaClusterDedicatedResult',
+    'GetKafkaClusterEndpointResult',
     'GetKafkaClusterEnterpriseResult',
     'GetKafkaClusterEnvironmentResult',
     'GetKafkaClusterFreightResult',
@@ -2884,6 +2886,84 @@ class KafkaClusterDedicated(dict):
         - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         """
         return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class KafkaClusterEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPointId":
+            suggest = "access_point_id"
+        elif key == "bootstrapEndpoint":
+            suggest = "bootstrap_endpoint"
+        elif key == "connectionType":
+            suggest = "connection_type"
+        elif key == "restEndpoint":
+            suggest = "rest_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_point_id: Optional[_builtins.str] = None,
+                 bootstrap_endpoint: Optional[_builtins.str] = None,
+                 connection_type: Optional[_builtins.str] = None,
+                 rest_endpoint: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str access_point_id: (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+        :param _builtins.str bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+        :param _builtins.str connection_type: (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+        :param _builtins.str rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+        """
+        if access_point_id is not None:
+            pulumi.set(__self__, "access_point_id", access_point_id)
+        if bootstrap_endpoint is not None:
+            pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
+        if rest_endpoint is not None:
+            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointId")
+    def access_point_id(self) -> Optional[_builtins.str]:
+        """
+        (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+        """
+        return pulumi.get(self, "access_point_id")
+
+    @_builtins.property
+    @pulumi.getter(name="bootstrapEndpoint")
+    def bootstrap_endpoint(self) -> Optional[_builtins.str]:
+        """
+        (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+        """
+        return pulumi.get(self, "bootstrap_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> Optional[_builtins.str]:
+        """
+        (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+        """
+        return pulumi.get(self, "connection_type")
+
+    @_builtins.property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> Optional[_builtins.str]:
+        """
+        (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
 
 
 @pulumi.output_type
@@ -7020,6 +7100,57 @@ class GetKafkaClusterDedicatedResult(dict):
         - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
         """
         return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class GetKafkaClusterEndpointResult(dict):
+    def __init__(__self__, *,
+                 access_point_id: _builtins.str,
+                 bootstrap_endpoint: _builtins.str,
+                 connection_type: _builtins.str,
+                 rest_endpoint: _builtins.str):
+        """
+        :param _builtins.str access_point_id: (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+        :param _builtins.str bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+        :param _builtins.str connection_type: (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+        :param _builtins.str rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+        """
+        pulumi.set(__self__, "access_point_id", access_point_id)
+        pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+        pulumi.set(__self__, "connection_type", connection_type)
+        pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointId")
+    def access_point_id(self) -> _builtins.str:
+        """
+        (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+        """
+        return pulumi.get(self, "access_point_id")
+
+    @_builtins.property
+    @pulumi.getter(name="bootstrapEndpoint")
+    def bootstrap_endpoint(self) -> _builtins.str:
+        """
+        (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+        """
+        return pulumi.get(self, "bootstrap_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> _builtins.str:
+        """
+        (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+        """
+        return pulumi.get(self, "connection_type")
+
+    @_builtins.property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> _builtins.str:
+        """
+        (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
 
 
 @pulumi.output_type

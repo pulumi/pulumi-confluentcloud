@@ -225,6 +225,16 @@ export const getIpAddresses: typeof import("./getIpAddresses").getIpAddresses = 
 export const getIpAddressesOutput: typeof import("./getIpAddresses").getIpAddressesOutput = null as any;
 utilities.lazyLoad(exports, ["getIpAddresses","getIpAddressesOutput"], () => require("./getIpAddresses"));
 
+export { GetIpFilterArgs, GetIpFilterResult, GetIpFilterOutputArgs } from "./getIpFilter";
+export const getIpFilter: typeof import("./getIpFilter").getIpFilter = null as any;
+export const getIpFilterOutput: typeof import("./getIpFilter").getIpFilterOutput = null as any;
+utilities.lazyLoad(exports, ["getIpFilter","getIpFilterOutput"], () => require("./getIpFilter"));
+
+export { GetIpGroupArgs, GetIpGroupResult, GetIpGroupOutputArgs } from "./getIpGroup";
+export const getIpGroup: typeof import("./getIpGroup").getIpGroup = null as any;
+export const getIpGroupOutput: typeof import("./getIpGroup").getIpGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getIpGroup","getIpGroupOutput"], () => require("./getIpGroup"));
+
 export { GetKafkaClientQuotaArgs, GetKafkaClientQuotaResult, GetKafkaClientQuotaOutputArgs } from "./getKafkaClientQuota";
 export const getKafkaClientQuota: typeof import("./getKafkaClientQuota").getKafkaClientQuota = null as any;
 export const getKafkaClientQuotaOutput: typeof import("./getKafkaClientQuota").getKafkaClientQuotaOutput = null as any;
@@ -399,6 +409,16 @@ export { InvitationArgs, InvitationState } from "./invitation";
 export type Invitation = import("./invitation").Invitation;
 export const Invitation: typeof import("./invitation").Invitation = null as any;
 utilities.lazyLoad(exports, ["Invitation"], () => require("./invitation"));
+
+export { IpFilterArgs, IpFilterState } from "./ipFilter";
+export type IpFilter = import("./ipFilter").IpFilter;
+export const IpFilter: typeof import("./ipFilter").IpFilter = null as any;
+utilities.lazyLoad(exports, ["IpFilter"], () => require("./ipFilter"));
+
+export { IpGroupArgs, IpGroupState } from "./ipGroup";
+export type IpGroup = import("./ipGroup").IpGroup;
+export const IpGroup: typeof import("./ipGroup").IpGroup = null as any;
+utilities.lazyLoad(exports, ["IpGroup"], () => require("./ipGroup"));
 
 export { KafkaAclArgs, KafkaAclState } from "./kafkaAcl";
 export type KafkaAcl = import("./kafkaAcl").KafkaAcl;
@@ -624,6 +644,10 @@ const _module = {
                 return new IdentityProvider(name, <any>undefined, { urn })
             case "confluentcloud:index/invitation:Invitation":
                 return new Invitation(name, <any>undefined, { urn })
+            case "confluentcloud:index/ipFilter:IpFilter":
+                return new IpFilter(name, <any>undefined, { urn })
+            case "confluentcloud:index/ipGroup:IpGroup":
+                return new IpGroup(name, <any>undefined, { urn })
             case "confluentcloud:index/kafkaAcl:KafkaAcl":
                 return new KafkaAcl(name, <any>undefined, { urn })
             case "confluentcloud:index/kafkaClientQuota:KafkaClientQuota":
@@ -717,6 +741,8 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/groupMapping", _m
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityPool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityProvider", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/invitation", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/ipFilter", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/ipGroup", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaAcl", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaClientQuota", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaCluster", _module)

@@ -401,6 +401,25 @@
                     }
                 }
             },
+            "confluent_ip_filter": {
+                "current": "confluentcloud:index/ipFilter:IpFilter",
+                "fields": {
+                    "ip_groups": {
+                        "maxItemsOne": false
+                    },
+                    "operation_groups": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_ip_group": {
+                "current": "confluentcloud:index/ipGroup:IpGroup",
+                "fields": {
+                    "cidr_blocks": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_kafka_acl": {
                 "current": "confluentcloud:index/kafkaAcl:KafkaAcl",
                 "fields": {
@@ -447,6 +466,9 @@
                                 }
                             }
                         }
+                    },
+                    "endpoints": {
+                        "maxItemsOne": false
                     },
                     "enterprise": {
                         "maxItemsOne": false
@@ -1252,6 +1274,25 @@
                     }
                 }
             },
+            "confluent_ip_filter": {
+                "current": "confluentcloud:index/getIpFilter:getIpFilter",
+                "fields": {
+                    "ip_groups": {
+                        "maxItemsOne": false
+                    },
+                    "operation_groups": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_ip_group": {
+                "current": "confluentcloud:index/getIpGroup:getIpGroup",
+                "fields": {
+                    "cidr_blocks": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_kafka_client_quota": {
                 "current": "confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota",
                 "fields": {
@@ -1287,6 +1328,9 @@
                                 }
                             }
                         }
+                    },
+                    "endpoints": {
+                        "maxItemsOne": false
                     },
                     "enterprise": {
                         "maxItemsOne": false

@@ -71,6 +71,11 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.Gateway` resource:
+ *   * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
+ * 
  * ## Import
  * 
  * You can import a Gateway by using Environment ID and Gateway ID, in the format `&lt;Environment ID&gt;/&lt;Gateway ID&gt;`. The following example shows how to import a Gateway:

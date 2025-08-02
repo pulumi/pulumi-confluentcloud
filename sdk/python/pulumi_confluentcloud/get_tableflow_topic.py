@@ -28,7 +28,7 @@ class GetTableflowTopicResult:
     """
     A collection of values returned by getTableflowTopic.
     """
-    def __init__(__self__, byob_aws=None, credentials=None, display_name=None, enable_compaction=None, enable_partitioning=None, environment=None, id=None, kafka_cluster=None, managed_storages=None, record_failure_strategy=None, retention_ms=None, suspended=None, table_formats=None):
+    def __init__(__self__, byob_aws=None, credentials=None, display_name=None, enable_compaction=None, enable_partitioning=None, environment=None, id=None, kafka_cluster=None, managed_storages=None, record_failure_strategy=None, retention_ms=None, suspended=None, table_formats=None, table_path=None):
         if byob_aws and not isinstance(byob_aws, list):
             raise TypeError("Expected argument 'byob_aws' to be a list")
         pulumi.set(__self__, "byob_aws", byob_aws)
@@ -68,6 +68,9 @@ class GetTableflowTopicResult:
         if table_formats and not isinstance(table_formats, list):
             raise TypeError("Expected argument 'table_formats' to be a list")
         pulumi.set(__self__, "table_formats", table_formats)
+        if table_path and not isinstance(table_path, str):
+            raise TypeError("Expected argument 'table_path' to be a str")
+        pulumi.set(__self__, "table_path", table_path)
 
     @_builtins.property
     @pulumi.getter(name="byobAws")
@@ -161,6 +164,14 @@ class GetTableflowTopicResult:
         """
         return pulumi.get(self, "table_formats")
 
+    @_builtins.property
+    @pulumi.getter(name="tablePath")
+    def table_path(self) -> _builtins.str:
+        """
+        (Optional String) The current storage path where the data and metadata is stored for this table.
+        """
+        return pulumi.get(self, "table_path")
+
 
 class AwaitableGetTableflowTopicResult(GetTableflowTopicResult):
     # pylint: disable=using-constant-test
@@ -180,7 +191,8 @@ class AwaitableGetTableflowTopicResult(GetTableflowTopicResult):
             record_failure_strategy=self.record_failure_strategy,
             retention_ms=self.retention_ms,
             suspended=self.suspended,
-            table_formats=self.table_formats)
+            table_formats=self.table_formats,
+            table_path=self.table_path)
 
 
 def get_tableflow_topic(credentials: Optional[Union['GetTableflowTopicCredentialsArgs', 'GetTableflowTopicCredentialsArgsDict']] = None,
@@ -249,7 +261,8 @@ def get_tableflow_topic(credentials: Optional[Union['GetTableflowTopicCredential
         record_failure_strategy=pulumi.get(__ret__, 'record_failure_strategy'),
         retention_ms=pulumi.get(__ret__, 'retention_ms'),
         suspended=pulumi.get(__ret__, 'suspended'),
-        table_formats=pulumi.get(__ret__, 'table_formats'))
+        table_formats=pulumi.get(__ret__, 'table_formats'),
+        table_path=pulumi.get(__ret__, 'table_path'))
 def get_tableflow_topic_output(credentials: Optional[pulumi.Input[Optional[Union['GetTableflowTopicCredentialsArgs', 'GetTableflowTopicCredentialsArgsDict']]]] = None,
                                display_name: Optional[pulumi.Input[_builtins.str]] = None,
                                environment: Optional[pulumi.Input[Union['GetTableflowTopicEnvironmentArgs', 'GetTableflowTopicEnvironmentArgsDict']]] = None,
@@ -315,4 +328,5 @@ def get_tableflow_topic_output(credentials: Optional[pulumi.Input[Optional[Union
         record_failure_strategy=pulumi.get(__response__, 'record_failure_strategy'),
         retention_ms=pulumi.get(__response__, 'retention_ms'),
         suspended=pulumi.get(__response__, 'suspended'),
-        table_formats=pulumi.get(__response__, 'table_formats')))
+        table_formats=pulumi.get(__response__, 'table_formats'),
+        table_path=pulumi.get(__response__, 'table_path')))
