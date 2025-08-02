@@ -51,7 +51,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/cam v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/ccpm v0.0.1 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/certificate-authority v0.0.2 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/cmk v0.21.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/cmk v0.25.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/connect v0.7.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/connect-custom-plugin v0.0.2 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/data-catalog v0.2.0 // indirect
@@ -59,6 +59,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/flink-artifact v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/flink-gateway v0.17.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/iam v0.17.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/iam-ip-filtering v0.5.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/kafka-quotas v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.14.0 // indirect
@@ -75,7 +76,8 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/schema-registry v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.7.3 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/sso v0.0.1 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/tableflow v0.1.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/sts v0.0.2 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/tableflow v0.2.0 // indirect
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect
 	github.com/containerd/containerd v1.7.27 // indirect
 	github.com/containerd/log v0.1.0 // indirect
