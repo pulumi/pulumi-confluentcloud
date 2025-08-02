@@ -9,6 +9,7 @@ import com.pulumi.confluentcloud.inputs.KafkaClusterState;
 import com.pulumi.confluentcloud.outputs.KafkaClusterBasic;
 import com.pulumi.confluentcloud.outputs.KafkaClusterByokKey;
 import com.pulumi.confluentcloud.outputs.KafkaClusterDedicated;
+import com.pulumi.confluentcloud.outputs.KafkaClusterEndpoint;
 import com.pulumi.confluentcloud.outputs.KafkaClusterEnterprise;
 import com.pulumi.confluentcloud.outputs.KafkaClusterEnvironment;
 import com.pulumi.confluentcloud.outputs.KafkaClusterFreight;
@@ -324,6 +325,7 @@ import javax.annotation.Nullable;
  *   * dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
  *   * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
  *   * enterprise-privatelinkattachment-azure-kafka-acls: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+ *   * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
  * 
  * ## Import
  * 
@@ -385,14 +387,14 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.basic);
     }
     /**
-     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
      * 
      */
     @Export(name="bootstrapEndpoint", refs={String.class}, tree="[0]")
     private Output<String> bootstrapEndpoint;
 
     /**
-     * @return (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * @return (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
      * 
      */
     public Output<String> bootstrapEndpoint() {
@@ -445,6 +447,20 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> displayName() {
         return this.displayName;
+    }
+    /**
+     * (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+     * 
+     */
+    @Export(name="endpoints", refs={List.class,KafkaClusterEndpoint.class}, tree="[0,1]")
+    private Output<List<KafkaClusterEndpoint>> endpoints;
+
+    /**
+     * @return (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+     * 
+     */
+    public Output<List<KafkaClusterEndpoint>> endpoints() {
+        return this.endpoints;
     }
     /**
      * The configuration of the Enterprise Kafka cluster.
@@ -547,14 +563,14 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
      * 
      */
     @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output<String> restEndpoint;
 
     /**
-     * @return (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * @return (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
      * 
      */
     public Output<String> restEndpoint() {

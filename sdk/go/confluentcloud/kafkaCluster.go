@@ -285,6 +285,7 @@ import (
 //   - dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
 //   - enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
 //   - enterprise-privatelinkattachment-azure-kafka-acls: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+//   - enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
 //
 // ## Import
 //
@@ -308,7 +309,7 @@ type KafkaCluster struct {
 	Availability pulumi.StringOutput `pulumi:"availability"`
 	// The configuration of the Basic Kafka cluster.
 	Basic KafkaClusterBasicPtrOutput `pulumi:"basic"`
-	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringOutput       `pulumi:"bootstrapEndpoint"`
 	ByokKey           KafkaClusterByokKeyOutput `pulumi:"byokKey"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
@@ -317,6 +318,8 @@ type KafkaCluster struct {
 	Dedicated KafkaClusterDedicatedPtrOutput `pulumi:"dedicated"`
 	// The name of the Kafka cluster.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+	Endpoints KafkaClusterEndpointArrayOutput `pulumi:"endpoints"`
 	// The configuration of the Enterprise Kafka cluster.
 	Enterprises KafkaClusterEnterpriseArrayOutput `pulumi:"enterprises"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -332,7 +335,7 @@ type KafkaCluster struct {
 	RbacCrn pulumi.StringOutput `pulumi:"rbacCrn"`
 	// The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
 	RestEndpoint pulumi.StringOutput `pulumi:"restEndpoint"`
 	// The configuration of the Standard Kafka cluster.
 	Standard KafkaClusterStandardPtrOutput `pulumi:"standard"`
@@ -386,7 +389,7 @@ type kafkaClusterState struct {
 	Availability *string `pulumi:"availability"`
 	// The configuration of the Basic Kafka cluster.
 	Basic *KafkaClusterBasic `pulumi:"basic"`
-	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
 	BootstrapEndpoint *string              `pulumi:"bootstrapEndpoint"`
 	ByokKey           *KafkaClusterByokKey `pulumi:"byokKey"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
@@ -395,6 +398,8 @@ type kafkaClusterState struct {
 	Dedicated *KafkaClusterDedicated `pulumi:"dedicated"`
 	// The name of the Kafka cluster.
 	DisplayName *string `pulumi:"displayName"`
+	// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+	Endpoints []KafkaClusterEndpoint `pulumi:"endpoints"`
 	// The configuration of the Enterprise Kafka cluster.
 	Enterprises []KafkaClusterEnterprise `pulumi:"enterprises"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -410,7 +415,7 @@ type kafkaClusterState struct {
 	RbacCrn *string `pulumi:"rbacCrn"`
 	// The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region *string `pulumi:"region"`
-	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// The configuration of the Standard Kafka cluster.
 	Standard *KafkaClusterStandard `pulumi:"standard"`
@@ -423,7 +428,7 @@ type KafkaClusterState struct {
 	Availability pulumi.StringPtrInput
 	// The configuration of the Basic Kafka cluster.
 	Basic KafkaClusterBasicPtrInput
-	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringPtrInput
 	ByokKey           KafkaClusterByokKeyPtrInput
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
@@ -432,6 +437,8 @@ type KafkaClusterState struct {
 	Dedicated KafkaClusterDedicatedPtrInput
 	// The name of the Kafka cluster.
 	DisplayName pulumi.StringPtrInput
+	// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+	Endpoints KafkaClusterEndpointArrayInput
 	// The configuration of the Enterprise Kafka cluster.
 	Enterprises KafkaClusterEnterpriseArrayInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -447,7 +454,7 @@ type KafkaClusterState struct {
 	RbacCrn pulumi.StringPtrInput
 	// The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region pulumi.StringPtrInput
-	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
 	RestEndpoint pulumi.StringPtrInput
 	// The configuration of the Standard Kafka cluster.
 	Standard KafkaClusterStandardPtrInput
@@ -614,7 +621,7 @@ func (o KafkaClusterOutput) Basic() KafkaClusterBasicPtrOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterBasicPtrOutput { return v.Basic }).(KafkaClusterBasicPtrOutput)
 }
 
-// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
 func (o KafkaClusterOutput) BootstrapEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.BootstrapEndpoint }).(pulumi.StringOutput)
 }
@@ -636,6 +643,11 @@ func (o KafkaClusterOutput) Dedicated() KafkaClusterDedicatedPtrOutput {
 // The name of the Kafka cluster.
 func (o KafkaClusterOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+func (o KafkaClusterOutput) Endpoints() KafkaClusterEndpointArrayOutput {
+	return o.ApplyT(func(v *KafkaCluster) KafkaClusterEndpointArrayOutput { return v.Endpoints }).(KafkaClusterEndpointArrayOutput)
 }
 
 // The configuration of the Enterprise Kafka cluster.
@@ -674,7 +686,7 @@ func (o KafkaClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
 func (o KafkaClusterOutput) RestEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.RestEndpoint }).(pulumi.StringOutput)
 }

@@ -123,6 +123,8 @@ type LookupTableflowTopicResult struct {
 	Suspended bool `pulumi:"suspended"`
 	// (Optional List) The supported table formats for the Tableflow-enabled topic.
 	TableFormats []string `pulumi:"tableFormats"`
+	// (Optional String) The current storage path where the data and metadata is stored for this table.
+	TablePath string `pulumi:"tablePath"`
 }
 
 func LookupTableflowTopicOutput(ctx *pulumi.Context, args LookupTableflowTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTableflowTopicResultOutput {
@@ -221,6 +223,11 @@ func (o LookupTableflowTopicResultOutput) Suspended() pulumi.BoolOutput {
 // (Optional List) The supported table formats for the Tableflow-enabled topic.
 func (o LookupTableflowTopicResultOutput) TableFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTableflowTopicResult) []string { return v.TableFormats }).(pulumi.StringArrayOutput)
+}
+
+// (Optional String) The current storage path where the data and metadata is stored for this table.
+func (o LookupTableflowTopicResultOutput) TablePath() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableflowTopicResult) string { return v.TablePath }).(pulumi.StringOutput)
 }
 
 func init() {

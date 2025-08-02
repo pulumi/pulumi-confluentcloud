@@ -68,6 +68,11 @@ public final class GetTableflowTopicResult {
      * 
      */
     private List<String> tableFormats;
+    /**
+     * @return (Optional String) The current storage path where the data and metadata is stored for this table.
+     * 
+     */
+    private String tablePath;
 
     private GetTableflowTopicResult() {}
     /**
@@ -145,6 +150,13 @@ public final class GetTableflowTopicResult {
     public List<String> tableFormats() {
         return this.tableFormats;
     }
+    /**
+     * @return (Optional String) The current storage path where the data and metadata is stored for this table.
+     * 
+     */
+    public String tablePath() {
+        return this.tablePath;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -168,6 +180,7 @@ public final class GetTableflowTopicResult {
         private String retentionMs;
         private Boolean suspended;
         private List<String> tableFormats;
+        private String tablePath;
         public Builder() {}
         public Builder(GetTableflowTopicResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -184,6 +197,7 @@ public final class GetTableflowTopicResult {
     	      this.retentionMs = defaults.retentionMs;
     	      this.suspended = defaults.suspended;
     	      this.tableFormats = defaults.tableFormats;
+    	      this.tablePath = defaults.tablePath;
         }
 
         @CustomType.Setter
@@ -297,6 +311,14 @@ public final class GetTableflowTopicResult {
         public Builder tableFormats(String... tableFormats) {
             return tableFormats(List.of(tableFormats));
         }
+        @CustomType.Setter
+        public Builder tablePath(String tablePath) {
+            if (tablePath == null) {
+              throw new MissingRequiredPropertyException("GetTableflowTopicResult", "tablePath");
+            }
+            this.tablePath = tablePath;
+            return this;
+        }
         public GetTableflowTopicResult build() {
             final var _resultValue = new GetTableflowTopicResult();
             _resultValue.byobAws = byobAws;
@@ -312,6 +334,7 @@ public final class GetTableflowTopicResult {
             _resultValue.retentionMs = retentionMs;
             _resultValue.suspended = suspended;
             _resultValue.tableFormats = tableFormats;
+            _resultValue.tablePath = tablePath;
             return _resultValue;
         }
     }

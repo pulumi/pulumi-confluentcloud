@@ -1263,6 +1263,25 @@ export interface GetKafkaClusterDedicated {
     zones: string[];
 }
 
+export interface GetKafkaClusterEndpoint {
+    /**
+     * (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+     */
+    accessPointId: string;
+    /**
+     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+     */
+    bootstrapEndpoint: string;
+    /**
+     * (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+     */
+    connectionType: string;
+    /**
+     * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+     */
+    restEndpoint: string;
+}
+
 export interface GetKafkaClusterEnterprise {
 }
 
@@ -2315,6 +2334,25 @@ export interface KafkaClusterDedicated {
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      */
     zones: string[];
+}
+
+export interface KafkaClusterEndpoint {
+    /**
+     * (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+     */
+    accessPointId: string;
+    /**
+     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+     */
+    bootstrapEndpoint: string;
+    /**
+     * (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+     */
+    connectionType: string;
+    /**
+     * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+     */
+    restEndpoint: string;
 }
 
 export interface KafkaClusterEnterprise {

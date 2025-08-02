@@ -148,6 +148,8 @@ type TableflowTopic struct {
 	Suspended pulumi.BoolOutput `pulumi:"suspended"`
 	// The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
 	TableFormats pulumi.StringArrayOutput `pulumi:"tableFormats"`
+	// (Optional String) The current storage path where the data and metadata is stored for this table.
+	TablePath pulumi.StringOutput `pulumi:"tablePath"`
 }
 
 // NewTableflowTopic registers a new resource with the given unique name, arguments, and options.
@@ -219,6 +221,8 @@ type tableflowTopicState struct {
 	Suspended *bool `pulumi:"suspended"`
 	// The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
 	TableFormats []string `pulumi:"tableFormats"`
+	// (Optional String) The current storage path where the data and metadata is stored for this table.
+	TablePath *string `pulumi:"tablePath"`
 }
 
 type TableflowTopicState struct {
@@ -245,6 +249,8 @@ type TableflowTopicState struct {
 	Suspended pulumi.BoolPtrInput
 	// The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
 	TableFormats pulumi.StringArrayInput
+	// (Optional String) The current storage path where the data and metadata is stored for this table.
+	TablePath pulumi.StringPtrInput
 }
 
 func (TableflowTopicState) ElementType() reflect.Type {
@@ -436,6 +442,11 @@ func (o TableflowTopicOutput) Suspended() pulumi.BoolOutput {
 // The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
 func (o TableflowTopicOutput) TableFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableflowTopic) pulumi.StringArrayOutput { return v.TableFormats }).(pulumi.StringArrayOutput)
+}
+
+// (Optional String) The current storage path where the data and metadata is stored for this table.
+func (o TableflowTopicOutput) TablePath() pulumi.StringOutput {
+	return o.ApplyT(func(v *TableflowTopic) pulumi.StringOutput { return v.TablePath }).(pulumi.StringOutput)
 }
 
 type TableflowTopicArrayOutput struct{ *pulumi.OutputState }

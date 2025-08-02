@@ -28,7 +28,7 @@ class GetKafkaClusterResult:
     """
     A collection of values returned by getKafkaCluster.
     """
-    def __init__(__self__, api_version=None, availability=None, basics=None, bootstrap_endpoint=None, byok_keys=None, cloud=None, dedicated=None, display_name=None, enterprises=None, environment=None, freights=None, id=None, kind=None, networks=None, rbac_crn=None, region=None, rest_endpoint=None, standards=None):
+    def __init__(__self__, api_version=None, availability=None, basics=None, bootstrap_endpoint=None, byok_keys=None, cloud=None, dedicated=None, display_name=None, endpoints=None, enterprises=None, environment=None, freights=None, id=None, kind=None, networks=None, rbac_crn=None, region=None, rest_endpoint=None, standards=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
@@ -53,6 +53,9 @@ class GetKafkaClusterResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if endpoints and not isinstance(endpoints, list):
+            raise TypeError("Expected argument 'endpoints' to be a list")
+        pulumi.set(__self__, "endpoints", endpoints)
         if enterprises and not isinstance(enterprises, list):
             raise TypeError("Expected argument 'enterprises' to be a list")
         pulumi.set(__self__, "enterprises", enterprises)
@@ -112,7 +115,7 @@ class GetKafkaClusterResult:
     @pulumi.getter(name="bootstrapEndpoint")
     def bootstrap_endpoint(self) -> _builtins.str:
         """
-        (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
@@ -147,6 +150,14 @@ class GetKafkaClusterResult:
         (Required String) The name of the Kafka cluster.
         """
         return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoints(self) -> Sequence['outputs.GetKafkaClusterEndpointResult']:
+        """
+        (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+        """
+        return pulumi.get(self, "endpoints")
 
     @_builtins.property
     @pulumi.getter
@@ -213,7 +224,7 @@ class GetKafkaClusterResult:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> _builtins.str:
         """
-        (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -240,6 +251,7 @@ class AwaitableGetKafkaClusterResult(GetKafkaClusterResult):
             cloud=self.cloud,
             dedicated=self.dedicated,
             display_name=self.display_name,
+            endpoints=self.endpoints,
             enterprises=self.enterprises,
             environment=self.environment,
             freights=self.freights,
@@ -316,6 +328,7 @@ def get_kafka_cluster(basics: Optional[Sequence[Union['GetKafkaClusterBasicArgs'
         cloud=pulumi.get(__ret__, 'cloud'),
         dedicated=pulumi.get(__ret__, 'dedicated'),
         display_name=pulumi.get(__ret__, 'display_name'),
+        endpoints=pulumi.get(__ret__, 'endpoints'),
         enterprises=pulumi.get(__ret__, 'enterprises'),
         environment=pulumi.get(__ret__, 'environment'),
         freights=pulumi.get(__ret__, 'freights'),
@@ -389,6 +402,7 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[Uni
         cloud=pulumi.get(__response__, 'cloud'),
         dedicated=pulumi.get(__response__, 'dedicated'),
         display_name=pulumi.get(__response__, 'display_name'),
+        endpoints=pulumi.get(__response__, 'endpoints'),
         enterprises=pulumi.get(__response__, 'enterprises'),
         environment=pulumi.get(__response__, 'environment'),
         freights=pulumi.get(__response__, 'freights'),

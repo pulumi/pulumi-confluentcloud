@@ -194,6 +194,21 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.tableFormats);
     }
 
+    /**
+     * (Optional String) The current storage path where the data and metadata is stored for this table.
+     * 
+     */
+    @Import(name="tablePath")
+    private @Nullable Output<String> tablePath;
+
+    /**
+     * @return (Optional String) The current storage path where the data and metadata is stored for this table.
+     * 
+     */
+    public Optional<Output<String>> tablePath() {
+        return Optional.ofNullable(this.tablePath);
+    }
+
     private TableflowTopicState() {}
 
     private TableflowTopicState(TableflowTopicState $) {
@@ -209,6 +224,7 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
         this.retentionMs = $.retentionMs;
         this.suspended = $.suspended;
         this.tableFormats = $.tableFormats;
+        this.tablePath = $.tablePath;
     }
 
     public static Builder builder() {
@@ -487,6 +503,27 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
          */
         public Builder tableFormats(String... tableFormats) {
             return tableFormats(List.of(tableFormats));
+        }
+
+        /**
+         * @param tablePath (Optional String) The current storage path where the data and metadata is stored for this table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tablePath(@Nullable Output<String> tablePath) {
+            $.tablePath = tablePath;
+            return this;
+        }
+
+        /**
+         * @param tablePath (Optional String) The current storage path where the data and metadata is stored for this table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tablePath(String tablePath) {
+            return tablePath(Output.of(tablePath));
         }
 
         public TableflowTopicState build() {

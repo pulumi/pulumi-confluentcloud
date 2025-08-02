@@ -185,6 +185,12 @@ namespace Pulumi.ConfluentCloud
         [Output("tableFormats")]
         public Output<ImmutableArray<string>> TableFormats { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional String) The current storage path where the data and metadata is stored for this table.
+        /// </summary>
+        [Output("tablePath")]
+        public Output<string> TablePath { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a TableflowTopic resource with the given unique name, arguments, and options.
@@ -406,6 +412,12 @@ namespace Pulumi.ConfluentCloud
             get => _tableFormats ?? (_tableFormats = new InputList<string>());
             set => _tableFormats = value;
         }
+
+        /// <summary>
+        /// (Optional String) The current storage path where the data and metadata is stored for this table.
+        /// </summary>
+        [Input("tablePath")]
+        public Input<string>? TablePath { get; set; }
 
         public TableflowTopicState()
         {

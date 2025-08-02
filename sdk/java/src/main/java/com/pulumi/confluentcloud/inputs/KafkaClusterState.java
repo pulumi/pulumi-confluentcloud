@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterBasicArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterByokKeyArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterDedicatedArgs;
+import com.pulumi.confluentcloud.inputs.KafkaClusterEndpointArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterEnterpriseArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterFreightArgs;
@@ -70,14 +71,14 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
      * 
      */
     @Import(name="bootstrapEndpoint")
     private @Nullable Output<String> bootstrapEndpoint;
 
     /**
-     * @return (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * @return (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
      * 
      */
     public Optional<Output<String>> bootstrapEndpoint() {
@@ -134,6 +135,21 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
+    }
+
+    /**
+     * (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+     * 
+     */
+    @Import(name="endpoints")
+    private @Nullable Output<List<KafkaClusterEndpointArgs>> endpoints;
+
+    /**
+     * @return (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+     * 
+     */
+    public Optional<Output<List<KafkaClusterEndpointArgs>>> endpoints() {
+        return Optional.ofNullable(this.endpoints);
     }
 
     /**
@@ -244,14 +260,14 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
      * 
      */
     @Import(name="restEndpoint")
     private @Nullable Output<String> restEndpoint;
 
     /**
-     * @return (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * @return (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
      * 
      */
     public Optional<Output<String>> restEndpoint() {
@@ -284,6 +300,7 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
         this.cloud = $.cloud;
         this.dedicated = $.dedicated;
         this.displayName = $.displayName;
+        this.endpoints = $.endpoints;
         this.enterprises = $.enterprises;
         this.environment = $.environment;
         this.freights = $.freights;
@@ -377,7 +394,7 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootstrapEndpoint (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+         * @param bootstrapEndpoint (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
          * 
          * @return builder
          * 
@@ -388,7 +405,7 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootstrapEndpoint (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+         * @param bootstrapEndpoint (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
          * 
          * @return builder
          * 
@@ -467,6 +484,37 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
+        }
+
+        /**
+         * @param endpoints (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpoints(@Nullable Output<List<KafkaClusterEndpointArgs>> endpoints) {
+            $.endpoints = endpoints;
+            return this;
+        }
+
+        /**
+         * @param endpoints (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpoints(List<KafkaClusterEndpointArgs> endpoints) {
+            return endpoints(Output.of(endpoints));
+        }
+
+        /**
+         * @param endpoints (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpoints(KafkaClusterEndpointArgs... endpoints) {
+            return endpoints(List.of(endpoints));
         }
 
         /**
@@ -639,7 +687,7 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restEndpoint (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+         * @param restEndpoint (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
          * 
          * @return builder
          * 
@@ -650,7 +698,7 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restEndpoint (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+         * @param restEndpoint (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
          * 
          * @return builder
          * 

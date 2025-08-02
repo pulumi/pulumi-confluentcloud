@@ -73,6 +73,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IdentityProvider{}
 	case "confluentcloud:index/invitation:Invitation":
 		r = &Invitation{}
+	case "confluentcloud:index/ipFilter:IpFilter":
+		r = &IpFilter{}
+	case "confluentcloud:index/ipGroup:IpGroup":
+		r = &IpGroup{}
 	case "confluentcloud:index/kafkaAcl:KafkaAcl":
 		r = &KafkaAcl{}
 	case "confluentcloud:index/kafkaClientQuota:KafkaClientQuota":
@@ -294,6 +298,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/invitation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/ipFilter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/ipGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

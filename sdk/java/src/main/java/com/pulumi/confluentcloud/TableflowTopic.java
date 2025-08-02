@@ -319,6 +319,20 @@ public class TableflowTopic extends com.pulumi.resources.CustomResource {
     public Output<List<String>> tableFormats() {
         return this.tableFormats;
     }
+    /**
+     * (Optional String) The current storage path where the data and metadata is stored for this table.
+     * 
+     */
+    @Export(name="tablePath", refs={String.class}, tree="[0]")
+    private Output<String> tablePath;
+
+    /**
+     * @return (Optional String) The current storage path where the data and metadata is stored for this table.
+     * 
+     */
+    public Output<String> tablePath() {
+        return this.tablePath;
+    }
 
     /**
      *

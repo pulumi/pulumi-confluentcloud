@@ -106,7 +106,7 @@ export interface GetKafkaClusterResult {
      */
     readonly basics?: outputs.GetKafkaClusterBasic[];
     /**
-     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
      */
     readonly bootstrapEndpoint: string;
     /**
@@ -125,6 +125,10 @@ export interface GetKafkaClusterResult {
      * (Required String) The name of the Kafka cluster.
      */
     readonly displayName: string;
+    /**
+     * (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+     */
+    readonly endpoints: outputs.GetKafkaClusterEndpoint[];
     /**
      * (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
      */
@@ -155,7 +159,7 @@ export interface GetKafkaClusterResult {
      */
     readonly region: string;
     /**
-     * (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
      */
     readonly restEndpoint: string;
     /**

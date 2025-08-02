@@ -223,6 +223,7 @@ class _KafkaClusterState:
                  cloud: Optional[pulumi.Input[_builtins.str]] = None,
                  dedicated: Optional[pulumi.Input['KafkaClusterDedicatedArgs']] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEndpointArgs']]]] = None,
                  enterprises: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]] = None,
                  environment: Optional[pulumi.Input['KafkaClusterEnvironmentArgs']] = None,
                  freights: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]]] = None,
@@ -237,10 +238,11 @@ class _KafkaClusterState:
         :param pulumi.Input[_builtins.str] api_version: (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
         :param pulumi.Input[_builtins.str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
         :param pulumi.Input['KafkaClusterBasicArgs'] basic: The configuration of the Basic Kafka cluster.
-        :param pulumi.Input[_builtins.str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param pulumi.Input[_builtins.str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input['KafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterEndpointArgs']]] endpoints: (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input['KafkaClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]] freights: The configuration of the Freight Kafka cluster.
@@ -249,7 +251,7 @@ class _KafkaClusterState:
                accounts.
         :param pulumi.Input[_builtins.str] rbac_crn: (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
         :param pulumi.Input[_builtins.str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
-        :param pulumi.Input[_builtins.str] rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[_builtins.str] rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
         :param pulumi.Input['KafkaClusterStandardArgs'] standard: The configuration of the Standard Kafka cluster.
         """
         if api_version is not None:
@@ -268,6 +270,8 @@ class _KafkaClusterState:
             pulumi.set(__self__, "dedicated", dedicated)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
         if enterprises is not None:
             pulumi.set(__self__, "enterprises", enterprises)
         if environment is not None:
@@ -327,7 +331,7 @@ class _KafkaClusterState:
     @pulumi.getter(name="bootstrapEndpoint")
     def bootstrap_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
@@ -379,6 +383,18 @@ class _KafkaClusterState:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEndpointArgs']]]]:
+        """
+        (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+        """
+        return pulumi.get(self, "endpoints")
+
+    @endpoints.setter
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEndpointArgs']]]]):
+        pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter
@@ -469,7 +485,7 @@ class _KafkaClusterState:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -678,6 +694,7 @@ class KafkaCluster(pulumi.CustomResource):
           * dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
           * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
           * enterprise-privatelinkattachment-azure-kafka-acls: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+          * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
 
         ## Import
 
@@ -883,6 +900,7 @@ class KafkaCluster(pulumi.CustomResource):
           * dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
           * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
           * enterprise-privatelinkattachment-azure-kafka-acls: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+          * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
 
         ## Import
 
@@ -956,6 +974,7 @@ class KafkaCluster(pulumi.CustomResource):
             __props__.__dict__["standard"] = standard
             __props__.__dict__["api_version"] = None
             __props__.__dict__["bootstrap_endpoint"] = None
+            __props__.__dict__["endpoints"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["rbac_crn"] = None
             __props__.__dict__["rest_endpoint"] = None
@@ -977,6 +996,7 @@ class KafkaCluster(pulumi.CustomResource):
             cloud: Optional[pulumi.Input[_builtins.str]] = None,
             dedicated: Optional[pulumi.Input[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict']]] = None,
             display_name: Optional[pulumi.Input[_builtins.str]] = None,
+            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEndpointArgs', 'KafkaClusterEndpointArgsDict']]]]] = None,
             enterprises: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]]] = None,
             environment: Optional[pulumi.Input[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict']]] = None,
             freights: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict']]]]] = None,
@@ -996,10 +1016,11 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_version: (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
         :param pulumi.Input[_builtins.str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
         :param pulumi.Input[Union['KafkaClusterBasicArgs', 'KafkaClusterBasicArgsDict']] basic: The configuration of the Basic Kafka cluster.
-        :param pulumi.Input[_builtins.str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param pulumi.Input[_builtins.str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[Union['KafkaClusterDedicatedArgs', 'KafkaClusterDedicatedArgsDict']] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEndpointArgs', 'KafkaClusterEndpointArgsDict']]]] endpoints: (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
         :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict']]]] freights: The configuration of the Freight Kafka cluster.
@@ -1008,7 +1029,7 @@ class KafkaCluster(pulumi.CustomResource):
                accounts.
         :param pulumi.Input[_builtins.str] rbac_crn: (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
         :param pulumi.Input[_builtins.str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
-        :param pulumi.Input[_builtins.str] rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[_builtins.str] rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
         :param pulumi.Input[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict']] standard: The configuration of the Standard Kafka cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1023,6 +1044,7 @@ class KafkaCluster(pulumi.CustomResource):
         __props__.__dict__["cloud"] = cloud
         __props__.__dict__["dedicated"] = dedicated
         __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["endpoints"] = endpoints
         __props__.__dict__["enterprises"] = enterprises
         __props__.__dict__["environment"] = environment
         __props__.__dict__["freights"] = freights
@@ -1062,7 +1084,7 @@ class KafkaCluster(pulumi.CustomResource):
     @pulumi.getter(name="bootstrapEndpoint")
     def bootstrap_endpoint(self) -> pulumi.Output[_builtins.str]:
         """
-        (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
@@ -1094,6 +1116,14 @@ class KafkaCluster(pulumi.CustomResource):
         The name of the Kafka cluster.
         """
         return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoints(self) -> pulumi.Output[Sequence['outputs.KafkaClusterEndpoint']]:
+        """
+        (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+        """
+        return pulumi.get(self, "endpoints")
 
     @_builtins.property
     @pulumi.getter
@@ -1156,7 +1186,7 @@ class KafkaCluster(pulumi.CustomResource):
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> pulumi.Output[_builtins.str]:
         """
-        (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 

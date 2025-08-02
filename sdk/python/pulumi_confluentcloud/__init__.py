@@ -50,6 +50,8 @@ from .get_identity_pool import *
 from .get_identity_provider import *
 from .get_invitation import *
 from .get_ip_addresses import *
+from .get_ip_filter import *
+from .get_ip_group import *
 from .get_kafka_client_quota import *
 from .get_kafka_cluster import *
 from .get_kafka_topic import *
@@ -85,6 +87,8 @@ from .group_mapping import *
 from .identity_pool import *
 from .identity_provider import *
 from .invitation import *
+from .ip_filter import *
+from .ip_group import *
 from .kafka_acl import *
 from .kafka_client_quota import *
 from .kafka_cluster import *
@@ -336,6 +340,22 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/invitation:Invitation": "Invitation"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/ipFilter",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/ipFilter:IpFilter": "IpFilter"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/ipGroup",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/ipGroup:IpGroup": "IpGroup"
   }
  },
  {

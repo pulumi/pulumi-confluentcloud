@@ -187,6 +187,7 @@ import * as utilities from "./utilities";
  *   * dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
  *   * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
  *   * enterprise-privatelinkattachment-azure-kafka-acls: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+ *   * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
  *
  * ## Import
  *
@@ -243,7 +244,7 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public readonly basic!: pulumi.Output<outputs.KafkaClusterBasic | undefined>;
     /**
-     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
      */
     public /*out*/ readonly bootstrapEndpoint!: pulumi.Output<string>;
     public readonly byokKey!: pulumi.Output<outputs.KafkaClusterByokKey>;
@@ -259,6 +260,10 @@ export class KafkaCluster extends pulumi.CustomResource {
      * The name of the Kafka cluster.
      */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+     */
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.KafkaClusterEndpoint[]>;
     /**
      * The configuration of the Enterprise Kafka cluster.
      */
@@ -289,7 +294,7 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public readonly region!: pulumi.Output<string>;
     /**
-     * (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
      */
     public /*out*/ readonly restEndpoint!: pulumi.Output<string>;
     /**
@@ -318,6 +323,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["cloud"] = state ? state.cloud : undefined;
             resourceInputs["dedicated"] = state ? state.dedicated : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
             resourceInputs["enterprises"] = state ? state.enterprises : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["freights"] = state ? state.freights : undefined;
@@ -355,6 +361,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["standard"] = args ? args.standard : undefined;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["bootstrapEndpoint"] = undefined /*out*/;
+            resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["rbacCrn"] = undefined /*out*/;
             resourceInputs["restEndpoint"] = undefined /*out*/;
@@ -381,7 +388,7 @@ export interface KafkaClusterState {
      */
     basic?: pulumi.Input<inputs.KafkaClusterBasic>;
     /**
-     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: pulumi.Input<string>;
     byokKey?: pulumi.Input<inputs.KafkaClusterByokKey>;
@@ -397,6 +404,10 @@ export interface KafkaClusterState {
      * The name of the Kafka cluster.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+     */
+    endpoints?: pulumi.Input<pulumi.Input<inputs.KafkaClusterEndpoint>[]>;
     /**
      * The configuration of the Enterprise Kafka cluster.
      */
@@ -427,7 +438,7 @@ export interface KafkaClusterState {
      */
     region?: pulumi.Input<string>;
     /**
-     * (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
     /**
