@@ -308,7 +308,26 @@ class AccessPoint(pulumi.CustomResource):
             gcp_egress_private_service_connect_endpoint={
                 "private_service_connect_endpoint_target": "projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment",
             })
+        pni = confluentcloud.AccessPoint("pni",
+            display_name="access_point",
+            environment={
+                "id": development.id,
+            },
+            gateway={
+                "id": main_confluent_gateway["id"],
+            },
+            aws_private_network_interface={
+                "network_interfaces": [__item["id"] for __item in main_aws_network_interface],
+                "account": aws_account_id,
+            },
+            opts = pulumi.ResourceOptions(depends_on=[main_aws_network_interface_permission]))
         ```
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `AccessPoint` resource:
+          * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
+          * freight-aws-kafka-rbac: _Freight_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
 
         ## Import
 
@@ -385,7 +404,26 @@ class AccessPoint(pulumi.CustomResource):
             gcp_egress_private_service_connect_endpoint={
                 "private_service_connect_endpoint_target": "projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment",
             })
+        pni = confluentcloud.AccessPoint("pni",
+            display_name="access_point",
+            environment={
+                "id": development.id,
+            },
+            gateway={
+                "id": main_confluent_gateway["id"],
+            },
+            aws_private_network_interface={
+                "network_interfaces": [__item["id"] for __item in main_aws_network_interface],
+                "account": aws_account_id,
+            },
+            opts = pulumi.ResourceOptions(depends_on=[main_aws_network_interface_permission]))
         ```
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `AccessPoint` resource:
+          * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
+          * freight-aws-kafka-rbac: _Freight_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
 
         ## Import
 

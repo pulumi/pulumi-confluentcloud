@@ -268,27 +268,27 @@ namespace Pulumi.ConfluentCloud
              public class Oauth
              {
             /// <summary>
-            /// OAuth existing access token already fetched from external IDP
+            /// OAuth existing static access token already fetched from external Identity Provider.
             /// </summary>
                 public string? OauthExternalAccessToken { get; set; } = null!;
             /// <summary>
-            /// OAuth client id from external token source
+            /// OAuth token application client id from external Identity Provider.
             /// </summary>
                 public string? OauthExternalClientId { get; set; } = null!;
             /// <summary>
-            /// OAuth client secret from external token source
+            /// OAuth token application client secret from external Identity Provider.
             /// </summary>
                 public string? OauthExternalClientSecret { get; set; } = null!;
             /// <summary>
-            /// OAuth access token scope
+            /// OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
             /// </summary>
                 public string? OauthExternalTokenScope { get; set; } = null!;
             /// <summary>
-            /// OAuth token URL to fetch access token from external IDP
+            /// OAuth token URL to fetch access token from external Identity Provider.
             /// </summary>
                 public string? OauthExternalTokenUrl { get; set; } = null!;
             /// <summary>
-            /// OAuth identity pool id used for processing external token and exchange STS token
+            /// OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
             /// </summary>
                 public string OauthIdentityPoolId { get; set; }
             /// <summary>

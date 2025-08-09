@@ -18380,17 +18380,17 @@ func (o ProviderIntegrationEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type ProviderOauth struct {
-	// OAuth existing access token already fetched from external IDP
+	// OAuth existing static access token already fetched from external Identity Provider.
 	OauthExternalAccessToken *string `pulumi:"oauthExternalAccessToken"`
-	// OAuth client id from external token source
+	// OAuth token application client id from external Identity Provider.
 	OauthExternalClientId *string `pulumi:"oauthExternalClientId"`
-	// OAuth client secret from external token source
+	// OAuth token application client secret from external Identity Provider.
 	OauthExternalClientSecret *string `pulumi:"oauthExternalClientSecret"`
-	// OAuth access token scope
+	// OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
 	OauthExternalTokenScope *string `pulumi:"oauthExternalTokenScope"`
-	// OAuth token URL to fetch access token from external IDP
+	// OAuth token URL to fetch access token from external Identity Provider.
 	OauthExternalTokenUrl *string `pulumi:"oauthExternalTokenUrl"`
-	// OAuth identity pool id used for processing external token and exchange STS token
+	// OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
 	OauthIdentityPoolId string `pulumi:"oauthIdentityPoolId"`
 	// OAuth STS access token expired in second from Confluent Cloud
 	OauthStsTokenExpiredInSeconds *string `pulumi:"oauthStsTokenExpiredInSeconds"`
@@ -18408,17 +18408,17 @@ type ProviderOauthInput interface {
 }
 
 type ProviderOauthArgs struct {
-	// OAuth existing access token already fetched from external IDP
+	// OAuth existing static access token already fetched from external Identity Provider.
 	OauthExternalAccessToken pulumi.StringPtrInput `pulumi:"oauthExternalAccessToken"`
-	// OAuth client id from external token source
+	// OAuth token application client id from external Identity Provider.
 	OauthExternalClientId pulumi.StringPtrInput `pulumi:"oauthExternalClientId"`
-	// OAuth client secret from external token source
+	// OAuth token application client secret from external Identity Provider.
 	OauthExternalClientSecret pulumi.StringPtrInput `pulumi:"oauthExternalClientSecret"`
-	// OAuth access token scope
+	// OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
 	OauthExternalTokenScope pulumi.StringPtrInput `pulumi:"oauthExternalTokenScope"`
-	// OAuth token URL to fetch access token from external IDP
+	// OAuth token URL to fetch access token from external Identity Provider.
 	OauthExternalTokenUrl pulumi.StringPtrInput `pulumi:"oauthExternalTokenUrl"`
-	// OAuth identity pool id used for processing external token and exchange STS token
+	// OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
 	OauthIdentityPoolId pulumi.StringInput `pulumi:"oauthIdentityPoolId"`
 	// OAuth STS access token expired in second from Confluent Cloud
 	OauthStsTokenExpiredInSeconds pulumi.StringPtrInput `pulumi:"oauthStsTokenExpiredInSeconds"`
@@ -18501,32 +18501,32 @@ func (o ProviderOauthOutput) ToProviderOauthPtrOutputWithContext(ctx context.Con
 	}).(ProviderOauthPtrOutput)
 }
 
-// OAuth existing access token already fetched from external IDP
+// OAuth existing static access token already fetched from external Identity Provider.
 func (o ProviderOauthOutput) OauthExternalAccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderOauth) *string { return v.OauthExternalAccessToken }).(pulumi.StringPtrOutput)
 }
 
-// OAuth client id from external token source
+// OAuth token application client id from external Identity Provider.
 func (o ProviderOauthOutput) OauthExternalClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderOauth) *string { return v.OauthExternalClientId }).(pulumi.StringPtrOutput)
 }
 
-// OAuth client secret from external token source
+// OAuth token application client secret from external Identity Provider.
 func (o ProviderOauthOutput) OauthExternalClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderOauth) *string { return v.OauthExternalClientSecret }).(pulumi.StringPtrOutput)
 }
 
-// OAuth access token scope
+// OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
 func (o ProviderOauthOutput) OauthExternalTokenScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderOauth) *string { return v.OauthExternalTokenScope }).(pulumi.StringPtrOutput)
 }
 
-// OAuth token URL to fetch access token from external IDP
+// OAuth token URL to fetch access token from external Identity Provider.
 func (o ProviderOauthOutput) OauthExternalTokenUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderOauth) *string { return v.OauthExternalTokenUrl }).(pulumi.StringPtrOutput)
 }
 
-// OAuth identity pool id used for processing external token and exchange STS token
+// OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
 func (o ProviderOauthOutput) OauthIdentityPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProviderOauth) string { return v.OauthIdentityPoolId }).(pulumi.StringOutput)
 }
@@ -18560,7 +18560,7 @@ func (o ProviderOauthPtrOutput) Elem() ProviderOauthOutput {
 	}).(ProviderOauthOutput)
 }
 
-// OAuth existing access token already fetched from external IDP
+// OAuth existing static access token already fetched from external Identity Provider.
 func (o ProviderOauthPtrOutput) OauthExternalAccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderOauth) *string {
 		if v == nil {
@@ -18570,7 +18570,7 @@ func (o ProviderOauthPtrOutput) OauthExternalAccessToken() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth client id from external token source
+// OAuth token application client id from external Identity Provider.
 func (o ProviderOauthPtrOutput) OauthExternalClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderOauth) *string {
 		if v == nil {
@@ -18580,7 +18580,7 @@ func (o ProviderOauthPtrOutput) OauthExternalClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth client secret from external token source
+// OAuth token application client secret from external Identity Provider.
 func (o ProviderOauthPtrOutput) OauthExternalClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderOauth) *string {
 		if v == nil {
@@ -18590,7 +18590,7 @@ func (o ProviderOauthPtrOutput) OauthExternalClientSecret() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth access token scope
+// OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
 func (o ProviderOauthPtrOutput) OauthExternalTokenScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderOauth) *string {
 		if v == nil {
@@ -18600,7 +18600,7 @@ func (o ProviderOauthPtrOutput) OauthExternalTokenScope() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth token URL to fetch access token from external IDP
+// OAuth token URL to fetch access token from external Identity Provider.
 func (o ProviderOauthPtrOutput) OauthExternalTokenUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderOauth) *string {
 		if v == nil {
@@ -18610,7 +18610,7 @@ func (o ProviderOauthPtrOutput) OauthExternalTokenUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth identity pool id used for processing external token and exchange STS token
+// OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
 func (o ProviderOauthPtrOutput) OauthIdentityPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderOauth) *string {
 		if v == nil {

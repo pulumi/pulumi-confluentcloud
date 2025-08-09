@@ -13,32 +13,32 @@ import javax.annotation.Nullable;
 @CustomType
 public final class Oauth {
     /**
-     * @return OAuth existing access token already fetched from external IDP
+     * @return OAuth existing static access token already fetched from external Identity Provider.
      * 
      */
     private @Nullable String oauthExternalAccessToken;
     /**
-     * @return OAuth client id from external token source
+     * @return OAuth token application client id from external Identity Provider.
      * 
      */
     private @Nullable String oauthExternalClientId;
     /**
-     * @return OAuth client secret from external token source
+     * @return OAuth token application client secret from external Identity Provider.
      * 
      */
     private @Nullable String oauthExternalClientSecret;
     /**
-     * @return OAuth access token scope
+     * @return OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
      * 
      */
     private @Nullable String oauthExternalTokenScope;
     /**
-     * @return OAuth token URL to fetch access token from external IDP
+     * @return OAuth token URL to fetch access token from external Identity Provider.
      * 
      */
     private @Nullable String oauthExternalTokenUrl;
     /**
-     * @return OAuth identity pool id used for processing external token and exchange STS token
+     * @return OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
      * 
      */
     private String oauthIdentityPoolId;
@@ -50,42 +50,42 @@ public final class Oauth {
 
     private Oauth() {}
     /**
-     * @return OAuth existing access token already fetched from external IDP
+     * @return OAuth existing static access token already fetched from external Identity Provider.
      * 
      */
     public Optional<String> oauthExternalAccessToken() {
         return Optional.ofNullable(this.oauthExternalAccessToken);
     }
     /**
-     * @return OAuth client id from external token source
+     * @return OAuth token application client id from external Identity Provider.
      * 
      */
     public Optional<String> oauthExternalClientId() {
         return Optional.ofNullable(this.oauthExternalClientId);
     }
     /**
-     * @return OAuth client secret from external token source
+     * @return OAuth token application client secret from external Identity Provider.
      * 
      */
     public Optional<String> oauthExternalClientSecret() {
         return Optional.ofNullable(this.oauthExternalClientSecret);
     }
     /**
-     * @return OAuth access token scope
+     * @return OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
      * 
      */
     public Optional<String> oauthExternalTokenScope() {
         return Optional.ofNullable(this.oauthExternalTokenScope);
     }
     /**
-     * @return OAuth token URL to fetch access token from external IDP
+     * @return OAuth token URL to fetch access token from external Identity Provider.
      * 
      */
     public Optional<String> oauthExternalTokenUrl() {
         return Optional.ofNullable(this.oauthExternalTokenUrl);
     }
     /**
-     * @return OAuth identity pool id used for processing external token and exchange STS token
+     * @return OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
      * 
      */
     public String oauthIdentityPoolId() {

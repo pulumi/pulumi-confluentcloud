@@ -3147,27 +3147,27 @@ export interface TransitGatewayAttachmentNetwork {
 export namespace config {
     export interface Oauth {
         /**
-         * OAuth existing access token already fetched from external IDP
+         * OAuth existing static access token already fetched from external Identity Provider.
          */
         oauthExternalAccessToken?: string;
         /**
-         * OAuth client id from external token source
+         * OAuth token application client id from external Identity Provider.
          */
         oauthExternalClientId?: string;
         /**
-         * OAuth client secret from external token source
+         * OAuth token application client secret from external Identity Provider.
          */
         oauthExternalClientSecret?: string;
         /**
-         * OAuth access token scope
+         * OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
          */
         oauthExternalTokenScope?: string;
         /**
-         * OAuth token URL to fetch access token from external IDP
+         * OAuth token URL to fetch access token from external Identity Provider.
          */
         oauthExternalTokenUrl?: string;
         /**
-         * OAuth identity pool id used for processing external token and exchange STS token
+         * OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
          */
         oauthIdentityPoolId: string;
         /**

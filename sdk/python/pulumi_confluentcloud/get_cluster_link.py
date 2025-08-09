@@ -163,6 +163,20 @@ def get_cluster_link(credentials: Optional[Union['GetClusterLinkCredentialsArgs'
     pulumi.export("kafkaClusterLinkId", main.cluster_link_id)
     ```
 
+    ### Option #3: Manage Kafka cluster(s) in the same Pulumi Stack using OAuth authentication
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    main = confluentcloud.get_cluster_link(link_name="main-link",
+        rest_endpoint=west["restEndpoint"],
+        kafka_cluster={
+            "id": west["id"],
+        })
+    pulumi.export("kafkaClusterLinkId", main.cluster_link_id)
+    ```
+
 
     :param _builtins.str link_name: The name of the cluster link, for example, `my-cluster-link`.
     :param _builtins.str rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -221,6 +235,20 @@ def get_cluster_link_output(credentials: Optional[pulumi.Input[Optional[Union['G
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_cluster_link(link_name="main-link")
+    pulumi.export("kafkaClusterLinkId", main.cluster_link_id)
+    ```
+
+    ### Option #3: Manage Kafka cluster(s) in the same Pulumi Stack using OAuth authentication
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    main = confluentcloud.get_cluster_link(link_name="main-link",
+        rest_endpoint=west["restEndpoint"],
+        kafka_cluster={
+            "id": west["id"],
+        })
     pulumi.export("kafkaClusterLinkId", main.cluster_link_id)
     ```
 

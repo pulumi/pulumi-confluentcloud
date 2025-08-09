@@ -44,6 +44,22 @@ import * as utilities from "./utilities";
  * });
  * export const kafkaClusterLinkId = main.then(main => main.clusterLinkId);
  * ```
+ *
+ * ### Option #3: Manage Kafka cluster(s) in the same Pulumi Stack using OAuth authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getClusterLink({
+ *     linkName: "main-link",
+ *     restEndpoint: west.restEndpoint,
+ *     kafkaCluster: {
+ *         id: west.id,
+ *     },
+ * });
+ * export const kafkaClusterLinkId = main.then(main => main.clusterLinkId);
+ * ```
  */
 export function getClusterLink(args: GetClusterLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -131,6 +147,22 @@ export interface GetClusterLinkResult {
  *
  * const main = confluentcloud.getClusterLink({
  *     linkName: "main-link",
+ * });
+ * export const kafkaClusterLinkId = main.then(main => main.clusterLinkId);
+ * ```
+ *
+ * ### Option #3: Manage Kafka cluster(s) in the same Pulumi Stack using OAuth authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getClusterLink({
+ *     linkName: "main-link",
+ *     restEndpoint: west.restEndpoint,
+ *     kafkaCluster: {
+ *         id: west.id,
+ *     },
  * });
  * export const kafkaClusterLinkId = main.then(main => main.clusterLinkId);
  * ```

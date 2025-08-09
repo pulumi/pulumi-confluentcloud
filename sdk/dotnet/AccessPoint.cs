@@ -81,8 +81,38 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
+    ///     var pni = new ConfluentCloud.AccessPoint("pni", new()
+    ///     {
+    ///         DisplayName = "access_point",
+    ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///         Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs
+    ///         {
+    ///             Id = mainConfluentGateway.Id,
+    ///         },
+    ///         AwsPrivateNetworkInterface = new ConfluentCloud.Inputs.AccessPointAwsPrivateNetworkInterfaceArgs
+    ///         {
+    ///             NetworkInterfaces = mainAwsNetworkInterface.Select(__item =&gt; __item.Id).ToList(),
+    ///             Account = awsAccountId,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             mainAwsNetworkInterfacePermission,
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
+    /// 
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.AccessPoint` resource:
+    ///   * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
+    ///   * freight-aws-kafka-rbac: _Freight_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
     /// 
     /// ## Import
     /// 

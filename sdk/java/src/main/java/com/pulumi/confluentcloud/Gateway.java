@@ -75,6 +75,7 @@ import javax.annotation.Nullable;
  * 
  * The following end-to-end examples might help to get started with `confluentcloud.Gateway` resource:
  *   * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
+ *   * freight-aws-kafka-rbac: _Freight_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
  * 
  * ## Import
  * 

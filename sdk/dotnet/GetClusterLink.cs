@@ -71,6 +71,33 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
+        /// 
+        /// ### Option #3: Manage Kafka cluster(s) in the same Pulumi Stack using OAuth authentication
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
+        ///     {
+        ///         LinkName = "main-link",
+        ///         RestEndpoint = west.RestEndpoint,
+        ///         KafkaCluster = new ConfluentCloud.Inputs.GetClusterLinkKafkaClusterInputArgs
+        ///         {
+        ///             Id = west.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["kafkaClusterLinkId"] = main.Apply(getClusterLinkResult =&gt; getClusterLinkResult.ClusterLinkId),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetClusterLinkResult> InvokeAsync(GetClusterLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterLinkResult>("confluentcloud:index/getClusterLink:getClusterLink", args ?? new GetClusterLinkArgs(), options.WithDefaults());
@@ -135,6 +162,33 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
+        /// 
+        /// ### Option #3: Manage Kafka cluster(s) in the same Pulumi Stack using OAuth authentication
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
+        ///     {
+        ///         LinkName = "main-link",
+        ///         RestEndpoint = west.RestEndpoint,
+        ///         KafkaCluster = new ConfluentCloud.Inputs.GetClusterLinkKafkaClusterInputArgs
+        ///         {
+        ///             Id = west.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["kafkaClusterLinkId"] = main.Apply(getClusterLinkResult =&gt; getClusterLinkResult.ClusterLinkId),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetClusterLinkResult> Invoke(GetClusterLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterLinkResult>("confluentcloud:index/getClusterLink:getClusterLink", args ?? new GetClusterLinkInvokeArgs(), options.WithDefaults());
@@ -191,6 +245,33 @@ namespace Pulumi.ConfluentCloud
         ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
         ///     {
         ///         LinkName = "main-link",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["kafkaClusterLinkId"] = main.Apply(getClusterLinkResult =&gt; getClusterLinkResult.ClusterLinkId),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #3: Manage Kafka cluster(s) in the same Pulumi Stack using OAuth authentication
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
+        ///     {
+        ///         LinkName = "main-link",
+        ///         RestEndpoint = west.RestEndpoint,
+        ///         KafkaCluster = new ConfluentCloud.Inputs.GetClusterLinkKafkaClusterInputArgs
+        ///         {
+        ///             Id = west.Id,
+        ///         },
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

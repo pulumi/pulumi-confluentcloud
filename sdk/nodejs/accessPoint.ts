@@ -55,7 +55,28 @@ import * as utilities from "./utilities";
  *         privateServiceConnectEndpointTarget: "projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment",
  *     },
  * });
+ * const pni = new confluentcloud.AccessPoint("pni", {
+ *     displayName: "access_point",
+ *     environment: {
+ *         id: development.id,
+ *     },
+ *     gateway: {
+ *         id: mainConfluentGateway.id,
+ *     },
+ *     awsPrivateNetworkInterface: {
+ *         networkInterfaces: mainAwsNetworkInterface.map(__item => __item.id),
+ *         account: awsAccountId,
+ *     },
+ * }, {
+ *     dependsOn: [mainAwsNetworkInterfacePermission],
+ * });
  * ```
+ *
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.AccessPoint` resource:
+ *   * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
+ *   * freight-aws-kafka-rbac: _Freight_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
  *
  * ## Import
  *
