@@ -29,12 +29,12 @@ class Oauth(dict):
                  oauth_external_token_url: Optional[_builtins.str] = None,
                  oauth_sts_token_expired_in_seconds: Optional[_builtins.str] = None):
         """
-        :param _builtins.str oauth_identity_pool_id: OAuth identity pool id used for processing external token and exchange STS token
-        :param _builtins.str oauth_external_access_token: OAuth existing access token already fetched from external IDP
-        :param _builtins.str oauth_external_client_id: OAuth client id from external token source
-        :param _builtins.str oauth_external_client_secret: OAuth client secret from external token source
-        :param _builtins.str oauth_external_token_scope: OAuth access token scope
-        :param _builtins.str oauth_external_token_url: OAuth token URL to fetch access token from external IDP
+        :param _builtins.str oauth_identity_pool_id: OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
+        :param _builtins.str oauth_external_access_token: OAuth existing static access token already fetched from external Identity Provider.
+        :param _builtins.str oauth_external_client_id: OAuth token application client id from external Identity Provider.
+        :param _builtins.str oauth_external_client_secret: OAuth token application client secret from external Identity Provider.
+        :param _builtins.str oauth_external_token_scope: OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
+        :param _builtins.str oauth_external_token_url: OAuth token URL to fetch access token from external Identity Provider.
         :param _builtins.str oauth_sts_token_expired_in_seconds: OAuth STS access token expired in second from Confluent Cloud
         """
         pulumi.set(__self__, "oauth_identity_pool_id", oauth_identity_pool_id)
@@ -55,7 +55,7 @@ class Oauth(dict):
     @pulumi.getter(name="oauthIdentityPoolId")
     def oauth_identity_pool_id(self) -> _builtins.str:
         """
-        OAuth identity pool id used for processing external token and exchange STS token
+        OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
         """
         return pulumi.get(self, "oauth_identity_pool_id")
 
@@ -63,7 +63,7 @@ class Oauth(dict):
     @pulumi.getter(name="oauthExternalAccessToken")
     def oauth_external_access_token(self) -> Optional[_builtins.str]:
         """
-        OAuth existing access token already fetched from external IDP
+        OAuth existing static access token already fetched from external Identity Provider.
         """
         return pulumi.get(self, "oauth_external_access_token")
 
@@ -71,7 +71,7 @@ class Oauth(dict):
     @pulumi.getter(name="oauthExternalClientId")
     def oauth_external_client_id(self) -> Optional[_builtins.str]:
         """
-        OAuth client id from external token source
+        OAuth token application client id from external Identity Provider.
         """
         return pulumi.get(self, "oauth_external_client_id")
 
@@ -79,7 +79,7 @@ class Oauth(dict):
     @pulumi.getter(name="oauthExternalClientSecret")
     def oauth_external_client_secret(self) -> Optional[_builtins.str]:
         """
-        OAuth client secret from external token source
+        OAuth token application client secret from external Identity Provider.
         """
         return pulumi.get(self, "oauth_external_client_secret")
 
@@ -87,7 +87,7 @@ class Oauth(dict):
     @pulumi.getter(name="oauthExternalTokenScope")
     def oauth_external_token_scope(self) -> Optional[_builtins.str]:
         """
-        OAuth access token scope
+        OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
         """
         return pulumi.get(self, "oauth_external_token_scope")
 
@@ -95,7 +95,7 @@ class Oauth(dict):
     @pulumi.getter(name="oauthExternalTokenUrl")
     def oauth_external_token_url(self) -> Optional[_builtins.str]:
         """
-        OAuth token URL to fetch access token from external IDP
+        OAuth token URL to fetch access token from external Identity Provider.
         """
         return pulumi.get(self, "oauth_external_token_url")
 

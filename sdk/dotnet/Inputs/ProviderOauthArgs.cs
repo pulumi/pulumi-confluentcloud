@@ -16,7 +16,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         private Input<string>? _oauthExternalAccessToken;
 
         /// <summary>
-        /// OAuth existing access token already fetched from external IDP
+        /// OAuth existing static access token already fetched from external Identity Provider.
         /// </summary>
         public Input<string>? OauthExternalAccessToken
         {
@@ -29,7 +29,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         }
 
         /// <summary>
-        /// OAuth client id from external token source
+        /// OAuth token application client id from external Identity Provider.
         /// </summary>
         [Input("oauthExternalClientId")]
         public Input<string>? OauthExternalClientId { get; set; }
@@ -38,7 +38,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         private Input<string>? _oauthExternalClientSecret;
 
         /// <summary>
-        /// OAuth client secret from external token source
+        /// OAuth token application client secret from external Identity Provider.
         /// </summary>
         public Input<string>? OauthExternalClientSecret
         {
@@ -51,19 +51,19 @@ namespace Pulumi.ConfluentCloud.Inputs
         }
 
         /// <summary>
-        /// OAuth access token scope
+        /// OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
         /// </summary>
         [Input("oauthExternalTokenScope")]
         public Input<string>? OauthExternalTokenScope { get; set; }
 
         /// <summary>
-        /// OAuth token URL to fetch access token from external IDP
+        /// OAuth token URL to fetch access token from external Identity Provider.
         /// </summary>
         [Input("oauthExternalTokenUrl")]
         public Input<string>? OauthExternalTokenUrl { get; set; }
 
         /// <summary>
-        /// OAuth identity pool id used for processing external token and exchange STS token
+        /// OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
         /// </summary>
         [Input("oauthIdentityPoolId", required: true)]
         public Input<string> OauthIdentityPoolId { get; set; } = null!;

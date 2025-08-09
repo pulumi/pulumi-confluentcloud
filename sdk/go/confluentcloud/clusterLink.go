@@ -86,6 +86,8 @@ import (
 //   - regular-bidirectional-cluster-link-rbac: An example of setting up a bidirectional cluster link with 2 mirror topics
 //   - advanced-bidirectional-cluster-link-rbac: An example of setting up a bidirectional cluster link with 2 mirror topics ([advanced option](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode))
 //
+// Additionally, OAuth-specific examples can be found in the cluster-link-using-oauth directory.
+//
 // See [Cluster Linking on Confluent Cloud](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/index.html) to learn more about Cluster Linking on Confluent Cloud.
 //
 // ## Import
@@ -125,6 +127,28 @@ import (
 // $ export IMPORT_REMOTE_KAFKA_API_KEY="<remote_kafka_api_key>"
 //
 // $ export IMPORT_REMOTE_KAFKA_API_SECRET="<remote_kafka_api_secret>"
+//
+// ```sh
+// $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
+// ```
+//
+// When using OAuth to authenticate to Confluent Cloud, the Kafka cluster API key and secret should be skipped:
+//
+// Option #3 when using OAuth to authenticate the source-initiated or destination-initiated cluster links
+//
+// $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>"
+//
+// $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>"
+//
+// ```sh
+// $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456
+// ```
+//
+// Option #4 when using OAuth to authenticate the bidirectional cluster links
+//
+// $ export IMPORT_LOCAL_KAFKA_REST_ENDPOINT="<local_kafka_rest_endpoint>"
+//
+// $ export IMPORT_REMOTE_KAFKA_BOOTSTRAP_ENDPOINT="<remote_kafka_bootstrap_endpoint>"
 //
 // ```sh
 // $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456

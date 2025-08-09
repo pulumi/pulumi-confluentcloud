@@ -78,6 +78,37 @@ import (
 //	}
 //
 // ```
+//
+// ### Option #3: Manage Kafka cluster(s) in the same Pulumi Stack using OAuth authentication
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := confluentcloud.LookupClusterLink(ctx, &confluentcloud.LookupClusterLinkArgs{
+//				LinkName:     "main-link",
+//				RestEndpoint: pulumi.StringRef(west.RestEndpoint),
+//				KafkaCluster: confluentcloud.GetClusterLinkKafkaCluster{
+//					Id: west.Id,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("kafkaClusterLinkId", main.ClusterLinkId)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupClusterLink(ctx *pulumi.Context, args *LookupClusterLinkArgs, opts ...pulumi.InvokeOption) (*LookupClusterLinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterLinkResult

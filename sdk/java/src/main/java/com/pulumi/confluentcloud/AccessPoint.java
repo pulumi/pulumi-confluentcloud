@@ -44,6 +44,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.AccessPointAwsEgressPrivateLinkEndpointArgs;
  * import com.pulumi.confluentcloud.inputs.AccessPointAzureEgressPrivateLinkEndpointArgs;
  * import com.pulumi.confluentcloud.inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs;
+ * import com.pulumi.confluentcloud.inputs.AccessPointAwsPrivateNetworkInterfaceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -101,11 +103,33 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         var pni = new AccessPoint("pni", AccessPointArgs.builder()
+ *             .displayName("access_point")
+ *             .environment(AccessPointEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .gateway(AccessPointGatewayArgs.builder()
+ *                 .id(mainConfluentGateway.id())
+ *                 .build())
+ *             .awsPrivateNetworkInterface(AccessPointAwsPrivateNetworkInterfaceArgs.builder()
+ *                 .networkInterfaces(mainAwsNetworkInterface.stream().map(element -> element.id()).collect(toList()))
+ *                 .account(awsAccountId)
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(mainAwsNetworkInterfacePermission)
+ *                 .build());
+ * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.AccessPoint` resource:
+ *   * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
+ *   * freight-aws-kafka-rbac: _Freight_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
  * 
  * ## Import
  * 

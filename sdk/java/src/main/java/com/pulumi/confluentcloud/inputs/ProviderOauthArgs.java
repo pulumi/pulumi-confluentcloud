@@ -17,14 +17,14 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProviderOauthArgs Empty = new ProviderOauthArgs();
 
     /**
-     * OAuth existing access token already fetched from external IDP
+     * OAuth existing static access token already fetched from external Identity Provider.
      * 
      */
     @Import(name="oauthExternalAccessToken")
     private @Nullable Output<String> oauthExternalAccessToken;
 
     /**
-     * @return OAuth existing access token already fetched from external IDP
+     * @return OAuth existing static access token already fetched from external Identity Provider.
      * 
      */
     public Optional<Output<String>> oauthExternalAccessToken() {
@@ -32,14 +32,14 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * OAuth client id from external token source
+     * OAuth token application client id from external Identity Provider.
      * 
      */
     @Import(name="oauthExternalClientId")
     private @Nullable Output<String> oauthExternalClientId;
 
     /**
-     * @return OAuth client id from external token source
+     * @return OAuth token application client id from external Identity Provider.
      * 
      */
     public Optional<Output<String>> oauthExternalClientId() {
@@ -47,14 +47,14 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * OAuth client secret from external token source
+     * OAuth token application client secret from external Identity Provider.
      * 
      */
     @Import(name="oauthExternalClientSecret")
     private @Nullable Output<String> oauthExternalClientSecret;
 
     /**
-     * @return OAuth client secret from external token source
+     * @return OAuth token application client secret from external Identity Provider.
      * 
      */
     public Optional<Output<String>> oauthExternalClientSecret() {
@@ -62,14 +62,14 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * OAuth access token scope
+     * OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
      * 
      */
     @Import(name="oauthExternalTokenScope")
     private @Nullable Output<String> oauthExternalTokenScope;
 
     /**
-     * @return OAuth access token scope
+     * @return OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
      * 
      */
     public Optional<Output<String>> oauthExternalTokenScope() {
@@ -77,14 +77,14 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * OAuth token URL to fetch access token from external IDP
+     * OAuth token URL to fetch access token from external Identity Provider.
      * 
      */
     @Import(name="oauthExternalTokenUrl")
     private @Nullable Output<String> oauthExternalTokenUrl;
 
     /**
-     * @return OAuth token URL to fetch access token from external IDP
+     * @return OAuth token URL to fetch access token from external Identity Provider.
      * 
      */
     public Optional<Output<String>> oauthExternalTokenUrl() {
@@ -92,14 +92,14 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * OAuth identity pool id used for processing external token and exchange STS token
+     * OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
      * 
      */
     @Import(name="oauthIdentityPoolId", required=true)
     private Output<String> oauthIdentityPoolId;
 
     /**
-     * @return OAuth identity pool id used for processing external token and exchange STS token
+     * @return OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
      * 
      */
     public Output<String> oauthIdentityPoolId() {
@@ -152,7 +152,7 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthExternalAccessToken OAuth existing access token already fetched from external IDP
+         * @param oauthExternalAccessToken OAuth existing static access token already fetched from external Identity Provider.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthExternalAccessToken OAuth existing access token already fetched from external IDP
+         * @param oauthExternalAccessToken OAuth existing static access token already fetched from external Identity Provider.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthExternalClientId OAuth client id from external token source
+         * @param oauthExternalClientId OAuth token application client id from external Identity Provider.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthExternalClientId OAuth client id from external token source
+         * @param oauthExternalClientId OAuth token application client id from external Identity Provider.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthExternalClientSecret OAuth client secret from external token source
+         * @param oauthExternalClientSecret OAuth token application client secret from external Identity Provider.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthExternalClientSecret OAuth client secret from external token source
+         * @param oauthExternalClientSecret OAuth token application client secret from external Identity Provider.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthExternalTokenScope OAuth access token scope
+         * @param oauthExternalTokenScope OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthExternalTokenScope OAuth access token scope
+         * @param oauthExternalTokenScope OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthExternalTokenUrl OAuth token URL to fetch access token from external IDP
+         * @param oauthExternalTokenUrl OAuth token URL to fetch access token from external Identity Provider.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthExternalTokenUrl OAuth token URL to fetch access token from external IDP
+         * @param oauthExternalTokenUrl OAuth token URL to fetch access token from external Identity Provider.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthIdentityPoolId OAuth identity pool id used for processing external token and exchange STS token
+         * @param oauthIdentityPoolId OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ProviderOauthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauthIdentityPoolId OAuth identity pool id used for processing external token and exchange STS token
+         * @param oauthIdentityPoolId OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
          * 
          * @return builder
          * 

@@ -27,66 +27,88 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			development, err := confluentcloud.NewEnvironment(ctx, "development", &confluentcloud.EnvironmentArgs{
-//				DisplayName: pulumi.String("Development"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = confluentcloud.NewAccessPoint(ctx, "aws", &confluentcloud.AccessPointArgs{
-//				DisplayName: pulumi.String("access_point"),
-//				Environment: &confluentcloud.AccessPointEnvironmentArgs{
-//					Id: development.ID(),
-//				},
-//				Gateway: &confluentcloud.AccessPointGatewayArgs{
-//					Id: pulumi.Any(main.Gateway[0].Id),
-//				},
-//				AwsEgressPrivateLinkEndpoint: &confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs{
-//					VpcEndpointServiceName: pulumi.String("com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = confluentcloud.NewAccessPoint(ctx, "azure", &confluentcloud.AccessPointArgs{
-//				DisplayName: pulumi.String("access_point"),
-//				Environment: &confluentcloud.AccessPointEnvironmentArgs{
-//					Id: development.ID(),
-//				},
-//				Gateway: &confluentcloud.AccessPointGatewayArgs{
-//					Id: pulumi.Any(main.Gateway[0].Id),
-//				},
-//				AzureEgressPrivateLinkEndpoint: &confluentcloud.AccessPointAzureEgressPrivateLinkEndpointArgs{
-//					PrivateLinkServiceResourceId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3"),
-//					PrivateLinkSubresourceName:   pulumi.String("sqlServer"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = confluentcloud.NewAccessPoint(ctx, "gcp", &confluentcloud.AccessPointArgs{
-//				DisplayName: pulumi.String("access_point"),
-//				Environment: &confluentcloud.AccessPointEnvironmentArgs{
-//					Id: development.ID(),
-//				},
-//				Gateway: &confluentcloud.AccessPointGatewayArgs{
-//					Id: pulumi.Any(main.Gateway[0].Id),
-//				},
-//				GcpEgressPrivateServiceConnectEndpoint: &confluentcloud.AccessPointGcpEgressPrivateServiceConnectEndpointArgs{
-//					PrivateServiceConnectEndpointTarget: pulumi.String("projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// development, err := confluentcloud.NewEnvironment(ctx, "development", &confluentcloud.EnvironmentArgs{
+// DisplayName: pulumi.String("Development"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = confluentcloud.NewAccessPoint(ctx, "aws", &confluentcloud.AccessPointArgs{
+// DisplayName: pulumi.String("access_point"),
+// Environment: &confluentcloud.AccessPointEnvironmentArgs{
+// Id: development.ID(),
+// },
+// Gateway: &confluentcloud.AccessPointGatewayArgs{
+// Id: pulumi.Any(main.Gateway[0].Id),
+// },
+// AwsEgressPrivateLinkEndpoint: &confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs{
+// VpcEndpointServiceName: pulumi.String("com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = confluentcloud.NewAccessPoint(ctx, "azure", &confluentcloud.AccessPointArgs{
+// DisplayName: pulumi.String("access_point"),
+// Environment: &confluentcloud.AccessPointEnvironmentArgs{
+// Id: development.ID(),
+// },
+// Gateway: &confluentcloud.AccessPointGatewayArgs{
+// Id: pulumi.Any(main.Gateway[0].Id),
+// },
+// AzureEgressPrivateLinkEndpoint: &confluentcloud.AccessPointAzureEgressPrivateLinkEndpointArgs{
+// PrivateLinkServiceResourceId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3"),
+// PrivateLinkSubresourceName: pulumi.String("sqlServer"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = confluentcloud.NewAccessPoint(ctx, "gcp", &confluentcloud.AccessPointArgs{
+// DisplayName: pulumi.String("access_point"),
+// Environment: &confluentcloud.AccessPointEnvironmentArgs{
+// Id: development.ID(),
+// },
+// Gateway: &confluentcloud.AccessPointGatewayArgs{
+// Id: pulumi.Any(main.Gateway[0].Id),
+// },
+// GcpEgressPrivateServiceConnectEndpoint: &confluentcloud.AccessPointGcpEgressPrivateServiceConnectEndpointArgs{
+// PrivateServiceConnectEndpointTarget: pulumi.String("projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = confluentcloud.NewAccessPoint(ctx, "pni", &confluentcloud.AccessPointArgs{
+// DisplayName: pulumi.String("access_point"),
+// Environment: &confluentcloud.AccessPointEnvironmentArgs{
+// Id: development.ID(),
+// },
+// Gateway: &confluentcloud.AccessPointGatewayArgs{
+// Id: pulumi.Any(mainConfluentGateway.Id),
+// },
+// AwsPrivateNetworkInterface: &confluentcloud.AccessPointAwsPrivateNetworkInterfaceArgs{
+// NetworkInterfaces: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:56,25-54)),
+// Account: pulumi.Any(awsAccountId),
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// mainAwsNetworkInterfacePermission,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
+//
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `AccessPoint` resource:
+//   - enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
+//   - freight-aws-kafka-rbac: _Freight_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC
 //
 // ## Import
 //
