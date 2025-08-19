@@ -9,7 +9,7 @@ replace (
 
 require (
 	github.com/confluentinc/terraform-provider-confluent v1.32.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.111.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.111.1-0.20250819181416-c8dddd79384e
 	github.com/pulumi/pulumi/pkg/v3 v3.185.0
 	github.com/pulumi/pulumi/sdk/v3 v3.185.0
 )
