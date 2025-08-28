@@ -109,8 +109,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Doc { get; private set; } = null!;
 
         /// <summary>
-        /// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-        /// on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
         /// </summary>
         [Output("hardDelete")]
         public Output<bool?> HardDelete { get; private set; } = null!;
@@ -230,8 +229,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Doc { get; set; }
 
         /// <summary>
-        /// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-        /// on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
@@ -315,8 +313,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Doc { get; set; }
 
         /// <summary>
-        /// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-        /// on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }

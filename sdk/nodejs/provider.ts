@@ -30,87 +30,87 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * The Stream Catalog REST Endpoint.
      */
-    public readonly catalogRestEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly catalogRestEndpoint: pulumi.Output<string | undefined>;
     /**
      * The Confluent Cloud API Key.
      */
-    public readonly cloudApiKey!: pulumi.Output<string | undefined>;
+    declare public readonly cloudApiKey: pulumi.Output<string | undefined>;
     /**
      * The Confluent Cloud API Secret.
      */
-    public readonly cloudApiSecret!: pulumi.Output<string | undefined>;
+    declare public readonly cloudApiSecret: pulumi.Output<string | undefined>;
     /**
      * The base endpoint of Confluent Cloud API.
      */
-    public readonly endpoint!: pulumi.Output<string | undefined>;
+    declare public readonly endpoint: pulumi.Output<string | undefined>;
     /**
      * The Flink Environment ID.
      */
-    public readonly environmentId!: pulumi.Output<string | undefined>;
+    declare public readonly environmentId: pulumi.Output<string | undefined>;
     /**
      * The Flink API Key.
      */
-    public readonly flinkApiKey!: pulumi.Output<string | undefined>;
+    declare public readonly flinkApiKey: pulumi.Output<string | undefined>;
     /**
      * The Flink API Secret.
      */
-    public readonly flinkApiSecret!: pulumi.Output<string | undefined>;
+    declare public readonly flinkApiSecret: pulumi.Output<string | undefined>;
     /**
      * The Flink Compute Pool ID.
      */
-    public readonly flinkComputePoolId!: pulumi.Output<string | undefined>;
+    declare public readonly flinkComputePoolId: pulumi.Output<string | undefined>;
     /**
      * The Flink Principal ID.
      */
-    public readonly flinkPrincipalId!: pulumi.Output<string | undefined>;
+    declare public readonly flinkPrincipalId: pulumi.Output<string | undefined>;
     /**
      * The Flink REST Endpoint.
      */
-    public readonly flinkRestEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly flinkRestEndpoint: pulumi.Output<string | undefined>;
     /**
      * The Kafka Cluster API Key.
      */
-    public readonly kafkaApiKey!: pulumi.Output<string | undefined>;
+    declare public readonly kafkaApiKey: pulumi.Output<string | undefined>;
     /**
      * The Kafka Cluster API Secret.
      */
-    public readonly kafkaApiSecret!: pulumi.Output<string | undefined>;
+    declare public readonly kafkaApiSecret: pulumi.Output<string | undefined>;
     /**
      * The Kafka Cluster ID.
      */
-    public readonly kafkaId!: pulumi.Output<string | undefined>;
+    declare public readonly kafkaId: pulumi.Output<string | undefined>;
     /**
      * The Kafka Cluster REST Endpoint.
      */
-    public readonly kafkaRestEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly kafkaRestEndpoint: pulumi.Output<string | undefined>;
     /**
      * The Flink Organization ID.
      */
-    public readonly organizationId!: pulumi.Output<string | undefined>;
+    declare public readonly organizationId: pulumi.Output<string | undefined>;
     /**
      * The Schema Registry Cluster API Key.
      */
-    public readonly schemaRegistryApiKey!: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryApiKey: pulumi.Output<string | undefined>;
     /**
      * The Schema Registry Cluster API Secret.
      */
-    public readonly schemaRegistryApiSecret!: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryApiSecret: pulumi.Output<string | undefined>;
     /**
      * The Schema Registry Cluster ID.
      */
-    public readonly schemaRegistryId!: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryId: pulumi.Output<string | undefined>;
     /**
      * The Schema Registry Cluster REST Endpoint.
      */
-    public readonly schemaRegistryRestEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryRestEndpoint: pulumi.Output<string | undefined>;
     /**
      * The Tableflow API Key.
      */
-    public readonly tableflowApiKey!: pulumi.Output<string | undefined>;
+    declare public readonly tableflowApiKey: pulumi.Output<string | undefined>;
     /**
      * The Tableflow API Secret.
      */
-    public readonly tableflowApiSecret!: pulumi.Output<string | undefined>;
+    declare public readonly tableflowApiSecret: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -123,27 +123,27 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["catalogRestEndpoint"] = args ? args.catalogRestEndpoint : undefined;
+            resourceInputs["catalogRestEndpoint"] = args?.catalogRestEndpoint;
             resourceInputs["cloudApiKey"] = args?.cloudApiKey ? pulumi.secret(args.cloudApiKey) : undefined;
             resourceInputs["cloudApiSecret"] = args?.cloudApiSecret ? pulumi.secret(args.cloudApiSecret) : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["environmentId"] = args?.environmentId;
             resourceInputs["flinkApiKey"] = args?.flinkApiKey ? pulumi.secret(args.flinkApiKey) : undefined;
             resourceInputs["flinkApiSecret"] = args?.flinkApiSecret ? pulumi.secret(args.flinkApiSecret) : undefined;
-            resourceInputs["flinkComputePoolId"] = args ? args.flinkComputePoolId : undefined;
-            resourceInputs["flinkPrincipalId"] = args ? args.flinkPrincipalId : undefined;
-            resourceInputs["flinkRestEndpoint"] = args ? args.flinkRestEndpoint : undefined;
+            resourceInputs["flinkComputePoolId"] = args?.flinkComputePoolId;
+            resourceInputs["flinkPrincipalId"] = args?.flinkPrincipalId;
+            resourceInputs["flinkRestEndpoint"] = args?.flinkRestEndpoint;
             resourceInputs["kafkaApiKey"] = args?.kafkaApiKey ? pulumi.secret(args.kafkaApiKey) : undefined;
             resourceInputs["kafkaApiSecret"] = args?.kafkaApiSecret ? pulumi.secret(args.kafkaApiSecret) : undefined;
-            resourceInputs["kafkaId"] = args ? args.kafkaId : undefined;
-            resourceInputs["kafkaRestEndpoint"] = args ? args.kafkaRestEndpoint : undefined;
-            resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
-            resourceInputs["oauth"] = pulumi.output(args ? args.oauth : undefined).apply(JSON.stringify);
-            resourceInputs["organizationId"] = args ? args.organizationId : undefined;
+            resourceInputs["kafkaId"] = args?.kafkaId;
+            resourceInputs["kafkaRestEndpoint"] = args?.kafkaRestEndpoint;
+            resourceInputs["maxRetries"] = pulumi.output(args?.maxRetries).apply(JSON.stringify);
+            resourceInputs["oauth"] = pulumi.output(args?.oauth).apply(JSON.stringify);
+            resourceInputs["organizationId"] = args?.organizationId;
             resourceInputs["schemaRegistryApiKey"] = args?.schemaRegistryApiKey ? pulumi.secret(args.schemaRegistryApiKey) : undefined;
             resourceInputs["schemaRegistryApiSecret"] = args?.schemaRegistryApiSecret ? pulumi.secret(args.schemaRegistryApiSecret) : undefined;
-            resourceInputs["schemaRegistryId"] = args ? args.schemaRegistryId : undefined;
-            resourceInputs["schemaRegistryRestEndpoint"] = args ? args.schemaRegistryRestEndpoint : undefined;
+            resourceInputs["schemaRegistryId"] = args?.schemaRegistryId;
+            resourceInputs["schemaRegistryRestEndpoint"] = args?.schemaRegistryRestEndpoint;
             resourceInputs["tableflowApiKey"] = args?.tableflowApiKey ? pulumi.secret(args.tableflowApiKey) : undefined;
             resourceInputs["tableflowApiSecret"] = args?.tableflowApiSecret ? pulumi.secret(args.tableflowApiSecret) : undefined;
         }

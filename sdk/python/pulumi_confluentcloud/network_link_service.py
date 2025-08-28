@@ -29,8 +29,7 @@ class NetworkLinkServiceArgs:
         """
         The set of arguments for constructing a NetworkLinkService resource.
         :param pulumi.Input['NetworkLinkServiceEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input['NetworkLinkServiceNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input['NetworkLinkServiceNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] description: The description of the Network Link Service.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Service.
         """
@@ -59,8 +58,7 @@ class NetworkLinkServiceArgs:
     @pulumi.getter
     def network(self) -> pulumi.Input['NetworkLinkServiceNetworkArgs']:
         """
-        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        accounts.
+        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 
@@ -116,8 +114,7 @@ class _NetworkLinkServiceState:
         :param pulumi.Input[_builtins.str] description: The description of the Network Link Service.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Service.
         :param pulumi.Input['NetworkLinkServiceEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input['NetworkLinkServiceNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input['NetworkLinkServiceNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] resource_name: (Required String) The Confluent Resource Name of the Network Link Service.
         """
         if accept is not None:
@@ -182,8 +179,7 @@ class _NetworkLinkServiceState:
     @pulumi.getter
     def network(self) -> Optional[pulumi.Input['NetworkLinkServiceNetworkArgs']]:
         """
-        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        accounts.
+        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 
@@ -281,8 +277,7 @@ class NetworkLinkService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the Network Link Service.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Service.
         :param pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         ...
     @overload
@@ -415,8 +410,7 @@ class NetworkLinkService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the Network Link Service.
         :param pulumi.Input[_builtins.str] display_name: The name of the Network Link Service.
         :param pulumi.Input[Union['NetworkLinkServiceEnvironmentArgs', 'NetworkLinkServiceEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input[Union['NetworkLinkServiceNetworkArgs', 'NetworkLinkServiceNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] resource_name_: (Required String) The Confluent Resource Name of the Network Link Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -464,8 +458,7 @@ class NetworkLinkService(pulumi.CustomResource):
     @pulumi.getter
     def network(self) -> pulumi.Output['outputs.NetworkLinkServiceNetwork']:
         """
-        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        accounts.
+        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 

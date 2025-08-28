@@ -48,8 +48,7 @@ class FlinkConnectionArgs:
         :param pulumi.Input[_builtins.str] aws_session_token: Session token for the type.
         :param pulumi.Input['FlinkConnectionCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] password: Password for the type.
-        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink Connection cluster, for example,
-               `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
         :param pulumi.Input[_builtins.str] service_key: Service Key for the type.
         :param pulumi.Input[_builtins.str] username: Username for the type.
         """
@@ -231,8 +230,7 @@ class FlinkConnectionArgs:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The REST endpoint of the Flink Connection cluster, for example,
-        `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -298,8 +296,7 @@ class _FlinkConnectionState:
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the flink connection.
         :param pulumi.Input[_builtins.str] kind: The object this REST resource represents.
         :param pulumi.Input[_builtins.str] password: Password for the type.
-        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink Connection cluster, for example,
-               `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
         :param pulumi.Input[_builtins.str] service_key: Service Key for the type.
         :param pulumi.Input[_builtins.str] type: The type of the flink connection.
         :param pulumi.Input[_builtins.str] username: Username for the type.
@@ -501,8 +498,7 @@ class _FlinkConnectionState:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The REST endpoint of the Flink Connection cluster, for example,
-        `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -617,8 +613,7 @@ class FlinkConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Flink Connection per organization, environment scope.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the flink connection.
         :param pulumi.Input[_builtins.str] password: Password for the type.
-        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink Connection cluster, for example,
-               `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
         :param pulumi.Input[_builtins.str] service_key: Service Key for the type.
         :param pulumi.Input[_builtins.str] type: The type of the flink connection.
         :param pulumi.Input[_builtins.str] username: Username for the type.
@@ -777,8 +772,7 @@ class FlinkConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the flink connection.
         :param pulumi.Input[_builtins.str] kind: The object this REST resource represents.
         :param pulumi.Input[_builtins.str] password: Password for the type.
-        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink Connection cluster, for example,
-               `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
         :param pulumi.Input[_builtins.str] service_key: Service Key for the type.
         :param pulumi.Input[_builtins.str] type: The type of the flink connection.
         :param pulumi.Input[_builtins.str] username: Username for the type.
@@ -911,8 +905,7 @@ class FlinkConnection(pulumi.CustomResource):
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The REST endpoint of the Flink Connection cluster, for example,
-        `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
         """
         return pulumi.get(self, "rest_endpoint")
 

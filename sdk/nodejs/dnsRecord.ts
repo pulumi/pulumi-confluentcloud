@@ -78,17 +78,17 @@ export class DnsRecord extends pulumi.CustomResource {
     /**
      * The name of the DNS Record.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The fully qualified domain name of the DNS Record.
      */
-    public readonly domain!: pulumi.Output<string>;
+    declare public readonly domain: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.DnsRecordEnvironment>;
-    public readonly gateway!: pulumi.Output<outputs.DnsRecordGateway>;
-    public readonly privateLinkAccessPoint!: pulumi.Output<outputs.DnsRecordPrivateLinkAccessPoint | undefined>;
+    declare public readonly environment: pulumi.Output<outputs.DnsRecordEnvironment>;
+    declare public readonly gateway: pulumi.Output<outputs.DnsRecordGateway>;
+    declare public readonly privateLinkAccessPoint: pulumi.Output<outputs.DnsRecordPrivateLinkAccessPoint | undefined>;
 
     /**
      * Create a DnsRecord resource with the given unique name, arguments, and options.
@@ -103,27 +103,27 @@ export class DnsRecord extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DnsRecordState | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["domain"] = state ? state.domain : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["gateway"] = state ? state.gateway : undefined;
-            resourceInputs["privateLinkAccessPoint"] = state ? state.privateLinkAccessPoint : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["domain"] = state?.domain;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["gateway"] = state?.gateway;
+            resourceInputs["privateLinkAccessPoint"] = state?.privateLinkAccessPoint;
         } else {
             const args = argsOrState as DnsRecordArgs | undefined;
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.gateway === undefined) && !opts.urn) {
+            if (args?.gateway === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gateway'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["gateway"] = args ? args.gateway : undefined;
-            resourceInputs["privateLinkAccessPoint"] = args ? args.privateLinkAccessPoint : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["gateway"] = args?.gateway;
+            resourceInputs["privateLinkAccessPoint"] = args?.privateLinkAccessPoint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DnsRecord.__pulumiType, name, resourceInputs, opts);

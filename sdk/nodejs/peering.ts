@@ -163,22 +163,21 @@ export class Peering extends pulumi.CustomResource {
         return obj['__pulumiType'] === Peering.__pulumiType;
     }
 
-    public readonly aws!: pulumi.Output<outputs.PeeringAws | undefined>;
-    public readonly azure!: pulumi.Output<outputs.PeeringAzure | undefined>;
+    declare public readonly aws: pulumi.Output<outputs.PeeringAws | undefined>;
+    declare public readonly azure: pulumi.Output<outputs.PeeringAzure | undefined>;
     /**
      * The name of the Peering.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.PeeringEnvironment>;
-    public readonly gcp!: pulumi.Output<outputs.PeeringGcp | undefined>;
+    declare public readonly environment: pulumi.Output<outputs.PeeringEnvironment>;
+    declare public readonly gcp: pulumi.Output<outputs.PeeringGcp | undefined>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
-    public readonly network!: pulumi.Output<outputs.PeeringNetwork>;
+    declare public readonly network: pulumi.Output<outputs.PeeringNetwork>;
 
     /**
      * Create a Peering resource with the given unique name, arguments, and options.
@@ -193,26 +192,26 @@ export class Peering extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PeeringState | undefined;
-            resourceInputs["aws"] = state ? state.aws : undefined;
-            resourceInputs["azure"] = state ? state.azure : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["gcp"] = state ? state.gcp : undefined;
-            resourceInputs["network"] = state ? state.network : undefined;
+            resourceInputs["aws"] = state?.aws;
+            resourceInputs["azure"] = state?.azure;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["gcp"] = state?.gcp;
+            resourceInputs["network"] = state?.network;
         } else {
             const args = argsOrState as PeeringArgs | undefined;
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.network === undefined) && !opts.urn) {
+            if (args?.network === undefined && !opts.urn) {
                 throw new Error("Missing required property 'network'");
             }
-            resourceInputs["aws"] = args ? args.aws : undefined;
-            resourceInputs["azure"] = args ? args.azure : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["gcp"] = args ? args.gcp : undefined;
-            resourceInputs["network"] = args ? args.network : undefined;
+            resourceInputs["aws"] = args?.aws;
+            resourceInputs["azure"] = args?.azure;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["gcp"] = args?.gcp;
+            resourceInputs["network"] = args?.network;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Peering.__pulumiType, name, resourceInputs, opts);
@@ -235,8 +234,7 @@ export interface PeeringState {
     environment?: pulumi.Input<inputs.PeeringEnvironment>;
     gcp?: pulumi.Input<inputs.PeeringGcp>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     network?: pulumi.Input<inputs.PeeringNetwork>;
 }
@@ -257,8 +255,7 @@ export interface PeeringArgs {
     environment: pulumi.Input<inputs.PeeringEnvironment>;
     gcp?: pulumi.Input<inputs.PeeringGcp>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     network: pulumi.Input<inputs.PeeringNetwork>;
 }

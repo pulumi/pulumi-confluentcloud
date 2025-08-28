@@ -65,16 +65,14 @@ public final class NetworkLinkEndpointArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      * 
      */
     @Import(name="network", required=true)
     private Output<NetworkLinkEndpointNetworkArgs> network;
 
     /**
-     * @return Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * @return Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      * 
      */
     public Output<NetworkLinkEndpointNetworkArgs> network() {
@@ -180,8 +178,7 @@ public final class NetworkLinkEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param network Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-         * accounts.
+         * @param network Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
          * 
          * @return builder
          * 
@@ -192,8 +189,7 @@ public final class NetworkLinkEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param network Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-         * accounts.
+         * @param network Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
          * 
          * @return builder
          * 

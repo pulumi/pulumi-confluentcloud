@@ -91,16 +91,16 @@ export class RoleBinding extends pulumi.CustomResource {
     /**
      * A [Confluent Resource Name (CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
      */
-    public readonly crnPattern!: pulumi.Output<string>;
-    public readonly disableWaitForReady!: pulumi.Output<boolean | undefined>;
+    declare public readonly crnPattern: pulumi.Output<string>;
+    declare public readonly disableWaitForReady: pulumi.Output<boolean | undefined>;
     /**
      * A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * A name of the role to bind to the principal. See [Confluent Cloud RBAC Roles](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#ccloud-rbac-roles) for a full list of supported role names.
      */
-    public readonly roleName!: pulumi.Output<string>;
+    declare public readonly roleName: pulumi.Output<string>;
 
     /**
      * Create a RoleBinding resource with the given unique name, arguments, and options.
@@ -115,25 +115,25 @@ export class RoleBinding extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleBindingState | undefined;
-            resourceInputs["crnPattern"] = state ? state.crnPattern : undefined;
-            resourceInputs["disableWaitForReady"] = state ? state.disableWaitForReady : undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["roleName"] = state ? state.roleName : undefined;
+            resourceInputs["crnPattern"] = state?.crnPattern;
+            resourceInputs["disableWaitForReady"] = state?.disableWaitForReady;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["roleName"] = state?.roleName;
         } else {
             const args = argsOrState as RoleBindingArgs | undefined;
-            if ((!args || args.crnPattern === undefined) && !opts.urn) {
+            if (args?.crnPattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'crnPattern'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.roleName === undefined) && !opts.urn) {
+            if (args?.roleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            resourceInputs["crnPattern"] = args ? args.crnPattern : undefined;
-            resourceInputs["disableWaitForReady"] = args ? args.disableWaitForReady : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["crnPattern"] = args?.crnPattern;
+            resourceInputs["disableWaitForReady"] = args?.disableWaitForReady;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["roleName"] = args?.roleName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RoleBinding.__pulumiType, name, resourceInputs, opts);

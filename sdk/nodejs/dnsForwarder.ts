@@ -86,18 +86,18 @@ export class DnsForwarder extends pulumi.CustomResource {
     /**
      * The name of the DNS Forwarder.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * List of domains for the DNS forwarder to use.
      */
-    public readonly domains!: pulumi.Output<string[]>;
+    declare public readonly domains: pulumi.Output<string[]>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.DnsForwarderEnvironment>;
-    public readonly forwardViaGcpDnsZones!: pulumi.Output<outputs.DnsForwarderForwardViaGcpDnsZones | undefined>;
-    public readonly forwardViaIp!: pulumi.Output<outputs.DnsForwarderForwardViaIp | undefined>;
-    public readonly gateway!: pulumi.Output<outputs.DnsForwarderGateway>;
+    declare public readonly environment: pulumi.Output<outputs.DnsForwarderEnvironment>;
+    declare public readonly forwardViaGcpDnsZones: pulumi.Output<outputs.DnsForwarderForwardViaGcpDnsZones | undefined>;
+    declare public readonly forwardViaIp: pulumi.Output<outputs.DnsForwarderForwardViaIp | undefined>;
+    declare public readonly gateway: pulumi.Output<outputs.DnsForwarderGateway>;
 
     /**
      * Create a DnsForwarder resource with the given unique name, arguments, and options.
@@ -112,29 +112,29 @@ export class DnsForwarder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DnsForwarderState | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["domains"] = state ? state.domains : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["forwardViaGcpDnsZones"] = state ? state.forwardViaGcpDnsZones : undefined;
-            resourceInputs["forwardViaIp"] = state ? state.forwardViaIp : undefined;
-            resourceInputs["gateway"] = state ? state.gateway : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["domains"] = state?.domains;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["forwardViaGcpDnsZones"] = state?.forwardViaGcpDnsZones;
+            resourceInputs["forwardViaIp"] = state?.forwardViaIp;
+            resourceInputs["gateway"] = state?.gateway;
         } else {
             const args = argsOrState as DnsForwarderArgs | undefined;
-            if ((!args || args.domains === undefined) && !opts.urn) {
+            if (args?.domains === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domains'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.gateway === undefined) && !opts.urn) {
+            if (args?.gateway === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gateway'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["domains"] = args ? args.domains : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["forwardViaGcpDnsZones"] = args ? args.forwardViaGcpDnsZones : undefined;
-            resourceInputs["forwardViaIp"] = args ? args.forwardViaIp : undefined;
-            resourceInputs["gateway"] = args ? args.gateway : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["domains"] = args?.domains;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["forwardViaGcpDnsZones"] = args?.forwardViaGcpDnsZones;
+            resourceInputs["forwardViaIp"] = args?.forwardViaIp;
+            resourceInputs["gateway"] = args?.gateway;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DnsForwarder.__pulumiType, name, resourceInputs, opts);

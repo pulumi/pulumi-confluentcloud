@@ -150,40 +150,40 @@ export class KafkaAcl extends pulumi.CustomResource {
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.KafkaAclCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.KafkaAclCredentials | undefined>;
     /**
      * The host for the ACL.
      */
-    public readonly host!: pulumi.Output<string>;
-    public readonly kafkaCluster!: pulumi.Output<outputs.KafkaAclKafkaCluster | undefined>;
+    declare public readonly host: pulumi.Output<string>;
+    declare public readonly kafkaCluster: pulumi.Output<outputs.KafkaAclKafkaCluster | undefined>;
     /**
      * The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
      */
-    public readonly operation!: pulumi.Output<string>;
+    declare public readonly operation: pulumi.Output<string>;
     /**
      * The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
      */
-    public readonly patternType!: pulumi.Output<string>;
+    declare public readonly patternType: pulumi.Output<string>;
     /**
      * The permission for the ACL. Accepted values are: `DENY` and `ALLOW`.
      */
-    public readonly permission!: pulumi.Output<string>;
+    declare public readonly permission: pulumi.Output<string>;
     /**
      * The principal for the ACL.
      */
-    public readonly principal!: pulumi.Output<string>;
+    declare public readonly principal: pulumi.Output<string>;
     /**
      * The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
      */
-    public readonly resourceName!: pulumi.Output<string>;
+    declare public readonly resourceName: pulumi.Output<string>;
     /**
      * The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
      */
-    public readonly resourceType!: pulumi.Output<string>;
+    declare public readonly resourceType: pulumi.Output<string>;
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
 
     /**
      * Create a KafkaAcl resource with the given unique name, arguments, and options.
@@ -198,49 +198,49 @@ export class KafkaAcl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KafkaAclState | undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["host"] = state ? state.host : undefined;
-            resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
-            resourceInputs["operation"] = state ? state.operation : undefined;
-            resourceInputs["patternType"] = state ? state.patternType : undefined;
-            resourceInputs["permission"] = state ? state.permission : undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["resourceName"] = state ? state.resourceName : undefined;
-            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["host"] = state?.host;
+            resourceInputs["kafkaCluster"] = state?.kafkaCluster;
+            resourceInputs["operation"] = state?.operation;
+            resourceInputs["patternType"] = state?.patternType;
+            resourceInputs["permission"] = state?.permission;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["resourceName"] = state?.resourceName;
+            resourceInputs["resourceType"] = state?.resourceType;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
         } else {
             const args = argsOrState as KafkaAclArgs | undefined;
-            if ((!args || args.host === undefined) && !opts.urn) {
+            if (args?.host === undefined && !opts.urn) {
                 throw new Error("Missing required property 'host'");
             }
-            if ((!args || args.operation === undefined) && !opts.urn) {
+            if (args?.operation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'operation'");
             }
-            if ((!args || args.patternType === undefined) && !opts.urn) {
+            if (args?.patternType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'patternType'");
             }
-            if ((!args || args.permission === undefined) && !opts.urn) {
+            if (args?.permission === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permission'");
             }
-            if ((!args || args.principal === undefined) && !opts.urn) {
+            if (args?.principal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
-            resourceInputs["operation"] = args ? args.operation : undefined;
-            resourceInputs["patternType"] = args ? args.patternType : undefined;
-            resourceInputs["permission"] = args ? args.permission : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
+            resourceInputs["host"] = args?.host;
+            resourceInputs["kafkaCluster"] = args?.kafkaCluster;
+            resourceInputs["operation"] = args?.operation;
+            resourceInputs["patternType"] = args?.patternType;
+            resourceInputs["permission"] = args?.permission;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };

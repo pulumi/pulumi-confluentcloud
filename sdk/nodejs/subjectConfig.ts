@@ -90,20 +90,20 @@ export class SubjectConfig extends pulumi.CustomResource {
     /**
      * The Compatibility Group of the specified subject.
      */
-    public readonly compatibilityGroup!: pulumi.Output<string>;
+    declare public readonly compatibilityGroup: pulumi.Output<string>;
     /**
      * The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
-    public readonly compatibilityLevel!: pulumi.Output<string>;
+    declare public readonly compatibilityLevel: pulumi.Output<string>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.SubjectConfigCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.SubjectConfigCredentials | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly schemaRegistryCluster!: pulumi.Output<outputs.SubjectConfigSchemaRegistryCluster | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryCluster: pulumi.Output<outputs.SubjectConfigSchemaRegistryCluster | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
      *
@@ -111,7 +111,7 @@ export class SubjectConfig extends pulumi.CustomResource {
      *
      * > **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subjectName = ":.context1:"`.
      */
-    public readonly subjectName!: pulumi.Output<string>;
+    declare public readonly subjectName: pulumi.Output<string>;
 
     /**
      * Create a SubjectConfig resource with the given unique name, arguments, and options.
@@ -126,23 +126,23 @@ export class SubjectConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubjectConfigState | undefined;
-            resourceInputs["compatibilityGroup"] = state ? state.compatibilityGroup : undefined;
-            resourceInputs["compatibilityLevel"] = state ? state.compatibilityLevel : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
-            resourceInputs["subjectName"] = state ? state.subjectName : undefined;
+            resourceInputs["compatibilityGroup"] = state?.compatibilityGroup;
+            resourceInputs["compatibilityLevel"] = state?.compatibilityLevel;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
+            resourceInputs["subjectName"] = state?.subjectName;
         } else {
             const args = argsOrState as SubjectConfigArgs | undefined;
-            if ((!args || args.subjectName === undefined) && !opts.urn) {
+            if (args?.subjectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subjectName'");
             }
-            resourceInputs["compatibilityGroup"] = args ? args.compatibilityGroup : undefined;
-            resourceInputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
+            resourceInputs["compatibilityGroup"] = args?.compatibilityGroup;
+            resourceInputs["compatibilityLevel"] = args?.compatibilityLevel;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
-            resourceInputs["subjectName"] = args ? args.subjectName : undefined;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
+            resourceInputs["subjectName"] = args?.subjectName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };

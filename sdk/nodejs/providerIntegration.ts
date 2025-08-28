@@ -80,19 +80,19 @@ export class ProviderIntegration extends pulumi.CustomResource {
     /**
      * (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
      */
-    public readonly aws!: pulumi.Output<outputs.ProviderIntegrationAws | undefined>;
+    declare public readonly aws: pulumi.Output<outputs.ProviderIntegrationAws | undefined>;
     /**
      * The name of the Provider Integration.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.ProviderIntegrationEnvironment>;
+    declare public readonly environment: pulumi.Output<outputs.ProviderIntegrationEnvironment>;
     /**
      * (Required List of Strings) List of resource CRNs where this provider integration is being used.
      */
-    public /*out*/ readonly usages!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly usages: pulumi.Output<string[]>;
 
     /**
      * Create a ProviderIntegration resource with the given unique name, arguments, and options.
@@ -107,21 +107,21 @@ export class ProviderIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProviderIntegrationState | undefined;
-            resourceInputs["aws"] = state ? state.aws : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["usages"] = state ? state.usages : undefined;
+            resourceInputs["aws"] = state?.aws;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["usages"] = state?.usages;
         } else {
             const args = argsOrState as ProviderIntegrationArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            resourceInputs["aws"] = args ? args.aws : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["aws"] = args?.aws;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
             resourceInputs["usages"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

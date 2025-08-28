@@ -76,8 +76,7 @@ type NetworkLinkEndpoint struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkLinkEndpointEnvironmentOutput `pulumi:"environment"`
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network            NetworkLinkEndpointNetworkOutput            `pulumi:"network"`
 	NetworkLinkService NetworkLinkEndpointNetworkLinkServiceOutput `pulumi:"networkLinkService"`
 	// (Required String) The Confluent Resource Name of the Network Link Endpoint.
@@ -129,8 +128,7 @@ type networkLinkEndpointState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *NetworkLinkEndpointEnvironment `pulumi:"environment"`
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network            *NetworkLinkEndpointNetwork            `pulumi:"network"`
 	NetworkLinkService *NetworkLinkEndpointNetworkLinkService `pulumi:"networkLinkService"`
 	// (Required String) The Confluent Resource Name of the Network Link Endpoint.
@@ -144,8 +142,7 @@ type NetworkLinkEndpointState struct {
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkLinkEndpointEnvironmentPtrInput
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network            NetworkLinkEndpointNetworkPtrInput
 	NetworkLinkService NetworkLinkEndpointNetworkLinkServicePtrInput
 	// (Required String) The Confluent Resource Name of the Network Link Endpoint.
@@ -163,8 +160,7 @@ type networkLinkEndpointArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkLinkEndpointEnvironment `pulumi:"environment"`
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network            NetworkLinkEndpointNetwork            `pulumi:"network"`
 	NetworkLinkService NetworkLinkEndpointNetworkLinkService `pulumi:"networkLinkService"`
 }
@@ -177,8 +173,7 @@ type NetworkLinkEndpointArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkLinkEndpointEnvironmentInput
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network            NetworkLinkEndpointNetworkInput
 	NetworkLinkService NetworkLinkEndpointNetworkLinkServiceInput
 }
@@ -285,8 +280,7 @@ func (o NetworkLinkEndpointOutput) Environment() NetworkLinkEndpointEnvironmentO
 	return o.ApplyT(func(v *NetworkLinkEndpoint) NetworkLinkEndpointEnvironmentOutput { return v.Environment }).(NetworkLinkEndpointEnvironmentOutput)
 }
 
-// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-// accounts.
+// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 func (o NetworkLinkEndpointOutput) Network() NetworkLinkEndpointNetworkOutput {
 	return o.ApplyT(func(v *NetworkLinkEndpoint) NetworkLinkEndpointNetworkOutput { return v.Network }).(NetworkLinkEndpointNetworkOutput)
 }

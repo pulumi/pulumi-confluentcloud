@@ -102,16 +102,16 @@ export class KafkaClusterConfig extends pulumi.CustomResource {
     /**
      * The custom cluster settings to set:
      */
-    public readonly config!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly config: pulumi.Output<{[key: string]: string}>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.KafkaClusterConfigCredentials | undefined>;
-    public readonly kafkaCluster!: pulumi.Output<outputs.KafkaClusterConfigKafkaCluster | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.KafkaClusterConfigCredentials | undefined>;
+    declare public readonly kafkaCluster: pulumi.Output<outputs.KafkaClusterConfigKafkaCluster | undefined>;
     /**
      * The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
 
     /**
      * Create a KafkaClusterConfig resource with the given unique name, arguments, and options.
@@ -126,19 +126,19 @@ export class KafkaClusterConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KafkaClusterConfigState | undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["kafkaCluster"] = state?.kafkaCluster;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
         } else {
             const args = argsOrState as KafkaClusterConfigArgs | undefined;
-            if ((!args || args.config === undefined) && !opts.urn) {
+            if (args?.config === undefined && !opts.urn) {
                 throw new Error("Missing required property 'config'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
+            resourceInputs["config"] = args?.config;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
+            resourceInputs["kafkaCluster"] = args?.kafkaCluster;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };

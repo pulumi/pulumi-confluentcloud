@@ -149,24 +149,24 @@ export class CatalogEntityAttributes extends pulumi.CustomResource {
     /**
      * The attributes.
      */
-    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly attributes: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.CatalogEntityAttributesCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.CatalogEntityAttributesCredentials | undefined>;
     /**
      * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
      */
-    public readonly entityName!: pulumi.Output<string>;
+    declare public readonly entityName: pulumi.Output<string>;
     /**
      * The entity type, for example, `cfEnvironment`, `kafkaLogicalCluster`, `kafkaTopic`, `srSchema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to see the full list of supported values for the `entityType` attribute.
      */
-    public readonly entityType!: pulumi.Output<string>;
+    declare public readonly entityType: pulumi.Output<string>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly schemaRegistryCluster!: pulumi.Output<outputs.CatalogEntityAttributesSchemaRegistryCluster | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryCluster: pulumi.Output<outputs.CatalogEntityAttributesSchemaRegistryCluster | undefined>;
 
     /**
      * Create a CatalogEntityAttributes resource with the given unique name, arguments, and options.
@@ -181,26 +181,26 @@ export class CatalogEntityAttributes extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CatalogEntityAttributesState | undefined;
-            resourceInputs["attributes"] = state ? state.attributes : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["entityName"] = state ? state.entityName : undefined;
-            resourceInputs["entityType"] = state ? state.entityType : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
+            resourceInputs["attributes"] = state?.attributes;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["entityName"] = state?.entityName;
+            resourceInputs["entityType"] = state?.entityType;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
         } else {
             const args = argsOrState as CatalogEntityAttributesArgs | undefined;
-            if ((!args || args.entityName === undefined) && !opts.urn) {
+            if (args?.entityName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityName'");
             }
-            if ((!args || args.entityType === undefined) && !opts.urn) {
+            if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["attributes"] = args?.attributes;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["entityName"] = args ? args.entityName : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
+            resourceInputs["entityName"] = args?.entityName;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };

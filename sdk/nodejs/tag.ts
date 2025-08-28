@@ -98,28 +98,28 @@ export class Tag extends pulumi.CustomResource {
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.TagCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.TagCredentials | undefined>;
     /**
      * The description of the tag to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * (Optional List of String) The entity types of the tag, this always returns `["cfEntity"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      */
-    public /*out*/ readonly entityTypes!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly entityTypes: pulumi.Output<string[]>;
     /**
      * The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly schemaRegistryCluster!: pulumi.Output<outputs.TagSchemaRegistryCluster | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryCluster: pulumi.Output<outputs.TagSchemaRegistryCluster | undefined>;
     /**
      * (Optional Integer) The version, for example, `1`.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a Tag resource with the given unique name, arguments, and options.
@@ -134,20 +134,20 @@ export class Tag extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagState | undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["entityTypes"] = state ? state.entityTypes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["entityTypes"] = state?.entityTypes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as TagArgs | undefined;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
             resourceInputs["entityTypes"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }

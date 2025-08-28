@@ -74,64 +74,63 @@ export class FlinkConnection extends pulumi.CustomResource {
     /**
      * API key for the type.
      */
-    public readonly apiKey!: pulumi.Output<string | undefined>;
+    declare public readonly apiKey: pulumi.Output<string | undefined>;
     /**
      * The schema version of this representation of a resource.
      */
-    public /*out*/ readonly apiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiVersion: pulumi.Output<string>;
     /**
      * Access key for the type.
      */
-    public readonly awsAccessKey!: pulumi.Output<string | undefined>;
+    declare public readonly awsAccessKey: pulumi.Output<string | undefined>;
     /**
      * Secret key for the type.
      */
-    public readonly awsSecretKey!: pulumi.Output<string | undefined>;
+    declare public readonly awsSecretKey: pulumi.Output<string | undefined>;
     /**
      * Session token for the type.
      */
-    public readonly awsSessionToken!: pulumi.Output<string | undefined>;
-    public readonly computePool!: pulumi.Output<outputs.FlinkConnectionComputePool>;
+    declare public readonly awsSessionToken: pulumi.Output<string | undefined>;
+    declare public readonly computePool: pulumi.Output<outputs.FlinkConnectionComputePool>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.FlinkConnectionCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.FlinkConnectionCredentials | undefined>;
     /**
      * The unique name of the Flink Connection per organization, environment scope.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The endpoint of the flink connection.
      */
-    public readonly endpoint!: pulumi.Output<string>;
-    public readonly environment!: pulumi.Output<outputs.FlinkConnectionEnvironment>;
+    declare public readonly endpoint: pulumi.Output<string>;
+    declare public readonly environment: pulumi.Output<outputs.FlinkConnectionEnvironment>;
     /**
      * The object this REST resource represents.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
-    public readonly organization!: pulumi.Output<outputs.FlinkConnectionOrganization>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
+    declare public readonly organization: pulumi.Output<outputs.FlinkConnectionOrganization>;
     /**
      * Password for the type.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
-    public readonly principal!: pulumi.Output<outputs.FlinkConnectionPrincipal>;
+    declare public readonly password: pulumi.Output<string | undefined>;
+    declare public readonly principal: pulumi.Output<outputs.FlinkConnectionPrincipal>;
     /**
-     * The REST endpoint of the Flink Connection cluster, for example,
-     * `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
     /**
      * Service Key for the type.
      */
-    public readonly serviceKey!: pulumi.Output<string | undefined>;
+    declare public readonly serviceKey: pulumi.Output<string | undefined>;
     /**
      * The type of the flink connection.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Username for the type.
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
 
     /**
      * Create a FlinkConnection resource with the given unique name, arguments, and options.
@@ -146,51 +145,51 @@ export class FlinkConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlinkConnectionState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["apiVersion"] = state ? state.apiVersion : undefined;
-            resourceInputs["awsAccessKey"] = state ? state.awsAccessKey : undefined;
-            resourceInputs["awsSecretKey"] = state ? state.awsSecretKey : undefined;
-            resourceInputs["awsSessionToken"] = state ? state.awsSessionToken : undefined;
-            resourceInputs["computePool"] = state ? state.computePool : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["organization"] = state ? state.organization : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["serviceKey"] = state ? state.serviceKey : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["apiVersion"] = state?.apiVersion;
+            resourceInputs["awsAccessKey"] = state?.awsAccessKey;
+            resourceInputs["awsSecretKey"] = state?.awsSecretKey;
+            resourceInputs["awsSessionToken"] = state?.awsSessionToken;
+            resourceInputs["computePool"] = state?.computePool;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["organization"] = state?.organization;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["serviceKey"] = state?.serviceKey;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as FlinkConnectionArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.endpoint === undefined) && !opts.urn) {
+            if (args?.endpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpoint'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
-            resourceInputs["awsAccessKey"] = args ? args.awsAccessKey : undefined;
-            resourceInputs["awsSecretKey"] = args ? args.awsSecretKey : undefined;
-            resourceInputs["awsSessionToken"] = args ? args.awsSessionToken : undefined;
-            resourceInputs["computePool"] = args ? args.computePool : undefined;
+            resourceInputs["apiKey"] = args?.apiKey;
+            resourceInputs["awsAccessKey"] = args?.awsAccessKey;
+            resourceInputs["awsSecretKey"] = args?.awsSecretKey;
+            resourceInputs["awsSessionToken"] = args?.awsSessionToken;
+            resourceInputs["computePool"] = args?.computePool;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["organization"] = args ? args.organization : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["serviceKey"] = args ? args.serviceKey : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["organization"] = args?.organization;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["serviceKey"] = args?.serviceKey;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["username"] = args?.username;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
         }
@@ -250,8 +249,7 @@ export interface FlinkConnectionState {
     password?: pulumi.Input<string>;
     principal?: pulumi.Input<inputs.FlinkConnectionPrincipal>;
     /**
-     * The REST endpoint of the Flink Connection cluster, for example,
-     * `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
      */
     restEndpoint?: pulumi.Input<string>;
     /**
@@ -309,8 +307,7 @@ export interface FlinkConnectionArgs {
     password?: pulumi.Input<string>;
     principal?: pulumi.Input<inputs.FlinkConnectionPrincipal>;
     /**
-     * The REST endpoint of the Flink Connection cluster, for example,
-     * `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
      */
     restEndpoint?: pulumi.Input<string>;
     /**

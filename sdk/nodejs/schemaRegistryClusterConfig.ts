@@ -87,20 +87,20 @@ export class SchemaRegistryClusterConfig extends pulumi.CustomResource {
     /**
      * The global Schema Registry compatibility group.
      */
-    public readonly compatibilityGroup!: pulumi.Output<string>;
+    declare public readonly compatibilityGroup: pulumi.Output<string>;
     /**
      * The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
-    public readonly compatibilityLevel!: pulumi.Output<string>;
+    declare public readonly compatibilityLevel: pulumi.Output<string>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.SchemaRegistryClusterConfigCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.SchemaRegistryClusterConfigCredentials | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaRegistryClusterConfigSchemaRegistryCluster | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryCluster: pulumi.Output<outputs.SchemaRegistryClusterConfigSchemaRegistryCluster | undefined>;
 
     /**
      * Create a SchemaRegistryClusterConfig resource with the given unique name, arguments, and options.
@@ -115,18 +115,18 @@ export class SchemaRegistryClusterConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SchemaRegistryClusterConfigState | undefined;
-            resourceInputs["compatibilityGroup"] = state ? state.compatibilityGroup : undefined;
-            resourceInputs["compatibilityLevel"] = state ? state.compatibilityLevel : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
+            resourceInputs["compatibilityGroup"] = state?.compatibilityGroup;
+            resourceInputs["compatibilityLevel"] = state?.compatibilityLevel;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
         } else {
             const args = argsOrState as SchemaRegistryClusterConfigArgs | undefined;
-            resourceInputs["compatibilityGroup"] = args ? args.compatibilityGroup : undefined;
-            resourceInputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
+            resourceInputs["compatibilityGroup"] = args?.compatibilityGroup;
+            resourceInputs["compatibilityLevel"] = args?.compatibilityLevel;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };

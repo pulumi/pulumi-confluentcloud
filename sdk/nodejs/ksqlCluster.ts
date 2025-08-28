@@ -58,45 +58,45 @@ export class KsqlCluster extends pulumi.CustomResource {
     /**
      * (Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.
      */
-    public /*out*/ readonly apiVersion!: pulumi.Output<string>;
-    public readonly credentialIdentity!: pulumi.Output<outputs.KsqlClusterCredentialIdentity>;
+    declare public /*out*/ readonly apiVersion: pulumi.Output<string>;
+    declare public readonly credentialIdentity: pulumi.Output<outputs.KsqlClusterCredentialIdentity>;
     /**
      * The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.
      */
-    public readonly csu!: pulumi.Output<number>;
+    declare public readonly csu: pulumi.Output<number>;
     /**
      * The name of the ksqlDB cluster.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.KsqlClusterEnvironment>;
-    public readonly kafkaCluster!: pulumi.Output<outputs.KsqlClusterKafkaCluster>;
+    declare public readonly environment: pulumi.Output<outputs.KsqlClusterEnvironment>;
+    declare public readonly kafkaCluster: pulumi.Output<outputs.KsqlClusterKafkaCluster>;
     /**
      * (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * (Required String) The Confluent Resource Name of the ksqlDB cluster.
      */
-    public /*out*/ readonly resourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceName: pulumi.Output<string>;
     /**
      * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
      */
-    public /*out*/ readonly restEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly restEndpoint: pulumi.Output<string>;
     /**
      * (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
      */
-    public /*out*/ readonly storage!: pulumi.Output<number>;
+    declare public /*out*/ readonly storage: pulumi.Output<number>;
     /**
      * (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
      */
-    public /*out*/ readonly topicPrefix!: pulumi.Output<string>;
+    declare public /*out*/ readonly topicPrefix: pulumi.Output<string>;
     /**
      * Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
      */
-    public readonly useDetailedProcessingLog!: pulumi.Output<boolean | undefined>;
+    declare public readonly useDetailedProcessingLog: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a KsqlCluster resource with the given unique name, arguments, and options.
@@ -111,41 +111,41 @@ export class KsqlCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KsqlClusterState | undefined;
-            resourceInputs["apiVersion"] = state ? state.apiVersion : undefined;
-            resourceInputs["credentialIdentity"] = state ? state.credentialIdentity : undefined;
-            resourceInputs["csu"] = state ? state.csu : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["resourceName"] = state ? state.resourceName : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["storage"] = state ? state.storage : undefined;
-            resourceInputs["topicPrefix"] = state ? state.topicPrefix : undefined;
-            resourceInputs["useDetailedProcessingLog"] = state ? state.useDetailedProcessingLog : undefined;
+            resourceInputs["apiVersion"] = state?.apiVersion;
+            resourceInputs["credentialIdentity"] = state?.credentialIdentity;
+            resourceInputs["csu"] = state?.csu;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["kafkaCluster"] = state?.kafkaCluster;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["resourceName"] = state?.resourceName;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["storage"] = state?.storage;
+            resourceInputs["topicPrefix"] = state?.topicPrefix;
+            resourceInputs["useDetailedProcessingLog"] = state?.useDetailedProcessingLog;
         } else {
             const args = argsOrState as KsqlClusterArgs | undefined;
-            if ((!args || args.credentialIdentity === undefined) && !opts.urn) {
+            if (args?.credentialIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'credentialIdentity'");
             }
-            if ((!args || args.csu === undefined) && !opts.urn) {
+            if (args?.csu === undefined && !opts.urn) {
                 throw new Error("Missing required property 'csu'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.kafkaCluster === undefined) && !opts.urn) {
+            if (args?.kafkaCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaCluster'");
             }
-            resourceInputs["credentialIdentity"] = args ? args.credentialIdentity : undefined;
-            resourceInputs["csu"] = args ? args.csu : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
-            resourceInputs["useDetailedProcessingLog"] = args ? args.useDetailedProcessingLog : undefined;
+            resourceInputs["credentialIdentity"] = args?.credentialIdentity;
+            resourceInputs["csu"] = args?.csu;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["kafkaCluster"] = args?.kafkaCluster;
+            resourceInputs["useDetailedProcessingLog"] = args?.useDetailedProcessingLog;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["resourceName"] = undefined /*out*/;

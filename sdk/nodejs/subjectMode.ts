@@ -88,24 +88,24 @@ export class SubjectMode extends pulumi.CustomResource {
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.SubjectModeCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.SubjectModeCredentials | undefined>;
     /**
      * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
      */
-    public readonly force!: pulumi.Output<boolean | undefined>;
+    declare public readonly force: pulumi.Output<boolean | undefined>;
     /**
      * The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly schemaRegistryCluster!: pulumi.Output<outputs.SubjectModeSchemaRegistryCluster | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryCluster: pulumi.Output<outputs.SubjectModeSchemaRegistryCluster | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
      */
-    public readonly subjectName!: pulumi.Output<string>;
+    declare public readonly subjectName: pulumi.Output<string>;
 
     /**
      * Create a SubjectMode resource with the given unique name, arguments, and options.
@@ -120,23 +120,23 @@ export class SubjectMode extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubjectModeState | undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["force"] = state ? state.force : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
-            resourceInputs["subjectName"] = state ? state.subjectName : undefined;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["force"] = state?.force;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
+            resourceInputs["subjectName"] = state?.subjectName;
         } else {
             const args = argsOrState as SubjectModeArgs | undefined;
-            if ((!args || args.subjectName === undefined) && !opts.urn) {
+            if (args?.subjectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subjectName'");
             }
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["force"] = args ? args.force : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
-            resourceInputs["subjectName"] = args ? args.subjectName : undefined;
+            resourceInputs["force"] = args?.force;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
+            resourceInputs["subjectName"] = args?.subjectName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };

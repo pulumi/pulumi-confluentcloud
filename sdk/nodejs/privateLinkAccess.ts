@@ -161,22 +161,21 @@ export class PrivateLinkAccess extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateLinkAccess.__pulumiType;
     }
 
-    public readonly aws!: pulumi.Output<outputs.PrivateLinkAccessAws | undefined>;
-    public readonly azure!: pulumi.Output<outputs.PrivateLinkAccessAzure | undefined>;
+    declare public readonly aws: pulumi.Output<outputs.PrivateLinkAccessAws | undefined>;
+    declare public readonly azure: pulumi.Output<outputs.PrivateLinkAccessAzure | undefined>;
     /**
      * The name of the Private Link Access.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.PrivateLinkAccessEnvironment>;
-    public readonly gcp!: pulumi.Output<outputs.PrivateLinkAccessGcp | undefined>;
+    declare public readonly environment: pulumi.Output<outputs.PrivateLinkAccessEnvironment>;
+    declare public readonly gcp: pulumi.Output<outputs.PrivateLinkAccessGcp | undefined>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
-    public readonly network!: pulumi.Output<outputs.PrivateLinkAccessNetwork>;
+    declare public readonly network: pulumi.Output<outputs.PrivateLinkAccessNetwork>;
 
     /**
      * Create a PrivateLinkAccess resource with the given unique name, arguments, and options.
@@ -191,26 +190,26 @@ export class PrivateLinkAccess extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrivateLinkAccessState | undefined;
-            resourceInputs["aws"] = state ? state.aws : undefined;
-            resourceInputs["azure"] = state ? state.azure : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["gcp"] = state ? state.gcp : undefined;
-            resourceInputs["network"] = state ? state.network : undefined;
+            resourceInputs["aws"] = state?.aws;
+            resourceInputs["azure"] = state?.azure;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["gcp"] = state?.gcp;
+            resourceInputs["network"] = state?.network;
         } else {
             const args = argsOrState as PrivateLinkAccessArgs | undefined;
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.network === undefined) && !opts.urn) {
+            if (args?.network === undefined && !opts.urn) {
                 throw new Error("Missing required property 'network'");
             }
-            resourceInputs["aws"] = args ? args.aws : undefined;
-            resourceInputs["azure"] = args ? args.azure : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["gcp"] = args ? args.gcp : undefined;
-            resourceInputs["network"] = args ? args.network : undefined;
+            resourceInputs["aws"] = args?.aws;
+            resourceInputs["azure"] = args?.azure;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["gcp"] = args?.gcp;
+            resourceInputs["network"] = args?.network;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PrivateLinkAccess.__pulumiType, name, resourceInputs, opts);
@@ -233,8 +232,7 @@ export interface PrivateLinkAccessState {
     environment?: pulumi.Input<inputs.PrivateLinkAccessEnvironment>;
     gcp?: pulumi.Input<inputs.PrivateLinkAccessGcp>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     network?: pulumi.Input<inputs.PrivateLinkAccessNetwork>;
 }
@@ -255,8 +253,7 @@ export interface PrivateLinkAccessArgs {
     environment: pulumi.Input<inputs.PrivateLinkAccessEnvironment>;
     gcp?: pulumi.Input<inputs.PrivateLinkAccessGcp>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     network: pulumi.Input<inputs.PrivateLinkAccessNetwork>;
 }

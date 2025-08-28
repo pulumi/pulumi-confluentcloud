@@ -98,20 +98,19 @@ export class TransitGatewayAttachment extends pulumi.CustomResource {
     /**
      * (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
      */
-    public readonly aws!: pulumi.Output<outputs.TransitGatewayAttachmentAws | undefined>;
+    declare public readonly aws: pulumi.Output<outputs.TransitGatewayAttachmentAws | undefined>;
     /**
      * The name of the Transit Gateway Attachment.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.TransitGatewayAttachmentEnvironment>;
+    declare public readonly environment: pulumi.Output<outputs.TransitGatewayAttachmentEnvironment>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
-    public readonly network!: pulumi.Output<outputs.TransitGatewayAttachmentNetwork>;
+    declare public readonly network: pulumi.Output<outputs.TransitGatewayAttachmentNetwork>;
 
     /**
      * Create a TransitGatewayAttachment resource with the given unique name, arguments, and options.
@@ -126,22 +125,22 @@ export class TransitGatewayAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TransitGatewayAttachmentState | undefined;
-            resourceInputs["aws"] = state ? state.aws : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["network"] = state ? state.network : undefined;
+            resourceInputs["aws"] = state?.aws;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["network"] = state?.network;
         } else {
             const args = argsOrState as TransitGatewayAttachmentArgs | undefined;
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.network === undefined) && !opts.urn) {
+            if (args?.network === undefined && !opts.urn) {
                 throw new Error("Missing required property 'network'");
             }
-            resourceInputs["aws"] = args ? args.aws : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["network"] = args ? args.network : undefined;
+            resourceInputs["aws"] = args?.aws;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["network"] = args?.network;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TransitGatewayAttachment.__pulumiType, name, resourceInputs, opts);
@@ -165,8 +164,7 @@ export interface TransitGatewayAttachmentState {
      */
     environment?: pulumi.Input<inputs.TransitGatewayAttachmentEnvironment>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     network?: pulumi.Input<inputs.TransitGatewayAttachmentNetwork>;
 }
@@ -188,8 +186,7 @@ export interface TransitGatewayAttachmentArgs {
      */
     environment: pulumi.Input<inputs.TransitGatewayAttachmentEnvironment>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     network: pulumi.Input<inputs.TransitGatewayAttachmentNetwork>;
 }

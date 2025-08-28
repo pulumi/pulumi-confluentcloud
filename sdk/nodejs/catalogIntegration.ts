@@ -110,28 +110,28 @@ export class CatalogIntegration extends pulumi.CustomResource {
     /**
      * supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
      */
-    public readonly awsGlue!: pulumi.Output<outputs.CatalogIntegrationAwsGlue | undefined>;
+    declare public readonly awsGlue: pulumi.Output<outputs.CatalogIntegrationAwsGlue | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.CatalogIntegrationCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.CatalogIntegrationCredentials | undefined>;
     /**
      * The name of the catalog integration.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.CatalogIntegrationEnvironment>;
-    public readonly kafkaCluster!: pulumi.Output<outputs.CatalogIntegrationKafkaCluster>;
+    declare public readonly environment: pulumi.Output<outputs.CatalogIntegrationEnvironment>;
+    declare public readonly kafkaCluster: pulumi.Output<outputs.CatalogIntegrationKafkaCluster>;
     /**
      * supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
      */
-    public readonly snowflake!: pulumi.Output<outputs.CatalogIntegrationSnowflake | undefined>;
+    declare public readonly snowflake: pulumi.Output<outputs.CatalogIntegrationSnowflake | undefined>;
     /**
      * (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
      */
-    public /*out*/ readonly suspended!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly suspended: pulumi.Output<boolean>;
 
     /**
      * Create a CatalogIntegration resource with the given unique name, arguments, and options.
@@ -146,30 +146,30 @@ export class CatalogIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CatalogIntegrationState | undefined;
-            resourceInputs["awsGlue"] = state ? state.awsGlue : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
-            resourceInputs["snowflake"] = state ? state.snowflake : undefined;
-            resourceInputs["suspended"] = state ? state.suspended : undefined;
+            resourceInputs["awsGlue"] = state?.awsGlue;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["kafkaCluster"] = state?.kafkaCluster;
+            resourceInputs["snowflake"] = state?.snowflake;
+            resourceInputs["suspended"] = state?.suspended;
         } else {
             const args = argsOrState as CatalogIntegrationArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.kafkaCluster === undefined) && !opts.urn) {
+            if (args?.kafkaCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaCluster'");
             }
-            resourceInputs["awsGlue"] = args ? args.awsGlue : undefined;
+            resourceInputs["awsGlue"] = args?.awsGlue;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
-            resourceInputs["snowflake"] = args ? args.snowflake : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["kafkaCluster"] = args?.kafkaCluster;
+            resourceInputs["snowflake"] = args?.snowflake;
             resourceInputs["suspended"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

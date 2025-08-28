@@ -139,12 +139,12 @@ export class FlinkStatement extends pulumi.CustomResource {
         return obj['__pulumiType'] === FlinkStatement.__pulumiType;
     }
 
-    public readonly computePool!: pulumi.Output<outputs.FlinkStatementComputePool>;
+    declare public readonly computePool: pulumi.Output<outputs.FlinkStatementComputePool>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.FlinkStatementCredentials | undefined>;
-    public readonly environment!: pulumi.Output<outputs.FlinkStatementEnvironment>;
+    declare public readonly credentials: pulumi.Output<outputs.FlinkStatementCredentials | undefined>;
+    declare public readonly environment: pulumi.Output<outputs.FlinkStatementEnvironment>;
     /**
      * (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
      * ```bash
@@ -154,39 +154,39 @@ export class FlinkStatement extends pulumi.CustomResource {
      * }
      * ```
      */
-    public /*out*/ readonly latestOffsets!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly latestOffsets: pulumi.Output<{[key: string]: string}>;
     /**
      * (Optional String) The date and time at which the Kafka topic offsets were added to the statement status. It is represented in RFC3339 format and is in UTC. For example, `2023-03-31T00:00:00-00:00`.
      */
-    public /*out*/ readonly latestOffsetsTimestamp!: pulumi.Output<string>;
-    public readonly organization!: pulumi.Output<outputs.FlinkStatementOrganization>;
-    public readonly principal!: pulumi.Output<outputs.FlinkStatementPrincipal>;
+    declare public /*out*/ readonly latestOffsetsTimestamp: pulumi.Output<string>;
+    declare public readonly organization: pulumi.Output<outputs.FlinkStatementOrganization>;
+    declare public readonly principal: pulumi.Output<outputs.FlinkStatementPrincipal>;
     /**
      * The custom topic settings to set:
      */
-    public readonly properties!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly properties: pulumi.Output<{[key: string]: string}>;
     /**
      * Block for sensitive statement properties:
      */
-    public readonly propertiesSensitive!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly propertiesSensitive: pulumi.Output<{[key: string]: string}>;
     /**
      * The REST endpoint of the Flink region. For example, for public networking: `https://flink.us-east-1.aws.confluent.cloud`. In the case of private networking, the endpoint might look like `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
      * - `data.confluent_flink_region.main.private_rest_endpoint`, or
      * - `https://flink${data.confluent_network.main.endpoint_suffix}`
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
     /**
      * The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
      */
-    public readonly statement!: pulumi.Output<string>;
+    declare public readonly statement: pulumi.Output<string>;
     /**
      * The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
      */
-    public readonly statementName!: pulumi.Output<string>;
+    declare public readonly statementName: pulumi.Output<string>;
     /**
      * Indicates whether the statement should be stopped.
      */
-    public readonly stopped!: pulumi.Output<boolean>;
+    declare public readonly stopped: pulumi.Output<boolean>;
 
     /**
      * Create a FlinkStatement resource with the given unique name, arguments, and options.
@@ -201,35 +201,35 @@ export class FlinkStatement extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlinkStatementState | undefined;
-            resourceInputs["computePool"] = state ? state.computePool : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["latestOffsets"] = state ? state.latestOffsets : undefined;
-            resourceInputs["latestOffsetsTimestamp"] = state ? state.latestOffsetsTimestamp : undefined;
-            resourceInputs["organization"] = state ? state.organization : undefined;
-            resourceInputs["principal"] = state ? state.principal : undefined;
-            resourceInputs["properties"] = state ? state.properties : undefined;
-            resourceInputs["propertiesSensitive"] = state ? state.propertiesSensitive : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["statement"] = state ? state.statement : undefined;
-            resourceInputs["statementName"] = state ? state.statementName : undefined;
-            resourceInputs["stopped"] = state ? state.stopped : undefined;
+            resourceInputs["computePool"] = state?.computePool;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["latestOffsets"] = state?.latestOffsets;
+            resourceInputs["latestOffsetsTimestamp"] = state?.latestOffsetsTimestamp;
+            resourceInputs["organization"] = state?.organization;
+            resourceInputs["principal"] = state?.principal;
+            resourceInputs["properties"] = state?.properties;
+            resourceInputs["propertiesSensitive"] = state?.propertiesSensitive;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["statement"] = state?.statement;
+            resourceInputs["statementName"] = state?.statementName;
+            resourceInputs["stopped"] = state?.stopped;
         } else {
             const args = argsOrState as FlinkStatementArgs | undefined;
-            if ((!args || args.statement === undefined) && !opts.urn) {
+            if (args?.statement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statement'");
             }
-            resourceInputs["computePool"] = args ? args.computePool : undefined;
+            resourceInputs["computePool"] = args?.computePool;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["organization"] = args ? args.organization : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["organization"] = args?.organization;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["propertiesSensitive"] = args?.propertiesSensitive ? pulumi.secret(args.propertiesSensitive) : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["statement"] = args ? args.statement : undefined;
-            resourceInputs["statementName"] = args ? args.statementName : undefined;
-            resourceInputs["stopped"] = args ? args.stopped : undefined;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["statement"] = args?.statement;
+            resourceInputs["statementName"] = args?.statementName;
+            resourceInputs["stopped"] = args?.stopped;
             resourceInputs["latestOffsets"] = undefined /*out*/;
             resourceInputs["latestOffsetsTimestamp"] = undefined /*out*/;
         }

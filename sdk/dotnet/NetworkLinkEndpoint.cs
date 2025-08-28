@@ -86,8 +86,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.NetworkLinkEndpointEnvironment> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        /// accounts.
+        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         /// </summary>
         [Output("network")]
         public Output<Outputs.NetworkLinkEndpointNetwork> Network { get; private set; } = null!;
@@ -166,8 +165,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.NetworkLinkEndpointEnvironmentArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        /// accounts.
+        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         /// </summary>
         [Input("network", required: true)]
         public Input<Inputs.NetworkLinkEndpointNetworkArgs> Network { get; set; } = null!;
@@ -202,8 +200,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.NetworkLinkEndpointEnvironmentGetArgs>? Environment { get; set; }
 
         /// <summary>
-        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        /// accounts.
+        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         /// </summary>
         [Input("network")]
         public Input<Inputs.NetworkLinkEndpointNetworkGetArgs>? Network { get; set; }
