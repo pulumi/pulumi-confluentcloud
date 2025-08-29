@@ -113,8 +113,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.TransitGatewayAttachmentEnvironment> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        /// accounts.
+        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         /// </summary>
         [Output("network")]
         public Output<Outputs.TransitGatewayAttachmentNetwork> Network { get; private set; } = null!;
@@ -184,8 +183,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.TransitGatewayAttachmentEnvironmentArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        /// accounts.
+        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         /// </summary>
         [Input("network", required: true)]
         public Input<Inputs.TransitGatewayAttachmentNetworkArgs> Network { get; set; } = null!;
@@ -217,8 +215,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.TransitGatewayAttachmentEnvironmentGetArgs>? Environment { get; set; }
 
         /// <summary>
-        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        /// accounts.
+        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         /// </summary>
         [Input("network")]
         public Input<Inputs.TransitGatewayAttachmentNetworkGetArgs>? Network { get; set; }

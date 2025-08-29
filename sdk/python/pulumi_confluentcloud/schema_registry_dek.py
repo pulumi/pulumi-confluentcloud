@@ -37,8 +37,7 @@ class SchemaRegistryDekArgs:
         :param pulumi.Input[_builtins.str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
         :param pulumi.Input['SchemaRegistryDekCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] encrypted_key_material: The encrypted key material for the DEK.
-        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-               on destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.int] version: The version of this DEK. Defaults to `1`.
         """
@@ -123,8 +122,7 @@ class SchemaRegistryDekArgs:
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-        on destroy. Defaults to `false` (soft delete).
+        Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 
@@ -184,8 +182,7 @@ class _SchemaRegistryDekState:
         :param pulumi.Input[_builtins.str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
         :param pulumi.Input['SchemaRegistryDekCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] encrypted_key_material: The encrypted key material for the DEK.
-        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-               on destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[_builtins.str] kek_name: The name of the KEK used to encrypt this DEK.
         :param pulumi.Input[_builtins.str] key_material: (Optional String) The decrypted version of encrypted key material.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -253,8 +250,7 @@ class _SchemaRegistryDekState:
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-        on destroy. Defaults to `false` (soft delete).
+        Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 
@@ -413,8 +409,7 @@ class SchemaRegistryDek(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
         :param pulumi.Input[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] encrypted_key_material: The encrypted key material for the DEK.
-        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-               on destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[_builtins.str] kek_name: The name of the KEK used to encrypt this DEK.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] subject_name: The subject for this DEK.
@@ -565,8 +560,7 @@ class SchemaRegistryDek(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
         :param pulumi.Input[Union['SchemaRegistryDekCredentialsArgs', 'SchemaRegistryDekCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] encrypted_key_material: The encrypted key material for the DEK.
-        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-               on destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[_builtins.str] kek_name: The name of the KEK used to encrypt this DEK.
         :param pulumi.Input[_builtins.str] key_material: (Optional String) The decrypted version of encrypted key material.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -617,8 +611,7 @@ class SchemaRegistryDek(pulumi.CustomResource):
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-        on destroy. Defaults to `false` (soft delete).
+        Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 

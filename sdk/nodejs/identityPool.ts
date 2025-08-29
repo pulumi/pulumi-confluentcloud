@@ -108,23 +108,23 @@ export class IdentityPool extends pulumi.CustomResource {
     /**
      * A description for the Identity Pool.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * A human-readable name for the Identity Pool.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
      */
-    public readonly filter!: pulumi.Output<string>;
+    declare public readonly filter: pulumi.Output<string>;
     /**
      * The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
      */
-    public readonly identityClaim!: pulumi.Output<string>;
+    declare public readonly identityClaim: pulumi.Output<string>;
     /**
      * Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
      */
-    public readonly identityProvider!: pulumi.Output<outputs.IdentityPoolIdentityProvider>;
+    declare public readonly identityProvider: pulumi.Output<outputs.IdentityPoolIdentityProvider>;
 
     /**
      * Create a IdentityPool resource with the given unique name, arguments, and options.
@@ -139,33 +139,33 @@ export class IdentityPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityPoolState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["identityClaim"] = state ? state.identityClaim : undefined;
-            resourceInputs["identityProvider"] = state ? state.identityProvider : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["identityClaim"] = state?.identityClaim;
+            resourceInputs["identityProvider"] = state?.identityProvider;
         } else {
             const args = argsOrState as IdentityPoolArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.filter === undefined) && !opts.urn) {
+            if (args?.filter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filter'");
             }
-            if ((!args || args.identityClaim === undefined) && !opts.urn) {
+            if (args?.identityClaim === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityClaim'");
             }
-            if ((!args || args.identityProvider === undefined) && !opts.urn) {
+            if (args?.identityProvider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityProvider'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["identityClaim"] = args ? args.identityClaim : undefined;
-            resourceInputs["identityProvider"] = args ? args.identityProvider : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["identityClaim"] = args?.identityClaim;
+            resourceInputs["identityProvider"] = args?.identityProvider;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IdentityPool.__pulumiType, name, resourceInputs, opts);

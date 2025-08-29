@@ -56,104 +56,104 @@
         "variables": {
             "catalogRestEndpoint": {
                 "type": "string",
-                "description": "The Stream Catalog REST Endpoint.\n"
+                "description": "The Stream Catalog REST Endpoint."
             },
             "cloudApiKey": {
                 "type": "string",
-                "description": "The Confluent Cloud API Key.\n",
+                "description": "The Confluent Cloud API Key.",
                 "secret": true
             },
             "cloudApiSecret": {
                 "type": "string",
-                "description": "The Confluent Cloud API Secret.\n",
+                "description": "The Confluent Cloud API Secret.",
                 "secret": true
             },
             "endpoint": {
                 "type": "string",
-                "description": "The base endpoint of Confluent Cloud API.\n"
+                "description": "The base endpoint of Confluent Cloud API."
             },
             "environmentId": {
                 "type": "string",
-                "description": "The Flink Environment ID.\n"
+                "description": "The Flink Environment ID."
             },
             "flinkApiKey": {
                 "type": "string",
-                "description": "The Flink API Key.\n",
+                "description": "The Flink API Key.",
                 "secret": true
             },
             "flinkApiSecret": {
                 "type": "string",
-                "description": "The Flink API Secret.\n",
+                "description": "The Flink API Secret.",
                 "secret": true
             },
             "flinkComputePoolId": {
                 "type": "string",
-                "description": "The Flink Compute Pool ID.\n"
+                "description": "The Flink Compute Pool ID."
             },
             "flinkPrincipalId": {
                 "type": "string",
-                "description": "The Flink Principal ID.\n"
+                "description": "The Flink Principal ID."
             },
             "flinkRestEndpoint": {
                 "type": "string",
-                "description": "The Flink REST Endpoint.\n"
+                "description": "The Flink REST Endpoint."
             },
             "kafkaApiKey": {
                 "type": "string",
-                "description": "The Kafka Cluster API Key.\n",
+                "description": "The Kafka Cluster API Key.",
                 "secret": true
             },
             "kafkaApiSecret": {
                 "type": "string",
-                "description": "The Kafka Cluster API Secret.\n",
+                "description": "The Kafka Cluster API Secret.",
                 "secret": true
             },
             "kafkaId": {
                 "type": "string",
-                "description": "The Kafka Cluster ID.\n"
+                "description": "The Kafka Cluster ID."
             },
             "kafkaRestEndpoint": {
                 "type": "string",
-                "description": "The Kafka Cluster REST Endpoint.\n"
+                "description": "The Kafka Cluster REST Endpoint."
             },
             "maxRetries": {
                 "type": "integer",
-                "description": "Maximum number of retries of HTTP client. Defaults to 4.\n"
+                "description": "Maximum number of retries of HTTP client. Defaults to 4."
             },
             "oauth": {
                 "$ref": "#/types/confluentcloud:config/oauth:oauth",
-                "description": "OAuth config settings\n"
+                "description": "OAuth config settings"
             },
             "organizationId": {
                 "type": "string",
-                "description": "The Flink Organization ID.\n"
+                "description": "The Flink Organization ID."
             },
             "schemaRegistryApiKey": {
                 "type": "string",
-                "description": "The Schema Registry Cluster API Key.\n",
+                "description": "The Schema Registry Cluster API Key.",
                 "secret": true
             },
             "schemaRegistryApiSecret": {
                 "type": "string",
-                "description": "The Schema Registry Cluster API Secret.\n",
+                "description": "The Schema Registry Cluster API Secret.",
                 "secret": true
             },
             "schemaRegistryId": {
                 "type": "string",
-                "description": "The Schema Registry Cluster ID.\n"
+                "description": "The Schema Registry Cluster ID."
             },
             "schemaRegistryRestEndpoint": {
                 "type": "string",
-                "description": "The Schema Registry Cluster REST Endpoint.\n"
+                "description": "The Schema Registry Cluster REST Endpoint."
             },
             "tableflowApiKey": {
                 "type": "string",
-                "description": "The Tableflow API Key.\n",
+                "description": "The Tableflow API Key.",
                 "secret": true
             },
             "tableflowApiSecret": {
                 "type": "string",
-                "description": "The Tableflow API Secret.\n",
+                "description": "The Tableflow API Secret.",
                 "secret": true
             }
         }
@@ -5988,208 +5988,208 @@
         "properties": {
             "catalogRestEndpoint": {
                 "type": "string",
-                "description": "The Stream Catalog REST Endpoint.\n"
+                "description": "The Stream Catalog REST Endpoint."
             },
             "cloudApiKey": {
                 "type": "string",
-                "description": "The Confluent Cloud API Key.\n",
+                "description": "The Confluent Cloud API Key.",
                 "secret": true
             },
             "cloudApiSecret": {
                 "type": "string",
-                "description": "The Confluent Cloud API Secret.\n",
+                "description": "The Confluent Cloud API Secret.",
                 "secret": true
             },
             "endpoint": {
                 "type": "string",
-                "description": "The base endpoint of Confluent Cloud API.\n"
+                "description": "The base endpoint of Confluent Cloud API."
             },
             "environmentId": {
                 "type": "string",
-                "description": "The Flink Environment ID.\n"
+                "description": "The Flink Environment ID."
             },
             "flinkApiKey": {
                 "type": "string",
-                "description": "The Flink API Key.\n",
+                "description": "The Flink API Key.",
                 "secret": true
             },
             "flinkApiSecret": {
                 "type": "string",
-                "description": "The Flink API Secret.\n",
+                "description": "The Flink API Secret.",
                 "secret": true
             },
             "flinkComputePoolId": {
                 "type": "string",
-                "description": "The Flink Compute Pool ID.\n"
+                "description": "The Flink Compute Pool ID."
             },
             "flinkPrincipalId": {
                 "type": "string",
-                "description": "The Flink Principal ID.\n"
+                "description": "The Flink Principal ID."
             },
             "flinkRestEndpoint": {
                 "type": "string",
-                "description": "The Flink REST Endpoint.\n"
+                "description": "The Flink REST Endpoint."
             },
             "kafkaApiKey": {
                 "type": "string",
-                "description": "The Kafka Cluster API Key.\n",
+                "description": "The Kafka Cluster API Key.",
                 "secret": true
             },
             "kafkaApiSecret": {
                 "type": "string",
-                "description": "The Kafka Cluster API Secret.\n",
+                "description": "The Kafka Cluster API Secret.",
                 "secret": true
             },
             "kafkaId": {
                 "type": "string",
-                "description": "The Kafka Cluster ID.\n"
+                "description": "The Kafka Cluster ID."
             },
             "kafkaRestEndpoint": {
                 "type": "string",
-                "description": "The Kafka Cluster REST Endpoint.\n"
+                "description": "The Kafka Cluster REST Endpoint."
             },
             "maxRetries": {
                 "type": "integer",
-                "description": "Maximum number of retries of HTTP client. Defaults to 4.\n"
+                "description": "Maximum number of retries of HTTP client. Defaults to 4."
             },
             "oauth": {
                 "$ref": "#/types/confluentcloud:index/ProviderOauth:ProviderOauth",
-                "description": "OAuth config settings\n"
+                "description": "OAuth config settings"
             },
             "organizationId": {
                 "type": "string",
-                "description": "The Flink Organization ID.\n"
+                "description": "The Flink Organization ID."
             },
             "schemaRegistryApiKey": {
                 "type": "string",
-                "description": "The Schema Registry Cluster API Key.\n",
+                "description": "The Schema Registry Cluster API Key.",
                 "secret": true
             },
             "schemaRegistryApiSecret": {
                 "type": "string",
-                "description": "The Schema Registry Cluster API Secret.\n",
+                "description": "The Schema Registry Cluster API Secret.",
                 "secret": true
             },
             "schemaRegistryId": {
                 "type": "string",
-                "description": "The Schema Registry Cluster ID.\n"
+                "description": "The Schema Registry Cluster ID."
             },
             "schemaRegistryRestEndpoint": {
                 "type": "string",
-                "description": "The Schema Registry Cluster REST Endpoint.\n"
+                "description": "The Schema Registry Cluster REST Endpoint."
             },
             "tableflowApiKey": {
                 "type": "string",
-                "description": "The Tableflow API Key.\n",
+                "description": "The Tableflow API Key.",
                 "secret": true
             },
             "tableflowApiSecret": {
                 "type": "string",
-                "description": "The Tableflow API Secret.\n",
+                "description": "The Tableflow API Secret.",
                 "secret": true
             }
         },
         "inputProperties": {
             "catalogRestEndpoint": {
                 "type": "string",
-                "description": "The Stream Catalog REST Endpoint.\n"
+                "description": "The Stream Catalog REST Endpoint."
             },
             "cloudApiKey": {
                 "type": "string",
-                "description": "The Confluent Cloud API Key.\n",
+                "description": "The Confluent Cloud API Key.",
                 "secret": true
             },
             "cloudApiSecret": {
                 "type": "string",
-                "description": "The Confluent Cloud API Secret.\n",
+                "description": "The Confluent Cloud API Secret.",
                 "secret": true
             },
             "endpoint": {
                 "type": "string",
-                "description": "The base endpoint of Confluent Cloud API.\n"
+                "description": "The base endpoint of Confluent Cloud API."
             },
             "environmentId": {
                 "type": "string",
-                "description": "The Flink Environment ID.\n"
+                "description": "The Flink Environment ID."
             },
             "flinkApiKey": {
                 "type": "string",
-                "description": "The Flink API Key.\n",
+                "description": "The Flink API Key.",
                 "secret": true
             },
             "flinkApiSecret": {
                 "type": "string",
-                "description": "The Flink API Secret.\n",
+                "description": "The Flink API Secret.",
                 "secret": true
             },
             "flinkComputePoolId": {
                 "type": "string",
-                "description": "The Flink Compute Pool ID.\n"
+                "description": "The Flink Compute Pool ID."
             },
             "flinkPrincipalId": {
                 "type": "string",
-                "description": "The Flink Principal ID.\n"
+                "description": "The Flink Principal ID."
             },
             "flinkRestEndpoint": {
                 "type": "string",
-                "description": "The Flink REST Endpoint.\n"
+                "description": "The Flink REST Endpoint."
             },
             "kafkaApiKey": {
                 "type": "string",
-                "description": "The Kafka Cluster API Key.\n",
+                "description": "The Kafka Cluster API Key.",
                 "secret": true
             },
             "kafkaApiSecret": {
                 "type": "string",
-                "description": "The Kafka Cluster API Secret.\n",
+                "description": "The Kafka Cluster API Secret.",
                 "secret": true
             },
             "kafkaId": {
                 "type": "string",
-                "description": "The Kafka Cluster ID.\n"
+                "description": "The Kafka Cluster ID."
             },
             "kafkaRestEndpoint": {
                 "type": "string",
-                "description": "The Kafka Cluster REST Endpoint.\n"
+                "description": "The Kafka Cluster REST Endpoint."
             },
             "maxRetries": {
                 "type": "integer",
-                "description": "Maximum number of retries of HTTP client. Defaults to 4.\n"
+                "description": "Maximum number of retries of HTTP client. Defaults to 4."
             },
             "oauth": {
                 "$ref": "#/types/confluentcloud:index/ProviderOauth:ProviderOauth",
-                "description": "OAuth config settings\n"
+                "description": "OAuth config settings"
             },
             "organizationId": {
                 "type": "string",
-                "description": "The Flink Organization ID.\n"
+                "description": "The Flink Organization ID."
             },
             "schemaRegistryApiKey": {
                 "type": "string",
-                "description": "The Schema Registry Cluster API Key.\n",
+                "description": "The Schema Registry Cluster API Key.",
                 "secret": true
             },
             "schemaRegistryApiSecret": {
                 "type": "string",
-                "description": "The Schema Registry Cluster API Secret.\n",
+                "description": "The Schema Registry Cluster API Secret.",
                 "secret": true
             },
             "schemaRegistryId": {
                 "type": "string",
-                "description": "The Schema Registry Cluster ID.\n"
+                "description": "The Schema Registry Cluster ID."
             },
             "schemaRegistryRestEndpoint": {
                 "type": "string",
-                "description": "The Schema Registry Cluster REST Endpoint.\n"
+                "description": "The Schema Registry Cluster REST Endpoint."
             },
             "tableflowApiKey": {
                 "type": "string",
-                "description": "The Tableflow API Key.\n",
+                "description": "The Tableflow API Key.",
                 "secret": true
             },
             "tableflowApiSecret": {
                 "type": "string",
-                "description": "The Tableflow API Secret.\n",
+                "description": "The Tableflow API Secret.",
                 "secret": true
             }
         },
@@ -6219,7 +6219,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/AccessPointEnvironment:AccessPointEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "gateway": {
                     "$ref": "#/types/confluentcloud:index/AccessPointGateway:AccessPointGateway"
@@ -6255,7 +6255,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/AccessPointEnvironment:AccessPointEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "gateway": {
@@ -6295,7 +6295,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/AccessPointEnvironment:AccessPointEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "gateway": {
@@ -6328,11 +6328,11 @@
                 },
                 "managedResource": {
                     "$ref": "#/types/confluentcloud:index/ApiKeyManagedResource:ApiKeyManagedResource",
-                    "description": "The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',\n'srcm.v3.Cluster'.\n"
+                    "description": "The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'."
                 },
                 "owner": {
                     "$ref": "#/types/confluentcloud:index/ApiKeyOwner:ApiKeyOwner",
-                    "description": "The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.\n"
+                    "description": "The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'."
                 },
                 "secret": {
                     "type": "string",
@@ -6360,12 +6360,12 @@
                 },
                 "managedResource": {
                     "$ref": "#/types/confluentcloud:index/ApiKeyManagedResource:ApiKeyManagedResource",
-                    "description": "The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',\n'srcm.v3.Cluster'.\n",
+                    "description": "The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.",
                     "willReplaceOnChanges": true
                 },
                 "owner": {
                     "$ref": "#/types/confluentcloud:index/ApiKeyOwner:ApiKeyOwner",
-                    "description": "The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.\n",
+                    "description": "The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.",
                     "willReplaceOnChanges": true
                 }
             },
@@ -6389,12 +6389,12 @@
                     },
                     "managedResource": {
                         "$ref": "#/types/confluentcloud:index/ApiKeyManagedResource:ApiKeyManagedResource",
-                        "description": "The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',\n'srcm.v3.Cluster'.\n",
+                        "description": "The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.",
                         "willReplaceOnChanges": true
                     },
                     "owner": {
                         "$ref": "#/types/confluentcloud:index/ApiKeyOwner:ApiKeyOwner",
-                        "description": "The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.\n",
+                        "description": "The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.",
                         "willReplaceOnChanges": true
                     },
                     "secret": {
@@ -6418,7 +6418,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/BusinessMetadataCredentials:BusinessMetadataCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "description": {
@@ -6456,7 +6456,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/BusinessMetadataCredentials:BusinessMetadataCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "description": {
@@ -6490,7 +6490,7 @@
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/BusinessMetadataCredentials:BusinessMetadataCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "description": {
@@ -6527,7 +6527,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "The attributes.\n"
+                    "description": "The attributes."
                 },
                 "businessMetadataName": {
                     "type": "string",
@@ -6535,7 +6535,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/BusinessMetadataBindingCredentials:BusinessMetadataBindingCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "entityName": {
@@ -6566,7 +6566,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "The attributes.\n"
+                    "description": "The attributes."
                 },
                 "businessMetadataName": {
                     "type": "string",
@@ -6575,7 +6575,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/BusinessMetadataBindingCredentials:BusinessMetadataBindingCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "entityName": {
@@ -6610,7 +6610,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "The attributes.\n"
+                        "description": "The attributes."
                     },
                     "businessMetadataName": {
                         "type": "string",
@@ -6619,7 +6619,7 @@
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/BusinessMetadataBindingCredentials:BusinessMetadataBindingCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "entityName": {
@@ -6712,11 +6712,11 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "The attributes.\n"
+                    "description": "The attributes."
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/CatalogEntityAttributesCredentials:CatalogEntityAttributesCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "entityName": {
@@ -6745,11 +6745,11 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "The attributes.\n"
+                    "description": "The attributes."
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/CatalogEntityAttributesCredentials:CatalogEntityAttributesCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "entityName": {
@@ -6784,11 +6784,11 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "The attributes.\n"
+                        "description": "The attributes."
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/CatalogEntityAttributesCredentials:CatalogEntityAttributesCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "entityName": {
@@ -6823,7 +6823,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/CatalogIntegrationCredentials:CatalogIntegrationCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "displayName": {
@@ -6832,7 +6832,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/CatalogIntegrationEnvironment:CatalogIntegrationEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/CatalogIntegrationKafkaCluster:CatalogIntegrationKafkaCluster"
@@ -6859,7 +6859,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/CatalogIntegrationCredentials:CatalogIntegrationCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "displayName": {
@@ -6868,7 +6868,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/CatalogIntegrationEnvironment:CatalogIntegrationEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "kafkaCluster": {
@@ -6894,7 +6894,7 @@
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/CatalogIntegrationCredentials:CatalogIntegrationCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "displayName": {
@@ -6903,7 +6903,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/CatalogIntegrationEnvironment:CatalogIntegrationEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "kafkaCluster": {
@@ -7324,11 +7324,11 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/ConnectArtifactEnvironment:ConnectArtifactEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "status": {
                     "type": "string",
-                    "description": "Status of the Connect Artifact.\n"
+                    "description": "Status of the Connect Artifact."
                 }
             },
             "required": [
@@ -7366,7 +7366,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/ConnectArtifactEnvironment:ConnectArtifactEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 }
             },
@@ -7406,12 +7406,12 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/ConnectArtifactEnvironment:ConnectArtifactEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "status": {
                         "type": "string",
-                        "description": "Status of the Connect Artifact.\n"
+                        "description": "Status of the Connect Artifact."
                     }
                 },
                 "type": "object"
@@ -7437,7 +7437,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/ConnectorEnvironment:ConnectorEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/ConnectorKafkaCluster:ConnectorKafkaCluster"
@@ -7447,7 +7447,7 @@
                     "items": {
                         "$ref": "#/types/confluentcloud:index/ConnectorOffset:ConnectorOffset"
                     },
-                    "description": "Connector partitions with offsets\n"
+                    "description": "Connector partitions with offsets"
                 },
                 "status": {
                     "type": "string",
@@ -7479,7 +7479,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/ConnectorEnvironment:ConnectorEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "kafkaCluster": {
@@ -7491,7 +7491,7 @@
                     "items": {
                         "$ref": "#/types/confluentcloud:index/ConnectorOffset:ConnectorOffset"
                     },
-                    "description": "Connector partitions with offsets\n"
+                    "description": "Connector partitions with offsets"
                 },
                 "status": {
                     "type": "string",
@@ -7523,7 +7523,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/ConnectorEnvironment:ConnectorEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "kafkaCluster": {
@@ -7535,7 +7535,7 @@
                         "items": {
                             "$ref": "#/types/confluentcloud:index/ConnectorOffset:ConnectorOffset"
                         },
-                        "description": "Connector partitions with offsets\n"
+                        "description": "Connector partitions with offsets"
                     },
                     "status": {
                         "type": "string",
@@ -7708,7 +7708,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/CustomConnectorPluginVersionEnvironment:CustomConnectorPluginVersionEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "filename": {
                     "type": "string",
@@ -7765,7 +7765,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/CustomConnectorPluginVersionEnvironment:CustomConnectorPluginVersionEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "filename": {
@@ -7827,7 +7827,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/CustomConnectorPluginVersionEnvironment:CustomConnectorPluginVersionEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "filename": {
@@ -7877,7 +7877,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/DnsForwarderEnvironment:DnsForwarderEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "forwardViaGcpDnsZones": {
                     "$ref": "#/types/confluentcloud:index/DnsForwarderForwardViaGcpDnsZones:DnsForwarderForwardViaGcpDnsZones"
@@ -7909,7 +7909,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/DnsForwarderEnvironment:DnsForwarderEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "forwardViaGcpDnsZones": {
@@ -7946,7 +7946,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/DnsForwarderEnvironment:DnsForwarderEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "forwardViaGcpDnsZones": {
@@ -7978,7 +7978,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/DnsRecordEnvironment:DnsRecordEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "gateway": {
                     "$ref": "#/types/confluentcloud:index/DnsRecordGateway:DnsRecordGateway"
@@ -8005,7 +8005,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/DnsRecordEnvironment:DnsRecordEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "gateway": {
@@ -8035,7 +8035,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/DnsRecordEnvironment:DnsRecordEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "gateway": {
@@ -8137,7 +8137,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/FlinkArtifactEnvironment:FlinkArtifactEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "kind": {
                     "type": "string",
@@ -8156,7 +8156,7 @@
                     "items": {
                         "$ref": "#/types/confluentcloud:index/FlinkArtifactVersion:FlinkArtifactVersion"
                     },
-                    "description": "List of versions for this Flink Artifact.\n"
+                    "description": "List of versions for this Flink Artifact."
                 }
             },
             "required": [
@@ -8207,7 +8207,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/FlinkArtifactEnvironment:FlinkArtifactEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "region": {
@@ -8271,7 +8271,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/FlinkArtifactEnvironment:FlinkArtifactEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "kind": {
@@ -8293,7 +8293,7 @@
                         "items": {
                             "$ref": "#/types/confluentcloud:index/FlinkArtifactVersion:FlinkArtifactVersion"
                         },
-                        "description": "List of versions for this Flink Artifact.\n"
+                        "description": "List of versions for this Flink Artifact."
                     }
                 },
                 "type": "object"
@@ -8316,7 +8316,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/FlinkComputePoolEnvironment:FlinkComputePoolEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "kind": {
                     "type": "string",
@@ -8357,7 +8357,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/FlinkComputePoolEnvironment:FlinkComputePoolEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "maxCfu": {
@@ -8394,7 +8394,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/FlinkComputePoolEnvironment:FlinkComputePoolEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "kind": {
@@ -8423,72 +8423,72 @@
             "properties": {
                 "apiKey": {
                     "type": "string",
-                    "description": "API key for the type.\n"
+                    "description": "API key for the type."
                 },
                 "apiVersion": {
                     "type": "string",
-                    "description": "The schema version of this representation of a resource.\n"
+                    "description": "The schema version of this representation of a resource."
                 },
                 "awsAccessKey": {
                     "type": "string",
-                    "description": "Access key for the type.\n"
+                    "description": "Access key for the type."
                 },
                 "awsSecretKey": {
                     "type": "string",
-                    "description": "Secret key for the type.\n"
+                    "description": "Secret key for the type."
                 },
                 "awsSessionToken": {
                     "type": "string",
-                    "description": "Session token for the type.\n"
+                    "description": "Session token for the type."
                 },
                 "computePool": {
                     "$ref": "#/types/confluentcloud:index/FlinkConnectionComputePool:FlinkConnectionComputePool"
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/FlinkConnectionCredentials:FlinkConnectionCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "The unique name of the Flink Connection per organization, environment scope.\n"
+                    "description": "The unique name of the Flink Connection per organization, environment scope."
                 },
                 "endpoint": {
                     "type": "string",
-                    "description": "The endpoint of the flink connection.\n"
+                    "description": "The endpoint of the flink connection."
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/FlinkConnectionEnvironment:FlinkConnectionEnvironment"
                 },
                 "kind": {
                     "type": "string",
-                    "description": "The object this REST resource represents.\n"
+                    "description": "The object this REST resource represents."
                 },
                 "organization": {
                     "$ref": "#/types/confluentcloud:index/FlinkConnectionOrganization:FlinkConnectionOrganization"
                 },
                 "password": {
                     "type": "string",
-                    "description": "Password for the type.\n"
+                    "description": "Password for the type."
                 },
                 "principal": {
                     "$ref": "#/types/confluentcloud:index/FlinkConnectionPrincipal:FlinkConnectionPrincipal"
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Flink Connection cluster, for example,\n`https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).\n"
+                    "description": "The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`)."
                 },
                 "serviceKey": {
                     "type": "string",
-                    "description": "Service Key for the type.\n"
+                    "description": "Service Key for the type."
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of the flink connection.\n"
+                    "description": "The type of the flink connection."
                 },
                 "username": {
                     "type": "string",
-                    "description": "Username for the type.\n"
+                    "description": "Username for the type."
                 }
             },
             "required": [
@@ -8505,35 +8505,35 @@
             "inputProperties": {
                 "apiKey": {
                     "type": "string",
-                    "description": "API key for the type.\n"
+                    "description": "API key for the type."
                 },
                 "awsAccessKey": {
                     "type": "string",
-                    "description": "Access key for the type.\n"
+                    "description": "Access key for the type."
                 },
                 "awsSecretKey": {
                     "type": "string",
-                    "description": "Secret key for the type.\n"
+                    "description": "Secret key for the type."
                 },
                 "awsSessionToken": {
                     "type": "string",
-                    "description": "Session token for the type.\n"
+                    "description": "Session token for the type."
                 },
                 "computePool": {
                     "$ref": "#/types/confluentcloud:index/FlinkConnectionComputePool:FlinkConnectionComputePool"
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/FlinkConnectionCredentials:FlinkConnectionCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "The unique name of the Flink Connection per organization, environment scope.\n"
+                    "description": "The unique name of the Flink Connection per organization, environment scope."
                 },
                 "endpoint": {
                     "type": "string",
-                    "description": "The endpoint of the flink connection.\n"
+                    "description": "The endpoint of the flink connection."
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/FlinkConnectionEnvironment:FlinkConnectionEnvironment"
@@ -8543,27 +8543,27 @@
                 },
                 "password": {
                     "type": "string",
-                    "description": "Password for the type.\n"
+                    "description": "Password for the type."
                 },
                 "principal": {
                     "$ref": "#/types/confluentcloud:index/FlinkConnectionPrincipal:FlinkConnectionPrincipal"
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Flink Connection cluster, for example,\n`https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).\n",
+                    "description": "The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).",
                     "willReplaceOnChanges": true
                 },
                 "serviceKey": {
                     "type": "string",
-                    "description": "Service Key for the type.\n"
+                    "description": "Service Key for the type."
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of the flink connection.\n"
+                    "description": "The type of the flink connection."
                 },
                 "username": {
                     "type": "string",
-                    "description": "Username for the type.\n"
+                    "description": "Username for the type."
                 }
             },
             "requiredInputs": [
@@ -8576,73 +8576,73 @@
                 "properties": {
                     "apiKey": {
                         "type": "string",
-                        "description": "API key for the type.\n"
+                        "description": "API key for the type."
                     },
                     "apiVersion": {
                         "type": "string",
-                        "description": "The schema version of this representation of a resource.\n"
+                        "description": "The schema version of this representation of a resource."
                     },
                     "awsAccessKey": {
                         "type": "string",
-                        "description": "Access key for the type.\n"
+                        "description": "Access key for the type."
                     },
                     "awsSecretKey": {
                         "type": "string",
-                        "description": "Secret key for the type.\n"
+                        "description": "Secret key for the type."
                     },
                     "awsSessionToken": {
                         "type": "string",
-                        "description": "Session token for the type.\n"
+                        "description": "Session token for the type."
                     },
                     "computePool": {
                         "$ref": "#/types/confluentcloud:index/FlinkConnectionComputePool:FlinkConnectionComputePool"
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/FlinkConnectionCredentials:FlinkConnectionCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "displayName": {
                         "type": "string",
-                        "description": "The unique name of the Flink Connection per organization, environment scope.\n"
+                        "description": "The unique name of the Flink Connection per organization, environment scope."
                     },
                     "endpoint": {
                         "type": "string",
-                        "description": "The endpoint of the flink connection.\n"
+                        "description": "The endpoint of the flink connection."
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/FlinkConnectionEnvironment:FlinkConnectionEnvironment"
                     },
                     "kind": {
                         "type": "string",
-                        "description": "The object this REST resource represents.\n"
+                        "description": "The object this REST resource represents."
                     },
                     "organization": {
                         "$ref": "#/types/confluentcloud:index/FlinkConnectionOrganization:FlinkConnectionOrganization"
                     },
                     "password": {
                         "type": "string",
-                        "description": "Password for the type.\n"
+                        "description": "Password for the type."
                     },
                     "principal": {
                         "$ref": "#/types/confluentcloud:index/FlinkConnectionPrincipal:FlinkConnectionPrincipal"
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "The REST endpoint of the Flink Connection cluster, for example,\n`https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).\n",
+                        "description": "The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).",
                         "willReplaceOnChanges": true
                     },
                     "serviceKey": {
                         "type": "string",
-                        "description": "Service Key for the type.\n"
+                        "description": "Service Key for the type."
                     },
                     "type": {
                         "type": "string",
-                        "description": "The type of the flink connection.\n"
+                        "description": "The type of the flink connection."
                     },
                     "username": {
                         "type": "string",
-                        "description": "Username for the type.\n"
+                        "description": "Username for the type."
                     }
                 },
                 "type": "object"
@@ -8656,7 +8656,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/FlinkStatementCredentials:FlinkStatementCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "environment": {
@@ -8708,7 +8708,7 @@
                 },
                 "stopped": {
                     "type": "boolean",
-                    "description": "Indicates whether the statement should be stopped.\n"
+                    "description": "Indicates whether the statement should be stopped."
                 }
             },
             "required": [
@@ -8730,7 +8730,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/FlinkStatementCredentials:FlinkStatementCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "environment": {
@@ -8773,7 +8773,7 @@
                 },
                 "stopped": {
                     "type": "boolean",
-                    "description": "Indicates whether the statement should be stopped.\n"
+                    "description": "Indicates whether the statement should be stopped."
                 }
             },
             "requiredInputs": [
@@ -8787,7 +8787,7 @@
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/FlinkStatementCredentials:FlinkStatementCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "environment": {
@@ -8841,7 +8841,7 @@
                     },
                     "stopped": {
                         "type": "boolean",
-                        "description": "Indicates whether the statement should be stopped.\n"
+                        "description": "Indicates whether the statement should be stopped."
                     }
                 },
                 "type": "object"
@@ -8868,7 +8868,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/GatewayEnvironment:GatewayEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 }
             },
             "required": [
@@ -8900,7 +8900,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/GatewayEnvironment:GatewayEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 }
             },
@@ -8932,7 +8932,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/GatewayEnvironment:GatewayEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -9017,7 +9017,7 @@
                 },
                 "identityProvider": {
                     "$ref": "#/types/confluentcloud:index/IdentityPoolIdentityProvider:IdentityPoolIdentityProvider",
-                    "description": "Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.\n"
+                    "description": "Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud."
                 }
             },
             "required": [
@@ -9046,7 +9046,7 @@
                 },
                 "identityProvider": {
                     "$ref": "#/types/confluentcloud:index/IdentityPoolIdentityProvider:IdentityPoolIdentityProvider",
-                    "description": "Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.\n",
+                    "description": "Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.",
                     "willReplaceOnChanges": true
                 }
             },
@@ -9078,7 +9078,7 @@
                     },
                     "identityProvider": {
                         "$ref": "#/types/confluentcloud:index/IdentityPoolIdentityProvider:IdentityPoolIdentityProvider",
-                        "description": "Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.\n",
+                        "description": "Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -9444,12 +9444,12 @@
             "properties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/KafkaAclCredentials:KafkaAclCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "host": {
                     "type": "string",
-                    "description": "The host for the ACL.\n"
+                    "description": "The host for the ACL."
                 },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/KafkaAclKafkaCluster:KafkaAclKafkaCluster"
@@ -9495,12 +9495,12 @@
             "inputProperties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/KafkaAclCredentials:KafkaAclCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "host": {
                     "type": "string",
-                    "description": "The host for the ACL.\n",
+                    "description": "The host for the ACL.",
                     "willReplaceOnChanges": true
                 },
                 "kafkaCluster": {
@@ -9557,12 +9557,12 @@
                 "properties": {
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/KafkaAclCredentials:KafkaAclCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "host": {
                         "type": "string",
-                        "description": "The host for the ACL.\n",
+                        "description": "The host for the ACL.",
                         "willReplaceOnChanges": true
                     },
                     "kafkaCluster": {
@@ -9621,7 +9621,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/KafkaClientQuotaEnvironment:KafkaClientQuotaEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/KafkaClientQuotaKafkaCluster:KafkaClientQuotaKafkaCluster"
@@ -9635,7 +9635,7 @@
                 },
                 "throughput": {
                     "$ref": "#/types/confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput",
-                    "description": "Block for representing a Kafka Quota.\n"
+                    "description": "Block for representing a Kafka Quota."
                 }
             },
             "required": [
@@ -9656,7 +9656,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/KafkaClientQuotaEnvironment:KafkaClientQuotaEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "kafkaCluster": {
@@ -9672,7 +9672,7 @@
                 },
                 "throughput": {
                     "$ref": "#/types/confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput",
-                    "description": "Block for representing a Kafka Quota.\n"
+                    "description": "Block for representing a Kafka Quota."
                 }
             },
             "requiredInputs": [
@@ -9695,7 +9695,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/KafkaClientQuotaEnvironment:KafkaClientQuotaEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "kafkaCluster": {
@@ -9711,7 +9711,7 @@
                     },
                     "throughput": {
                         "$ref": "#/types/confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput",
-                        "description": "Block for representing a Kafka Quota.\n"
+                        "description": "Block for representing a Kafka Quota."
                     }
                 },
                 "type": "object"
@@ -9767,7 +9767,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/KafkaClusterEnvironment:KafkaClusterEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "freights": {
                     "type": "array",
@@ -9782,7 +9782,7 @@
                 },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/KafkaClusterNetwork:KafkaClusterNetwork",
-                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n"
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts."
                 },
                 "rbacCrn": {
                     "type": "string",
@@ -9851,7 +9851,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/KafkaClusterEnvironment:KafkaClusterEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "freights": {
@@ -9863,7 +9863,7 @@
                 },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/KafkaClusterNetwork:KafkaClusterNetwork",
-                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n"
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts."
                 },
                 "region": {
                     "type": "string",
@@ -9933,7 +9933,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/KafkaClusterEnvironment:KafkaClusterEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "freights": {
@@ -9949,7 +9949,7 @@
                     },
                     "network": {
                         "$ref": "#/types/confluentcloud:index/KafkaClusterNetwork:KafkaClusterNetwork",
-                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n"
+                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts."
                     },
                     "rbacCrn": {
                         "type": "string",
@@ -9984,7 +9984,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/KafkaClusterConfigCredentials:KafkaClusterConfigCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "kafkaCluster": {
@@ -10008,7 +10008,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/KafkaClusterConfigCredentials:KafkaClusterConfigCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "kafkaCluster": {
@@ -10036,7 +10036,7 @@
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/KafkaClusterConfigCredentials:KafkaClusterConfigCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "kafkaCluster": {
@@ -10143,7 +10143,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/KafkaTopicCredentials:KafkaTopicCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "httpEndpoint": {
@@ -10181,7 +10181,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/KafkaTopicCredentials:KafkaTopicCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "httpEndpoint": {
@@ -10222,7 +10222,7 @@
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/KafkaTopicCredentials:KafkaTopicCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "httpEndpoint": {
@@ -10271,7 +10271,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/KsqlClusterEnvironment:KsqlClusterEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/KsqlClusterKafkaCluster:KsqlClusterKafkaCluster"
@@ -10331,7 +10331,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/KsqlClusterEnvironment:KsqlClusterEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "kafkaCluster": {
@@ -10374,7 +10374,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/KsqlClusterEnvironment:KsqlClusterEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "kafkaCluster": {
@@ -10448,7 +10448,7 @@
                 },
                 "dnsConfig": {
                     "$ref": "#/types/confluentcloud:index/NetworkDnsConfig:NetworkDnsConfig",
-                    "description": "Network DNS config. It applies only to the PRIVATELINK network connection type.\n"
+                    "description": "Network DNS config. It applies only to the PRIVATELINK network connection type."
                 },
                 "dnsDomain": {
                     "type": "string",
@@ -10460,7 +10460,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/NetworkEnvironment:NetworkEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "gateways": {
                     "type": "array",
@@ -10500,7 +10500,7 @@
                     "items": {
                         "$ref": "#/types/confluentcloud:index/NetworkZoneInfo:NetworkZoneInfo"
                     },
-                    "description": "Each item represents information related to a single zone.\n"
+                    "description": "Each item represents information related to a single zone."
                 },
                 "zones": {
                     "type": "array",
@@ -10569,11 +10569,11 @@
                 },
                 "dnsConfig": {
                     "$ref": "#/types/confluentcloud:index/NetworkDnsConfig:NetworkDnsConfig",
-                    "description": "Network DNS config. It applies only to the PRIVATELINK network connection type.\n"
+                    "description": "Network DNS config. It applies only to the PRIVATELINK network connection type."
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/NetworkEnvironment:NetworkEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "gcps": {
@@ -10598,7 +10598,7 @@
                     "items": {
                         "$ref": "#/types/confluentcloud:index/NetworkZoneInfo:NetworkZoneInfo"
                     },
-                    "description": "Each item represents information related to a single zone.\n",
+                    "description": "Each item represents information related to a single zone.",
                     "willReplaceOnChanges": true
                 },
                 "zones": {
@@ -10657,7 +10657,7 @@
                     },
                     "dnsConfig": {
                         "$ref": "#/types/confluentcloud:index/NetworkDnsConfig:NetworkDnsConfig",
-                        "description": "Network DNS config. It applies only to the PRIVATELINK network connection type.\n"
+                        "description": "Network DNS config. It applies only to the PRIVATELINK network connection type."
                     },
                     "dnsDomain": {
                         "type": "string",
@@ -10669,7 +10669,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/NetworkEnvironment:NetworkEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "gateways": {
@@ -10712,7 +10712,7 @@
                         "items": {
                             "$ref": "#/types/confluentcloud:index/NetworkZoneInfo:NetworkZoneInfo"
                         },
-                        "description": "Each item represents information related to a single zone.\n",
+                        "description": "Each item represents information related to a single zone.",
                         "willReplaceOnChanges": true
                     },
                     "zones": {
@@ -10740,11 +10740,11 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointEnvironment:NetworkLinkEndpointEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointNetwork:NetworkLinkEndpointNetwork",
-                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n"
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts."
                 },
                 "networkLinkService": {
                     "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointNetworkLinkService:NetworkLinkEndpointNetworkLinkService"
@@ -10773,12 +10773,12 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointEnvironment:NetworkLinkEndpointEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointNetwork:NetworkLinkEndpointNetwork",
-                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.",
                     "willReplaceOnChanges": true
                 },
                 "networkLinkService": {
@@ -10804,12 +10804,12 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointEnvironment:NetworkLinkEndpointEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "network": {
                         "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointNetwork:NetworkLinkEndpointNetwork",
-                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.",
                         "willReplaceOnChanges": true
                     },
                     "networkLinkService": {
@@ -10840,11 +10840,11 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/NetworkLinkServiceEnvironment:NetworkLinkServiceEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/NetworkLinkServiceNetwork:NetworkLinkServiceNetwork",
-                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n"
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts."
                 },
                 "resourceName": {
                     "type": "string",
@@ -10873,12 +10873,12 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/NetworkLinkServiceEnvironment:NetworkLinkServiceEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/NetworkLinkServiceNetwork:NetworkLinkServiceNetwork",
-                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.",
                     "willReplaceOnChanges": true
                 }
             },
@@ -10902,12 +10902,12 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/NetworkLinkServiceEnvironment:NetworkLinkServiceEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "network": {
                         "$ref": "#/types/confluentcloud:index/NetworkLinkServiceNetwork:NetworkLinkServiceNetwork",
-                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.",
                         "willReplaceOnChanges": true
                     },
                     "resourceName": {
@@ -10933,14 +10933,14 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/PeeringEnvironment:PeeringEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "gcp": {
                     "$ref": "#/types/confluentcloud:index/PeeringGcp:PeeringGcp"
                 },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/PeeringNetwork:PeeringNetwork",
-                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n"
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts."
                 }
             },
             "required": [
@@ -10963,7 +10963,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/PeeringEnvironment:PeeringEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "gcp": {
@@ -10972,7 +10972,7 @@
                 },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/PeeringNetwork:PeeringNetwork",
-                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.",
                     "willReplaceOnChanges": true
                 }
             },
@@ -10997,7 +10997,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/PeeringEnvironment:PeeringEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "gcp": {
@@ -11006,7 +11006,7 @@
                     },
                     "network": {
                         "$ref": "#/types/confluentcloud:index/PeeringNetwork:PeeringNetwork",
-                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -11034,7 +11034,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/PluginEnvironment:PluginEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "kind": {
                     "type": "string",
@@ -11068,7 +11068,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/PluginEnvironment:PluginEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "runtimeLanguage": {
@@ -11102,7 +11102,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/PluginEnvironment:PluginEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "kind": {
@@ -11132,14 +11132,14 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAccessEnvironment:PrivateLinkAccessEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "gcp": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAccessGcp:PrivateLinkAccessGcp"
                 },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAccessNetwork:PrivateLinkAccessNetwork",
-                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n"
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts."
                 }
             },
             "required": [
@@ -11162,7 +11162,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAccessEnvironment:PrivateLinkAccessEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "gcp": {
@@ -11171,7 +11171,7 @@
                 },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAccessNetwork:PrivateLinkAccessNetwork",
-                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.",
                     "willReplaceOnChanges": true
                 }
             },
@@ -11196,7 +11196,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/PrivateLinkAccessEnvironment:PrivateLinkAccessEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "gcp": {
@@ -11205,7 +11205,7 @@
                     },
                     "network": {
                         "$ref": "#/types/confluentcloud:index/PrivateLinkAccessNetwork:PrivateLinkAccessNetwork",
-                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -11243,7 +11243,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentEnvironment:PrivateLinkAttachmentEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "gcps": {
                     "type": "array",
@@ -11284,7 +11284,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentEnvironment:PrivateLinkAttachmentEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "region": {
@@ -11331,7 +11331,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentEnvironment:PrivateLinkAttachmentEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "gcps": {
@@ -11369,14 +11369,14 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionEnvironment:PrivateLinkAttachmentConnectionEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "gcp": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionGcp:PrivateLinkAttachmentConnectionGcp"
                 },
                 "privateLinkAttachment": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionPrivateLinkAttachment:PrivateLinkAttachmentConnectionPrivateLinkAttachment",
-                    "description": "The private_link_attachment to which this belongs.\n"
+                    "description": "The private_link_attachment to which this belongs."
                 },
                 "resourceName": {
                     "type": "string",
@@ -11404,7 +11404,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionEnvironment:PrivateLinkAttachmentConnectionEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "gcp": {
@@ -11413,7 +11413,7 @@
                 },
                 "privateLinkAttachment": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionPrivateLinkAttachment:PrivateLinkAttachmentConnectionPrivateLinkAttachment",
-                    "description": "The private_link_attachment to which this belongs.\n",
+                    "description": "The private_link_attachment to which this belongs.",
                     "willReplaceOnChanges": true
                 }
             },
@@ -11439,7 +11439,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionEnvironment:PrivateLinkAttachmentConnectionEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "gcp": {
@@ -11448,7 +11448,7 @@
                     },
                     "privateLinkAttachment": {
                         "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionPrivateLinkAttachment:PrivateLinkAttachmentConnectionPrivateLinkAttachment",
-                        "description": "The private_link_attachment to which this belongs.\n",
+                        "description": "The private_link_attachment to which this belongs.",
                         "willReplaceOnChanges": true
                     },
                     "resourceName": {
@@ -11472,7 +11472,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/ProviderIntegrationEnvironment:ProviderIntegrationEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "usages": {
                     "type": "array",
@@ -11500,7 +11500,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/ProviderIntegrationEnvironment:ProviderIntegrationEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 }
             },
@@ -11523,7 +11523,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/ProviderIntegrationEnvironment:ProviderIntegrationEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "usages": {
@@ -11616,23 +11616,23 @@
             "properties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaCredentials:SchemaCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "format": {
                     "type": "string",
-                    "description": "The format of the Schema.\n"
+                    "description": "The format of the Schema."
                 },
                 "hardDelete": {
                     "type": "boolean",
-                    "description": "Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on\ndestroy. Defaults to `false` (soft delete).\n"
+                    "description": "Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete)."
                 },
                 "metadata": {
                     "$ref": "#/types/confluentcloud:index/SchemaMetadata:SchemaMetadata"
                 },
                 "recreateOnUpdate": {
                     "type": "boolean",
-                    "description": "Controls whether a schema should be recreated on update.\n"
+                    "description": "Controls whether a schema should be recreated on update."
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -11643,7 +11643,7 @@
                 },
                 "schema": {
                     "type": "string",
-                    "description": "The definition of the Schema.\n",
+                    "description": "The definition of the Schema.",
                     "language": {
                         "csharp": {
                             "name": "SchemaDetails"
@@ -11659,7 +11659,7 @@
                     "items": {
                         "$ref": "#/types/confluentcloud:index/SchemaSchemaReference:SchemaSchemaReference"
                     },
-                    "description": "The list of references to other Schemas.\n"
+                    "description": "The list of references to other Schemas."
                 },
                 "schemaRegistryCluster": {
                     "$ref": "#/types/confluentcloud:index/SchemaSchemaRegistryCluster:SchemaSchemaRegistryCluster"
@@ -11687,24 +11687,24 @@
             "inputProperties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaCredentials:SchemaCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "format": {
                     "type": "string",
-                    "description": "The format of the Schema.\n",
+                    "description": "The format of the Schema.",
                     "willReplaceOnChanges": true
                 },
                 "hardDelete": {
                     "type": "boolean",
-                    "description": "Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on\ndestroy. Defaults to `false` (soft delete).\n"
+                    "description": "Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete)."
                 },
                 "metadata": {
                     "$ref": "#/types/confluentcloud:index/SchemaMetadata:SchemaMetadata"
                 },
                 "recreateOnUpdate": {
                     "type": "boolean",
-                    "description": "Controls whether a schema should be recreated on update.\n",
+                    "description": "Controls whether a schema should be recreated on update.",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
@@ -11717,7 +11717,7 @@
                 },
                 "schema": {
                     "type": "string",
-                    "description": "The definition of the Schema.\n",
+                    "description": "The definition of the Schema.",
                     "language": {
                         "csharp": {
                             "name": "SchemaDetails"
@@ -11729,7 +11729,7 @@
                     "items": {
                         "$ref": "#/types/confluentcloud:index/SchemaSchemaReference:SchemaSchemaReference"
                     },
-                    "description": "The list of references to other Schemas.\n"
+                    "description": "The list of references to other Schemas."
                 },
                 "schemaRegistryCluster": {
                     "$ref": "#/types/confluentcloud:index/SchemaSchemaRegistryCluster:SchemaSchemaRegistryCluster",
@@ -11753,24 +11753,24 @@
                 "properties": {
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/SchemaCredentials:SchemaCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "format": {
                         "type": "string",
-                        "description": "The format of the Schema.\n",
+                        "description": "The format of the Schema.",
                         "willReplaceOnChanges": true
                     },
                     "hardDelete": {
                         "type": "boolean",
-                        "description": "Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on\ndestroy. Defaults to `false` (soft delete).\n"
+                        "description": "Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete)."
                     },
                     "metadata": {
                         "$ref": "#/types/confluentcloud:index/SchemaMetadata:SchemaMetadata"
                     },
                     "recreateOnUpdate": {
                         "type": "boolean",
-                        "description": "Controls whether a schema should be recreated on update.\n",
+                        "description": "Controls whether a schema should be recreated on update.",
                         "willReplaceOnChanges": true
                     },
                     "restEndpoint": {
@@ -11783,7 +11783,7 @@
                     },
                     "schema": {
                         "type": "string",
-                        "description": "The definition of the Schema.\n",
+                        "description": "The definition of the Schema.",
                         "language": {
                             "csharp": {
                                 "name": "SchemaDetails"
@@ -11799,7 +11799,7 @@
                         "items": {
                             "$ref": "#/types/confluentcloud:index/SchemaSchemaReference:SchemaSchemaReference"
                         },
-                        "description": "The list of references to other Schemas.\n"
+                        "description": "The list of references to other Schemas."
                     },
                     "schemaRegistryCluster": {
                         "$ref": "#/types/confluentcloud:index/SchemaSchemaRegistryCluster:SchemaSchemaRegistryCluster",
@@ -11841,7 +11841,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaExporterCredentials:SchemaExporterCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "destinationSchemaRegistryCluster": {
@@ -11906,7 +11906,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaExporterCredentials:SchemaExporterCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "destinationSchemaRegistryCluster": {
@@ -11969,7 +11969,7 @@
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/SchemaExporterCredentials:SchemaExporterCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "destinationSchemaRegistryCluster": {
@@ -12025,7 +12025,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterConfigCredentials:SchemaRegistryClusterConfigCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "restEndpoint": {
@@ -12051,7 +12051,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterConfigCredentials:SchemaRegistryClusterConfigCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "restEndpoint": {
@@ -12077,7 +12077,7 @@
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterConfigCredentials:SchemaRegistryClusterConfigCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "restEndpoint": {
@@ -12098,7 +12098,7 @@
             "properties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterModeCredentials:SchemaRegistryClusterModeCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "force": {
@@ -12123,7 +12123,7 @@
             "inputProperties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterModeCredentials:SchemaRegistryClusterModeCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "force": {
@@ -12149,7 +12149,7 @@
                 "properties": {
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterModeCredentials:SchemaRegistryClusterModeCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "force": {
@@ -12182,7 +12182,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryDekCredentials:SchemaRegistryDekCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "encryptedKeyMaterial": {
@@ -12191,7 +12191,7 @@
                 },
                 "hardDelete": {
                     "type": "boolean",
-                    "description": "Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek\non destroy. Defaults to `false` (soft delete).\n"
+                    "description": "Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete)."
                 },
                 "kekName": {
                     "type": "string",
@@ -12230,7 +12230,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryDekCredentials:SchemaRegistryDekCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "encryptedKeyMaterial": {
@@ -12239,7 +12239,7 @@
                 },
                 "hardDelete": {
                     "type": "boolean",
-                    "description": "Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek\non destroy. Defaults to `false` (soft delete).\n"
+                    "description": "Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete)."
                 },
                 "kekName": {
                     "type": "string",
@@ -12278,7 +12278,7 @@
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/SchemaRegistryDekCredentials:SchemaRegistryDekCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "encryptedKeyMaterial": {
@@ -12287,7 +12287,7 @@
                     },
                     "hardDelete": {
                         "type": "boolean",
-                        "description": "Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek\non destroy. Defaults to `false` (soft delete).\n"
+                        "description": "Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete)."
                     },
                     "kekName": {
                         "type": "string",
@@ -12325,7 +12325,7 @@
             "properties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryKekCredentials:SchemaRegistryKekCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "doc": {
@@ -12334,7 +12334,7 @@
                 },
                 "hardDelete": {
                     "type": "boolean",
-                    "description": "Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek\non destroy. Defaults to `false` (soft delete).\n"
+                    "description": "Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete)."
                 },
                 "kmsKeyId": {
                     "type": "string",
@@ -12377,7 +12377,7 @@
             "inputProperties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryKekCredentials:SchemaRegistryKekCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "doc": {
@@ -12386,7 +12386,7 @@
                 },
                 "hardDelete": {
                     "type": "boolean",
-                    "description": "Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek\non destroy. Defaults to `false` (soft delete).\n"
+                    "description": "Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete)."
                 },
                 "kmsKeyId": {
                     "type": "string",
@@ -12433,7 +12433,7 @@
                 "properties": {
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/SchemaRegistryKekCredentials:SchemaRegistryKekCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "doc": {
@@ -12442,7 +12442,7 @@
                     },
                     "hardDelete": {
                         "type": "boolean",
-                        "description": "Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek\non destroy. Defaults to `false` (soft delete).\n"
+                        "description": "Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete)."
                     },
                     "kmsKeyId": {
                         "type": "string",
@@ -12554,7 +12554,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SubjectConfigCredentials:SubjectConfigCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "restEndpoint": {
@@ -12585,7 +12585,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SubjectConfigCredentials:SubjectConfigCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "restEndpoint": {
@@ -12619,7 +12619,7 @@
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/SubjectConfigCredentials:SubjectConfigCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "restEndpoint": {
@@ -12645,7 +12645,7 @@
             "properties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SubjectModeCredentials:SubjectModeCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "force": {
@@ -12675,7 +12675,7 @@
             "inputProperties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SubjectModeCredentials:SubjectModeCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "force": {
@@ -12709,7 +12709,7 @@
                 "properties": {
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/SubjectModeCredentials:SubjectModeCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "force": {
@@ -12747,7 +12747,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicCredentials:TableflowTopicCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "displayName": {
@@ -12764,7 +12764,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicEnvironment:TableflowTopicEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster"
@@ -12819,7 +12819,7 @@
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicCredentials:TableflowTopicCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "displayName": {
@@ -12829,7 +12829,7 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicEnvironment:TableflowTopicEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "kafkaCluster": {
@@ -12874,7 +12874,7 @@
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/TableflowTopicCredentials:TableflowTopicCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "displayName": {
@@ -12892,7 +12892,7 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/TableflowTopicEnvironment:TableflowTopicEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "kafkaCluster": {
@@ -12938,12 +12938,12 @@
             "properties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/TagCredentials:TagCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "description": {
                     "type": "string",
-                    "description": "The description of the tag to be created.\n"
+                    "description": "The description of the tag to be created."
                 },
                 "entityTypes": {
                     "type": "array",
@@ -12976,12 +12976,12 @@
             "inputProperties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/TagCredentials:TagCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "description": {
                     "type": "string",
-                    "description": "The description of the tag to be created.\n"
+                    "description": "The description of the tag to be created."
                 },
                 "name": {
                     "type": "string",
@@ -13003,12 +13003,12 @@
                 "properties": {
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/TagCredentials:TagCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "description": {
                         "type": "string",
-                        "description": "The description of the tag to be created.\n"
+                        "description": "The description of the tag to be created."
                     },
                     "entityTypes": {
                         "type": "array",
@@ -13044,7 +13044,7 @@
             "properties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/TagBindingCredentials:TagBindingCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "entityName": {
@@ -13053,7 +13053,7 @@
                 },
                 "entityType": {
                     "type": "string",
-                    "description": "The entity type.\n"
+                    "description": "The entity type."
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -13075,7 +13075,7 @@
             "inputProperties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/TagBindingCredentials:TagBindingCredentials",
-                    "description": "The Cluster API Credentials.\n",
+                    "description": "The Cluster API Credentials.",
                     "secret": true
                 },
                 "entityName": {
@@ -13084,7 +13084,7 @@
                 },
                 "entityType": {
                     "type": "string",
-                    "description": "The entity type.\n",
+                    "description": "The entity type.",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
@@ -13112,7 +13112,7 @@
                 "properties": {
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/TagBindingCredentials:TagBindingCredentials",
-                        "description": "The Cluster API Credentials.\n",
+                        "description": "The Cluster API Credentials.",
                         "secret": true
                     },
                     "entityName": {
@@ -13121,7 +13121,7 @@
                     },
                     "entityType": {
                         "type": "string",
-                        "description": "The entity type.\n",
+                        "description": "The entity type.",
                         "willReplaceOnChanges": true
                     },
                     "restEndpoint": {
@@ -13205,11 +13205,11 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/TransitGatewayAttachmentEnvironment:TransitGatewayAttachmentEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/TransitGatewayAttachmentNetwork:TransitGatewayAttachmentNetwork",
-                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n"
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts."
                 }
             },
             "required": [
@@ -13229,12 +13229,12 @@
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/TransitGatewayAttachmentEnvironment:TransitGatewayAttachmentEnvironment",
-                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/TransitGatewayAttachmentNetwork:TransitGatewayAttachmentNetwork",
-                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.",
                     "willReplaceOnChanges": true
                 }
             },
@@ -13256,12 +13256,12 @@
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/TransitGatewayAttachmentEnvironment:TransitGatewayAttachmentEnvironment",
-                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
                     "network": {
                         "$ref": "#/types/confluentcloud:index/TransitGatewayAttachmentNetwork:TransitGatewayAttachmentNetwork",
-                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -14040,7 +14040,7 @@
                 "description": "A collection of values returned by getEnvironments.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "ids": {
@@ -14308,7 +14308,7 @@
                         "$ref": "#/types/confluentcloud:index/getFlinkConnectionEnvironment:getFlinkConnectionEnvironment"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "organization": {
@@ -14756,7 +14756,7 @@
                         "$ref": "#/types/confluentcloud:index/getIpAddressesFilter:getIpAddressesFilter"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "ipAddresses": {
@@ -15160,7 +15160,7 @@
                         "secret": true
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "kafkaCluster": {
@@ -16109,7 +16109,7 @@
                         "type": "boolean"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "metadata": {
@@ -16306,7 +16306,7 @@
                         "secret": true
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "restEndpoint": {
@@ -16352,7 +16352,7 @@
                         "secret": true
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "mode": {
@@ -16400,7 +16400,7 @@
                         "description": "(Required Object) exports the following attributes:\n"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     }
                 },
@@ -16470,7 +16470,7 @@
                         "type": "boolean"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "kekName": {
@@ -16546,7 +16546,7 @@
                         "type": "boolean"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "kmsKeyId": {
@@ -16626,7 +16626,7 @@
                         "$ref": "#/types/confluentcloud:index/getSchemasFilter:getSchemasFilter"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "restEndpoint": {
@@ -16743,7 +16743,7 @@
                         "secret": true
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "restEndpoint": {
@@ -16800,7 +16800,7 @@
                         "secret": true
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "mode": {
@@ -16881,7 +16881,7 @@
                         "$ref": "#/types/confluentcloud:index/getTableflowTopicEnvironment:getTableflowTopicEnvironment"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "kafkaCluster": {
@@ -17203,7 +17203,7 @@
                 "description": "A collection of values returned by getUsers.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "ids": {

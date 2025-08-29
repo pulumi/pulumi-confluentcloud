@@ -90,15 +90,15 @@ export class ByokKey extends pulumi.CustomResource {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public readonly aws!: pulumi.Output<outputs.ByokKeyAws>;
+    declare public readonly aws: pulumi.Output<outputs.ByokKeyAws>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public readonly azure!: pulumi.Output<outputs.ByokKeyAzure>;
+    declare public readonly azure: pulumi.Output<outputs.ByokKeyAzure>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public readonly gcp!: pulumi.Output<outputs.ByokKeyGcp>;
+    declare public readonly gcp: pulumi.Output<outputs.ByokKeyGcp>;
 
     /**
      * Create a ByokKey resource with the given unique name, arguments, and options.
@@ -113,14 +113,14 @@ export class ByokKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ByokKeyState | undefined;
-            resourceInputs["aws"] = state ? state.aws : undefined;
-            resourceInputs["azure"] = state ? state.azure : undefined;
-            resourceInputs["gcp"] = state ? state.gcp : undefined;
+            resourceInputs["aws"] = state?.aws;
+            resourceInputs["azure"] = state?.azure;
+            resourceInputs["gcp"] = state?.gcp;
         } else {
             const args = argsOrState as ByokKeyArgs | undefined;
-            resourceInputs["aws"] = args ? args.aws : undefined;
-            resourceInputs["azure"] = args ? args.azure : undefined;
-            resourceInputs["gcp"] = args ? args.gcp : undefined;
+            resourceInputs["aws"] = args?.aws;
+            resourceInputs["azure"] = args?.azure;
+            resourceInputs["gcp"] = args?.gcp;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ByokKey.__pulumiType, name, resourceInputs, opts);

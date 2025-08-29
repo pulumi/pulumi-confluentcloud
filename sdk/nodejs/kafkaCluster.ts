@@ -235,73 +235,72 @@ export class KafkaCluster extends pulumi.CustomResource {
     /**
      * (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
      */
-    public /*out*/ readonly apiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiVersion: pulumi.Output<string>;
     /**
      * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      */
-    public readonly availability!: pulumi.Output<string>;
+    declare public readonly availability: pulumi.Output<string>;
     /**
      * The configuration of the Basic Kafka cluster.
      */
-    public readonly basic!: pulumi.Output<outputs.KafkaClusterBasic | undefined>;
+    declare public readonly basic: pulumi.Output<outputs.KafkaClusterBasic | undefined>;
     /**
      * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
      */
-    public /*out*/ readonly bootstrapEndpoint!: pulumi.Output<string>;
-    public readonly byokKey!: pulumi.Output<outputs.KafkaClusterByokKey>;
+    declare public /*out*/ readonly bootstrapEndpoint: pulumi.Output<string>;
+    declare public readonly byokKey: pulumi.Output<outputs.KafkaClusterByokKey>;
     /**
      * The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
-    public readonly cloud!: pulumi.Output<string>;
+    declare public readonly cloud: pulumi.Output<string>;
     /**
      * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
      */
-    public readonly dedicated!: pulumi.Output<outputs.KafkaClusterDedicated | undefined>;
+    declare public readonly dedicated: pulumi.Output<outputs.KafkaClusterDedicated | undefined>;
     /**
      * The name of the Kafka cluster.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.KafkaClusterEndpoint[]>;
+    declare public /*out*/ readonly endpoints: pulumi.Output<outputs.KafkaClusterEndpoint[]>;
     /**
      * The configuration of the Enterprise Kafka cluster.
      */
-    public readonly enterprises!: pulumi.Output<outputs.KafkaClusterEnterprise[] | undefined>;
+    declare public readonly enterprises: pulumi.Output<outputs.KafkaClusterEnterprise[] | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.KafkaClusterEnvironment>;
+    declare public readonly environment: pulumi.Output<outputs.KafkaClusterEnvironment>;
     /**
      * The configuration of the Freight Kafka cluster.
      */
-    public readonly freights!: pulumi.Output<outputs.KafkaClusterFreight[] | undefined>;
+    declare public readonly freights: pulumi.Output<outputs.KafkaClusterFreight[] | undefined>;
     /**
      * (Required String) A kind of the Kafka cluster, for example, `Cluster`.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
-    public readonly network!: pulumi.Output<outputs.KafkaClusterNetwork>;
+    declare public readonly network: pulumi.Output<outputs.KafkaClusterNetwork>;
     /**
      * (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
      */
-    public /*out*/ readonly rbacCrn!: pulumi.Output<string>;
+    declare public /*out*/ readonly rbacCrn: pulumi.Output<string>;
     /**
      * The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
      */
-    public /*out*/ readonly restEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly restEndpoint: pulumi.Output<string>;
     /**
      * The configuration of the Standard Kafka cluster.
      */
-    public readonly standard!: pulumi.Output<outputs.KafkaClusterStandard | undefined>;
+    declare public readonly standard: pulumi.Output<outputs.KafkaClusterStandard | undefined>;
 
     /**
      * Create a KafkaCluster resource with the given unique name, arguments, and options.
@@ -316,50 +315,50 @@ export class KafkaCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KafkaClusterState | undefined;
-            resourceInputs["apiVersion"] = state ? state.apiVersion : undefined;
-            resourceInputs["availability"] = state ? state.availability : undefined;
-            resourceInputs["basic"] = state ? state.basic : undefined;
-            resourceInputs["bootstrapEndpoint"] = state ? state.bootstrapEndpoint : undefined;
-            resourceInputs["byokKey"] = state ? state.byokKey : undefined;
-            resourceInputs["cloud"] = state ? state.cloud : undefined;
-            resourceInputs["dedicated"] = state ? state.dedicated : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
-            resourceInputs["enterprises"] = state ? state.enterprises : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["freights"] = state ? state.freights : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["network"] = state ? state.network : undefined;
-            resourceInputs["rbacCrn"] = state ? state.rbacCrn : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["standard"] = state ? state.standard : undefined;
+            resourceInputs["apiVersion"] = state?.apiVersion;
+            resourceInputs["availability"] = state?.availability;
+            resourceInputs["basic"] = state?.basic;
+            resourceInputs["bootstrapEndpoint"] = state?.bootstrapEndpoint;
+            resourceInputs["byokKey"] = state?.byokKey;
+            resourceInputs["cloud"] = state?.cloud;
+            resourceInputs["dedicated"] = state?.dedicated;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["endpoints"] = state?.endpoints;
+            resourceInputs["enterprises"] = state?.enterprises;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["freights"] = state?.freights;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["network"] = state?.network;
+            resourceInputs["rbacCrn"] = state?.rbacCrn;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["standard"] = state?.standard;
         } else {
             const args = argsOrState as KafkaClusterArgs | undefined;
-            if ((!args || args.availability === undefined) && !opts.urn) {
+            if (args?.availability === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availability'");
             }
-            if ((!args || args.cloud === undefined) && !opts.urn) {
+            if (args?.cloud === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloud'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            resourceInputs["availability"] = args ? args.availability : undefined;
-            resourceInputs["basic"] = args ? args.basic : undefined;
-            resourceInputs["byokKey"] = args ? args.byokKey : undefined;
-            resourceInputs["cloud"] = args ? args.cloud : undefined;
-            resourceInputs["dedicated"] = args ? args.dedicated : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enterprises"] = args ? args.enterprises : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["freights"] = args ? args.freights : undefined;
-            resourceInputs["network"] = args ? args.network : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["standard"] = args ? args.standard : undefined;
+            resourceInputs["availability"] = args?.availability;
+            resourceInputs["basic"] = args?.basic;
+            resourceInputs["byokKey"] = args?.byokKey;
+            resourceInputs["cloud"] = args?.cloud;
+            resourceInputs["dedicated"] = args?.dedicated;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enterprises"] = args?.enterprises;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["freights"] = args?.freights;
+            resourceInputs["network"] = args?.network;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["standard"] = args?.standard;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["bootstrapEndpoint"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
@@ -426,8 +425,7 @@ export interface KafkaClusterState {
      */
     kind?: pulumi.Input<string>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     network?: pulumi.Input<inputs.KafkaClusterNetwork>;
     /**
@@ -486,8 +484,7 @@ export interface KafkaClusterArgs {
      */
     freights?: pulumi.Input<pulumi.Input<inputs.KafkaClusterFreight>[]>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     network?: pulumi.Input<inputs.KafkaClusterNetwork>;
     /**

@@ -66,35 +66,35 @@ export class CustomConnectorPlugin extends pulumi.CustomResource {
     /**
      * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
-    public readonly cloud!: pulumi.Output<string>;
+    declare public readonly cloud: pulumi.Output<string>;
     /**
      * The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
      */
-    public readonly connectorClass!: pulumi.Output<string>;
+    declare public readonly connectorClass: pulumi.Output<string>;
     /**
      * The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
      */
-    public readonly connectorType!: pulumi.Output<string>;
+    declare public readonly connectorType: pulumi.Output<string>;
     /**
      * The description of the Custom Connector Plugin.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the Custom Connector Plugin.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The documentation link of the Custom Connector Plugin.
      */
-    public readonly documentationLink!: pulumi.Output<string | undefined>;
+    declare public readonly documentationLink: pulumi.Output<string | undefined>;
     /**
      * The path to the Custom Connector Plugin archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.
      */
-    public readonly filename!: pulumi.Output<string>;
+    declare public readonly filename: pulumi.Output<string>;
     /**
      * The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.
      */
-    public readonly sensitiveConfigProperties!: pulumi.Output<string[] | undefined>;
+    declare public readonly sensitiveConfigProperties: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a CustomConnectorPlugin resource with the given unique name, arguments, and options.
@@ -109,36 +109,36 @@ export class CustomConnectorPlugin extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomConnectorPluginState | undefined;
-            resourceInputs["cloud"] = state ? state.cloud : undefined;
-            resourceInputs["connectorClass"] = state ? state.connectorClass : undefined;
-            resourceInputs["connectorType"] = state ? state.connectorType : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["documentationLink"] = state ? state.documentationLink : undefined;
-            resourceInputs["filename"] = state ? state.filename : undefined;
-            resourceInputs["sensitiveConfigProperties"] = state ? state.sensitiveConfigProperties : undefined;
+            resourceInputs["cloud"] = state?.cloud;
+            resourceInputs["connectorClass"] = state?.connectorClass;
+            resourceInputs["connectorType"] = state?.connectorType;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["documentationLink"] = state?.documentationLink;
+            resourceInputs["filename"] = state?.filename;
+            resourceInputs["sensitiveConfigProperties"] = state?.sensitiveConfigProperties;
         } else {
             const args = argsOrState as CustomConnectorPluginArgs | undefined;
-            if ((!args || args.connectorClass === undefined) && !opts.urn) {
+            if (args?.connectorClass === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorClass'");
             }
-            if ((!args || args.connectorType === undefined) && !opts.urn) {
+            if (args?.connectorType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorType'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.filename === undefined) && !opts.urn) {
+            if (args?.filename === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filename'");
             }
-            resourceInputs["cloud"] = args ? args.cloud : undefined;
-            resourceInputs["connectorClass"] = args ? args.connectorClass : undefined;
-            resourceInputs["connectorType"] = args ? args.connectorType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["documentationLink"] = args ? args.documentationLink : undefined;
-            resourceInputs["filename"] = args ? args.filename : undefined;
-            resourceInputs["sensitiveConfigProperties"] = args ? args.sensitiveConfigProperties : undefined;
+            resourceInputs["cloud"] = args?.cloud;
+            resourceInputs["connectorClass"] = args?.connectorClass;
+            resourceInputs["connectorType"] = args?.connectorType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["documentationLink"] = args?.documentationLink;
+            resourceInputs["filename"] = args?.filename;
+            resourceInputs["sensitiveConfigProperties"] = args?.sensitiveConfigProperties;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomConnectorPlugin.__pulumiType, name, resourceInputs, opts);

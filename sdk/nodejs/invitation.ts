@@ -69,32 +69,32 @@ export class Invitation extends pulumi.CustomResource {
     /**
      * (Optional String) The timestamp that the invitation was accepted.
      */
-    public /*out*/ readonly acceptedAt!: pulumi.Output<string>;
-    public readonly allowDeletion!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly acceptedAt: pulumi.Output<string>;
+    declare public readonly allowDeletion: pulumi.Output<boolean | undefined>;
     /**
      * Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's authType is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's authType is `AUTH_TYPE_LOCAL` by default.
      */
-    public readonly authType!: pulumi.Output<string>;
+    declare public readonly authType: pulumi.Output<string>;
     /**
      * (Required Configuration Block) supports the following:
      */
-    public /*out*/ readonly creators!: pulumi.Output<outputs.InvitationCreator[]>;
+    declare public /*out*/ readonly creators: pulumi.Output<outputs.InvitationCreator[]>;
     /**
      * The user/invitee's email address.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * (Optional String) The timestamp that the invitation will expire.
      */
-    public /*out*/ readonly expiresAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly expiresAt: pulumi.Output<string>;
     /**
      * (Optional String) The status of invitations. Accepted values are: `INVITE_STATUS_SENT`,`INVITE_STATUS_STAGED`,`INVITE_STATUS_ACCEPTED`,`INVITE_STATUS_EXPIRED`, and `INVITE_STATUS_DEACTIVATED`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * (Required Configuration Block) supports the following:
      */
-    public /*out*/ readonly users!: pulumi.Output<outputs.InvitationUser[]>;
+    declare public /*out*/ readonly users: pulumi.Output<outputs.InvitationUser[]>;
 
     /**
      * Create a Invitation resource with the given unique name, arguments, and options.
@@ -109,22 +109,22 @@ export class Invitation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InvitationState | undefined;
-            resourceInputs["acceptedAt"] = state ? state.acceptedAt : undefined;
-            resourceInputs["allowDeletion"] = state ? state.allowDeletion : undefined;
-            resourceInputs["authType"] = state ? state.authType : undefined;
-            resourceInputs["creators"] = state ? state.creators : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["expiresAt"] = state ? state.expiresAt : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
+            resourceInputs["acceptedAt"] = state?.acceptedAt;
+            resourceInputs["allowDeletion"] = state?.allowDeletion;
+            resourceInputs["authType"] = state?.authType;
+            resourceInputs["creators"] = state?.creators;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["expiresAt"] = state?.expiresAt;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["users"] = state?.users;
         } else {
             const args = argsOrState as InvitationArgs | undefined;
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["allowDeletion"] = args ? args.allowDeletion : undefined;
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["allowDeletion"] = args?.allowDeletion;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["email"] = args?.email;
             resourceInputs["acceptedAt"] = undefined /*out*/;
             resourceInputs["creators"] = undefined /*out*/;
             resourceInputs["expiresAt"] = undefined /*out*/;

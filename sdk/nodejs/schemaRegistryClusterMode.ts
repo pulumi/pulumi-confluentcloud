@@ -84,20 +84,20 @@ export class SchemaRegistryClusterMode extends pulumi.CustomResource {
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.SchemaRegistryClusterModeCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.SchemaRegistryClusterModeCredentials | undefined>;
     /**
      * An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
      */
-    public readonly force!: pulumi.Output<boolean | undefined>;
+    declare public readonly force: pulumi.Output<boolean | undefined>;
     /**
      * The global Schema Registry mode. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaRegistryClusterModeSchemaRegistryCluster | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryCluster: pulumi.Output<outputs.SchemaRegistryClusterModeSchemaRegistryCluster | undefined>;
 
     /**
      * Create a SchemaRegistryClusterMode resource with the given unique name, arguments, and options.
@@ -112,18 +112,18 @@ export class SchemaRegistryClusterMode extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SchemaRegistryClusterModeState | undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["force"] = state ? state.force : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["force"] = state?.force;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
         } else {
             const args = argsOrState as SchemaRegistryClusterModeArgs | undefined;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["force"] = args ? args.force : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
+            resourceInputs["force"] = args?.force;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };

@@ -159,16 +159,14 @@ public class TransitGatewayAttachment extends com.pulumi.resources.CustomResourc
         return this.environment;
     }
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      * 
      */
     @Export(name="network", refs={TransitGatewayAttachmentNetwork.class}, tree="[0]")
     private Output<TransitGatewayAttachmentNetwork> network;
 
     /**
-     * @return Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * @return Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      * 
      */
     public Output<TransitGatewayAttachmentNetwork> network() {

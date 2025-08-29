@@ -108,45 +108,45 @@ export class SchemaExporter extends pulumi.CustomResource {
     /**
      * Block for custom *nonsensitive* configuration properties:
      */
-    public readonly config!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly config: pulumi.Output<{[key: string]: string}>;
     /**
      * Customized context of the exporter if `contextType` is set to `CUSTOM`.
      */
-    public readonly context!: pulumi.Output<string>;
+    declare public readonly context: pulumi.Output<string>;
     /**
      * Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
      */
-    public readonly contextType!: pulumi.Output<string>;
+    declare public readonly contextType: pulumi.Output<string>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.SchemaExporterCredentials | undefined>;
-    public readonly destinationSchemaRegistryCluster!: pulumi.Output<outputs.SchemaExporterDestinationSchemaRegistryCluster>;
+    declare public readonly credentials: pulumi.Output<outputs.SchemaExporterCredentials | undefined>;
+    declare public readonly destinationSchemaRegistryCluster: pulumi.Output<outputs.SchemaExporterDestinationSchemaRegistryCluster>;
     /**
      * Name of the Schema Exporter.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
      */
-    public readonly resetOnUpdate!: pulumi.Output<boolean | undefined>;
+    declare public readonly resetOnUpdate: pulumi.Output<boolean | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaExporterSchemaRegistryCluster | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryCluster: pulumi.Output<outputs.SchemaExporterSchemaRegistryCluster | undefined>;
     /**
      * The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
     /**
      * Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dcOrders`.
      */
-    public readonly subjectRenameFormat!: pulumi.Output<string>;
+    declare public readonly subjectRenameFormat: pulumi.Output<string>;
     /**
      * Name of each exporter subject.
      */
-    public readonly subjects!: pulumi.Output<string[]>;
+    declare public readonly subjects: pulumi.Output<string[]>;
 
     /**
      * Create a SchemaExporter resource with the given unique name, arguments, and options.
@@ -161,35 +161,35 @@ export class SchemaExporter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SchemaExporterState | undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["context"] = state ? state.context : undefined;
-            resourceInputs["contextType"] = state ? state.contextType : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["destinationSchemaRegistryCluster"] = state ? state.destinationSchemaRegistryCluster : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resetOnUpdate"] = state ? state.resetOnUpdate : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["subjectRenameFormat"] = state ? state.subjectRenameFormat : undefined;
-            resourceInputs["subjects"] = state ? state.subjects : undefined;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["context"] = state?.context;
+            resourceInputs["contextType"] = state?.contextType;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["destinationSchemaRegistryCluster"] = state?.destinationSchemaRegistryCluster;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resetOnUpdate"] = state?.resetOnUpdate;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["subjectRenameFormat"] = state?.subjectRenameFormat;
+            resourceInputs["subjects"] = state?.subjects;
         } else {
             const args = argsOrState as SchemaExporterArgs | undefined;
-            if ((!args || args.destinationSchemaRegistryCluster === undefined) && !opts.urn) {
+            if (args?.destinationSchemaRegistryCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationSchemaRegistryCluster'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["context"] = args ? args.context : undefined;
-            resourceInputs["contextType"] = args ? args.contextType : undefined;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["context"] = args?.context;
+            resourceInputs["contextType"] = args?.contextType;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["destinationSchemaRegistryCluster"] = args ? args.destinationSchemaRegistryCluster : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resetOnUpdate"] = args ? args.resetOnUpdate : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["subjectRenameFormat"] = args ? args.subjectRenameFormat : undefined;
-            resourceInputs["subjects"] = args ? args.subjects : undefined;
+            resourceInputs["destinationSchemaRegistryCluster"] = args?.destinationSchemaRegistryCluster;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resetOnUpdate"] = args?.resetOnUpdate;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["subjectRenameFormat"] = args?.subjectRenameFormat;
+            resourceInputs["subjects"] = args?.subjects;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };

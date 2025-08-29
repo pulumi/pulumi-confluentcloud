@@ -70,35 +70,35 @@ export class FlinkComputePool extends pulumi.CustomResource {
     /**
      * (Required String) The API Version of the schema version of the Flink Compute Pool, for example, `fcpm/v2`.
      */
-    public /*out*/ readonly apiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiVersion: pulumi.Output<string>;
     /**
      * The cloud service provider that runs the Flink Compute Pool.
      */
-    public readonly cloud!: pulumi.Output<string>;
+    declare public readonly cloud: pulumi.Output<string>;
     /**
      * The name of the Flink Compute Pool.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.FlinkComputePoolEnvironment>;
+    declare public readonly environment: pulumi.Output<outputs.FlinkComputePoolEnvironment>;
     /**
      * (Required String) The kind of the Flink Compute Pool, for example, `ComputePool`.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
      */
-    public readonly maxCfu!: pulumi.Output<number>;
+    declare public readonly maxCfu: pulumi.Output<number>;
     /**
      * The cloud service provider region that hosts the Flink Compute Pool.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * (Required String) The Confluent Resource Name of the Flink Compute Pool.
      */
-    public /*out*/ readonly resourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceName: pulumi.Output<string>;
 
     /**
      * Create a FlinkComputePool resource with the given unique name, arguments, and options.
@@ -113,33 +113,33 @@ export class FlinkComputePool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlinkComputePoolState | undefined;
-            resourceInputs["apiVersion"] = state ? state.apiVersion : undefined;
-            resourceInputs["cloud"] = state ? state.cloud : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["maxCfu"] = state ? state.maxCfu : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceName"] = state ? state.resourceName : undefined;
+            resourceInputs["apiVersion"] = state?.apiVersion;
+            resourceInputs["cloud"] = state?.cloud;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["maxCfu"] = state?.maxCfu;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceName"] = state?.resourceName;
         } else {
             const args = argsOrState as FlinkComputePoolArgs | undefined;
-            if ((!args || args.cloud === undefined) && !opts.urn) {
+            if (args?.cloud === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloud'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            resourceInputs["cloud"] = args ? args.cloud : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["maxCfu"] = args ? args.maxCfu : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["cloud"] = args?.cloud;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["maxCfu"] = args?.maxCfu;
+            resourceInputs["region"] = args?.region;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["resourceName"] = undefined /*out*/;

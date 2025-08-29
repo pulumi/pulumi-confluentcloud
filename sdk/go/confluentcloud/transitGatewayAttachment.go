@@ -105,8 +105,7 @@ type TransitGatewayAttachment struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment TransitGatewayAttachmentEnvironmentOutput `pulumi:"environment"`
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network TransitGatewayAttachmentNetworkOutput `pulumi:"network"`
 }
 
@@ -152,8 +151,7 @@ type transitGatewayAttachmentState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *TransitGatewayAttachmentEnvironment `pulumi:"environment"`
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network *TransitGatewayAttachmentNetwork `pulumi:"network"`
 }
 
@@ -164,8 +162,7 @@ type TransitGatewayAttachmentState struct {
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment TransitGatewayAttachmentEnvironmentPtrInput
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network TransitGatewayAttachmentNetworkPtrInput
 }
 
@@ -180,8 +177,7 @@ type transitGatewayAttachmentArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment TransitGatewayAttachmentEnvironment `pulumi:"environment"`
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network TransitGatewayAttachmentNetwork `pulumi:"network"`
 }
 
@@ -193,8 +189,7 @@ type TransitGatewayAttachmentArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment TransitGatewayAttachmentEnvironmentInput
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network TransitGatewayAttachmentNetworkInput
 }
 
@@ -300,8 +295,7 @@ func (o TransitGatewayAttachmentOutput) Environment() TransitGatewayAttachmentEn
 	return o.ApplyT(func(v *TransitGatewayAttachment) TransitGatewayAttachmentEnvironmentOutput { return v.Environment }).(TransitGatewayAttachmentEnvironmentOutput)
 }
 
-// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-// accounts.
+// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 func (o TransitGatewayAttachmentOutput) Network() TransitGatewayAttachmentNetworkOutput {
 	return o.ApplyT(func(v *TransitGatewayAttachment) TransitGatewayAttachmentNetworkOutput { return v.Network }).(TransitGatewayAttachmentNetworkOutput)
 }

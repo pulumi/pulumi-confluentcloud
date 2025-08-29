@@ -111,8 +111,7 @@ type SchemaRegistryDek struct {
 	Credentials SchemaRegistryDekCredentialsPtrOutput `pulumi:"credentials"`
 	// The encrypted key material for the DEK.
 	EncryptedKeyMaterial pulumi.StringOutput `pulumi:"encryptedKeyMaterial"`
-	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-	// on destroy. Defaults to `false` (soft delete).
+	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
 	HardDelete pulumi.BoolPtrOutput `pulumi:"hardDelete"`
 	// The name of the KEK used to encrypt this DEK.
 	KekName pulumi.StringOutput `pulumi:"kekName"`
@@ -176,8 +175,7 @@ type schemaRegistryDekState struct {
 	Credentials *SchemaRegistryDekCredentials `pulumi:"credentials"`
 	// The encrypted key material for the DEK.
 	EncryptedKeyMaterial *string `pulumi:"encryptedKeyMaterial"`
-	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-	// on destroy. Defaults to `false` (soft delete).
+	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
 	HardDelete *bool `pulumi:"hardDelete"`
 	// The name of the KEK used to encrypt this DEK.
 	KekName *string `pulumi:"kekName"`
@@ -199,8 +197,7 @@ type SchemaRegistryDekState struct {
 	Credentials SchemaRegistryDekCredentialsPtrInput
 	// The encrypted key material for the DEK.
 	EncryptedKeyMaterial pulumi.StringPtrInput
-	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-	// on destroy. Defaults to `false` (soft delete).
+	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
 	HardDelete pulumi.BoolPtrInput
 	// The name of the KEK used to encrypt this DEK.
 	KekName pulumi.StringPtrInput
@@ -226,8 +223,7 @@ type schemaRegistryDekArgs struct {
 	Credentials *SchemaRegistryDekCredentials `pulumi:"credentials"`
 	// The encrypted key material for the DEK.
 	EncryptedKeyMaterial *string `pulumi:"encryptedKeyMaterial"`
-	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-	// on destroy. Defaults to `false` (soft delete).
+	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
 	HardDelete *bool `pulumi:"hardDelete"`
 	// The name of the KEK used to encrypt this DEK.
 	KekName string `pulumi:"kekName"`
@@ -248,8 +244,7 @@ type SchemaRegistryDekArgs struct {
 	Credentials SchemaRegistryDekCredentialsPtrInput
 	// The encrypted key material for the DEK.
 	EncryptedKeyMaterial pulumi.StringPtrInput
-	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-	// on destroy. Defaults to `false` (soft delete).
+	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
 	HardDelete pulumi.BoolPtrInput
 	// The name of the KEK used to encrypt this DEK.
 	KekName pulumi.StringInput
@@ -364,8 +359,7 @@ func (o SchemaRegistryDekOutput) EncryptedKeyMaterial() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaRegistryDek) pulumi.StringOutput { return v.EncryptedKeyMaterial }).(pulumi.StringOutput)
 }
 
-// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-// on destroy. Defaults to `false` (soft delete).
+// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
 func (o SchemaRegistryDekOutput) HardDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryDek) pulumi.BoolPtrOutput { return v.HardDelete }).(pulumi.BoolPtrOutput)
 }

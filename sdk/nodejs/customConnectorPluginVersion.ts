@@ -77,43 +77,43 @@ export class CustomConnectorPluginVersion extends pulumi.CustomResource {
     /**
      * (Required String) The API Version of the schema version of the plugin version, for example, `ccpm/v1`.
      */
-    public /*out*/ readonly apiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiVersion: pulumi.Output<string>;
     /**
      * Cloud provider where the Custom Connector Plugin Version archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
-    public readonly cloud!: pulumi.Output<string>;
+    declare public readonly cloud: pulumi.Output<string>;
     /**
      * The Java class name or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
      */
-    public readonly connectorClasses!: pulumi.Output<outputs.CustomConnectorPluginVersionConnectorClass[]>;
+    declare public readonly connectorClasses: pulumi.Output<outputs.CustomConnectorPluginVersionConnectorClass[]>;
     /**
      * The documentation link of the Custom Connector Plugin Version.
      */
-    public readonly documentationLink!: pulumi.Output<string | undefined>;
+    declare public readonly documentationLink: pulumi.Output<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.CustomConnectorPluginVersionEnvironment>;
+    declare public readonly environment: pulumi.Output<outputs.CustomConnectorPluginVersionEnvironment>;
     /**
      * The path to the Custom Connector Plugin Version archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.
      */
-    public readonly filename!: pulumi.Output<string>;
+    declare public readonly filename: pulumi.Output<string>;
     /**
      * (Required String) The kind of the Plugin Version, for example, `CustomConnectPluginVersion`.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * The ID of the plugin created using `confluentcloud.Plugin` resource, or through other ways.
      */
-    public readonly pluginId!: pulumi.Output<string>;
+    declare public readonly pluginId: pulumi.Output<string>;
     /**
      * The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.
      */
-    public readonly sensitiveConfigProperties!: pulumi.Output<string[] | undefined>;
+    declare public readonly sensitiveConfigProperties: pulumi.Output<string[] | undefined>;
     /**
      * The version number of the plugin version we want to create. This must start with the character `v` and follow semantic versioning.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a CustomConnectorPluginVersion resource with the given unique name, arguments, and options.
@@ -128,44 +128,44 @@ export class CustomConnectorPluginVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomConnectorPluginVersionState | undefined;
-            resourceInputs["apiVersion"] = state ? state.apiVersion : undefined;
-            resourceInputs["cloud"] = state ? state.cloud : undefined;
-            resourceInputs["connectorClasses"] = state ? state.connectorClasses : undefined;
-            resourceInputs["documentationLink"] = state ? state.documentationLink : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["filename"] = state ? state.filename : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["pluginId"] = state ? state.pluginId : undefined;
-            resourceInputs["sensitiveConfigProperties"] = state ? state.sensitiveConfigProperties : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["apiVersion"] = state?.apiVersion;
+            resourceInputs["cloud"] = state?.cloud;
+            resourceInputs["connectorClasses"] = state?.connectorClasses;
+            resourceInputs["documentationLink"] = state?.documentationLink;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["filename"] = state?.filename;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["pluginId"] = state?.pluginId;
+            resourceInputs["sensitiveConfigProperties"] = state?.sensitiveConfigProperties;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as CustomConnectorPluginVersionArgs | undefined;
-            if ((!args || args.cloud === undefined) && !opts.urn) {
+            if (args?.cloud === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloud'");
             }
-            if ((!args || args.connectorClasses === undefined) && !opts.urn) {
+            if (args?.connectorClasses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorClasses'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.filename === undefined) && !opts.urn) {
+            if (args?.filename === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filename'");
             }
-            if ((!args || args.pluginId === undefined) && !opts.urn) {
+            if (args?.pluginId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pluginId'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["cloud"] = args ? args.cloud : undefined;
-            resourceInputs["connectorClasses"] = args ? args.connectorClasses : undefined;
-            resourceInputs["documentationLink"] = args ? args.documentationLink : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["filename"] = args ? args.filename : undefined;
-            resourceInputs["pluginId"] = args ? args.pluginId : undefined;
-            resourceInputs["sensitiveConfigProperties"] = args ? args.sensitiveConfigProperties : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["cloud"] = args?.cloud;
+            resourceInputs["connectorClasses"] = args?.connectorClasses;
+            resourceInputs["documentationLink"] = args?.documentationLink;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["filename"] = args?.filename;
+            resourceInputs["pluginId"] = args?.pluginId;
+            resourceInputs["sensitiveConfigProperties"] = args?.sensitiveConfigProperties;
+            resourceInputs["version"] = args?.version;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
         }

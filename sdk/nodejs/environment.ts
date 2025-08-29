@@ -91,15 +91,15 @@ export class Environment extends pulumi.CustomResource {
     /**
      * A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
      */
-    public /*out*/ readonly resourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceName: pulumi.Output<string>;
     /**
      * The stream governance configuration for the Environment. The block supports the following arguments:
      */
-    public readonly streamGovernance!: pulumi.Output<outputs.EnvironmentStreamGovernance>;
+    declare public readonly streamGovernance: pulumi.Output<outputs.EnvironmentStreamGovernance>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -114,13 +114,13 @@ export class Environment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentState | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["resourceName"] = state ? state.resourceName : undefined;
-            resourceInputs["streamGovernance"] = state ? state.streamGovernance : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["resourceName"] = state?.resourceName;
+            resourceInputs["streamGovernance"] = state?.streamGovernance;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["streamGovernance"] = args ? args.streamGovernance : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["streamGovernance"] = args?.streamGovernance;
             resourceInputs["resourceName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

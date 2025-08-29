@@ -134,28 +134,27 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * A free-form description of the API Account.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
      */
-    public readonly disableWaitForReady!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableWaitForReady: pulumi.Output<boolean | undefined>;
     /**
      * A human-readable name for the API Key.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
-     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
-     * 'srcm.v3.Cluster'.
+     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.
      */
-    public readonly managedResource!: pulumi.Output<outputs.ApiKeyManagedResource | undefined>;
+    declare public readonly managedResource: pulumi.Output<outputs.ApiKeyManagedResource | undefined>;
     /**
      * The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
      */
-    public readonly owner!: pulumi.Output<outputs.ApiKeyOwner>;
+    declare public readonly owner: pulumi.Output<outputs.ApiKeyOwner>;
     /**
      * (Required String, Sensitive) The secret of the API Key.
      */
-    public /*out*/ readonly secret!: pulumi.Output<string>;
+    declare public /*out*/ readonly secret: pulumi.Output<string>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -170,22 +169,22 @@ export class ApiKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["disableWaitForReady"] = state ? state.disableWaitForReady : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["managedResource"] = state ? state.managedResource : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["secret"] = state ? state.secret : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["disableWaitForReady"] = state?.disableWaitForReady;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["managedResource"] = state?.managedResource;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["secret"] = state?.secret;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
-            if ((!args || args.owner === undefined) && !opts.urn) {
+            if (args?.owner === undefined && !opts.urn) {
                 throw new Error("Missing required property 'owner'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disableWaitForReady"] = args ? args.disableWaitForReady : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["managedResource"] = args ? args.managedResource : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disableWaitForReady"] = args?.disableWaitForReady;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["managedResource"] = args?.managedResource;
+            resourceInputs["owner"] = args?.owner;
             resourceInputs["secret"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -212,8 +211,7 @@ export interface ApiKeyState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
-     * 'srcm.v3.Cluster'.
+     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.
      */
     managedResource?: pulumi.Input<inputs.ApiKeyManagedResource>;
     /**
@@ -243,8 +241,7 @@ export interface ApiKeyArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster',
-     * 'srcm.v3.Cluster'.
+     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster', 'srcm.v3.Cluster'.
      */
     managedResource?: pulumi.Input<inputs.ApiKeyManagedResource>;
     /**

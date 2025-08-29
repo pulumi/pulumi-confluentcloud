@@ -175,28 +175,28 @@ export class KafkaTopic extends pulumi.CustomResource {
     /**
      * The custom topic settings to set:
      */
-    public readonly config!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly config: pulumi.Output<{[key: string]: string}>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.KafkaTopicCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.KafkaTopicCredentials | undefined>;
     /**
      * @deprecated This property has been deprecated. Please use "restEndpoint" instead.
      */
-    public readonly httpEndpoint!: pulumi.Output<string>;
-    public readonly kafkaCluster!: pulumi.Output<outputs.KafkaTopicKafkaCluster | undefined>;
+    declare public readonly httpEndpoint: pulumi.Output<string>;
+    declare public readonly kafkaCluster: pulumi.Output<outputs.KafkaTopicKafkaCluster | undefined>;
     /**
      * The number of partitions to create in the topic. Defaults to `6`.
      */
-    public readonly partitionsCount!: pulumi.Output<number | undefined>;
+    declare public readonly partitionsCount: pulumi.Output<number | undefined>;
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
     /**
      * The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
      */
-    public readonly topicName!: pulumi.Output<string>;
+    declare public readonly topicName: pulumi.Output<string>;
 
     /**
      * Create a KafkaTopic resource with the given unique name, arguments, and options.
@@ -211,25 +211,25 @@ export class KafkaTopic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KafkaTopicState | undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["httpEndpoint"] = state ? state.httpEndpoint : undefined;
-            resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
-            resourceInputs["partitionsCount"] = state ? state.partitionsCount : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["topicName"] = state ? state.topicName : undefined;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["httpEndpoint"] = state?.httpEndpoint;
+            resourceInputs["kafkaCluster"] = state?.kafkaCluster;
+            resourceInputs["partitionsCount"] = state?.partitionsCount;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["topicName"] = state?.topicName;
         } else {
             const args = argsOrState as KafkaTopicArgs | undefined;
-            if ((!args || args.topicName === undefined) && !opts.urn) {
+            if (args?.topicName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
+            resourceInputs["config"] = args?.config;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["httpEndpoint"] = args ? args.httpEndpoint : undefined;
-            resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
-            resourceInputs["partitionsCount"] = args ? args.partitionsCount : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["httpEndpoint"] = args?.httpEndpoint;
+            resourceInputs["kafkaCluster"] = args?.kafkaCluster;
+            resourceInputs["partitionsCount"] = args?.partitionsCount;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["topicName"] = args?.topicName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };

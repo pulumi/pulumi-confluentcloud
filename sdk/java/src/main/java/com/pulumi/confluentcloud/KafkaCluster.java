@@ -520,16 +520,14 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
         return this.kind;
     }
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      * 
      */
     @Export(name="network", refs={KafkaClusterNetwork.class}, tree="[0]")
     private Output<KafkaClusterNetwork> network;
 
     /**
-     * @return Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * @return Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      * 
      */
     public Output<KafkaClusterNetwork> network() {

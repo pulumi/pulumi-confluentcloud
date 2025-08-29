@@ -117,52 +117,52 @@ export class TableflowTopic extends pulumi.CustomResource {
     /**
      * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      */
-    public readonly byobAws!: pulumi.Output<outputs.TableflowTopicByobAws | undefined>;
+    declare public readonly byobAws: pulumi.Output<outputs.TableflowTopicByobAws | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.TableflowTopicCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.TableflowTopicCredentials | undefined>;
     /**
      * The name of the Kafka topic for which Tableflow is enabled.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * (Optional Boolean) This flag determines whether to enable compaction for the Tableflow enabled topic.
      */
-    public /*out*/ readonly enableCompaction!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly enableCompaction: pulumi.Output<boolean>;
     /**
      * (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
      */
-    public /*out*/ readonly enablePartitioning!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly enablePartitioning: pulumi.Output<boolean>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.TableflowTopicEnvironment>;
-    public readonly kafkaCluster!: pulumi.Output<outputs.TableflowTopicKafkaCluster>;
+    declare public readonly environment: pulumi.Output<outputs.TableflowTopicEnvironment>;
+    declare public readonly kafkaCluster: pulumi.Output<outputs.TableflowTopicKafkaCluster>;
     /**
      * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
      */
-    public readonly managedStorages!: pulumi.Output<outputs.TableflowTopicManagedStorage[] | undefined>;
+    declare public readonly managedStorages: pulumi.Output<outputs.TableflowTopicManagedStorage[] | undefined>;
     /**
      * The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      */
-    public readonly recordFailureStrategy!: pulumi.Output<string>;
+    declare public readonly recordFailureStrategy: pulumi.Output<string>;
     /**
      * The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
      */
-    public readonly retentionMs!: pulumi.Output<string | undefined>;
+    declare public readonly retentionMs: pulumi.Output<string | undefined>;
     /**
      * (Optional Boolean) Indicates whether the Tableflow should be suspended.
      */
-    public /*out*/ readonly suspended!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly suspended: pulumi.Output<boolean>;
     /**
      * The supported table formats for the Tableflow-enabled topic. Accepted values are `DELTA`, `ICEBERG`.
      */
-    public readonly tableFormats!: pulumi.Output<string[]>;
+    declare public readonly tableFormats: pulumi.Output<string[]>;
     /**
      * (Optional String) The current storage path where the data and metadata is stored for this table.
      */
-    public /*out*/ readonly tablePath!: pulumi.Output<string>;
+    declare public /*out*/ readonly tablePath: pulumi.Output<string>;
 
     /**
      * Create a TableflowTopic resource with the given unique name, arguments, and options.
@@ -177,39 +177,39 @@ export class TableflowTopic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableflowTopicState | undefined;
-            resourceInputs["byobAws"] = state ? state.byobAws : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["enableCompaction"] = state ? state.enableCompaction : undefined;
-            resourceInputs["enablePartitioning"] = state ? state.enablePartitioning : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
-            resourceInputs["managedStorages"] = state ? state.managedStorages : undefined;
-            resourceInputs["recordFailureStrategy"] = state ? state.recordFailureStrategy : undefined;
-            resourceInputs["retentionMs"] = state ? state.retentionMs : undefined;
-            resourceInputs["suspended"] = state ? state.suspended : undefined;
-            resourceInputs["tableFormats"] = state ? state.tableFormats : undefined;
-            resourceInputs["tablePath"] = state ? state.tablePath : undefined;
+            resourceInputs["byobAws"] = state?.byobAws;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["enableCompaction"] = state?.enableCompaction;
+            resourceInputs["enablePartitioning"] = state?.enablePartitioning;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["kafkaCluster"] = state?.kafkaCluster;
+            resourceInputs["managedStorages"] = state?.managedStorages;
+            resourceInputs["recordFailureStrategy"] = state?.recordFailureStrategy;
+            resourceInputs["retentionMs"] = state?.retentionMs;
+            resourceInputs["suspended"] = state?.suspended;
+            resourceInputs["tableFormats"] = state?.tableFormats;
+            resourceInputs["tablePath"] = state?.tablePath;
         } else {
             const args = argsOrState as TableflowTopicArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.kafkaCluster === undefined) && !opts.urn) {
+            if (args?.kafkaCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaCluster'");
             }
-            resourceInputs["byobAws"] = args ? args.byobAws : undefined;
+            resourceInputs["byobAws"] = args?.byobAws;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
-            resourceInputs["managedStorages"] = args ? args.managedStorages : undefined;
-            resourceInputs["recordFailureStrategy"] = args ? args.recordFailureStrategy : undefined;
-            resourceInputs["retentionMs"] = args ? args.retentionMs : undefined;
-            resourceInputs["tableFormats"] = args ? args.tableFormats : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["kafkaCluster"] = args?.kafkaCluster;
+            resourceInputs["managedStorages"] = args?.managedStorages;
+            resourceInputs["recordFailureStrategy"] = args?.recordFailureStrategy;
+            resourceInputs["retentionMs"] = args?.retentionMs;
+            resourceInputs["tableFormats"] = args?.tableFormats;
             resourceInputs["enableCompaction"] = undefined /*out*/;
             resourceInputs["enablePartitioning"] = undefined /*out*/;
             resourceInputs["suspended"] = undefined /*out*/;

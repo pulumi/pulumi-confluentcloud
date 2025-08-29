@@ -73,16 +73,14 @@ public final class PeeringArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      * 
      */
     @Import(name="network", required=true)
     private Output<PeeringNetworkArgs> network;
 
     /**
-     * @return Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * @return Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      * 
      */
     public Output<PeeringNetworkArgs> network() {
@@ -188,8 +186,7 @@ public final class PeeringArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param network Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-         * accounts.
+         * @param network Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
          * 
          * @return builder
          * 
@@ -200,8 +197,7 @@ public final class PeeringArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param network Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-         * accounts.
+         * @param network Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
          * 
          * @return builder
          * 

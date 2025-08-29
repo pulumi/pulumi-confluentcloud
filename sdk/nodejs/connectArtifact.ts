@@ -70,31 +70,31 @@ export class ConnectArtifact extends pulumi.CustomResource {
     /**
      * The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
      */
-    public readonly artifactFile!: pulumi.Output<string | undefined>;
+    declare public readonly artifactFile: pulumi.Output<string | undefined>;
     /**
      * Cloud provider where the Connect Artifact archive is uploaded.
      */
-    public readonly cloud!: pulumi.Output<string>;
+    declare public readonly cloud: pulumi.Output<string>;
     /**
      * Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
      */
-    public readonly contentFormat!: pulumi.Output<string>;
+    declare public readonly contentFormat: pulumi.Output<string>;
     /**
      * Description of the Connect Artifact.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The unique name of the Connect Artifact per cloud, environment scope.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.ConnectArtifactEnvironment>;
+    declare public readonly environment: pulumi.Output<outputs.ConnectArtifactEnvironment>;
     /**
      * Status of the Connect Artifact.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a ConnectArtifact resource with the given unique name, arguments, and options.
@@ -109,33 +109,33 @@ export class ConnectArtifact extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectArtifactState | undefined;
-            resourceInputs["artifactFile"] = state ? state.artifactFile : undefined;
-            resourceInputs["cloud"] = state ? state.cloud : undefined;
-            resourceInputs["contentFormat"] = state ? state.contentFormat : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["artifactFile"] = state?.artifactFile;
+            resourceInputs["cloud"] = state?.cloud;
+            resourceInputs["contentFormat"] = state?.contentFormat;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as ConnectArtifactArgs | undefined;
-            if ((!args || args.cloud === undefined) && !opts.urn) {
+            if (args?.cloud === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloud'");
             }
-            if ((!args || args.contentFormat === undefined) && !opts.urn) {
+            if (args?.contentFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentFormat'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            resourceInputs["artifactFile"] = args ? args.artifactFile : undefined;
-            resourceInputs["cloud"] = args ? args.cloud : undefined;
-            resourceInputs["contentFormat"] = args ? args.contentFormat : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["artifactFile"] = args?.artifactFile;
+            resourceInputs["cloud"] = args?.cloud;
+            resourceInputs["contentFormat"] = args?.contentFormat;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

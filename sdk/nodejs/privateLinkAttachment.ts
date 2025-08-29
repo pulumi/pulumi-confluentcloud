@@ -79,40 +79,40 @@ export class PrivateLinkAttachment extends pulumi.CustomResource {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public /*out*/ readonly aws!: pulumi.Output<outputs.PrivateLinkAttachmentAw[]>;
+    declare public /*out*/ readonly aws: pulumi.Output<outputs.PrivateLinkAttachmentAw[]>;
     /**
      * (Optional Configuration Block) supports the following:
      * - `privateLinkServiceAlias ` - (Required String) Azure Private Link service alias for the availability zone.
      */
-    public /*out*/ readonly azures!: pulumi.Output<outputs.PrivateLinkAttachmentAzure[]>;
+    declare public /*out*/ readonly azures: pulumi.Output<outputs.PrivateLinkAttachmentAzure[]>;
     /**
      * The cloud service provider that hosts the resources to access with the Private Link Attachment.
      */
-    public readonly cloud!: pulumi.Output<string>;
+    declare public readonly cloud: pulumi.Output<string>;
     /**
      * The name of the Private Link Attachment.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
      */
-    public /*out*/ readonly dnsDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsDomain: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.PrivateLinkAttachmentEnvironment>;
+    declare public readonly environment: pulumi.Output<outputs.PrivateLinkAttachmentEnvironment>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public /*out*/ readonly gcps!: pulumi.Output<outputs.PrivateLinkAttachmentGcp[]>;
+    declare public /*out*/ readonly gcps: pulumi.Output<outputs.PrivateLinkAttachmentGcp[]>;
     /**
      * The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
      */
-    public /*out*/ readonly resourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceName: pulumi.Output<string>;
 
     /**
      * Create a PrivateLinkAttachment resource with the given unique name, arguments, and options.
@@ -127,33 +127,33 @@ export class PrivateLinkAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrivateLinkAttachmentState | undefined;
-            resourceInputs["aws"] = state ? state.aws : undefined;
-            resourceInputs["azures"] = state ? state.azures : undefined;
-            resourceInputs["cloud"] = state ? state.cloud : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["dnsDomain"] = state ? state.dnsDomain : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["gcps"] = state ? state.gcps : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["resourceName"] = state ? state.resourceName : undefined;
+            resourceInputs["aws"] = state?.aws;
+            resourceInputs["azures"] = state?.azures;
+            resourceInputs["cloud"] = state?.cloud;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["dnsDomain"] = state?.dnsDomain;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["gcps"] = state?.gcps;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["resourceName"] = state?.resourceName;
         } else {
             const args = argsOrState as PrivateLinkAttachmentArgs | undefined;
-            if ((!args || args.cloud === undefined) && !opts.urn) {
+            if (args?.cloud === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloud'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            resourceInputs["cloud"] = args ? args.cloud : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["cloud"] = args?.cloud;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["region"] = args?.region;
             resourceInputs["aws"] = undefined /*out*/;
             resourceInputs["azures"] = undefined /*out*/;
             resourceInputs["dnsDomain"] = undefined /*out*/;

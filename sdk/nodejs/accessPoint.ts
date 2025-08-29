@@ -123,28 +123,28 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public readonly awsEgressPrivateLinkEndpoint!: pulumi.Output<outputs.AccessPointAwsEgressPrivateLinkEndpoint | undefined>;
+    declare public readonly awsEgressPrivateLinkEndpoint: pulumi.Output<outputs.AccessPointAwsEgressPrivateLinkEndpoint | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public readonly awsPrivateNetworkInterface!: pulumi.Output<outputs.AccessPointAwsPrivateNetworkInterface | undefined>;
+    declare public readonly awsPrivateNetworkInterface: pulumi.Output<outputs.AccessPointAwsPrivateNetworkInterface | undefined>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public readonly azureEgressPrivateLinkEndpoint!: pulumi.Output<outputs.AccessPointAzureEgressPrivateLinkEndpoint | undefined>;
+    declare public readonly azureEgressPrivateLinkEndpoint: pulumi.Output<outputs.AccessPointAzureEgressPrivateLinkEndpoint | undefined>;
     /**
      * The name of the Access Point.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.AccessPointEnvironment>;
-    public readonly gateway!: pulumi.Output<outputs.AccessPointGateway>;
+    declare public readonly environment: pulumi.Output<outputs.AccessPointEnvironment>;
+    declare public readonly gateway: pulumi.Output<outputs.AccessPointGateway>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public readonly gcpEgressPrivateServiceConnectEndpoint!: pulumi.Output<outputs.AccessPointGcpEgressPrivateServiceConnectEndpoint | undefined>;
+    declare public readonly gcpEgressPrivateServiceConnectEndpoint: pulumi.Output<outputs.AccessPointGcpEgressPrivateServiceConnectEndpoint | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -159,28 +159,28 @@ export class AccessPoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessPointState | undefined;
-            resourceInputs["awsEgressPrivateLinkEndpoint"] = state ? state.awsEgressPrivateLinkEndpoint : undefined;
-            resourceInputs["awsPrivateNetworkInterface"] = state ? state.awsPrivateNetworkInterface : undefined;
-            resourceInputs["azureEgressPrivateLinkEndpoint"] = state ? state.azureEgressPrivateLinkEndpoint : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["gateway"] = state ? state.gateway : undefined;
-            resourceInputs["gcpEgressPrivateServiceConnectEndpoint"] = state ? state.gcpEgressPrivateServiceConnectEndpoint : undefined;
+            resourceInputs["awsEgressPrivateLinkEndpoint"] = state?.awsEgressPrivateLinkEndpoint;
+            resourceInputs["awsPrivateNetworkInterface"] = state?.awsPrivateNetworkInterface;
+            resourceInputs["azureEgressPrivateLinkEndpoint"] = state?.azureEgressPrivateLinkEndpoint;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["gateway"] = state?.gateway;
+            resourceInputs["gcpEgressPrivateServiceConnectEndpoint"] = state?.gcpEgressPrivateServiceConnectEndpoint;
         } else {
             const args = argsOrState as AccessPointArgs | undefined;
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.gateway === undefined) && !opts.urn) {
+            if (args?.gateway === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gateway'");
             }
-            resourceInputs["awsEgressPrivateLinkEndpoint"] = args ? args.awsEgressPrivateLinkEndpoint : undefined;
-            resourceInputs["awsPrivateNetworkInterface"] = args ? args.awsPrivateNetworkInterface : undefined;
-            resourceInputs["azureEgressPrivateLinkEndpoint"] = args ? args.azureEgressPrivateLinkEndpoint : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["gateway"] = args ? args.gateway : undefined;
-            resourceInputs["gcpEgressPrivateServiceConnectEndpoint"] = args ? args.gcpEgressPrivateServiceConnectEndpoint : undefined;
+            resourceInputs["awsEgressPrivateLinkEndpoint"] = args?.awsEgressPrivateLinkEndpoint;
+            resourceInputs["awsPrivateNetworkInterface"] = args?.awsPrivateNetworkInterface;
+            resourceInputs["azureEgressPrivateLinkEndpoint"] = args?.azureEgressPrivateLinkEndpoint;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["gateway"] = args?.gateway;
+            resourceInputs["gcpEgressPrivateServiceConnectEndpoint"] = args?.gcpEgressPrivateServiceConnectEndpoint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccessPoint.__pulumiType, name, resourceInputs, opts);

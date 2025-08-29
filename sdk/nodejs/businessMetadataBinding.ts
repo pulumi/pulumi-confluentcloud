@@ -114,28 +114,28 @@ export class BusinessMetadataBinding extends pulumi.CustomResource {
     /**
      * The attributes.
      */
-    public readonly attributes!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly attributes: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
-    public readonly businessMetadataName!: pulumi.Output<string>;
+    declare public readonly businessMetadataName: pulumi.Output<string>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.BusinessMetadataBindingCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.BusinessMetadataBindingCredentials | undefined>;
     /**
      * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
      */
-    public readonly entityName!: pulumi.Output<string>;
+    declare public readonly entityName: pulumi.Output<string>;
     /**
      * The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      */
-    public readonly entityType!: pulumi.Output<string>;
+    declare public readonly entityType: pulumi.Output<string>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly schemaRegistryCluster!: pulumi.Output<outputs.BusinessMetadataBindingSchemaRegistryCluster | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryCluster: pulumi.Output<outputs.BusinessMetadataBindingSchemaRegistryCluster | undefined>;
 
     /**
      * Create a BusinessMetadataBinding resource with the given unique name, arguments, and options.
@@ -150,31 +150,31 @@ export class BusinessMetadataBinding extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BusinessMetadataBindingState | undefined;
-            resourceInputs["attributes"] = state ? state.attributes : undefined;
-            resourceInputs["businessMetadataName"] = state ? state.businessMetadataName : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["entityName"] = state ? state.entityName : undefined;
-            resourceInputs["entityType"] = state ? state.entityType : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
+            resourceInputs["attributes"] = state?.attributes;
+            resourceInputs["businessMetadataName"] = state?.businessMetadataName;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["entityName"] = state?.entityName;
+            resourceInputs["entityType"] = state?.entityType;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
         } else {
             const args = argsOrState as BusinessMetadataBindingArgs | undefined;
-            if ((!args || args.businessMetadataName === undefined) && !opts.urn) {
+            if (args?.businessMetadataName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'businessMetadataName'");
             }
-            if ((!args || args.entityName === undefined) && !opts.urn) {
+            if (args?.entityName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityName'");
             }
-            if ((!args || args.entityType === undefined) && !opts.urn) {
+            if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["businessMetadataName"] = args ? args.businessMetadataName : undefined;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["businessMetadataName"] = args?.businessMetadataName;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["entityName"] = args ? args.entityName : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
+            resourceInputs["entityName"] = args?.entityName;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };

@@ -226,8 +226,7 @@ type Peering struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PeeringEnvironmentOutput `pulumi:"environment"`
 	Gcp         PeeringGcpPtrOutput      `pulumi:"gcp"`
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network PeeringNetworkOutput `pulumi:"network"`
 }
 
@@ -274,8 +273,7 @@ type peeringState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *PeeringEnvironment `pulumi:"environment"`
 	Gcp         *PeeringGcp         `pulumi:"gcp"`
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network *PeeringNetwork `pulumi:"network"`
 }
 
@@ -287,8 +285,7 @@ type PeeringState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PeeringEnvironmentPtrInput
 	Gcp         PeeringGcpPtrInput
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network PeeringNetworkPtrInput
 }
 
@@ -304,8 +301,7 @@ type peeringArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PeeringEnvironment `pulumi:"environment"`
 	Gcp         *PeeringGcp        `pulumi:"gcp"`
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network PeeringNetwork `pulumi:"network"`
 }
 
@@ -318,8 +314,7 @@ type PeeringArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PeeringEnvironmentInput
 	Gcp         PeeringGcpPtrInput
-	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-	// accounts.
+	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network PeeringNetworkInput
 }
 
@@ -432,8 +427,7 @@ func (o PeeringOutput) Gcp() PeeringGcpPtrOutput {
 	return o.ApplyT(func(v *Peering) PeeringGcpPtrOutput { return v.Gcp }).(PeeringGcpPtrOutput)
 }
 
-// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-// accounts.
+// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 func (o PeeringOutput) Network() PeeringNetworkOutput {
 	return o.ApplyT(func(v *Peering) PeeringNetworkOutput { return v.Network }).(PeeringNetworkOutput)
 }

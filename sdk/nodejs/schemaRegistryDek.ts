@@ -99,41 +99,40 @@ export class SchemaRegistryDek extends pulumi.CustomResource {
     /**
      * Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
      */
-    public readonly algorithm!: pulumi.Output<string | undefined>;
+    declare public readonly algorithm: pulumi.Output<string | undefined>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.SchemaRegistryDekCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.SchemaRegistryDekCredentials | undefined>;
     /**
      * The encrypted key material for the DEK.
      */
-    public readonly encryptedKeyMaterial!: pulumi.Output<string>;
+    declare public readonly encryptedKeyMaterial: pulumi.Output<string>;
     /**
-     * Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-     * on destroy. Defaults to `false` (soft delete).
+     * Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
      */
-    public readonly hardDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly hardDelete: pulumi.Output<boolean | undefined>;
     /**
      * The name of the KEK used to encrypt this DEK.
      */
-    public readonly kekName!: pulumi.Output<string>;
+    declare public readonly kekName: pulumi.Output<string>;
     /**
      * (Optional String) The decrypted version of encrypted key material.
      */
-    public /*out*/ readonly keyMaterial!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyMaterial: pulumi.Output<string>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaRegistryDekSchemaRegistryCluster | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryCluster: pulumi.Output<outputs.SchemaRegistryDekSchemaRegistryCluster | undefined>;
     /**
      * The subject for this DEK.
      */
-    public readonly subjectName!: pulumi.Output<string>;
+    declare public readonly subjectName: pulumi.Output<string>;
     /**
      * The version of this DEK. Defaults to `1`.
      */
-    public readonly version!: pulumi.Output<number | undefined>;
+    declare public readonly version: pulumi.Output<number | undefined>;
 
     /**
      * Create a SchemaRegistryDek resource with the given unique name, arguments, and options.
@@ -148,33 +147,33 @@ export class SchemaRegistryDek extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SchemaRegistryDekState | undefined;
-            resourceInputs["algorithm"] = state ? state.algorithm : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["encryptedKeyMaterial"] = state ? state.encryptedKeyMaterial : undefined;
-            resourceInputs["hardDelete"] = state ? state.hardDelete : undefined;
-            resourceInputs["kekName"] = state ? state.kekName : undefined;
-            resourceInputs["keyMaterial"] = state ? state.keyMaterial : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
-            resourceInputs["subjectName"] = state ? state.subjectName : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["algorithm"] = state?.algorithm;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["encryptedKeyMaterial"] = state?.encryptedKeyMaterial;
+            resourceInputs["hardDelete"] = state?.hardDelete;
+            resourceInputs["kekName"] = state?.kekName;
+            resourceInputs["keyMaterial"] = state?.keyMaterial;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
+            resourceInputs["subjectName"] = state?.subjectName;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as SchemaRegistryDekArgs | undefined;
-            if ((!args || args.kekName === undefined) && !opts.urn) {
+            if (args?.kekName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kekName'");
             }
-            if ((!args || args.subjectName === undefined) && !opts.urn) {
+            if (args?.subjectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subjectName'");
             }
-            resourceInputs["algorithm"] = args ? args.algorithm : undefined;
+            resourceInputs["algorithm"] = args?.algorithm;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["encryptedKeyMaterial"] = args ? args.encryptedKeyMaterial : undefined;
-            resourceInputs["hardDelete"] = args ? args.hardDelete : undefined;
-            resourceInputs["kekName"] = args ? args.kekName : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
-            resourceInputs["subjectName"] = args ? args.subjectName : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["encryptedKeyMaterial"] = args?.encryptedKeyMaterial;
+            resourceInputs["hardDelete"] = args?.hardDelete;
+            resourceInputs["kekName"] = args?.kekName;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
+            resourceInputs["subjectName"] = args?.subjectName;
+            resourceInputs["version"] = args?.version;
             resourceInputs["keyMaterial"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -201,8 +200,7 @@ export interface SchemaRegistryDekState {
      */
     encryptedKeyMaterial?: pulumi.Input<string>;
     /**
-     * Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-     * on destroy. Defaults to `false` (soft delete).
+     * Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
      */
     hardDelete?: pulumi.Input<boolean>;
     /**
@@ -245,8 +243,7 @@ export interface SchemaRegistryDekArgs {
      */
     encryptedKeyMaterial?: pulumi.Input<string>;
     /**
-     * Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-     * on destroy. Defaults to `false` (soft delete).
+     * Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
      */
     hardDelete?: pulumi.Input<boolean>;
     /**

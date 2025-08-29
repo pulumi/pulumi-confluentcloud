@@ -105,44 +105,43 @@ export class SchemaRegistryKek extends pulumi.CustomResource {
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.SchemaRegistryKekCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.SchemaRegistryKekCredentials | undefined>;
     /**
      * The optional description for the KEK.
      */
-    public readonly doc!: pulumi.Output<string>;
+    declare public readonly doc: pulumi.Output<string>;
     /**
-     * Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-     * on destroy. Defaults to `false` (soft delete).
+     * Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
      */
-    public readonly hardDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly hardDelete: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the key from KMS. 
      * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
      * - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
      * - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
      */
-    public readonly kmsKeyId!: pulumi.Output<string>;
+    declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
      * The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
      */
-    public readonly kmsType!: pulumi.Output<string>;
+    declare public readonly kmsType: pulumi.Output<string>;
     /**
      * The name for the KEK.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
      */
-    public readonly properties!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly properties: pulumi.Output<{[key: string]: string}>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaRegistryKekSchemaRegistryCluster | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryCluster: pulumi.Output<outputs.SchemaRegistryKekSchemaRegistryCluster | undefined>;
     /**
      * The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
      */
-    public readonly shared!: pulumi.Output<boolean | undefined>;
+    declare public readonly shared: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SchemaRegistryKek resource with the given unique name, arguments, and options.
@@ -157,34 +156,34 @@ export class SchemaRegistryKek extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SchemaRegistryKekState | undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["doc"] = state ? state.doc : undefined;
-            resourceInputs["hardDelete"] = state ? state.hardDelete : undefined;
-            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            resourceInputs["kmsType"] = state ? state.kmsType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["properties"] = state ? state.properties : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
-            resourceInputs["shared"] = state ? state.shared : undefined;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["doc"] = state?.doc;
+            resourceInputs["hardDelete"] = state?.hardDelete;
+            resourceInputs["kmsKeyId"] = state?.kmsKeyId;
+            resourceInputs["kmsType"] = state?.kmsType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["properties"] = state?.properties;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
+            resourceInputs["shared"] = state?.shared;
         } else {
             const args = argsOrState as SchemaRegistryKekArgs | undefined;
-            if ((!args || args.kmsKeyId === undefined) && !opts.urn) {
+            if (args?.kmsKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kmsKeyId'");
             }
-            if ((!args || args.kmsType === undefined) && !opts.urn) {
+            if (args?.kmsType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kmsType'");
             }
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["doc"] = args ? args.doc : undefined;
-            resourceInputs["hardDelete"] = args ? args.hardDelete : undefined;
-            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["kmsType"] = args ? args.kmsType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
-            resourceInputs["shared"] = args ? args.shared : undefined;
+            resourceInputs["doc"] = args?.doc;
+            resourceInputs["hardDelete"] = args?.hardDelete;
+            resourceInputs["kmsKeyId"] = args?.kmsKeyId;
+            resourceInputs["kmsType"] = args?.kmsType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
+            resourceInputs["shared"] = args?.shared;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };
@@ -206,8 +205,7 @@ export interface SchemaRegistryKekState {
      */
     doc?: pulumi.Input<string>;
     /**
-     * Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-     * on destroy. Defaults to `false` (soft delete).
+     * Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
      */
     hardDelete?: pulumi.Input<boolean>;
     /**
@@ -253,8 +251,7 @@ export interface SchemaRegistryKekArgs {
      */
     doc?: pulumi.Input<string>;
     /**
-     * Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-     * on destroy. Defaults to `false` (soft delete).
+     * Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
      */
     hardDelete?: pulumi.Input<boolean>;
     /**

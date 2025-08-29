@@ -177,16 +177,14 @@ public class SchemaRegistryDek extends com.pulumi.resources.CustomResource {
         return this.encryptedKeyMaterial;
     }
     /**
-     * Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-     * on destroy. Defaults to `false` (soft delete).
+     * Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
      * 
      */
     @Export(name="hardDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hardDelete;
 
     /**
-     * @return Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
-     * on destroy. Defaults to `false` (soft delete).
+     * @return Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
      * 
      */
     public Output<Optional<Boolean>> hardDelete() {

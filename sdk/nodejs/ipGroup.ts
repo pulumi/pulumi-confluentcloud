@@ -71,11 +71,11 @@ export class IpGroup extends pulumi.CustomResource {
     /**
      * A list of CIDRs.
      */
-    public readonly cidrBlocks!: pulumi.Output<string[]>;
+    declare public readonly cidrBlocks: pulumi.Output<string[]>;
     /**
      * A human-readable name for an IP Group. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
      */
-    public readonly groupName!: pulumi.Output<string>;
+    declare public readonly groupName: pulumi.Output<string>;
 
     /**
      * Create a IpGroup resource with the given unique name, arguments, and options.
@@ -90,18 +90,18 @@ export class IpGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpGroupState | undefined;
-            resourceInputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
-            resourceInputs["groupName"] = state ? state.groupName : undefined;
+            resourceInputs["cidrBlocks"] = state?.cidrBlocks;
+            resourceInputs["groupName"] = state?.groupName;
         } else {
             const args = argsOrState as IpGroupArgs | undefined;
-            if ((!args || args.cidrBlocks === undefined) && !opts.urn) {
+            if (args?.cidrBlocks === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cidrBlocks'");
             }
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            resourceInputs["cidrBlocks"] = args ? args.cidrBlocks : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["cidrBlocks"] = args?.cidrBlocks;
+            resourceInputs["groupName"] = args?.groupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IpGroup.__pulumiType, name, resourceInputs, opts);

@@ -83,14 +83,14 @@ export class KafkaMirrorTopic extends pulumi.CustomResource {
         return obj['__pulumiType'] === KafkaMirrorTopic.__pulumiType;
     }
 
-    public readonly clusterLink!: pulumi.Output<outputs.KafkaMirrorTopicClusterLink>;
-    public readonly kafkaCluster!: pulumi.Output<outputs.KafkaMirrorTopicKafkaCluster>;
+    declare public readonly clusterLink: pulumi.Output<outputs.KafkaMirrorTopicClusterLink>;
+    declare public readonly kafkaCluster: pulumi.Output<outputs.KafkaMirrorTopicKafkaCluster>;
     /**
      * The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
      */
-    public readonly mirrorTopicName!: pulumi.Output<string>;
-    public readonly sourceKafkaTopic!: pulumi.Output<outputs.KafkaMirrorTopicSourceKafkaTopic>;
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly mirrorTopicName: pulumi.Output<string>;
+    declare public readonly sourceKafkaTopic: pulumi.Output<outputs.KafkaMirrorTopicSourceKafkaTopic>;
+    declare public readonly status: pulumi.Output<string>;
 
     /**
      * Create a KafkaMirrorTopic resource with the given unique name, arguments, and options.
@@ -105,27 +105,27 @@ export class KafkaMirrorTopic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KafkaMirrorTopicState | undefined;
-            resourceInputs["clusterLink"] = state ? state.clusterLink : undefined;
-            resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
-            resourceInputs["mirrorTopicName"] = state ? state.mirrorTopicName : undefined;
-            resourceInputs["sourceKafkaTopic"] = state ? state.sourceKafkaTopic : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["clusterLink"] = state?.clusterLink;
+            resourceInputs["kafkaCluster"] = state?.kafkaCluster;
+            resourceInputs["mirrorTopicName"] = state?.mirrorTopicName;
+            resourceInputs["sourceKafkaTopic"] = state?.sourceKafkaTopic;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as KafkaMirrorTopicArgs | undefined;
-            if ((!args || args.clusterLink === undefined) && !opts.urn) {
+            if (args?.clusterLink === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterLink'");
             }
-            if ((!args || args.kafkaCluster === undefined) && !opts.urn) {
+            if (args?.kafkaCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaCluster'");
             }
-            if ((!args || args.sourceKafkaTopic === undefined) && !opts.urn) {
+            if (args?.sourceKafkaTopic === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceKafkaTopic'");
             }
-            resourceInputs["clusterLink"] = args ? args.clusterLink : undefined;
-            resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
-            resourceInputs["mirrorTopicName"] = args ? args.mirrorTopicName : undefined;
-            resourceInputs["sourceKafkaTopic"] = args ? args.sourceKafkaTopic : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["clusterLink"] = args?.clusterLink;
+            resourceInputs["kafkaCluster"] = args?.kafkaCluster;
+            resourceInputs["mirrorTopicName"] = args?.mirrorTopicName;
+            resourceInputs["sourceKafkaTopic"] = args?.sourceKafkaTopic;
+            resourceInputs["status"] = args?.status;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KafkaMirrorTopic.__pulumiType, name, resourceInputs, opts);

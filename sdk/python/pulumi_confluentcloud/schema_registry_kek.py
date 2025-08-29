@@ -40,8 +40,7 @@ class SchemaRegistryKekArgs:
         :param pulumi.Input[_builtins.str] kms_type: The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
         :param pulumi.Input['SchemaRegistryKekCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] doc: The optional description for the KEK.
-        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-               on destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[_builtins.str] name: The name for the KEK.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -121,8 +120,7 @@ class SchemaRegistryKekArgs:
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-        on destroy. Defaults to `false` (soft delete).
+        Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 
@@ -205,8 +203,7 @@ class _SchemaRegistryKekState:
         Input properties used for looking up and filtering SchemaRegistryKek resources.
         :param pulumi.Input['SchemaRegistryKekCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] doc: The optional description for the KEK.
-        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-               on destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[_builtins.str] kms_key_id: The ID of the key from KMS. 
                - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
                - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
@@ -266,8 +263,7 @@ class _SchemaRegistryKekState:
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-        on destroy. Defaults to `false` (soft delete).
+        Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 
@@ -447,8 +443,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] doc: The optional description for the KEK.
-        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-               on destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[_builtins.str] kms_key_id: The ID of the key from KMS. 
                - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
                - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
@@ -610,8 +605,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] doc: The optional description for the KEK.
-        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-               on destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[_builtins.str] kms_key_id: The ID of the key from KMS. 
                - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
                - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
@@ -658,8 +652,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-        on destroy. Defaults to `false` (soft delete).
+        Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 

@@ -165,27 +165,27 @@ export class ClusterLink extends pulumi.CustomResource {
     /**
      * (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
      */
-    public /*out*/ readonly clusterLinkId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterLinkId: pulumi.Output<string>;
     /**
      * The custom cluster link settings to set:
      */
-    public readonly config!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly config: pulumi.Output<{[key: string]: string}>;
     /**
      * The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
      */
-    public readonly connectionMode!: pulumi.Output<string | undefined>;
-    public readonly destinationKafkaCluster!: pulumi.Output<outputs.ClusterLinkDestinationKafkaCluster | undefined>;
+    declare public readonly connectionMode: pulumi.Output<string | undefined>;
+    declare public readonly destinationKafkaCluster: pulumi.Output<outputs.ClusterLinkDestinationKafkaCluster | undefined>;
     /**
      * The name of the cluster link, for example, `my-cluster-link`.
      */
-    public readonly link!: pulumi.Output<string>;
+    declare public readonly link: pulumi.Output<string>;
     /**
      * The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
      */
-    public readonly linkMode!: pulumi.Output<string | undefined>;
-    public readonly localKafkaCluster!: pulumi.Output<outputs.ClusterLinkLocalKafkaCluster | undefined>;
-    public readonly remoteKafkaCluster!: pulumi.Output<outputs.ClusterLinkRemoteKafkaCluster | undefined>;
-    public readonly sourceKafkaCluster!: pulumi.Output<outputs.ClusterLinkSourceKafkaCluster | undefined>;
+    declare public readonly linkMode: pulumi.Output<string | undefined>;
+    declare public readonly localKafkaCluster: pulumi.Output<outputs.ClusterLinkLocalKafkaCluster | undefined>;
+    declare public readonly remoteKafkaCluster: pulumi.Output<outputs.ClusterLinkRemoteKafkaCluster | undefined>;
+    declare public readonly sourceKafkaCluster: pulumi.Output<outputs.ClusterLinkSourceKafkaCluster | undefined>;
 
     /**
      * Create a ClusterLink resource with the given unique name, arguments, and options.
@@ -200,25 +200,25 @@ export class ClusterLink extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterLinkState | undefined;
-            resourceInputs["clusterLinkId"] = state ? state.clusterLinkId : undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["connectionMode"] = state ? state.connectionMode : undefined;
-            resourceInputs["destinationKafkaCluster"] = state ? state.destinationKafkaCluster : undefined;
-            resourceInputs["link"] = state ? state.link : undefined;
-            resourceInputs["linkMode"] = state ? state.linkMode : undefined;
-            resourceInputs["localKafkaCluster"] = state ? state.localKafkaCluster : undefined;
-            resourceInputs["remoteKafkaCluster"] = state ? state.remoteKafkaCluster : undefined;
-            resourceInputs["sourceKafkaCluster"] = state ? state.sourceKafkaCluster : undefined;
+            resourceInputs["clusterLinkId"] = state?.clusterLinkId;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["connectionMode"] = state?.connectionMode;
+            resourceInputs["destinationKafkaCluster"] = state?.destinationKafkaCluster;
+            resourceInputs["link"] = state?.link;
+            resourceInputs["linkMode"] = state?.linkMode;
+            resourceInputs["localKafkaCluster"] = state?.localKafkaCluster;
+            resourceInputs["remoteKafkaCluster"] = state?.remoteKafkaCluster;
+            resourceInputs["sourceKafkaCluster"] = state?.sourceKafkaCluster;
         } else {
             const args = argsOrState as ClusterLinkArgs | undefined;
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
-            resourceInputs["destinationKafkaCluster"] = args ? args.destinationKafkaCluster : undefined;
-            resourceInputs["link"] = args ? args.link : undefined;
-            resourceInputs["linkMode"] = args ? args.linkMode : undefined;
-            resourceInputs["localKafkaCluster"] = args ? args.localKafkaCluster : undefined;
-            resourceInputs["remoteKafkaCluster"] = args ? args.remoteKafkaCluster : undefined;
-            resourceInputs["sourceKafkaCluster"] = args ? args.sourceKafkaCluster : undefined;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["connectionMode"] = args?.connectionMode;
+            resourceInputs["destinationKafkaCluster"] = args?.destinationKafkaCluster;
+            resourceInputs["link"] = args?.link;
+            resourceInputs["linkMode"] = args?.linkMode;
+            resourceInputs["localKafkaCluster"] = args?.localKafkaCluster;
+            resourceInputs["remoteKafkaCluster"] = args?.remoteKafkaCluster;
+            resourceInputs["sourceKafkaCluster"] = args?.sourceKafkaCluster;
             resourceInputs["clusterLinkId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

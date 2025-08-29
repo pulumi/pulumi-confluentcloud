@@ -70,50 +70,49 @@ export class Schema extends pulumi.CustomResource {
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.SchemaCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.SchemaCredentials | undefined>;
     /**
      * The format of the Schema.
      */
-    public readonly format!: pulumi.Output<string>;
+    declare public readonly format: pulumi.Output<string>;
     /**
-     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-     * destroy. Defaults to `false` (soft delete).
+     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
      */
-    public readonly hardDelete!: pulumi.Output<boolean | undefined>;
-    public readonly metadata!: pulumi.Output<outputs.SchemaMetadata>;
+    declare public readonly hardDelete: pulumi.Output<boolean | undefined>;
+    declare public readonly metadata: pulumi.Output<outputs.SchemaMetadata>;
     /**
      * Controls whether a schema should be recreated on update.
      */
-    public readonly recreateOnUpdate!: pulumi.Output<boolean | undefined>;
+    declare public readonly recreateOnUpdate: pulumi.Output<boolean | undefined>;
     /**
      * The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
      * - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
      * - `https://${data.confluent_schema_registry_cluster.essentials.id}${data.confluent_network.main.endpoint_suffix}`
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly ruleset!: pulumi.Output<outputs.SchemaRuleset | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly ruleset: pulumi.Output<outputs.SchemaRuleset | undefined>;
     /**
      * The definition of the Schema.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
      */
-    public /*out*/ readonly schemaIdentifier!: pulumi.Output<number>;
+    declare public /*out*/ readonly schemaIdentifier: pulumi.Output<number>;
     /**
      * The list of references to other Schemas.
      */
-    public readonly schemaReferences!: pulumi.Output<outputs.SchemaSchemaReference[] | undefined>;
-    public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaSchemaRegistryCluster | undefined>;
-    public readonly skipValidationDuringPlan!: pulumi.Output<boolean | undefined>;
+    declare public readonly schemaReferences: pulumi.Output<outputs.SchemaSchemaReference[] | undefined>;
+    declare public readonly schemaRegistryCluster: pulumi.Output<outputs.SchemaSchemaRegistryCluster | undefined>;
+    declare public readonly skipValidationDuringPlan: pulumi.Output<boolean | undefined>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */
-    public readonly subjectName!: pulumi.Output<string>;
+    declare public readonly subjectName: pulumi.Output<string>;
     /**
      * (Required Integer) The version of the Schema, for example, `4`.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -128,40 +127,40 @@ export class Schema extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SchemaState | undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["format"] = state ? state.format : undefined;
-            resourceInputs["hardDelete"] = state ? state.hardDelete : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["recreateOnUpdate"] = state ? state.recreateOnUpdate : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["ruleset"] = state ? state.ruleset : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["schemaIdentifier"] = state ? state.schemaIdentifier : undefined;
-            resourceInputs["schemaReferences"] = state ? state.schemaReferences : undefined;
-            resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
-            resourceInputs["skipValidationDuringPlan"] = state ? state.skipValidationDuringPlan : undefined;
-            resourceInputs["subjectName"] = state ? state.subjectName : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["format"] = state?.format;
+            resourceInputs["hardDelete"] = state?.hardDelete;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["recreateOnUpdate"] = state?.recreateOnUpdate;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["ruleset"] = state?.ruleset;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["schemaIdentifier"] = state?.schemaIdentifier;
+            resourceInputs["schemaReferences"] = state?.schemaReferences;
+            resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
+            resourceInputs["skipValidationDuringPlan"] = state?.skipValidationDuringPlan;
+            resourceInputs["subjectName"] = state?.subjectName;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as SchemaArgs | undefined;
-            if ((!args || args.format === undefined) && !opts.urn) {
+            if (args?.format === undefined && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
-            if ((!args || args.subjectName === undefined) && !opts.urn) {
+            if (args?.subjectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subjectName'");
             }
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["hardDelete"] = args ? args.hardDelete : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["recreateOnUpdate"] = args ? args.recreateOnUpdate : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["ruleset"] = args ? args.ruleset : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["schemaReferences"] = args ? args.schemaReferences : undefined;
-            resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
-            resourceInputs["skipValidationDuringPlan"] = args ? args.skipValidationDuringPlan : undefined;
-            resourceInputs["subjectName"] = args ? args.subjectName : undefined;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["hardDelete"] = args?.hardDelete;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["recreateOnUpdate"] = args?.recreateOnUpdate;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["ruleset"] = args?.ruleset;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["schemaReferences"] = args?.schemaReferences;
+            resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
+            resourceInputs["skipValidationDuringPlan"] = args?.skipValidationDuringPlan;
+            resourceInputs["subjectName"] = args?.subjectName;
             resourceInputs["schemaIdentifier"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
@@ -185,8 +184,7 @@ export interface SchemaState {
      */
     format?: pulumi.Input<string>;
     /**
-     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-     * destroy. Defaults to `false` (soft delete).
+     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
      */
     hardDelete?: pulumi.Input<boolean>;
     metadata?: pulumi.Input<inputs.SchemaMetadata>;
@@ -238,8 +236,7 @@ export interface SchemaArgs {
      */
     format: pulumi.Input<string>;
     /**
-     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-     * destroy. Defaults to `false` (soft delete).
+     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
      */
     hardDelete?: pulumi.Input<boolean>;
     metadata?: pulumi.Input<inputs.SchemaMetadata>;

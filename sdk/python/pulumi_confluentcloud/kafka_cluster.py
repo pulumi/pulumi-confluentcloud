@@ -44,8 +44,7 @@ class KafkaClusterArgs:
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]] freights: The configuration of the Freight Kafka cluster.
-        :param pulumi.Input['KafkaClusterNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input['KafkaClusterNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input['KafkaClusterStandardArgs'] standard: The configuration of the Standard Kafka cluster.
         """
         pulumi.set(__self__, "availability", availability)
@@ -190,8 +189,7 @@ class KafkaClusterArgs:
     @pulumi.getter
     def network(self) -> Optional[pulumi.Input['KafkaClusterNetworkArgs']]:
         """
-        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        accounts.
+        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 
@@ -247,8 +245,7 @@ class _KafkaClusterState:
         :param pulumi.Input['KafkaClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterFreightArgs']]] freights: The configuration of the Freight Kafka cluster.
         :param pulumi.Input[_builtins.str] kind: (Required String) A kind of the Kafka cluster, for example, `Cluster`.
-        :param pulumi.Input['KafkaClusterNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input['KafkaClusterNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] rbac_crn: (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
         :param pulumi.Input[_builtins.str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
         :param pulumi.Input[_builtins.str] rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
@@ -448,8 +445,7 @@ class _KafkaClusterState:
     @pulumi.getter
     def network(self) -> Optional[pulumi.Input['KafkaClusterNetworkArgs']]:
         """
-        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        accounts.
+        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 
@@ -721,8 +717,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterEnterpriseArgs', 'KafkaClusterEnterpriseArgsDict']]]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict']]]] freights: The configuration of the Freight Kafka cluster.
-        :param pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
         :param pulumi.Input[Union['KafkaClusterStandardArgs', 'KafkaClusterStandardArgsDict']] standard: The configuration of the Standard Kafka cluster.
         """
@@ -1027,8 +1022,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KafkaClusterEnvironmentArgs', 'KafkaClusterEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterFreightArgs', 'KafkaClusterFreightArgsDict']]]] freights: The configuration of the Freight Kafka cluster.
         :param pulumi.Input[_builtins.str] kind: (Required String) A kind of the Kafka cluster, for example, `Cluster`.
-        :param pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input[Union['KafkaClusterNetworkArgs', 'KafkaClusterNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] rbac_crn: (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
         :param pulumi.Input[_builtins.str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
         :param pulumi.Input[_builtins.str] rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
@@ -1163,8 +1157,7 @@ class KafkaCluster(pulumi.CustomResource):
     @pulumi.getter
     def network(self) -> pulumi.Output['outputs.KafkaClusterNetwork']:
         """
-        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        accounts.
+        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 

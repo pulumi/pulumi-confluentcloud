@@ -30,8 +30,7 @@ class PrivateLinkAccessArgs:
         """
         The set of arguments for constructing a PrivateLinkAccess resource.
         :param pulumi.Input['PrivateLinkAccessEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input['PrivateLinkAccessNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input['PrivateLinkAccessNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Access.
         """
         pulumi.set(__self__, "environment", environment)
@@ -61,8 +60,7 @@ class PrivateLinkAccessArgs:
     @pulumi.getter
     def network(self) -> pulumi.Input['PrivateLinkAccessNetworkArgs']:
         """
-        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        accounts.
+        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 
@@ -123,8 +121,7 @@ class _PrivateLinkAccessState:
         Input properties used for looking up and filtering PrivateLinkAccess resources.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Access.
         :param pulumi.Input['PrivateLinkAccessEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input['PrivateLinkAccessNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input['PrivateLinkAccessNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         if aws is not None:
             pulumi.set(__self__, "aws", aws)
@@ -194,8 +191,7 @@ class _PrivateLinkAccessState:
     @pulumi.getter
     def network(self) -> Optional[pulumi.Input['PrivateLinkAccessNetworkArgs']]:
         """
-        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        accounts.
+        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 
@@ -342,8 +338,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Access.
         :param pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         ...
     @overload
@@ -537,8 +532,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Access.
         :param pulumi.Input[Union['PrivateLinkAccessEnvironmentArgs', 'PrivateLinkAccessEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -587,8 +581,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
     @pulumi.getter
     def network(self) -> pulumi.Output['outputs.PrivateLinkAccessNetwork']:
         """
-        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        accounts.
+        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 

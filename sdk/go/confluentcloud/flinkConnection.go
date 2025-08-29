@@ -74,8 +74,7 @@ type FlinkConnection struct {
 	// Password for the type.
 	Password  pulumi.StringPtrOutput         `pulumi:"password"`
 	Principal FlinkConnectionPrincipalOutput `pulumi:"principal"`
-	// The REST endpoint of the Flink Connection cluster, for example,
-	// `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+	// The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
 	// Service Key for the type.
 	ServiceKey pulumi.StringPtrOutput `pulumi:"serviceKey"`
@@ -155,8 +154,7 @@ type flinkConnectionState struct {
 	// Password for the type.
 	Password  *string                   `pulumi:"password"`
 	Principal *FlinkConnectionPrincipal `pulumi:"principal"`
-	// The REST endpoint of the Flink Connection cluster, for example,
-	// `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+	// The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// Service Key for the type.
 	ServiceKey *string `pulumi:"serviceKey"`
@@ -191,8 +189,7 @@ type FlinkConnectionState struct {
 	// Password for the type.
 	Password  pulumi.StringPtrInput
 	Principal FlinkConnectionPrincipalPtrInput
-	// The REST endpoint of the Flink Connection cluster, for example,
-	// `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+	// The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
 	RestEndpoint pulumi.StringPtrInput
 	// Service Key for the type.
 	ServiceKey pulumi.StringPtrInput
@@ -227,8 +224,7 @@ type flinkConnectionArgs struct {
 	// Password for the type.
 	Password  *string                   `pulumi:"password"`
 	Principal *FlinkConnectionPrincipal `pulumi:"principal"`
-	// The REST endpoint of the Flink Connection cluster, for example,
-	// `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+	// The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// Service Key for the type.
 	ServiceKey *string `pulumi:"serviceKey"`
@@ -260,8 +256,7 @@ type FlinkConnectionArgs struct {
 	// Password for the type.
 	Password  pulumi.StringPtrInput
 	Principal FlinkConnectionPrincipalPtrInput
-	// The REST endpoint of the Flink Connection cluster, for example,
-	// `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+	// The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
 	RestEndpoint pulumi.StringPtrInput
 	// Service Key for the type.
 	ServiceKey pulumi.StringPtrInput
@@ -424,8 +419,7 @@ func (o FlinkConnectionOutput) Principal() FlinkConnectionPrincipalOutput {
 	return o.ApplyT(func(v *FlinkConnection) FlinkConnectionPrincipalOutput { return v.Principal }).(FlinkConnectionPrincipalOutput)
 }
 
-// The REST endpoint of the Flink Connection cluster, for example,
-// `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+// The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
 func (o FlinkConnectionOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkConnection) pulumi.StringPtrOutput { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }

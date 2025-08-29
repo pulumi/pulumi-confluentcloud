@@ -354,20 +354,20 @@ export class Connector extends pulumi.CustomResource {
     /**
      * Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      */
-    public readonly configNonsensitive!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly configNonsensitive: pulumi.Output<{[key: string]: string}>;
     /**
      * Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      */
-    public readonly configSensitive!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly configSensitive: pulumi.Output<{[key: string]: string}>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.ConnectorEnvironment>;
-    public readonly kafkaCluster!: pulumi.Output<outputs.ConnectorKafkaCluster>;
+    declare public readonly environment: pulumi.Output<outputs.ConnectorEnvironment>;
+    declare public readonly kafkaCluster: pulumi.Output<outputs.ConnectorKafkaCluster>;
     /**
      * Connector partitions with offsets
      */
-    public readonly offsets!: pulumi.Output<outputs.ConnectorOffset[] | undefined>;
+    declare public readonly offsets: pulumi.Output<outputs.ConnectorOffset[] | undefined>;
     /**
      * The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
      *
@@ -377,7 +377,7 @@ export class Connector extends pulumi.CustomResource {
      *
      * > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -392,29 +392,29 @@ export class Connector extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectorState | undefined;
-            resourceInputs["configNonsensitive"] = state ? state.configNonsensitive : undefined;
-            resourceInputs["configSensitive"] = state ? state.configSensitive : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
-            resourceInputs["offsets"] = state ? state.offsets : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["configNonsensitive"] = state?.configNonsensitive;
+            resourceInputs["configSensitive"] = state?.configSensitive;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["kafkaCluster"] = state?.kafkaCluster;
+            resourceInputs["offsets"] = state?.offsets;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as ConnectorArgs | undefined;
-            if ((!args || args.configNonsensitive === undefined) && !opts.urn) {
+            if (args?.configNonsensitive === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configNonsensitive'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.kafkaCluster === undefined) && !opts.urn) {
+            if (args?.kafkaCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaCluster'");
             }
-            resourceInputs["configNonsensitive"] = args ? args.configNonsensitive : undefined;
+            resourceInputs["configNonsensitive"] = args?.configNonsensitive;
             resourceInputs["configSensitive"] = args?.configSensitive ? pulumi.secret(args.configSensitive) : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
-            resourceInputs["offsets"] = args ? args.offsets : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["kafkaCluster"] = args?.kafkaCluster;
+            resourceInputs["offsets"] = args?.offsets;
+            resourceInputs["status"] = args?.status;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["configSensitive"] };
