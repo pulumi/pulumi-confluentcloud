@@ -50,8 +50,7 @@ type Schema struct {
 	Credentials SchemaCredentialsPtrOutput `pulumi:"credentials"`
 	// The format of the Schema.
 	Format pulumi.StringOutput `pulumi:"format"`
-	// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-	// destroy. Defaults to `false` (soft delete).
+	// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
 	HardDelete pulumi.BoolPtrOutput `pulumi:"hardDelete"`
 	Metadata   SchemaMetadataOutput `pulumi:"metadata"`
 	// Controls whether a schema should be recreated on update.
@@ -122,8 +121,7 @@ type schemaState struct {
 	Credentials *SchemaCredentials `pulumi:"credentials"`
 	// The format of the Schema.
 	Format *string `pulumi:"format"`
-	// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-	// destroy. Defaults to `false` (soft delete).
+	// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
 	HardDelete *bool           `pulumi:"hardDelete"`
 	Metadata   *SchemaMetadata `pulumi:"metadata"`
 	// Controls whether a schema should be recreated on update.
@@ -152,8 +150,7 @@ type SchemaState struct {
 	Credentials SchemaCredentialsPtrInput
 	// The format of the Schema.
 	Format pulumi.StringPtrInput
-	// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-	// destroy. Defaults to `false` (soft delete).
+	// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
 	HardDelete pulumi.BoolPtrInput
 	Metadata   SchemaMetadataPtrInput
 	// Controls whether a schema should be recreated on update.
@@ -186,8 +183,7 @@ type schemaArgs struct {
 	Credentials *SchemaCredentials `pulumi:"credentials"`
 	// The format of the Schema.
 	Format string `pulumi:"format"`
-	// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-	// destroy. Defaults to `false` (soft delete).
+	// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
 	HardDelete *bool           `pulumi:"hardDelete"`
 	Metadata   *SchemaMetadata `pulumi:"metadata"`
 	// Controls whether a schema should be recreated on update.
@@ -213,8 +209,7 @@ type SchemaArgs struct {
 	Credentials SchemaCredentialsPtrInput
 	// The format of the Schema.
 	Format pulumi.StringInput
-	// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-	// destroy. Defaults to `false` (soft delete).
+	// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
 	HardDelete pulumi.BoolPtrInput
 	Metadata   SchemaMetadataPtrInput
 	// Controls whether a schema should be recreated on update.
@@ -331,8 +326,7 @@ func (o SchemaOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
 }
 
-// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-// destroy. Defaults to `false` (soft delete).
+// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
 func (o SchemaOutput) HardDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Schema) pulumi.BoolPtrOutput { return v.HardDelete }).(pulumi.BoolPtrOutput)
 }

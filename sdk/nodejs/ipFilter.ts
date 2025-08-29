@@ -79,23 +79,23 @@ export class IpFilter extends pulumi.CustomResource {
     /**
      * A human-readable name for an IP Filter. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
      */
-    public readonly filterName!: pulumi.Output<string>;
+    declare public readonly filterName: pulumi.Output<string>;
     /**
      * A list of IP Groups.
      */
-    public readonly ipGroups!: pulumi.Output<string[]>;
+    declare public readonly ipGroups: pulumi.Output<string[]>;
     /**
      * Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ipGroups` attribute).
      */
-    public readonly operationGroups!: pulumi.Output<string[]>;
+    declare public readonly operationGroups: pulumi.Output<string[]>;
     /**
      * Scope of resources covered by this IP Filter. Available resource groups include `"management"` and `"multiple"`.
      */
-    public readonly resourceGroup!: pulumi.Output<string>;
+    declare public readonly resourceGroup: pulumi.Output<string>;
     /**
      * A CRN that specifies the scope of the IP Filter, specifically the organization or environment. Without specifying this property, the IP Filter would apply to the whole organization. For example, `"crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa"` or `data.confluent_organization.resource_name`.
      */
-    public readonly resourceScope!: pulumi.Output<string>;
+    declare public readonly resourceScope: pulumi.Output<string>;
 
     /**
      * Create a IpFilter resource with the given unique name, arguments, and options.
@@ -110,27 +110,27 @@ export class IpFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpFilterState | undefined;
-            resourceInputs["filterName"] = state ? state.filterName : undefined;
-            resourceInputs["ipGroups"] = state ? state.ipGroups : undefined;
-            resourceInputs["operationGroups"] = state ? state.operationGroups : undefined;
-            resourceInputs["resourceGroup"] = state ? state.resourceGroup : undefined;
-            resourceInputs["resourceScope"] = state ? state.resourceScope : undefined;
+            resourceInputs["filterName"] = state?.filterName;
+            resourceInputs["ipGroups"] = state?.ipGroups;
+            resourceInputs["operationGroups"] = state?.operationGroups;
+            resourceInputs["resourceGroup"] = state?.resourceGroup;
+            resourceInputs["resourceScope"] = state?.resourceScope;
         } else {
             const args = argsOrState as IpFilterArgs | undefined;
-            if ((!args || args.filterName === undefined) && !opts.urn) {
+            if (args?.filterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterName'");
             }
-            if ((!args || args.ipGroups === undefined) && !opts.urn) {
+            if (args?.ipGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipGroups'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
+            if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            resourceInputs["filterName"] = args ? args.filterName : undefined;
-            resourceInputs["ipGroups"] = args ? args.ipGroups : undefined;
-            resourceInputs["operationGroups"] = args ? args.operationGroups : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
+            resourceInputs["filterName"] = args?.filterName;
+            resourceInputs["ipGroups"] = args?.ipGroups;
+            resourceInputs["operationGroups"] = args?.operationGroups;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["resourceScope"] = args?.resourceScope;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IpFilter.__pulumiType, name, resourceInputs, opts);

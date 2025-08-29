@@ -54,31 +54,31 @@ export class Plugin extends pulumi.CustomResource {
     /**
      * (Required String) The API Version of the schema version of the plugin, for example, `ccpm/v1`.
      */
-    public /*out*/ readonly apiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiVersion: pulumi.Output<string>;
     /**
      * Cloud provider where the Custom Connector Plugin archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
-    public readonly cloud!: pulumi.Output<string>;
+    declare public readonly cloud: pulumi.Output<string>;
     /**
      * The description of the Plugin.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the Plugin.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.PluginEnvironment>;
+    declare public readonly environment: pulumi.Output<outputs.PluginEnvironment>;
     /**
      * (Required String) The kind of the Plugin, for example, `CustomConnectPlugin`.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * (Optional String) Runtime language of the plugin.
      */
-    public readonly runtimeLanguage!: pulumi.Output<string>;
+    declare public readonly runtimeLanguage: pulumi.Output<string>;
 
     /**
      * Create a Plugin resource with the given unique name, arguments, and options.
@@ -93,29 +93,29 @@ export class Plugin extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PluginState | undefined;
-            resourceInputs["apiVersion"] = state ? state.apiVersion : undefined;
-            resourceInputs["cloud"] = state ? state.cloud : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["runtimeLanguage"] = state ? state.runtimeLanguage : undefined;
+            resourceInputs["apiVersion"] = state?.apiVersion;
+            resourceInputs["cloud"] = state?.cloud;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["runtimeLanguage"] = state?.runtimeLanguage;
         } else {
             const args = argsOrState as PluginArgs | undefined;
-            if ((!args || args.cloud === undefined) && !opts.urn) {
+            if (args?.cloud === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloud'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            resourceInputs["cloud"] = args ? args.cloud : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["runtimeLanguage"] = args ? args.runtimeLanguage : undefined;
+            resourceInputs["cloud"] = args?.cloud;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["runtimeLanguage"] = args?.runtimeLanguage;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
         }

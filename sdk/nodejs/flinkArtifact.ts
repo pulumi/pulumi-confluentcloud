@@ -71,57 +71,57 @@ export class FlinkArtifact extends pulumi.CustomResource {
     /**
      * (Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.
      */
-    public /*out*/ readonly apiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiVersion: pulumi.Output<string>;
     /**
      * The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
      */
-    public readonly artifactFile!: pulumi.Output<string | undefined>;
+    declare public readonly artifactFile: pulumi.Output<string | undefined>;
     /**
      * Java class or alias for the Flink Artifact as provided by developer.
      *
      * @deprecated The "class" attribute has been deprecated and will be removed in the next major version of the provider (3.0.0). Refer to the Upgrade Guide at https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/version-3-upgrade for more details. The guide will be published once version 3.0.0 is released.
      */
-    public readonly class!: pulumi.Output<string | undefined>;
+    declare public readonly class: pulumi.Output<string | undefined>;
     /**
      * The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
      */
-    public readonly cloud!: pulumi.Output<string>;
+    declare public readonly cloud: pulumi.Output<string>;
     /**
      * Archive format of the Flink Artifact. Accepted values are: `JAR`, `ZIP`. Should match the file extension of your artifact file.
      */
-    public readonly contentFormat!: pulumi.Output<string>;
+    declare public readonly contentFormat: pulumi.Output<string>;
     /**
      * (Optional String) Description of the Flink Artifact.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The unique name of the Flink Artifact per cloud, region, environment scope.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * (Optional String) Documentation link of the Flink Artifact.
      */
-    public readonly documentationLink!: pulumi.Output<string | undefined>;
+    declare public readonly documentationLink: pulumi.Output<string | undefined>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.FlinkArtifactEnvironment>;
+    declare public readonly environment: pulumi.Output<outputs.FlinkArtifactEnvironment>;
     /**
      * (Required String) The kind of the Flink Artifact Pool, for example, `FlinkArtifact`.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * The cloud service provider region that hosts the Flink Artifact.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * (Optional String) Runtime language of the Flink Artifact as `Python` or `Java`. Defaults to `Java`.
      */
-    public readonly runtimeLanguage!: pulumi.Output<string | undefined>;
+    declare public readonly runtimeLanguage: pulumi.Output<string | undefined>;
     /**
      * List of versions for this Flink Artifact.
      */
-    public /*out*/ readonly versions!: pulumi.Output<outputs.FlinkArtifactVersion[]>;
+    declare public /*out*/ readonly versions: pulumi.Output<outputs.FlinkArtifactVersion[]>;
 
     /**
      * Create a FlinkArtifact resource with the given unique name, arguments, and options.
@@ -136,43 +136,43 @@ export class FlinkArtifact extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlinkArtifactState | undefined;
-            resourceInputs["apiVersion"] = state ? state.apiVersion : undefined;
-            resourceInputs["artifactFile"] = state ? state.artifactFile : undefined;
-            resourceInputs["class"] = state ? state.class : undefined;
-            resourceInputs["cloud"] = state ? state.cloud : undefined;
-            resourceInputs["contentFormat"] = state ? state.contentFormat : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["documentationLink"] = state ? state.documentationLink : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["runtimeLanguage"] = state ? state.runtimeLanguage : undefined;
-            resourceInputs["versions"] = state ? state.versions : undefined;
+            resourceInputs["apiVersion"] = state?.apiVersion;
+            resourceInputs["artifactFile"] = state?.artifactFile;
+            resourceInputs["class"] = state?.class;
+            resourceInputs["cloud"] = state?.cloud;
+            resourceInputs["contentFormat"] = state?.contentFormat;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["documentationLink"] = state?.documentationLink;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["runtimeLanguage"] = state?.runtimeLanguage;
+            resourceInputs["versions"] = state?.versions;
         } else {
             const args = argsOrState as FlinkArtifactArgs | undefined;
-            if ((!args || args.cloud === undefined) && !opts.urn) {
+            if (args?.cloud === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloud'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            resourceInputs["artifactFile"] = args ? args.artifactFile : undefined;
-            resourceInputs["class"] = args ? args.class : undefined;
-            resourceInputs["cloud"] = args ? args.cloud : undefined;
-            resourceInputs["contentFormat"] = args ? args.contentFormat : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["documentationLink"] = args ? args.documentationLink : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["runtimeLanguage"] = args ? args.runtimeLanguage : undefined;
+            resourceInputs["artifactFile"] = args?.artifactFile;
+            resourceInputs["class"] = args?.class;
+            resourceInputs["cloud"] = args?.cloud;
+            resourceInputs["contentFormat"] = args?.contentFormat;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["documentationLink"] = args?.documentationLink;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["runtimeLanguage"] = args?.runtimeLanguage;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["versions"] = undefined /*out*/;

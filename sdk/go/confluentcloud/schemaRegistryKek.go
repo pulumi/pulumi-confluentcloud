@@ -115,8 +115,7 @@ type SchemaRegistryKek struct {
 	Credentials SchemaRegistryKekCredentialsPtrOutput `pulumi:"credentials"`
 	// The optional description for the KEK.
 	Doc pulumi.StringOutput `pulumi:"doc"`
-	// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-	// on destroy. Defaults to `false` (soft delete).
+	// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
 	HardDelete pulumi.BoolPtrOutput `pulumi:"hardDelete"`
 	// The ID of the key from KMS.
 	// - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
@@ -183,8 +182,7 @@ type schemaRegistryKekState struct {
 	Credentials *SchemaRegistryKekCredentials `pulumi:"credentials"`
 	// The optional description for the KEK.
 	Doc *string `pulumi:"doc"`
-	// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-	// on destroy. Defaults to `false` (soft delete).
+	// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
 	HardDelete *bool `pulumi:"hardDelete"`
 	// The ID of the key from KMS.
 	// - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
@@ -209,8 +207,7 @@ type SchemaRegistryKekState struct {
 	Credentials SchemaRegistryKekCredentialsPtrInput
 	// The optional description for the KEK.
 	Doc pulumi.StringPtrInput
-	// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-	// on destroy. Defaults to `false` (soft delete).
+	// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
 	HardDelete pulumi.BoolPtrInput
 	// The ID of the key from KMS.
 	// - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
@@ -239,8 +236,7 @@ type schemaRegistryKekArgs struct {
 	Credentials *SchemaRegistryKekCredentials `pulumi:"credentials"`
 	// The optional description for the KEK.
 	Doc *string `pulumi:"doc"`
-	// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-	// on destroy. Defaults to `false` (soft delete).
+	// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
 	HardDelete *bool `pulumi:"hardDelete"`
 	// The ID of the key from KMS.
 	// - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
@@ -266,8 +262,7 @@ type SchemaRegistryKekArgs struct {
 	Credentials SchemaRegistryKekCredentialsPtrInput
 	// The optional description for the KEK.
 	Doc pulumi.StringPtrInput
-	// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-	// on destroy. Defaults to `false` (soft delete).
+	// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
 	HardDelete pulumi.BoolPtrInput
 	// The ID of the key from KMS.
 	// - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
@@ -384,8 +379,7 @@ func (o SchemaRegistryKekOutput) Doc() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaRegistryKek) pulumi.StringOutput { return v.Doc }).(pulumi.StringOutput)
 }
 
-// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-// on destroy. Defaults to `false` (soft delete).
+// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
 func (o SchemaRegistryKekOutput) HardDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryKek) pulumi.BoolPtrOutput { return v.HardDelete }).(pulumi.BoolPtrOutput)
 }

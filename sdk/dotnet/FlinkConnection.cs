@@ -122,8 +122,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.FlinkConnectionPrincipal> Principal { get; private set; } = null!;
 
         /// <summary>
-        /// The REST endpoint of the Flink Connection cluster, for example,
-        /// `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        /// The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
         /// </summary>
         [Output("restEndpoint")]
         public Output<string?> RestEndpoint { get; private set; } = null!;
@@ -267,8 +266,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.FlinkConnectionPrincipalArgs>? Principal { get; set; }
 
         /// <summary>
-        /// The REST endpoint of the Flink Connection cluster, for example,
-        /// `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        /// The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
@@ -382,8 +380,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.FlinkConnectionPrincipalGetArgs>? Principal { get; set; }
 
         /// <summary>
-        /// The REST endpoint of the Flink Connection cluster, for example,
-        /// `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        /// The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }

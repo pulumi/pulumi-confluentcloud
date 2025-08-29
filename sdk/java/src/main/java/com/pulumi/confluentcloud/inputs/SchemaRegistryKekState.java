@@ -50,16 +50,14 @@ public final class SchemaRegistryKekState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-     * on destroy. Defaults to `false` (soft delete).
+     * Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
      * 
      */
     @Import(name="hardDelete")
     private @Nullable Output<Boolean> hardDelete;
 
     /**
-     * @return Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-     * on destroy. Defaults to `false` (soft delete).
+     * @return Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
      * 
      */
     public Optional<Output<Boolean>> hardDelete() {
@@ -245,8 +243,7 @@ public final class SchemaRegistryKekState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param hardDelete Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-         * on destroy. Defaults to `false` (soft delete).
+         * @param hardDelete Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
          * 
          * @return builder
          * 
@@ -257,8 +254,7 @@ public final class SchemaRegistryKekState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param hardDelete Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
-         * on destroy. Defaults to `false` (soft delete).
+         * @param hardDelete Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
          * 
          * @return builder
          * 

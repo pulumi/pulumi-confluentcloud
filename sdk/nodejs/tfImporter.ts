@@ -66,11 +66,11 @@ export class TfImporter extends pulumi.CustomResource {
      *
      * > **Note:** File an issue to request a support for other resources.
      */
-    public readonly outputPath!: pulumi.Output<string | undefined>;
+    declare public readonly outputPath: pulumi.Output<string | undefined>;
     /**
      * A list of resources names to export. Defaults to all exportable resources.
      */
-    public readonly resources!: pulumi.Output<string[] | undefined>;
+    declare public readonly resources: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a TfImporter resource with the given unique name, arguments, and options.
@@ -85,12 +85,12 @@ export class TfImporter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TfImporterState | undefined;
-            resourceInputs["outputPath"] = state ? state.outputPath : undefined;
-            resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["outputPath"] = state?.outputPath;
+            resourceInputs["resources"] = state?.resources;
         } else {
             const args = argsOrState as TfImporterArgs | undefined;
-            resourceInputs["outputPath"] = args ? args.outputPath : undefined;
-            resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["outputPath"] = args?.outputPath;
+            resourceInputs["resources"] = args?.resources;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TfImporter.__pulumiType, name, resourceInputs, opts);

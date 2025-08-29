@@ -80,23 +80,23 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public readonly awsEgressPrivateLinkGateway!: pulumi.Output<outputs.GatewayAwsEgressPrivateLinkGateway>;
+    declare public readonly awsEgressPrivateLinkGateway: pulumi.Output<outputs.GatewayAwsEgressPrivateLinkGateway>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public readonly awsPrivateNetworkInterfaceGateway!: pulumi.Output<outputs.GatewayAwsPrivateNetworkInterfaceGateway>;
+    declare public readonly awsPrivateNetworkInterfaceGateway: pulumi.Output<outputs.GatewayAwsPrivateNetworkInterfaceGateway>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public readonly azureEgressPrivateLinkGateway!: pulumi.Output<outputs.GatewayAzureEgressPrivateLinkGateway>;
+    declare public readonly azureEgressPrivateLinkGateway: pulumi.Output<outputs.GatewayAzureEgressPrivateLinkGateway>;
     /**
      * The name of the Gateway.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.GatewayEnvironment>;
+    declare public readonly environment: pulumi.Output<outputs.GatewayEnvironment>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -111,24 +111,24 @@ export class Gateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayState | undefined;
-            resourceInputs["awsEgressPrivateLinkGateway"] = state ? state.awsEgressPrivateLinkGateway : undefined;
-            resourceInputs["awsPrivateNetworkInterfaceGateway"] = state ? state.awsPrivateNetworkInterfaceGateway : undefined;
-            resourceInputs["azureEgressPrivateLinkGateway"] = state ? state.azureEgressPrivateLinkGateway : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["awsEgressPrivateLinkGateway"] = state?.awsEgressPrivateLinkGateway;
+            resourceInputs["awsPrivateNetworkInterfaceGateway"] = state?.awsPrivateNetworkInterfaceGateway;
+            resourceInputs["azureEgressPrivateLinkGateway"] = state?.azureEgressPrivateLinkGateway;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            resourceInputs["awsEgressPrivateLinkGateway"] = args ? args.awsEgressPrivateLinkGateway : undefined;
-            resourceInputs["awsPrivateNetworkInterfaceGateway"] = args ? args.awsPrivateNetworkInterfaceGateway : undefined;
-            resourceInputs["azureEgressPrivateLinkGateway"] = args ? args.azureEgressPrivateLinkGateway : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["awsEgressPrivateLinkGateway"] = args?.awsEgressPrivateLinkGateway;
+            resourceInputs["awsPrivateNetworkInterfaceGateway"] = args?.awsPrivateNetworkInterfaceGateway;
+            resourceInputs["azureEgressPrivateLinkGateway"] = args?.azureEgressPrivateLinkGateway;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);

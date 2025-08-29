@@ -38,8 +38,7 @@ class SchemaArgs:
         :param pulumi.Input[_builtins.str] format: The format of the Schema.
         :param pulumi.Input[_builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         :param pulumi.Input['SchemaCredentialsArgs'] credentials: The Cluster API Credentials.
-        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-               destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[_builtins.bool] recreate_on_update: Controls whether a schema should be recreated on update.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
                - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
@@ -110,8 +109,7 @@ class SchemaArgs:
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-        destroy. Defaults to `false` (soft delete).
+        Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 
@@ -227,8 +225,7 @@ class _SchemaState:
         Input properties used for looking up and filtering Schema resources.
         :param pulumi.Input['SchemaCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] format: The format of the Schema.
-        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-               destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[_builtins.bool] recreate_on_update: Controls whether a schema should be recreated on update.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
                - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
@@ -296,8 +293,7 @@ class _SchemaState:
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-        destroy. Defaults to `false` (soft delete).
+        Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 
@@ -484,8 +480,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] format: The format of the Schema.
-        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-               destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[_builtins.bool] recreate_on_update: Controls whether a schema should be recreated on update.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
                - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
@@ -622,8 +617,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] format: The format of the Schema.
-        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-               destroy. Defaults to `false` (soft delete).
+        :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
         :param pulumi.Input[_builtins.bool] recreate_on_update: Controls whether a schema should be recreated on update.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster. For example, for public networking: `https://psrc-00000.us-central1.gcp.confluent.cloud`. In the case of private networking, the endpoint might look like `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud`. You can construct it using either:
                - `data.confluent_schema_registry_cluster.essentials.private_regional_rest_endpoints["us-east-2"]`, or
@@ -674,8 +668,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-        destroy. Defaults to `false` (soft delete).
+        Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
         """
         return pulumi.get(self, "hard_delete")
 

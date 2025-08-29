@@ -156,73 +156,73 @@ export class Network extends pulumi.CustomResource {
     /**
      * (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
      */
-    public readonly aws!: pulumi.Output<outputs.NetworkAw[]>;
+    declare public readonly aws: pulumi.Output<outputs.NetworkAw[]>;
     /**
      * (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
      */
-    public readonly azures!: pulumi.Output<outputs.NetworkAzure[]>;
+    declare public readonly azures: pulumi.Output<outputs.NetworkAzure[]>;
     /**
      * The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
      */
-    public readonly cidr!: pulumi.Output<string>;
+    declare public readonly cidr: pulumi.Output<string>;
     /**
      * The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
-    public readonly cloud!: pulumi.Output<string>;
+    declare public readonly cloud: pulumi.Output<string>;
     /**
      * The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
      */
-    public readonly connectionTypes!: pulumi.Output<string[]>;
+    declare public readonly connectionTypes: pulumi.Output<string[]>;
     /**
      * The name of the Network.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Network DNS config. It applies only to the PRIVATELINK network connection type.
      */
-    public readonly dnsConfig!: pulumi.Output<outputs.NetworkDnsConfig>;
+    declare public readonly dnsConfig: pulumi.Output<outputs.NetworkDnsConfig>;
     /**
      * (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
      */
-    public /*out*/ readonly dnsDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsDomain: pulumi.Output<string>;
     /**
      * (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. 
      * - The Flink REST API endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud` or `https://flink${data.confluent_network.main.endpoint_suffix}`
      * - The Schema Registry REST API endpoint can be constructed by adding the Schema Registry Cluster ID — that is, `https://lsrc-abc123` + `endpointSuffix`; namely, `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud` or `https://${data.confluent_schema_registry_cluster.example.id}${data.confluent_network.main.endpoint_suffix}`.
      */
-    public /*out*/ readonly endpointSuffix!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpointSuffix: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.NetworkEnvironment>;
+    declare public readonly environment: pulumi.Output<outputs.NetworkEnvironment>;
     /**
      * (Optional Configuration Block) supports the following:
      */
-    public /*out*/ readonly gateways!: pulumi.Output<outputs.NetworkGateway[]>;
+    declare public /*out*/ readonly gateways: pulumi.Output<outputs.NetworkGateway[]>;
     /**
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
      */
-    public readonly gcps!: pulumi.Output<outputs.NetworkGcp[]>;
+    declare public readonly gcps: pulumi.Output<outputs.NetworkGcp[]>;
     /**
      * The cloud provider region where the network exists.
      */
-    public readonly region!: pulumi.Output<string>;
+    declare public readonly region: pulumi.Output<string>;
     /**
      * The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
      */
-    public readonly reservedCidr!: pulumi.Output<string>;
+    declare public readonly reservedCidr: pulumi.Output<string>;
     /**
      * (Required String) The Confluent Resource Name of the Network.
      */
-    public /*out*/ readonly resourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceName: pulumi.Output<string>;
     /**
      * (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
      */
-    public /*out*/ readonly zonalSubdomains!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly zonalSubdomains: pulumi.Output<{[key: string]: string}>;
     /**
      * Each item represents information related to a single zone.
      */
-    public readonly zoneInfos!: pulumi.Output<outputs.NetworkZoneInfo[]>;
+    declare public readonly zoneInfos: pulumi.Output<outputs.NetworkZoneInfo[]>;
     /**
      * The 3 availability zones for this network. They can optionally be specified for AWS networks
      * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -231,7 +231,7 @@ export class Network extends pulumi.CustomResource {
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
      */
-    public readonly zones!: pulumi.Output<string[]>;
+    declare public readonly zones: pulumi.Output<string[]>;
 
     /**
      * Create a Network resource with the given unique name, arguments, and options.
@@ -246,51 +246,51 @@ export class Network extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkState | undefined;
-            resourceInputs["aws"] = state ? state.aws : undefined;
-            resourceInputs["azures"] = state ? state.azures : undefined;
-            resourceInputs["cidr"] = state ? state.cidr : undefined;
-            resourceInputs["cloud"] = state ? state.cloud : undefined;
-            resourceInputs["connectionTypes"] = state ? state.connectionTypes : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["dnsConfig"] = state ? state.dnsConfig : undefined;
-            resourceInputs["dnsDomain"] = state ? state.dnsDomain : undefined;
-            resourceInputs["endpointSuffix"] = state ? state.endpointSuffix : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["gateways"] = state ? state.gateways : undefined;
-            resourceInputs["gcps"] = state ? state.gcps : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["reservedCidr"] = state ? state.reservedCidr : undefined;
-            resourceInputs["resourceName"] = state ? state.resourceName : undefined;
-            resourceInputs["zonalSubdomains"] = state ? state.zonalSubdomains : undefined;
-            resourceInputs["zoneInfos"] = state ? state.zoneInfos : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["aws"] = state?.aws;
+            resourceInputs["azures"] = state?.azures;
+            resourceInputs["cidr"] = state?.cidr;
+            resourceInputs["cloud"] = state?.cloud;
+            resourceInputs["connectionTypes"] = state?.connectionTypes;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["dnsConfig"] = state?.dnsConfig;
+            resourceInputs["dnsDomain"] = state?.dnsDomain;
+            resourceInputs["endpointSuffix"] = state?.endpointSuffix;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["gateways"] = state?.gateways;
+            resourceInputs["gcps"] = state?.gcps;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["reservedCidr"] = state?.reservedCidr;
+            resourceInputs["resourceName"] = state?.resourceName;
+            resourceInputs["zonalSubdomains"] = state?.zonalSubdomains;
+            resourceInputs["zoneInfos"] = state?.zoneInfos;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as NetworkArgs | undefined;
-            if ((!args || args.cloud === undefined) && !opts.urn) {
+            if (args?.cloud === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloud'");
             }
-            if ((!args || args.connectionTypes === undefined) && !opts.urn) {
+            if (args?.connectionTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionTypes'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.region === undefined) && !opts.urn) {
+            if (args?.region === undefined && !opts.urn) {
                 throw new Error("Missing required property 'region'");
             }
-            resourceInputs["aws"] = args ? args.aws : undefined;
-            resourceInputs["azures"] = args ? args.azures : undefined;
-            resourceInputs["cidr"] = args ? args.cidr : undefined;
-            resourceInputs["cloud"] = args ? args.cloud : undefined;
-            resourceInputs["connectionTypes"] = args ? args.connectionTypes : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["gcps"] = args ? args.gcps : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["reservedCidr"] = args ? args.reservedCidr : undefined;
-            resourceInputs["zoneInfos"] = args ? args.zoneInfos : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["aws"] = args?.aws;
+            resourceInputs["azures"] = args?.azures;
+            resourceInputs["cidr"] = args?.cidr;
+            resourceInputs["cloud"] = args?.cloud;
+            resourceInputs["connectionTypes"] = args?.connectionTypes;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["dnsConfig"] = args?.dnsConfig;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["gcps"] = args?.gcps;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["reservedCidr"] = args?.reservedCidr;
+            resourceInputs["zoneInfos"] = args?.zoneInfos;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["dnsDomain"] = undefined /*out*/;
             resourceInputs["endpointSuffix"] = undefined /*out*/;
             resourceInputs["gateways"] = undefined /*out*/;

@@ -54,16 +54,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-     * destroy. Defaults to `false` (soft delete).
+     * Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
      * 
      */
     @Import(name="hardDelete")
     private @Nullable Output<Boolean> hardDelete;
 
     /**
-     * @return Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-     * destroy. Defaults to `false` (soft delete).
+     * @return Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
      * 
      */
     public Optional<Output<Boolean>> hardDelete() {
@@ -255,8 +253,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hardDelete Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-         * destroy. Defaults to `false` (soft delete).
+         * @param hardDelete Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
          * 
          * @return builder
          * 
@@ -267,8 +264,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hardDelete Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on
-         * destroy. Defaults to `false` (soft delete).
+         * @param hardDelete Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
          * 
          * @return builder
          * 

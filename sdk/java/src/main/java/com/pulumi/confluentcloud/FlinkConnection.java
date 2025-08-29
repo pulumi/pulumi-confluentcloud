@@ -225,16 +225,14 @@ public class FlinkConnection extends com.pulumi.resources.CustomResource {
         return this.principal;
     }
     /**
-     * The REST endpoint of the Flink Connection cluster, for example,
-     * `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
      * 
      */
     @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the Flink Connection cluster, for example,
-     * `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * @return The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
      * 
      */
     public Output<Optional<String>> restEndpoint() {

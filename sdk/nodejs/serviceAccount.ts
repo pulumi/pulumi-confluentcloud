@@ -91,19 +91,19 @@ export class ServiceAccount extends pulumi.CustomResource {
     /**
      * (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
      */
-    public /*out*/ readonly apiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiVersion: pulumi.Output<string>;
     /**
      * A free-form description of the Service Account.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A human-readable name for the Service Account.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * (Required String) A kind of the Service Account, for example, `ServiceAccount`.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
 
     /**
      * Create a ServiceAccount resource with the given unique name, arguments, and options.
@@ -118,14 +118,14 @@ export class ServiceAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceAccountState | undefined;
-            resourceInputs["apiVersion"] = state ? state.apiVersion : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
+            resourceInputs["apiVersion"] = state?.apiVersion;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["kind"] = state?.kind;
         } else {
             const args = argsOrState as ServiceAccountArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
         }

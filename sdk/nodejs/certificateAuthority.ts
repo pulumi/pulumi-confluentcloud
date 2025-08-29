@@ -68,47 +68,47 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * A PEM encoded string containing the signing certificate chain.
      */
-    public readonly certificateChain!: pulumi.Output<string>;
+    declare public readonly certificateChain: pulumi.Output<string>;
     /**
      * The name of the certificate file.
      */
-    public readonly certificateChainFilename!: pulumi.Output<string>;
+    declare public readonly certificateChainFilename: pulumi.Output<string>;
     /**
      * A PEM encoded string containing the CRL for this certificate authority.
      */
-    public readonly crlChain!: pulumi.Output<string | undefined>;
+    declare public readonly crlChain: pulumi.Output<string | undefined>;
     /**
      * (Optional String) The source specifies whether the Certificate Revocation List (CRL) is updated from either local file uploaded (LOCAL) or from url of CRL (URL).
      */
-    public /*out*/ readonly crlSource!: pulumi.Output<string>;
+    declare public /*out*/ readonly crlSource: pulumi.Output<string>;
     /**
      * (Optional String) The timestamp for when CRL was last updated.
      */
-    public /*out*/ readonly crlUpdatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly crlUpdatedAt: pulumi.Output<string>;
     /**
      * The url from which to fetch the CRL for the certificate authority.
      */
-    public readonly crlUrl!: pulumi.Output<string | undefined>;
+    declare public readonly crlUrl: pulumi.Output<string | undefined>;
     /**
      * A description of the Certificate Authority.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The name of the Certificate Authority.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * (Required List of Strings) The expiration dates of certificates in the chain.
      */
-    public /*out*/ readonly expirationDates!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly expirationDates: pulumi.Output<string[]>;
     /**
      * (Required List of Strings) The fingerprints for each certificate in the certificate chain.
      */
-    public /*out*/ readonly fingerprints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly fingerprints: pulumi.Output<string[]>;
     /**
      * (Required List of Strings) The serial numbers for each certificate in the certificate chain.
      */
-    public /*out*/ readonly serialNumbers!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly serialNumbers: pulumi.Output<string[]>;
 
     /**
      * Create a CertificateAuthority resource with the given unique name, arguments, and options.
@@ -123,37 +123,37 @@ export class CertificateAuthority extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateAuthorityState | undefined;
-            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
-            resourceInputs["certificateChainFilename"] = state ? state.certificateChainFilename : undefined;
-            resourceInputs["crlChain"] = state ? state.crlChain : undefined;
-            resourceInputs["crlSource"] = state ? state.crlSource : undefined;
-            resourceInputs["crlUpdatedAt"] = state ? state.crlUpdatedAt : undefined;
-            resourceInputs["crlUrl"] = state ? state.crlUrl : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["expirationDates"] = state ? state.expirationDates : undefined;
-            resourceInputs["fingerprints"] = state ? state.fingerprints : undefined;
-            resourceInputs["serialNumbers"] = state ? state.serialNumbers : undefined;
+            resourceInputs["certificateChain"] = state?.certificateChain;
+            resourceInputs["certificateChainFilename"] = state?.certificateChainFilename;
+            resourceInputs["crlChain"] = state?.crlChain;
+            resourceInputs["crlSource"] = state?.crlSource;
+            resourceInputs["crlUpdatedAt"] = state?.crlUpdatedAt;
+            resourceInputs["crlUrl"] = state?.crlUrl;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["expirationDates"] = state?.expirationDates;
+            resourceInputs["fingerprints"] = state?.fingerprints;
+            resourceInputs["serialNumbers"] = state?.serialNumbers;
         } else {
             const args = argsOrState as CertificateAuthorityArgs | undefined;
-            if ((!args || args.certificateChain === undefined) && !opts.urn) {
+            if (args?.certificateChain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateChain'");
             }
-            if ((!args || args.certificateChainFilename === undefined) && !opts.urn) {
+            if (args?.certificateChainFilename === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateChainFilename'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
             resourceInputs["certificateChain"] = args?.certificateChain ? pulumi.secret(args.certificateChain) : undefined;
-            resourceInputs["certificateChainFilename"] = args ? args.certificateChainFilename : undefined;
+            resourceInputs["certificateChainFilename"] = args?.certificateChainFilename;
             resourceInputs["crlChain"] = args?.crlChain ? pulumi.secret(args.crlChain) : undefined;
-            resourceInputs["crlUrl"] = args ? args.crlUrl : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["crlUrl"] = args?.crlUrl;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
             resourceInputs["crlSource"] = undefined /*out*/;
             resourceInputs["crlUpdatedAt"] = undefined /*out*/;
             resourceInputs["expirationDates"] = undefined /*out*/;

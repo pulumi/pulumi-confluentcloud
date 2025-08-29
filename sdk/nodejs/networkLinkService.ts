@@ -96,28 +96,27 @@ export class NetworkLinkService extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkLinkService.__pulumiType;
     }
 
-    public readonly accept!: pulumi.Output<outputs.NetworkLinkServiceAccept>;
+    declare public readonly accept: pulumi.Output<outputs.NetworkLinkServiceAccept>;
     /**
      * The description of the Network Link Service.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The name of the Network Link Service.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.NetworkLinkServiceEnvironment>;
+    declare public readonly environment: pulumi.Output<outputs.NetworkLinkServiceEnvironment>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
-    public readonly network!: pulumi.Output<outputs.NetworkLinkServiceNetwork>;
+    declare public readonly network: pulumi.Output<outputs.NetworkLinkServiceNetwork>;
     /**
      * (Required String) The Confluent Resource Name of the Network Link Service.
      */
-    public /*out*/ readonly resourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceName: pulumi.Output<string>;
 
     /**
      * Create a NetworkLinkService resource with the given unique name, arguments, and options.
@@ -132,25 +131,25 @@ export class NetworkLinkService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkLinkServiceState | undefined;
-            resourceInputs["accept"] = state ? state.accept : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["network"] = state ? state.network : undefined;
-            resourceInputs["resourceName"] = state ? state.resourceName : undefined;
+            resourceInputs["accept"] = state?.accept;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["network"] = state?.network;
+            resourceInputs["resourceName"] = state?.resourceName;
         } else {
             const args = argsOrState as NetworkLinkServiceArgs | undefined;
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.network === undefined) && !opts.urn) {
+            if (args?.network === undefined && !opts.urn) {
                 throw new Error("Missing required property 'network'");
             }
-            resourceInputs["accept"] = args ? args.accept : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["network"] = args ? args.network : undefined;
+            resourceInputs["accept"] = args?.accept;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["network"] = args?.network;
             resourceInputs["resourceName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -176,8 +175,7 @@ export interface NetworkLinkServiceState {
      */
     environment?: pulumi.Input<inputs.NetworkLinkServiceEnvironment>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     network?: pulumi.Input<inputs.NetworkLinkServiceNetwork>;
     /**
@@ -204,8 +202,7 @@ export interface NetworkLinkServiceArgs {
      */
     environment: pulumi.Input<inputs.NetworkLinkServiceEnvironment>;
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      */
     network: pulumi.Input<inputs.NetworkLinkServiceNetwork>;
 }

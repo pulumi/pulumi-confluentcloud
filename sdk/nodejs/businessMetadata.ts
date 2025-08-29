@@ -114,28 +114,28 @@ export class BusinessMetadata extends pulumi.CustomResource {
     /**
      * The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
      */
-    public readonly attributeDefinitions!: pulumi.Output<outputs.BusinessMetadataAttributeDefinition[]>;
+    declare public readonly attributeDefinitions: pulumi.Output<outputs.BusinessMetadataAttributeDefinition[]>;
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.BusinessMetadataCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.BusinessMetadataCredentials | undefined>;
     /**
      * The description of the Business Metadata.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    public readonly restEndpoint!: pulumi.Output<string | undefined>;
-    public readonly schemaRegistryCluster!: pulumi.Output<outputs.BusinessMetadataSchemaRegistryCluster | undefined>;
+    declare public readonly restEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly schemaRegistryCluster: pulumi.Output<outputs.BusinessMetadataSchemaRegistryCluster | undefined>;
     /**
      * (Required Integer) The version of the Business Metadata, for example, `1`.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a BusinessMetadata resource with the given unique name, arguments, and options.
@@ -150,21 +150,21 @@ export class BusinessMetadata extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BusinessMetadataState | undefined;
-            resourceInputs["attributeDefinitions"] = state ? state.attributeDefinitions : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = state ? state.schemaRegistryCluster : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["attributeDefinitions"] = state?.attributeDefinitions;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["restEndpoint"] = state?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as BusinessMetadataArgs | undefined;
-            resourceInputs["attributeDefinitions"] = args ? args.attributeDefinitions : undefined;
+            resourceInputs["attributeDefinitions"] = args?.attributeDefinitions;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
-            resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["restEndpoint"] = args?.restEndpoint;
+            resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -78,24 +78,24 @@ export class KafkaClientQuota extends pulumi.CustomResource {
     /**
      * The description of the Kafka Client Quota.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the Kafka Client Quota.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.KafkaClientQuotaEnvironment>;
-    public readonly kafkaCluster!: pulumi.Output<outputs.KafkaClientQuotaKafkaCluster>;
+    declare public readonly environment: pulumi.Output<outputs.KafkaClientQuotaEnvironment>;
+    declare public readonly kafkaCluster: pulumi.Output<outputs.KafkaClientQuotaKafkaCluster>;
     /**
      * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
      */
-    public readonly principals!: pulumi.Output<string[]>;
+    declare public readonly principals: pulumi.Output<string[]>;
     /**
      * Block for representing a Kafka Quota.
      */
-    public readonly throughput!: pulumi.Output<outputs.KafkaClientQuotaThroughput>;
+    declare public readonly throughput: pulumi.Output<outputs.KafkaClientQuotaThroughput>;
 
     /**
      * Create a KafkaClientQuota resource with the given unique name, arguments, and options.
@@ -110,35 +110,35 @@ export class KafkaClientQuota extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KafkaClientQuotaState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
-            resourceInputs["principals"] = state ? state.principals : undefined;
-            resourceInputs["throughput"] = state ? state.throughput : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["kafkaCluster"] = state?.kafkaCluster;
+            resourceInputs["principals"] = state?.principals;
+            resourceInputs["throughput"] = state?.throughput;
         } else {
             const args = argsOrState as KafkaClientQuotaArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.kafkaCluster === undefined) && !opts.urn) {
+            if (args?.kafkaCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaCluster'");
             }
-            if ((!args || args.principals === undefined) && !opts.urn) {
+            if (args?.principals === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principals'");
             }
-            if ((!args || args.throughput === undefined) && !opts.urn) {
+            if (args?.throughput === undefined && !opts.urn) {
                 throw new Error("Missing required property 'throughput'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
-            resourceInputs["principals"] = args ? args.principals : undefined;
-            resourceInputs["throughput"] = args ? args.throughput : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["kafkaCluster"] = args?.kafkaCluster;
+            resourceInputs["principals"] = args?.principals;
+            resourceInputs["throughput"] = args?.throughput;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KafkaClientQuota.__pulumiType, name, resourceInputs, opts);

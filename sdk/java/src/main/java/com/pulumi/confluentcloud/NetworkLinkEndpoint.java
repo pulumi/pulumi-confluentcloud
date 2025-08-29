@@ -131,16 +131,14 @@ public class NetworkLinkEndpoint extends com.pulumi.resources.CustomResource {
         return this.environment;
     }
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      * 
      */
     @Export(name="network", refs={NetworkLinkEndpointNetwork.class}, tree="[0]")
     private Output<NetworkLinkEndpointNetwork> network;
 
     /**
-     * @return Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * @return Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      * 
      */
     public Output<NetworkLinkEndpointNetwork> network() {

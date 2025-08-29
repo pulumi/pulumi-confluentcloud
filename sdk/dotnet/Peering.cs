@@ -226,8 +226,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.PeeringGcp?> Gcp { get; private set; } = null!;
 
         /// <summary>
-        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        /// accounts.
+        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         /// </summary>
         [Output("network")]
         public Output<Outputs.PeeringNetwork> Network { get; private set; } = null!;
@@ -300,8 +299,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.PeeringGcpArgs>? Gcp { get; set; }
 
         /// <summary>
-        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        /// accounts.
+        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         /// </summary>
         [Input("network", required: true)]
         public Input<Inputs.PeeringNetworkArgs> Network { get; set; } = null!;
@@ -336,8 +334,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.PeeringGcpGetArgs>? Gcp { get; set; }
 
         /// <summary>
-        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        /// accounts.
+        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         /// </summary>
         [Input("network")]
         public Input<Inputs.PeeringNetworkGetArgs>? Network { get; set; }

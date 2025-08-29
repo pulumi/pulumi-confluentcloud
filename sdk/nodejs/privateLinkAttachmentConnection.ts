@@ -104,25 +104,25 @@ export class PrivateLinkAttachmentConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateLinkAttachmentConnection.__pulumiType;
     }
 
-    public readonly aws!: pulumi.Output<outputs.PrivateLinkAttachmentConnectionAws | undefined>;
-    public readonly azure!: pulumi.Output<outputs.PrivateLinkAttachmentConnectionAzure | undefined>;
+    declare public readonly aws: pulumi.Output<outputs.PrivateLinkAttachmentConnectionAws | undefined>;
+    declare public readonly azure: pulumi.Output<outputs.PrivateLinkAttachmentConnectionAzure | undefined>;
     /**
      * The name of the Private Link Attachment Connection.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
-    public readonly environment!: pulumi.Output<outputs.PrivateLinkAttachmentConnectionEnvironment>;
-    public readonly gcp!: pulumi.Output<outputs.PrivateLinkAttachmentConnectionGcp | undefined>;
+    declare public readonly environment: pulumi.Output<outputs.PrivateLinkAttachmentConnectionEnvironment>;
+    declare public readonly gcp: pulumi.Output<outputs.PrivateLinkAttachmentConnectionGcp | undefined>;
     /**
      * The privateLinkAttachment to which this belongs.
      */
-    public readonly privateLinkAttachment!: pulumi.Output<outputs.PrivateLinkAttachmentConnectionPrivateLinkAttachment>;
+    declare public readonly privateLinkAttachment: pulumi.Output<outputs.PrivateLinkAttachmentConnectionPrivateLinkAttachment>;
     /**
      * (Required String) The Confluent Resource Name of the Private Link Attachment Connection, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0/private-link-attachment-connection=plattc-77zq2w`.
      */
-    public /*out*/ readonly resourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceName: pulumi.Output<string>;
 
     /**
      * Create a PrivateLinkAttachmentConnection resource with the given unique name, arguments, and options.
@@ -137,30 +137,30 @@ export class PrivateLinkAttachmentConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrivateLinkAttachmentConnectionState | undefined;
-            resourceInputs["aws"] = state ? state.aws : undefined;
-            resourceInputs["azure"] = state ? state.azure : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["gcp"] = state ? state.gcp : undefined;
-            resourceInputs["privateLinkAttachment"] = state ? state.privateLinkAttachment : undefined;
-            resourceInputs["resourceName"] = state ? state.resourceName : undefined;
+            resourceInputs["aws"] = state?.aws;
+            resourceInputs["azure"] = state?.azure;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["gcp"] = state?.gcp;
+            resourceInputs["privateLinkAttachment"] = state?.privateLinkAttachment;
+            resourceInputs["resourceName"] = state?.resourceName;
         } else {
             const args = argsOrState as PrivateLinkAttachmentConnectionArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.privateLinkAttachment === undefined) && !opts.urn) {
+            if (args?.privateLinkAttachment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkAttachment'");
             }
-            resourceInputs["aws"] = args ? args.aws : undefined;
-            resourceInputs["azure"] = args ? args.azure : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["gcp"] = args ? args.gcp : undefined;
-            resourceInputs["privateLinkAttachment"] = args ? args.privateLinkAttachment : undefined;
+            resourceInputs["aws"] = args?.aws;
+            resourceInputs["azure"] = args?.azure;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["gcp"] = args?.gcp;
+            resourceInputs["privateLinkAttachment"] = args?.privateLinkAttachment;
             resourceInputs["resourceName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

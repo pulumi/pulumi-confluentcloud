@@ -30,8 +30,7 @@ class PeeringArgs:
         """
         The set of arguments for constructing a Peering resource.
         :param pulumi.Input['PeeringEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input['PeeringNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input['PeeringNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] display_name: The name of the Peering.
         """
         pulumi.set(__self__, "environment", environment)
@@ -61,8 +60,7 @@ class PeeringArgs:
     @pulumi.getter
     def network(self) -> pulumi.Input['PeeringNetworkArgs']:
         """
-        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        accounts.
+        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 
@@ -123,8 +121,7 @@ class _PeeringState:
         Input properties used for looking up and filtering Peering resources.
         :param pulumi.Input[_builtins.str] display_name: The name of the Peering.
         :param pulumi.Input['PeeringEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input['PeeringNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input['PeeringNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         if aws is not None:
             pulumi.set(__self__, "aws", aws)
@@ -194,8 +191,7 @@ class _PeeringState:
     @pulumi.getter
     def network(self) -> Optional[pulumi.Input['PeeringNetworkArgs']]:
         """
-        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        accounts.
+        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 
@@ -344,8 +340,7 @@ class Peering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the Peering.
         :param pulumi.Input[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         ...
     @overload
@@ -541,8 +536,7 @@ class Peering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the Peering.
         :param pulumi.Input[Union['PeeringEnvironmentArgs', 'PeeringEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-               accounts.
+        :param pulumi.Input[Union['PeeringNetworkArgs', 'PeeringNetworkArgsDict']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -591,8 +585,7 @@ class Peering(pulumi.CustomResource):
     @pulumi.getter
     def network(self) -> pulumi.Output['outputs.PeeringNetwork']:
         """
-        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        accounts.
+        Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         """
         return pulumi.get(self, "network")
 

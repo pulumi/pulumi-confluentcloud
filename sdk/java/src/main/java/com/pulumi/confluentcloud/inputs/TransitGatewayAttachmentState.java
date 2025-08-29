@@ -64,16 +64,14 @@ public final class TransitGatewayAttachmentState extends com.pulumi.resources.Re
     }
 
     /**
-     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      * 
      */
     @Import(name="network")
     private @Nullable Output<TransitGatewayAttachmentNetworkArgs> network;
 
     /**
-     * @return Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-     * accounts.
+     * @return Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
      * 
      */
     public Optional<Output<TransitGatewayAttachmentNetworkArgs>> network() {
@@ -171,8 +169,7 @@ public final class TransitGatewayAttachmentState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param network Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-         * accounts.
+         * @param network Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
          * 
          * @return builder
          * 
@@ -183,8 +180,7 @@ public final class TransitGatewayAttachmentState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param network Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-         * accounts.
+         * @param network Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
          * 
          * @return builder
          * 

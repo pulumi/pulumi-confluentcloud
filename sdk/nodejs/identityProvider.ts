@@ -88,11 +88,11 @@ export class IdentityProvider extends pulumi.CustomResource {
     /**
      * A description for the Identity Provider.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * A human-readable name for the Identity Provider.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
      *
@@ -100,15 +100,15 @@ export class IdentityProvider extends pulumi.CustomResource {
      *
      * > **Note:** If the client specifies mapping to one identity pool ID, the identity claim configured with that pool will be used instead.
      */
-    public readonly identityClaim!: pulumi.Output<string | undefined>;
+    declare public readonly identityClaim: pulumi.Output<string | undefined>;
     /**
      * A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
      */
-    public readonly issuer!: pulumi.Output<string>;
+    declare public readonly issuer: pulumi.Output<string>;
     /**
      * A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.
      */
-    public readonly jwksUri!: pulumi.Output<string>;
+    declare public readonly jwksUri: pulumi.Output<string>;
 
     /**
      * Create a IdentityProvider resource with the given unique name, arguments, and options.
@@ -123,30 +123,30 @@ export class IdentityProvider extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["identityClaim"] = state ? state.identityClaim : undefined;
-            resourceInputs["issuer"] = state ? state.issuer : undefined;
-            resourceInputs["jwksUri"] = state ? state.jwksUri : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["identityClaim"] = state?.identityClaim;
+            resourceInputs["issuer"] = state?.issuer;
+            resourceInputs["jwksUri"] = state?.jwksUri;
         } else {
             const args = argsOrState as IdentityProviderArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.issuer === undefined) && !opts.urn) {
+            if (args?.issuer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'issuer'");
             }
-            if ((!args || args.jwksUri === undefined) && !opts.urn) {
+            if (args?.jwksUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jwksUri'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["identityClaim"] = args ? args.identityClaim : undefined;
-            resourceInputs["issuer"] = args ? args.issuer : undefined;
-            resourceInputs["jwksUri"] = args ? args.jwksUri : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["identityClaim"] = args?.identityClaim;
+            resourceInputs["issuer"] = args?.issuer;
+            resourceInputs["jwksUri"] = args?.jwksUri;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IdentityProvider.__pulumiType, name, resourceInputs, opts);

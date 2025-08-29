@@ -361,8 +361,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        /// accounts.
+        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         /// </summary>
         [Output("network")]
         public Output<Outputs.KafkaClusterNetwork> Network { get; private set; } = null!;
@@ -501,8 +500,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        /// accounts.
+        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         /// </summary>
         [Input("network")]
         public Input<Inputs.KafkaClusterNetworkArgs>? Network { get; set; }
@@ -621,8 +619,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
-        /// accounts.
+        /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         /// </summary>
         [Input("network")]
         public Input<Inputs.KafkaClusterNetworkGetArgs>? Network { get; set; }

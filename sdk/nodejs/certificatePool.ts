@@ -70,23 +70,23 @@ export class CertificatePool extends pulumi.CustomResource {
         return obj['__pulumiType'] === CertificatePool.__pulumiType;
     }
 
-    public readonly certificateAuthority!: pulumi.Output<outputs.CertificatePoolCertificateAuthority>;
+    declare public readonly certificateAuthority: pulumi.Output<outputs.CertificatePoolCertificateAuthority>;
     /**
      * A description of the Certificate Pool.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The name of the Certificate Pool.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The certificate field that will be used to represent the pool's external identity for audit logging.
      */
-    public readonly externalIdentifier!: pulumi.Output<string>;
+    declare public readonly externalIdentifier: pulumi.Output<string>;
     /**
      * A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/mtls/cel-filters.html) that specifies which identities can authenticate using your certificate pool.
      */
-    public readonly filter!: pulumi.Output<string>;
+    declare public readonly filter: pulumi.Output<string>;
 
     /**
      * Create a CertificatePool resource with the given unique name, arguments, and options.
@@ -101,33 +101,33 @@ export class CertificatePool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificatePoolState | undefined;
-            resourceInputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["externalIdentifier"] = state ? state.externalIdentifier : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
+            resourceInputs["certificateAuthority"] = state?.certificateAuthority;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["externalIdentifier"] = state?.externalIdentifier;
+            resourceInputs["filter"] = state?.filter;
         } else {
             const args = argsOrState as CertificatePoolArgs | undefined;
-            if ((!args || args.certificateAuthority === undefined) && !opts.urn) {
+            if (args?.certificateAuthority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateAuthority'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.externalIdentifier === undefined) && !opts.urn) {
+            if (args?.externalIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'externalIdentifier'");
             }
-            if ((!args || args.filter === undefined) && !opts.urn) {
+            if (args?.filter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filter'");
             }
-            resourceInputs["certificateAuthority"] = args ? args.certificateAuthority : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["externalIdentifier"] = args ? args.externalIdentifier : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["certificateAuthority"] = args?.certificateAuthority;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["externalIdentifier"] = args?.externalIdentifier;
+            resourceInputs["filter"] = args?.filter;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CertificatePool.__pulumiType, name, resourceInputs, opts);

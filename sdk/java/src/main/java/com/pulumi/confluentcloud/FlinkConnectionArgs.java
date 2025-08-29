@@ -170,16 +170,14 @@ public final class FlinkConnectionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The REST endpoint of the Flink Connection cluster, for example,
-     * `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
      * 
      */
     @Import(name="restEndpoint")
     private @Nullable Output<String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the Flink Connection cluster, for example,
-     * `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * @return The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
      * 
      */
     public Optional<Output<String>> restEndpoint() {
@@ -475,8 +473,7 @@ public final class FlinkConnectionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the Flink Connection cluster, for example,
-         * `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+         * @param restEndpoint The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
          * 
          * @return builder
          * 
@@ -487,8 +484,7 @@ public final class FlinkConnectionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the Flink Connection cluster, for example,
-         * `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+         * @param restEndpoint The REST endpoint of the Flink Connection cluster, for example, `https://flink.us-east-1.aws.confluent.cloud/sql/v1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
          * 
          * @return builder
          * 
