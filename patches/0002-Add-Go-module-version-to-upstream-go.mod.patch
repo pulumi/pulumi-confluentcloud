@@ -5,7 +5,7 @@ Subject: [PATCH] Add Go module version to upstream go.mod
 
 
 diff --git a/go.mod b/go.mod
-index ace27b12..8ed5d963 100644
+index a4e3d957..16e96626 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -1,4 +1,4 @@
