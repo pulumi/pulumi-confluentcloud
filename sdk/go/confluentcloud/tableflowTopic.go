@@ -150,6 +150,8 @@ type TableflowTopic struct {
 	TableFormats pulumi.StringArrayOutput `pulumi:"tableFormats"`
 	// (Optional String) The current storage path where the data and metadata is stored for this table.
 	TablePath pulumi.StringOutput `pulumi:"tablePath"`
+	// (Optional String) Indicates the write mode of the Tableflow topic.
+	WriteMode pulumi.StringOutput `pulumi:"writeMode"`
 }
 
 // NewTableflowTopic registers a new resource with the given unique name, arguments, and options.
@@ -223,6 +225,8 @@ type tableflowTopicState struct {
 	TableFormats []string `pulumi:"tableFormats"`
 	// (Optional String) The current storage path where the data and metadata is stored for this table.
 	TablePath *string `pulumi:"tablePath"`
+	// (Optional String) Indicates the write mode of the Tableflow topic.
+	WriteMode *string `pulumi:"writeMode"`
 }
 
 type TableflowTopicState struct {
@@ -251,6 +255,8 @@ type TableflowTopicState struct {
 	TableFormats pulumi.StringArrayInput
 	// (Optional String) The current storage path where the data and metadata is stored for this table.
 	TablePath pulumi.StringPtrInput
+	// (Optional String) Indicates the write mode of the Tableflow topic.
+	WriteMode pulumi.StringPtrInput
 }
 
 func (TableflowTopicState) ElementType() reflect.Type {
@@ -447,6 +453,11 @@ func (o TableflowTopicOutput) TableFormats() pulumi.StringArrayOutput {
 // (Optional String) The current storage path where the data and metadata is stored for this table.
 func (o TableflowTopicOutput) TablePath() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableflowTopic) pulumi.StringOutput { return v.TablePath }).(pulumi.StringOutput)
+}
+
+// (Optional String) Indicates the write mode of the Tableflow topic.
+func (o TableflowTopicOutput) WriteMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *TableflowTopic) pulumi.StringOutput { return v.WriteMode }).(pulumi.StringOutput)
 }
 
 type TableflowTopicArrayOutput struct{ *pulumi.OutputState }

@@ -322,6 +322,10 @@ namespace Pulumi.ConfluentCloud
         /// (Optional String) The current storage path where the data and metadata is stored for this table.
         /// </summary>
         public readonly string TablePath;
+        /// <summary>
+        /// (Optional String) Indicates the write mode of the Tableflow topic.
+        /// </summary>
+        public readonly string WriteMode;
 
         [OutputConstructor]
         private GetTableflowTopicResult(
@@ -351,7 +355,9 @@ namespace Pulumi.ConfluentCloud
 
             ImmutableArray<string> tableFormats,
 
-            string tablePath)
+            string tablePath,
+
+            string writeMode)
         {
             ByobAws = byobAws;
             Credentials = credentials;
@@ -367,6 +373,7 @@ namespace Pulumi.ConfluentCloud
             Suspended = suspended;
             TableFormats = tableFormats;
             TablePath = tablePath;
+            WriteMode = writeMode;
         }
     }
 }

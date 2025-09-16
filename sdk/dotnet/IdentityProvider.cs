@@ -99,7 +99,7 @@ namespace Pulumi.ConfluentCloud
         /// &gt; **Note:** If the client specifies mapping to one identity pool ID, the identity claim configured with that pool will be used instead.
         /// </summary>
         [Output("identityClaim")]
-        public Output<string?> IdentityClaim { get; private set; } = null!;
+        public Output<string> IdentityClaim { get; private set; } = null!;
 
         /// <summary>
         /// A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.

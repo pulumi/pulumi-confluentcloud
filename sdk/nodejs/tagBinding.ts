@@ -107,12 +107,13 @@ export class TagBinding extends pulumi.CustomResource {
      * The Cluster API Credentials.
      */
     declare public readonly credentials: pulumi.Output<outputs.TagBindingCredentials | undefined>;
+    declare public readonly disableWaitForReady: pulumi.Output<boolean | undefined>;
     /**
      * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
      */
     declare public readonly entityName: pulumi.Output<string>;
     /**
-     * The entity type.
+     * The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      */
     declare public readonly entityType: pulumi.Output<string>;
     /**
@@ -139,6 +140,7 @@ export class TagBinding extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TagBindingState | undefined;
             resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["disableWaitForReady"] = state?.disableWaitForReady;
             resourceInputs["entityName"] = state?.entityName;
             resourceInputs["entityType"] = state?.entityType;
             resourceInputs["restEndpoint"] = state?.restEndpoint;
@@ -156,6 +158,7 @@ export class TagBinding extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tagName'");
             }
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
+            resourceInputs["disableWaitForReady"] = args?.disableWaitForReady;
             resourceInputs["entityName"] = args?.entityName;
             resourceInputs["entityType"] = args?.entityType;
             resourceInputs["restEndpoint"] = args?.restEndpoint;
@@ -177,12 +180,13 @@ export interface TagBindingState {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.TagBindingCredentials>;
+    disableWaitForReady?: pulumi.Input<boolean>;
     /**
      * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
      */
     entityName?: pulumi.Input<string>;
     /**
-     * The entity type.
+     * The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      */
     entityType?: pulumi.Input<string>;
     /**
@@ -204,12 +208,13 @@ export interface TagBindingArgs {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.TagBindingCredentials>;
+    disableWaitForReady?: pulumi.Input<boolean>;
     /**
      * The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
      */
     entityName: pulumi.Input<string>;
     /**
-     * The entity type.
+     * The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      */
     entityType: pulumi.Input<string>;
     /**
