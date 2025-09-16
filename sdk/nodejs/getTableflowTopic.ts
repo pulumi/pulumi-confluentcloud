@@ -126,6 +126,10 @@ export interface GetTableflowTopicResult {
      * (Optional String) The current storage path where the data and metadata is stored for this table.
      */
     readonly tablePath: string;
+    /**
+     * (Optional String) Indicates the write mode of the Tableflow topic.
+     */
+    readonly writeMode: string;
 }
 /**
  * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

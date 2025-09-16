@@ -329,6 +329,20 @@ public class TableflowTopic extends com.pulumi.resources.CustomResource {
     public Output<String> tablePath() {
         return this.tablePath;
     }
+    /**
+     * (Optional String) Indicates the write mode of the Tableflow topic.
+     * 
+     */
+    @Export(name="writeMode", refs={String.class}, tree="[0]")
+    private Output<String> writeMode;
+
+    /**
+     * @return (Optional String) Indicates the write mode of the Tableflow topic.
+     * 
+     */
+    public Output<String> writeMode() {
+        return this.writeMode;
+    }
 
     /**
      *

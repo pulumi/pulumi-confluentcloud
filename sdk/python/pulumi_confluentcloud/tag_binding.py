@@ -25,12 +25,13 @@ class TagBindingArgs:
                  entity_type: pulumi.Input[_builtins.str],
                  tag_name: pulumi.Input[_builtins.str],
                  credentials: Optional[pulumi.Input['TagBindingCredentialsArgs']] = None,
+                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_registry_cluster: Optional[pulumi.Input['TagBindingSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a TagBinding resource.
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
-        :param pulumi.Input[_builtins.str] entity_type: The entity type.
+        :param pulumi.Input[_builtins.str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         :param pulumi.Input[_builtins.str] tag_name: The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input['TagBindingCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -40,6 +41,8 @@ class TagBindingArgs:
         pulumi.set(__self__, "tag_name", tag_name)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if disable_wait_for_ready is not None:
+            pulumi.set(__self__, "disable_wait_for_ready", disable_wait_for_ready)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
@@ -61,7 +64,7 @@ class TagBindingArgs:
     @pulumi.getter(name="entityType")
     def entity_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The entity type.
+        The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         """
         return pulumi.get(self, "entity_type")
 
@@ -94,6 +97,15 @@ class TagBindingArgs:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter(name="disableWaitForReady")
+    def disable_wait_for_ready(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "disable_wait_for_ready")
+
+    @disable_wait_for_ready.setter
+    def disable_wait_for_ready(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "disable_wait_for_ready", value)
+
+    @_builtins.property
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -119,6 +131,7 @@ class TagBindingArgs:
 class _TagBindingState:
     def __init__(__self__, *,
                  credentials: Optional[pulumi.Input['TagBindingCredentialsArgs']] = None,
+                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
                  entity_name: Optional[pulumi.Input[_builtins.str]] = None,
                  entity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
@@ -128,12 +141,14 @@ class _TagBindingState:
         Input properties used for looking up and filtering TagBinding resources.
         :param pulumi.Input['TagBindingCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
-        :param pulumi.Input[_builtins.str] entity_type: The entity type.
+        :param pulumi.Input[_builtins.str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] tag_name: The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if disable_wait_for_ready is not None:
+            pulumi.set(__self__, "disable_wait_for_ready", disable_wait_for_ready)
         if entity_name is not None:
             pulumi.set(__self__, "entity_name", entity_name)
         if entity_type is not None:
@@ -158,6 +173,15 @@ class _TagBindingState:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter(name="disableWaitForReady")
+    def disable_wait_for_ready(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "disable_wait_for_ready")
+
+    @disable_wait_for_ready.setter
+    def disable_wait_for_ready(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "disable_wait_for_ready", value)
+
+    @_builtins.property
     @pulumi.getter(name="entityName")
     def entity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -173,7 +197,7 @@ class _TagBindingState:
     @pulumi.getter(name="entityType")
     def entity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The entity type.
+        The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         """
         return pulumi.get(self, "entity_type")
 
@@ -222,6 +246,7 @@ class TagBinding(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credentials: Optional[pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
+                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
                  entity_name: Optional[pulumi.Input[_builtins.str]] = None,
                  entity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
@@ -295,7 +320,7 @@ class TagBinding(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
-        :param pulumi.Input[_builtins.str] entity_type: The entity type.
+        :param pulumi.Input[_builtins.str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] tag_name: The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
@@ -384,6 +409,7 @@ class TagBinding(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credentials: Optional[pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
+                 disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
                  entity_name: Optional[pulumi.Input[_builtins.str]] = None,
                  entity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
@@ -399,6 +425,7 @@ class TagBinding(pulumi.CustomResource):
             __props__ = TagBindingArgs.__new__(TagBindingArgs)
 
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
+            __props__.__dict__["disable_wait_for_ready"] = disable_wait_for_ready
             if entity_name is None and not opts.urn:
                 raise TypeError("Missing required property 'entity_name'")
             __props__.__dict__["entity_name"] = entity_name
@@ -423,6 +450,7 @@ class TagBinding(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             credentials: Optional[pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']]] = None,
+            disable_wait_for_ready: Optional[pulumi.Input[_builtins.bool]] = None,
             entity_name: Optional[pulumi.Input[_builtins.str]] = None,
             entity_type: Optional[pulumi.Input[_builtins.str]] = None,
             rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
@@ -437,7 +465,7 @@ class TagBinding(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
-        :param pulumi.Input[_builtins.str] entity_type: The entity type.
+        :param pulumi.Input[_builtins.str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] tag_name: The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
@@ -446,6 +474,7 @@ class TagBinding(pulumi.CustomResource):
         __props__ = _TagBindingState.__new__(_TagBindingState)
 
         __props__.__dict__["credentials"] = credentials
+        __props__.__dict__["disable_wait_for_ready"] = disable_wait_for_ready
         __props__.__dict__["entity_name"] = entity_name
         __props__.__dict__["entity_type"] = entity_type
         __props__.__dict__["rest_endpoint"] = rest_endpoint
@@ -462,6 +491,11 @@ class TagBinding(pulumi.CustomResource):
         return pulumi.get(self, "credentials")
 
     @_builtins.property
+    @pulumi.getter(name="disableWaitForReady")
+    def disable_wait_for_ready(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "disable_wait_for_ready")
+
+    @_builtins.property
     @pulumi.getter(name="entityName")
     def entity_name(self) -> pulumi.Output[_builtins.str]:
         """
@@ -473,7 +507,7 @@ class TagBinding(pulumi.CustomResource):
     @pulumi.getter(name="entityType")
     def entity_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The entity type.
+        The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         """
         return pulumi.get(self, "entity_type")
 

@@ -209,6 +209,21 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.tablePath);
     }
 
+    /**
+     * (Optional String) Indicates the write mode of the Tableflow topic.
+     * 
+     */
+    @Import(name="writeMode")
+    private @Nullable Output<String> writeMode;
+
+    /**
+     * @return (Optional String) Indicates the write mode of the Tableflow topic.
+     * 
+     */
+    public Optional<Output<String>> writeMode() {
+        return Optional.ofNullable(this.writeMode);
+    }
+
     private TableflowTopicState() {}
 
     private TableflowTopicState(TableflowTopicState $) {
@@ -225,6 +240,7 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
         this.suspended = $.suspended;
         this.tableFormats = $.tableFormats;
         this.tablePath = $.tablePath;
+        this.writeMode = $.writeMode;
     }
 
     public static Builder builder() {
@@ -524,6 +540,27 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
          */
         public Builder tablePath(String tablePath) {
             return tablePath(Output.of(tablePath));
+        }
+
+        /**
+         * @param writeMode (Optional String) Indicates the write mode of the Tableflow topic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder writeMode(@Nullable Output<String> writeMode) {
+            $.writeMode = writeMode;
+            return this;
+        }
+
+        /**
+         * @param writeMode (Optional String) Indicates the write mode of the Tableflow topic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder writeMode(String writeMode) {
+            return writeMode(Output.of(writeMode));
         }
 
         public TableflowTopicState build() {

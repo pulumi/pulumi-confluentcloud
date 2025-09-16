@@ -191,6 +191,12 @@ namespace Pulumi.ConfluentCloud
         [Output("tablePath")]
         public Output<string> TablePath { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional String) Indicates the write mode of the Tableflow topic.
+        /// </summary>
+        [Output("writeMode")]
+        public Output<string> WriteMode { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a TableflowTopic resource with the given unique name, arguments, and options.
@@ -418,6 +424,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("tablePath")]
         public Input<string>? TablePath { get; set; }
+
+        /// <summary>
+        /// (Optional String) Indicates the write mode of the Tableflow topic.
+        /// </summary>
+        [Input("writeMode")]
+        public Input<string>? WriteMode { get; set; }
 
         public TableflowTopicState()
         {
