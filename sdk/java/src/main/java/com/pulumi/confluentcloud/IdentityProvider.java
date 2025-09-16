@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -155,7 +154,7 @@ public class IdentityProvider extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="identityClaim", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> identityClaim;
+    private Output<String> identityClaim;
 
     /**
      * @return The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
@@ -165,8 +164,8 @@ public class IdentityProvider extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** If the client specifies mapping to one identity pool ID, the identity claim configured with that pool will be used instead.
      * 
      */
-    public Output<Optional<String>> identityClaim() {
-        return Codegen.optional(this.identityClaim);
+    public Output<String> identityClaim() {
+        return this.identityClaim;
     }
     /**
      * A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.

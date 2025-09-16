@@ -125,6 +125,8 @@ type LookupTableflowTopicResult struct {
 	TableFormats []string `pulumi:"tableFormats"`
 	// (Optional String) The current storage path where the data and metadata is stored for this table.
 	TablePath string `pulumi:"tablePath"`
+	// (Optional String) Indicates the write mode of the Tableflow topic.
+	WriteMode string `pulumi:"writeMode"`
 }
 
 func LookupTableflowTopicOutput(ctx *pulumi.Context, args LookupTableflowTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTableflowTopicResultOutput {
@@ -228,6 +230,11 @@ func (o LookupTableflowTopicResultOutput) TableFormats() pulumi.StringArrayOutpu
 // (Optional String) The current storage path where the data and metadata is stored for this table.
 func (o LookupTableflowTopicResultOutput) TablePath() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableflowTopicResult) string { return v.TablePath }).(pulumi.StringOutput)
+}
+
+// (Optional String) Indicates the write mode of the Tableflow topic.
+func (o LookupTableflowTopicResultOutput) WriteMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableflowTopicResult) string { return v.WriteMode }).(pulumi.StringOutput)
 }
 
 func init() {

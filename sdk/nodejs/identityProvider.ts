@@ -100,7 +100,7 @@ export class IdentityProvider extends pulumi.CustomResource {
      *
      * > **Note:** If the client specifies mapping to one identity pool ID, the identity claim configured with that pool will be used instead.
      */
-    declare public readonly identityClaim: pulumi.Output<string | undefined>;
+    declare public readonly identityClaim: pulumi.Output<string>;
     /**
      * A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
      */

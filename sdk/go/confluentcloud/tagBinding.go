@@ -123,10 +123,11 @@ type TagBinding struct {
 	pulumi.CustomResourceState
 
 	// The Cluster API Credentials.
-	Credentials TagBindingCredentialsPtrOutput `pulumi:"credentials"`
+	Credentials         TagBindingCredentialsPtrOutput `pulumi:"credentials"`
+	DisableWaitForReady pulumi.BoolPtrOutput           `pulumi:"disableWaitForReady"`
 	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 	EntityName pulumi.StringOutput `pulumi:"entityName"`
-	// The entity type.
+	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType pulumi.StringOutput `pulumi:"entityType"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrOutput                   `pulumi:"restEndpoint"`
@@ -182,10 +183,11 @@ func GetTagBinding(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TagBinding resources.
 type tagBindingState struct {
 	// The Cluster API Credentials.
-	Credentials *TagBindingCredentials `pulumi:"credentials"`
+	Credentials         *TagBindingCredentials `pulumi:"credentials"`
+	DisableWaitForReady *bool                  `pulumi:"disableWaitForReady"`
 	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 	EntityName *string `pulumi:"entityName"`
-	// The entity type.
+	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType *string `pulumi:"entityType"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                          `pulumi:"restEndpoint"`
@@ -196,10 +198,11 @@ type tagBindingState struct {
 
 type TagBindingState struct {
 	// The Cluster API Credentials.
-	Credentials TagBindingCredentialsPtrInput
+	Credentials         TagBindingCredentialsPtrInput
+	DisableWaitForReady pulumi.BoolPtrInput
 	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 	EntityName pulumi.StringPtrInput
-	// The entity type.
+	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType pulumi.StringPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
@@ -214,10 +217,11 @@ func (TagBindingState) ElementType() reflect.Type {
 
 type tagBindingArgs struct {
 	// The Cluster API Credentials.
-	Credentials *TagBindingCredentials `pulumi:"credentials"`
+	Credentials         *TagBindingCredentials `pulumi:"credentials"`
+	DisableWaitForReady *bool                  `pulumi:"disableWaitForReady"`
 	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 	EntityName string `pulumi:"entityName"`
-	// The entity type.
+	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType string `pulumi:"entityType"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                          `pulumi:"restEndpoint"`
@@ -229,10 +233,11 @@ type tagBindingArgs struct {
 // The set of arguments for constructing a TagBinding resource.
 type TagBindingArgs struct {
 	// The Cluster API Credentials.
-	Credentials TagBindingCredentialsPtrInput
+	Credentials         TagBindingCredentialsPtrInput
+	DisableWaitForReady pulumi.BoolPtrInput
 	// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 	EntityName pulumi.StringInput
-	// The entity type.
+	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType pulumi.StringInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
@@ -333,12 +338,16 @@ func (o TagBindingOutput) Credentials() TagBindingCredentialsPtrOutput {
 	return o.ApplyT(func(v *TagBinding) TagBindingCredentialsPtrOutput { return v.Credentials }).(TagBindingCredentialsPtrOutput)
 }
 
+func (o TagBindingOutput) DisableWaitForReady() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagBinding) pulumi.BoolPtrOutput { return v.DisableWaitForReady }).(pulumi.BoolPtrOutput)
+}
+
 // The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entityName` attribute.
 func (o TagBindingOutput) EntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagBinding) pulumi.StringOutput { return v.EntityName }).(pulumi.StringOutput)
 }
 
-// The entity type.
+// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 func (o TagBindingOutput) EntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagBinding) pulumi.StringOutput { return v.EntityType }).(pulumi.StringOutput)
 }

@@ -73,6 +73,11 @@ public final class GetTableflowTopicResult {
      * 
      */
     private String tablePath;
+    /**
+     * @return (Optional String) Indicates the write mode of the Tableflow topic.
+     * 
+     */
+    private String writeMode;
 
     private GetTableflowTopicResult() {}
     /**
@@ -157,6 +162,13 @@ public final class GetTableflowTopicResult {
     public String tablePath() {
         return this.tablePath;
     }
+    /**
+     * @return (Optional String) Indicates the write mode of the Tableflow topic.
+     * 
+     */
+    public String writeMode() {
+        return this.writeMode;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -181,6 +193,7 @@ public final class GetTableflowTopicResult {
         private Boolean suspended;
         private List<String> tableFormats;
         private String tablePath;
+        private String writeMode;
         public Builder() {}
         public Builder(GetTableflowTopicResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -198,6 +211,7 @@ public final class GetTableflowTopicResult {
     	      this.suspended = defaults.suspended;
     	      this.tableFormats = defaults.tableFormats;
     	      this.tablePath = defaults.tablePath;
+    	      this.writeMode = defaults.writeMode;
         }
 
         @CustomType.Setter
@@ -319,6 +333,14 @@ public final class GetTableflowTopicResult {
             this.tablePath = tablePath;
             return this;
         }
+        @CustomType.Setter
+        public Builder writeMode(String writeMode) {
+            if (writeMode == null) {
+              throw new MissingRequiredPropertyException("GetTableflowTopicResult", "writeMode");
+            }
+            this.writeMode = writeMode;
+            return this;
+        }
         public GetTableflowTopicResult build() {
             final var _resultValue = new GetTableflowTopicResult();
             _resultValue.byobAws = byobAws;
@@ -335,6 +357,7 @@ public final class GetTableflowTopicResult {
             _resultValue.suspended = suspended;
             _resultValue.tableFormats = tableFormats;
             _resultValue.tablePath = tablePath;
+            _resultValue.writeMode = writeMode;
             return _resultValue;
         }
     }

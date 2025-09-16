@@ -439,7 +439,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="identityClaim")
-    def identity_claim(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def identity_claim(self) -> pulumi.Output[_builtins.str]:
         """
         The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
 

@@ -107,6 +107,9 @@ namespace Pulumi.ConfluentCloud
         [Output("credentials")]
         public Output<Outputs.TagBindingCredentials?> Credentials { get; private set; } = null!;
 
+        [Output("disableWaitForReady")]
+        public Output<bool?> DisableWaitForReady { get; private set; } = null!;
+
         /// <summary>
         /// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
         /// </summary>
@@ -114,7 +117,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> EntityName { get; private set; } = null!;
 
         /// <summary>
-        /// The entity type.
+        /// The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         /// </summary>
         [Output("entityType")]
         public Output<string> EntityType { get; private set; } = null!;
@@ -200,6 +203,9 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
+        [Input("disableWaitForReady")]
+        public Input<bool>? DisableWaitForReady { get; set; }
+
         /// <summary>
         /// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
         /// </summary>
@@ -207,7 +213,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> EntityName { get; set; } = null!;
 
         /// <summary>
-        /// The entity type.
+        /// The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         /// </summary>
         [Input("entityType", required: true)]
         public Input<string> EntityType { get; set; } = null!;
@@ -251,6 +257,9 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
+        [Input("disableWaitForReady")]
+        public Input<bool>? DisableWaitForReady { get; set; }
+
         /// <summary>
         /// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
         /// </summary>
@@ -258,7 +267,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? EntityName { get; set; }
 
         /// <summary>
-        /// The entity type.
+        /// The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         /// </summary>
         [Input("entityType")]
         public Input<string>? EntityType { get; set; }

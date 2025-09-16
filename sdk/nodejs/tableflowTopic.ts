@@ -163,6 +163,10 @@ export class TableflowTopic extends pulumi.CustomResource {
      * (Optional String) The current storage path where the data and metadata is stored for this table.
      */
     declare public /*out*/ readonly tablePath: pulumi.Output<string>;
+    /**
+     * (Optional String) Indicates the write mode of the Tableflow topic.
+     */
+    declare public /*out*/ readonly writeMode: pulumi.Output<string>;
 
     /**
      * Create a TableflowTopic resource with the given unique name, arguments, and options.
@@ -190,6 +194,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             resourceInputs["suspended"] = state?.suspended;
             resourceInputs["tableFormats"] = state?.tableFormats;
             resourceInputs["tablePath"] = state?.tablePath;
+            resourceInputs["writeMode"] = state?.writeMode;
         } else {
             const args = argsOrState as TableflowTopicArgs | undefined;
             if (args?.displayName === undefined && !opts.urn) {
@@ -214,6 +219,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             resourceInputs["enablePartitioning"] = undefined /*out*/;
             resourceInputs["suspended"] = undefined /*out*/;
             resourceInputs["tablePath"] = undefined /*out*/;
+            resourceInputs["writeMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };
@@ -275,6 +281,10 @@ export interface TableflowTopicState {
      * (Optional String) The current storage path where the data and metadata is stored for this table.
      */
     tablePath?: pulumi.Input<string>;
+    /**
+     * (Optional String) Indicates the write mode of the Tableflow topic.
+     */
+    writeMode?: pulumi.Input<string>;
 }
 
 /**
