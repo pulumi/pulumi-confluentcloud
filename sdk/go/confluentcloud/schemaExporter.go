@@ -98,6 +98,43 @@ import (
 //
 // ```
 //
+// ### Option #3: Manage multiple Schema Registry clusters in the same Pulumi Stack using OAuth authentication
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewSchemaExporter(ctx, "main", &confluentcloud.SchemaExporterArgs{
+//				SchemaRegistryCluster: &confluentcloud.SchemaExporterSchemaRegistryClusterArgs{
+//					Id: pulumi.Any(essentials.Id),
+//				},
+//				RestEndpoint: pulumi.Any(essentials.RestEndpoint),
+//				Name:         pulumi.String("test-exporter"),
+//				Subjects: pulumi.StringArray{
+//					pulumi.String("foo"),
+//				},
+//				DestinationSchemaRegistryCluster: &confluentcloud.SchemaExporterDestinationSchemaRegistryClusterArgs{
+//					Id:           pulumi.Any(destination.Id),
+//					RestEndpoint: pulumi.Any(destination.RestEndpoint),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `<Schema Registry cluster ID>/<Schema Exporter name>`, for example:
@@ -130,6 +167,8 @@ type SchemaExporter struct {
 	// Name of the Schema Exporter.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+	//
+	// > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
 	ResetOnUpdate pulumi.BoolPtrOutput `pulumi:"resetOnUpdate"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrOutput                       `pulumi:"restEndpoint"`
@@ -194,6 +233,8 @@ type schemaExporterState struct {
 	// Name of the Schema Exporter.
 	Name *string `pulumi:"name"`
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+	//
+	// > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
 	ResetOnUpdate *bool `pulumi:"resetOnUpdate"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                              `pulumi:"restEndpoint"`
@@ -219,6 +260,8 @@ type SchemaExporterState struct {
 	// Name of the Schema Exporter.
 	Name pulumi.StringPtrInput
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+	//
+	// > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
 	ResetOnUpdate pulumi.BoolPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
@@ -248,6 +291,8 @@ type schemaExporterArgs struct {
 	// Name of the Schema Exporter.
 	Name *string `pulumi:"name"`
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+	//
+	// > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
 	ResetOnUpdate *bool `pulumi:"resetOnUpdate"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                              `pulumi:"restEndpoint"`
@@ -274,6 +319,8 @@ type SchemaExporterArgs struct {
 	// Name of the Schema Exporter.
 	Name pulumi.StringPtrInput
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+	//
+	// > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
 	ResetOnUpdate pulumi.BoolPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
@@ -405,6 +452,8 @@ func (o SchemaExporterOutput) Name() pulumi.StringOutput {
 }
 
 // The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+//
+// > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
 func (o SchemaExporterOutput) ResetOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SchemaExporter) pulumi.BoolPtrOutput { return v.ResetOnUpdate }).(pulumi.BoolPtrOutput)
 }

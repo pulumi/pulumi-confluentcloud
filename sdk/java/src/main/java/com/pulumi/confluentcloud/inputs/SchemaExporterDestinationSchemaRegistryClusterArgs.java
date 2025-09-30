@@ -9,17 +9,34 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class SchemaExporterDestinationSchemaRegistryClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SchemaExporterDestinationSchemaRegistryClusterArgs Empty = new SchemaExporterDestinationSchemaRegistryClusterArgs();
 
-    @Import(name="credentials", required=true)
-    private Output<SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs> credentials;
+    @Import(name="credentials")
+    private @Nullable Output<SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs> credentials;
 
-    public Output<SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs> credentials() {
-        return this.credentials;
+    public Optional<Output<SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs>> credentials() {
+        return Optional.ofNullable(this.credentials);
+    }
+
+    /**
+     * The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+     * 
+     */
+    @Import(name="id")
+    private @Nullable Output<String> id;
+
+    /**
+     * @return The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+     * 
+     */
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
     }
 
     /**
@@ -41,6 +58,7 @@ public final class SchemaExporterDestinationSchemaRegistryClusterArgs extends co
 
     private SchemaExporterDestinationSchemaRegistryClusterArgs(SchemaExporterDestinationSchemaRegistryClusterArgs $) {
         this.credentials = $.credentials;
+        this.id = $.id;
         this.restEndpoint = $.restEndpoint;
     }
 
@@ -62,13 +80,34 @@ public final class SchemaExporterDestinationSchemaRegistryClusterArgs extends co
             $ = new SchemaExporterDestinationSchemaRegistryClusterArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder credentials(Output<SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs> credentials) {
+        public Builder credentials(@Nullable Output<SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs> credentials) {
             $.credentials = credentials;
             return this;
         }
 
         public Builder credentials(SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs credentials) {
             return credentials(Output.of(credentials));
+        }
+
+        /**
+         * @param id The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder id(@Nullable Output<String> id) {
+            $.id = id;
+            return this;
+        }
+
+        /**
+         * @param id The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder id(String id) {
+            return id(Output.of(id));
         }
 
         /**
@@ -93,9 +132,6 @@ public final class SchemaExporterDestinationSchemaRegistryClusterArgs extends co
         }
 
         public SchemaExporterDestinationSchemaRegistryClusterArgs build() {
-            if ($.credentials == null) {
-                throw new MissingRequiredPropertyException("SchemaExporterDestinationSchemaRegistryClusterArgs", "credentials");
-            }
             if ($.restEndpoint == null) {
                 throw new MissingRequiredPropertyException("SchemaExporterDestinationSchemaRegistryClusterArgs", "restEndpoint");
             }

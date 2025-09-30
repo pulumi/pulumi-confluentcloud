@@ -8,10 +8,17 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class SchemaExporterDestinationSchemaRegistryCluster {
-    private SchemaExporterDestinationSchemaRegistryClusterCredentials credentials;
+    private @Nullable SchemaExporterDestinationSchemaRegistryClusterCredentials credentials;
+    /**
+     * @return The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+     * 
+     */
+    private @Nullable String id;
     /**
      * @return The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
@@ -19,8 +26,15 @@ public final class SchemaExporterDestinationSchemaRegistryCluster {
     private String restEndpoint;
 
     private SchemaExporterDestinationSchemaRegistryCluster() {}
-    public SchemaExporterDestinationSchemaRegistryClusterCredentials credentials() {
-        return this.credentials;
+    public Optional<SchemaExporterDestinationSchemaRegistryClusterCredentials> credentials() {
+        return Optional.ofNullable(this.credentials);
+    }
+    /**
+     * @return The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+     * 
+     */
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
     /**
      * @return The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -39,21 +53,27 @@ public final class SchemaExporterDestinationSchemaRegistryCluster {
     }
     @CustomType.Builder
     public static final class Builder {
-        private SchemaExporterDestinationSchemaRegistryClusterCredentials credentials;
+        private @Nullable SchemaExporterDestinationSchemaRegistryClusterCredentials credentials;
+        private @Nullable String id;
         private String restEndpoint;
         public Builder() {}
         public Builder(SchemaExporterDestinationSchemaRegistryCluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.credentials = defaults.credentials;
+    	      this.id = defaults.id;
     	      this.restEndpoint = defaults.restEndpoint;
         }
 
         @CustomType.Setter
-        public Builder credentials(SchemaExporterDestinationSchemaRegistryClusterCredentials credentials) {
-            if (credentials == null) {
-              throw new MissingRequiredPropertyException("SchemaExporterDestinationSchemaRegistryCluster", "credentials");
-            }
+        public Builder credentials(@Nullable SchemaExporterDestinationSchemaRegistryClusterCredentials credentials) {
+
             this.credentials = credentials;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder id(@Nullable String id) {
+
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -67,6 +87,7 @@ public final class SchemaExporterDestinationSchemaRegistryCluster {
         public SchemaExporterDestinationSchemaRegistryCluster build() {
             final var _resultValue = new SchemaExporterDestinationSchemaRegistryCluster();
             _resultValue.credentials = credentials;
+            _resultValue.id = id;
             _resultValue.restEndpoint = restEndpoint;
             return _resultValue;
         }

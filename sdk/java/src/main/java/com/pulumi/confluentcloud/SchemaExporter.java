@@ -123,6 +123,50 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Option #3: Manage multiple Schema Registry clusters in the same Pulumi Stack using OAuth authentication
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.SchemaExporter;
+ * import com.pulumi.confluentcloud.SchemaExporterArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaExporterSchemaRegistryClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaExporterDestinationSchemaRegistryClusterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var main = new SchemaExporter("main", SchemaExporterArgs.builder()
+ *             .schemaRegistryCluster(SchemaExporterSchemaRegistryClusterArgs.builder()
+ *                 .id(essentials.id())
+ *                 .build())
+ *             .restEndpoint(essentials.restEndpoint())
+ *             .name("test-exporter")
+ *             .subjects("foo")
+ *             .destinationSchemaRegistryCluster(SchemaExporterDestinationSchemaRegistryClusterArgs.builder()
+ *                 .id(destination.id())
+ *                 .restEndpoint(destination.restEndpoint())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Schema Exporter name&gt;`, for example:
@@ -223,12 +267,16 @@ public class SchemaExporter extends com.pulumi.resources.CustomResource {
     /**
      * The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
      * 
+     * &gt; **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+     * 
      */
     @Export(name="resetOnUpdate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> resetOnUpdate;
 
     /**
      * @return The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+     * 
+     * &gt; **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
      * 
      */
     public Output<Optional<Boolean>> resetOnUpdate() {

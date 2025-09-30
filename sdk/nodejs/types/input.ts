@@ -2926,7 +2926,11 @@ export interface SchemaExporterCredentials {
 }
 
 export interface SchemaExporterDestinationSchemaRegistryCluster {
-    credentials: pulumi.Input<inputs.SchemaExporterDestinationSchemaRegistryClusterCredentials>;
+    credentials?: pulumi.Input<inputs.SchemaExporterDestinationSchemaRegistryClusterCredentials>;
+    /**
+     * The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id?: pulumi.Input<string>;
     /**
      * The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */

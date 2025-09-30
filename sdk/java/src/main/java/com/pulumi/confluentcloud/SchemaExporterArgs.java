@@ -107,12 +107,16 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
      * 
+     * &gt; **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+     * 
      */
     @Import(name="resetOnUpdate")
     private @Nullable Output<Boolean> resetOnUpdate;
 
     /**
      * @return The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+     * 
+     * &gt; **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
      * 
      */
     public Optional<Output<Boolean>> resetOnUpdate() {
@@ -338,6 +342,8 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param resetOnUpdate The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
          * 
+         * &gt; **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
+         * 
          * @return builder
          * 
          */
@@ -348,6 +354,8 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param resetOnUpdate The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+         * 
+         * &gt; **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
          * 
          * @return builder
          * 

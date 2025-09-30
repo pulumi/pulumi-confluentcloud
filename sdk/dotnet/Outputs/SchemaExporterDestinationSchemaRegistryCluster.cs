@@ -13,7 +13,11 @@ namespace Pulumi.ConfluentCloud.Outputs
     [OutputType]
     public sealed class SchemaExporterDestinationSchemaRegistryCluster
     {
-        public readonly Outputs.SchemaExporterDestinationSchemaRegistryClusterCredentials Credentials;
+        public readonly Outputs.SchemaExporterDestinationSchemaRegistryClusterCredentials? Credentials;
+        /// <summary>
+        /// The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+        /// </summary>
+        public readonly string? Id;
         /// <summary>
         /// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
@@ -21,11 +25,14 @@ namespace Pulumi.ConfluentCloud.Outputs
 
         [OutputConstructor]
         private SchemaExporterDestinationSchemaRegistryCluster(
-            Outputs.SchemaExporterDestinationSchemaRegistryClusterCredentials credentials,
+            Outputs.SchemaExporterDestinationSchemaRegistryClusterCredentials? credentials,
+
+            string? id,
 
             string restEndpoint)
         {
             Credentials = credentials;
+            Id = id;
             RestEndpoint = restEndpoint;
         }
     }
