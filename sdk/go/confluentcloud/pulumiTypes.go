@@ -18943,7 +18943,9 @@ func (o SchemaExporterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 }
 
 type SchemaExporterDestinationSchemaRegistryCluster struct {
-	Credentials SchemaExporterDestinationSchemaRegistryClusterCredentials `pulumi:"credentials"`
+	Credentials *SchemaExporterDestinationSchemaRegistryClusterCredentials `pulumi:"credentials"`
+	// The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+	Id *string `pulumi:"id"`
 	// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint string `pulumi:"restEndpoint"`
 }
@@ -18960,7 +18962,9 @@ type SchemaExporterDestinationSchemaRegistryClusterInput interface {
 }
 
 type SchemaExporterDestinationSchemaRegistryClusterArgs struct {
-	Credentials SchemaExporterDestinationSchemaRegistryClusterCredentialsInput `pulumi:"credentials"`
+	Credentials SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrInput `pulumi:"credentials"`
+	// The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringInput `pulumi:"restEndpoint"`
 }
@@ -19042,10 +19046,15 @@ func (o SchemaExporterDestinationSchemaRegistryClusterOutput) ToSchemaExporterDe
 	}).(SchemaExporterDestinationSchemaRegistryClusterPtrOutput)
 }
 
-func (o SchemaExporterDestinationSchemaRegistryClusterOutput) Credentials() SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput {
-	return o.ApplyT(func(v SchemaExporterDestinationSchemaRegistryCluster) SchemaExporterDestinationSchemaRegistryClusterCredentials {
+func (o SchemaExporterDestinationSchemaRegistryClusterOutput) Credentials() SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput {
+	return o.ApplyT(func(v SchemaExporterDestinationSchemaRegistryCluster) *SchemaExporterDestinationSchemaRegistryClusterCredentials {
 		return v.Credentials
-	}).(SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput)
+	}).(SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput)
+}
+
+// The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SchemaExporterDestinationSchemaRegistryClusterOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaExporterDestinationSchemaRegistryCluster) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -19082,8 +19091,18 @@ func (o SchemaExporterDestinationSchemaRegistryClusterPtrOutput) Credentials() S
 		if v == nil {
 			return nil
 		}
-		return &v.Credentials
+		return v.Credentials
 	}).(SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput)
+}
+
+// The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SchemaExporterDestinationSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaExporterDestinationSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).

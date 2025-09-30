@@ -6474,10 +6474,14 @@ class SchemaExporterCredentialsArgs:
 
 if not MYPY:
     class SchemaExporterDestinationSchemaRegistryClusterArgsDict(TypedDict):
-        credentials: pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict']
         rest_endpoint: pulumi.Input[_builtins.str]
         """
         The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        credentials: NotRequired[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict']]
+        id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
         """
 elif False:
     SchemaExporterDestinationSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
@@ -6485,22 +6489,18 @@ elif False:
 @pulumi.input_type
 class SchemaExporterDestinationSchemaRegistryClusterArgs:
     def __init__(__self__, *,
-                 credentials: pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs'],
-                 rest_endpoint: pulumi.Input[_builtins.str]):
+                 rest_endpoint: pulumi.Input[_builtins.str],
+                 credentials: Optional[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[_builtins.str] id: The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "credentials", credentials)
         pulumi.set(__self__, "rest_endpoint", rest_endpoint)
-
-    @_builtins.property
-    @pulumi.getter
-    def credentials(self) -> pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']:
-        return pulumi.get(self, "credentials")
-
-    @credentials.setter
-    def credentials(self, value: pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']):
-        pulumi.set(self, "credentials", value)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
@@ -6513,6 +6513,27 @@ class SchemaExporterDestinationSchemaRegistryClusterArgs:
     @rest_endpoint.setter
     def rest_endpoint(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "rest_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']]:
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
 
 
 if not MYPY:

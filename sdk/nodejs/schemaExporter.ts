@@ -59,6 +59,26 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### Option #3: Manage multiple Schema Registry clusters in the same Pulumi Stack using OAuth authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = new confluentcloud.SchemaExporter("main", {
+ *     schemaRegistryCluster: {
+ *         id: essentials.id,
+ *     },
+ *     restEndpoint: essentials.restEndpoint,
+ *     name: "test-exporter",
+ *     subjects: ["foo"],
+ *     destinationSchemaRegistryCluster: {
+ *         id: destination.id,
+ *         restEndpoint: destination.restEndpoint,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `<Schema Registry cluster ID>/<Schema Exporter name>`, for example:
@@ -128,6 +148,8 @@ export class SchemaExporter extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     /**
      * The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+     *
+     * > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
      */
     declare public readonly resetOnUpdate: pulumi.Output<boolean | undefined>;
     /**
@@ -225,6 +247,8 @@ export interface SchemaExporterState {
     name?: pulumi.Input<string>;
     /**
      * The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+     *
+     * > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
      */
     resetOnUpdate?: pulumi.Input<boolean>;
     /**
@@ -273,6 +297,8 @@ export interface SchemaExporterArgs {
     name?: pulumi.Input<string>;
     /**
      * The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+     *
+     * > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
      */
     resetOnUpdate?: pulumi.Input<boolean>;
     /**

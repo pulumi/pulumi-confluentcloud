@@ -41,6 +41,8 @@ class SchemaExporterArgs:
         :param pulumi.Input['SchemaExporterCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] name: Name of the Schema Exporter.
         :param pulumi.Input[_builtins.bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+               
+               > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] status: The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         :param pulumi.Input[_builtins.str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
@@ -144,6 +146,8 @@ class SchemaExporterArgs:
     def reset_on_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+
+        > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
         """
         return pulumi.get(self, "reset_on_update")
 
@@ -232,6 +236,8 @@ class _SchemaExporterState:
         :param pulumi.Input['SchemaExporterCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] name: Name of the Schema Exporter.
         :param pulumi.Input[_builtins.bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+               
+               > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] status: The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         :param pulumi.Input[_builtins.str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
@@ -336,6 +342,8 @@ class _SchemaExporterState:
     def reset_on_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+
+        > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
         """
         return pulumi.get(self, "reset_on_update")
 
@@ -471,6 +479,25 @@ class SchemaExporter(pulumi.CustomResource):
             })
         ```
 
+        ### Option #3: Manage multiple Schema Registry clusters in the same Pulumi Stack using OAuth authentication
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.SchemaExporter("main",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            name="test-exporter",
+            subjects=["foo"],
+            destination_schema_registry_cluster={
+                "id": destination["id"],
+                "rest_endpoint": destination["restEndpoint"],
+            })
+        ```
+
         ## Import
 
         You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `<Schema Registry cluster ID>/<Schema Exporter name>`, for example:
@@ -497,6 +524,8 @@ class SchemaExporter(pulumi.CustomResource):
         :param pulumi.Input[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] name: Name of the Schema Exporter.
         :param pulumi.Input[_builtins.bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+               
+               > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] status: The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         :param pulumi.Input[_builtins.str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
@@ -556,6 +585,25 @@ class SchemaExporter(pulumi.CustomResource):
                     "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.destination>",
                     "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.destination>",
                 },
+            })
+        ```
+
+        ### Option #3: Manage multiple Schema Registry clusters in the same Pulumi Stack using OAuth authentication
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        main = confluentcloud.SchemaExporter("main",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            name="test-exporter",
+            subjects=["foo"],
+            destination_schema_registry_cluster={
+                "id": destination["id"],
+                "rest_endpoint": destination["restEndpoint"],
             })
         ```
 
@@ -664,6 +712,8 @@ class SchemaExporter(pulumi.CustomResource):
         :param pulumi.Input[Union['SchemaExporterCredentialsArgs', 'SchemaExporterCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] name: Name of the Schema Exporter.
         :param pulumi.Input[_builtins.bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+               
+               > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[_builtins.str] status: The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         :param pulumi.Input[_builtins.str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
@@ -737,6 +787,8 @@ class SchemaExporter(pulumi.CustomResource):
     def reset_on_update(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+
+        > **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
         """
         return pulumi.get(self, "reset_on_update")
 

@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class SchemaExporterDestinationSchemaRegistryClusterGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("credentials", required: true)]
+        [Input("credentials")]
         private Input<Inputs.SchemaExporterDestinationSchemaRegistryClusterCredentialsGetArgs>? _credentials;
         public Input<Inputs.SchemaExporterDestinationSchemaRegistryClusterCredentialsGetArgs>? Credentials
         {
@@ -23,6 +23,12 @@ namespace Pulumi.ConfluentCloud.Inputs
                 _credentials = Output.Tuple<Input<Inputs.SchemaExporterDestinationSchemaRegistryClusterCredentialsGetArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).

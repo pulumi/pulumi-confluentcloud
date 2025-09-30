@@ -4495,18 +4495,18 @@ class SchemaExporterDestinationSchemaRegistryCluster(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 credentials: 'outputs.SchemaExporterDestinationSchemaRegistryClusterCredentials',
-                 rest_endpoint: _builtins.str):
+                 rest_endpoint: _builtins.str,
+                 credentials: Optional['outputs.SchemaExporterDestinationSchemaRegistryClusterCredentials'] = None,
+                 id: Optional[_builtins.str] = None):
         """
         :param _builtins.str rest_endpoint: The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param _builtins.str id: The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "credentials", credentials)
         pulumi.set(__self__, "rest_endpoint", rest_endpoint)
-
-    @_builtins.property
-    @pulumi.getter
-    def credentials(self) -> 'outputs.SchemaExporterDestinationSchemaRegistryClusterCredentials':
-        return pulumi.get(self, "credentials")
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
@@ -4515,6 +4515,19 @@ class SchemaExporterDestinationSchemaRegistryCluster(dict):
         The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.SchemaExporterDestinationSchemaRegistryClusterCredentials']:
+        return pulumi.get(self, "credentials")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
