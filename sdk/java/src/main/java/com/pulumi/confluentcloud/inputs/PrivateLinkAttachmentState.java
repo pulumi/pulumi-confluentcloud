@@ -37,7 +37,7 @@ public final class PrivateLinkAttachmentState extends com.pulumi.resources.Resou
 
     /**
      * (Optional Configuration Block) supports the following:
-     * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+     * - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
      * 
      */
     @Import(name="azures")
@@ -45,7 +45,7 @@ public final class PrivateLinkAttachmentState extends com.pulumi.resources.Resou
 
     /**
      * @return (Optional Configuration Block) supports the following:
-     * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+     * - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
      * 
      */
     public Optional<Output<List<PrivateLinkAttachmentAzureArgs>>> azures() {
@@ -222,7 +222,7 @@ public final class PrivateLinkAttachmentState extends com.pulumi.resources.Resou
 
         /**
          * @param azures (Optional Configuration Block) supports the following:
-         * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+         * - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class PrivateLinkAttachmentState extends com.pulumi.resources.Resou
 
         /**
          * @param azures (Optional Configuration Block) supports the following:
-         * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+         * - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class PrivateLinkAttachmentState extends com.pulumi.resources.Resou
 
         /**
          * @param azures (Optional Configuration Block) supports the following:
-         * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+         * - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
          * 
          * @return builder
          * 

@@ -82,6 +82,57 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Option #2: Create using ForwardViaGcpDnsZones method
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.EnvironmentArgs;
+ * import com.pulumi.confluentcloud.DnsForwarder;
+ * import com.pulumi.confluentcloud.DnsForwarderArgs;
+ * import com.pulumi.confluentcloud.inputs.DnsForwarderEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.DnsForwarderGatewayArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment("development", EnvironmentArgs.builder()
+ *             .displayName("Development")
+ *             .build());
+ * 
+ *         var main = new DnsForwarder("main", DnsForwarderArgs.builder()
+ *             .displayName("dns_forwarder")
+ *             .environment(DnsForwarderEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .domains(            
+ *                 "example.com",
+ *                 "domainname.com")
+ *             .gateway(DnsForwarderGatewayArgs.builder()
+ *                 .id(mainConfluentNetwork.gateway()[0].id())
+ *                 .build())
+ *             .forwardViaGcpZones(List.of(Map.of("domainMappings", Map.of("com", "zone-1,project-1"))))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * You can import a DNS Forwarder by using Environment ID and DNS Forwarder ID, in the format `&lt;Environment ID&gt;/&lt;DNS Forwarder ID&gt;`. The following example shows how to import a DNS Forwarder:

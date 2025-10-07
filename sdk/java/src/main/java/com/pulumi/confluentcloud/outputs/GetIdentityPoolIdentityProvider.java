@@ -13,7 +13,7 @@ public final class GetIdentityPoolIdentityProvider {
     /**
      * @return The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     private String id;
@@ -22,7 +22,7 @@ public final class GetIdentityPoolIdentityProvider {
     /**
      * @return The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     public String id() {

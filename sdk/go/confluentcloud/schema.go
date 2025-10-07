@@ -14,6 +14,198 @@ import (
 
 // ## Example Usage
 //
+// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, map[string]interface{}{
+//				"input": "./schemas/avro/purchase.avsc",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewSchema(ctx, "avro-purchase", &confluentcloud.SchemaArgs{
+//				SchemaRegistryCluster: &confluentcloud.SchemaSchemaRegistryClusterArgs{
+//					Id: pulumi.Any(essentials.Id),
+//				},
+//				RestEndpoint: pulumi.Any(essentials.RestEndpoint),
+//				SubjectName:  pulumi.String("avro-purchase-value"),
+//				Format:       pulumi.String("AVRO"),
+//				Schema:       invokeFile.Result,
+//				Credentials: &confluentcloud.SchemaCredentialsArgs{
+//					Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>"),
+//					Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, map[string]interface{}{
+//				"input": "./schemas/avro/purchase.avsc",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewSchema(ctx, "avro-purchase", &confluentcloud.SchemaArgs{
+//				SubjectName: pulumi.String("avro-purchase-value"),
+//				Format:      pulumi.String("AVRO"),
+//				Schema:      invokeFile.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `Schema` resource:
+// * single-event-types-avro-schema
+// * single-event-types-proto-schema
+// * single-event-types-proto-schema-with-alias
+// * multiple-event-types-avro-schema
+// * multiple-event-types-proto-schema
+// * field-level-encryption-schema
+//
+// ## Additional Examples
+//
+// ### Default Option A: Manage the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, map[string]interface{}{
+//				"input": "./schemas/avro/purchase.avsc",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// confluent_schema.avro-purchase points to v1.
+//			_, err = confluentcloud.NewSchema(ctx, "avro-purchase", &confluentcloud.SchemaArgs{
+//				SubjectName: pulumi.String("avro-purchase-value"),
+//				Format:      pulumi.String("AVRO"),
+//				Schema:      invokeFile.Result,
+//				Metadata: &confluentcloud.SchemaMetadataArgs{
+//					Properties: pulumi.StringMap{
+//						"owner": pulumi.String("Bob Jones"),
+//						"email": pulumi.String("bob@acme.com"),
+//					},
+//					Sensitives: pulumi.StringArray{
+//						pulumi.String("s1"),
+//						pulumi.String("s2"),
+//					},
+//					Tags: confluentcloud.SchemaMetadataTagArray{
+//						&confluentcloud.SchemaMetadataTagArgs{
+//							Key: pulumi.String("tag1"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("PII"),
+//							},
+//						},
+//						&confluentcloud.SchemaMetadataTagArgs{
+//							Key: pulumi.String("tag2"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("PIIIII"),
+//							},
+//						},
+//					},
+//				},
+//				Ruleset: &confluentcloud.SchemaRulesetArgs{
+//					DomainRules: confluentcloud.SchemaRulesetDomainRuleArray{
+//						&confluentcloud.SchemaRulesetDomainRuleArgs{
+//							Name: pulumi.String("encryptPII"),
+//							Kind: pulumi.String("TRANSFORM"),
+//							Type: pulumi.String("ENCRYPT"),
+//							Mode: pulumi.String("WRITEREAD"),
+//							Tags: pulumi.StringArray{
+//								pulumi.String("PII"),
+//							},
+//							Params: pulumi.StringMap{
+//								"encrypt.kek.name": pulumi.String("testkek2"),
+//							},
+//						},
+//						&confluentcloud.SchemaRulesetDomainRuleArgs{
+//							Name: pulumi.String("encrypt"),
+//							Kind: pulumi.String("TRANSFORM"),
+//							Type: pulumi.String("ENCRYPT"),
+//							Mode: pulumi.String("WRITEREAD"),
+//							Tags: pulumi.StringArray{
+//								pulumi.String("PIIIII"),
+//							},
+//							Params: pulumi.StringMap{
+//								"encrypt.kek.name": pulumi.String("testkek2"),
+//							},
+//						},
+//					},
+//					MigrationRules: confluentcloud.SchemaRulesetMigrationRuleArray{
+//						&confluentcloud.SchemaRulesetMigrationRuleArgs{
+//							Name: pulumi.String("encrypt"),
+//							Kind: pulumi.String("TRANSFORM"),
+//							Type: pulumi.String("ENCRYPT"),
+//							Mode: pulumi.String("WRITEREAD"),
+//							Tags: pulumi.StringArray{
+//								pulumi.String("PIM"),
+//							},
+//							Params: pulumi.StringMap{
+//								"encrypt.kek.name": pulumi.String("testkekM"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `<Schema Registry cluster ID>/<Subject name>/<Schema identifier>`, for example:

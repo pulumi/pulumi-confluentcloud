@@ -56,7 +56,7 @@ public final class GetNetworkResult {
     private List<GetNetworkDnsConfig> dnsConfigs;
     private String dnsDomain;
     /**
-     * @return (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+     * @return (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
      * 
      */
     private String endpointSuffix;
@@ -162,7 +162,7 @@ public final class GetNetworkResult {
         return this.dnsDomain;
     }
     /**
-     * @return (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
+     * @return (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. For example, the Flink REST endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud`.
      * 
      */
     public String endpointSuffix() {

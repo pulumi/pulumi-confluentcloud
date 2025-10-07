@@ -244,8 +244,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. 
-        /// - The Flink REST API endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud` or `https://flink${data.confluent_network.main.endpoint_suffix}`
-        /// - The Schema Registry REST API endpoint can be constructed by adding the Schema Registry Cluster ID — that is, `https://lsrc-abc123` + `endpoint_suffix`; namely, `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud` or `https://${data.confluent_schema_registry_cluster.example.id}${data.confluent_network.main.endpoint_suffix}`.
+        /// - The Flink REST API endpoint can be constructed by adding `Flink` — that is, `https://flink` + `EndpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud` or `https://flink${data.confluent_network.main.endpoint_suffix}`
+        /// - The Schema Registry REST API endpoint can be constructed by adding the Schema Registry Cluster ID — that is, `https://lsrc-abc123` + `EndpointSuffix`; namely, `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud` or `https://${data.confluent_schema_registry_cluster.example.id}${data.confluent_network.main.endpoint_suffix}`.
         /// </summary>
         [Output("endpointSuffix")]
         public Output<string> EndpointSuffix { get; private set; } = null!;
@@ -550,8 +550,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// (Optional String) The endpoint suffix for the network, if applicable. It can take various forms (for example, `.pr1jy6.us-east-2.aws.confluent.cloud` or `-pr1jy6.us-east-2.aws.confluent.cloud`). Full service endpoints can be constructed by appending the service identifier to the beginning of the endpoint suffix. 
-        /// - The Flink REST API endpoint can be constructed by adding `flink` — that is, `https://flink` + `endpoint_suffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud` or `https://flink${data.confluent_network.main.endpoint_suffix}`
-        /// - The Schema Registry REST API endpoint can be constructed by adding the Schema Registry Cluster ID — that is, `https://lsrc-abc123` + `endpoint_suffix`; namely, `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud` or `https://${data.confluent_schema_registry_cluster.example.id}${data.confluent_network.main.endpoint_suffix}`.
+        /// - The Flink REST API endpoint can be constructed by adding `Flink` — that is, `https://flink` + `EndpointSuffix`; namely, `https://flink.pr1jy6.us-east-2.aws.confluent.cloud` or `https://flink${data.confluent_network.main.endpoint_suffix}`
+        /// - The Schema Registry REST API endpoint can be constructed by adding the Schema Registry Cluster ID — that is, `https://lsrc-abc123` + `EndpointSuffix`; namely, `https://lsrc-abc123.pr1jy6.us-east-2.aws.confluent.cloud` or `https://${data.confluent_schema_registry_cluster.example.id}${data.confluent_network.main.endpoint_suffix}`.
         /// </summary>
         [Input("endpointSuffix")]
         public Input<string>? EndpointSuffix { get; set; }

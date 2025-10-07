@@ -38,14 +38,14 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Customized context of the exporter if `context_type` is set to `CUSTOM`.
+     * Customized context of the exporter if `contextType` is set to `CUSTOM`.
      * 
      */
     @Import(name="context")
     private @Nullable Output<String> context;
 
     /**
-     * @return Customized context of the exporter if `context_type` is set to `CUSTOM`.
+     * @return Customized context of the exporter if `contextType` is set to `CUSTOM`.
      * 
      */
     public Optional<Output<String>> context() {
@@ -161,14 +161,14 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
+     * Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dcOrders`.
      * 
      */
     @Import(name="subjectRenameFormat")
     private @Nullable Output<String> subjectRenameFormat;
 
     /**
-     * @return Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
+     * @return Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dcOrders`.
      * 
      */
     public Optional<Output<String>> subjectRenameFormat() {
@@ -247,7 +247,7 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param context Customized context of the exporter if `context_type` is set to `CUSTOM`.
+         * @param context Customized context of the exporter if `contextType` is set to `CUSTOM`.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param context Customized context of the exporter if `context_type` is set to `CUSTOM`.
+         * @param context Customized context of the exporter if `contextType` is set to `CUSTOM`.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subjectRenameFormat Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
+         * @param subjectRenameFormat Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dcOrders`.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subjectRenameFormat Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
+         * @param subjectRenameFormat Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dcOrders`.
          * 
          * @return builder
          * 

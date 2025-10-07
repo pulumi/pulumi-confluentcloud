@@ -449,9 +449,9 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
         /// 
-        /// &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+        /// &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `ConfigSensitive = {}` explicitly.
         /// 
-        /// &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+        /// &gt; **Note:** You may declare sensitive variables for secrets `ConfigSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -560,9 +560,9 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
         /// 
-        /// &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+        /// &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `ConfigSensitive = {}` explicitly.
         /// 
-        /// &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+        /// &gt; **Note:** You may declare sensitive variables for secrets `ConfigSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -629,9 +629,9 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
         /// 
-        /// &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+        /// &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `ConfigSensitive = {}` explicitly.
         /// 
-        /// &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+        /// &gt; **Note:** You may declare sensitive variables for secrets `ConfigSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

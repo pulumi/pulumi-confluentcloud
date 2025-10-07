@@ -25,6 +25,184 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Schema;
+ * import com.pulumi.confluentcloud.SchemaArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaSchemaRegistryClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaCredentialsArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var avro_purchase = new Schema("avro-purchase", SchemaArgs.builder()
+ *             .schemaRegistryCluster(SchemaSchemaRegistryClusterArgs.builder()
+ *                 .id(essentials.id())
+ *                 .build())
+ *             .restEndpoint(essentials.restEndpoint())
+ *             .subjectName("avro-purchase-value")
+ *             .format("AVRO")
+ *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/purchase.avsc")).result())
+ *             .credentials(SchemaCredentialsArgs.builder()
+ *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
+ *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Schema;
+ * import com.pulumi.confluentcloud.SchemaArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var avro_purchase = new Schema("avro-purchase", SchemaArgs.builder()
+ *             .subjectName("avro-purchase-value")
+ *             .format("AVRO")
+ *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/purchase.avsc")).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.Schema` resource:
+ * * single-event-types-avro-schema
+ * * single-event-types-proto-schema
+ * * single-event-types-proto-schema-with-alias
+ * * multiple-event-types-avro-schema
+ * * multiple-event-types-proto-schema
+ * * field-level-encryption-schema
+ * 
+ * ## Additional Examples
+ * 
+ * ### Default Option A: Manage the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Schema;
+ * import com.pulumi.confluentcloud.SchemaArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaMetadataArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaRulesetArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         // confluent_schema.avro-purchase points to v1.
+ *         var avro_purchase = new Schema("avro-purchase", SchemaArgs.builder()
+ *             .subjectName("avro-purchase-value")
+ *             .format("AVRO")
+ *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/purchase.avsc")).result())
+ *             .metadata(SchemaMetadataArgs.builder()
+ *                 .properties(Map.ofEntries(
+ *                     Map.entry("owner", "Bob Jones"),
+ *                     Map.entry("email", "bob}{@literal @}{@code acme.com")
+ *                 ))
+ *                 .sensitives(                
+ *                     "s1",
+ *                     "s2")
+ *                 .tags(                
+ *                     SchemaMetadataTagArgs.builder()
+ *                         .key("tag1")
+ *                         .values("PII")
+ *                         .build(),
+ *                     SchemaMetadataTagArgs.builder()
+ *                         .key("tag2")
+ *                         .values("PIIIII")
+ *                         .build())
+ *                 .build())
+ *             .ruleset(SchemaRulesetArgs.builder()
+ *                 .domainRules(                
+ *                     SchemaRulesetDomainRuleArgs.builder()
+ *                         .name("encryptPII")
+ *                         .kind("TRANSFORM")
+ *                         .type("ENCRYPT")
+ *                         .mode("WRITEREAD")
+ *                         .tags("PII")
+ *                         .params(Map.of("encrypt.kek.name", "testkek2"))
+ *                         .build(),
+ *                     SchemaRulesetDomainRuleArgs.builder()
+ *                         .name("encrypt")
+ *                         .kind("TRANSFORM")
+ *                         .type("ENCRYPT")
+ *                         .mode("WRITEREAD")
+ *                         .tags("PIIIII")
+ *                         .params(Map.of("encrypt.kek.name", "testkek2"))
+ *                         .build())
+ *                 .migrationRules(SchemaRulesetMigrationRuleArgs.builder()
+ *                     .name("encrypt")
+ *                     .kind("TRANSFORM")
+ *                     .type("ENCRYPT")
+ *                     .mode("WRITEREAD")
+ *                     .tags("PIM")
+ *                     .params(Map.of("encrypt.kek.name", "testkekM"))
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;/&lt;Schema identifier&gt;`, for example:

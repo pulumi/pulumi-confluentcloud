@@ -66,6 +66,55 @@ import (
 //
 // ```
 //
+// ### Option #2: Create using ForwardViaGcpDnsZones method
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", &confluentcloud.EnvironmentArgs{
+//				DisplayName: pulumi.String("Development"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewDnsForwarder(ctx, "main", &confluentcloud.DnsForwarderArgs{
+//				DisplayName: pulumi.String("dns_forwarder"),
+//				Environment: &confluentcloud.DnsForwarderEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//				Domains: pulumi.StringArray{
+//					pulumi.String("example.com"),
+//					pulumi.String("domainname.com"),
+//				},
+//				Gateway: &confluentcloud.DnsForwarderGatewayArgs{
+//					Id: pulumi.Any(mainConfluentNetwork.Gateway[0].Id),
+//				},
+//				ForwardViaGcpZones: []map[string]interface{}{
+//					map[string]interface{}{
+//						"domainMappings": map[string]interface{}{
+//							"com": "zone-1,project-1",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // You can import a DNS Forwarder by using Environment ID and DNS Forwarder ID, in the format `<Environment ID>/<DNS Forwarder ID>`. The following example shows how to import a DNS Forwarder:

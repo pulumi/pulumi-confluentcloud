@@ -63,7 +63,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// });
         /// ```
-        /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+        /// &gt; **Note:** We also support `SchemaRegistryRestEndpoint` instead of `CatalogRestEndpoint` for the time being.
         /// </summary>
         public static Task<GetTagResult> InvokeAsync(GetTagArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("confluentcloud:index/getTag:getTag", args ?? new GetTagArgs(), options.WithDefaults());
@@ -120,7 +120,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// });
         /// ```
-        /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+        /// &gt; **Note:** We also support `SchemaRegistryRestEndpoint` instead of `CatalogRestEndpoint` for the time being.
         /// </summary>
         public static Output<GetTagResult> Invoke(GetTagInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagResult>("confluentcloud:index/getTag:getTag", args ?? new GetTagInvokeArgs(), options.WithDefaults());
@@ -177,7 +177,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// });
         /// ```
-        /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+        /// &gt; **Note:** We also support `SchemaRegistryRestEndpoint` instead of `CatalogRestEndpoint` for the time being.
         /// </summary>
         public static Output<GetTagResult> Invoke(GetTagInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagResult>("confluentcloud:index/getTag:getTag", args ?? new GetTagInvokeArgs(), options.WithDefaults());
@@ -264,7 +264,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// (Optional List of String) The entity types of the tag, this always returns `["cf_entity"]`.
+        /// (Optional List of String) The entity types of the tag, this always returns `["CfEntity"]`.
         /// </summary>
         public readonly ImmutableArray<string> EntityTypes;
         /// <summary>

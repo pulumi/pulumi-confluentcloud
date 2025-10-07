@@ -23,7 +23,7 @@ public final class GetTagResult {
      */
     private String description;
     /**
-     * @return (Optional List of String) The entity types of the tag, this always returns `[&#34;cf_entity&#34;]`.
+     * @return (Optional List of String) The entity types of the tag, this always returns `[&#34;cfEntity&#34;]`.
      * 
      */
     private List<String> entityTypes;
@@ -53,7 +53,7 @@ public final class GetTagResult {
         return this.description;
     }
     /**
-     * @return (Optional List of String) The entity types of the tag, this always returns `[&#34;cf_entity&#34;]`.
+     * @return (Optional List of String) The entity types of the tag, this always returns `[&#34;cfEntity&#34;]`.
      * 
      */
     public List<String> entityTypes() {
