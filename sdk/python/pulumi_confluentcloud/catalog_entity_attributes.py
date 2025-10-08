@@ -333,6 +333,30 @@ class CatalogEntityAttributes(pulumi.CustomResource):
         ```
         > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
 
+        ## Import
+
+        You can import a Catalog Entity Attributes resource by using the Schema Registry Cluster ID, Entity name in the format `<Schema Registry Cluster ID>/<Entity Type>/<Entity Name>/<Comma-Delimited-Attributes>`, for example:
+
+        Option #1: Manage multiple Catalog Entity Attributes in the same Pulumi Stack
+
+        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+
+        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+
+        $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+
+        ```sh
+        $ pulumi import confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes environment lsrc-abc123/cf_environment/env-abc123/owner,description,ownerEmail
+        ```
+
+        Option #2: Manage a single Catalog Entity Attributes in the same Pulumi Stack
+
+        ```sh
+        $ pulumi import confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes environment lsrc-abc123/cf_environment/env-abc123/owner,description,ownerEmail
+        ```
+
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The attributes.
@@ -450,6 +474,30 @@ class CatalogEntityAttributes(pulumi.CustomResource):
             })
         ```
         > **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+
+        ## Import
+
+        You can import a Catalog Entity Attributes resource by using the Schema Registry Cluster ID, Entity name in the format `<Schema Registry Cluster ID>/<Entity Type>/<Entity Name>/<Comma-Delimited-Attributes>`, for example:
+
+        Option #1: Manage multiple Catalog Entity Attributes in the same Pulumi Stack
+
+        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+
+        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+
+        $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+
+        ```sh
+        $ pulumi import confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes environment lsrc-abc123/cf_environment/env-abc123/owner,description,ownerEmail
+        ```
+
+        Option #2: Manage a single Catalog Entity Attributes in the same Pulumi Stack
+
+        ```sh
+        $ pulumi import confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes environment lsrc-abc123/cf_environment/env-abc123/owner,description,ownerEmail
+        ```
+
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param CatalogEntityAttributesArgs args: The arguments to use to populate this resource's properties.
