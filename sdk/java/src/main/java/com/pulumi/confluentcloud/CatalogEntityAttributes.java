@@ -170,6 +170,30 @@ import javax.annotation.Nullable;
  * </pre>
  * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
  * 
+ * ## Import
+ * 
+ * You can import a Catalog Entity Attributes resource by using the Schema Registry Cluster ID, Entity name in the format `&lt;Schema Registry Cluster ID&gt;/&lt;Entity Type&gt;/&lt;Entity Name&gt;/&lt;Comma-Delimited-Attributes&gt;`, for example:
+ * 
+ * Option #1: Manage multiple Catalog Entity Attributes in the same Pulumi Stack
+ * 
+ * $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
+ * 
+ * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
+ * 
+ * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
+ * 
+ * ```sh
+ * $ pulumi import confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes environment lsrc-abc123/cf_environment/env-abc123/owner,description,ownerEmail
+ * ```
+ * 
+ * Option #2: Manage a single Catalog Entity Attributes in the same Pulumi Stack
+ * 
+ * ```sh
+ * $ pulumi import confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes environment lsrc-abc123/cf_environment/env-abc123/owner,description,ownerEmail
+ * ```
+ * 
+ * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * 
  */
 @ResourceType(type="confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes")
 public class CatalogEntityAttributes extends com.pulumi.resources.CustomResource {
