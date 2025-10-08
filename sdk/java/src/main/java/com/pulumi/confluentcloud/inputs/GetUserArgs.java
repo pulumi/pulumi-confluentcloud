@@ -18,7 +18,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The email address of the User.
      * 
-     * &gt; **Note:** Exactly one from the `id`, `full_name` and `email` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id`, `fullName` and `email` attributes must be specified.
      * 
      */
     @Import(name="email")
@@ -27,7 +27,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return The email address of the User.
      * 
-     * &gt; **Note:** Exactly one from the `id`, `full_name` and `email` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id`, `fullName` and `email` attributes must be specified.
      * 
      */
     public Optional<Output<String>> email() {
@@ -93,7 +93,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param email The email address of the User.
          * 
-         * &gt; **Note:** Exactly one from the `id`, `full_name` and `email` attributes must be specified.
+         * &gt; **Note:** Exactly one from the `id`, `fullName` and `email` attributes must be specified.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param email The email address of the User.
          * 
-         * &gt; **Note:** Exactly one from the `id`, `full_name` and `email` attributes must be specified.
+         * &gt; **Note:** Exactly one from the `id`, `fullName` and `email` attributes must be specified.
          * 
          * @return builder
          * 

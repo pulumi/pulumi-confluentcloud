@@ -246,6 +246,32 @@ class DnsForwarder(pulumi.CustomResource):
             })
         ```
 
+        ### Option #2: Create using ForwardViaGcpDnsZones method
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development", display_name="Development")
+        main = confluentcloud.DnsForwarder("main",
+            display_name="dns_forwarder",
+            environment={
+                "id": development.id,
+            },
+            domains=[
+                "example.com",
+                "domainname.com",
+            ],
+            gateway={
+                "id": main_confluent_network["gateway"][0]["id"],
+            },
+            forward_via_gcp_zones=[{
+                "domainMappings": {
+                    "com": "zone-1,project-1",
+                },
+            }])
+        ```
+
         ## Import
 
         You can import a DNS Forwarder by using Environment ID and DNS Forwarder ID, in the format `<Environment ID>/<DNS Forwarder ID>`. The following example shows how to import a DNS Forwarder:
@@ -304,6 +330,32 @@ class DnsForwarder(pulumi.CustomResource):
                     "10.200.0.1",
                 ],
             })
+        ```
+
+        ### Option #2: Create using ForwardViaGcpDnsZones method
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development", display_name="Development")
+        main = confluentcloud.DnsForwarder("main",
+            display_name="dns_forwarder",
+            environment={
+                "id": development.id,
+            },
+            domains=[
+                "example.com",
+                "domainname.com",
+            ],
+            gateway={
+                "id": main_confluent_network["gateway"][0]["id"],
+            },
+            forward_via_gcp_zones=[{
+                "domainMappings": {
+                    "com": "zone-1,project-1",
+                },
+            }])
         ```
 
         ## Import

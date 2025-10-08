@@ -21,7 +21,7 @@ public final class GetProviderIntegrationAw {
      */
     private String externalId;
     /**
-     * @return (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+     * @return (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
      * 
      */
     private String iamRoleArn;
@@ -42,7 +42,7 @@ public final class GetProviderIntegrationAw {
         return this.externalId;
     }
     /**
-     * @return (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+     * @return (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
      * 
      */
     public String iamRoleArn() {

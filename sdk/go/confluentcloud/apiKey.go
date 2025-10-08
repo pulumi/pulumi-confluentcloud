@@ -14,6 +14,170 @@ import (
 
 // ## Example Usage
 //
+// ### Example Kafka API Key
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewApiKey(ctx, "app-manager-kafka-api-key", &confluentcloud.ApiKeyArgs{
+//				DisplayName: pulumi.String("app-manager-kafka-api-key"),
+//				Description: pulumi.String("Kafka API Key that is owned by 'app-manager' service account"),
+//				Owner: &confluentcloud.ApiKeyOwnerArgs{
+//					Id:         pulumi.Any(app_manager.Id),
+//					ApiVersion: pulumi.Any(app_manager.ApiVersion),
+//					Kind:       pulumi.Any(app_manager.Kind),
+//				},
+//				ManagedResource: &confluentcloud.ApiKeyManagedResourceArgs{
+//					Id:         pulumi.Any(basic.Id),
+//					ApiVersion: pulumi.Any(basic.ApiVersion),
+//					Kind:       pulumi.Any(basic.Kind),
+//					Environments: []map[string]interface{}{
+//						map[string]interface{}{
+//							"id": staging.Id,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Example ksqlDB API Key
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewApiKey(ctx, "ksqldb-api-key", &confluentcloud.ApiKeyArgs{
+//				DisplayName: pulumi.String("ksqldb-api-key"),
+//				Description: pulumi.String("KsqlDB API Key that is owned by 'app-manager' service account"),
+//				Owner: &confluentcloud.ApiKeyOwnerArgs{
+//					Id:         pulumi.Any(app_manager.Id),
+//					ApiVersion: pulumi.Any(app_manager.ApiVersion),
+//					Kind:       pulumi.Any(app_manager.Kind),
+//				},
+//				ManagedResource: &confluentcloud.ApiKeyManagedResourceArgs{
+//					Id:         pulumi.Any(main.Id),
+//					ApiVersion: pulumi.Any(main.ApiVersion),
+//					Kind:       pulumi.Any(main.Kind),
+//					Environments: []map[string]interface{}{
+//						map[string]interface{}{
+//							"id": staging.Id,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Example Schema Registry API Key
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewApiKey(ctx, "env-manager-schema-registry-api-key", &confluentcloud.ApiKeyArgs{
+//				DisplayName: pulumi.String("env-manager-schema-registry-api-key"),
+//				Description: pulumi.String("Schema Registry API Key that is owned by 'env-manager' service account"),
+//				Owner: &confluentcloud.ApiKeyOwnerArgs{
+//					Id:         pulumi.Any(env_manager.Id),
+//					ApiVersion: pulumi.Any(env_manager.ApiVersion),
+//					Kind:       pulumi.Any(env_manager.Kind),
+//				},
+//				ManagedResource: &confluentcloud.ApiKeyManagedResourceArgs{
+//					Id:         pulumi.Any(essentials.Id),
+//					ApiVersion: pulumi.Any(essentials.ApiVersion),
+//					Kind:       pulumi.Any(essentials.Kind),
+//					Environments: []map[string]interface{}{
+//						map[string]interface{}{
+//							"id": staging.Id,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Example Flink API Key
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewApiKey(ctx, "env-manager-flink-api-key", &confluentcloud.ApiKeyArgs{
+//				DisplayName: pulumi.String("env-manager-flink-api-key"),
+//				Description: pulumi.String("Flink API Key that is owned by 'env-manager' service account"),
+//				Owner: &confluentcloud.ApiKeyOwnerArgs{
+//					Id:         pulumi.Any(env_manager.Id),
+//					ApiVersion: pulumi.Any(env_manager.ApiVersion),
+//					Kind:       pulumi.Any(env_manager.Kind),
+//				},
+//				ManagedResource: &confluentcloud.ApiKeyManagedResourceArgs{
+//					Id:         pulumi.Any(example.Id),
+//					ApiVersion: pulumi.Any(example.ApiVersion),
+//					Kind:       pulumi.Any(example.Kind),
+//					Environments: []map[string]interface{}{
+//						map[string]interface{}{
+//							"id": staging.Id,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Example Tableflow API Key
 // ```go
 // package main

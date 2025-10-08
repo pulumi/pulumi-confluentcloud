@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
-        /// `confluent_subject_compatibility_level` describes a Subject Config data source.
+        /// `ConfluentSubjectCompatibilityLevel` describes a Subject Config data source.
         /// 
         /// ## Example Usage
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
-        /// `confluent_subject_compatibility_level` describes a Subject Config data source.
+        /// `ConfluentSubjectCompatibilityLevel` describes a Subject Config data source.
         /// 
         /// ## Example Usage
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
-        /// `confluent_subject_compatibility_level` describes a Subject Config data source.
+        /// `ConfluentSubjectCompatibilityLevel` describes a Subject Config data source.
         /// 
         /// ## Example Usage
         /// </summary>

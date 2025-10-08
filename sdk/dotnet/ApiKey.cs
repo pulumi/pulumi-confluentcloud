@@ -12,6 +12,154 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Example Usage
     /// 
+    /// ### Example Kafka API Key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var app_manager_kafka_api_key = new ConfluentCloud.ApiKey("app-manager-kafka-api-key", new()
+    ///     {
+    ///         DisplayName = "app-manager-kafka-api-key",
+    ///         Description = "Kafka API Key that is owned by 'app-manager' service account",
+    ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
+    ///         {
+    ///             Id = app_manager.Id,
+    ///             ApiVersion = app_manager.ApiVersion,
+    ///             Kind = app_manager.Kind,
+    ///         },
+    ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
+    ///         {
+    ///             Id = basic.Id,
+    ///             ApiVersion = basic.ApiVersion,
+    ///             Kind = basic.Kind,
+    ///             Environments = new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "id", staging.Id },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Example ksqlDB API Key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ksqldb_api_key = new ConfluentCloud.ApiKey("ksqldb-api-key", new()
+    ///     {
+    ///         DisplayName = "ksqldb-api-key",
+    ///         Description = "KsqlDB API Key that is owned by 'app-manager' service account",
+    ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
+    ///         {
+    ///             Id = app_manager.Id,
+    ///             ApiVersion = app_manager.ApiVersion,
+    ///             Kind = app_manager.Kind,
+    ///         },
+    ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
+    ///         {
+    ///             Id = main.Id,
+    ///             ApiVersion = main.ApiVersion,
+    ///             Kind = main.Kind,
+    ///             Environments = new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "id", staging.Id },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Example Schema Registry API Key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var env_manager_schema_registry_api_key = new ConfluentCloud.ApiKey("env-manager-schema-registry-api-key", new()
+    ///     {
+    ///         DisplayName = "env-manager-schema-registry-api-key",
+    ///         Description = "Schema Registry API Key that is owned by 'env-manager' service account",
+    ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
+    ///         {
+    ///             Id = env_manager.Id,
+    ///             ApiVersion = env_manager.ApiVersion,
+    ///             Kind = env_manager.Kind,
+    ///         },
+    ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
+    ///         {
+    ///             Id = essentials.Id,
+    ///             ApiVersion = essentials.ApiVersion,
+    ///             Kind = essentials.Kind,
+    ///             Environments = new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "id", staging.Id },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Example Flink API Key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var env_manager_flink_api_key = new ConfluentCloud.ApiKey("env-manager-flink-api-key", new()
+    ///     {
+    ///         DisplayName = "env-manager-flink-api-key",
+    ///         Description = "Flink API Key that is owned by 'env-manager' service account",
+    ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
+    ///         {
+    ///             Id = env_manager.Id,
+    ///             ApiVersion = env_manager.ApiVersion,
+    ///             Kind = env_manager.Kind,
+    ///         },
+    ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
+    ///         {
+    ///             Id = example.Id,
+    ///             ApiVersion = example.ApiVersion,
+    ///             Kind = example.Kind,
+    ///             Environments = new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "id", staging.Id },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Example Tableflow API Key
     /// ```csharp
     /// using System.Collections.Generic;
@@ -133,7 +281,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `False`.
         /// </summary>
         [Output("disableWaitForReady")]
         public Output<bool?> DisableWaitForReady { get; private set; } = null!;
@@ -219,7 +367,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `False`.
         /// </summary>
         [Input("disableWaitForReady")]
         public Input<bool>? DisableWaitForReady { get; set; }
@@ -257,7 +405,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `False`.
         /// </summary>
         [Input("disableWaitForReady")]
         public Input<bool>? DisableWaitForReady { get; set; }

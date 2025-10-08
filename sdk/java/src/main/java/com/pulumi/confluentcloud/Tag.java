@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+ * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
  * 
  * ## Getting Started
  * 
@@ -157,14 +157,14 @@ public class Tag extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * (Optional List of String) The entity types of the tag, this always returns `[&#34;cf_entity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * (Optional List of String) The entity types of the tag, this always returns `[&#34;cfEntity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      * 
      */
     @Export(name="entityTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> entityTypes;
 
     /**
-     * @return (Optional List of String) The entity types of the tag, this always returns `[&#34;cf_entity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * @return (Optional List of String) The entity types of the tag, this always returns `[&#34;cfEntity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      * 
      */
     public Output<List<String>> entityTypes() {

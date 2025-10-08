@@ -17,6 +17,63 @@ namespace Pulumi.ConfluentCloud
         /// `confluentcloud.CatalogIntegration` describes a Catalog Integration data source.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetCatalogIntegration.Invoke(new()
+        ///     {
+        ///         Environment = new ConfluentCloud.Inputs.GetCatalogIntegrationEnvironmentInputArgs
+        ///         {
+        ///             Id = staging.Id,
+        ///         },
+        ///         KafkaCluster = new ConfluentCloud.Inputs.GetCatalogIntegrationKafkaClusterInputArgs
+        ///         {
+        ///             Id = stagingConfluentKafkaCluster.Id,
+        ///         },
+        ///         Id = "tci-abc123",
+        ///         Credentials = new ConfluentCloud.Inputs.GetCatalogIntegrationCredentialsInputArgs
+        ///         {
+        ///             Key = env_admin_tableflow_api_key.Id,
+        ///             Secret = env_admin_tableflow_api_key.Secret,
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["retention-ms"] = example.Apply(getCatalogIntegrationResult =&gt; getCatalogIntegrationResult.RetentionMs),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetCatalogIntegration.Invoke(new()
+        ///     {
+        ///         Id = "tci-abc123",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["retention-ms"] = example.Apply(getCatalogIntegrationResult =&gt; getCatalogIntegrationResult.RetentionMs),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetCatalogIntegrationResult> InvokeAsync(GetCatalogIntegrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCatalogIntegrationResult>("confluentcloud:index/getCatalogIntegration:getCatalogIntegration", args ?? new GetCatalogIntegrationArgs(), options.WithDefaults());
@@ -27,6 +84,63 @@ namespace Pulumi.ConfluentCloud
         /// `confluentcloud.CatalogIntegration` describes a Catalog Integration data source.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetCatalogIntegration.Invoke(new()
+        ///     {
+        ///         Environment = new ConfluentCloud.Inputs.GetCatalogIntegrationEnvironmentInputArgs
+        ///         {
+        ///             Id = staging.Id,
+        ///         },
+        ///         KafkaCluster = new ConfluentCloud.Inputs.GetCatalogIntegrationKafkaClusterInputArgs
+        ///         {
+        ///             Id = stagingConfluentKafkaCluster.Id,
+        ///         },
+        ///         Id = "tci-abc123",
+        ///         Credentials = new ConfluentCloud.Inputs.GetCatalogIntegrationCredentialsInputArgs
+        ///         {
+        ///             Key = env_admin_tableflow_api_key.Id,
+        ///             Secret = env_admin_tableflow_api_key.Secret,
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["retention-ms"] = example.Apply(getCatalogIntegrationResult =&gt; getCatalogIntegrationResult.RetentionMs),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetCatalogIntegration.Invoke(new()
+        ///     {
+        ///         Id = "tci-abc123",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["retention-ms"] = example.Apply(getCatalogIntegrationResult =&gt; getCatalogIntegrationResult.RetentionMs),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetCatalogIntegrationResult> Invoke(GetCatalogIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogIntegrationResult>("confluentcloud:index/getCatalogIntegration:getCatalogIntegration", args ?? new GetCatalogIntegrationInvokeArgs(), options.WithDefaults());
@@ -37,6 +151,63 @@ namespace Pulumi.ConfluentCloud
         /// `confluentcloud.CatalogIntegration` describes a Catalog Integration data source.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetCatalogIntegration.Invoke(new()
+        ///     {
+        ///         Environment = new ConfluentCloud.Inputs.GetCatalogIntegrationEnvironmentInputArgs
+        ///         {
+        ///             Id = staging.Id,
+        ///         },
+        ///         KafkaCluster = new ConfluentCloud.Inputs.GetCatalogIntegrationKafkaClusterInputArgs
+        ///         {
+        ///             Id = stagingConfluentKafkaCluster.Id,
+        ///         },
+        ///         Id = "tci-abc123",
+        ///         Credentials = new ConfluentCloud.Inputs.GetCatalogIntegrationCredentialsInputArgs
+        ///         {
+        ///             Key = env_admin_tableflow_api_key.Id,
+        ///             Secret = env_admin_tableflow_api_key.Secret,
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["retention-ms"] = example.Apply(getCatalogIntegrationResult =&gt; getCatalogIntegrationResult.RetentionMs),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = ConfluentCloud.GetCatalogIntegration.Invoke(new()
+        ///     {
+        ///         Id = "tci-abc123",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["retention-ms"] = example.Apply(getCatalogIntegrationResult =&gt; getCatalogIntegrationResult.RetentionMs),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetCatalogIntegrationResult> Invoke(GetCatalogIntegrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogIntegrationResult>("confluentcloud:index/getCatalogIntegration:getCatalogIntegration", args ?? new GetCatalogIntegrationInvokeArgs(), options.WithDefaults());

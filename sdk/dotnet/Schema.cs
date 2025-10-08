@@ -12,6 +12,187 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Example Usage
     /// 
+    /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var avro_purchase = new ConfluentCloud.Schema("avro-purchase", new()
+    ///     {
+    ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.SchemaSchemaRegistryClusterArgs
+    ///         {
+    ///             Id = essentials.Id,
+    ///         },
+    ///         RestEndpoint = essentials.RestEndpoint,
+    ///         SubjectName = "avro-purchase-value",
+    ///         Format = "AVRO",
+    ///         SchemaDetails = Std.Index.File.Invoke(new()
+    ///         {
+    ///             Input = "./schemas/avro/purchase.avsc",
+    ///         }).Result,
+    ///         Credentials = new ConfluentCloud.Inputs.SchemaCredentialsArgs
+    ///         {
+    ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///             Secret = "&lt;Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials&gt;",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var avro_purchase = new ConfluentCloud.Schema("avro-purchase", new()
+    ///     {
+    ///         SubjectName = "avro-purchase-value",
+    ///         Format = "AVRO",
+    ///         SchemaDetails = Std.Index.File.Invoke(new()
+    ///         {
+    ///             Input = "./schemas/avro/purchase.avsc",
+    ///         }).Result,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.Schema` resource:
+    /// * single-event-types-avro-schema
+    /// * single-event-types-proto-schema
+    /// * single-event-types-proto-schema-with-alias
+    /// * multiple-event-types-avro-schema
+    /// * multiple-event-types-proto-schema
+    /// * field-level-encryption-schema
+    /// 
+    /// ## Additional Examples
+    /// 
+    /// ### Default Option A: Manage the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // confluent_schema.avro-purchase points to v1.
+    ///     var avro_purchase = new ConfluentCloud.Schema("avro-purchase", new()
+    ///     {
+    ///         SubjectName = "avro-purchase-value",
+    ///         Format = "AVRO",
+    ///         SchemaDetails = Std.Index.File.Invoke(new()
+    ///         {
+    ///             Input = "./schemas/avro/purchase.avsc",
+    ///         }).Result,
+    ///         Metadata = new ConfluentCloud.Inputs.SchemaMetadataArgs
+    ///         {
+    ///             Properties = 
+    ///             {
+    ///                 { "owner", "Bob Jones" },
+    ///                 { "email", "bob@acme.com" },
+    ///             },
+    ///             Sensitives = new[]
+    ///             {
+    ///                 "s1",
+    ///                 "s2",
+    ///             },
+    ///             Tags = new[]
+    ///             {
+    ///                 new ConfluentCloud.Inputs.SchemaMetadataTagArgs
+    ///                 {
+    ///                     Key = "tag1",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "PII",
+    ///                     },
+    ///                 },
+    ///                 new ConfluentCloud.Inputs.SchemaMetadataTagArgs
+    ///                 {
+    ///                     Key = "tag2",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "PIIIII",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Ruleset = new ConfluentCloud.Inputs.SchemaRulesetArgs
+    ///         {
+    ///             DomainRules = new[]
+    ///             {
+    ///                 new ConfluentCloud.Inputs.SchemaRulesetDomainRuleArgs
+    ///                 {
+    ///                     Name = "encryptPII",
+    ///                     Kind = "TRANSFORM",
+    ///                     Type = "ENCRYPT",
+    ///                     Mode = "WRITEREAD",
+    ///                     Tags = new[]
+    ///                     {
+    ///                         "PII",
+    ///                     },
+    ///                     Params = 
+    ///                     {
+    ///                         { "encrypt.kek.name", "testkek2" },
+    ///                     },
+    ///                 },
+    ///                 new ConfluentCloud.Inputs.SchemaRulesetDomainRuleArgs
+    ///                 {
+    ///                     Name = "encrypt",
+    ///                     Kind = "TRANSFORM",
+    ///                     Type = "ENCRYPT",
+    ///                     Mode = "WRITEREAD",
+    ///                     Tags = new[]
+    ///                     {
+    ///                         "PIIIII",
+    ///                     },
+    ///                     Params = 
+    ///                     {
+    ///                         { "encrypt.kek.name", "testkek2" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             MigrationRules = new[]
+    ///             {
+    ///                 new ConfluentCloud.Inputs.SchemaRulesetMigrationRuleArgs
+    ///                 {
+    ///                     Name = "encrypt",
+    ///                     Kind = "TRANSFORM",
+    ///                     Type = "ENCRYPT",
+    ///                     Mode = "WRITEREAD",
+    ///                     Tags = new[]
+    ///                     {
+    ///                         "PIM",
+    ///                     },
+    ///                     Params = 
+    ///                     {
+    ///                         { "encrypt.kek.name", "testkekM" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;/&lt;Schema identifier&gt;`, for example:
@@ -58,7 +239,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Format { get; private set; } = null!;
 
         /// <summary>
-        /// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a schema should be soft or hard deleted. Set it to `True` if you want to hard delete a schema on destroy. Defaults to `False` (soft delete).
         /// </summary>
         [Output("hardDelete")]
         public Output<bool?> HardDelete { get; private set; } = null!;
@@ -90,7 +271,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> SchemaDetails { get; private set; } = null!;
 
         /// <summary>
-        /// (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
+        /// (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `Version` of the schema may be different under different subjects.
         /// </summary>
         [Output("schemaIdentifier")]
         public Output<int> SchemaIdentifier { get; private set; } = null!;
@@ -192,7 +373,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
-        /// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a schema should be soft or hard deleted. Set it to `True` if you want to hard delete a schema on destroy. Defaults to `False` (soft delete).
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
@@ -278,7 +459,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Format { get; set; }
 
         /// <summary>
-        /// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a schema should be soft or hard deleted. Set it to `True` if you want to hard delete a schema on destroy. Defaults to `False` (soft delete).
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
@@ -310,7 +491,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? SchemaDetails { get; set; }
 
         /// <summary>
-        /// (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
+        /// (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `Version` of the schema may be different under different subjects.
         /// </summary>
         [Input("schemaIdentifier")]
         public Input<int>? SchemaIdentifier { get; set; }

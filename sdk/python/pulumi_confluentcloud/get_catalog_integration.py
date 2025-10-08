@@ -135,6 +135,36 @@ def get_catalog_integration(credentials: Optional[Union['GetCatalogIntegrationCr
 
     ## Example Usage
 
+    ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    example = confluentcloud.get_catalog_integration(environment={
+            "id": staging["id"],
+        },
+        kafka_cluster={
+            "id": staging_confluent_kafka_cluster["id"],
+        },
+        id="tci-abc123",
+        credentials={
+            "key": env_admin_tableflow_api_key["id"],
+            "secret": env_admin_tableflow_api_key["secret"],
+        })
+    pulumi.export("retention-ms", example.retention_ms)
+    ```
+
+    ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    example = confluentcloud.get_catalog_integration(id="tci-abc123")
+    pulumi.export("retention-ms", example.retention_ms)
+    ```
+
 
     :param _builtins.str id: The ID of the Catalog Integration, for example, `tci-abc123`.
     """
@@ -166,6 +196,36 @@ def get_catalog_integration_output(credentials: Optional[pulumi.Input[Optional[U
     `CatalogIntegration` describes a Catalog Integration data source.
 
     ## Example Usage
+
+    ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    example = confluentcloud.get_catalog_integration(environment={
+            "id": staging["id"],
+        },
+        kafka_cluster={
+            "id": staging_confluent_kafka_cluster["id"],
+        },
+        id="tci-abc123",
+        credentials={
+            "key": env_admin_tableflow_api_key["id"],
+            "secret": env_admin_tableflow_api_key["secret"],
+        })
+    pulumi.export("retention-ms", example.retention_ms)
+    ```
+
+    ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    example = confluentcloud.get_catalog_integration(id="tci-abc123")
+    pulumi.export("retention-ms", example.retention_ms)
+    ```
 
 
     :param _builtins.str id: The ID of the Catalog Integration, for example, `tci-abc123`.

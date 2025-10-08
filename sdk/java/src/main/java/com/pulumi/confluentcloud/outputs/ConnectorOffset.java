@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class ConnectorOffset {
     /**
-     * @return Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafka_offset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+     * @return Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafkaOffset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
      * 
      */
     private Map<String,String> offset;
     /**
-     * @return Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafka_partition` and `kafka_topic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+     * @return Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafkaPartition` and `kafkaTopic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
      * 
      */
     private Map<String,String> partition;
 
     private ConnectorOffset() {}
     /**
-     * @return Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafka_offset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+     * @return Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafkaOffset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
      * 
      */
     public Map<String,String> offset() {
         return this.offset;
     }
     /**
-     * @return Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafka_partition` and `kafka_topic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+     * @return Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafkaPartition` and `kafkaTopic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
      * 
      */
     public Map<String,String> partition() {
