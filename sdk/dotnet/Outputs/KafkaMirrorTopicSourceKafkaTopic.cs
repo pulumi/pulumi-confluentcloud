@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class KafkaMirrorTopicSourceKafkaTopic
     {
         /// <summary>
-        /// The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+        /// The name of the topic on the source cluster to be mirrored over the cluster link, for example, `Orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
         /// </summary>
         public readonly string TopicName;
 

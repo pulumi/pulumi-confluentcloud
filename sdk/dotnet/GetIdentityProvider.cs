@@ -126,7 +126,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// A human-readable name for the Identity Provider.
         /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// &gt; **Note:** Exactly one from the `Id` and `DisplayName` attributes must be specified.
         /// </summary>
         [Input("displayName")]
         public string? DisplayName { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// A human-readable name for the Identity Provider.
         /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// &gt; **Note:** Exactly one from the `Id` and `DisplayName` attributes must be specified.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

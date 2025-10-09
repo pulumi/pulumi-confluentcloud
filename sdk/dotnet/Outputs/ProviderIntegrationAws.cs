@@ -16,9 +16,9 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// <summary>
         /// Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
         /// 
-        /// &gt; **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
+        /// &gt; **Note:** Currently only `Aws` config is supported, more cloud service provider config will be supported in the short future.
         /// 
-        /// &gt; **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
+        /// &gt; **Note:** `CustomerRoleArn` must be unique in a given environment for creating a new Provider Integration.
         /// </summary>
         public readonly string CustomerRoleArn;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string? ExternalId;
         /// <summary>
-        /// (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+        /// (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `CustomerRoleArn`.
         /// </summary>
         public readonly string? IamRoleArn;
 

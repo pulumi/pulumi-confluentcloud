@@ -16,9 +16,9 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// <summary>
         /// List of Maps which contains the domain to zone and project mapping.
         /// 
-        /// &gt; **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
+        /// &gt; **Note:** The `ForwardViaGcpZones` and `ForwardViaIp` blocks are mutually exclusive, and one of them must be provided.
         /// 
-        /// &gt; **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
+        /// &gt; **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `DomainMappings`.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? DomainMappings;
 

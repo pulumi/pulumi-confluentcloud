@@ -168,14 +168,14 @@ public class PrivateLinkAttachmentConnection extends com.pulumi.resources.Custom
         return Codegen.optional(this.gcp);
     }
     /**
-     * The private_link_attachment to which this belongs.
+     * The privateLinkAttachment to which this belongs.
      * 
      */
     @Export(name="privateLinkAttachment", refs={PrivateLinkAttachmentConnectionPrivateLinkAttachment.class}, tree="[0]")
     private Output<PrivateLinkAttachmentConnectionPrivateLinkAttachment> privateLinkAttachment;
 
     /**
-     * @return The private_link_attachment to which this belongs.
+     * @return The privateLinkAttachment to which this belongs.
      * 
      */
     public Output<PrivateLinkAttachmentConnectionPrivateLinkAttachment> privateLinkAttachment() {
