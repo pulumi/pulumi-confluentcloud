@@ -94,7 +94,7 @@ public final class GetFlinkArtifactPlainArgs extends com.pulumi.resources.Invoke
     /**
      * The cloud service provider region, for example, `us-east-1`.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     @Import(name="region", required=true)
@@ -103,7 +103,7 @@ public final class GetFlinkArtifactPlainArgs extends com.pulumi.resources.Invoke
     /**
      * @return The cloud service provider region, for example, `us-east-1`.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     public String region() {
@@ -195,7 +195,7 @@ public final class GetFlinkArtifactPlainArgs extends com.pulumi.resources.Invoke
         /**
          * @param region The cloud service provider region, for example, `us-east-1`.
          * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
          * 
          * @return builder
          * 

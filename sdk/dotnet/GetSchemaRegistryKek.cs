@@ -261,7 +261,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Doc;
         /// <summary>
-        /// (Optional Boolean) The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.
+        /// (Optional Boolean) The optional flag to control whether a kek should be soft or hard deleted. Defaults to `False`.
         /// </summary>
         public readonly bool HardDelete;
         /// <summary>
@@ -290,7 +290,7 @@ namespace Pulumi.ConfluentCloud
         public readonly string? RestEndpoint;
         public readonly Outputs.GetSchemaRegistryKekSchemaRegistryClusterResult? SchemaRegistryCluster;
         /// <summary>
-        /// (Optional Boolean) The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+        /// (Optional Boolean) The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `False`.
         /// </summary>
         public readonly bool Shared;
 

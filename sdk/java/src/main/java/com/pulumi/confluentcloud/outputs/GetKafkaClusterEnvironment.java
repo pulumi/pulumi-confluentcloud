@@ -13,7 +13,7 @@ public final class GetKafkaClusterEnvironment {
     /**
      * @return The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     private String id;
@@ -22,7 +22,7 @@ public final class GetKafkaClusterEnvironment {
     /**
      * @return The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     public String id() {

@@ -85,7 +85,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
-    /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+    /// &gt; **Note:** We also support `SchemaRegistryRestEndpoint` instead of `CatalogRestEndpoint` for the time being.
     /// 
     /// ## Getting Started
     /// 

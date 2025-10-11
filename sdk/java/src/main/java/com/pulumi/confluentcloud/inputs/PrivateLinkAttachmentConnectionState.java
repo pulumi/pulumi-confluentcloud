@@ -72,14 +72,14 @@ public final class PrivateLinkAttachmentConnectionState extends com.pulumi.resou
     }
 
     /**
-     * The private_link_attachment to which this belongs.
+     * The privateLinkAttachment to which this belongs.
      * 
      */
     @Import(name="privateLinkAttachment")
     private @Nullable Output<PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs> privateLinkAttachment;
 
     /**
-     * @return The private_link_attachment to which this belongs.
+     * @return The privateLinkAttachment to which this belongs.
      * 
      */
     public Optional<Output<PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs>> privateLinkAttachment() {
@@ -201,7 +201,7 @@ public final class PrivateLinkAttachmentConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param privateLinkAttachment The private_link_attachment to which this belongs.
+         * @param privateLinkAttachment The privateLinkAttachment to which this belongs.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class PrivateLinkAttachmentConnectionState extends com.pulumi.resou
         }
 
         /**
-         * @param privateLinkAttachment The private_link_attachment to which this belongs.
+         * @param privateLinkAttachment The privateLinkAttachment to which this belongs.
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class ConnectorOffsetArgs extends com.pulumi.resources.ResourceArgs
     public static final ConnectorOffsetArgs Empty = new ConnectorOffsetArgs();
 
     /**
-     * Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafka_offset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+     * Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafkaOffset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
      * 
      */
     @Import(name="offset", required=true)
     private Output<Map<String,String>> offset;
 
     /**
-     * @return Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafka_offset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+     * @return Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafkaOffset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
      * 
      */
     public Output<Map<String,String>> offset() {
@@ -31,14 +31,14 @@ public final class ConnectorOffsetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafka_partition` and `kafka_topic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+     * Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafkaPartition` and `kafkaTopic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
      * 
      */
     @Import(name="partition", required=true)
     private Output<Map<String,String>> partition;
 
     /**
-     * @return Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafka_partition` and `kafka_topic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+     * @return Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafkaPartition` and `kafkaTopic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
      * 
      */
     public Output<Map<String,String>> partition() {
@@ -71,7 +71,7 @@ public final class ConnectorOffsetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param offset Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafka_offset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+         * @param offset Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafkaOffset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ConnectorOffsetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param offset Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafka_offset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+         * @param offset Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafkaOffset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ConnectorOffsetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param partition Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafka_partition` and `kafka_topic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+         * @param partition Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafkaPartition` and `kafkaTopic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ConnectorOffsetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param partition Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafka_partition` and `kafka_topic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+         * @param partition Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafkaPartition` and `kafkaTopic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
          * 
          * @return builder
          * 

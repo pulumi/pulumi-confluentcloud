@@ -22,7 +22,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string ExternalId;
         /// <summary>
-        /// (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+        /// (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `CustomerRoleArn`.
         /// </summary>
         public readonly string IamRoleArn;
 

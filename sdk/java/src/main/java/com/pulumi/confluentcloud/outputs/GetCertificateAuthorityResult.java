@@ -27,7 +27,7 @@ public final class GetCertificateAuthorityResult {
      */
     private String crlUpdatedAt;
     /**
-     * @return (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+     * @return (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
      * 
      */
     private String crlUrl;
@@ -81,7 +81,7 @@ public final class GetCertificateAuthorityResult {
         return this.crlUpdatedAt;
     }
     /**
-     * @return (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+     * @return (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
      * 
      */
     public String crlUrl() {

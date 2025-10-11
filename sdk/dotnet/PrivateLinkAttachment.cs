@@ -73,7 +73,7 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// (Optional Configuration Block) supports the following:
-        /// - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
+        /// - `PrivateLinkServiceAlias ` - (Required String) Azure Private Link service alias for the availability zone.
         /// </summary>
         [Output("azures")]
         public Output<ImmutableArray<Outputs.PrivateLinkAttachmentAzure>> Azures { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// (Optional Configuration Block) supports the following:
-        /// - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
+        /// - `PrivateLinkServiceAlias ` - (Required String) Azure Private Link service alias for the availability zone.
         /// </summary>
         public InputList<Inputs.PrivateLinkAttachmentAzureGetArgs> Azures
         {

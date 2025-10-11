@@ -15,11 +15,11 @@ namespace Pulumi.ConfluentCloud.Inputs
         /// <summary>
         /// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
         /// 
-        /// &gt; **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
+        /// &gt; **Note:** Exactly one from the `Basic`, `Standard`, `Dedicated`, `Enterprise` or `Freight` configuration blocks must be specified.
         /// 
-        /// &gt; **Note:** The `freight` Kafka cluster type is currently available only on AWS.
+        /// &gt; **Note:** The `Freight` Kafka cluster type is currently available only on AWS.
         /// 
-        /// !&gt; **Warning:** You can only upgrade clusters from `basic` to `standard`.
+        /// !&gt; **Warning:** You can only upgrade clusters from `Basic` to `Standard`.
         /// 
         /// &gt; **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
         /// </summary>

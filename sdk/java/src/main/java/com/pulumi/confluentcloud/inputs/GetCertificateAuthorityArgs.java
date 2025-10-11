@@ -47,14 +47,14 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+     * (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
      * 
      */
     @Import(name="crlUrl")
     private @Nullable Output<String> crlUrl;
 
     /**
-     * @return (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+     * @return (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
      * 
      */
     public Optional<Output<String>> crlUrl() {
@@ -146,7 +146,7 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param crlUrl (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+         * @param crlUrl (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param crlUrl (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+         * @param crlUrl (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
          * 
          * @return builder
          * 

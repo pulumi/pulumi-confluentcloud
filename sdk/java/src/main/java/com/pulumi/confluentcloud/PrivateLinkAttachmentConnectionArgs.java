@@ -73,14 +73,14 @@ public final class PrivateLinkAttachmentConnectionArgs extends com.pulumi.resour
     }
 
     /**
-     * The private_link_attachment to which this belongs.
+     * The privateLinkAttachment to which this belongs.
      * 
      */
     @Import(name="privateLinkAttachment", required=true)
     private Output<PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs> privateLinkAttachment;
 
     /**
-     * @return The private_link_attachment to which this belongs.
+     * @return The privateLinkAttachment to which this belongs.
      * 
      */
     public Output<PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs> privateLinkAttachment() {
@@ -186,7 +186,7 @@ public final class PrivateLinkAttachmentConnectionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param privateLinkAttachment The private_link_attachment to which this belongs.
+         * @param privateLinkAttachment The privateLinkAttachment to which this belongs.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class PrivateLinkAttachmentConnectionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param privateLinkAttachment The private_link_attachment to which this belongs.
+         * @param privateLinkAttachment The privateLinkAttachment to which this belongs.
          * 
          * @return builder
          * 

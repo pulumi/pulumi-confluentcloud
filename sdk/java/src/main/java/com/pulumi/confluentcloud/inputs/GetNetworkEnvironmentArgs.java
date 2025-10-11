@@ -17,7 +17,7 @@ public final class GetNetworkEnvironmentArgs extends com.pulumi.resources.Resour
     /**
      * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     @Import(name="id", required=true)
@@ -26,7 +26,7 @@ public final class GetNetworkEnvironmentArgs extends com.pulumi.resources.Resour
     /**
      * @return The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     public Output<String> id() {
@@ -60,7 +60,7 @@ public final class GetNetworkEnvironmentArgs extends com.pulumi.resources.Resour
         /**
          * @param id The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
          * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
          * 
          * @return builder
          * 
@@ -73,7 +73,7 @@ public final class GetNetworkEnvironmentArgs extends com.pulumi.resources.Resour
         /**
          * @param id The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
          * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
          * 
          * @return builder
          * 

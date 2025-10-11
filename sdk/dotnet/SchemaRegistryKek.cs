@@ -109,7 +109,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Doc { get; private set; } = null!;
 
         /// <summary>
-        /// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a kek should be soft or hard deleted. Set it to `True` if you want to hard delete a schema registry kek on destroy. Defaults to `False` (soft delete).
         /// </summary>
         [Output("hardDelete")]
         public Output<bool?> HardDelete { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.SchemaRegistryKekSchemaRegistryCluster?> SchemaRegistryCluster { get; private set; } = null!;
 
         /// <summary>
-        /// The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+        /// The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `False`.
         /// </summary>
         [Output("shared")]
         public Output<bool?> Shared { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Doc { get; set; }
 
         /// <summary>
-        /// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a kek should be soft or hard deleted. Set it to `True` if you want to hard delete a schema registry kek on destroy. Defaults to `False` (soft delete).
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.SchemaRegistryKekSchemaRegistryClusterArgs>? SchemaRegistryCluster { get; set; }
 
         /// <summary>
-        /// The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+        /// The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `False`.
         /// </summary>
         [Input("shared")]
         public Input<bool>? Shared { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Doc { get; set; }
 
         /// <summary>
-        /// Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a kek should be soft or hard deleted. Set it to `True` if you want to hard delete a schema registry kek on destroy. Defaults to `False` (soft delete).
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.SchemaRegistryKekSchemaRegistryClusterGetArgs>? SchemaRegistryCluster { get; set; }
 
         /// <summary>
-        /// The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+        /// The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `False`.
         /// </summary>
         [Input("shared")]
         public Input<bool>? Shared { get; set; }

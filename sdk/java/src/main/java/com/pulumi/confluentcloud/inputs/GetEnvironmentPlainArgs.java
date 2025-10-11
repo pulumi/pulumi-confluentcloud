@@ -18,7 +18,7 @@ public final class GetEnvironmentPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * A human-readable name for the Environment.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     @Import(name="displayName")
@@ -27,7 +27,7 @@ public final class GetEnvironmentPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * @return A human-readable name for the Environment.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     public Optional<String> displayName() {
@@ -85,7 +85,7 @@ public final class GetEnvironmentPlainArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param displayName A human-readable name for the Environment.
          * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
          * 
          * @return builder
          * 

@@ -115,14 +115,14 @@ public final class KafkaAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
+     * The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
      * 
      */
     @Import(name="resourceName")
     private @Nullable Output<String> resourceName;
 
     /**
-     * @return The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
+     * @return The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
      * 
      */
     public Optional<Output<String>> resourceName() {
@@ -328,7 +328,7 @@ public final class KafkaAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceName The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
+         * @param resourceName The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class KafkaAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceName The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
+         * @param resourceName The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
          * 
          * @return builder
          * 

@@ -14,6 +14,14 @@ import (
 
 // ## Example Usage
 //
+// ### Example Kafka API Key
+//
+// ### Example ksqlDB API Key
+//
+// ### Example Schema Registry API Key
+//
+// ### Example Flink API Key
+//
 // ### Example Tableflow API Key
 // ```go
 // package main

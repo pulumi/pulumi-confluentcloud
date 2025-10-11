@@ -38,7 +38,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Options;
         /// <summary>
-        /// (Required String) The type of the attribute, it always returns `string`.
+        /// (Required String) The type of the attribute, it always returns `String`.
         /// </summary>
         public readonly string Type;
 

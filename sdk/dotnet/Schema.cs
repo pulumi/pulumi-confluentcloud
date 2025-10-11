@@ -58,7 +58,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Format { get; private set; } = null!;
 
         /// <summary>
-        /// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a schema should be soft or hard deleted. Set it to `True` if you want to hard delete a schema on destroy. Defaults to `False` (soft delete).
         /// </summary>
         [Output("hardDelete")]
         public Output<bool?> HardDelete { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> SchemaDetails { get; private set; } = null!;
 
         /// <summary>
-        /// (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
+        /// (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `Version` of the schema may be different under different subjects.
         /// </summary>
         [Output("schemaIdentifier")]
         public Output<int> SchemaIdentifier { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
-        /// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a schema should be soft or hard deleted. Set it to `True` if you want to hard delete a schema on destroy. Defaults to `False` (soft delete).
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Format { get; set; }
 
         /// <summary>
-        /// Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a schema should be soft or hard deleted. Set it to `True` if you want to hard delete a schema on destroy. Defaults to `False` (soft delete).
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? SchemaDetails { get; set; }
 
         /// <summary>
-        /// (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
+        /// (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `Version` of the schema may be different under different subjects.
         /// </summary>
         [Input("schemaIdentifier")]
         public Input<int>? SchemaIdentifier { get; set; }

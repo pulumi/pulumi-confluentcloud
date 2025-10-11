@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
     /// 
-    /// !&gt; **Warning:**  It is strongly recommended that you provision a `data.confluent_schema_registry_cluster` resource before you provision a `confluentcloud.KsqlCluster` resource in a given environment. If you're provisioning the `data.confluent_schema_registry_cluster` and the `confluentcloud.KsqlCluster` resource in the same pulumi up command, reference the `data.confluent_schema_registry_cluster` from the `depends_on` argument inside the `confluentcloud.KsqlCluster` resource. This ensures that the `data.confluent_schema_registry_cluster` resource is created before the `confluentcloud.KsqlCluster` resource. If you provision a `confluentcloud.KsqlCluster` resource without a `data.confluent_schema_registry_cluster` resource, and later, you want to add a `data.confluent_schema_registry_cluster` resource, you must destroy and re-create your `confluentcloud.KsqlCluster` resource after provisioning a `data.confluent_schema_registry_cluster` resource.
+    /// !&gt; **Warning:**  It is strongly recommended that you provision a `data.confluent_schema_registry_cluster` resource before you provision a `confluentcloud.KsqlCluster` resource in a given environment. If you're provisioning the `data.confluent_schema_registry_cluster` and the `confluentcloud.KsqlCluster` resource in the same pulumi up command, reference the `data.confluent_schema_registry_cluster` from the `DependsOn` argument inside the `confluentcloud.KsqlCluster` resource. This ensures that the `data.confluent_schema_registry_cluster` resource is created before the `confluentcloud.KsqlCluster` resource. If you provision a `confluentcloud.KsqlCluster` resource without a `data.confluent_schema_registry_cluster` resource, and later, you want to add a `data.confluent_schema_registry_cluster` resource, you must destroy and re-create your `confluentcloud.KsqlCluster` resource after provisioning a `data.confluent_schema_registry_cluster` resource.
     /// 
     /// `confluentcloud.KsqlCluster` provides a ksqlDB cluster resource that enables creating, editing, and deleting ksqlDB clusters on Confluent Cloud.
     /// 
@@ -94,7 +94,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> TopicPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
+        /// Controls whether the row data should be included in the processing log topic. Set it to `False` if you don't want to emit sensitive information to the processing log. Defaults to `True`.
         /// </summary>
         [Output("useDetailedProcessingLog")]
         public Output<bool?> UseDetailedProcessingLog { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.KsqlClusterKafkaClusterArgs> KafkaCluster { get; set; } = null!;
 
         /// <summary>
-        /// Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
+        /// Controls whether the row data should be included in the processing log topic. Set it to `False` if you don't want to emit sensitive information to the processing log. Defaults to `True`.
         /// </summary>
         [Input("useDetailedProcessingLog")]
         public Input<bool>? UseDetailedProcessingLog { get; set; }
@@ -244,7 +244,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? TopicPrefix { get; set; }
 
         /// <summary>
-        /// Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
+        /// Controls whether the row data should be included in the processing log topic. Set it to `False` if you don't want to emit sensitive information to the processing log. Defaults to `True`.
         /// </summary>
         [Input("useDetailedProcessingLog")]
         public Input<bool>? UseDetailedProcessingLog { get; set; }

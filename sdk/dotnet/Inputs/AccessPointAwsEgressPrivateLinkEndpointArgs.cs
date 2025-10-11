@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class AccessPointAwsEgressPrivateLinkEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+        /// Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `False`.
         /// </summary>
         [Input("enableHighAvailability")]
         public Input<bool>? EnableHighAvailability { get; set; }

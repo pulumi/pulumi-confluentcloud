@@ -127,7 +127,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.PrivateLinkAttachmentConnectionGcp?> Gcp { get; private set; } = null!;
 
         /// <summary>
-        /// The private_link_attachment to which this belongs.
+        /// The PrivateLinkAttachment to which this belongs.
         /// </summary>
         [Output("privateLinkAttachment")]
         public Output<Outputs.PrivateLinkAttachmentConnectionPrivateLinkAttachment> PrivateLinkAttachment { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.PrivateLinkAttachmentConnectionGcpArgs>? Gcp { get; set; }
 
         /// <summary>
-        /// The private_link_attachment to which this belongs.
+        /// The PrivateLinkAttachment to which this belongs.
         /// </summary>
         [Input("privateLinkAttachment", required: true)]
         public Input<Inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs> PrivateLinkAttachment { get; set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.PrivateLinkAttachmentConnectionGcpGetArgs>? Gcp { get; set; }
 
         /// <summary>
-        /// The private_link_attachment to which this belongs.
+        /// The PrivateLinkAttachment to which this belongs.
         /// </summary>
         [Input("privateLinkAttachment")]
         public Input<Inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachmentGetArgs>? PrivateLinkAttachment { get; set; }

@@ -109,7 +109,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> EncryptedKeyMaterial { get; private set; } = null!;
 
         /// <summary>
-        /// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a dek should be soft or hard deleted. Set it to `True` if you want to hard delete a schema registry dek on destroy. Defaults to `False` (soft delete).
         /// </summary>
         [Output("hardDelete")]
         public Output<bool?> HardDelete { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? EncryptedKeyMaterial { get; set; }
 
         /// <summary>
-        /// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a dek should be soft or hard deleted. Set it to `True` if you want to hard delete a schema registry dek on destroy. Defaults to `False` (soft delete).
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? EncryptedKeyMaterial { get; set; }
 
         /// <summary>
-        /// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek on destroy. Defaults to `false` (soft delete).
+        /// Controls whether a dek should be soft or hard deleted. Set it to `True` if you want to hard delete a schema registry dek on destroy. Defaults to `False` (soft delete).
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }

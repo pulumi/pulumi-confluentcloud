@@ -14,11 +14,11 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetSchemasFilterResult
     {
         /// <summary>
-        /// The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+        /// The boolean flag to control whether to return soft deleted schemas. Defaults to `False`.
         /// </summary>
         public readonly bool? Deleted;
         /// <summary>
-        /// The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+        /// The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `False`.
         /// </summary>
         public readonly bool? LatestOnly;
         /// <summary>

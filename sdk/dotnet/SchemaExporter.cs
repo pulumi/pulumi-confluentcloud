@@ -148,7 +148,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableDictionary<string, string>> Config { get; private set; } = null!;
 
         /// <summary>
-        /// Customized context of the exporter if `context_type` is set to `CUSTOM`.
+        /// Customized context of the exporter if `ContextType` is set to `CUSTOM`.
         /// </summary>
         [Output("context")]
         public Output<string> Context { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+        /// The flag to control whether to reset the exporter when updating configs. Defaults to `False`.
         /// 
         /// &gt; **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
         /// </summary>
@@ -198,7 +198,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
+        /// Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `DcOrders`.
         /// </summary>
         [Output("subjectRenameFormat")]
         public Output<string> SubjectRenameFormat { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// Customized context of the exporter if `context_type` is set to `CUSTOM`.
+        /// Customized context of the exporter if `ContextType` is set to `CUSTOM`.
         /// </summary>
         [Input("context")]
         public Input<string>? Context { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+        /// The flag to control whether to reset the exporter when updating configs. Defaults to `False`.
         /// 
         /// &gt; **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
         /// </summary>
@@ -332,7 +332,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
+        /// Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `DcOrders`.
         /// </summary>
         [Input("subjectRenameFormat")]
         public Input<string>? SubjectRenameFormat { get; set; }
@@ -370,7 +370,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// Customized context of the exporter if `context_type` is set to `CUSTOM`.
+        /// Customized context of the exporter if `ContextType` is set to `CUSTOM`.
         /// </summary>
         [Input("context")]
         public Input<string>? Context { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
+        /// The flag to control whether to reset the exporter when updating configs. Defaults to `False`.
         /// 
         /// &gt; **Note:** When using OAuth authentication in the provider block, `destination_schema_registry_cluster.id` is required and credentials blocks for both source and destination schema registry clusters must be removed.
         /// </summary>
@@ -430,7 +430,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
+        /// Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `DcOrders`.
         /// </summary>
         [Input("subjectRenameFormat")]
         public Input<string>? SubjectRenameFormat { get; set; }

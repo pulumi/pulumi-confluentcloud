@@ -177,7 +177,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The cloud service provider region, for example, `us-east-1`.
         /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// &gt; **Note:** Exactly one from the `Id` and `DisplayName` attributes must be specified.
         /// </summary>
         [Input("region", required: true)]
         public string Region { get; set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The cloud service provider region, for example, `us-east-1`.
         /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// &gt; **Note:** Exactly one from the `Id` and `DisplayName` attributes must be specified.
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;

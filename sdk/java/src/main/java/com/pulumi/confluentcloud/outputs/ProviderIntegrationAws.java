@@ -17,7 +17,7 @@ public final class ProviderIntegrationAws {
      * 
      * &gt; **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
      * 
-     * &gt; **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
+     * &gt; **Note:** `customerRoleArn` must be unique in a given environment for creating a new Provider Integration.
      * 
      */
     private String customerRoleArn;
@@ -27,7 +27,7 @@ public final class ProviderIntegrationAws {
      */
     private @Nullable String externalId;
     /**
-     * @return (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+     * @return (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
      * 
      */
     private @Nullable String iamRoleArn;
@@ -38,7 +38,7 @@ public final class ProviderIntegrationAws {
      * 
      * &gt; **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
      * 
-     * &gt; **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
+     * &gt; **Note:** `customerRoleArn` must be unique in a given environment for creating a new Provider Integration.
      * 
      */
     public String customerRoleArn() {
@@ -52,7 +52,7 @@ public final class ProviderIntegrationAws {
         return Optional.ofNullable(this.externalId);
     }
     /**
-     * @return (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+     * @return (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
      * 
      */
     public Optional<String> iamRoleArn() {

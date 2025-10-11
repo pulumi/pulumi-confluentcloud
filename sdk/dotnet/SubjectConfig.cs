@@ -111,9 +111,9 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
         /// 
-        /// &gt; **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+        /// &gt; **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `SubjectName = ":.context1:test-subject"` to reference the subject named `test-subject` in the `Context1` context, and use `SubjectName = "test-subject"` to reference the subject named `test-subject` in the `Default` context.
         /// 
-        /// &gt; **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = ":.context1:"`.
+        /// &gt; **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `Context1` context, use `SubjectName = ":.context1:"`.
         /// </summary>
         [Output("subjectName")]
         public Output<string> SubjectName { get; private set; } = null!;
@@ -208,9 +208,9 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
         /// 
-        /// &gt; **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+        /// &gt; **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `SubjectName = ":.context1:test-subject"` to reference the subject named `test-subject` in the `Context1` context, and use `SubjectName = "test-subject"` to reference the subject named `test-subject` in the `Default` context.
         /// 
-        /// &gt; **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = ":.context1:"`.
+        /// &gt; **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `Context1` context, use `SubjectName = ":.context1:"`.
         /// </summary>
         [Input("subjectName", required: true)]
         public Input<string> SubjectName { get; set; } = null!;
@@ -263,9 +263,9 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
         /// 
-        /// &gt; **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = "test-subject"` to reference the subject named `test-subject` in the `default` context.
+        /// &gt; **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `SubjectName = ":.context1:test-subject"` to reference the subject named `test-subject` in the `Context1` context, and use `SubjectName = "test-subject"` to reference the subject named `test-subject` in the `Default` context.
         /// 
-        /// &gt; **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `context1` context, use `subject_name = ":.context1:"`.
+        /// &gt; **Note:** To configure a config at the context level, affecting all subjects created within that context, use the following naming pattern: `:.contextName:`. For example, to set the global configuration for the `Context1` context, use `SubjectName = ":.context1:"`.
         /// </summary>
         [Input("subjectName")]
         public Input<string>? SubjectName { get; set; }

@@ -46,14 +46,14 @@ public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources
     }
 
     /**
-     * (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+     * (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
      * 
      */
     @Import(name="crlUrl")
     private @Nullable String crlUrl;
 
     /**
-     * @return (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+     * @return (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
      * 
      */
     public Optional<String> crlUrl() {
@@ -125,7 +125,7 @@ public final class GetCertificateAuthorityPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param crlUrl (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+         * @param crlUrl (Optional String) The url from which to fetch the CRL for the certificate authority if crlSource is URL.
          * 
          * @return builder
          * 

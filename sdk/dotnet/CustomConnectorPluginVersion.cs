@@ -123,7 +123,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableArray<string>> SensitiveConfigProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The version number of the plugin version we want to create. This must start with the character `v` and follow semantic versioning.
+        /// The version number of the plugin version we want to create. This must start with the character `V` and follow semantic versioning.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The version number of the plugin version we want to create. This must start with the character `v` and follow semantic versioning.
+        /// The version number of the plugin version we want to create. This must start with the character `V` and follow semantic versioning.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -309,7 +309,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The version number of the plugin version we want to create. This must start with the character `v` and follow semantic versioning.
+        /// The version number of the plugin version we want to create. This must start with the character `V` and follow semantic versioning.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

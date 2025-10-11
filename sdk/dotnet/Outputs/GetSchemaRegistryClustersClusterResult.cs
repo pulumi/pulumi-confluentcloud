@@ -50,7 +50,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> PrivateRegionalRestEndpoints;
         /// <summary>
-        /// (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`. Please use the `private_regional_rest_endpoints` attribute instead, which supersedes the `private_rest_endpoint` attribute.
+        /// (Required String, **Deprecated**) The private HTTP endpoint of the Schema Registry cluster, for example, `https://lsrc.us-west-2.aws.private.stag.cpdev.cloud`. Please use the `PrivateRegionalRestEndpoints` attribute instead, which supersedes the `PrivateRestEndpoint` attribute.
         /// </summary>
         public readonly string PrivateRestEndpoint;
         /// <summary>

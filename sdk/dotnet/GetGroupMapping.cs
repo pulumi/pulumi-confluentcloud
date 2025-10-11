@@ -129,7 +129,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The name of the Group Mapping.
         /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// &gt; **Note:** Exactly one from the `Id` and `DisplayName` attributes must be specified.
         /// </summary>
         [Input("displayName")]
         public string? DisplayName { get; set; }
@@ -151,7 +151,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The name of the Group Mapping.
         /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// &gt; **Note:** Exactly one from the `Id` and `DisplayName` attributes must be specified.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

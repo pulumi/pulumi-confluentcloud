@@ -16,7 +16,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// <summary>
         /// The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
         /// 
-        /// &gt; **Note:** Exactly one from the `aws`, `azure`, `gcp` configuration blocks must be specified.
+        /// &gt; **Note:** Exactly one from the `Aws`, `Azure`, `Gcp` configuration blocks must be specified.
         /// 
         /// &gt; **Note:** Learn more about Private Link Access limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/private-links/aws-privatelink.html#limitations).
         /// 

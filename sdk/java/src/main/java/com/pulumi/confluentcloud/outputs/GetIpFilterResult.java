@@ -23,7 +23,7 @@ public final class GetIpFilterResult {
      */
     private List<String> ipGroups;
     /**
-     * @return (Required List of Strings) Scope of resources covered by this IP Filter. Resource group must be set to &#39;multiple&#39; in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
+     * @return (Required List of Strings) Scope of resources covered by this IP Filter. Resource group must be set to &#39;multiple&#39; in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ipGroups` attribute).
      * 
      */
     private List<String> operationGroups;
@@ -57,7 +57,7 @@ public final class GetIpFilterResult {
         return this.ipGroups;
     }
     /**
-     * @return (Required List of Strings) Scope of resources covered by this IP Filter. Resource group must be set to &#39;multiple&#39; in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
+     * @return (Required List of Strings) Scope of resources covered by this IP Filter. Resource group must be set to &#39;multiple&#39; in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ipGroups` attribute).
      * 
      */
     public List<String> operationGroups() {

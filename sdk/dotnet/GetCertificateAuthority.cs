@@ -118,7 +118,7 @@ namespace Pulumi.ConfluentCloud
         public string? CrlUpdatedAt { get; set; }
 
         /// <summary>
-        /// (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+        /// (Optional String) The url from which to fetch the CRL for the certificate authority if CrlSource is URL.
         /// </summary>
         [Input("crlUrl")]
         public string? CrlUrl { get; set; }
@@ -150,7 +150,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? CrlUpdatedAt { get; set; }
 
         /// <summary>
-        /// (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+        /// (Optional String) The url from which to fetch the CRL for the certificate authority if CrlSource is URL.
         /// </summary>
         [Input("crlUrl")]
         public Input<string>? CrlUrl { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string CrlUpdatedAt;
         /// <summary>
-        /// (Optional String) The url from which to fetch the CRL for the certificate authority if crl_source is URL.
+        /// (Optional String) The url from which to fetch the CRL for the certificate authority if CrlSource is URL.
         /// </summary>
         public readonly string CrlUrl;
         /// <summary>

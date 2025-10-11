@@ -50,14 +50,14 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional List of String) The entity types of the tag, this always returns `[&#34;cf_entity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * (Optional List of String) The entity types of the tag, this always returns `[&#34;cfEntity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      * 
      */
     @Import(name="entityTypes")
     private @Nullable Output<List<String>> entityTypes;
 
     /**
-     * @return (Optional List of String) The entity types of the tag, this always returns `[&#34;cf_entity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * @return (Optional List of String) The entity types of the tag, this always returns `[&#34;cfEntity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      * 
      */
     public Optional<Output<List<String>>> entityTypes() {
@@ -189,7 +189,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityTypes (Optional List of String) The entity types of the tag, this always returns `[&#34;cf_entity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+         * @param entityTypes (Optional List of String) The entity types of the tag, this always returns `[&#34;cfEntity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityTypes (Optional List of String) The entity types of the tag, this always returns `[&#34;cf_entity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+         * @param entityTypes (Optional List of String) The entity types of the tag, this always returns `[&#34;cfEntity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityTypes (Optional List of String) The entity types of the tag, this always returns `[&#34;cf_entity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+         * @param entityTypes (Optional List of String) The entity types of the tag, this always returns `[&#34;cfEntity&#34;]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
          * 
          * @return builder
          * 

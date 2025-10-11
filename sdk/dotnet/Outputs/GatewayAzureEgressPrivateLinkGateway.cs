@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GatewayAzureEgressPrivateLinkGateway
     {
         /// <summary>
-        /// Azure region of the Gateway, for example, `eastus`.
+        /// Azure region of the Gateway, for example, `Eastus`.
         /// </summary>
         public readonly string Region;
         /// <summary>

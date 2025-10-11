@@ -22,7 +22,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// An optional flag to control whether the attribute should be optional or required. The default value is `false`.
+        /// An optional flag to control whether the attribute should be optional or required. The default value is `False`.
         /// </summary>
         public readonly bool? IsOptional;
         /// <summary>
@@ -36,7 +36,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Options;
         /// <summary>
-        /// (Required String) The type of the attribute, it always returns `string`.
+        /// (Required String) The type of the attribute, it always returns `String`.
         /// </summary>
         public readonly string? Type;
 

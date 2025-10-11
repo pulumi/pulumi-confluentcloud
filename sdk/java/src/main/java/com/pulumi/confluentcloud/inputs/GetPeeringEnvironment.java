@@ -16,7 +16,7 @@ public final class GetPeeringEnvironment extends com.pulumi.resources.InvokeArgs
     /**
      * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     @Import(name="id", required=true)
@@ -25,7 +25,7 @@ public final class GetPeeringEnvironment extends com.pulumi.resources.InvokeArgs
     /**
      * @return The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     public String id() {
@@ -59,7 +59,7 @@ public final class GetPeeringEnvironment extends com.pulumi.resources.InvokeArgs
         /**
          * @param id The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
          * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
          * 
          * @return builder
          * 

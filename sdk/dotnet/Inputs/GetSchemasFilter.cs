@@ -13,13 +13,13 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class GetSchemasFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+        /// The boolean flag to control whether to return soft deleted schemas. Defaults to `False`.
         /// </summary>
         [Input("deleted")]
         public bool? Deleted { get; set; }
 
         /// <summary>
-        /// The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+        /// The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `False`.
         /// </summary>
         [Input("latestOnly")]
         public bool? LatestOnly { get; set; }

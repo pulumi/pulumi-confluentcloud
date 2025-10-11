@@ -18,7 +18,7 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
     /**
      * A human-readable name for the Service Account. Limited to 64 characters in length.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     @Import(name="displayName")
@@ -27,7 +27,7 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
     /**
      * @return A human-readable name for the Service Account. Limited to 64 characters in length.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -77,7 +77,7 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param displayName A human-readable name for the Service Account. Limited to 64 characters in length.
          * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param displayName A human-readable name for the Service Account. Limited to 64 characters in length.
          * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
          * 
          * @return builder
          * 

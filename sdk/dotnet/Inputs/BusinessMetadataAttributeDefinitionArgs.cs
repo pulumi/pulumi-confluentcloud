@@ -25,7 +25,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An optional flag to control whether the attribute should be optional or required. The default value is `false`.
+        /// An optional flag to control whether the attribute should be optional or required. The default value is `False`.
         /// </summary>
         [Input("isOptional")]
         public Input<bool>? IsOptional { get; set; }
@@ -51,7 +51,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         }
 
         /// <summary>
-        /// (Required String) The type of the attribute, it always returns `string`.
+        /// (Required String) The type of the attribute, it always returns `String`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -203,14 +203,14 @@ public class SchemaExporter extends com.pulumi.resources.CustomResource {
         return this.config;
     }
     /**
-     * Customized context of the exporter if `context_type` is set to `CUSTOM`.
+     * Customized context of the exporter if `contextType` is set to `CUSTOM`.
      * 
      */
     @Export(name="context", refs={String.class}, tree="[0]")
     private Output<String> context;
 
     /**
-     * @return Customized context of the exporter if `context_type` is set to `CUSTOM`.
+     * @return Customized context of the exporter if `contextType` is set to `CUSTOM`.
      * 
      */
     public Output<String> context() {
@@ -317,14 +317,14 @@ public class SchemaExporter extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
+     * Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dcOrders`.
      * 
      */
     @Export(name="subjectRenameFormat", refs={String.class}, tree="[0]")
     private Output<String> subjectRenameFormat;
 
     /**
-     * @return Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
+     * @return Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dcOrders`.
      * 
      */
     public Output<String> subjectRenameFormat() {
