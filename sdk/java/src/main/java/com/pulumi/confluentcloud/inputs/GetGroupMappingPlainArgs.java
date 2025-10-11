@@ -17,7 +17,7 @@ public final class GetGroupMappingPlainArgs extends com.pulumi.resources.InvokeA
     /**
      * The name of the Group Mapping.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     @Import(name="displayName")
@@ -26,7 +26,7 @@ public final class GetGroupMappingPlainArgs extends com.pulumi.resources.InvokeA
     /**
      * @return The name of the Group Mapping.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      * 
      */
     public Optional<String> displayName() {
@@ -76,7 +76,7 @@ public final class GetGroupMappingPlainArgs extends com.pulumi.resources.InvokeA
         /**
          * @param displayName The name of the Group Mapping.
          * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
          * 
          * @return builder
          * 

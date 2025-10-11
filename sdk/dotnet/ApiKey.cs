@@ -12,6 +12,14 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Example Usage
     /// 
+    /// ### Example Kafka API Key
+    /// 
+    /// ### Example ksqlDB API Key
+    /// 
+    /// ### Example Schema Registry API Key
+    /// 
+    /// ### Example Flink API Key
+    /// 
     /// ### Example Tableflow API Key
     /// ```csharp
     /// using System.Collections.Generic;
@@ -133,7 +141,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `False`.
         /// </summary>
         [Output("disableWaitForReady")]
         public Output<bool?> DisableWaitForReady { get; private set; } = null!;
@@ -219,7 +227,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `False`.
         /// </summary>
         [Input("disableWaitForReady")]
         public Input<bool>? DisableWaitForReady { get; set; }
@@ -257,7 +265,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `False`.
         /// </summary>
         [Input("disableWaitForReady")]
         public Input<bool>? DisableWaitForReady { get; set; }

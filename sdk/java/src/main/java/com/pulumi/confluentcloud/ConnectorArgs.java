@@ -93,9 +93,9 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
      * 
-     * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+     * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
      * 
-     * &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
+     * &gt; **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
      * 
      */
     @Import(name="status")
@@ -106,9 +106,9 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
      * 
-     * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+     * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
      * 
-     * &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
+     * &gt; **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
      * 
      */
     public Optional<Output<String>> status() {
@@ -252,9 +252,9 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
          * 
-         * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+         * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
          * 
-         * &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
+         * &gt; **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
          * 
          * @return builder
          * 
@@ -269,9 +269,9 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * For more information on connector offset management, see [Manage Offsets for Fully-Managed Connectors in Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/offsets.html).
          * 
-         * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+         * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
          * 
-         * &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
+         * &gt; **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
          * 
          * @return builder
          * 

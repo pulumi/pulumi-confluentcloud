@@ -489,7 +489,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args) {
@@ -577,7 +577,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetBusinessMetadataResult> getBusinessMetadataPlain(GetBusinessMetadataPlainArgs args) {
@@ -665,7 +665,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args, InvokeOptions options) {
@@ -753,7 +753,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args, InvokeOutputOptions options) {
@@ -841,7 +841,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetBusinessMetadataResult> getBusinessMetadataPlain(GetBusinessMetadataPlainArgs args, InvokeOptions options) {
@@ -933,7 +933,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static Output<GetBusinessMetadataBindingResult> getBusinessMetadataBinding(GetBusinessMetadataBindingArgs args) {
@@ -1025,7 +1025,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetBusinessMetadataBindingResult> getBusinessMetadataBindingPlain(GetBusinessMetadataBindingPlainArgs args) {
@@ -1117,7 +1117,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static Output<GetBusinessMetadataBindingResult> getBusinessMetadataBinding(GetBusinessMetadataBindingArgs args, InvokeOptions options) {
@@ -1209,7 +1209,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static Output<GetBusinessMetadataBindingResult> getBusinessMetadataBinding(GetBusinessMetadataBindingArgs args, InvokeOutputOptions options) {
@@ -1301,7 +1301,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetBusinessMetadataBindingResult> getBusinessMetadataBindingPlain(GetBusinessMetadataBindingPlainArgs args, InvokeOptions options) {
@@ -15064,7 +15064,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluent_subject_compatibility_level` describes a Subject Config data source.
+     * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
      * 
      * ## Example Usage
      * 
@@ -15075,7 +15075,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluent_subject_compatibility_level` describes a Subject Config data source.
+     * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
      * 
      * ## Example Usage
      * 
@@ -15086,7 +15086,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluent_subject_compatibility_level` describes a Subject Config data source.
+     * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
      * 
      * ## Example Usage
      * 
@@ -15097,7 +15097,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluent_subject_compatibility_level` describes a Subject Config data source.
+     * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
      * 
      * ## Example Usage
      * 
@@ -15108,7 +15108,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluent_subject_compatibility_level` describes a Subject Config data source.
+     * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
      * 
      * ## Example Usage
      * 
@@ -16103,7 +16103,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static Output<GetTagResult> getTag(GetTagArgs args) {
@@ -16191,7 +16191,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetTagResult> getTagPlain(GetTagPlainArgs args) {
@@ -16279,7 +16279,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static Output<GetTagResult> getTag(GetTagArgs args, InvokeOptions options) {
@@ -16367,7 +16367,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static Output<GetTagResult> getTag(GetTagArgs args, InvokeOutputOptions options) {
@@ -16455,7 +16455,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetTagResult> getTagPlain(GetTagPlainArgs args, InvokeOptions options) {
@@ -16547,7 +16547,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static Output<GetTagBindingResult> getTagBinding(GetTagBindingArgs args) {
@@ -16639,7 +16639,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetTagBindingResult> getTagBindingPlain(GetTagBindingPlainArgs args) {
@@ -16731,7 +16731,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static Output<GetTagBindingResult> getTagBinding(GetTagBindingArgs args, InvokeOptions options) {
@@ -16823,7 +16823,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static Output<GetTagBindingResult> getTagBinding(GetTagBindingArgs args, InvokeOutputOptions options) {
@@ -16915,7 +16915,7 @@ public final class ConfluentcloudFunctions {
      * }
      * }
      * </pre>
-     * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+     * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
      * 
      */
     public static CompletableFuture<GetTagBindingResult> getTagBindingPlain(GetTagBindingPlainArgs args, InvokeOptions options) {

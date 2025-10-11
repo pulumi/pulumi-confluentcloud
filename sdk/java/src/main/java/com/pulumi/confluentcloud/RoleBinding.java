@@ -22,11 +22,11 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
  * 
- * ## Example of using time_sleep
+ * ## Example of using timeSleep
  * 
  * This configuration introduces a 360-second custom delay after the creation of a role binding, before creating a Kafka topic.
  * 
- * For context, using `disable_wait_for_ready = false` (the default setting) results in a 90-second hardcoded delay, while opting for `disable_wait_for_ready = true` results in a 0-second delay.
+ * For context, using `disableWaitForReady = false` (the default setting) results in a 90-second hardcoded delay, while opting for `disableWaitForReady = true` results in a 0-second delay.
  * 
  * <pre>
  * {@code

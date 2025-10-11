@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+ * &gt; **Note:** We also support `schemaRegistryRestEndpoint` instead of `catalogRestEndpoint` for the time being.
  * 
  * ## Getting Started
  * 

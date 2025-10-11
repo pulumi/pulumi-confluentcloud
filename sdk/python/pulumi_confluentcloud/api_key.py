@@ -224,6 +224,14 @@ class ApiKey(pulumi.CustomResource):
         """
         ## Example Usage
 
+        ### Example Kafka API Key
+
+        ### Example ksqlDB API Key
+
+        ### Example Schema Registry API Key
+
+        ### Example Flink API Key
+
         ### Example Tableflow API Key
         ```python
         import pulumi
@@ -332,6 +340,14 @@ class ApiKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
+        ### Example Kafka API Key
+
+        ### Example ksqlDB API Key
+
+        ### Example Schema Registry API Key
+
+        ### Example Flink API Key
 
         ### Example Tableflow API Key
         ```python
