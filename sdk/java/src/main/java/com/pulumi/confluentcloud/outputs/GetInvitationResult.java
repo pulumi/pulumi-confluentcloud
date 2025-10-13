@@ -19,7 +19,7 @@ public final class GetInvitationResult {
      */
     private String acceptedAt;
     /**
-     * @return (Optional String) Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee&#39;s authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user&#39;s auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user&#39;s auth_type is `AUTH_TYPE_LOCAL` by default.
+     * @return (Optional String) Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee&#39;s authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user&#39;s authType is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user&#39;s authType is `AUTH_TYPE_LOCAL` by default.
      * 
      */
     private String authType;
@@ -63,7 +63,7 @@ public final class GetInvitationResult {
         return this.acceptedAt;
     }
     /**
-     * @return (Optional String) Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee&#39;s authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user&#39;s auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user&#39;s auth_type is `AUTH_TYPE_LOCAL` by default.
+     * @return (Optional String) Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee&#39;s authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user&#39;s authType is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user&#39;s authType is `AUTH_TYPE_LOCAL` by default.
      * 
      */
     public String authType() {

@@ -63,7 +63,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
-    /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+    /// &gt; **Note:** We also support `SchemaRegistryRestEndpoint` instead of `CatalogRestEndpoint` for the time being.
     /// 
     /// ## Getting Started
     /// 
@@ -102,7 +102,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional List of String) The entity types of the tag, this always returns `["cf_entity"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+        /// (Optional List of String) The entity types of the tag, this always returns `["CfEntity"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         /// </summary>
         [Output("entityTypes")]
         public Output<ImmutableArray<string>> EntityTypes { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<string>? _entityTypes;
 
         /// <summary>
-        /// (Optional List of String) The entity types of the tag, this always returns `["cf_entity"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+        /// (Optional List of String) The entity types of the tag, this always returns `["CfEntity"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         /// </summary>
         public InputList<string> EntityTypes
         {

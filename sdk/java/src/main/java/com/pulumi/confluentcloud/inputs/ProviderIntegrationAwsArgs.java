@@ -21,7 +21,7 @@ public final class ProviderIntegrationAwsArgs extends com.pulumi.resources.Resou
      * 
      * &gt; **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
      * 
-     * &gt; **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
+     * &gt; **Note:** `customerRoleArn` must be unique in a given environment for creating a new Provider Integration.
      * 
      */
     @Import(name="customerRoleArn", required=true)
@@ -32,7 +32,7 @@ public final class ProviderIntegrationAwsArgs extends com.pulumi.resources.Resou
      * 
      * &gt; **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
      * 
-     * &gt; **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
+     * &gt; **Note:** `customerRoleArn` must be unique in a given environment for creating a new Provider Integration.
      * 
      */
     public Output<String> customerRoleArn() {
@@ -55,14 +55,14 @@ public final class ProviderIntegrationAwsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+     * (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
      * 
      */
     @Import(name="iamRoleArn")
     private @Nullable Output<String> iamRoleArn;
 
     /**
-     * @return (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+     * @return (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
      * 
      */
     public Optional<Output<String>> iamRoleArn() {
@@ -100,7 +100,7 @@ public final class ProviderIntegrationAwsArgs extends com.pulumi.resources.Resou
          * 
          * &gt; **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
          * 
-         * &gt; **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
+         * &gt; **Note:** `customerRoleArn` must be unique in a given environment for creating a new Provider Integration.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ProviderIntegrationAwsArgs extends com.pulumi.resources.Resou
          * 
          * &gt; **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
          * 
-         * &gt; **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
+         * &gt; **Note:** `customerRoleArn` must be unique in a given environment for creating a new Provider Integration.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ProviderIntegrationAwsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param iamRoleArn (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+         * @param iamRoleArn (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ProviderIntegrationAwsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param iamRoleArn (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+         * @param iamRoleArn (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customerRoleArn`.
          * 
          * @return builder
          * 

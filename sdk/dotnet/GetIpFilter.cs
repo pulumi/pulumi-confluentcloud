@@ -151,7 +151,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<string> IpGroups;
         /// <summary>
-        /// (Required List of Strings) Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
+        /// (Required List of Strings) Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `IpGroups` attribute).
         /// </summary>
         public readonly ImmutableArray<string> OperationGroups;
         /// <summary>

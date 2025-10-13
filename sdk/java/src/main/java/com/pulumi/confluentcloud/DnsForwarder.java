@@ -82,6 +82,8 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Option #2: Create using ForwardViaGcpDnsZones method
+ * 
  * ## Import
  * 
  * You can import a DNS Forwarder by using Environment ID and DNS Forwarder ID, in the format `&lt;Environment ID&gt;/&lt;DNS Forwarder ID&gt;`. The following example shows how to import a DNS Forwarder:

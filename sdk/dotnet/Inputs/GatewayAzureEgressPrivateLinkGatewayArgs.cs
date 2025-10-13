@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class GatewayAzureEgressPrivateLinkGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Azure region of the Gateway, for example, `eastus`.
+        /// Azure region of the Gateway, for example, `Eastus`.
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;

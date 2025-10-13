@@ -14,9 +14,9 @@ public final class DnsForwarderForwardViaGcpDnsZones {
     /**
      * @return List of Maps which contains the domain to zone and project mapping.
      * 
-     * &gt; **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
+     * &gt; **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
      * 
-     * &gt; **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
+     * &gt; **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
      * 
      */
     private @Nullable Map<String,String> domainMappings;
@@ -25,9 +25,9 @@ public final class DnsForwarderForwardViaGcpDnsZones {
     /**
      * @return List of Maps which contains the domain to zone and project mapping.
      * 
-     * &gt; **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
+     * &gt; **Note:** The `forwardViaGcpZones` and `forwardViaIp` blocks are mutually exclusive, and one of them must be provided.
      * 
-     * &gt; **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
+     * &gt; **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domainMappings`.
      * 
      */
     public Map<String,String> domainMappings() {
