@@ -9,6 +9,14 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * ### Example Kafka API Key
+ *
+ * ### Example ksqlDB API Key
+ *
+ * ### Example Schema Registry API Key
+ *
+ * ### Example Flink API Key
+ *
  * ### Example Tableflow API Key
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

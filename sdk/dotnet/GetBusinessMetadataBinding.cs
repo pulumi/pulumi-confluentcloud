@@ -67,7 +67,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// });
         /// ```
-        /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+        /// &gt; **Note:** We also support `SchemaRegistryRestEndpoint` instead of `CatalogRestEndpoint` for the time being.
         /// </summary>
         public static Task<GetBusinessMetadataBindingResult> InvokeAsync(GetBusinessMetadataBindingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBusinessMetadataBindingResult>("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", args ?? new GetBusinessMetadataBindingArgs(), options.WithDefaults());
@@ -128,7 +128,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// });
         /// ```
-        /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+        /// &gt; **Note:** We also support `SchemaRegistryRestEndpoint` instead of `CatalogRestEndpoint` for the time being.
         /// </summary>
         public static Output<GetBusinessMetadataBindingResult> Invoke(GetBusinessMetadataBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessMetadataBindingResult>("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", args ?? new GetBusinessMetadataBindingInvokeArgs(), options.WithDefaults());
@@ -189,7 +189,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// });
         /// ```
-        /// &gt; **Note:** We also support `schema_registry_rest_endpoint` instead of `catalog_rest_endpoint` for the time being.
+        /// &gt; **Note:** We also support `SchemaRegistryRestEndpoint` instead of `CatalogRestEndpoint` for the time being.
         /// </summary>
         public static Output<GetBusinessMetadataBindingResult> Invoke(GetBusinessMetadataBindingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessMetadataBindingResult>("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", args ?? new GetBusinessMetadataBindingInvokeArgs(), options.WithDefaults());
@@ -213,13 +213,13 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
+        /// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `EntityName` attribute.
         /// </summary>
         [Input("entityName", required: true)]
         public string EntityName { get; set; } = null!;
 
         /// <summary>
-        /// The entity type, for example, `sr_schema`.
+        /// The entity type, for example, `SrSchema`.
         /// </summary>
         [Input("entityType", required: true)]
         public string EntityType { get; set; } = null!;
@@ -260,13 +260,13 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
+        /// The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `EntityName` attribute.
         /// </summary>
         [Input("entityName", required: true)]
         public Input<string> EntityName { get; set; } = null!;
 
         /// <summary>
-        /// The entity type, for example, `sr_schema`.
+        /// The entity type, for example, `SrSchema`.
         /// </summary>
         [Input("entityType", required: true)]
         public Input<string> EntityType { get; set; } = null!;
