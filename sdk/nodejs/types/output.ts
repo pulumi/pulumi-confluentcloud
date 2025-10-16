@@ -1645,6 +1645,35 @@ export interface GetPrivateLinkAttachmentGcp {
     privateServiceConnectServiceAttachment: string;
 }
 
+export interface GetProviderIntegrationAuthorizationAzure {
+    /**
+     * (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+     */
+    confluentMultiTenantAppId: string;
+    /**
+     * (Computed String) Customer's Azure Tenant ID.
+     */
+    customerAzureTenantId: string;
+}
+
+export interface GetProviderIntegrationAuthorizationEnvironment {
+    /**
+     * The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface GetProviderIntegrationAuthorizationGcp {
+    /**
+     * (Computed String) Customer's Google Service Account that Confluent Cloud impersonates.
+     */
+    customerGoogleServiceAccount: string;
+    /**
+     * (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+     */
+    googleServiceAccount: string;
+}
+
 export interface GetProviderIntegrationAw {
     /**
      * (Required String) Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account, and must be unique in the same environment.
@@ -1665,6 +1694,13 @@ export interface GetProviderIntegrationEnvironment {
      * The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
      *
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     */
+    id: string;
+}
+
+export interface GetProviderIntegrationSetupEnvironment {
+    /**
+     * The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
      */
     id: string;
 }
@@ -2770,6 +2806,37 @@ export interface PrivateLinkAttachmentGcp {
     privateServiceConnectServiceAttachment: string;
 }
 
+export interface ProviderIntegrationAuthorizationAzure {
+    /**
+     * (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+     */
+    confluentMultiTenantAppId: string;
+    /**
+     * Customer's Azure Tenant ID.
+     */
+    customerAzureTenantId: string;
+}
+
+export interface ProviderIntegrationAuthorizationEnvironment {
+    /**
+     * The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface ProviderIntegrationAuthorizationGcp {
+    /**
+     * Customer's Google Service Account that Confluent Cloud impersonates.
+     *
+     * > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+     */
+    customerGoogleServiceAccount: string;
+    /**
+     * (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+     */
+    googleServiceAccount: string;
+}
+
 export interface ProviderIntegrationAws {
     /**
      * Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
@@ -2790,6 +2857,13 @@ export interface ProviderIntegrationAws {
 }
 
 export interface ProviderIntegrationEnvironment {
+    /**
+     * The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface ProviderIntegrationSetupEnvironment {
     /**
      * The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
      */

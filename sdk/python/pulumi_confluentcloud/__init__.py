@@ -65,6 +65,8 @@ from .get_private_link_access import *
 from .get_private_link_attachment import *
 from .get_private_link_attachment_connection import *
 from .get_provider_integration import *
+from .get_provider_integration_authorization import *
+from .get_provider_integration_setup import *
 from .get_role_binding import *
 from .get_schema import *
 from .get_schema_registry_cluster import *
@@ -106,6 +108,8 @@ from .private_link_attachment import *
 from .private_link_attachment_connection import *
 from .provider import *
 from .provider_integration import *
+from .provider_integration_authorization import *
+from .provider_integration_setup import *
 from .role_binding import *
 from .schema import *
 from .schema_exporter import *
@@ -484,6 +488,22 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/providerIntegration:ProviderIntegration": "ProviderIntegration"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/providerIntegrationAuthorization",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/providerIntegrationAuthorization:ProviderIntegrationAuthorization": "ProviderIntegrationAuthorization"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/providerIntegrationSetup",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/providerIntegrationSetup:ProviderIntegrationSetup": "ProviderIntegrationSetup"
   }
  },
  {
