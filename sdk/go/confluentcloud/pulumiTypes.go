@@ -18051,6 +18051,463 @@ func (o PrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) PrivateLin
 	}).(PrivateLinkAttachmentGcpOutput)
 }
 
+type ProviderIntegrationAuthorizationAzure struct {
+	// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+	ConfluentMultiTenantAppId *string `pulumi:"confluentMultiTenantAppId"`
+	// Customer's Azure Tenant ID.
+	CustomerAzureTenantId string `pulumi:"customerAzureTenantId"`
+}
+
+// ProviderIntegrationAuthorizationAzureInput is an input type that accepts ProviderIntegrationAuthorizationAzureArgs and ProviderIntegrationAuthorizationAzureOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAuthorizationAzureInput` via:
+//
+//	ProviderIntegrationAuthorizationAzureArgs{...}
+type ProviderIntegrationAuthorizationAzureInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAuthorizationAzureOutput() ProviderIntegrationAuthorizationAzureOutput
+	ToProviderIntegrationAuthorizationAzureOutputWithContext(context.Context) ProviderIntegrationAuthorizationAzureOutput
+}
+
+type ProviderIntegrationAuthorizationAzureArgs struct {
+	// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+	ConfluentMultiTenantAppId pulumi.StringPtrInput `pulumi:"confluentMultiTenantAppId"`
+	// Customer's Azure Tenant ID.
+	CustomerAzureTenantId pulumi.StringInput `pulumi:"customerAzureTenantId"`
+}
+
+func (ProviderIntegrationAuthorizationAzureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (i ProviderIntegrationAuthorizationAzureArgs) ToProviderIntegrationAuthorizationAzureOutput() ProviderIntegrationAuthorizationAzureOutput {
+	return i.ToProviderIntegrationAuthorizationAzureOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAuthorizationAzureArgs) ToProviderIntegrationAuthorizationAzureOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationAzureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationAzureOutput)
+}
+
+func (i ProviderIntegrationAuthorizationAzureArgs) ToProviderIntegrationAuthorizationAzurePtrOutput() ProviderIntegrationAuthorizationAzurePtrOutput {
+	return i.ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAuthorizationAzureArgs) ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationAzurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationAzureOutput).ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(ctx)
+}
+
+// ProviderIntegrationAuthorizationAzurePtrInput is an input type that accepts ProviderIntegrationAuthorizationAzureArgs, ProviderIntegrationAuthorizationAzurePtr and ProviderIntegrationAuthorizationAzurePtrOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAuthorizationAzurePtrInput` via:
+//
+//	        ProviderIntegrationAuthorizationAzureArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderIntegrationAuthorizationAzurePtrInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAuthorizationAzurePtrOutput() ProviderIntegrationAuthorizationAzurePtrOutput
+	ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(context.Context) ProviderIntegrationAuthorizationAzurePtrOutput
+}
+
+type providerIntegrationAuthorizationAzurePtrType ProviderIntegrationAuthorizationAzureArgs
+
+func ProviderIntegrationAuthorizationAzurePtr(v *ProviderIntegrationAuthorizationAzureArgs) ProviderIntegrationAuthorizationAzurePtrInput {
+	return (*providerIntegrationAuthorizationAzurePtrType)(v)
+}
+
+func (*providerIntegrationAuthorizationAzurePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (i *providerIntegrationAuthorizationAzurePtrType) ToProviderIntegrationAuthorizationAzurePtrOutput() ProviderIntegrationAuthorizationAzurePtrOutput {
+	return i.ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(context.Background())
+}
+
+func (i *providerIntegrationAuthorizationAzurePtrType) ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationAzurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationAzurePtrOutput)
+}
+
+type ProviderIntegrationAuthorizationAzureOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAuthorizationAzureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAuthorizationAzureOutput) ToProviderIntegrationAuthorizationAzureOutput() ProviderIntegrationAuthorizationAzureOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationAzureOutput) ToProviderIntegrationAuthorizationAzureOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationAzureOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationAzureOutput) ToProviderIntegrationAuthorizationAzurePtrOutput() ProviderIntegrationAuthorizationAzurePtrOutput {
+	return o.ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(context.Background())
+}
+
+func (o ProviderIntegrationAuthorizationAzureOutput) ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationAzurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderIntegrationAuthorizationAzure) *ProviderIntegrationAuthorizationAzure {
+		return &v
+	}).(ProviderIntegrationAuthorizationAzurePtrOutput)
+}
+
+// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+func (o ProviderIntegrationAuthorizationAzureOutput) ConfluentMultiTenantAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderIntegrationAuthorizationAzure) *string { return v.ConfluentMultiTenantAppId }).(pulumi.StringPtrOutput)
+}
+
+// Customer's Azure Tenant ID.
+func (o ProviderIntegrationAuthorizationAzureOutput) CustomerAzureTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderIntegrationAuthorizationAzure) string { return v.CustomerAzureTenantId }).(pulumi.StringOutput)
+}
+
+type ProviderIntegrationAuthorizationAzurePtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAuthorizationAzurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAuthorizationAzurePtrOutput) ToProviderIntegrationAuthorizationAzurePtrOutput() ProviderIntegrationAuthorizationAzurePtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationAzurePtrOutput) ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationAzurePtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationAzurePtrOutput) Elem() ProviderIntegrationAuthorizationAzureOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationAzure) ProviderIntegrationAuthorizationAzure {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderIntegrationAuthorizationAzure
+		return ret
+	}).(ProviderIntegrationAuthorizationAzureOutput)
+}
+
+// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+func (o ProviderIntegrationAuthorizationAzurePtrOutput) ConfluentMultiTenantAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationAzure) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfluentMultiTenantAppId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Customer's Azure Tenant ID.
+func (o ProviderIntegrationAuthorizationAzurePtrOutput) CustomerAzureTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationAzure) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomerAzureTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProviderIntegrationAuthorizationEnvironment struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// ProviderIntegrationAuthorizationEnvironmentInput is an input type that accepts ProviderIntegrationAuthorizationEnvironmentArgs and ProviderIntegrationAuthorizationEnvironmentOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAuthorizationEnvironmentInput` via:
+//
+//	ProviderIntegrationAuthorizationEnvironmentArgs{...}
+type ProviderIntegrationAuthorizationEnvironmentInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAuthorizationEnvironmentOutput() ProviderIntegrationAuthorizationEnvironmentOutput
+	ToProviderIntegrationAuthorizationEnvironmentOutputWithContext(context.Context) ProviderIntegrationAuthorizationEnvironmentOutput
+}
+
+type ProviderIntegrationAuthorizationEnvironmentArgs struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (ProviderIntegrationAuthorizationEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAuthorizationEnvironment)(nil)).Elem()
+}
+
+func (i ProviderIntegrationAuthorizationEnvironmentArgs) ToProviderIntegrationAuthorizationEnvironmentOutput() ProviderIntegrationAuthorizationEnvironmentOutput {
+	return i.ToProviderIntegrationAuthorizationEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAuthorizationEnvironmentArgs) ToProviderIntegrationAuthorizationEnvironmentOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationEnvironmentOutput)
+}
+
+func (i ProviderIntegrationAuthorizationEnvironmentArgs) ToProviderIntegrationAuthorizationEnvironmentPtrOutput() ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return i.ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAuthorizationEnvironmentArgs) ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationEnvironmentOutput).ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(ctx)
+}
+
+// ProviderIntegrationAuthorizationEnvironmentPtrInput is an input type that accepts ProviderIntegrationAuthorizationEnvironmentArgs, ProviderIntegrationAuthorizationEnvironmentPtr and ProviderIntegrationAuthorizationEnvironmentPtrOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAuthorizationEnvironmentPtrInput` via:
+//
+//	        ProviderIntegrationAuthorizationEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderIntegrationAuthorizationEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAuthorizationEnvironmentPtrOutput() ProviderIntegrationAuthorizationEnvironmentPtrOutput
+	ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(context.Context) ProviderIntegrationAuthorizationEnvironmentPtrOutput
+}
+
+type providerIntegrationAuthorizationEnvironmentPtrType ProviderIntegrationAuthorizationEnvironmentArgs
+
+func ProviderIntegrationAuthorizationEnvironmentPtr(v *ProviderIntegrationAuthorizationEnvironmentArgs) ProviderIntegrationAuthorizationEnvironmentPtrInput {
+	return (*providerIntegrationAuthorizationEnvironmentPtrType)(v)
+}
+
+func (*providerIntegrationAuthorizationEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAuthorizationEnvironment)(nil)).Elem()
+}
+
+func (i *providerIntegrationAuthorizationEnvironmentPtrType) ToProviderIntegrationAuthorizationEnvironmentPtrOutput() ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return i.ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *providerIntegrationAuthorizationEnvironmentPtrType) ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationEnvironmentPtrOutput)
+}
+
+type ProviderIntegrationAuthorizationEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAuthorizationEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAuthorizationEnvironment)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentOutput) ToProviderIntegrationAuthorizationEnvironmentOutput() ProviderIntegrationAuthorizationEnvironmentOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentOutput) ToProviderIntegrationAuthorizationEnvironmentOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationEnvironmentOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentOutput) ToProviderIntegrationAuthorizationEnvironmentPtrOutput() ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return o.ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentOutput) ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderIntegrationAuthorizationEnvironment) *ProviderIntegrationAuthorizationEnvironment {
+		return &v
+	}).(ProviderIntegrationAuthorizationEnvironmentPtrOutput)
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o ProviderIntegrationAuthorizationEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderIntegrationAuthorizationEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type ProviderIntegrationAuthorizationEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAuthorizationEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAuthorizationEnvironment)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentPtrOutput) ToProviderIntegrationAuthorizationEnvironmentPtrOutput() ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentPtrOutput) ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentPtrOutput) Elem() ProviderIntegrationAuthorizationEnvironmentOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationEnvironment) ProviderIntegrationAuthorizationEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderIntegrationAuthorizationEnvironment
+		return ret
+	}).(ProviderIntegrationAuthorizationEnvironmentOutput)
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o ProviderIntegrationAuthorizationEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProviderIntegrationAuthorizationGcp struct {
+	// Customer's Google Service Account that Confluent Cloud impersonates.
+	//
+	// > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+	CustomerGoogleServiceAccount string `pulumi:"customerGoogleServiceAccount"`
+	// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+	GoogleServiceAccount *string `pulumi:"googleServiceAccount"`
+}
+
+// ProviderIntegrationAuthorizationGcpInput is an input type that accepts ProviderIntegrationAuthorizationGcpArgs and ProviderIntegrationAuthorizationGcpOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAuthorizationGcpInput` via:
+//
+//	ProviderIntegrationAuthorizationGcpArgs{...}
+type ProviderIntegrationAuthorizationGcpInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAuthorizationGcpOutput() ProviderIntegrationAuthorizationGcpOutput
+	ToProviderIntegrationAuthorizationGcpOutputWithContext(context.Context) ProviderIntegrationAuthorizationGcpOutput
+}
+
+type ProviderIntegrationAuthorizationGcpArgs struct {
+	// Customer's Google Service Account that Confluent Cloud impersonates.
+	//
+	// > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+	CustomerGoogleServiceAccount pulumi.StringInput `pulumi:"customerGoogleServiceAccount"`
+	// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+	GoogleServiceAccount pulumi.StringPtrInput `pulumi:"googleServiceAccount"`
+}
+
+func (ProviderIntegrationAuthorizationGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (i ProviderIntegrationAuthorizationGcpArgs) ToProviderIntegrationAuthorizationGcpOutput() ProviderIntegrationAuthorizationGcpOutput {
+	return i.ToProviderIntegrationAuthorizationGcpOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAuthorizationGcpArgs) ToProviderIntegrationAuthorizationGcpOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationGcpOutput)
+}
+
+func (i ProviderIntegrationAuthorizationGcpArgs) ToProviderIntegrationAuthorizationGcpPtrOutput() ProviderIntegrationAuthorizationGcpPtrOutput {
+	return i.ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAuthorizationGcpArgs) ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationGcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationGcpOutput).ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(ctx)
+}
+
+// ProviderIntegrationAuthorizationGcpPtrInput is an input type that accepts ProviderIntegrationAuthorizationGcpArgs, ProviderIntegrationAuthorizationGcpPtr and ProviderIntegrationAuthorizationGcpPtrOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAuthorizationGcpPtrInput` via:
+//
+//	        ProviderIntegrationAuthorizationGcpArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderIntegrationAuthorizationGcpPtrInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAuthorizationGcpPtrOutput() ProviderIntegrationAuthorizationGcpPtrOutput
+	ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(context.Context) ProviderIntegrationAuthorizationGcpPtrOutput
+}
+
+type providerIntegrationAuthorizationGcpPtrType ProviderIntegrationAuthorizationGcpArgs
+
+func ProviderIntegrationAuthorizationGcpPtr(v *ProviderIntegrationAuthorizationGcpArgs) ProviderIntegrationAuthorizationGcpPtrInput {
+	return (*providerIntegrationAuthorizationGcpPtrType)(v)
+}
+
+func (*providerIntegrationAuthorizationGcpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (i *providerIntegrationAuthorizationGcpPtrType) ToProviderIntegrationAuthorizationGcpPtrOutput() ProviderIntegrationAuthorizationGcpPtrOutput {
+	return i.ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(context.Background())
+}
+
+func (i *providerIntegrationAuthorizationGcpPtrType) ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationGcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationGcpPtrOutput)
+}
+
+type ProviderIntegrationAuthorizationGcpOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAuthorizationGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAuthorizationGcpOutput) ToProviderIntegrationAuthorizationGcpOutput() ProviderIntegrationAuthorizationGcpOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationGcpOutput) ToProviderIntegrationAuthorizationGcpOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationGcpOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationGcpOutput) ToProviderIntegrationAuthorizationGcpPtrOutput() ProviderIntegrationAuthorizationGcpPtrOutput {
+	return o.ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderIntegrationAuthorizationGcpOutput) ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationGcpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderIntegrationAuthorizationGcp) *ProviderIntegrationAuthorizationGcp {
+		return &v
+	}).(ProviderIntegrationAuthorizationGcpPtrOutput)
+}
+
+// Customer's Google Service Account that Confluent Cloud impersonates.
+//
+// > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+func (o ProviderIntegrationAuthorizationGcpOutput) CustomerGoogleServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderIntegrationAuthorizationGcp) string { return v.CustomerGoogleServiceAccount }).(pulumi.StringOutput)
+}
+
+// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+func (o ProviderIntegrationAuthorizationGcpOutput) GoogleServiceAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderIntegrationAuthorizationGcp) *string { return v.GoogleServiceAccount }).(pulumi.StringPtrOutput)
+}
+
+type ProviderIntegrationAuthorizationGcpPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAuthorizationGcpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAuthorizationGcpPtrOutput) ToProviderIntegrationAuthorizationGcpPtrOutput() ProviderIntegrationAuthorizationGcpPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationGcpPtrOutput) ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationGcpPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationGcpPtrOutput) Elem() ProviderIntegrationAuthorizationGcpOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationGcp) ProviderIntegrationAuthorizationGcp {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderIntegrationAuthorizationGcp
+		return ret
+	}).(ProviderIntegrationAuthorizationGcpOutput)
+}
+
+// Customer's Google Service Account that Confluent Cloud impersonates.
+//
+// > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+func (o ProviderIntegrationAuthorizationGcpPtrOutput) CustomerGoogleServiceAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationGcp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomerGoogleServiceAccount
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+func (o ProviderIntegrationAuthorizationGcpPtrOutput) GoogleServiceAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationGcp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GoogleServiceAccount
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProviderIntegrationAws struct {
 	// Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
 	//
@@ -18372,6 +18829,143 @@ func (o ProviderIntegrationEnvironmentPtrOutput) Elem() ProviderIntegrationEnvir
 // The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
 func (o ProviderIntegrationEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderIntegrationEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProviderIntegrationSetupEnvironment struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// ProviderIntegrationSetupEnvironmentInput is an input type that accepts ProviderIntegrationSetupEnvironmentArgs and ProviderIntegrationSetupEnvironmentOutput values.
+// You can construct a concrete instance of `ProviderIntegrationSetupEnvironmentInput` via:
+//
+//	ProviderIntegrationSetupEnvironmentArgs{...}
+type ProviderIntegrationSetupEnvironmentInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationSetupEnvironmentOutput() ProviderIntegrationSetupEnvironmentOutput
+	ToProviderIntegrationSetupEnvironmentOutputWithContext(context.Context) ProviderIntegrationSetupEnvironmentOutput
+}
+
+type ProviderIntegrationSetupEnvironmentArgs struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (ProviderIntegrationSetupEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationSetupEnvironment)(nil)).Elem()
+}
+
+func (i ProviderIntegrationSetupEnvironmentArgs) ToProviderIntegrationSetupEnvironmentOutput() ProviderIntegrationSetupEnvironmentOutput {
+	return i.ToProviderIntegrationSetupEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationSetupEnvironmentArgs) ToProviderIntegrationSetupEnvironmentOutputWithContext(ctx context.Context) ProviderIntegrationSetupEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationSetupEnvironmentOutput)
+}
+
+func (i ProviderIntegrationSetupEnvironmentArgs) ToProviderIntegrationSetupEnvironmentPtrOutput() ProviderIntegrationSetupEnvironmentPtrOutput {
+	return i.ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationSetupEnvironmentArgs) ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationSetupEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationSetupEnvironmentOutput).ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(ctx)
+}
+
+// ProviderIntegrationSetupEnvironmentPtrInput is an input type that accepts ProviderIntegrationSetupEnvironmentArgs, ProviderIntegrationSetupEnvironmentPtr and ProviderIntegrationSetupEnvironmentPtrOutput values.
+// You can construct a concrete instance of `ProviderIntegrationSetupEnvironmentPtrInput` via:
+//
+//	        ProviderIntegrationSetupEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderIntegrationSetupEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationSetupEnvironmentPtrOutput() ProviderIntegrationSetupEnvironmentPtrOutput
+	ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(context.Context) ProviderIntegrationSetupEnvironmentPtrOutput
+}
+
+type providerIntegrationSetupEnvironmentPtrType ProviderIntegrationSetupEnvironmentArgs
+
+func ProviderIntegrationSetupEnvironmentPtr(v *ProviderIntegrationSetupEnvironmentArgs) ProviderIntegrationSetupEnvironmentPtrInput {
+	return (*providerIntegrationSetupEnvironmentPtrType)(v)
+}
+
+func (*providerIntegrationSetupEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationSetupEnvironment)(nil)).Elem()
+}
+
+func (i *providerIntegrationSetupEnvironmentPtrType) ToProviderIntegrationSetupEnvironmentPtrOutput() ProviderIntegrationSetupEnvironmentPtrOutput {
+	return i.ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *providerIntegrationSetupEnvironmentPtrType) ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationSetupEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationSetupEnvironmentPtrOutput)
+}
+
+type ProviderIntegrationSetupEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationSetupEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationSetupEnvironment)(nil)).Elem()
+}
+
+func (o ProviderIntegrationSetupEnvironmentOutput) ToProviderIntegrationSetupEnvironmentOutput() ProviderIntegrationSetupEnvironmentOutput {
+	return o
+}
+
+func (o ProviderIntegrationSetupEnvironmentOutput) ToProviderIntegrationSetupEnvironmentOutputWithContext(ctx context.Context) ProviderIntegrationSetupEnvironmentOutput {
+	return o
+}
+
+func (o ProviderIntegrationSetupEnvironmentOutput) ToProviderIntegrationSetupEnvironmentPtrOutput() ProviderIntegrationSetupEnvironmentPtrOutput {
+	return o.ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderIntegrationSetupEnvironmentOutput) ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationSetupEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderIntegrationSetupEnvironment) *ProviderIntegrationSetupEnvironment {
+		return &v
+	}).(ProviderIntegrationSetupEnvironmentPtrOutput)
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o ProviderIntegrationSetupEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderIntegrationSetupEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type ProviderIntegrationSetupEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationSetupEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationSetupEnvironment)(nil)).Elem()
+}
+
+func (o ProviderIntegrationSetupEnvironmentPtrOutput) ToProviderIntegrationSetupEnvironmentPtrOutput() ProviderIntegrationSetupEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationSetupEnvironmentPtrOutput) ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationSetupEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationSetupEnvironmentPtrOutput) Elem() ProviderIntegrationSetupEnvironmentOutput {
+	return o.ApplyT(func(v *ProviderIntegrationSetupEnvironment) ProviderIntegrationSetupEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderIntegrationSetupEnvironment
+		return ret
+	}).(ProviderIntegrationSetupEnvironmentOutput)
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o ProviderIntegrationSetupEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationSetupEnvironment) *string {
 		if v == nil {
 			return nil
 		}
@@ -33981,6 +34575,270 @@ func (o GetPrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) GetPriv
 	}).(GetPrivateLinkAttachmentGcpOutput)
 }
 
+type GetProviderIntegrationAuthorizationAzure struct {
+	// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+	ConfluentMultiTenantAppId string `pulumi:"confluentMultiTenantAppId"`
+	// (Computed String) Customer's Azure Tenant ID.
+	CustomerAzureTenantId string `pulumi:"customerAzureTenantId"`
+}
+
+// GetProviderIntegrationAuthorizationAzureInput is an input type that accepts GetProviderIntegrationAuthorizationAzureArgs and GetProviderIntegrationAuthorizationAzureOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationAuthorizationAzureInput` via:
+//
+//	GetProviderIntegrationAuthorizationAzureArgs{...}
+type GetProviderIntegrationAuthorizationAzureInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationAuthorizationAzureOutput() GetProviderIntegrationAuthorizationAzureOutput
+	ToGetProviderIntegrationAuthorizationAzureOutputWithContext(context.Context) GetProviderIntegrationAuthorizationAzureOutput
+}
+
+type GetProviderIntegrationAuthorizationAzureArgs struct {
+	// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+	ConfluentMultiTenantAppId pulumi.StringInput `pulumi:"confluentMultiTenantAppId"`
+	// (Computed String) Customer's Azure Tenant ID.
+	CustomerAzureTenantId pulumi.StringInput `pulumi:"customerAzureTenantId"`
+}
+
+func (GetProviderIntegrationAuthorizationAzureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationAuthorizationAzureArgs) ToGetProviderIntegrationAuthorizationAzureOutput() GetProviderIntegrationAuthorizationAzureOutput {
+	return i.ToGetProviderIntegrationAuthorizationAzureOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationAuthorizationAzureArgs) ToGetProviderIntegrationAuthorizationAzureOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationAzureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationAuthorizationAzureOutput)
+}
+
+// GetProviderIntegrationAuthorizationAzureArrayInput is an input type that accepts GetProviderIntegrationAuthorizationAzureArray and GetProviderIntegrationAuthorizationAzureArrayOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationAuthorizationAzureArrayInput` via:
+//
+//	GetProviderIntegrationAuthorizationAzureArray{ GetProviderIntegrationAuthorizationAzureArgs{...} }
+type GetProviderIntegrationAuthorizationAzureArrayInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationAuthorizationAzureArrayOutput() GetProviderIntegrationAuthorizationAzureArrayOutput
+	ToGetProviderIntegrationAuthorizationAzureArrayOutputWithContext(context.Context) GetProviderIntegrationAuthorizationAzureArrayOutput
+}
+
+type GetProviderIntegrationAuthorizationAzureArray []GetProviderIntegrationAuthorizationAzureInput
+
+func (GetProviderIntegrationAuthorizationAzureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationAuthorizationAzureArray) ToGetProviderIntegrationAuthorizationAzureArrayOutput() GetProviderIntegrationAuthorizationAzureArrayOutput {
+	return i.ToGetProviderIntegrationAuthorizationAzureArrayOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationAuthorizationAzureArray) ToGetProviderIntegrationAuthorizationAzureArrayOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationAzureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationAuthorizationAzureArrayOutput)
+}
+
+type GetProviderIntegrationAuthorizationAzureOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationAuthorizationAzureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationAuthorizationAzureOutput) ToGetProviderIntegrationAuthorizationAzureOutput() GetProviderIntegrationAuthorizationAzureOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationAzureOutput) ToGetProviderIntegrationAuthorizationAzureOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationAzureOutput {
+	return o
+}
+
+// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+func (o GetProviderIntegrationAuthorizationAzureOutput) ConfluentMultiTenantAppId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAuthorizationAzure) string { return v.ConfluentMultiTenantAppId }).(pulumi.StringOutput)
+}
+
+// (Computed String) Customer's Azure Tenant ID.
+func (o GetProviderIntegrationAuthorizationAzureOutput) CustomerAzureTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAuthorizationAzure) string { return v.CustomerAzureTenantId }).(pulumi.StringOutput)
+}
+
+type GetProviderIntegrationAuthorizationAzureArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationAuthorizationAzureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationAuthorizationAzureArrayOutput) ToGetProviderIntegrationAuthorizationAzureArrayOutput() GetProviderIntegrationAuthorizationAzureArrayOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationAzureArrayOutput) ToGetProviderIntegrationAuthorizationAzureArrayOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationAzureArrayOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationAzureArrayOutput) Index(i pulumi.IntInput) GetProviderIntegrationAuthorizationAzureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProviderIntegrationAuthorizationAzure {
+		return vs[0].([]GetProviderIntegrationAuthorizationAzure)[vs[1].(int)]
+	}).(GetProviderIntegrationAuthorizationAzureOutput)
+}
+
+type GetProviderIntegrationAuthorizationEnvironment struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetProviderIntegrationAuthorizationEnvironmentInput is an input type that accepts GetProviderIntegrationAuthorizationEnvironmentArgs and GetProviderIntegrationAuthorizationEnvironmentOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationAuthorizationEnvironmentInput` via:
+//
+//	GetProviderIntegrationAuthorizationEnvironmentArgs{...}
+type GetProviderIntegrationAuthorizationEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationAuthorizationEnvironmentOutput() GetProviderIntegrationAuthorizationEnvironmentOutput
+	ToGetProviderIntegrationAuthorizationEnvironmentOutputWithContext(context.Context) GetProviderIntegrationAuthorizationEnvironmentOutput
+}
+
+type GetProviderIntegrationAuthorizationEnvironmentArgs struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetProviderIntegrationAuthorizationEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAuthorizationEnvironment)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationAuthorizationEnvironmentArgs) ToGetProviderIntegrationAuthorizationEnvironmentOutput() GetProviderIntegrationAuthorizationEnvironmentOutput {
+	return i.ToGetProviderIntegrationAuthorizationEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationAuthorizationEnvironmentArgs) ToGetProviderIntegrationAuthorizationEnvironmentOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationAuthorizationEnvironmentOutput)
+}
+
+type GetProviderIntegrationAuthorizationEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationAuthorizationEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAuthorizationEnvironment)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationAuthorizationEnvironmentOutput) ToGetProviderIntegrationAuthorizationEnvironmentOutput() GetProviderIntegrationAuthorizationEnvironmentOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationEnvironmentOutput) ToGetProviderIntegrationAuthorizationEnvironmentOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o GetProviderIntegrationAuthorizationEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAuthorizationEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetProviderIntegrationAuthorizationGcp struct {
+	// (Computed String) Customer's Google Service Account that Confluent Cloud impersonates.
+	CustomerGoogleServiceAccount string `pulumi:"customerGoogleServiceAccount"`
+	// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+	GoogleServiceAccount string `pulumi:"googleServiceAccount"`
+}
+
+// GetProviderIntegrationAuthorizationGcpInput is an input type that accepts GetProviderIntegrationAuthorizationGcpArgs and GetProviderIntegrationAuthorizationGcpOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationAuthorizationGcpInput` via:
+//
+//	GetProviderIntegrationAuthorizationGcpArgs{...}
+type GetProviderIntegrationAuthorizationGcpInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationAuthorizationGcpOutput() GetProviderIntegrationAuthorizationGcpOutput
+	ToGetProviderIntegrationAuthorizationGcpOutputWithContext(context.Context) GetProviderIntegrationAuthorizationGcpOutput
+}
+
+type GetProviderIntegrationAuthorizationGcpArgs struct {
+	// (Computed String) Customer's Google Service Account that Confluent Cloud impersonates.
+	CustomerGoogleServiceAccount pulumi.StringInput `pulumi:"customerGoogleServiceAccount"`
+	// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+	GoogleServiceAccount pulumi.StringInput `pulumi:"googleServiceAccount"`
+}
+
+func (GetProviderIntegrationAuthorizationGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationAuthorizationGcpArgs) ToGetProviderIntegrationAuthorizationGcpOutput() GetProviderIntegrationAuthorizationGcpOutput {
+	return i.ToGetProviderIntegrationAuthorizationGcpOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationAuthorizationGcpArgs) ToGetProviderIntegrationAuthorizationGcpOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationAuthorizationGcpOutput)
+}
+
+// GetProviderIntegrationAuthorizationGcpArrayInput is an input type that accepts GetProviderIntegrationAuthorizationGcpArray and GetProviderIntegrationAuthorizationGcpArrayOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationAuthorizationGcpArrayInput` via:
+//
+//	GetProviderIntegrationAuthorizationGcpArray{ GetProviderIntegrationAuthorizationGcpArgs{...} }
+type GetProviderIntegrationAuthorizationGcpArrayInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationAuthorizationGcpArrayOutput() GetProviderIntegrationAuthorizationGcpArrayOutput
+	ToGetProviderIntegrationAuthorizationGcpArrayOutputWithContext(context.Context) GetProviderIntegrationAuthorizationGcpArrayOutput
+}
+
+type GetProviderIntegrationAuthorizationGcpArray []GetProviderIntegrationAuthorizationGcpInput
+
+func (GetProviderIntegrationAuthorizationGcpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationAuthorizationGcpArray) ToGetProviderIntegrationAuthorizationGcpArrayOutput() GetProviderIntegrationAuthorizationGcpArrayOutput {
+	return i.ToGetProviderIntegrationAuthorizationGcpArrayOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationAuthorizationGcpArray) ToGetProviderIntegrationAuthorizationGcpArrayOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationGcpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationAuthorizationGcpArrayOutput)
+}
+
+type GetProviderIntegrationAuthorizationGcpOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationAuthorizationGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationAuthorizationGcpOutput) ToGetProviderIntegrationAuthorizationGcpOutput() GetProviderIntegrationAuthorizationGcpOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationGcpOutput) ToGetProviderIntegrationAuthorizationGcpOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationGcpOutput {
+	return o
+}
+
+// (Computed String) Customer's Google Service Account that Confluent Cloud impersonates.
+func (o GetProviderIntegrationAuthorizationGcpOutput) CustomerGoogleServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAuthorizationGcp) string { return v.CustomerGoogleServiceAccount }).(pulumi.StringOutput)
+}
+
+// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+func (o GetProviderIntegrationAuthorizationGcpOutput) GoogleServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAuthorizationGcp) string { return v.GoogleServiceAccount }).(pulumi.StringOutput)
+}
+
+type GetProviderIntegrationAuthorizationGcpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationAuthorizationGcpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationAuthorizationGcpArrayOutput) ToGetProviderIntegrationAuthorizationGcpArrayOutput() GetProviderIntegrationAuthorizationGcpArrayOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationGcpArrayOutput) ToGetProviderIntegrationAuthorizationGcpArrayOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationGcpArrayOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationGcpArrayOutput) Index(i pulumi.IntInput) GetProviderIntegrationAuthorizationGcpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProviderIntegrationAuthorizationGcp {
+		return vs[0].([]GetProviderIntegrationAuthorizationGcp)[vs[1].(int)]
+	}).(GetProviderIntegrationAuthorizationGcpOutput)
+}
+
 type GetProviderIntegrationAw struct {
 	// (Required String) Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account, and must be unique in the same environment.
 	CustomerRoleArn string `pulumi:"customerRoleArn"`
@@ -34152,6 +35010,58 @@ func (o GetProviderIntegrationEnvironmentOutput) ToGetProviderIntegrationEnviron
 // > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 func (o GetProviderIntegrationEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProviderIntegrationEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetProviderIntegrationSetupEnvironment struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetProviderIntegrationSetupEnvironmentInput is an input type that accepts GetProviderIntegrationSetupEnvironmentArgs and GetProviderIntegrationSetupEnvironmentOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationSetupEnvironmentInput` via:
+//
+//	GetProviderIntegrationSetupEnvironmentArgs{...}
+type GetProviderIntegrationSetupEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationSetupEnvironmentOutput() GetProviderIntegrationSetupEnvironmentOutput
+	ToGetProviderIntegrationSetupEnvironmentOutputWithContext(context.Context) GetProviderIntegrationSetupEnvironmentOutput
+}
+
+type GetProviderIntegrationSetupEnvironmentArgs struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetProviderIntegrationSetupEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationSetupEnvironment)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationSetupEnvironmentArgs) ToGetProviderIntegrationSetupEnvironmentOutput() GetProviderIntegrationSetupEnvironmentOutput {
+	return i.ToGetProviderIntegrationSetupEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationSetupEnvironmentArgs) ToGetProviderIntegrationSetupEnvironmentOutputWithContext(ctx context.Context) GetProviderIntegrationSetupEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationSetupEnvironmentOutput)
+}
+
+type GetProviderIntegrationSetupEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationSetupEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationSetupEnvironment)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationSetupEnvironmentOutput) ToGetProviderIntegrationSetupEnvironmentOutput() GetProviderIntegrationSetupEnvironmentOutput {
+	return o
+}
+
+func (o GetProviderIntegrationSetupEnvironmentOutput) ToGetProviderIntegrationSetupEnvironmentOutputWithContext(ctx context.Context) GetProviderIntegrationSetupEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o GetProviderIntegrationSetupEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationSetupEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
 
 type GetSchemaCredentials struct {
@@ -39904,10 +40814,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentEnvironmentPtrInput)(nil)).Elem(), PrivateLinkAttachmentEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentGcpInput)(nil)).Elem(), PrivateLinkAttachmentGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentGcpArrayInput)(nil)).Elem(), PrivateLinkAttachmentGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAuthorizationAzureInput)(nil)).Elem(), ProviderIntegrationAuthorizationAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAuthorizationAzurePtrInput)(nil)).Elem(), ProviderIntegrationAuthorizationAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAuthorizationEnvironmentInput)(nil)).Elem(), ProviderIntegrationAuthorizationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAuthorizationEnvironmentPtrInput)(nil)).Elem(), ProviderIntegrationAuthorizationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAuthorizationGcpInput)(nil)).Elem(), ProviderIntegrationAuthorizationGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAuthorizationGcpPtrInput)(nil)).Elem(), ProviderIntegrationAuthorizationGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAwsInput)(nil)).Elem(), ProviderIntegrationAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAwsPtrInput)(nil)).Elem(), ProviderIntegrationAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationEnvironmentInput)(nil)).Elem(), ProviderIntegrationEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationEnvironmentPtrInput)(nil)).Elem(), ProviderIntegrationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationSetupEnvironmentInput)(nil)).Elem(), ProviderIntegrationSetupEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationSetupEnvironmentPtrInput)(nil)).Elem(), ProviderIntegrationSetupEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderOauthInput)(nil)).Elem(), ProviderOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderOauthPtrInput)(nil)).Elem(), ProviderOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsInput)(nil)).Elem(), SchemaCredentialsArgs{})
@@ -40157,9 +41075,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentEnvironmentInput)(nil)).Elem(), GetPrivateLinkAttachmentEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentGcpInput)(nil)).Elem(), GetPrivateLinkAttachmentGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentGcpArrayInput)(nil)).Elem(), GetPrivateLinkAttachmentGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAuthorizationAzureInput)(nil)).Elem(), GetProviderIntegrationAuthorizationAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAuthorizationAzureArrayInput)(nil)).Elem(), GetProviderIntegrationAuthorizationAzureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAuthorizationEnvironmentInput)(nil)).Elem(), GetProviderIntegrationAuthorizationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAuthorizationGcpInput)(nil)).Elem(), GetProviderIntegrationAuthorizationGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAuthorizationGcpArrayInput)(nil)).Elem(), GetProviderIntegrationAuthorizationGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAwInput)(nil)).Elem(), GetProviderIntegrationAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAwArrayInput)(nil)).Elem(), GetProviderIntegrationAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationEnvironmentInput)(nil)).Elem(), GetProviderIntegrationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationSetupEnvironmentInput)(nil)).Elem(), GetProviderIntegrationSetupEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsPtrInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaMetadataInput)(nil)).Elem(), GetSchemaMetadataArgs{})
@@ -40487,10 +41411,18 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkAttachmentEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAttachmentGcpOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAttachmentGcpArrayOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAuthorizationAzureOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAuthorizationAzurePtrOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAuthorizationEnvironmentOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAuthorizationEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAuthorizationGcpOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAuthorizationGcpPtrOutput{})
 	pulumi.RegisterOutputType(ProviderIntegrationAwsOutput{})
 	pulumi.RegisterOutputType(ProviderIntegrationAwsPtrOutput{})
 	pulumi.RegisterOutputType(ProviderIntegrationEnvironmentOutput{})
 	pulumi.RegisterOutputType(ProviderIntegrationEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationSetupEnvironmentOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationSetupEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ProviderOauthOutput{})
 	pulumi.RegisterOutputType(ProviderOauthPtrOutput{})
 	pulumi.RegisterOutputType(SchemaCredentialsOutput{})
@@ -40740,9 +41672,15 @@ func init() {
 	pulumi.RegisterOutputType(GetPrivateLinkAttachmentEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAttachmentGcpOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAttachmentGcpArrayOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationAuthorizationAzureOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationAuthorizationAzureArrayOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationAuthorizationEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationAuthorizationGcpOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationAuthorizationGcpArrayOutput{})
 	pulumi.RegisterOutputType(GetProviderIntegrationAwOutput{})
 	pulumi.RegisterOutputType(GetProviderIntegrationAwArrayOutput{})
 	pulumi.RegisterOutputType(GetProviderIntegrationEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationSetupEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetSchemaCredentialsOutput{})
 	pulumi.RegisterOutputType(GetSchemaCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetSchemaMetadataOutput{})

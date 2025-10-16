@@ -73,7 +73,11 @@ import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
 import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetProviderIntegrationArgs;
+import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
+import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetProviderIntegrationPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;
 import com.pulumi.confluentcloud.inputs.GetRoleBindingPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
@@ -144,7 +148,9 @@ import com.pulumi.confluentcloud.outputs.GetPeeringResult;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessResult;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAttachmentConnectionResult;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAttachmentResult;
+import com.pulumi.confluentcloud.outputs.GetProviderIntegrationAuthorizationResult;
 import com.pulumi.confluentcloud.outputs.GetProviderIntegrationResult;
+import com.pulumi.confluentcloud.outputs.GetProviderIntegrationSetupResult;
 import com.pulumi.confluentcloud.outputs.GetRoleBindingResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterConfigResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterModeResult;
@@ -10588,6 +10594,721 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetProviderIntegrationResult> getProviderIntegrationPlain(GetProviderIntegrationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getProviderIntegration:getProviderIntegration", TypeShape.of(GetProviderIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetProviderIntegrationAuthorizationResult> getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs args) {
+        return getProviderIntegrationAuthorization(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetProviderIntegrationAuthorizationResult> getProviderIntegrationAuthorizationPlain(GetProviderIntegrationAuthorizationPlainArgs args) {
+        return getProviderIntegrationAuthorizationPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetProviderIntegrationAuthorizationResult> getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getProviderIntegrationAuthorization:getProviderIntegrationAuthorization", TypeShape.of(GetProviderIntegrationAuthorizationResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetProviderIntegrationAuthorizationResult> getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getProviderIntegrationAuthorization:getProviderIntegrationAuthorization", TypeShape.of(GetProviderIntegrationAuthorizationResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetProviderIntegrationAuthorizationResult> getProviderIntegrationAuthorizationPlain(GetProviderIntegrationAuthorizationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getProviderIntegrationAuthorization:getProviderIntegrationAuthorization", TypeShape.of(GetProviderIntegrationAuthorizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ProviderIntegrationSetup` describes a Cloud Service Provider (CSP) integration that allows Confluent Cloud to access resources in your cloud provider account.
+     * 
+     * ## Example Usage
+     * 
+     * ### Azure Provider Integration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var azure = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .id("cspi-abc123")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("azureIntegrationStatus", azure.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### GCP Provider Integration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gcp = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .displayName("my-gcp-integration")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("gcpIntegrationId", gcp.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using with Authorization Resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .id("cspi-abc123")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         // Use the integration with authorization data source
+     *         final var mainGetProviderIntegrationAuthorization = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
+     *             .id(main.id())
+     *             .environment(GetProviderIntegrationAuthorizationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationSetup` data source:
+     * * provider-integration-azure: Complete Azure Provider Integration setup
+     * * provider-integration-gcp: Complete GCP Provider Integration setup
+     * 
+     */
+    public static Output<GetProviderIntegrationSetupResult> getProviderIntegrationSetup(GetProviderIntegrationSetupArgs args) {
+        return getProviderIntegrationSetup(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ProviderIntegrationSetup` describes a Cloud Service Provider (CSP) integration that allows Confluent Cloud to access resources in your cloud provider account.
+     * 
+     * ## Example Usage
+     * 
+     * ### Azure Provider Integration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var azure = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .id("cspi-abc123")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("azureIntegrationStatus", azure.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### GCP Provider Integration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gcp = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .displayName("my-gcp-integration")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("gcpIntegrationId", gcp.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using with Authorization Resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .id("cspi-abc123")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         // Use the integration with authorization data source
+     *         final var mainGetProviderIntegrationAuthorization = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
+     *             .id(main.id())
+     *             .environment(GetProviderIntegrationAuthorizationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationSetup` data source:
+     * * provider-integration-azure: Complete Azure Provider Integration setup
+     * * provider-integration-gcp: Complete GCP Provider Integration setup
+     * 
+     */
+    public static CompletableFuture<GetProviderIntegrationSetupResult> getProviderIntegrationSetupPlain(GetProviderIntegrationSetupPlainArgs args) {
+        return getProviderIntegrationSetupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ProviderIntegrationSetup` describes a Cloud Service Provider (CSP) integration that allows Confluent Cloud to access resources in your cloud provider account.
+     * 
+     * ## Example Usage
+     * 
+     * ### Azure Provider Integration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var azure = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .id("cspi-abc123")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("azureIntegrationStatus", azure.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### GCP Provider Integration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gcp = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .displayName("my-gcp-integration")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("gcpIntegrationId", gcp.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using with Authorization Resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .id("cspi-abc123")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         // Use the integration with authorization data source
+     *         final var mainGetProviderIntegrationAuthorization = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
+     *             .id(main.id())
+     *             .environment(GetProviderIntegrationAuthorizationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationSetup` data source:
+     * * provider-integration-azure: Complete Azure Provider Integration setup
+     * * provider-integration-gcp: Complete GCP Provider Integration setup
+     * 
+     */
+    public static Output<GetProviderIntegrationSetupResult> getProviderIntegrationSetup(GetProviderIntegrationSetupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getProviderIntegrationSetup:getProviderIntegrationSetup", TypeShape.of(GetProviderIntegrationSetupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ProviderIntegrationSetup` describes a Cloud Service Provider (CSP) integration that allows Confluent Cloud to access resources in your cloud provider account.
+     * 
+     * ## Example Usage
+     * 
+     * ### Azure Provider Integration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var azure = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .id("cspi-abc123")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("azureIntegrationStatus", azure.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### GCP Provider Integration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gcp = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .displayName("my-gcp-integration")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("gcpIntegrationId", gcp.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using with Authorization Resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .id("cspi-abc123")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         // Use the integration with authorization data source
+     *         final var mainGetProviderIntegrationAuthorization = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
+     *             .id(main.id())
+     *             .environment(GetProviderIntegrationAuthorizationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationSetup` data source:
+     * * provider-integration-azure: Complete Azure Provider Integration setup
+     * * provider-integration-gcp: Complete GCP Provider Integration setup
+     * 
+     */
+    public static Output<GetProviderIntegrationSetupResult> getProviderIntegrationSetup(GetProviderIntegrationSetupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getProviderIntegrationSetup:getProviderIntegrationSetup", TypeShape.of(GetProviderIntegrationSetupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.ProviderIntegrationSetup` describes a Cloud Service Provider (CSP) integration that allows Confluent Cloud to access resources in your cloud provider account.
+     * 
+     * ## Example Usage
+     * 
+     * ### Azure Provider Integration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var azure = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .id("cspi-abc123")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("azureIntegrationStatus", azure.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### GCP Provider Integration
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var gcp = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .displayName("my-gcp-integration")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("gcpIntegrationId", gcp.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using with Authorization Resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationSetupEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetProviderIntegrationAuthorizationEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getProviderIntegrationSetup(GetProviderIntegrationSetupArgs.builder()
+     *             .id("cspi-abc123")
+     *             .environment(GetProviderIntegrationSetupEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *         // Use the integration with authorization data source
+     *         final var mainGetProviderIntegrationAuthorization = ConfluentcloudFunctions.getProviderIntegrationAuthorization(GetProviderIntegrationAuthorizationArgs.builder()
+     *             .id(main.id())
+     *             .environment(GetProviderIntegrationAuthorizationEnvironmentArgs.builder()
+     *                 .id("env-xyz456")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationSetup` data source:
+     * * provider-integration-azure: Complete Azure Provider Integration setup
+     * * provider-integration-gcp: Complete GCP Provider Integration setup
+     * 
+     */
+    public static CompletableFuture<GetProviderIntegrationSetupResult> getProviderIntegrationSetupPlain(GetProviderIntegrationSetupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getProviderIntegrationSetup:getProviderIntegrationSetup", TypeShape.of(GetProviderIntegrationSetupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
