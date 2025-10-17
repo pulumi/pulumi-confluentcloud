@@ -300,16 +300,6 @@ export const getProviderIntegration: typeof import("./getProviderIntegration").g
 export const getProviderIntegrationOutput: typeof import("./getProviderIntegration").getProviderIntegrationOutput = null as any;
 utilities.lazyLoad(exports, ["getProviderIntegration","getProviderIntegrationOutput"], () => require("./getProviderIntegration"));
 
-export { GetProviderIntegrationAuthorizationArgs, GetProviderIntegrationAuthorizationResult, GetProviderIntegrationAuthorizationOutputArgs } from "./getProviderIntegrationAuthorization";
-export const getProviderIntegrationAuthorization: typeof import("./getProviderIntegrationAuthorization").getProviderIntegrationAuthorization = null as any;
-export const getProviderIntegrationAuthorizationOutput: typeof import("./getProviderIntegrationAuthorization").getProviderIntegrationAuthorizationOutput = null as any;
-utilities.lazyLoad(exports, ["getProviderIntegrationAuthorization","getProviderIntegrationAuthorizationOutput"], () => require("./getProviderIntegrationAuthorization"));
-
-export { GetProviderIntegrationSetupArgs, GetProviderIntegrationSetupResult, GetProviderIntegrationSetupOutputArgs } from "./getProviderIntegrationSetup";
-export const getProviderIntegrationSetup: typeof import("./getProviderIntegrationSetup").getProviderIntegrationSetup = null as any;
-export const getProviderIntegrationSetupOutput: typeof import("./getProviderIntegrationSetup").getProviderIntegrationSetupOutput = null as any;
-utilities.lazyLoad(exports, ["getProviderIntegrationSetup","getProviderIntegrationSetupOutput"], () => require("./getProviderIntegrationSetup"));
-
 export { GetRoleBindingArgs, GetRoleBindingResult, GetRoleBindingOutputArgs } from "./getRoleBinding";
 export const getRoleBinding: typeof import("./getRoleBinding").getRoleBinding = null as any;
 export const getRoleBindingOutput: typeof import("./getRoleBinding").getRoleBindingOutput = null as any;
@@ -513,16 +503,6 @@ export type ProviderIntegration = import("./providerIntegration").ProviderIntegr
 export const ProviderIntegration: typeof import("./providerIntegration").ProviderIntegration = null as any;
 utilities.lazyLoad(exports, ["ProviderIntegration"], () => require("./providerIntegration"));
 
-export { ProviderIntegrationAuthorizationArgs, ProviderIntegrationAuthorizationState } from "./providerIntegrationAuthorization";
-export type ProviderIntegrationAuthorization = import("./providerIntegrationAuthorization").ProviderIntegrationAuthorization;
-export const ProviderIntegrationAuthorization: typeof import("./providerIntegrationAuthorization").ProviderIntegrationAuthorization = null as any;
-utilities.lazyLoad(exports, ["ProviderIntegrationAuthorization"], () => require("./providerIntegrationAuthorization"));
-
-export { ProviderIntegrationSetupArgs, ProviderIntegrationSetupState } from "./providerIntegrationSetup";
-export type ProviderIntegrationSetup = import("./providerIntegrationSetup").ProviderIntegrationSetup;
-export const ProviderIntegrationSetup: typeof import("./providerIntegrationSetup").ProviderIntegrationSetup = null as any;
-utilities.lazyLoad(exports, ["ProviderIntegrationSetup"], () => require("./providerIntegrationSetup"));
-
 export { RoleBindingArgs, RoleBindingState } from "./roleBinding";
 export type RoleBinding = import("./roleBinding").RoleBinding;
 export const RoleBinding: typeof import("./roleBinding").RoleBinding = null as any;
@@ -700,10 +680,6 @@ const _module = {
                 return new PrivateLinkAttachmentConnection(name, <any>undefined, { urn })
             case "confluentcloud:index/providerIntegration:ProviderIntegration":
                 return new ProviderIntegration(name, <any>undefined, { urn })
-            case "confluentcloud:index/providerIntegrationAuthorization:ProviderIntegrationAuthorization":
-                return new ProviderIntegrationAuthorization(name, <any>undefined, { urn })
-            case "confluentcloud:index/providerIntegrationSetup:ProviderIntegrationSetup":
-                return new ProviderIntegrationSetup(name, <any>undefined, { urn })
             case "confluentcloud:index/roleBinding:RoleBinding":
                 return new RoleBinding(name, <any>undefined, { urn })
             case "confluentcloud:index/schema:Schema":
@@ -783,8 +759,6 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAccess
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAttachment", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAttachmentConnection", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/providerIntegration", _module)
-pulumi.runtime.registerResourceModule("confluentcloud", "index/providerIntegrationAuthorization", _module)
-pulumi.runtime.registerResourceModule("confluentcloud", "index/providerIntegrationSetup", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/roleBinding", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schema", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaExporter", _module)
