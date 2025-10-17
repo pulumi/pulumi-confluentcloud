@@ -141,12 +141,8 @@ __all__ = [
     'PrivateLinkAttachmentConnectionPrivateLinkAttachment',
     'PrivateLinkAttachmentEnvironment',
     'PrivateLinkAttachmentGcp',
-    'ProviderIntegrationAuthorizationAzure',
-    'ProviderIntegrationAuthorizationEnvironment',
-    'ProviderIntegrationAuthorizationGcp',
     'ProviderIntegrationAws',
     'ProviderIntegrationEnvironment',
-    'ProviderIntegrationSetupEnvironment',
     'SchemaCredentials',
     'SchemaExporterCredentials',
     'SchemaExporterDestinationSchemaRegistryCluster',
@@ -280,12 +276,8 @@ __all__ = [
     'GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentResult',
     'GetPrivateLinkAttachmentEnvironmentResult',
     'GetPrivateLinkAttachmentGcpResult',
-    'GetProviderIntegrationAuthorizationAzureResult',
-    'GetProviderIntegrationAuthorizationEnvironmentResult',
-    'GetProviderIntegrationAuthorizationGcpResult',
     'GetProviderIntegrationAwResult',
     'GetProviderIntegrationEnvironmentResult',
-    'GetProviderIntegrationSetupEnvironmentResult',
     'GetSchemaCredentialsResult',
     'GetSchemaMetadataResult',
     'GetSchemaMetadataTagResult',
@@ -4337,126 +4329,6 @@ class PrivateLinkAttachmentGcp(dict):
 
 
 @pulumi.output_type
-class ProviderIntegrationAuthorizationAzure(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customerAzureTenantId":
-            suggest = "customer_azure_tenant_id"
-        elif key == "confluentMultiTenantAppId":
-            suggest = "confluent_multi_tenant_app_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProviderIntegrationAuthorizationAzure. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProviderIntegrationAuthorizationAzure.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProviderIntegrationAuthorizationAzure.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 customer_azure_tenant_id: _builtins.str,
-                 confluent_multi_tenant_app_id: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str customer_azure_tenant_id: Customer's Azure Tenant ID.
-        :param _builtins.str confluent_multi_tenant_app_id: (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
-        """
-        pulumi.set(__self__, "customer_azure_tenant_id", customer_azure_tenant_id)
-        if confluent_multi_tenant_app_id is not None:
-            pulumi.set(__self__, "confluent_multi_tenant_app_id", confluent_multi_tenant_app_id)
-
-    @_builtins.property
-    @pulumi.getter(name="customerAzureTenantId")
-    def customer_azure_tenant_id(self) -> _builtins.str:
-        """
-        Customer's Azure Tenant ID.
-        """
-        return pulumi.get(self, "customer_azure_tenant_id")
-
-    @_builtins.property
-    @pulumi.getter(name="confluentMultiTenantAppId")
-    def confluent_multi_tenant_app_id(self) -> Optional[_builtins.str]:
-        """
-        (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
-        """
-        return pulumi.get(self, "confluent_multi_tenant_app_id")
-
-
-@pulumi.output_type
-class ProviderIntegrationAuthorizationEnvironment(dict):
-    def __init__(__self__, *,
-                 id: _builtins.str):
-        """
-        :param _builtins.str id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class ProviderIntegrationAuthorizationGcp(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customerGoogleServiceAccount":
-            suggest = "customer_google_service_account"
-        elif key == "googleServiceAccount":
-            suggest = "google_service_account"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProviderIntegrationAuthorizationGcp. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProviderIntegrationAuthorizationGcp.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProviderIntegrationAuthorizationGcp.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 customer_google_service_account: _builtins.str,
-                 google_service_account: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str customer_google_service_account: Customer's Google Service Account that Confluent Cloud impersonates.
-               
-               > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
-        :param _builtins.str google_service_account: (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
-        """
-        pulumi.set(__self__, "customer_google_service_account", customer_google_service_account)
-        if google_service_account is not None:
-            pulumi.set(__self__, "google_service_account", google_service_account)
-
-    @_builtins.property
-    @pulumi.getter(name="customerGoogleServiceAccount")
-    def customer_google_service_account(self) -> _builtins.str:
-        """
-        Customer's Google Service Account that Confluent Cloud impersonates.
-
-        > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
-        """
-        return pulumi.get(self, "customer_google_service_account")
-
-    @_builtins.property
-    @pulumi.getter(name="googleServiceAccount")
-    def google_service_account(self) -> Optional[_builtins.str]:
-        """
-        (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
-        """
-        return pulumi.get(self, "google_service_account")
-
-
-@pulumi.output_type
 class ProviderIntegrationAws(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4529,24 +4401,6 @@ class ProviderIntegrationAws(dict):
 
 @pulumi.output_type
 class ProviderIntegrationEnvironment(dict):
-    def __init__(__self__, *,
-                 id: _builtins.str):
-        """
-        :param _builtins.str id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class ProviderIntegrationSetupEnvironment(dict):
     def __init__(__self__, *,
                  id: _builtins.str):
         """
@@ -8244,82 +8098,6 @@ class GetPrivateLinkAttachmentGcpResult(dict):
 
 
 @pulumi.output_type
-class GetProviderIntegrationAuthorizationAzureResult(dict):
-    def __init__(__self__, *,
-                 confluent_multi_tenant_app_id: _builtins.str,
-                 customer_azure_tenant_id: _builtins.str):
-        """
-        :param _builtins.str confluent_multi_tenant_app_id: (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
-        :param _builtins.str customer_azure_tenant_id: (Computed String) Customer's Azure Tenant ID.
-        """
-        pulumi.set(__self__, "confluent_multi_tenant_app_id", confluent_multi_tenant_app_id)
-        pulumi.set(__self__, "customer_azure_tenant_id", customer_azure_tenant_id)
-
-    @_builtins.property
-    @pulumi.getter(name="confluentMultiTenantAppId")
-    def confluent_multi_tenant_app_id(self) -> _builtins.str:
-        """
-        (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
-        """
-        return pulumi.get(self, "confluent_multi_tenant_app_id")
-
-    @_builtins.property
-    @pulumi.getter(name="customerAzureTenantId")
-    def customer_azure_tenant_id(self) -> _builtins.str:
-        """
-        (Computed String) Customer's Azure Tenant ID.
-        """
-        return pulumi.get(self, "customer_azure_tenant_id")
-
-
-@pulumi.output_type
-class GetProviderIntegrationAuthorizationEnvironmentResult(dict):
-    def __init__(__self__, *,
-                 id: _builtins.str):
-        """
-        :param _builtins.str id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class GetProviderIntegrationAuthorizationGcpResult(dict):
-    def __init__(__self__, *,
-                 customer_google_service_account: _builtins.str,
-                 google_service_account: _builtins.str):
-        """
-        :param _builtins.str customer_google_service_account: (Computed String) Customer's Google Service Account that Confluent Cloud impersonates.
-        :param _builtins.str google_service_account: (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
-        """
-        pulumi.set(__self__, "customer_google_service_account", customer_google_service_account)
-        pulumi.set(__self__, "google_service_account", google_service_account)
-
-    @_builtins.property
-    @pulumi.getter(name="customerGoogleServiceAccount")
-    def customer_google_service_account(self) -> _builtins.str:
-        """
-        (Computed String) Customer's Google Service Account that Confluent Cloud impersonates.
-        """
-        return pulumi.get(self, "customer_google_service_account")
-
-    @_builtins.property
-    @pulumi.getter(name="googleServiceAccount")
-    def google_service_account(self) -> _builtins.str:
-        """
-        (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
-        """
-        return pulumi.get(self, "google_service_account")
-
-
-@pulumi.output_type
 class GetProviderIntegrationAwResult(dict):
     def __init__(__self__, *,
                  customer_role_arn: _builtins.str,
@@ -8377,24 +8155,6 @@ class GetProviderIntegrationEnvironmentResult(dict):
         The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
 
         > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class GetProviderIntegrationSetupEnvironmentResult(dict):
-    def __init__(__self__, *,
-                 id: _builtins.str):
-        """
-        :param _builtins.str id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 

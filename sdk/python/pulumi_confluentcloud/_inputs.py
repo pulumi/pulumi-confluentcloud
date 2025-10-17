@@ -265,18 +265,10 @@ __all__ = [
     'PrivateLinkAttachmentEnvironmentArgsDict',
     'PrivateLinkAttachmentGcpArgs',
     'PrivateLinkAttachmentGcpArgsDict',
-    'ProviderIntegrationAuthorizationAzureArgs',
-    'ProviderIntegrationAuthorizationAzureArgsDict',
-    'ProviderIntegrationAuthorizationEnvironmentArgs',
-    'ProviderIntegrationAuthorizationEnvironmentArgsDict',
-    'ProviderIntegrationAuthorizationGcpArgs',
-    'ProviderIntegrationAuthorizationGcpArgsDict',
     'ProviderIntegrationAwsArgs',
     'ProviderIntegrationAwsArgsDict',
     'ProviderIntegrationEnvironmentArgs',
     'ProviderIntegrationEnvironmentArgsDict',
-    'ProviderIntegrationSetupEnvironmentArgs',
-    'ProviderIntegrationSetupEnvironmentArgsDict',
     'ProviderOauthArgs',
     'ProviderOauthArgsDict',
     'SchemaCredentialsArgs',
@@ -443,12 +435,8 @@ __all__ = [
     'GetPrivateLinkAttachmentConnectionEnvironmentArgsDict',
     'GetPrivateLinkAttachmentEnvironmentArgs',
     'GetPrivateLinkAttachmentEnvironmentArgsDict',
-    'GetProviderIntegrationAuthorizationEnvironmentArgs',
-    'GetProviderIntegrationAuthorizationEnvironmentArgsDict',
     'GetProviderIntegrationEnvironmentArgs',
     'GetProviderIntegrationEnvironmentArgsDict',
-    'GetProviderIntegrationSetupEnvironmentArgs',
-    'GetProviderIntegrationSetupEnvironmentArgsDict',
     'GetSchemaCredentialsArgs',
     'GetSchemaCredentialsArgsDict',
     'GetSchemaMetadataArgs',
@@ -6120,145 +6108,6 @@ class PrivateLinkAttachmentGcpArgs:
 
 
 if not MYPY:
-    class ProviderIntegrationAuthorizationAzureArgsDict(TypedDict):
-        customer_azure_tenant_id: pulumi.Input[_builtins.str]
-        """
-        Customer's Azure Tenant ID.
-        """
-        confluent_multi_tenant_app_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
-        """
-elif False:
-    ProviderIntegrationAuthorizationAzureArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ProviderIntegrationAuthorizationAzureArgs:
-    def __init__(__self__, *,
-                 customer_azure_tenant_id: pulumi.Input[_builtins.str],
-                 confluent_multi_tenant_app_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] customer_azure_tenant_id: Customer's Azure Tenant ID.
-        :param pulumi.Input[_builtins.str] confluent_multi_tenant_app_id: (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
-        """
-        pulumi.set(__self__, "customer_azure_tenant_id", customer_azure_tenant_id)
-        if confluent_multi_tenant_app_id is not None:
-            pulumi.set(__self__, "confluent_multi_tenant_app_id", confluent_multi_tenant_app_id)
-
-    @_builtins.property
-    @pulumi.getter(name="customerAzureTenantId")
-    def customer_azure_tenant_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Customer's Azure Tenant ID.
-        """
-        return pulumi.get(self, "customer_azure_tenant_id")
-
-    @customer_azure_tenant_id.setter
-    def customer_azure_tenant_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "customer_azure_tenant_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="confluentMultiTenantAppId")
-    def confluent_multi_tenant_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
-        """
-        return pulumi.get(self, "confluent_multi_tenant_app_id")
-
-    @confluent_multi_tenant_app_id.setter
-    def confluent_multi_tenant_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "confluent_multi_tenant_app_id", value)
-
-
-if not MYPY:
-    class ProviderIntegrationAuthorizationEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-elif False:
-    ProviderIntegrationAuthorizationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ProviderIntegrationAuthorizationEnvironmentArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class ProviderIntegrationAuthorizationGcpArgsDict(TypedDict):
-        customer_google_service_account: pulumi.Input[_builtins.str]
-        """
-        Customer's Google Service Account that Confluent Cloud impersonates.
-
-        > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
-        """
-        google_service_account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
-        """
-elif False:
-    ProviderIntegrationAuthorizationGcpArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ProviderIntegrationAuthorizationGcpArgs:
-    def __init__(__self__, *,
-                 customer_google_service_account: pulumi.Input[_builtins.str],
-                 google_service_account: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] customer_google_service_account: Customer's Google Service Account that Confluent Cloud impersonates.
-               
-               > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
-        :param pulumi.Input[_builtins.str] google_service_account: (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
-        """
-        pulumi.set(__self__, "customer_google_service_account", customer_google_service_account)
-        if google_service_account is not None:
-            pulumi.set(__self__, "google_service_account", google_service_account)
-
-    @_builtins.property
-    @pulumi.getter(name="customerGoogleServiceAccount")
-    def customer_google_service_account(self) -> pulumi.Input[_builtins.str]:
-        """
-        Customer's Google Service Account that Confluent Cloud impersonates.
-
-        > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
-        """
-        return pulumi.get(self, "customer_google_service_account")
-
-    @customer_google_service_account.setter
-    def customer_google_service_account(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "customer_google_service_account", value)
-
-    @_builtins.property
-    @pulumi.getter(name="googleServiceAccount")
-    def google_service_account(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
-        """
-        return pulumi.get(self, "google_service_account")
-
-    @google_service_account.setter
-    def google_service_account(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "google_service_account", value)
-
-
-if not MYPY:
     class ProviderIntegrationAwsArgsDict(TypedDict):
         customer_role_arn: pulumi.Input[_builtins.str]
         """
@@ -6352,37 +6201,6 @@ elif False:
 
 @pulumi.input_type
 class ProviderIntegrationEnvironmentArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class ProviderIntegrationSetupEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-elif False:
-    ProviderIntegrationSetupEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ProviderIntegrationSetupEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str]):
         """
@@ -10174,37 +9992,6 @@ class GetPrivateLinkAttachmentEnvironmentArgs:
 
 
 if not MYPY:
-    class GetProviderIntegrationAuthorizationEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-elif False:
-    GetProviderIntegrationAuthorizationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetProviderIntegrationAuthorizationEnvironmentArgs:
-    def __init__(__self__, *,
-                 id: _builtins.str):
-        """
-        :param _builtins.str id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: _builtins.str):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
     class GetProviderIntegrationEnvironmentArgsDict(TypedDict):
         id: _builtins.str
         """
@@ -10233,37 +10020,6 @@ class GetProviderIntegrationEnvironmentArgs:
         The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
 
         > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: _builtins.str):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class GetProviderIntegrationSetupEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-elif False:
-    GetProviderIntegrationSetupEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetProviderIntegrationSetupEnvironmentArgs:
-    def __init__(__self__, *,
-                 id: _builtins.str):
-        """
-        :param _builtins.str id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 

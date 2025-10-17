@@ -727,31 +727,6 @@
                     }
                 }
             },
-            "confluent_provider_integration_authorization": {
-                "current": "confluentcloud:index/providerIntegrationAuthorization:ProviderIntegrationAuthorization",
-                "fields": {
-                    "azure": {
-                        "maxItemsOne": true
-                    },
-                    "environment": {
-                        "maxItemsOne": true
-                    },
-                    "gcp": {
-                        "maxItemsOne": true
-                    }
-                }
-            },
-            "confluent_provider_integration_setup": {
-                "current": "confluentcloud:index/providerIntegrationSetup:ProviderIntegrationSetup",
-                "fields": {
-                    "environment": {
-                        "maxItemsOne": true
-                    },
-                    "usages": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
             "confluent_role_binding": {
                 "current": "confluentcloud:index/roleBinding:RoleBinding"
             },
@@ -1569,31 +1544,6 @@
                     "aws": {
                         "maxItemsOne": false
                     },
-                    "environment": {
-                        "maxItemsOne": true
-                    },
-                    "usages": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "confluent_provider_integration_authorization": {
-                "current": "confluentcloud:index/getProviderIntegrationAuthorization:getProviderIntegrationAuthorization",
-                "fields": {
-                    "azure": {
-                        "maxItemsOne": false
-                    },
-                    "environment": {
-                        "maxItemsOne": true
-                    },
-                    "gcp": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
-            "confluent_provider_integration_setup": {
-                "current": "confluentcloud:index/getProviderIntegrationSetup:getProviderIntegrationSetup",
-                "fields": {
                     "environment": {
                         "maxItemsOne": true
                     },
