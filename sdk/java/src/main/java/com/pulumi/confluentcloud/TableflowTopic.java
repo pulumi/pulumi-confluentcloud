@@ -9,6 +9,7 @@ import com.pulumi.confluentcloud.inputs.TableflowTopicState;
 import com.pulumi.confluentcloud.outputs.TableflowTopicByobAws;
 import com.pulumi.confluentcloud.outputs.TableflowTopicCredentials;
 import com.pulumi.confluentcloud.outputs.TableflowTopicEnvironment;
+import com.pulumi.confluentcloud.outputs.TableflowTopicErrorHandling;
 import com.pulumi.confluentcloud.outputs.TableflowTopicKafkaCluster;
 import com.pulumi.confluentcloud.outputs.TableflowTopicManagedStorage;
 import com.pulumi.core.Output;
@@ -239,6 +240,12 @@ public class TableflowTopic extends com.pulumi.resources.CustomResource {
     public Output<TableflowTopicEnvironment> environment() {
         return this.environment;
     }
+    @Export(name="errorHandling", refs={TableflowTopicErrorHandling.class}, tree="[0]")
+    private Output<TableflowTopicErrorHandling> errorHandling;
+
+    public Output<TableflowTopicErrorHandling> errorHandling() {
+        return this.errorHandling;
+    }
     @Export(name="kafkaCluster", refs={TableflowTopicKafkaCluster.class}, tree="[0]")
     private Output<TableflowTopicKafkaCluster> kafkaCluster;
 
@@ -262,7 +269,11 @@ public class TableflowTopic extends com.pulumi.resources.CustomResource {
     /**
      * The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      * 
+     * @deprecated
+     * This attribute is deprecated and will be removed in a future release.
+     * 
      */
+    @Deprecated /* This attribute is deprecated and will be removed in a future release. */
     @Export(name="recordFailureStrategy", refs={String.class}, tree="[0]")
     private Output<String> recordFailureStrategy;
 

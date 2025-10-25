@@ -28,7 +28,7 @@ class GetTableflowTopicResult:
     """
     A collection of values returned by getTableflowTopic.
     """
-    def __init__(__self__, byob_aws=None, credentials=None, display_name=None, enable_compaction=None, enable_partitioning=None, environment=None, id=None, kafka_cluster=None, managed_storages=None, record_failure_strategy=None, retention_ms=None, suspended=None, table_formats=None, table_path=None, write_mode=None):
+    def __init__(__self__, byob_aws=None, credentials=None, display_name=None, enable_compaction=None, enable_partitioning=None, environment=None, error_handlings=None, id=None, kafka_cluster=None, managed_storages=None, record_failure_strategy=None, retention_ms=None, suspended=None, table_formats=None, table_path=None, write_mode=None):
         if byob_aws and not isinstance(byob_aws, list):
             raise TypeError("Expected argument 'byob_aws' to be a list")
         pulumi.set(__self__, "byob_aws", byob_aws)
@@ -47,6 +47,9 @@ class GetTableflowTopicResult:
         if environment and not isinstance(environment, dict):
             raise TypeError("Expected argument 'environment' to be a dict")
         pulumi.set(__self__, "environment", environment)
+        if error_handlings and not isinstance(error_handlings, list):
+            raise TypeError("Expected argument 'error_handlings' to be a list")
+        pulumi.set(__self__, "error_handlings", error_handlings)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -115,6 +118,14 @@ class GetTableflowTopicResult:
         return pulumi.get(self, "environment")
 
     @_builtins.property
+    @pulumi.getter(name="errorHandlings")
+    def error_handlings(self) -> Sequence['outputs.GetTableflowTopicErrorHandlingResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "error_handlings")
+
+    @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
@@ -139,7 +150,7 @@ class GetTableflowTopicResult:
     @pulumi.getter(name="recordFailureStrategy")
     def record_failure_strategy(self) -> _builtins.str:
         """
-        (Optional String) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+        (Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         """
         return pulumi.get(self, "record_failure_strategy")
 
@@ -196,6 +207,7 @@ class AwaitableGetTableflowTopicResult(GetTableflowTopicResult):
             enable_compaction=self.enable_compaction,
             enable_partitioning=self.enable_partitioning,
             environment=self.environment,
+            error_handlings=self.error_handlings,
             id=self.id,
             kafka_cluster=self.kafka_cluster,
             managed_storages=self.managed_storages,
@@ -267,6 +279,7 @@ def get_tableflow_topic(credentials: Optional[Union['GetTableflowTopicCredential
         enable_compaction=pulumi.get(__ret__, 'enable_compaction'),
         enable_partitioning=pulumi.get(__ret__, 'enable_partitioning'),
         environment=pulumi.get(__ret__, 'environment'),
+        error_handlings=pulumi.get(__ret__, 'error_handlings'),
         id=pulumi.get(__ret__, 'id'),
         kafka_cluster=pulumi.get(__ret__, 'kafka_cluster'),
         managed_storages=pulumi.get(__ret__, 'managed_storages'),
@@ -335,6 +348,7 @@ def get_tableflow_topic_output(credentials: Optional[pulumi.Input[Optional[Union
         enable_compaction=pulumi.get(__response__, 'enable_compaction'),
         enable_partitioning=pulumi.get(__response__, 'enable_partitioning'),
         environment=pulumi.get(__response__, 'environment'),
+        error_handlings=pulumi.get(__response__, 'error_handlings'),
         id=pulumi.get(__response__, 'id'),
         kafka_cluster=pulumi.get(__response__, 'kafka_cluster'),
         managed_storages=pulumi.get(__response__, 'managed_storages'),

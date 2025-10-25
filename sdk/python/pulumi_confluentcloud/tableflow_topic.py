@@ -26,6 +26,7 @@ class TableflowTopicArgs:
                  kafka_cluster: pulumi.Input['TableflowTopicKafkaClusterArgs'],
                  byob_aws: Optional[pulumi.Input['TableflowTopicByobAwsArgs']] = None,
                  credentials: Optional[pulumi.Input['TableflowTopicCredentialsArgs']] = None,
+                 error_handling: Optional[pulumi.Input['TableflowTopicErrorHandlingArgs']] = None,
                  managed_storages: Optional[pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]]] = None,
                  record_failure_strategy: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_ms: Optional[pulumi.Input[_builtins.str]] = None,
@@ -48,8 +49,13 @@ class TableflowTopicArgs:
             pulumi.set(__self__, "byob_aws", byob_aws)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if error_handling is not None:
+            pulumi.set(__self__, "error_handling", error_handling)
         if managed_storages is not None:
             pulumi.set(__self__, "managed_storages", managed_storages)
+        if record_failure_strategy is not None:
+            warnings.warn("""This attribute is deprecated and will be removed in a future release.""", DeprecationWarning)
+            pulumi.log.warn("""record_failure_strategy is deprecated: This attribute is deprecated and will be removed in a future release.""")
         if record_failure_strategy is not None:
             pulumi.set(__self__, "record_failure_strategy", record_failure_strategy)
         if retention_ms is not None:
@@ -115,6 +121,15 @@ class TableflowTopicArgs:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter(name="errorHandling")
+    def error_handling(self) -> Optional[pulumi.Input['TableflowTopicErrorHandlingArgs']]:
+        return pulumi.get(self, "error_handling")
+
+    @error_handling.setter
+    def error_handling(self, value: Optional[pulumi.Input['TableflowTopicErrorHandlingArgs']]):
+        pulumi.set(self, "error_handling", value)
+
+    @_builtins.property
     @pulumi.getter(name="managedStorages")
     def managed_storages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]]]:
         """
@@ -128,6 +143,7 @@ class TableflowTopicArgs:
 
     @_builtins.property
     @pulumi.getter(name="recordFailureStrategy")
+    @_utilities.deprecated("""This attribute is deprecated and will be removed in a future release.""")
     def record_failure_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
@@ -172,6 +188,7 @@ class _TableflowTopicState:
                  enable_compaction: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[_builtins.bool]] = None,
                  environment: Optional[pulumi.Input['TableflowTopicEnvironmentArgs']] = None,
+                 error_handling: Optional[pulumi.Input['TableflowTopicErrorHandlingArgs']] = None,
                  kafka_cluster: Optional[pulumi.Input['TableflowTopicKafkaClusterArgs']] = None,
                  managed_storages: Optional[pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]]] = None,
                  record_failure_strategy: Optional[pulumi.Input[_builtins.str]] = None,
@@ -208,10 +225,15 @@ class _TableflowTopicState:
             pulumi.set(__self__, "enable_partitioning", enable_partitioning)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if error_handling is not None:
+            pulumi.set(__self__, "error_handling", error_handling)
         if kafka_cluster is not None:
             pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         if managed_storages is not None:
             pulumi.set(__self__, "managed_storages", managed_storages)
+        if record_failure_strategy is not None:
+            warnings.warn("""This attribute is deprecated and will be removed in a future release.""", DeprecationWarning)
+            pulumi.log.warn("""record_failure_strategy is deprecated: This attribute is deprecated and will be removed in a future release.""")
         if record_failure_strategy is not None:
             pulumi.set(__self__, "record_failure_strategy", record_failure_strategy)
         if retention_ms is not None:
@@ -298,6 +320,15 @@ class _TableflowTopicState:
         pulumi.set(self, "environment", value)
 
     @_builtins.property
+    @pulumi.getter(name="errorHandling")
+    def error_handling(self) -> Optional[pulumi.Input['TableflowTopicErrorHandlingArgs']]:
+        return pulumi.get(self, "error_handling")
+
+    @error_handling.setter
+    def error_handling(self, value: Optional[pulumi.Input['TableflowTopicErrorHandlingArgs']]):
+        pulumi.set(self, "error_handling", value)
+
+    @_builtins.property
     @pulumi.getter(name="kafkaCluster")
     def kafka_cluster(self) -> Optional[pulumi.Input['TableflowTopicKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
@@ -320,6 +351,7 @@ class _TableflowTopicState:
 
     @_builtins.property
     @pulumi.getter(name="recordFailureStrategy")
+    @_utilities.deprecated("""This attribute is deprecated and will be removed in a future release.""")
     def record_failure_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
@@ -401,6 +433,7 @@ class TableflowTopic(pulumi.CustomResource):
                  credentials: Optional[pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment: Optional[pulumi.Input[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']]] = None,
+                 error_handling: Optional[pulumi.Input[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict']]] = None,
                  kafka_cluster: Optional[pulumi.Input[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict']]] = None,
                  managed_storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]]] = None,
                  record_failure_strategy: Optional[pulumi.Input[_builtins.str]] = None,
@@ -599,6 +632,7 @@ class TableflowTopic(pulumi.CustomResource):
                  credentials: Optional[pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment: Optional[pulumi.Input[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']]] = None,
+                 error_handling: Optional[pulumi.Input[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict']]] = None,
                  kafka_cluster: Optional[pulumi.Input[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict']]] = None,
                  managed_storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]]] = None,
                  record_failure_strategy: Optional[pulumi.Input[_builtins.str]] = None,
@@ -621,6 +655,7 @@ class TableflowTopic(pulumi.CustomResource):
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            __props__.__dict__["error_handling"] = error_handling
             if kafka_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster
@@ -651,6 +686,7 @@ class TableflowTopic(pulumi.CustomResource):
             enable_compaction: Optional[pulumi.Input[_builtins.bool]] = None,
             enable_partitioning: Optional[pulumi.Input[_builtins.bool]] = None,
             environment: Optional[pulumi.Input[Union['TableflowTopicEnvironmentArgs', 'TableflowTopicEnvironmentArgsDict']]] = None,
+            error_handling: Optional[pulumi.Input[Union['TableflowTopicErrorHandlingArgs', 'TableflowTopicErrorHandlingArgsDict']]] = None,
             kafka_cluster: Optional[pulumi.Input[Union['TableflowTopicKafkaClusterArgs', 'TableflowTopicKafkaClusterArgsDict']]] = None,
             managed_storages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableflowTopicManagedStorageArgs', 'TableflowTopicManagedStorageArgsDict']]]]] = None,
             record_failure_strategy: Optional[pulumi.Input[_builtins.str]] = None,
@@ -690,6 +726,7 @@ class TableflowTopic(pulumi.CustomResource):
         __props__.__dict__["enable_compaction"] = enable_compaction
         __props__.__dict__["enable_partitioning"] = enable_partitioning
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["error_handling"] = error_handling
         __props__.__dict__["kafka_cluster"] = kafka_cluster
         __props__.__dict__["managed_storages"] = managed_storages
         __props__.__dict__["record_failure_strategy"] = record_failure_strategy
@@ -749,6 +786,11 @@ class TableflowTopic(pulumi.CustomResource):
         return pulumi.get(self, "environment")
 
     @_builtins.property
+    @pulumi.getter(name="errorHandling")
+    def error_handling(self) -> pulumi.Output['outputs.TableflowTopicErrorHandling']:
+        return pulumi.get(self, "error_handling")
+
+    @_builtins.property
     @pulumi.getter(name="kafkaCluster")
     def kafka_cluster(self) -> pulumi.Output['outputs.TableflowTopicKafkaCluster']:
         return pulumi.get(self, "kafka_cluster")
@@ -763,6 +805,7 @@ class TableflowTopic(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="recordFailureStrategy")
+    @_utilities.deprecated("""This attribute is deprecated and will be removed in a future release.""")
     def record_failure_strategy(self) -> pulumi.Output[_builtins.str]:
         """
         The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.

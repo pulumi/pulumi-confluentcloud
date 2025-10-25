@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class PrivateLinkAttachmentGcpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        /// (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
         /// </summary>
         [Input("privateServiceConnectServiceAttachment")]
         public Input<string>? PrivateServiceConnectServiceAttachment { get; set; }

@@ -170,6 +170,7 @@ __all__ = [
     'TableflowTopicByobAws',
     'TableflowTopicCredentials',
     'TableflowTopicEnvironment',
+    'TableflowTopicErrorHandling',
     'TableflowTopicKafkaCluster',
     'TableflowTopicManagedStorage',
     'TagBindingCredentials',
@@ -310,6 +311,7 @@ __all__ = [
     'GetTableflowTopicByobAwResult',
     'GetTableflowTopicCredentialsResult',
     'GetTableflowTopicEnvironmentResult',
+    'GetTableflowTopicErrorHandlingResult',
     'GetTableflowTopicKafkaClusterResult',
     'GetTableflowTopicManagedStorageResult',
     'GetTagBindingCredentialsResult',
@@ -4108,8 +4110,8 @@ class PrivateLinkAttachmentAzure(dict):
                  private_link_service_alias: Optional[_builtins.str] = None,
                  private_link_service_resource_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str private_link_service_alias: Azure PrivateLink service alias for the availability zone.
-        :param _builtins.str private_link_service_resource_id: (Required String) Azure Private Link service resource id for the availability zone.
+        :param _builtins.str private_link_service_alias: (Required String) Azure Private Link service alias for the availability zone.
+        :param _builtins.str private_link_service_resource_id: (Required String) Azure Private Link service resource ID for the availability zone.
         """
         if private_link_service_alias is not None:
             pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
@@ -4120,7 +4122,7 @@ class PrivateLinkAttachmentAzure(dict):
     @pulumi.getter(name="privateLinkServiceAlias")
     def private_link_service_alias(self) -> Optional[_builtins.str]:
         """
-        Azure PrivateLink service alias for the availability zone.
+        (Required String) Azure Private Link service alias for the availability zone.
         """
         return pulumi.get(self, "private_link_service_alias")
 
@@ -4128,7 +4130,7 @@ class PrivateLinkAttachmentAzure(dict):
     @pulumi.getter(name="privateLinkServiceResourceId")
     def private_link_service_resource_id(self) -> Optional[_builtins.str]:
         """
-        (Required String) Azure Private Link service resource id for the availability zone.
+        (Required String) Azure Private Link service resource ID for the availability zone.
         """
         return pulumi.get(self, "private_link_service_resource_id")
 
@@ -4314,7 +4316,7 @@ class PrivateLinkAttachmentGcp(dict):
     def __init__(__self__, *,
                  private_service_connect_service_attachment: Optional[_builtins.str] = None):
         """
-        :param _builtins.str private_service_connect_service_attachment: Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        :param _builtins.str private_service_connect_service_attachment: (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
         """
         if private_service_connect_service_attachment is not None:
             pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
@@ -4323,7 +4325,7 @@ class PrivateLinkAttachmentGcp(dict):
     @pulumi.getter(name="privateServiceConnectServiceAttachment")
     def private_service_connect_service_attachment(self) -> Optional[_builtins.str]:
         """
-        Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
         """
         return pulumi.get(self, "private_service_connect_service_attachment")
 
@@ -5367,6 +5369,54 @@ class TableflowTopicEnvironment(dict):
         The ID of the Environment, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class TableflowTopicErrorHandling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logTarget":
+            suggest = "log_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableflowTopicErrorHandling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableflowTopicErrorHandling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableflowTopicErrorHandling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_target: Optional[_builtins.str] = None,
+                 mode: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str log_target: The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "error_log" if error handling mode is `LOG`, and empty otherwise.
+        :param _builtins.str mode: The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+        """
+        if log_target is not None:
+            pulumi.set(__self__, "log_target", log_target)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter(name="logTarget")
+    def log_target(self) -> Optional[_builtins.str]:
+        """
+        The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "error_log" if error handling mode is `LOG`, and empty otherwise.
+        """
+        return pulumi.get(self, "log_target")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[_builtins.str]:
+        """
+        The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
@@ -7948,8 +7998,8 @@ class GetPrivateLinkAttachmentAzureResult(dict):
                  private_link_service_alias: _builtins.str,
                  private_link_service_resource_id: _builtins.str):
         """
-        :param _builtins.str private_link_service_alias: Azure PrivateLink service alias for the availability zone.
-        :param _builtins.str private_link_service_resource_id: (Required String) Azure Private Link service resource id for the availability zone.
+        :param _builtins.str private_link_service_alias: (Required String) Azure Private Link service alias for the availability zone.
+        :param _builtins.str private_link_service_resource_id: (Required String) Azure Private Link service resource ID for the availability zone.
         """
         pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
         pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
@@ -7958,7 +8008,7 @@ class GetPrivateLinkAttachmentAzureResult(dict):
     @pulumi.getter(name="privateLinkServiceAlias")
     def private_link_service_alias(self) -> _builtins.str:
         """
-        Azure PrivateLink service alias for the availability zone.
+        (Required String) Azure Private Link service alias for the availability zone.
         """
         return pulumi.get(self, "private_link_service_alias")
 
@@ -7966,7 +8016,7 @@ class GetPrivateLinkAttachmentAzureResult(dict):
     @pulumi.getter(name="privateLinkServiceResourceId")
     def private_link_service_resource_id(self) -> _builtins.str:
         """
-        (Required String) Azure Private Link service resource id for the availability zone.
+        (Required String) Azure Private Link service resource ID for the availability zone.
         """
         return pulumi.get(self, "private_link_service_resource_id")
 
@@ -8084,7 +8134,7 @@ class GetPrivateLinkAttachmentGcpResult(dict):
     def __init__(__self__, *,
                  private_service_connect_service_attachment: _builtins.str):
         """
-        :param _builtins.str private_service_connect_service_attachment: Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        :param _builtins.str private_service_connect_service_attachment: (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
         """
         pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
 
@@ -8092,7 +8142,7 @@ class GetPrivateLinkAttachmentGcpResult(dict):
     @pulumi.getter(name="privateServiceConnectServiceAttachment")
     def private_service_connect_service_attachment(self) -> _builtins.str:
         """
-        Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
         """
         return pulumi.get(self, "private_service_connect_service_attachment")
 
@@ -9395,6 +9445,35 @@ class GetTableflowTopicEnvironmentResult(dict):
         The ID of the Environment, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetTableflowTopicErrorHandlingResult(dict):
+    def __init__(__self__, *,
+                 log_target: _builtins.str,
+                 mode: _builtins.str):
+        """
+        :param _builtins.str log_target: (Optional String) The topic to which the bad records will be logged for error handling mode `LOG`. The default topic is "error_log" if error handling mode is `LOG`, and empty otherwise.
+        :param _builtins.str mode: (Optional String) The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+        """
+        pulumi.set(__self__, "log_target", log_target)
+        pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter(name="logTarget")
+    def log_target(self) -> _builtins.str:
+        """
+        (Optional String) The topic to which the bad records will be logged for error handling mode `LOG`. The default topic is "error_log" if error handling mode is `LOG`, and empty otherwise.
+        """
+        return pulumi.get(self, "log_target")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> _builtins.str:
+        """
+        (Optional String) The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type

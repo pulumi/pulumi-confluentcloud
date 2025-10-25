@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetPrivateLinkAttachmentGcpResult
     {
         /// <summary>
-        /// Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        /// (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
         /// </summary>
         public readonly string PrivateServiceConnectServiceAttachment;
 

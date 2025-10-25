@@ -73,7 +73,6 @@ class GetPrivateLinkAttachmentResult:
     def azures(self) -> Sequence['outputs.GetPrivateLinkAttachmentAzureResult']:
         """
         (Optional Configuration Block) supports the following:
-        - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
         """
         return pulumi.get(self, "azures")
 

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PrivateLinkAttachmentGcp {
     /**
-     * @return Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * @return (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
      * 
      */
     private @Nullable String privateServiceConnectServiceAttachment;
 
     private PrivateLinkAttachmentGcp() {}
     /**
-     * @return Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * @return (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
      * 
      */
     public Optional<String> privateServiceConnectServiceAttachment() {

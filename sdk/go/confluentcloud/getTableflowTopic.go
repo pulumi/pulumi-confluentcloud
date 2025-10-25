@@ -110,12 +110,14 @@ type LookupTableflowTopicResult struct {
 	// (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
 	EnablePartitioning bool                         `pulumi:"enablePartitioning"`
 	Environment        GetTableflowTopicEnvironment `pulumi:"environment"`
+	// (Optional Configuration Block) supports the following:
+	ErrorHandlings []GetTableflowTopicErrorHandling `pulumi:"errorHandlings"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string                        `pulumi:"id"`
 	KafkaCluster GetTableflowTopicKafkaCluster `pulumi:"kafkaCluster"`
 	// (Optional Configuration Block) The configuration of the Confluent managed bucket.
 	ManagedStorages []GetTableflowTopicManagedStorage `pulumi:"managedStorages"`
-	// (Optional String) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+	// (Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 	RecordFailureStrategy string `pulumi:"recordFailureStrategy"`
 	// (Optional String) The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
 	RetentionMs string `pulumi:"retentionMs"`
@@ -193,6 +195,11 @@ func (o LookupTableflowTopicResultOutput) Environment() GetTableflowTopicEnviron
 	return o.ApplyT(func(v LookupTableflowTopicResult) GetTableflowTopicEnvironment { return v.Environment }).(GetTableflowTopicEnvironmentOutput)
 }
 
+// (Optional Configuration Block) supports the following:
+func (o LookupTableflowTopicResultOutput) ErrorHandlings() GetTableflowTopicErrorHandlingArrayOutput {
+	return o.ApplyT(func(v LookupTableflowTopicResult) []GetTableflowTopicErrorHandling { return v.ErrorHandlings }).(GetTableflowTopicErrorHandlingArrayOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupTableflowTopicResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableflowTopicResult) string { return v.Id }).(pulumi.StringOutput)
@@ -207,7 +214,7 @@ func (o LookupTableflowTopicResultOutput) ManagedStorages() GetTableflowTopicMan
 	return o.ApplyT(func(v LookupTableflowTopicResult) []GetTableflowTopicManagedStorage { return v.ManagedStorages }).(GetTableflowTopicManagedStorageArrayOutput)
 }
 
-// (Optional String) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+// (Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
 func (o LookupTableflowTopicResultOutput) RecordFailureStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableflowTopicResult) string { return v.RecordFailureStrategy }).(pulumi.StringOutput)
 }

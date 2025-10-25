@@ -22,7 +22,6 @@ public final class GetPrivateLinkAttachmentResult {
     private List<GetPrivateLinkAttachmentAw> aws;
     /**
      * @return (Optional Configuration Block) supports the following:
-     * - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
      * 
      */
     private List<GetPrivateLinkAttachmentAzure> azures;
@@ -69,7 +68,6 @@ public final class GetPrivateLinkAttachmentResult {
     }
     /**
      * @return (Optional Configuration Block) supports the following:
-     * - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
      * 
      */
     public List<GetPrivateLinkAttachmentAzure> azures() {

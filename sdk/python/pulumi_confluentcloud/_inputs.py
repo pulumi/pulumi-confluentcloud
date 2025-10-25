@@ -325,6 +325,8 @@ __all__ = [
     'TableflowTopicCredentialsArgsDict',
     'TableflowTopicEnvironmentArgs',
     'TableflowTopicEnvironmentArgsDict',
+    'TableflowTopicErrorHandlingArgs',
+    'TableflowTopicErrorHandlingArgsDict',
     'TableflowTopicKafkaClusterArgs',
     'TableflowTopicKafkaClusterArgsDict',
     'TableflowTopicManagedStorageArgs',
@@ -5841,11 +5843,11 @@ if not MYPY:
     class PrivateLinkAttachmentAzureArgsDict(TypedDict):
         private_link_service_alias: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Azure PrivateLink service alias for the availability zone.
+        (Required String) Azure Private Link service alias for the availability zone.
         """
         private_link_service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        (Required String) Azure Private Link service resource id for the availability zone.
+        (Required String) Azure Private Link service resource ID for the availability zone.
         """
 elif False:
     PrivateLinkAttachmentAzureArgsDict: TypeAlias = Mapping[str, Any]
@@ -5856,8 +5858,8 @@ class PrivateLinkAttachmentAzureArgs:
                  private_link_service_alias: Optional[pulumi.Input[_builtins.str]] = None,
                  private_link_service_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] private_link_service_alias: Azure PrivateLink service alias for the availability zone.
-        :param pulumi.Input[_builtins.str] private_link_service_resource_id: (Required String) Azure Private Link service resource id for the availability zone.
+        :param pulumi.Input[_builtins.str] private_link_service_alias: (Required String) Azure Private Link service alias for the availability zone.
+        :param pulumi.Input[_builtins.str] private_link_service_resource_id: (Required String) Azure Private Link service resource ID for the availability zone.
         """
         if private_link_service_alias is not None:
             pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
@@ -5868,7 +5870,7 @@ class PrivateLinkAttachmentAzureArgs:
     @pulumi.getter(name="privateLinkServiceAlias")
     def private_link_service_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Azure PrivateLink service alias for the availability zone.
+        (Required String) Azure Private Link service alias for the availability zone.
         """
         return pulumi.get(self, "private_link_service_alias")
 
@@ -5880,7 +5882,7 @@ class PrivateLinkAttachmentAzureArgs:
     @pulumi.getter(name="privateLinkServiceResourceId")
     def private_link_service_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Required String) Azure Private Link service resource id for the availability zone.
+        (Required String) Azure Private Link service resource ID for the availability zone.
         """
         return pulumi.get(self, "private_link_service_resource_id")
 
@@ -6079,7 +6081,7 @@ if not MYPY:
     class PrivateLinkAttachmentGcpArgsDict(TypedDict):
         private_service_connect_service_attachment: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
         """
 elif False:
     PrivateLinkAttachmentGcpArgsDict: TypeAlias = Mapping[str, Any]
@@ -6089,7 +6091,7 @@ class PrivateLinkAttachmentGcpArgs:
     def __init__(__self__, *,
                  private_service_connect_service_attachment: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] private_service_connect_service_attachment: Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        :param pulumi.Input[_builtins.str] private_service_connect_service_attachment: (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
         """
         if private_service_connect_service_attachment is not None:
             pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
@@ -6098,7 +6100,7 @@ class PrivateLinkAttachmentGcpArgs:
     @pulumi.getter(name="privateServiceConnectServiceAttachment")
     def private_service_connect_service_attachment(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
         """
         return pulumi.get(self, "private_service_connect_service_attachment")
 
@@ -7803,6 +7805,58 @@ class TableflowTopicEnvironmentArgs:
     @id.setter
     def id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class TableflowTopicErrorHandlingArgsDict(TypedDict):
+        log_target: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "error_log" if error handling mode is `LOG`, and empty otherwise.
+        """
+        mode: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+        """
+elif False:
+    TableflowTopicErrorHandlingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableflowTopicErrorHandlingArgs:
+    def __init__(__self__, *,
+                 log_target: Optional[pulumi.Input[_builtins.str]] = None,
+                 mode: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] log_target: The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "error_log" if error handling mode is `LOG`, and empty otherwise.
+        :param pulumi.Input[_builtins.str] mode: The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+        """
+        if log_target is not None:
+            pulumi.set(__self__, "log_target", log_target)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter(name="logTarget")
+    def log_target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "error_log" if error handling mode is `LOG`, and empty otherwise.
+        """
+        return pulumi.get(self, "log_target")
+
+    @log_target.setter
+    def log_target(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "log_target", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mode", value)
 
 
 if not MYPY:

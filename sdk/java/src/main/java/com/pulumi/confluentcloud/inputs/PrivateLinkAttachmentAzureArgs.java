@@ -16,14 +16,14 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
     public static final PrivateLinkAttachmentAzureArgs Empty = new PrivateLinkAttachmentAzureArgs();
 
     /**
-     * Azure PrivateLink service alias for the availability zone.
+     * (Required String) Azure Private Link service alias for the availability zone.
      * 
      */
     @Import(name="privateLinkServiceAlias")
     private @Nullable Output<String> privateLinkServiceAlias;
 
     /**
-     * @return Azure PrivateLink service alias for the availability zone.
+     * @return (Required String) Azure Private Link service alias for the availability zone.
      * 
      */
     public Optional<Output<String>> privateLinkServiceAlias() {
@@ -31,14 +31,14 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
     }
 
     /**
-     * (Required String) Azure Private Link service resource id for the availability zone.
+     * (Required String) Azure Private Link service resource ID for the availability zone.
      * 
      */
     @Import(name="privateLinkServiceResourceId")
     private @Nullable Output<String> privateLinkServiceResourceId;
 
     /**
-     * @return (Required String) Azure Private Link service resource id for the availability zone.
+     * @return (Required String) Azure Private Link service resource ID for the availability zone.
      * 
      */
     public Optional<Output<String>> privateLinkServiceResourceId() {
@@ -71,7 +71,7 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param privateLinkServiceAlias Azure PrivateLink service alias for the availability zone.
+         * @param privateLinkServiceAlias (Required String) Azure Private Link service alias for the availability zone.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param privateLinkServiceAlias Azure PrivateLink service alias for the availability zone.
+         * @param privateLinkServiceAlias (Required String) Azure Private Link service alias for the availability zone.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param privateLinkServiceResourceId (Required String) Azure Private Link service resource id for the availability zone.
+         * @param privateLinkServiceResourceId (Required String) Azure Private Link service resource ID for the availability zone.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param privateLinkServiceResourceId (Required String) Azure Private Link service resource id for the availability zone.
+         * @param privateLinkServiceResourceId (Required String) Azure Private Link service resource ID for the availability zone.
          * 
          * @return builder
          * 

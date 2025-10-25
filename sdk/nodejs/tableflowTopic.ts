@@ -138,6 +138,7 @@ export class TableflowTopic extends pulumi.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     declare public readonly environment: pulumi.Output<outputs.TableflowTopicEnvironment>;
+    declare public readonly errorHandling: pulumi.Output<outputs.TableflowTopicErrorHandling>;
     declare public readonly kafkaCluster: pulumi.Output<outputs.TableflowTopicKafkaCluster>;
     /**
      * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
@@ -145,6 +146,8 @@ export class TableflowTopic extends pulumi.CustomResource {
     declare public readonly managedStorages: pulumi.Output<outputs.TableflowTopicManagedStorage[] | undefined>;
     /**
      * The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+     *
+     * @deprecated This attribute is deprecated and will be removed in a future release.
      */
     declare public readonly recordFailureStrategy: pulumi.Output<string>;
     /**
@@ -187,6 +190,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             resourceInputs["enableCompaction"] = state?.enableCompaction;
             resourceInputs["enablePartitioning"] = state?.enablePartitioning;
             resourceInputs["environment"] = state?.environment;
+            resourceInputs["errorHandling"] = state?.errorHandling;
             resourceInputs["kafkaCluster"] = state?.kafkaCluster;
             resourceInputs["managedStorages"] = state?.managedStorages;
             resourceInputs["recordFailureStrategy"] = state?.recordFailureStrategy;
@@ -210,6 +214,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["environment"] = args?.environment;
+            resourceInputs["errorHandling"] = args?.errorHandling;
             resourceInputs["kafkaCluster"] = args?.kafkaCluster;
             resourceInputs["managedStorages"] = args?.managedStorages;
             resourceInputs["recordFailureStrategy"] = args?.recordFailureStrategy;
@@ -256,6 +261,7 @@ export interface TableflowTopicState {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment?: pulumi.Input<inputs.TableflowTopicEnvironment>;
+    errorHandling?: pulumi.Input<inputs.TableflowTopicErrorHandling>;
     kafkaCluster?: pulumi.Input<inputs.TableflowTopicKafkaCluster>;
     /**
      * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
@@ -263,6 +269,8 @@ export interface TableflowTopicState {
     managedStorages?: pulumi.Input<pulumi.Input<inputs.TableflowTopicManagedStorage>[]>;
     /**
      * The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+     *
+     * @deprecated This attribute is deprecated and will be removed in a future release.
      */
     recordFailureStrategy?: pulumi.Input<string>;
     /**
@@ -307,6 +315,7 @@ export interface TableflowTopicArgs {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.TableflowTopicEnvironment>;
+    errorHandling?: pulumi.Input<inputs.TableflowTopicErrorHandling>;
     kafkaCluster: pulumi.Input<inputs.TableflowTopicKafkaCluster>;
     /**
      * The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
@@ -314,6 +323,8 @@ export interface TableflowTopicArgs {
     managedStorages?: pulumi.Input<pulumi.Input<inputs.TableflowTopicManagedStorage>[]>;
     /**
      * The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+     *
+     * @deprecated This attribute is deprecated and will be removed in a future release.
      */
     recordFailureStrategy?: pulumi.Input<string>;
     /**

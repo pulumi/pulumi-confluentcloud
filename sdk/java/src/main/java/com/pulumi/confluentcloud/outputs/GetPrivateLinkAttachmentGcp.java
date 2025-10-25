@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetPrivateLinkAttachmentGcp {
     /**
-     * @return Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * @return (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
      * 
      */
     private String privateServiceConnectServiceAttachment;
 
     private GetPrivateLinkAttachmentGcp() {}
     /**
-     * @return Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * @return (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
      * 
      */
     public String privateServiceConnectServiceAttachment() {

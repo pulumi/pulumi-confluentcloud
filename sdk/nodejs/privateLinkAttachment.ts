@@ -82,7 +82,6 @@ export class PrivateLinkAttachment extends pulumi.CustomResource {
     declare public /*out*/ readonly aws: pulumi.Output<outputs.PrivateLinkAttachmentAw[]>;
     /**
      * (Optional Configuration Block) supports the following:
-     * - `privateLinkServiceAlias ` - (Required String) Azure Private Link service alias for the availability zone.
      */
     declare public /*out*/ readonly azures: pulumi.Output<outputs.PrivateLinkAttachmentAzure[]>;
     /**
@@ -175,7 +174,6 @@ export interface PrivateLinkAttachmentState {
     aws?: pulumi.Input<pulumi.Input<inputs.PrivateLinkAttachmentAw>[]>;
     /**
      * (Optional Configuration Block) supports the following:
-     * - `privateLinkServiceAlias ` - (Required String) Azure Private Link service alias for the availability zone.
      */
     azures?: pulumi.Input<pulumi.Input<inputs.PrivateLinkAttachmentAzure>[]>;
     /**
