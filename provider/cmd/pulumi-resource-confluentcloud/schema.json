@@ -2296,11 +2296,11 @@
             "properties": {
                 "privateLinkServiceAlias": {
                     "type": "string",
-                    "description": "Azure PrivateLink service alias for the availability zone.\n"
+                    "description": "(Required String) Azure Private Link service alias for the availability zone.\n"
                 },
                 "privateLinkServiceResourceId": {
                     "type": "string",
-                    "description": "(Required String) Azure Private Link service resource id for the availability zone.\n"
+                    "description": "(Required String) Azure Private Link service resource ID for the availability zone.\n"
                 }
             },
             "type": "object",
@@ -2395,7 +2395,7 @@
             "properties": {
                 "privateServiceConnectServiceAttachment": {
                     "type": "string",
-                    "description": "Id of a Private Service Connect Service Attachment in Confluent Cloud.\n"
+                    "description": "(Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.\n"
                 }
             },
             "type": "object",
@@ -3081,6 +3081,27 @@
             "required": [
                 "id"
             ]
+        },
+        "confluentcloud:index/TableflowTopicErrorHandling:TableflowTopicErrorHandling": {
+            "properties": {
+                "logTarget": {
+                    "type": "string",
+                    "description": "The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is \u003cspan pulumi-lang-nodejs=\"\"errorLog\"\" pulumi-lang-dotnet=\"\"ErrorLog\"\" pulumi-lang-go=\"\"errorLog\"\" pulumi-lang-python=\"\"error_log\"\" pulumi-lang-yaml=\"\"errorLog\"\" pulumi-lang-java=\"\"errorLog\"\"\u003e\"error_log\"\u003c/span\u003e if error handling mode is `LOG`, and empty otherwise.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "logTarget",
+                        "mode"
+                    ]
+                }
+            }
         },
         "confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster": {
             "properties": {
@@ -4917,11 +4938,11 @@
             "properties": {
                 "privateLinkServiceAlias": {
                     "type": "string",
-                    "description": "Azure PrivateLink service alias for the availability zone.\n"
+                    "description": "(Required String) Azure Private Link service alias for the availability zone.\n"
                 },
                 "privateLinkServiceResourceId": {
                     "type": "string",
-                    "description": "(Required String) Azure Private Link service resource id for the availability zone.\n"
+                    "description": "(Required String) Azure Private Link service resource ID for the availability zone.\n"
                 }
             },
             "type": "object",
@@ -5031,7 +5052,7 @@
             "properties": {
                 "privateServiceConnectServiceAttachment": {
                     "type": "string",
-                    "description": "Id of a Private Service Connect Service Attachment in Confluent Cloud.\n"
+                    "description": "(Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.\n"
                 }
             },
             "type": "object",
@@ -5852,6 +5873,28 @@
             "required": [
                 "id"
             ]
+        },
+        "confluentcloud:index/getTableflowTopicErrorHandling:getTableflowTopicErrorHandling": {
+            "properties": {
+                "logTarget": {
+                    "type": "string",
+                    "description": "(Optional String) The topic to which the bad records will be logged for error handling mode `LOG`. The default topic is \u003cspan pulumi-lang-nodejs=\"\"errorLog\"\" pulumi-lang-dotnet=\"\"ErrorLog\"\" pulumi-lang-go=\"\"errorLog\"\" pulumi-lang-python=\"\"error_log\"\" pulumi-lang-yaml=\"\"errorLog\"\" pulumi-lang-java=\"\"errorLog\"\"\u003e\"error_log\"\u003c/span\u003e if error handling mode is `LOG`, and empty otherwise.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "(Optional String) The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "logTarget",
+                "mode"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "confluentcloud:index/getTableflowTopicKafkaCluster:getTableflowTopicKafkaCluster": {
             "properties": {
@@ -11238,7 +11281,7 @@
                     "items": {
                         "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentAzure:PrivateLinkAttachmentAzure"
                     },
-                    "description": "(Optional Configuration Block) supports the following:\n- \u003cspan pulumi-lang-nodejs=\"`privateLinkServiceAlias \" pulumi-lang-dotnet=\"`PrivateLinkServiceAlias \" pulumi-lang-go=\"`privateLinkServiceAlias \" pulumi-lang-python=\"`private_link_service_alias \" pulumi-lang-yaml=\"`privateLinkServiceAlias \" pulumi-lang-java=\"`privateLinkServiceAlias \"\u003e`private_link_service_alias \u003c/span\u003e` - (Required String) Azure Private Link service alias for the availability zone.\n"
+                    "description": "(Optional Configuration Block) supports the following:\n"
                 },
                 "cloud": {
                     "type": "string",
@@ -11325,7 +11368,7 @@
                         "items": {
                             "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentAzure:PrivateLinkAttachmentAzure"
                         },
-                        "description": "(Optional Configuration Block) supports the following:\n- \u003cspan pulumi-lang-nodejs=\"`privateLinkServiceAlias \" pulumi-lang-dotnet=\"`PrivateLinkServiceAlias \" pulumi-lang-go=\"`privateLinkServiceAlias \" pulumi-lang-python=\"`private_link_service_alias \" pulumi-lang-yaml=\"`privateLinkServiceAlias \" pulumi-lang-java=\"`privateLinkServiceAlias \"\u003e`private_link_service_alias \u003c/span\u003e` - (Required String) Azure Private Link service alias for the availability zone.\n"
+                        "description": "(Optional Configuration Block) supports the following:\n"
                     },
                     "cloud": {
                         "type": "string",
@@ -11715,8 +11758,7 @@
                 },
                 "recreateOnUpdate": {
                     "type": "boolean",
-                    "description": "Controls whether a schema should be recreated on update.",
-                    "willReplaceOnChanges": true
+                    "description": "Controls whether a schema should be recreated on update."
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -11781,8 +11823,7 @@
                     },
                     "recreateOnUpdate": {
                         "type": "boolean",
-                        "description": "Controls whether a schema should be recreated on update.",
-                        "willReplaceOnChanges": true
+                        "description": "Controls whether a schema should be recreated on update."
                     },
                     "restEndpoint": {
                         "type": "string",
@@ -12777,6 +12818,9 @@
                     "$ref": "#/types/confluentcloud:index/TableflowTopicEnvironment:TableflowTopicEnvironment",
                     "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes."
                 },
+                "errorHandling": {
+                    "$ref": "#/types/confluentcloud:index/TableflowTopicErrorHandling:TableflowTopicErrorHandling"
+                },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster"
                 },
@@ -12789,7 +12833,8 @@
                 },
                 "recordFailureStrategy": {
                     "type": "string",
-                    "description": "The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.\n"
+                    "description": "The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.\n",
+                    "deprecationMessage": "This attribute is deprecated and will be removed in a future release."
                 },
                 "retentionMs": {
                     "type": "string",
@@ -12820,6 +12865,7 @@
                 "enableCompaction",
                 "enablePartitioning",
                 "environment",
+                "errorHandling",
                 "kafkaCluster",
                 "recordFailureStrategy",
                 "suspended",
@@ -12848,6 +12894,9 @@
                     "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                     "willReplaceOnChanges": true
                 },
+                "errorHandling": {
+                    "$ref": "#/types/confluentcloud:index/TableflowTopicErrorHandling:TableflowTopicErrorHandling"
+                },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster",
                     "willReplaceOnChanges": true
@@ -12861,7 +12910,8 @@
                 },
                 "recordFailureStrategy": {
                     "type": "string",
-                    "description": "The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.\n"
+                    "description": "The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.\n",
+                    "deprecationMessage": "This attribute is deprecated and will be removed in a future release."
                 },
                 "retentionMs": {
                     "type": "string",
@@ -12911,6 +12961,9 @@
                         "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.",
                         "willReplaceOnChanges": true
                     },
+                    "errorHandling": {
+                        "$ref": "#/types/confluentcloud:index/TableflowTopicErrorHandling:TableflowTopicErrorHandling"
+                    },
                     "kafkaCluster": {
                         "$ref": "#/types/confluentcloud:index/TableflowTopicKafkaCluster:TableflowTopicKafkaCluster",
                         "willReplaceOnChanges": true
@@ -12924,7 +12977,8 @@
                     },
                     "recordFailureStrategy": {
                         "type": "string",
-                        "description": "The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.\n"
+                        "description": "The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.\n",
+                        "deprecationMessage": "This attribute is deprecated and will be removed in a future release."
                     },
                     "retentionMs": {
                         "type": "string",
@@ -15843,7 +15897,7 @@
                         "type": "array"
                     },
                     "azures": {
-                        "description": "(Optional Configuration Block) supports the following:\n- \u003cspan pulumi-lang-nodejs=\"`privateLinkServiceAlias \" pulumi-lang-dotnet=\"`PrivateLinkServiceAlias \" pulumi-lang-go=\"`privateLinkServiceAlias \" pulumi-lang-python=\"`private_link_service_alias \" pulumi-lang-yaml=\"`privateLinkServiceAlias \" pulumi-lang-java=\"`privateLinkServiceAlias \"\u003e`private_link_service_alias \u003c/span\u003e` - (Required String) Azure Private Link service alias for the availability zone.\n",
+                        "description": "(Optional Configuration Block) supports the following:\n",
                         "items": {
                             "$ref": "#/types/confluentcloud:index/getPrivateLinkAttachmentAzure:getPrivateLinkAttachmentAzure"
                         },
@@ -16909,6 +16963,13 @@
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/getTableflowTopicEnvironment:getTableflowTopicEnvironment"
                     },
+                    "errorHandlings": {
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getTableflowTopicErrorHandling:getTableflowTopicErrorHandling"
+                        },
+                        "type": "array"
+                    },
                     "id": {
                         "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
@@ -16924,7 +16985,7 @@
                         "type": "array"
                     },
                     "recordFailureStrategy": {
-                        "description": "(Optional String) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.\n",
+                        "description": "(Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.\n",
                         "type": "string"
                     },
                     "retentionMs": {
@@ -16957,6 +17018,7 @@
                     "enableCompaction",
                     "enablePartitioning",
                     "environment",
+                    "errorHandlings",
                     "kafkaCluster",
                     "managedStorages",
                     "recordFailureStrategy",

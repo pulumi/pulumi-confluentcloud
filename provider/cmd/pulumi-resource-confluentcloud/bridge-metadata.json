@@ -896,6 +896,9 @@
                     "environment": {
                         "maxItemsOne": true
                     },
+                    "error_handling": {
+                        "maxItemsOne": true
+                    },
                     "kafka_cluster": {
                         "maxItemsOne": true
                     },
@@ -1746,6 +1749,9 @@
                     },
                     "environment": {
                         "maxItemsOne": true
+                    },
+                    "error_handling": {
+                        "maxItemsOne": false
                     },
                     "kafka_cluster": {
                         "maxItemsOne": true
