@@ -13,13 +13,13 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class PrivateLinkAttachmentAzureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Azure PrivateLink service alias for the availability zone.
+        /// (Required String) Azure Private Link service alias for the availability zone.
         /// </summary>
         [Input("privateLinkServiceAlias")]
         public Input<string>? PrivateLinkServiceAlias { get; set; }
 
         /// <summary>
-        /// (Required String) Azure Private Link service resource id for the availability zone.
+        /// (Required String) Azure Private Link service resource ID for the availability zone.
         /// </summary>
         [Input("privateLinkServiceResourceId")]
         public Input<string>? PrivateLinkServiceResourceId { get; set; }

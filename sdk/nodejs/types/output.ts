@@ -1587,11 +1587,11 @@ export interface GetPrivateLinkAttachmentAw {
 
 export interface GetPrivateLinkAttachmentAzure {
     /**
-     * Azure PrivateLink service alias for the availability zone.
+     * (Required String) Azure Private Link service alias for the availability zone.
      */
     privateLinkServiceAlias: string;
     /**
-     * (Required String) Azure Private Link service resource id for the availability zone.
+     * (Required String) Azure Private Link service resource ID for the availability zone.
      */
     privateLinkServiceResourceId: string;
 }
@@ -1640,7 +1640,7 @@ export interface GetPrivateLinkAttachmentEnvironment {
 
 export interface GetPrivateLinkAttachmentGcp {
     /**
-     * Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
      */
     privateServiceConnectServiceAttachment: string;
 }
@@ -2129,6 +2129,17 @@ export interface GetTableflowTopicEnvironment {
      * The ID of the Environment, for example, `env-abc123`.
      */
     id: string;
+}
+
+export interface GetTableflowTopicErrorHandling {
+    /**
+     * (Optional String) The topic to which the bad records will be logged for error handling mode `LOG`. The default topic is "errorLog" if error handling mode is `LOG`, and empty otherwise.
+     */
+    logTarget: string;
+    /**
+     * (Optional String) The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+     */
+    mode: string;
 }
 
 export interface GetTableflowTopicKafkaCluster {
@@ -2712,11 +2723,11 @@ export interface PrivateLinkAttachmentAw {
 
 export interface PrivateLinkAttachmentAzure {
     /**
-     * Azure PrivateLink service alias for the availability zone.
+     * (Required String) Azure Private Link service alias for the availability zone.
      */
     privateLinkServiceAlias: string;
     /**
-     * (Required String) Azure Private Link service resource id for the availability zone.
+     * (Required String) Azure Private Link service resource ID for the availability zone.
      */
     privateLinkServiceResourceId: string;
 }
@@ -2765,7 +2776,7 @@ export interface PrivateLinkAttachmentEnvironment {
 
 export interface PrivateLinkAttachmentGcp {
     /**
-     * Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
      */
     privateServiceConnectServiceAttachment: string;
 }
@@ -3065,6 +3076,17 @@ export interface TableflowTopicEnvironment {
      * The ID of the Environment, for example, `env-abc123`.
      */
     id: string;
+}
+
+export interface TableflowTopicErrorHandling {
+    /**
+     * The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "errorLog" if error handling mode is `LOG`, and empty otherwise.
+     */
+    logTarget: string;
+    /**
+     * The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+     */
+    mode: string;
 }
 
 export interface TableflowTopicKafkaCluster {

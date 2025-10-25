@@ -16,14 +16,14 @@ public final class PrivateLinkAttachmentGcpArgs extends com.pulumi.resources.Res
     public static final PrivateLinkAttachmentGcpArgs Empty = new PrivateLinkAttachmentGcpArgs();
 
     /**
-     * Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
      * 
      */
     @Import(name="privateServiceConnectServiceAttachment")
     private @Nullable Output<String> privateServiceConnectServiceAttachment;
 
     /**
-     * @return Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * @return (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
      * 
      */
     public Optional<Output<String>> privateServiceConnectServiceAttachment() {
@@ -55,7 +55,7 @@ public final class PrivateLinkAttachmentGcpArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param privateServiceConnectServiceAttachment Id of a Private Service Connect Service Attachment in Confluent Cloud.
+         * @param privateServiceConnectServiceAttachment (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class PrivateLinkAttachmentGcpArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param privateServiceConnectServiceAttachment Id of a Private Service Connect Service Attachment in Confluent Cloud.
+         * @param privateServiceConnectServiceAttachment (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
          * 
          * @return builder
          * 

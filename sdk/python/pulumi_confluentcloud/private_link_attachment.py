@@ -102,7 +102,6 @@ class _PrivateLinkAttachmentState:
         Input properties used for looking up and filtering PrivateLinkAttachment resources.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAwArgs']]] aws: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAzureArgs']]] azures: (Optional Configuration Block) supports the following:
-               - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that hosts the resources to access with the Private Link Attachment.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Attachment.
         :param pulumi.Input[_builtins.str] dns_domain: (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
@@ -147,7 +146,6 @@ class _PrivateLinkAttachmentState:
     def azures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAzureArgs']]]]:
         """
         (Optional Configuration Block) supports the following:
-        - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
         """
         return pulumi.get(self, "azures")
 
@@ -419,7 +417,6 @@ class PrivateLinkAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAwArgs', 'PrivateLinkAttachmentAwArgsDict']]]] aws: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateLinkAttachmentAzureArgs', 'PrivateLinkAttachmentAzureArgsDict']]]] azures: (Optional Configuration Block) supports the following:
-               - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that hosts the resources to access with the Private Link Attachment.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Attachment.
         :param pulumi.Input[_builtins.str] dns_domain: (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.cloud`.
@@ -456,7 +453,6 @@ class PrivateLinkAttachment(pulumi.CustomResource):
     def azures(self) -> pulumi.Output[Sequence['outputs.PrivateLinkAttachmentAzure']]:
         """
         (Optional Configuration Block) supports the following:
-        - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
         """
         return pulumi.get(self, "azures")
 

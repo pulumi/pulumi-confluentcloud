@@ -152,6 +152,9 @@ namespace Pulumi.ConfluentCloud
         [Output("environment")]
         public Output<Outputs.TableflowTopicEnvironment> Environment { get; private set; } = null!;
 
+        [Output("errorHandling")]
+        public Output<Outputs.TableflowTopicErrorHandling> ErrorHandling { get; private set; } = null!;
+
         [Output("kafkaCluster")]
         public Output<Outputs.TableflowTopicKafkaCluster> KafkaCluster { get; private set; } = null!;
 
@@ -281,6 +284,9 @@ namespace Pulumi.ConfluentCloud
         [Input("environment", required: true)]
         public Input<Inputs.TableflowTopicEnvironmentArgs> Environment { get; set; } = null!;
 
+        [Input("errorHandling")]
+        public Input<Inputs.TableflowTopicErrorHandlingArgs>? ErrorHandling { get; set; }
+
         [Input("kafkaCluster", required: true)]
         public Input<Inputs.TableflowTopicKafkaClusterArgs> KafkaCluster { get; set; } = null!;
 
@@ -373,6 +379,9 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("environment")]
         public Input<Inputs.TableflowTopicEnvironmentGetArgs>? Environment { get; set; }
+
+        [Input("errorHandling")]
+        public Input<Inputs.TableflowTopicErrorHandlingGetArgs>? ErrorHandling { get; set; }
 
         [Input("kafkaCluster")]
         public Input<Inputs.TableflowTopicKafkaClusterGetArgs>? KafkaCluster { get; set; }

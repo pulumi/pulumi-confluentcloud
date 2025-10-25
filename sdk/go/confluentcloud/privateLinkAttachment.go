@@ -73,7 +73,6 @@ type PrivateLinkAttachment struct {
 	// (Optional Configuration Block) supports the following:
 	Aws PrivateLinkAttachmentAwArrayOutput `pulumi:"aws"`
 	// (Optional Configuration Block) supports the following:
-	// - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
 	Azures PrivateLinkAttachmentAzureArrayOutput `pulumi:"azures"`
 	// The cloud service provider that hosts the resources to access with the Private Link Attachment.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
@@ -136,7 +135,6 @@ type privateLinkAttachmentState struct {
 	// (Optional Configuration Block) supports the following:
 	Aws []PrivateLinkAttachmentAw `pulumi:"aws"`
 	// (Optional Configuration Block) supports the following:
-	// - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
 	Azures []PrivateLinkAttachmentAzure `pulumi:"azures"`
 	// The cloud service provider that hosts the resources to access with the Private Link Attachment.
 	Cloud *string `pulumi:"cloud"`
@@ -158,7 +156,6 @@ type PrivateLinkAttachmentState struct {
 	// (Optional Configuration Block) supports the following:
 	Aws PrivateLinkAttachmentAwArrayInput
 	// (Optional Configuration Block) supports the following:
-	// - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
 	Azures PrivateLinkAttachmentAzureArrayInput
 	// The cloud service provider that hosts the resources to access with the Private Link Attachment.
 	Cloud pulumi.StringPtrInput
@@ -296,7 +293,6 @@ func (o PrivateLinkAttachmentOutput) Aws() PrivateLinkAttachmentAwArrayOutput {
 }
 
 // (Optional Configuration Block) supports the following:
-// - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
 func (o PrivateLinkAttachmentOutput) Azures() PrivateLinkAttachmentAzureArrayOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachment) PrivateLinkAttachmentAzureArrayOutput { return v.Azures }).(PrivateLinkAttachmentAzureArrayOutput)
 }

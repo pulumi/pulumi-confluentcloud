@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicByobAw;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicCredentials;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicEnvironment;
+import com.pulumi.confluentcloud.outputs.GetTableflowTopicErrorHandling;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicKafkaCluster;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicManagedStorage;
 import com.pulumi.core.annotations.CustomType;
@@ -38,6 +39,11 @@ public final class GetTableflowTopicResult {
     private Boolean enablePartitioning;
     private GetTableflowTopicEnvironment environment;
     /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetTableflowTopicErrorHandling> errorHandlings;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -49,7 +55,7 @@ public final class GetTableflowTopicResult {
      */
     private List<GetTableflowTopicManagedStorage> managedStorages;
     /**
-     * @return (Optional String) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+     * @return (Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      * 
      */
     private String recordFailureStrategy;
@@ -111,6 +117,13 @@ public final class GetTableflowTopicResult {
         return this.environment;
     }
     /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetTableflowTopicErrorHandling> errorHandlings() {
+        return this.errorHandlings;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -128,7 +141,7 @@ public final class GetTableflowTopicResult {
         return this.managedStorages;
     }
     /**
-     * @return (Optional String) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+     * @return (Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      * 
      */
     public String recordFailureStrategy() {
@@ -185,6 +198,7 @@ public final class GetTableflowTopicResult {
         private Boolean enableCompaction;
         private Boolean enablePartitioning;
         private GetTableflowTopicEnvironment environment;
+        private List<GetTableflowTopicErrorHandling> errorHandlings;
         private String id;
         private GetTableflowTopicKafkaCluster kafkaCluster;
         private List<GetTableflowTopicManagedStorage> managedStorages;
@@ -203,6 +217,7 @@ public final class GetTableflowTopicResult {
     	      this.enableCompaction = defaults.enableCompaction;
     	      this.enablePartitioning = defaults.enablePartitioning;
     	      this.environment = defaults.environment;
+    	      this.errorHandlings = defaults.errorHandlings;
     	      this.id = defaults.id;
     	      this.kafkaCluster = defaults.kafkaCluster;
     	      this.managedStorages = defaults.managedStorages;
@@ -262,6 +277,17 @@ public final class GetTableflowTopicResult {
             }
             this.environment = environment;
             return this;
+        }
+        @CustomType.Setter
+        public Builder errorHandlings(List<GetTableflowTopicErrorHandling> errorHandlings) {
+            if (errorHandlings == null) {
+              throw new MissingRequiredPropertyException("GetTableflowTopicResult", "errorHandlings");
+            }
+            this.errorHandlings = errorHandlings;
+            return this;
+        }
+        public Builder errorHandlings(GetTableflowTopicErrorHandling... errorHandlings) {
+            return errorHandlings(List.of(errorHandlings));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -349,6 +375,7 @@ public final class GetTableflowTopicResult {
             _resultValue.enableCompaction = enableCompaction;
             _resultValue.enablePartitioning = enablePartitioning;
             _resultValue.environment = environment;
+            _resultValue.errorHandlings = errorHandlings;
             _resultValue.id = id;
             _resultValue.kafkaCluster = kafkaCluster;
             _resultValue.managedStorages = managedStorages;

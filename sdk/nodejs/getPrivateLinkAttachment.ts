@@ -61,7 +61,6 @@ export interface GetPrivateLinkAttachmentResult {
     readonly aws: outputs.GetPrivateLinkAttachmentAw[];
     /**
      * (Optional Configuration Block) supports the following:
-     * - `privateLinkServiceAlias ` - (Required String) Azure Private Link service alias for the availability zone.
      */
     readonly azures: outputs.GetPrivateLinkAttachmentAzure[];
     /**

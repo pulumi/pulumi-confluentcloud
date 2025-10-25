@@ -294,6 +294,10 @@ namespace Pulumi.ConfluentCloud
         public readonly bool EnablePartitioning;
         public readonly Outputs.GetTableflowTopicEnvironmentResult Environment;
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTableflowTopicErrorHandlingResult> ErrorHandlings;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -303,7 +307,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTableflowTopicManagedStorageResult> ManagedStorages;
         /// <summary>
-        /// (Optional String) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+        /// (Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
         /// </summary>
         public readonly string RecordFailureStrategy;
         /// <summary>
@@ -341,6 +345,8 @@ namespace Pulumi.ConfluentCloud
 
             Outputs.GetTableflowTopicEnvironmentResult environment,
 
+            ImmutableArray<Outputs.GetTableflowTopicErrorHandlingResult> errorHandlings,
+
             string id,
 
             Outputs.GetTableflowTopicKafkaClusterResult kafkaCluster,
@@ -365,6 +371,7 @@ namespace Pulumi.ConfluentCloud
             EnableCompaction = enableCompaction;
             EnablePartitioning = enablePartitioning;
             Environment = environment;
+            ErrorHandlings = errorHandlings;
             Id = id;
             KafkaCluster = kafkaCluster;
             ManagedStorages = managedStorages;

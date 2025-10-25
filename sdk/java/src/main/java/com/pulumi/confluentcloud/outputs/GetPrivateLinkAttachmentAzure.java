@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetPrivateLinkAttachmentAzure {
     /**
-     * @return Azure PrivateLink service alias for the availability zone.
+     * @return (Required String) Azure Private Link service alias for the availability zone.
      * 
      */
     private String privateLinkServiceAlias;
     /**
-     * @return (Required String) Azure Private Link service resource id for the availability zone.
+     * @return (Required String) Azure Private Link service resource ID for the availability zone.
      * 
      */
     private String privateLinkServiceResourceId;
 
     private GetPrivateLinkAttachmentAzure() {}
     /**
-     * @return Azure PrivateLink service alias for the availability zone.
+     * @return (Required String) Azure Private Link service alias for the availability zone.
      * 
      */
     public String privateLinkServiceAlias() {
         return this.privateLinkServiceAlias;
     }
     /**
-     * @return (Required String) Azure Private Link service resource id for the availability zone.
+     * @return (Required String) Azure Private Link service resource ID for the availability zone.
      * 
      */
     public String privateLinkServiceResourceId() {

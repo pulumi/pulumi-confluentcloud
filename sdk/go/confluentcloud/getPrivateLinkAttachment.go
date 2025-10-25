@@ -72,7 +72,6 @@ type LookupPrivateLinkAttachmentResult struct {
 	// (Optional Configuration Block) supports the following:
 	Aws []GetPrivateLinkAttachmentAw `pulumi:"aws"`
 	// (Optional Configuration Block) supports the following:
-	// - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
 	Azures []GetPrivateLinkAttachmentAzure `pulumi:"azures"`
 	// (Optional String) The cloud service provider that hosts the resources to access with the Private Link Attachment.
 	Cloud string `pulumi:"cloud"`
@@ -131,7 +130,6 @@ func (o LookupPrivateLinkAttachmentResultOutput) Aws() GetPrivateLinkAttachmentA
 }
 
 // (Optional Configuration Block) supports the following:
-// - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
 func (o LookupPrivateLinkAttachmentResultOutput) Azures() GetPrivateLinkAttachmentAzureArrayOutput {
 	return o.ApplyT(func(v LookupPrivateLinkAttachmentResult) []GetPrivateLinkAttachmentAzure { return v.Azures }).(GetPrivateLinkAttachmentAzureArrayOutput)
 }

@@ -98,6 +98,10 @@ export interface GetTableflowTopicResult {
     readonly enablePartitioning: boolean;
     readonly environment: outputs.GetTableflowTopicEnvironment;
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly errorHandlings: outputs.GetTableflowTopicErrorHandling[];
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -107,7 +111,7 @@ export interface GetTableflowTopicResult {
      */
     readonly managedStorages: outputs.GetTableflowTopicManagedStorage[];
     /**
-     * (Optional String) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+     * (Optional String, **Deprecated**) The strategy to handle record failures in the Tableflow enabled topic during materialization. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      */
     readonly recordFailureStrategy: string;
     /**

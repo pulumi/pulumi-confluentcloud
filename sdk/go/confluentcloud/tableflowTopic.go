@@ -136,11 +136,14 @@ type TableflowTopic struct {
 	// (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
 	EnablePartitioning pulumi.BoolOutput `pulumi:"enablePartitioning"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  TableflowTopicEnvironmentOutput  `pulumi:"environment"`
-	KafkaCluster TableflowTopicKafkaClusterOutput `pulumi:"kafkaCluster"`
+	Environment   TableflowTopicEnvironmentOutput   `pulumi:"environment"`
+	ErrorHandling TableflowTopicErrorHandlingOutput `pulumi:"errorHandling"`
+	KafkaCluster  TableflowTopicKafkaClusterOutput  `pulumi:"kafkaCluster"`
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages TableflowTopicManagedStorageArrayOutput `pulumi:"managedStorages"`
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+	//
+	// Deprecated: This attribute is deprecated and will be removed in a future release.
 	RecordFailureStrategy pulumi.StringOutput `pulumi:"recordFailureStrategy"`
 	// The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
 	RetentionMs pulumi.StringPtrOutput `pulumi:"retentionMs"`
@@ -211,11 +214,14 @@ type tableflowTopicState struct {
 	// (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  *TableflowTopicEnvironment  `pulumi:"environment"`
-	KafkaCluster *TableflowTopicKafkaCluster `pulumi:"kafkaCluster"`
+	Environment   *TableflowTopicEnvironment   `pulumi:"environment"`
+	ErrorHandling *TableflowTopicErrorHandling `pulumi:"errorHandling"`
+	KafkaCluster  *TableflowTopicKafkaCluster  `pulumi:"kafkaCluster"`
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages []TableflowTopicManagedStorage `pulumi:"managedStorages"`
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+	//
+	// Deprecated: This attribute is deprecated and will be removed in a future release.
 	RecordFailureStrategy *string `pulumi:"recordFailureStrategy"`
 	// The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
 	RetentionMs *string `pulumi:"retentionMs"`
@@ -241,11 +247,14 @@ type TableflowTopicState struct {
 	// (Optional Boolean) This flag determines whether to enable partitioning for the Tableflow enabled topic.
 	EnablePartitioning pulumi.BoolPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  TableflowTopicEnvironmentPtrInput
-	KafkaCluster TableflowTopicKafkaClusterPtrInput
+	Environment   TableflowTopicEnvironmentPtrInput
+	ErrorHandling TableflowTopicErrorHandlingPtrInput
+	KafkaCluster  TableflowTopicKafkaClusterPtrInput
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages TableflowTopicManagedStorageArrayInput
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+	//
+	// Deprecated: This attribute is deprecated and will be removed in a future release.
 	RecordFailureStrategy pulumi.StringPtrInput
 	// The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
 	RetentionMs pulumi.StringPtrInput
@@ -271,11 +280,14 @@ type tableflowTopicArgs struct {
 	// The name of the Kafka topic for which Tableflow is enabled.
 	DisplayName string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  TableflowTopicEnvironment  `pulumi:"environment"`
-	KafkaCluster TableflowTopicKafkaCluster `pulumi:"kafkaCluster"`
+	Environment   TableflowTopicEnvironment    `pulumi:"environment"`
+	ErrorHandling *TableflowTopicErrorHandling `pulumi:"errorHandling"`
+	KafkaCluster  TableflowTopicKafkaCluster   `pulumi:"kafkaCluster"`
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages []TableflowTopicManagedStorage `pulumi:"managedStorages"`
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+	//
+	// Deprecated: This attribute is deprecated and will be removed in a future release.
 	RecordFailureStrategy *string `pulumi:"recordFailureStrategy"`
 	// The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
 	RetentionMs *string `pulumi:"retentionMs"`
@@ -292,11 +304,14 @@ type TableflowTopicArgs struct {
 	// The name of the Kafka topic for which Tableflow is enabled.
 	DisplayName pulumi.StringInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment  TableflowTopicEnvironmentInput
-	KafkaCluster TableflowTopicKafkaClusterInput
+	Environment   TableflowTopicEnvironmentInput
+	ErrorHandling TableflowTopicErrorHandlingPtrInput
+	KafkaCluster  TableflowTopicKafkaClusterInput
 	// The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
 	ManagedStorages TableflowTopicManagedStorageArrayInput
 	// The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+	//
+	// Deprecated: This attribute is deprecated and will be removed in a future release.
 	RecordFailureStrategy pulumi.StringPtrInput
 	// The max age of snapshots (Iceberg) or versions (Delta) (snapshot/version expiration) to keep on the table in milliseconds for the Tableflow enabled topic.
 	RetentionMs pulumi.StringPtrInput
@@ -421,6 +436,10 @@ func (o TableflowTopicOutput) Environment() TableflowTopicEnvironmentOutput {
 	return o.ApplyT(func(v *TableflowTopic) TableflowTopicEnvironmentOutput { return v.Environment }).(TableflowTopicEnvironmentOutput)
 }
 
+func (o TableflowTopicOutput) ErrorHandling() TableflowTopicErrorHandlingOutput {
+	return o.ApplyT(func(v *TableflowTopic) TableflowTopicErrorHandlingOutput { return v.ErrorHandling }).(TableflowTopicErrorHandlingOutput)
+}
+
 func (o TableflowTopicOutput) KafkaCluster() TableflowTopicKafkaClusterOutput {
 	return o.ApplyT(func(v *TableflowTopic) TableflowTopicKafkaClusterOutput { return v.KafkaCluster }).(TableflowTopicKafkaClusterOutput)
 }
@@ -431,6 +450,8 @@ func (o TableflowTopicOutput) ManagedStorages() TableflowTopicManagedStorageArra
 }
 
 // The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
+//
+// Deprecated: This attribute is deprecated and will be removed in a future release.
 func (o TableflowTopicOutput) RecordFailureStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableflowTopic) pulumi.StringOutput { return v.RecordFailureStrategy }).(pulumi.StringOutput)
 }

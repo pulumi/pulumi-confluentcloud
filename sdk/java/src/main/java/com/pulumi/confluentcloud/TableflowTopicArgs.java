@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud;
 import com.pulumi.confluentcloud.inputs.TableflowTopicByobAwsArgs;
 import com.pulumi.confluentcloud.inputs.TableflowTopicCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;
+import com.pulumi.confluentcloud.inputs.TableflowTopicErrorHandlingArgs;
 import com.pulumi.confluentcloud.inputs.TableflowTopicKafkaClusterArgs;
 import com.pulumi.confluentcloud.inputs.TableflowTopicManagedStorageArgs;
 import com.pulumi.core.Output;
@@ -82,6 +83,13 @@ public final class TableflowTopicArgs extends com.pulumi.resources.ResourceArgs 
         return this.environment;
     }
 
+    @Import(name="errorHandling")
+    private @Nullable Output<TableflowTopicErrorHandlingArgs> errorHandling;
+
+    public Optional<Output<TableflowTopicErrorHandlingArgs>> errorHandling() {
+        return Optional.ofNullable(this.errorHandling);
+    }
+
     @Import(name="kafkaCluster", required=true)
     private Output<TableflowTopicKafkaClusterArgs> kafkaCluster;
 
@@ -107,14 +115,22 @@ public final class TableflowTopicArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      * 
+     * @deprecated
+     * This attribute is deprecated and will be removed in a future release.
+     * 
      */
+    @Deprecated /* This attribute is deprecated and will be removed in a future release. */
     @Import(name="recordFailureStrategy")
     private @Nullable Output<String> recordFailureStrategy;
 
     /**
      * @return The strategy to handle record failures in the Tableflow enabled topic during materialization. Accepted values are `SKIP`, `SUSPEND`. For `SKIP`, we skip the bad records and move to the next record. For `SUSPEND`, we suspend the materialization of the topic.
      * 
+     * @deprecated
+     * This attribute is deprecated and will be removed in a future release.
+     * 
      */
+    @Deprecated /* This attribute is deprecated and will be removed in a future release. */
     public Optional<Output<String>> recordFailureStrategy() {
         return Optional.ofNullable(this.recordFailureStrategy);
     }
@@ -156,6 +172,7 @@ public final class TableflowTopicArgs extends com.pulumi.resources.ResourceArgs 
         this.credentials = $.credentials;
         this.displayName = $.displayName;
         this.environment = $.environment;
+        this.errorHandling = $.errorHandling;
         this.kafkaCluster = $.kafkaCluster;
         this.managedStorages = $.managedStorages;
         this.recordFailureStrategy = $.recordFailureStrategy;
@@ -265,6 +282,15 @@ public final class TableflowTopicArgs extends com.pulumi.resources.ResourceArgs 
             return environment(Output.of(environment));
         }
 
+        public Builder errorHandling(@Nullable Output<TableflowTopicErrorHandlingArgs> errorHandling) {
+            $.errorHandling = errorHandling;
+            return this;
+        }
+
+        public Builder errorHandling(TableflowTopicErrorHandlingArgs errorHandling) {
+            return errorHandling(Output.of(errorHandling));
+        }
+
         public Builder kafkaCluster(Output<TableflowTopicKafkaClusterArgs> kafkaCluster) {
             $.kafkaCluster = kafkaCluster;
             return this;
@@ -310,7 +336,11 @@ public final class TableflowTopicArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * This attribute is deprecated and will be removed in a future release.
+         * 
          */
+        @Deprecated /* This attribute is deprecated and will be removed in a future release. */
         public Builder recordFailureStrategy(@Nullable Output<String> recordFailureStrategy) {
             $.recordFailureStrategy = recordFailureStrategy;
             return this;
@@ -321,7 +351,11 @@ public final class TableflowTopicArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * This attribute is deprecated and will be removed in a future release.
+         * 
          */
+        @Deprecated /* This attribute is deprecated and will be removed in a future release. */
         public Builder recordFailureStrategy(String recordFailureStrategy) {
             return recordFailureStrategy(Output.of(recordFailureStrategy));
         }

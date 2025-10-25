@@ -180,7 +180,6 @@ namespace Pulumi.ConfluentCloud
         public readonly ImmutableArray<Outputs.GetPrivateLinkAttachmentAwResult> Aws;
         /// <summary>
         /// (Optional Configuration Block) supports the following:
-        /// - `PrivateLinkServiceAlias ` - (Required String) Azure Private Link service alias for the availability zone.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrivateLinkAttachmentAzureResult> Azures;
         /// <summary>

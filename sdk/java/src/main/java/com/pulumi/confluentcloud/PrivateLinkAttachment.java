@@ -102,7 +102,6 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
     }
     /**
      * (Optional Configuration Block) supports the following:
-     * - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
      * 
      */
     @Export(name="azures", refs={List.class,PrivateLinkAttachmentAzure.class}, tree="[0,1]")
@@ -110,7 +109,6 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
 
     /**
      * @return (Optional Configuration Block) supports the following:
-     * - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
      * 
      */
     public Output<List<PrivateLinkAttachmentAzure>> azures() {

@@ -2788,11 +2788,11 @@ export interface PrivateLinkAttachmentAw {
 
 export interface PrivateLinkAttachmentAzure {
     /**
-     * Azure PrivateLink service alias for the availability zone.
+     * (Required String) Azure Private Link service alias for the availability zone.
      */
     privateLinkServiceAlias?: pulumi.Input<string>;
     /**
-     * (Required String) Azure Private Link service resource id for the availability zone.
+     * (Required String) Azure Private Link service resource ID for the availability zone.
      */
     privateLinkServiceResourceId?: pulumi.Input<string>;
 }
@@ -2841,7 +2841,7 @@ export interface PrivateLinkAttachmentEnvironment {
 
 export interface PrivateLinkAttachmentGcp {
     /**
-     * Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
      */
     privateServiceConnectServiceAttachment?: pulumi.Input<string>;
 }
@@ -3172,6 +3172,17 @@ export interface TableflowTopicEnvironment {
      * The ID of the Environment, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
+}
+
+export interface TableflowTopicErrorHandling {
+    /**
+     * The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "errorLog" if error handling mode is `LOG`, and empty otherwise.
+     */
+    logTarget?: pulumi.Input<string>;
+    /**
+     * The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+     */
+    mode?: pulumi.Input<string>;
 }
 
 export interface TableflowTopicKafkaCluster {

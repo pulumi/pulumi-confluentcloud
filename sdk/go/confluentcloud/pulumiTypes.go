@@ -17027,9 +17027,9 @@ func (o PrivateLinkAttachmentAwArrayOutput) Index(i pulumi.IntInput) PrivateLink
 }
 
 type PrivateLinkAttachmentAzure struct {
-	// Azure PrivateLink service alias for the availability zone.
+	// (Required String) Azure Private Link service alias for the availability zone.
 	PrivateLinkServiceAlias *string `pulumi:"privateLinkServiceAlias"`
-	// (Required String) Azure Private Link service resource id for the availability zone.
+	// (Required String) Azure Private Link service resource ID for the availability zone.
 	PrivateLinkServiceResourceId *string `pulumi:"privateLinkServiceResourceId"`
 }
 
@@ -17045,9 +17045,9 @@ type PrivateLinkAttachmentAzureInput interface {
 }
 
 type PrivateLinkAttachmentAzureArgs struct {
-	// Azure PrivateLink service alias for the availability zone.
+	// (Required String) Azure Private Link service alias for the availability zone.
 	PrivateLinkServiceAlias pulumi.StringPtrInput `pulumi:"privateLinkServiceAlias"`
-	// (Required String) Azure Private Link service resource id for the availability zone.
+	// (Required String) Azure Private Link service resource ID for the availability zone.
 	PrivateLinkServiceResourceId pulumi.StringPtrInput `pulumi:"privateLinkServiceResourceId"`
 }
 
@@ -17102,12 +17102,12 @@ func (o PrivateLinkAttachmentAzureOutput) ToPrivateLinkAttachmentAzureOutputWith
 	return o
 }
 
-// Azure PrivateLink service alias for the availability zone.
+// (Required String) Azure Private Link service alias for the availability zone.
 func (o PrivateLinkAttachmentAzureOutput) PrivateLinkServiceAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentAzure) *string { return v.PrivateLinkServiceAlias }).(pulumi.StringPtrOutput)
 }
 
-// (Required String) Azure Private Link service resource id for the availability zone.
+// (Required String) Azure Private Link service resource ID for the availability zone.
 func (o PrivateLinkAttachmentAzureOutput) PrivateLinkServiceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentAzure) *string { return v.PrivateLinkServiceResourceId }).(pulumi.StringPtrOutput)
 }
@@ -17955,7 +17955,7 @@ func (o PrivateLinkAttachmentEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkAttachmentGcp struct {
-	// Id of a Private Service Connect Service Attachment in Confluent Cloud.
+	// (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
 	PrivateServiceConnectServiceAttachment *string `pulumi:"privateServiceConnectServiceAttachment"`
 }
 
@@ -17971,7 +17971,7 @@ type PrivateLinkAttachmentGcpInput interface {
 }
 
 type PrivateLinkAttachmentGcpArgs struct {
-	// Id of a Private Service Connect Service Attachment in Confluent Cloud.
+	// (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
 	PrivateServiceConnectServiceAttachment pulumi.StringPtrInput `pulumi:"privateServiceConnectServiceAttachment"`
 }
 
@@ -18026,7 +18026,7 @@ func (o PrivateLinkAttachmentGcpOutput) ToPrivateLinkAttachmentGcpOutputWithCont
 	return o
 }
 
-// Id of a Private Service Connect Service Attachment in Confluent Cloud.
+// (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
 func (o PrivateLinkAttachmentGcpOutput) PrivateServiceConnectServiceAttachment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentGcp) *string { return v.PrivateServiceConnectServiceAttachment }).(pulumi.StringPtrOutput)
 }
@@ -22618,6 +22618,162 @@ func (o TableflowTopicEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableflowTopicErrorHandling struct {
+	// The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "errorLog" if error handling mode is `LOG`, and empty otherwise.
+	LogTarget *string `pulumi:"logTarget"`
+	// The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+	Mode *string `pulumi:"mode"`
+}
+
+// TableflowTopicErrorHandlingInput is an input type that accepts TableflowTopicErrorHandlingArgs and TableflowTopicErrorHandlingOutput values.
+// You can construct a concrete instance of `TableflowTopicErrorHandlingInput` via:
+//
+//	TableflowTopicErrorHandlingArgs{...}
+type TableflowTopicErrorHandlingInput interface {
+	pulumi.Input
+
+	ToTableflowTopicErrorHandlingOutput() TableflowTopicErrorHandlingOutput
+	ToTableflowTopicErrorHandlingOutputWithContext(context.Context) TableflowTopicErrorHandlingOutput
+}
+
+type TableflowTopicErrorHandlingArgs struct {
+	// The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "errorLog" if error handling mode is `LOG`, and empty otherwise.
+	LogTarget pulumi.StringPtrInput `pulumi:"logTarget"`
+	// The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (TableflowTopicErrorHandlingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicErrorHandling)(nil)).Elem()
+}
+
+func (i TableflowTopicErrorHandlingArgs) ToTableflowTopicErrorHandlingOutput() TableflowTopicErrorHandlingOutput {
+	return i.ToTableflowTopicErrorHandlingOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicErrorHandlingArgs) ToTableflowTopicErrorHandlingOutputWithContext(ctx context.Context) TableflowTopicErrorHandlingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicErrorHandlingOutput)
+}
+
+func (i TableflowTopicErrorHandlingArgs) ToTableflowTopicErrorHandlingPtrOutput() TableflowTopicErrorHandlingPtrOutput {
+	return i.ToTableflowTopicErrorHandlingPtrOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicErrorHandlingArgs) ToTableflowTopicErrorHandlingPtrOutputWithContext(ctx context.Context) TableflowTopicErrorHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicErrorHandlingOutput).ToTableflowTopicErrorHandlingPtrOutputWithContext(ctx)
+}
+
+// TableflowTopicErrorHandlingPtrInput is an input type that accepts TableflowTopicErrorHandlingArgs, TableflowTopicErrorHandlingPtr and TableflowTopicErrorHandlingPtrOutput values.
+// You can construct a concrete instance of `TableflowTopicErrorHandlingPtrInput` via:
+//
+//	        TableflowTopicErrorHandlingArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableflowTopicErrorHandlingPtrInput interface {
+	pulumi.Input
+
+	ToTableflowTopicErrorHandlingPtrOutput() TableflowTopicErrorHandlingPtrOutput
+	ToTableflowTopicErrorHandlingPtrOutputWithContext(context.Context) TableflowTopicErrorHandlingPtrOutput
+}
+
+type tableflowTopicErrorHandlingPtrType TableflowTopicErrorHandlingArgs
+
+func TableflowTopicErrorHandlingPtr(v *TableflowTopicErrorHandlingArgs) TableflowTopicErrorHandlingPtrInput {
+	return (*tableflowTopicErrorHandlingPtrType)(v)
+}
+
+func (*tableflowTopicErrorHandlingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicErrorHandling)(nil)).Elem()
+}
+
+func (i *tableflowTopicErrorHandlingPtrType) ToTableflowTopicErrorHandlingPtrOutput() TableflowTopicErrorHandlingPtrOutput {
+	return i.ToTableflowTopicErrorHandlingPtrOutputWithContext(context.Background())
+}
+
+func (i *tableflowTopicErrorHandlingPtrType) ToTableflowTopicErrorHandlingPtrOutputWithContext(ctx context.Context) TableflowTopicErrorHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicErrorHandlingPtrOutput)
+}
+
+type TableflowTopicErrorHandlingOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicErrorHandlingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicErrorHandling)(nil)).Elem()
+}
+
+func (o TableflowTopicErrorHandlingOutput) ToTableflowTopicErrorHandlingOutput() TableflowTopicErrorHandlingOutput {
+	return o
+}
+
+func (o TableflowTopicErrorHandlingOutput) ToTableflowTopicErrorHandlingOutputWithContext(ctx context.Context) TableflowTopicErrorHandlingOutput {
+	return o
+}
+
+func (o TableflowTopicErrorHandlingOutput) ToTableflowTopicErrorHandlingPtrOutput() TableflowTopicErrorHandlingPtrOutput {
+	return o.ToTableflowTopicErrorHandlingPtrOutputWithContext(context.Background())
+}
+
+func (o TableflowTopicErrorHandlingOutput) ToTableflowTopicErrorHandlingPtrOutputWithContext(ctx context.Context) TableflowTopicErrorHandlingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableflowTopicErrorHandling) *TableflowTopicErrorHandling {
+		return &v
+	}).(TableflowTopicErrorHandlingPtrOutput)
+}
+
+// The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "errorLog" if error handling mode is `LOG`, and empty otherwise.
+func (o TableflowTopicErrorHandlingOutput) LogTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableflowTopicErrorHandling) *string { return v.LogTarget }).(pulumi.StringPtrOutput)
+}
+
+// The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+func (o TableflowTopicErrorHandlingOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableflowTopicErrorHandling) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type TableflowTopicErrorHandlingPtrOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicErrorHandlingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicErrorHandling)(nil)).Elem()
+}
+
+func (o TableflowTopicErrorHandlingPtrOutput) ToTableflowTopicErrorHandlingPtrOutput() TableflowTopicErrorHandlingPtrOutput {
+	return o
+}
+
+func (o TableflowTopicErrorHandlingPtrOutput) ToTableflowTopicErrorHandlingPtrOutputWithContext(ctx context.Context) TableflowTopicErrorHandlingPtrOutput {
+	return o
+}
+
+func (o TableflowTopicErrorHandlingPtrOutput) Elem() TableflowTopicErrorHandlingOutput {
+	return o.ApplyT(func(v *TableflowTopicErrorHandling) TableflowTopicErrorHandling {
+		if v != nil {
+			return *v
+		}
+		var ret TableflowTopicErrorHandling
+		return ret
+	}).(TableflowTopicErrorHandlingOutput)
+}
+
+// The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "errorLog" if error handling mode is `LOG`, and empty otherwise.
+func (o TableflowTopicErrorHandlingPtrOutput) LogTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicErrorHandling) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogTarget
+	}).(pulumi.StringPtrOutput)
+}
+
+// The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+func (o TableflowTopicErrorHandlingPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicErrorHandling) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -33287,9 +33443,9 @@ func (o GetPrivateLinkAttachmentAwArrayOutput) Index(i pulumi.IntInput) GetPriva
 }
 
 type GetPrivateLinkAttachmentAzure struct {
-	// Azure PrivateLink service alias for the availability zone.
+	// (Required String) Azure Private Link service alias for the availability zone.
 	PrivateLinkServiceAlias string `pulumi:"privateLinkServiceAlias"`
-	// (Required String) Azure Private Link service resource id for the availability zone.
+	// (Required String) Azure Private Link service resource ID for the availability zone.
 	PrivateLinkServiceResourceId string `pulumi:"privateLinkServiceResourceId"`
 }
 
@@ -33305,9 +33461,9 @@ type GetPrivateLinkAttachmentAzureInput interface {
 }
 
 type GetPrivateLinkAttachmentAzureArgs struct {
-	// Azure PrivateLink service alias for the availability zone.
+	// (Required String) Azure Private Link service alias for the availability zone.
 	PrivateLinkServiceAlias pulumi.StringInput `pulumi:"privateLinkServiceAlias"`
-	// (Required String) Azure Private Link service resource id for the availability zone.
+	// (Required String) Azure Private Link service resource ID for the availability zone.
 	PrivateLinkServiceResourceId pulumi.StringInput `pulumi:"privateLinkServiceResourceId"`
 }
 
@@ -33362,12 +33518,12 @@ func (o GetPrivateLinkAttachmentAzureOutput) ToGetPrivateLinkAttachmentAzureOutp
 	return o
 }
 
-// Azure PrivateLink service alias for the availability zone.
+// (Required String) Azure Private Link service alias for the availability zone.
 func (o GetPrivateLinkAttachmentAzureOutput) PrivateLinkServiceAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentAzure) string { return v.PrivateLinkServiceAlias }).(pulumi.StringOutput)
 }
 
-// (Required String) Azure Private Link service resource id for the availability zone.
+// (Required String) Azure Private Link service resource ID for the availability zone.
 func (o GetPrivateLinkAttachmentAzureOutput) PrivateLinkServiceResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentAzure) string { return v.PrivateLinkServiceResourceId }).(pulumi.StringOutput)
 }
@@ -33885,7 +34041,7 @@ func (o GetPrivateLinkAttachmentEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetPrivateLinkAttachmentGcp struct {
-	// Id of a Private Service Connect Service Attachment in Confluent Cloud.
+	// (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
 	PrivateServiceConnectServiceAttachment string `pulumi:"privateServiceConnectServiceAttachment"`
 }
 
@@ -33901,7 +34057,7 @@ type GetPrivateLinkAttachmentGcpInput interface {
 }
 
 type GetPrivateLinkAttachmentGcpArgs struct {
-	// Id of a Private Service Connect Service Attachment in Confluent Cloud.
+	// (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
 	PrivateServiceConnectServiceAttachment pulumi.StringInput `pulumi:"privateServiceConnectServiceAttachment"`
 }
 
@@ -33956,7 +34112,7 @@ func (o GetPrivateLinkAttachmentGcpOutput) ToGetPrivateLinkAttachmentGcpOutputWi
 	return o
 }
 
-// Id of a Private Service Connect Service Attachment in Confluent Cloud.
+// (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
 func (o GetPrivateLinkAttachmentGcpOutput) PrivateServiceConnectServiceAttachment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentGcp) string { return v.PrivateServiceConnectServiceAttachment }).(pulumi.StringOutput)
 }
@@ -38648,6 +38804,112 @@ func (o GetTableflowTopicEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableflowTopicEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
 
+type GetTableflowTopicErrorHandling struct {
+	// (Optional String) The topic to which the bad records will be logged for error handling mode `LOG`. The default topic is "errorLog" if error handling mode is `LOG`, and empty otherwise.
+	LogTarget string `pulumi:"logTarget"`
+	// (Optional String) The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+	Mode string `pulumi:"mode"`
+}
+
+// GetTableflowTopicErrorHandlingInput is an input type that accepts GetTableflowTopicErrorHandlingArgs and GetTableflowTopicErrorHandlingOutput values.
+// You can construct a concrete instance of `GetTableflowTopicErrorHandlingInput` via:
+//
+//	GetTableflowTopicErrorHandlingArgs{...}
+type GetTableflowTopicErrorHandlingInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicErrorHandlingOutput() GetTableflowTopicErrorHandlingOutput
+	ToGetTableflowTopicErrorHandlingOutputWithContext(context.Context) GetTableflowTopicErrorHandlingOutput
+}
+
+type GetTableflowTopicErrorHandlingArgs struct {
+	// (Optional String) The topic to which the bad records will be logged for error handling mode `LOG`. The default topic is "errorLog" if error handling mode is `LOG`, and empty otherwise.
+	LogTarget pulumi.StringInput `pulumi:"logTarget"`
+	// (Optional String) The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (GetTableflowTopicErrorHandlingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicErrorHandling)(nil)).Elem()
+}
+
+func (i GetTableflowTopicErrorHandlingArgs) ToGetTableflowTopicErrorHandlingOutput() GetTableflowTopicErrorHandlingOutput {
+	return i.ToGetTableflowTopicErrorHandlingOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicErrorHandlingArgs) ToGetTableflowTopicErrorHandlingOutputWithContext(ctx context.Context) GetTableflowTopicErrorHandlingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicErrorHandlingOutput)
+}
+
+// GetTableflowTopicErrorHandlingArrayInput is an input type that accepts GetTableflowTopicErrorHandlingArray and GetTableflowTopicErrorHandlingArrayOutput values.
+// You can construct a concrete instance of `GetTableflowTopicErrorHandlingArrayInput` via:
+//
+//	GetTableflowTopicErrorHandlingArray{ GetTableflowTopicErrorHandlingArgs{...} }
+type GetTableflowTopicErrorHandlingArrayInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicErrorHandlingArrayOutput() GetTableflowTopicErrorHandlingArrayOutput
+	ToGetTableflowTopicErrorHandlingArrayOutputWithContext(context.Context) GetTableflowTopicErrorHandlingArrayOutput
+}
+
+type GetTableflowTopicErrorHandlingArray []GetTableflowTopicErrorHandlingInput
+
+func (GetTableflowTopicErrorHandlingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableflowTopicErrorHandling)(nil)).Elem()
+}
+
+func (i GetTableflowTopicErrorHandlingArray) ToGetTableflowTopicErrorHandlingArrayOutput() GetTableflowTopicErrorHandlingArrayOutput {
+	return i.ToGetTableflowTopicErrorHandlingArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicErrorHandlingArray) ToGetTableflowTopicErrorHandlingArrayOutputWithContext(ctx context.Context) GetTableflowTopicErrorHandlingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicErrorHandlingArrayOutput)
+}
+
+type GetTableflowTopicErrorHandlingOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicErrorHandlingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicErrorHandling)(nil)).Elem()
+}
+
+func (o GetTableflowTopicErrorHandlingOutput) ToGetTableflowTopicErrorHandlingOutput() GetTableflowTopicErrorHandlingOutput {
+	return o
+}
+
+func (o GetTableflowTopicErrorHandlingOutput) ToGetTableflowTopicErrorHandlingOutputWithContext(ctx context.Context) GetTableflowTopicErrorHandlingOutput {
+	return o
+}
+
+// (Optional String) The topic to which the bad records will be logged for error handling mode `LOG`. The default topic is "errorLog" if error handling mode is `LOG`, and empty otherwise.
+func (o GetTableflowTopicErrorHandlingOutput) LogTarget() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicErrorHandling) string { return v.LogTarget }).(pulumi.StringOutput)
+}
+
+// (Optional String) The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+func (o GetTableflowTopicErrorHandlingOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicErrorHandling) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type GetTableflowTopicErrorHandlingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicErrorHandlingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableflowTopicErrorHandling)(nil)).Elem()
+}
+
+func (o GetTableflowTopicErrorHandlingArrayOutput) ToGetTableflowTopicErrorHandlingArrayOutput() GetTableflowTopicErrorHandlingArrayOutput {
+	return o
+}
+
+func (o GetTableflowTopicErrorHandlingArrayOutput) ToGetTableflowTopicErrorHandlingArrayOutputWithContext(ctx context.Context) GetTableflowTopicErrorHandlingArrayOutput {
+	return o
+}
+
+func (o GetTableflowTopicErrorHandlingArrayOutput) Index(i pulumi.IntInput) GetTableflowTopicErrorHandlingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableflowTopicErrorHandling {
+		return vs[0].([]GetTableflowTopicErrorHandling)[vs[1].(int)]
+	}).(GetTableflowTopicErrorHandlingOutput)
+}
+
 type GetTableflowTopicKafkaCluster struct {
 	// The ID of the Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
@@ -39964,6 +40226,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicCredentialsPtrInput)(nil)).Elem(), TableflowTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicEnvironmentInput)(nil)).Elem(), TableflowTopicEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicEnvironmentPtrInput)(nil)).Elem(), TableflowTopicEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicErrorHandlingInput)(nil)).Elem(), TableflowTopicErrorHandlingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicErrorHandlingPtrInput)(nil)).Elem(), TableflowTopicErrorHandlingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicKafkaClusterInput)(nil)).Elem(), TableflowTopicKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicKafkaClusterPtrInput)(nil)).Elem(), TableflowTopicKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicManagedStorageInput)(nil)).Elem(), TableflowTopicManagedStorageArgs{})
@@ -40221,6 +40485,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicCredentialsInput)(nil)).Elem(), GetTableflowTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicCredentialsPtrInput)(nil)).Elem(), GetTableflowTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicEnvironmentInput)(nil)).Elem(), GetTableflowTopicEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicErrorHandlingInput)(nil)).Elem(), GetTableflowTopicErrorHandlingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicErrorHandlingArrayInput)(nil)).Elem(), GetTableflowTopicErrorHandlingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicKafkaClusterInput)(nil)).Elem(), GetTableflowTopicKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicManagedStorageInput)(nil)).Elem(), GetTableflowTopicManagedStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicManagedStorageArrayInput)(nil)).Elem(), GetTableflowTopicManagedStorageArray{})
@@ -40547,6 +40813,8 @@ func init() {
 	pulumi.RegisterOutputType(TableflowTopicCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(TableflowTopicEnvironmentOutput{})
 	pulumi.RegisterOutputType(TableflowTopicEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(TableflowTopicErrorHandlingOutput{})
+	pulumi.RegisterOutputType(TableflowTopicErrorHandlingPtrOutput{})
 	pulumi.RegisterOutputType(TableflowTopicKafkaClusterOutput{})
 	pulumi.RegisterOutputType(TableflowTopicKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(TableflowTopicManagedStorageOutput{})
@@ -40804,6 +41072,8 @@ func init() {
 	pulumi.RegisterOutputType(GetTableflowTopicCredentialsOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicErrorHandlingOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicErrorHandlingArrayOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicKafkaClusterOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicManagedStorageOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicManagedStorageArrayOutput{})
