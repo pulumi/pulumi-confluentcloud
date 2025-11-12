@@ -43,6 +43,31 @@ import * as utilities from "./utilities";
  *
  * ### Option #2: Create using ForwardViaGcpDnsZones method
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
+ * const main = new confluentcloud.DnsForwarder("main", {
+ *     displayName: "dns_forwarder",
+ *     environment: {
+ *         id: development.id,
+ *     },
+ *     domains: [
+ *         "example.com",
+ *         "domainname.com",
+ *     ],
+ *     gateway: {
+ *         id: mainConfluentNetwork.gateway[0].id,
+ *     },
+ *     forwardViaGcpZones: [{
+ *         domainMappings: {
+ *             "example.com": "zone-1,project-1",
+ *         },
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * You can import a DNS Forwarder by using Environment ID and DNS Forwarder ID, in the format `<Environment ID>/<DNS Forwarder ID>`. The following example shows how to import a DNS Forwarder:

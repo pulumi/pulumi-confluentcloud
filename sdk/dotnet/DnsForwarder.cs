@@ -62,6 +62,50 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ### Option #2: Create using ForwardViaGcpDnsZones method
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     {
+    ///         DisplayName = "Development",
+    ///     });
+    /// 
+    ///     var main = new ConfluentCloud.DnsForwarder("main", new()
+    ///     {
+    ///         DisplayName = "dns_forwarder",
+    ///         Environment = new ConfluentCloud.Inputs.DnsForwarderEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///         Domains = new[]
+    ///         {
+    ///             "example.com",
+    ///             "domainname.com",
+    ///         },
+    ///         Gateway = new ConfluentCloud.Inputs.DnsForwarderGatewayArgs
+    ///         {
+    ///             Id = mainConfluentNetwork.Gateway[0].Id,
+    ///         },
+    ///         ForwardViaGcpZones = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "domainMappings", 
+    ///                 {
+    ///                     { "example.com", "zone-1,project-1" },
+    ///                 } },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// You can import a DNS Forwarder by using Environment ID and DNS Forwarder ID, in the format `&lt;Environment ID&gt;/&lt;DNS Forwarder ID&gt;`. The following example shows how to import a DNS Forwarder:

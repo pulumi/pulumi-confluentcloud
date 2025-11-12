@@ -1529,6 +1529,87 @@ public final class ConfluentcloudFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
+     *             .environment(GetCatalogIntegrationEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .kafkaCluster(GetCatalogIntegrationKafkaClusterArgs.builder()
+     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .build())
+     *             .id("tci-abc123")
+     *             .credentials(GetCatalogIntegrationCredentialsArgs.builder()
+     *                 .key(env_admin_tableflow_api_key.id())
+     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.retentionMs());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
+     *             .id("tci-abc123")
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.retentionMs());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCatalogIntegrationResult> getCatalogIntegration(GetCatalogIntegrationArgs args) {
         return getCatalogIntegration(args, InvokeOptions.Empty);
@@ -1539,6 +1620,87 @@ public final class ConfluentcloudFunctions {
      * `confluentcloud.CatalogIntegration` describes a Catalog Integration data source.
      * 
      * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
+     *             .environment(GetCatalogIntegrationEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .kafkaCluster(GetCatalogIntegrationKafkaClusterArgs.builder()
+     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .build())
+     *             .id("tci-abc123")
+     *             .credentials(GetCatalogIntegrationCredentialsArgs.builder()
+     *                 .key(env_admin_tableflow_api_key.id())
+     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.retentionMs());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
+     *             .id("tci-abc123")
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.retentionMs());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetCatalogIntegrationResult> getCatalogIntegrationPlain(GetCatalogIntegrationPlainArgs args) {
@@ -1551,6 +1713,87 @@ public final class ConfluentcloudFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
+     *             .environment(GetCatalogIntegrationEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .kafkaCluster(GetCatalogIntegrationKafkaClusterArgs.builder()
+     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .build())
+     *             .id("tci-abc123")
+     *             .credentials(GetCatalogIntegrationCredentialsArgs.builder()
+     *                 .key(env_admin_tableflow_api_key.id())
+     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.retentionMs());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
+     *             .id("tci-abc123")
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.retentionMs());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCatalogIntegrationResult> getCatalogIntegration(GetCatalogIntegrationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getCatalogIntegration:getCatalogIntegration", TypeShape.of(GetCatalogIntegrationResult.class), args, Utilities.withVersion(options));
@@ -1562,6 +1805,87 @@ public final class ConfluentcloudFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
+     *             .environment(GetCatalogIntegrationEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .kafkaCluster(GetCatalogIntegrationKafkaClusterArgs.builder()
+     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .build())
+     *             .id("tci-abc123")
+     *             .credentials(GetCatalogIntegrationCredentialsArgs.builder()
+     *                 .key(env_admin_tableflow_api_key.id())
+     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.retentionMs());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
+     *             .id("tci-abc123")
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.retentionMs());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetCatalogIntegrationResult> getCatalogIntegration(GetCatalogIntegrationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getCatalogIntegration:getCatalogIntegration", TypeShape.of(GetCatalogIntegrationResult.class), args, Utilities.withVersion(options));
@@ -1572,6 +1896,87 @@ public final class ConfluentcloudFunctions {
      * `confluentcloud.CatalogIntegration` describes a Catalog Integration data source.
      * 
      * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationKafkaClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
+     *             .environment(GetCatalogIntegrationEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .kafkaCluster(GetCatalogIntegrationKafkaClusterArgs.builder()
+     *                 .id(stagingConfluentKafkaCluster.id())
+     *                 .build())
+     *             .id("tci-abc123")
+     *             .credentials(GetCatalogIntegrationCredentialsArgs.builder()
+     *                 .key(env_admin_tableflow_api_key.id())
+     *                 .secret(env_admin_tableflow_api_key.secret())
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.retentionMs());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetCatalogIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getCatalogIntegration(GetCatalogIntegrationArgs.builder()
+     *             .id("tci-abc123")
+     *             .build());
+     * 
+     *         ctx.export("retention-ms", example.retentionMs());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetCatalogIntegrationResult> getCatalogIntegrationPlain(GetCatalogIntegrationPlainArgs args, InvokeOptions options) {
