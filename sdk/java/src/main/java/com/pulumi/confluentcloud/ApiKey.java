@@ -22,12 +22,188 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * ### Example Kafka API Key
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ApiKey;
+ * import com.pulumi.confluentcloud.ApiKeyArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var app_manager_kafka_api_key = new ApiKey("app-manager-kafka-api-key", ApiKeyArgs.builder()
+ *             .displayName("app-manager-kafka-api-key")
+ *             .description("Kafka API Key that is owned by 'app-manager' service account")
+ *             .owner(ApiKeyOwnerArgs.builder()
+ *                 .id(app_manager.id())
+ *                 .apiVersion(app_manager.apiVersion())
+ *                 .kind(app_manager.kind())
+ *                 .build())
+ *             .managedResource(ApiKeyManagedResourceArgs.builder()
+ *                 .id(basic.id())
+ *                 .apiVersion(basic.apiVersion())
+ *                 .kind(basic.kind())
+ *                 .environments(List.of(Map.of("id", staging.id())))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ### Example ksqlDB API Key
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ApiKey;
+ * import com.pulumi.confluentcloud.ApiKeyArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var ksqldb_api_key = new ApiKey("ksqldb-api-key", ApiKeyArgs.builder()
+ *             .displayName("ksqldb-api-key")
+ *             .description("KsqlDB API Key that is owned by 'app-manager' service account")
+ *             .owner(ApiKeyOwnerArgs.builder()
+ *                 .id(app_manager.id())
+ *                 .apiVersion(app_manager.apiVersion())
+ *                 .kind(app_manager.kind())
+ *                 .build())
+ *             .managedResource(ApiKeyManagedResourceArgs.builder()
+ *                 .id(main.id())
+ *                 .apiVersion(main.apiVersion())
+ *                 .kind(main.kind())
+ *                 .environments(List.of(Map.of("id", staging.id())))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ### Example Schema Registry API Key
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ApiKey;
+ * import com.pulumi.confluentcloud.ApiKeyArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var env_manager_schema_registry_api_key = new ApiKey("env-manager-schema-registry-api-key", ApiKeyArgs.builder()
+ *             .displayName("env-manager-schema-registry-api-key")
+ *             .description("Schema Registry API Key that is owned by 'env-manager' service account")
+ *             .owner(ApiKeyOwnerArgs.builder()
+ *                 .id(env_manager.id())
+ *                 .apiVersion(env_manager.apiVersion())
+ *                 .kind(env_manager.kind())
+ *                 .build())
+ *             .managedResource(ApiKeyManagedResourceArgs.builder()
+ *                 .id(essentials.id())
+ *                 .apiVersion(essentials.apiVersion())
+ *                 .kind(essentials.kind())
+ *                 .environments(List.of(Map.of("id", staging.id())))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ### Example Flink API Key
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ApiKey;
+ * import com.pulumi.confluentcloud.ApiKeyArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var env_manager_flink_api_key = new ApiKey("env-manager-flink-api-key", ApiKeyArgs.builder()
+ *             .displayName("env-manager-flink-api-key")
+ *             .description("Flink API Key that is owned by 'env-manager' service account")
+ *             .owner(ApiKeyOwnerArgs.builder()
+ *                 .id(env_manager.id())
+ *                 .apiVersion(env_manager.apiVersion())
+ *                 .kind(env_manager.kind())
+ *                 .build())
+ *             .managedResource(ApiKeyManagedResourceArgs.builder()
+ *                 .id(example.id())
+ *                 .apiVersion(example.apiVersion())
+ *                 .kind(example.kind())
+ *                 .environments(List.of(Map.of("id", staging.id())))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ### Example Tableflow API Key
  * <pre>
