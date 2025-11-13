@@ -16,6 +16,70 @@ import (
 // `CatalogIntegration` describes a Catalog Integration data source.
 //
 // ## Example Usage
+//
+// ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := confluentcloud.LookupCatalogIntegration(ctx, &confluentcloud.LookupCatalogIntegrationArgs{
+//				Environment: confluentcloud.GetCatalogIntegrationEnvironment{
+//					Id: staging.Id,
+//				},
+//				KafkaCluster: confluentcloud.GetCatalogIntegrationKafkaCluster{
+//					Id: stagingConfluentKafkaCluster.Id,
+//				},
+//				Id: "tci-abc123",
+//				Credentials: confluentcloud.GetCatalogIntegrationCredentials{
+//					Key:    env_admin_tableflow_api_key.Id,
+//					Secret: env_admin_tableflow_api_key.Secret,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("retention-ms", example.RetentionMs)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := confluentcloud.LookupCatalogIntegration(ctx, &confluentcloud.LookupCatalogIntegrationArgs{
+//				Id: "tci-abc123",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("retention-ms", example.RetentionMs)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupCatalogIntegration(ctx *pulumi.Context, args *LookupCatalogIntegrationArgs, opts ...pulumi.InvokeOption) (*LookupCatalogIntegrationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCatalogIntegrationResult

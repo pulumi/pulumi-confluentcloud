@@ -12,6 +12,48 @@ import * as utilities from "./utilities";
  * `confluentcloud.CatalogIntegration` describes a Catalog Integration data source.
  *
  * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * export = async () => {
+ *     const example = await confluentcloud.getCatalogIntegration({
+ *         environment: {
+ *             id: staging.id,
+ *         },
+ *         kafkaCluster: {
+ *             id: stagingConfluentKafkaCluster.id,
+ *         },
+ *         id: "tci-abc123",
+ *         credentials: {
+ *             key: env_admin_tableflow_api_key.id,
+ *             secret: env_admin_tableflow_api_key.secret,
+ *         },
+ *     });
+ *     return {
+ *         "retention-ms": example.retentionMs,
+ *     };
+ * }
+ * ```
+ *
+ * ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * export = async () => {
+ *     const example = await confluentcloud.getCatalogIntegration({
+ *         id: "tci-abc123",
+ *     });
+ *     return {
+ *         "retention-ms": example.retentionMs,
+ *     };
+ * }
+ * ```
  */
 export function getCatalogIntegration(args: GetCatalogIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,6 +109,48 @@ export interface GetCatalogIntegrationResult {
  * `confluentcloud.CatalogIntegration` describes a Catalog Integration data source.
  *
  * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * export = async () => {
+ *     const example = await confluentcloud.getCatalogIntegration({
+ *         environment: {
+ *             id: staging.id,
+ *         },
+ *         kafkaCluster: {
+ *             id: stagingConfluentKafkaCluster.id,
+ *         },
+ *         id: "tci-abc123",
+ *         credentials: {
+ *             key: env_admin_tableflow_api_key.id,
+ *             secret: env_admin_tableflow_api_key.secret,
+ *         },
+ *     });
+ *     return {
+ *         "retention-ms": example.retentionMs,
+ *     };
+ * }
+ * ```
+ *
+ * ### Option #2: Manage a single Catalog Integration in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * export = async () => {
+ *     const example = await confluentcloud.getCatalogIntegration({
+ *         id: "tci-abc123",
+ *     });
+ *     return {
+ *         "retention-ms": example.retentionMs,
+ *     };
+ * }
+ * ```
  */
 export function getCatalogIntegrationOutput(args: GetCatalogIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCatalogIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

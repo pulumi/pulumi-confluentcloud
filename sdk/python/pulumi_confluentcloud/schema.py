@@ -446,6 +446,120 @@ class Schema(pulumi.CustomResource):
         """
         ## Example Usage
 
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+        import pulumi_std as std
+
+        avro_purchase = confluentcloud.Schema("avro-purchase",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            subject_name="avro-purchase-value",
+            format="AVRO",
+            schema=std.index.file(input="./schemas/avro/purchase.avsc")["result"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            })
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+        import pulumi_std as std
+
+        avro_purchase = confluentcloud.Schema("avro-purchase",
+            subject_name="avro-purchase-value",
+            format="AVRO",
+            schema=std.index.file(input="./schemas/avro/purchase.avsc")["result"])
+        ```
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `Schema` resource:
+        * single-event-types-avro-schema
+        * single-event-types-proto-schema
+        * single-event-types-proto-schema-with-alias
+        * multiple-event-types-avro-schema
+        * multiple-event-types-proto-schema
+        * field-level-encryption-schema
+
+        ## Additional Examples
+
+        ### Default Option A: Manage the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+        import pulumi_std as std
+
+        # confluent_schema.avro-purchase points to v1.
+        avro_purchase = confluentcloud.Schema("avro-purchase",
+            subject_name="avro-purchase-value",
+            format="AVRO",
+            schema=std.index.file(input="./schemas/avro/purchase.avsc")["result"],
+            metadata={
+                "properties": {
+                    "owner": "Bob Jones",
+                    "email": "bob@acme.com",
+                },
+                "sensitives": [
+                    "s1",
+                    "s2",
+                ],
+                "tags": [
+                    {
+                        "key": "tag1",
+                        "values": ["PII"],
+                    },
+                    {
+                        "key": "tag2",
+                        "values": ["PIIIII"],
+                    },
+                ],
+            },
+            ruleset={
+                "domain_rules": [
+                    {
+                        "name": "encryptPII",
+                        "kind": "TRANSFORM",
+                        "type": "ENCRYPT",
+                        "mode": "WRITEREAD",
+                        "tags": ["PII"],
+                        "params": {
+                            "encrypt.kek.name": "testkek2",
+                        },
+                    },
+                    {
+                        "name": "encrypt",
+                        "kind": "TRANSFORM",
+                        "type": "ENCRYPT",
+                        "mode": "WRITEREAD",
+                        "tags": ["PIIIII"],
+                        "params": {
+                            "encrypt.kek.name": "testkek2",
+                        },
+                    },
+                ],
+                "migration_rules": [{
+                    "name": "encrypt",
+                    "kind": "TRANSFORM",
+                    "type": "ENCRYPT",
+                    "mode": "WRITEREAD",
+                    "tags": ["PIM"],
+                    "params": {
+                        "encrypt.kek.name": "testkekM",
+                    },
+                }],
+            })
+        ```
+
         ## Import
 
         You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `<Schema Registry cluster ID>/<Subject name>/<Schema identifier>`, for example:
@@ -497,6 +611,120 @@ class Schema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
+        ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+        import pulumi_std as std
+
+        avro_purchase = confluentcloud.Schema("avro-purchase",
+            schema_registry_cluster={
+                "id": essentials["id"],
+            },
+            rest_endpoint=essentials["restEndpoint"],
+            subject_name="avro-purchase-value",
+            format="AVRO",
+            schema=std.index.file(input="./schemas/avro/purchase.avsc")["result"],
+            credentials={
+                "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
+                "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
+            })
+        ```
+
+        ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+        import pulumi_std as std
+
+        avro_purchase = confluentcloud.Schema("avro-purchase",
+            subject_name="avro-purchase-value",
+            format="AVRO",
+            schema=std.index.file(input="./schemas/avro/purchase.avsc")["result"])
+        ```
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `Schema` resource:
+        * single-event-types-avro-schema
+        * single-event-types-proto-schema
+        * single-event-types-proto-schema-with-alias
+        * multiple-event-types-avro-schema
+        * multiple-event-types-proto-schema
+        * field-level-encryption-schema
+
+        ## Additional Examples
+
+        ### Default Option A: Manage the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+        import pulumi_std as std
+
+        # confluent_schema.avro-purchase points to v1.
+        avro_purchase = confluentcloud.Schema("avro-purchase",
+            subject_name="avro-purchase-value",
+            format="AVRO",
+            schema=std.index.file(input="./schemas/avro/purchase.avsc")["result"],
+            metadata={
+                "properties": {
+                    "owner": "Bob Jones",
+                    "email": "bob@acme.com",
+                },
+                "sensitives": [
+                    "s1",
+                    "s2",
+                ],
+                "tags": [
+                    {
+                        "key": "tag1",
+                        "values": ["PII"],
+                    },
+                    {
+                        "key": "tag2",
+                        "values": ["PIIIII"],
+                    },
+                ],
+            },
+            ruleset={
+                "domain_rules": [
+                    {
+                        "name": "encryptPII",
+                        "kind": "TRANSFORM",
+                        "type": "ENCRYPT",
+                        "mode": "WRITEREAD",
+                        "tags": ["PII"],
+                        "params": {
+                            "encrypt.kek.name": "testkek2",
+                        },
+                    },
+                    {
+                        "name": "encrypt",
+                        "kind": "TRANSFORM",
+                        "type": "ENCRYPT",
+                        "mode": "WRITEREAD",
+                        "tags": ["PIIIII"],
+                        "params": {
+                            "encrypt.kek.name": "testkek2",
+                        },
+                    },
+                ],
+                "migration_rules": [{
+                    "name": "encrypt",
+                    "kind": "TRANSFORM",
+                    "type": "ENCRYPT",
+                    "mode": "WRITEREAD",
+                    "tags": ["PIM"],
+                    "params": {
+                        "encrypt.kek.name": "testkekM",
+                    },
+                }],
+            })
+        ```
 
         ## Import
 

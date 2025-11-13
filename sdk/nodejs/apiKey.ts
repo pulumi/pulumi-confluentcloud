@@ -10,12 +10,100 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ### Example Kafka API Key
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const app_manager_kafka_api_key = new confluentcloud.ApiKey("app-manager-kafka-api-key", {
+ *     displayName: "app-manager-kafka-api-key",
+ *     description: "Kafka API Key that is owned by 'app-manager' service account",
+ *     owner: {
+ *         id: app_manager.id,
+ *         apiVersion: app_manager.apiVersion,
+ *         kind: app_manager.kind,
+ *     },
+ *     managedResource: {
+ *         id: basic.id,
+ *         apiVersion: basic.apiVersion,
+ *         kind: basic.kind,
+ *         environments: [{
+ *             id: staging.id,
+ *         }],
+ *     },
+ * });
+ * ```
  *
  * ### Example ksqlDB API Key
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const ksqldb_api_key = new confluentcloud.ApiKey("ksqldb-api-key", {
+ *     displayName: "ksqldb-api-key",
+ *     description: "KsqlDB API Key that is owned by 'app-manager' service account",
+ *     owner: {
+ *         id: app_manager.id,
+ *         apiVersion: app_manager.apiVersion,
+ *         kind: app_manager.kind,
+ *     },
+ *     managedResource: {
+ *         id: main.id,
+ *         apiVersion: main.apiVersion,
+ *         kind: main.kind,
+ *         environments: [{
+ *             id: staging.id,
+ *         }],
+ *     },
+ * });
+ * ```
  *
  * ### Example Schema Registry API Key
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const env_manager_schema_registry_api_key = new confluentcloud.ApiKey("env-manager-schema-registry-api-key", {
+ *     displayName: "env-manager-schema-registry-api-key",
+ *     description: "Schema Registry API Key that is owned by 'env-manager' service account",
+ *     owner: {
+ *         id: env_manager.id,
+ *         apiVersion: env_manager.apiVersion,
+ *         kind: env_manager.kind,
+ *     },
+ *     managedResource: {
+ *         id: essentials.id,
+ *         apiVersion: essentials.apiVersion,
+ *         kind: essentials.kind,
+ *         environments: [{
+ *             id: staging.id,
+ *         }],
+ *     },
+ * });
+ * ```
  *
  * ### Example Flink API Key
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const env_manager_flink_api_key = new confluentcloud.ApiKey("env-manager-flink-api-key", {
+ *     displayName: "env-manager-flink-api-key",
+ *     description: "Flink API Key that is owned by 'env-manager' service account",
+ *     owner: {
+ *         id: env_manager.id,
+ *         apiVersion: env_manager.apiVersion,
+ *         kind: env_manager.kind,
+ *     },
+ *     managedResource: {
+ *         id: example.id,
+ *         apiVersion: example.apiVersion,
+ *         kind: example.kind,
+ *         environments: [{
+ *             id: staging.id,
+ *         }],
+ *     },
+ * });
+ * ```
  *
  * ### Example Tableflow API Key
  * ```typescript
