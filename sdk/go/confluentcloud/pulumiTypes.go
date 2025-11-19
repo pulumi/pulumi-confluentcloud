@@ -18051,6 +18051,463 @@ func (o PrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) PrivateLin
 	}).(PrivateLinkAttachmentGcpOutput)
 }
 
+type ProviderIntegrationAuthorizationAzure struct {
+	// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+	ConfluentMultiTenantAppId *string `pulumi:"confluentMultiTenantAppId"`
+	// Customer's Azure Tenant ID.
+	CustomerAzureTenantId string `pulumi:"customerAzureTenantId"`
+}
+
+// ProviderIntegrationAuthorizationAzureInput is an input type that accepts ProviderIntegrationAuthorizationAzureArgs and ProviderIntegrationAuthorizationAzureOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAuthorizationAzureInput` via:
+//
+//	ProviderIntegrationAuthorizationAzureArgs{...}
+type ProviderIntegrationAuthorizationAzureInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAuthorizationAzureOutput() ProviderIntegrationAuthorizationAzureOutput
+	ToProviderIntegrationAuthorizationAzureOutputWithContext(context.Context) ProviderIntegrationAuthorizationAzureOutput
+}
+
+type ProviderIntegrationAuthorizationAzureArgs struct {
+	// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+	ConfluentMultiTenantAppId pulumi.StringPtrInput `pulumi:"confluentMultiTenantAppId"`
+	// Customer's Azure Tenant ID.
+	CustomerAzureTenantId pulumi.StringInput `pulumi:"customerAzureTenantId"`
+}
+
+func (ProviderIntegrationAuthorizationAzureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (i ProviderIntegrationAuthorizationAzureArgs) ToProviderIntegrationAuthorizationAzureOutput() ProviderIntegrationAuthorizationAzureOutput {
+	return i.ToProviderIntegrationAuthorizationAzureOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAuthorizationAzureArgs) ToProviderIntegrationAuthorizationAzureOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationAzureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationAzureOutput)
+}
+
+func (i ProviderIntegrationAuthorizationAzureArgs) ToProviderIntegrationAuthorizationAzurePtrOutput() ProviderIntegrationAuthorizationAzurePtrOutput {
+	return i.ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAuthorizationAzureArgs) ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationAzurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationAzureOutput).ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(ctx)
+}
+
+// ProviderIntegrationAuthorizationAzurePtrInput is an input type that accepts ProviderIntegrationAuthorizationAzureArgs, ProviderIntegrationAuthorizationAzurePtr and ProviderIntegrationAuthorizationAzurePtrOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAuthorizationAzurePtrInput` via:
+//
+//	        ProviderIntegrationAuthorizationAzureArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderIntegrationAuthorizationAzurePtrInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAuthorizationAzurePtrOutput() ProviderIntegrationAuthorizationAzurePtrOutput
+	ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(context.Context) ProviderIntegrationAuthorizationAzurePtrOutput
+}
+
+type providerIntegrationAuthorizationAzurePtrType ProviderIntegrationAuthorizationAzureArgs
+
+func ProviderIntegrationAuthorizationAzurePtr(v *ProviderIntegrationAuthorizationAzureArgs) ProviderIntegrationAuthorizationAzurePtrInput {
+	return (*providerIntegrationAuthorizationAzurePtrType)(v)
+}
+
+func (*providerIntegrationAuthorizationAzurePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (i *providerIntegrationAuthorizationAzurePtrType) ToProviderIntegrationAuthorizationAzurePtrOutput() ProviderIntegrationAuthorizationAzurePtrOutput {
+	return i.ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(context.Background())
+}
+
+func (i *providerIntegrationAuthorizationAzurePtrType) ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationAzurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationAzurePtrOutput)
+}
+
+type ProviderIntegrationAuthorizationAzureOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAuthorizationAzureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAuthorizationAzureOutput) ToProviderIntegrationAuthorizationAzureOutput() ProviderIntegrationAuthorizationAzureOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationAzureOutput) ToProviderIntegrationAuthorizationAzureOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationAzureOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationAzureOutput) ToProviderIntegrationAuthorizationAzurePtrOutput() ProviderIntegrationAuthorizationAzurePtrOutput {
+	return o.ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(context.Background())
+}
+
+func (o ProviderIntegrationAuthorizationAzureOutput) ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationAzurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderIntegrationAuthorizationAzure) *ProviderIntegrationAuthorizationAzure {
+		return &v
+	}).(ProviderIntegrationAuthorizationAzurePtrOutput)
+}
+
+// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+func (o ProviderIntegrationAuthorizationAzureOutput) ConfluentMultiTenantAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderIntegrationAuthorizationAzure) *string { return v.ConfluentMultiTenantAppId }).(pulumi.StringPtrOutput)
+}
+
+// Customer's Azure Tenant ID.
+func (o ProviderIntegrationAuthorizationAzureOutput) CustomerAzureTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderIntegrationAuthorizationAzure) string { return v.CustomerAzureTenantId }).(pulumi.StringOutput)
+}
+
+type ProviderIntegrationAuthorizationAzurePtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAuthorizationAzurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAuthorizationAzurePtrOutput) ToProviderIntegrationAuthorizationAzurePtrOutput() ProviderIntegrationAuthorizationAzurePtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationAzurePtrOutput) ToProviderIntegrationAuthorizationAzurePtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationAzurePtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationAzurePtrOutput) Elem() ProviderIntegrationAuthorizationAzureOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationAzure) ProviderIntegrationAuthorizationAzure {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderIntegrationAuthorizationAzure
+		return ret
+	}).(ProviderIntegrationAuthorizationAzureOutput)
+}
+
+// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+func (o ProviderIntegrationAuthorizationAzurePtrOutput) ConfluentMultiTenantAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationAzure) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfluentMultiTenantAppId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Customer's Azure Tenant ID.
+func (o ProviderIntegrationAuthorizationAzurePtrOutput) CustomerAzureTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationAzure) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomerAzureTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProviderIntegrationAuthorizationEnvironment struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// ProviderIntegrationAuthorizationEnvironmentInput is an input type that accepts ProviderIntegrationAuthorizationEnvironmentArgs and ProviderIntegrationAuthorizationEnvironmentOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAuthorizationEnvironmentInput` via:
+//
+//	ProviderIntegrationAuthorizationEnvironmentArgs{...}
+type ProviderIntegrationAuthorizationEnvironmentInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAuthorizationEnvironmentOutput() ProviderIntegrationAuthorizationEnvironmentOutput
+	ToProviderIntegrationAuthorizationEnvironmentOutputWithContext(context.Context) ProviderIntegrationAuthorizationEnvironmentOutput
+}
+
+type ProviderIntegrationAuthorizationEnvironmentArgs struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (ProviderIntegrationAuthorizationEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAuthorizationEnvironment)(nil)).Elem()
+}
+
+func (i ProviderIntegrationAuthorizationEnvironmentArgs) ToProviderIntegrationAuthorizationEnvironmentOutput() ProviderIntegrationAuthorizationEnvironmentOutput {
+	return i.ToProviderIntegrationAuthorizationEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAuthorizationEnvironmentArgs) ToProviderIntegrationAuthorizationEnvironmentOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationEnvironmentOutput)
+}
+
+func (i ProviderIntegrationAuthorizationEnvironmentArgs) ToProviderIntegrationAuthorizationEnvironmentPtrOutput() ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return i.ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAuthorizationEnvironmentArgs) ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationEnvironmentOutput).ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(ctx)
+}
+
+// ProviderIntegrationAuthorizationEnvironmentPtrInput is an input type that accepts ProviderIntegrationAuthorizationEnvironmentArgs, ProviderIntegrationAuthorizationEnvironmentPtr and ProviderIntegrationAuthorizationEnvironmentPtrOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAuthorizationEnvironmentPtrInput` via:
+//
+//	        ProviderIntegrationAuthorizationEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderIntegrationAuthorizationEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAuthorizationEnvironmentPtrOutput() ProviderIntegrationAuthorizationEnvironmentPtrOutput
+	ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(context.Context) ProviderIntegrationAuthorizationEnvironmentPtrOutput
+}
+
+type providerIntegrationAuthorizationEnvironmentPtrType ProviderIntegrationAuthorizationEnvironmentArgs
+
+func ProviderIntegrationAuthorizationEnvironmentPtr(v *ProviderIntegrationAuthorizationEnvironmentArgs) ProviderIntegrationAuthorizationEnvironmentPtrInput {
+	return (*providerIntegrationAuthorizationEnvironmentPtrType)(v)
+}
+
+func (*providerIntegrationAuthorizationEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAuthorizationEnvironment)(nil)).Elem()
+}
+
+func (i *providerIntegrationAuthorizationEnvironmentPtrType) ToProviderIntegrationAuthorizationEnvironmentPtrOutput() ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return i.ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *providerIntegrationAuthorizationEnvironmentPtrType) ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationEnvironmentPtrOutput)
+}
+
+type ProviderIntegrationAuthorizationEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAuthorizationEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAuthorizationEnvironment)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentOutput) ToProviderIntegrationAuthorizationEnvironmentOutput() ProviderIntegrationAuthorizationEnvironmentOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentOutput) ToProviderIntegrationAuthorizationEnvironmentOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationEnvironmentOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentOutput) ToProviderIntegrationAuthorizationEnvironmentPtrOutput() ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return o.ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentOutput) ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderIntegrationAuthorizationEnvironment) *ProviderIntegrationAuthorizationEnvironment {
+		return &v
+	}).(ProviderIntegrationAuthorizationEnvironmentPtrOutput)
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o ProviderIntegrationAuthorizationEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderIntegrationAuthorizationEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type ProviderIntegrationAuthorizationEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAuthorizationEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAuthorizationEnvironment)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentPtrOutput) ToProviderIntegrationAuthorizationEnvironmentPtrOutput() ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentPtrOutput) ToProviderIntegrationAuthorizationEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationEnvironmentPtrOutput) Elem() ProviderIntegrationAuthorizationEnvironmentOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationEnvironment) ProviderIntegrationAuthorizationEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderIntegrationAuthorizationEnvironment
+		return ret
+	}).(ProviderIntegrationAuthorizationEnvironmentOutput)
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o ProviderIntegrationAuthorizationEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProviderIntegrationAuthorizationGcp struct {
+	// Customer's Google Service Account that Confluent Cloud impersonates.
+	//
+	// > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+	CustomerGoogleServiceAccount string `pulumi:"customerGoogleServiceAccount"`
+	// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+	GoogleServiceAccount *string `pulumi:"googleServiceAccount"`
+}
+
+// ProviderIntegrationAuthorizationGcpInput is an input type that accepts ProviderIntegrationAuthorizationGcpArgs and ProviderIntegrationAuthorizationGcpOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAuthorizationGcpInput` via:
+//
+//	ProviderIntegrationAuthorizationGcpArgs{...}
+type ProviderIntegrationAuthorizationGcpInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAuthorizationGcpOutput() ProviderIntegrationAuthorizationGcpOutput
+	ToProviderIntegrationAuthorizationGcpOutputWithContext(context.Context) ProviderIntegrationAuthorizationGcpOutput
+}
+
+type ProviderIntegrationAuthorizationGcpArgs struct {
+	// Customer's Google Service Account that Confluent Cloud impersonates.
+	//
+	// > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+	CustomerGoogleServiceAccount pulumi.StringInput `pulumi:"customerGoogleServiceAccount"`
+	// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+	GoogleServiceAccount pulumi.StringPtrInput `pulumi:"googleServiceAccount"`
+}
+
+func (ProviderIntegrationAuthorizationGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (i ProviderIntegrationAuthorizationGcpArgs) ToProviderIntegrationAuthorizationGcpOutput() ProviderIntegrationAuthorizationGcpOutput {
+	return i.ToProviderIntegrationAuthorizationGcpOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAuthorizationGcpArgs) ToProviderIntegrationAuthorizationGcpOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationGcpOutput)
+}
+
+func (i ProviderIntegrationAuthorizationGcpArgs) ToProviderIntegrationAuthorizationGcpPtrOutput() ProviderIntegrationAuthorizationGcpPtrOutput {
+	return i.ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationAuthorizationGcpArgs) ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationGcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationGcpOutput).ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(ctx)
+}
+
+// ProviderIntegrationAuthorizationGcpPtrInput is an input type that accepts ProviderIntegrationAuthorizationGcpArgs, ProviderIntegrationAuthorizationGcpPtr and ProviderIntegrationAuthorizationGcpPtrOutput values.
+// You can construct a concrete instance of `ProviderIntegrationAuthorizationGcpPtrInput` via:
+//
+//	        ProviderIntegrationAuthorizationGcpArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderIntegrationAuthorizationGcpPtrInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationAuthorizationGcpPtrOutput() ProviderIntegrationAuthorizationGcpPtrOutput
+	ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(context.Context) ProviderIntegrationAuthorizationGcpPtrOutput
+}
+
+type providerIntegrationAuthorizationGcpPtrType ProviderIntegrationAuthorizationGcpArgs
+
+func ProviderIntegrationAuthorizationGcpPtr(v *ProviderIntegrationAuthorizationGcpArgs) ProviderIntegrationAuthorizationGcpPtrInput {
+	return (*providerIntegrationAuthorizationGcpPtrType)(v)
+}
+
+func (*providerIntegrationAuthorizationGcpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (i *providerIntegrationAuthorizationGcpPtrType) ToProviderIntegrationAuthorizationGcpPtrOutput() ProviderIntegrationAuthorizationGcpPtrOutput {
+	return i.ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(context.Background())
+}
+
+func (i *providerIntegrationAuthorizationGcpPtrType) ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationGcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationAuthorizationGcpPtrOutput)
+}
+
+type ProviderIntegrationAuthorizationGcpOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAuthorizationGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAuthorizationGcpOutput) ToProviderIntegrationAuthorizationGcpOutput() ProviderIntegrationAuthorizationGcpOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationGcpOutput) ToProviderIntegrationAuthorizationGcpOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationGcpOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationGcpOutput) ToProviderIntegrationAuthorizationGcpPtrOutput() ProviderIntegrationAuthorizationGcpPtrOutput {
+	return o.ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderIntegrationAuthorizationGcpOutput) ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationGcpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderIntegrationAuthorizationGcp) *ProviderIntegrationAuthorizationGcp {
+		return &v
+	}).(ProviderIntegrationAuthorizationGcpPtrOutput)
+}
+
+// Customer's Google Service Account that Confluent Cloud impersonates.
+//
+// > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+func (o ProviderIntegrationAuthorizationGcpOutput) CustomerGoogleServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderIntegrationAuthorizationGcp) string { return v.CustomerGoogleServiceAccount }).(pulumi.StringOutput)
+}
+
+// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+func (o ProviderIntegrationAuthorizationGcpOutput) GoogleServiceAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderIntegrationAuthorizationGcp) *string { return v.GoogleServiceAccount }).(pulumi.StringPtrOutput)
+}
+
+type ProviderIntegrationAuthorizationGcpPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationAuthorizationGcpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (o ProviderIntegrationAuthorizationGcpPtrOutput) ToProviderIntegrationAuthorizationGcpPtrOutput() ProviderIntegrationAuthorizationGcpPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationGcpPtrOutput) ToProviderIntegrationAuthorizationGcpPtrOutputWithContext(ctx context.Context) ProviderIntegrationAuthorizationGcpPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationAuthorizationGcpPtrOutput) Elem() ProviderIntegrationAuthorizationGcpOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationGcp) ProviderIntegrationAuthorizationGcp {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderIntegrationAuthorizationGcp
+		return ret
+	}).(ProviderIntegrationAuthorizationGcpOutput)
+}
+
+// Customer's Google Service Account that Confluent Cloud impersonates.
+//
+// > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+func (o ProviderIntegrationAuthorizationGcpPtrOutput) CustomerGoogleServiceAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationGcp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomerGoogleServiceAccount
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+func (o ProviderIntegrationAuthorizationGcpPtrOutput) GoogleServiceAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationAuthorizationGcp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GoogleServiceAccount
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProviderIntegrationAws struct {
 	// Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
 	//
@@ -18372,6 +18829,143 @@ func (o ProviderIntegrationEnvironmentPtrOutput) Elem() ProviderIntegrationEnvir
 // The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
 func (o ProviderIntegrationEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProviderIntegrationEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProviderIntegrationSetupEnvironment struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// ProviderIntegrationSetupEnvironmentInput is an input type that accepts ProviderIntegrationSetupEnvironmentArgs and ProviderIntegrationSetupEnvironmentOutput values.
+// You can construct a concrete instance of `ProviderIntegrationSetupEnvironmentInput` via:
+//
+//	ProviderIntegrationSetupEnvironmentArgs{...}
+type ProviderIntegrationSetupEnvironmentInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationSetupEnvironmentOutput() ProviderIntegrationSetupEnvironmentOutput
+	ToProviderIntegrationSetupEnvironmentOutputWithContext(context.Context) ProviderIntegrationSetupEnvironmentOutput
+}
+
+type ProviderIntegrationSetupEnvironmentArgs struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (ProviderIntegrationSetupEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationSetupEnvironment)(nil)).Elem()
+}
+
+func (i ProviderIntegrationSetupEnvironmentArgs) ToProviderIntegrationSetupEnvironmentOutput() ProviderIntegrationSetupEnvironmentOutput {
+	return i.ToProviderIntegrationSetupEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationSetupEnvironmentArgs) ToProviderIntegrationSetupEnvironmentOutputWithContext(ctx context.Context) ProviderIntegrationSetupEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationSetupEnvironmentOutput)
+}
+
+func (i ProviderIntegrationSetupEnvironmentArgs) ToProviderIntegrationSetupEnvironmentPtrOutput() ProviderIntegrationSetupEnvironmentPtrOutput {
+	return i.ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderIntegrationSetupEnvironmentArgs) ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationSetupEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationSetupEnvironmentOutput).ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(ctx)
+}
+
+// ProviderIntegrationSetupEnvironmentPtrInput is an input type that accepts ProviderIntegrationSetupEnvironmentArgs, ProviderIntegrationSetupEnvironmentPtr and ProviderIntegrationSetupEnvironmentPtrOutput values.
+// You can construct a concrete instance of `ProviderIntegrationSetupEnvironmentPtrInput` via:
+//
+//	        ProviderIntegrationSetupEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderIntegrationSetupEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToProviderIntegrationSetupEnvironmentPtrOutput() ProviderIntegrationSetupEnvironmentPtrOutput
+	ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(context.Context) ProviderIntegrationSetupEnvironmentPtrOutput
+}
+
+type providerIntegrationSetupEnvironmentPtrType ProviderIntegrationSetupEnvironmentArgs
+
+func ProviderIntegrationSetupEnvironmentPtr(v *ProviderIntegrationSetupEnvironmentArgs) ProviderIntegrationSetupEnvironmentPtrInput {
+	return (*providerIntegrationSetupEnvironmentPtrType)(v)
+}
+
+func (*providerIntegrationSetupEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationSetupEnvironment)(nil)).Elem()
+}
+
+func (i *providerIntegrationSetupEnvironmentPtrType) ToProviderIntegrationSetupEnvironmentPtrOutput() ProviderIntegrationSetupEnvironmentPtrOutput {
+	return i.ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *providerIntegrationSetupEnvironmentPtrType) ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationSetupEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderIntegrationSetupEnvironmentPtrOutput)
+}
+
+type ProviderIntegrationSetupEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationSetupEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderIntegrationSetupEnvironment)(nil)).Elem()
+}
+
+func (o ProviderIntegrationSetupEnvironmentOutput) ToProviderIntegrationSetupEnvironmentOutput() ProviderIntegrationSetupEnvironmentOutput {
+	return o
+}
+
+func (o ProviderIntegrationSetupEnvironmentOutput) ToProviderIntegrationSetupEnvironmentOutputWithContext(ctx context.Context) ProviderIntegrationSetupEnvironmentOutput {
+	return o
+}
+
+func (o ProviderIntegrationSetupEnvironmentOutput) ToProviderIntegrationSetupEnvironmentPtrOutput() ProviderIntegrationSetupEnvironmentPtrOutput {
+	return o.ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderIntegrationSetupEnvironmentOutput) ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationSetupEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderIntegrationSetupEnvironment) *ProviderIntegrationSetupEnvironment {
+		return &v
+	}).(ProviderIntegrationSetupEnvironmentPtrOutput)
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o ProviderIntegrationSetupEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderIntegrationSetupEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type ProviderIntegrationSetupEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderIntegrationSetupEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderIntegrationSetupEnvironment)(nil)).Elem()
+}
+
+func (o ProviderIntegrationSetupEnvironmentPtrOutput) ToProviderIntegrationSetupEnvironmentPtrOutput() ProviderIntegrationSetupEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationSetupEnvironmentPtrOutput) ToProviderIntegrationSetupEnvironmentPtrOutputWithContext(ctx context.Context) ProviderIntegrationSetupEnvironmentPtrOutput {
+	return o
+}
+
+func (o ProviderIntegrationSetupEnvironmentPtrOutput) Elem() ProviderIntegrationSetupEnvironmentOutput {
+	return o.ApplyT(func(v *ProviderIntegrationSetupEnvironment) ProviderIntegrationSetupEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderIntegrationSetupEnvironment
+		return ret
+	}).(ProviderIntegrationSetupEnvironmentOutput)
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o ProviderIntegrationSetupEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderIntegrationSetupEnvironment) *string {
 		if v == nil {
 			return nil
 		}
@@ -30597,6 +31191,1244 @@ func (o GetKafkaClusterStandardArrayOutput) Index(i pulumi.IntInput) GetKafkaClu
 	}).(GetKafkaClusterStandardOutput)
 }
 
+type GetKafkaClustersCluster struct {
+	// (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
+	ApiVersion string `pulumi:"apiVersion"`
+	// (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
+	Availability string `pulumi:"availability"`
+	// (Optional Configuration Block) The configuration of the Basic Kafka cluster.
+	Basics []GetKafkaClustersClusterBasic `pulumi:"basics"`
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+	BootstrapEndpoint string `pulumi:"bootstrapEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	ByokKeys []GetKafkaClustersClusterByokKey `pulumi:"byokKeys"`
+	// (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+	Cloud string `pulumi:"cloud"`
+	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+	Dedicated *GetKafkaClustersClusterDedicated `pulumi:"dedicated"`
+	// (Required String) The name of the Kafka cluster.
+	DisplayName string `pulumi:"displayName"`
+	// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+	Endpoints []GetKafkaClustersClusterEndpoint `pulumi:"endpoints"`
+	// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+	Enterprises []GetKafkaClustersClusterEnterprise `pulumi:"enterprises"`
+	// (Required Object) exports the following attributes:
+	Environment GetKafkaClustersClusterEnvironment `pulumi:"environment"`
+	// (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+	Freights []GetKafkaClustersClusterFreight `pulumi:"freights"`
+	// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+	Id string `pulumi:"id"`
+	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
+	Kind string `pulumi:"kind"`
+	// (Optional Configuration Block) supports the following:
+	Networks []GetKafkaClustersClusterNetwork `pulumi:"networks"`
+	// (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+	RbacCrn string `pulumi:"rbacCrn"`
+	// (Required String) The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
+	Region string `pulumi:"region"`
+	// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+	RestEndpoint string `pulumi:"restEndpoint"`
+	// (Optional Configuration Block) The configuration of the Standard Kafka cluster.
+	Standards []GetKafkaClustersClusterStandard `pulumi:"standards"`
+}
+
+// GetKafkaClustersClusterInput is an input type that accepts GetKafkaClustersClusterArgs and GetKafkaClustersClusterOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterInput` via:
+//
+//	GetKafkaClustersClusterArgs{...}
+type GetKafkaClustersClusterInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterOutput() GetKafkaClustersClusterOutput
+	ToGetKafkaClustersClusterOutputWithContext(context.Context) GetKafkaClustersClusterOutput
+}
+
+type GetKafkaClustersClusterArgs struct {
+	// (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
+	ApiVersion pulumi.StringInput `pulumi:"apiVersion"`
+	// (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
+	Availability pulumi.StringInput `pulumi:"availability"`
+	// (Optional Configuration Block) The configuration of the Basic Kafka cluster.
+	Basics GetKafkaClustersClusterBasicArrayInput `pulumi:"basics"`
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+	BootstrapEndpoint pulumi.StringInput `pulumi:"bootstrapEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	ByokKeys GetKafkaClustersClusterByokKeyArrayInput `pulumi:"byokKeys"`
+	// (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+	Cloud pulumi.StringInput `pulumi:"cloud"`
+	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+	Dedicated GetKafkaClustersClusterDedicatedPtrInput `pulumi:"dedicated"`
+	// (Required String) The name of the Kafka cluster.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+	Endpoints GetKafkaClustersClusterEndpointArrayInput `pulumi:"endpoints"`
+	// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+	Enterprises GetKafkaClustersClusterEnterpriseArrayInput `pulumi:"enterprises"`
+	// (Required Object) exports the following attributes:
+	Environment GetKafkaClustersClusterEnvironmentInput `pulumi:"environment"`
+	// (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+	Freights GetKafkaClustersClusterFreightArrayInput `pulumi:"freights"`
+	// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+	Id pulumi.StringInput `pulumi:"id"`
+	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// (Optional Configuration Block) supports the following:
+	Networks GetKafkaClustersClusterNetworkArrayInput `pulumi:"networks"`
+	// (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+	RbacCrn pulumi.StringInput `pulumi:"rbacCrn"`
+	// (Required String) The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
+	Region pulumi.StringInput `pulumi:"region"`
+	// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+	RestEndpoint pulumi.StringInput `pulumi:"restEndpoint"`
+	// (Optional Configuration Block) The configuration of the Standard Kafka cluster.
+	Standards GetKafkaClustersClusterStandardArrayInput `pulumi:"standards"`
+}
+
+func (GetKafkaClustersClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersCluster)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterArgs) ToGetKafkaClustersClusterOutput() GetKafkaClustersClusterOutput {
+	return i.ToGetKafkaClustersClusterOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterArgs) ToGetKafkaClustersClusterOutputWithContext(ctx context.Context) GetKafkaClustersClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterOutput)
+}
+
+// GetKafkaClustersClusterArrayInput is an input type that accepts GetKafkaClustersClusterArray and GetKafkaClustersClusterArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterArrayInput` via:
+//
+//	GetKafkaClustersClusterArray{ GetKafkaClustersClusterArgs{...} }
+type GetKafkaClustersClusterArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterArrayOutput() GetKafkaClustersClusterArrayOutput
+	ToGetKafkaClustersClusterArrayOutputWithContext(context.Context) GetKafkaClustersClusterArrayOutput
+}
+
+type GetKafkaClustersClusterArray []GetKafkaClustersClusterInput
+
+func (GetKafkaClustersClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersCluster)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterArray) ToGetKafkaClustersClusterArrayOutput() GetKafkaClustersClusterArrayOutput {
+	return i.ToGetKafkaClustersClusterArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterArray) ToGetKafkaClustersClusterArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterArrayOutput)
+}
+
+type GetKafkaClustersClusterOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersCluster)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterOutput) ToGetKafkaClustersClusterOutput() GetKafkaClustersClusterOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterOutput) ToGetKafkaClustersClusterOutputWithContext(ctx context.Context) GetKafkaClustersClusterOutput {
+	return o
+}
+
+// (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
+func (o GetKafkaClustersClusterOutput) ApiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) string { return v.ApiVersion }).(pulumi.StringOutput)
+}
+
+// (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
+func (o GetKafkaClustersClusterOutput) Availability() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) string { return v.Availability }).(pulumi.StringOutput)
+}
+
+// (Optional Configuration Block) The configuration of the Basic Kafka cluster.
+func (o GetKafkaClustersClusterOutput) Basics() GetKafkaClustersClusterBasicArrayOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) []GetKafkaClustersClusterBasic { return v.Basics }).(GetKafkaClustersClusterBasicArrayOutput)
+}
+
+// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+func (o GetKafkaClustersClusterOutput) BootstrapEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) string { return v.BootstrapEndpoint }).(pulumi.StringOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GetKafkaClustersClusterOutput) ByokKeys() GetKafkaClustersClusterByokKeyArrayOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) []GetKafkaClustersClusterByokKey { return v.ByokKeys }).(GetKafkaClustersClusterByokKeyArrayOutput)
+}
+
+// (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+func (o GetKafkaClustersClusterOutput) Cloud() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) string { return v.Cloud }).(pulumi.StringOutput)
+}
+
+// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+func (o GetKafkaClustersClusterOutput) Dedicated() GetKafkaClustersClusterDedicatedPtrOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) *GetKafkaClustersClusterDedicated { return v.Dedicated }).(GetKafkaClustersClusterDedicatedPtrOutput)
+}
+
+// (Required String) The name of the Kafka cluster.
+func (o GetKafkaClustersClusterOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+func (o GetKafkaClustersClusterOutput) Endpoints() GetKafkaClustersClusterEndpointArrayOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) []GetKafkaClustersClusterEndpoint { return v.Endpoints }).(GetKafkaClustersClusterEndpointArrayOutput)
+}
+
+// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+func (o GetKafkaClustersClusterOutput) Enterprises() GetKafkaClustersClusterEnterpriseArrayOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) []GetKafkaClustersClusterEnterprise { return v.Enterprises }).(GetKafkaClustersClusterEnterpriseArrayOutput)
+}
+
+// (Required Object) exports the following attributes:
+func (o GetKafkaClustersClusterOutput) Environment() GetKafkaClustersClusterEnvironmentOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) GetKafkaClustersClusterEnvironment { return v.Environment }).(GetKafkaClustersClusterEnvironmentOutput)
+}
+
+// (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+func (o GetKafkaClustersClusterOutput) Freights() GetKafkaClustersClusterFreightArrayOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) []GetKafkaClustersClusterFreight { return v.Freights }).(GetKafkaClustersClusterFreightArrayOutput)
+}
+
+// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+func (o GetKafkaClustersClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
+func (o GetKafkaClustersClusterOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GetKafkaClustersClusterOutput) Networks() GetKafkaClustersClusterNetworkArrayOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) []GetKafkaClustersClusterNetwork { return v.Networks }).(GetKafkaClustersClusterNetworkArrayOutput)
+}
+
+// (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+func (o GetKafkaClustersClusterOutput) RbacCrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) string { return v.RbacCrn }).(pulumi.StringOutput)
+}
+
+// (Required String) The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
+func (o GetKafkaClustersClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+func (o GetKafkaClustersClusterOutput) RestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) string { return v.RestEndpoint }).(pulumi.StringOutput)
+}
+
+// (Optional Configuration Block) The configuration of the Standard Kafka cluster.
+func (o GetKafkaClustersClusterOutput) Standards() GetKafkaClustersClusterStandardArrayOutput {
+	return o.ApplyT(func(v GetKafkaClustersCluster) []GetKafkaClustersClusterStandard { return v.Standards }).(GetKafkaClustersClusterStandardArrayOutput)
+}
+
+type GetKafkaClustersClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersCluster)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterArrayOutput) ToGetKafkaClustersClusterArrayOutput() GetKafkaClustersClusterArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterArrayOutput) ToGetKafkaClustersClusterArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterArrayOutput) Index(i pulumi.IntInput) GetKafkaClustersClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClustersCluster {
+		return vs[0].([]GetKafkaClustersCluster)[vs[1].(int)]
+	}).(GetKafkaClustersClusterOutput)
+}
+
+type GetKafkaClustersClusterBasic struct {
+}
+
+// GetKafkaClustersClusterBasicInput is an input type that accepts GetKafkaClustersClusterBasicArgs and GetKafkaClustersClusterBasicOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterBasicInput` via:
+//
+//	GetKafkaClustersClusterBasicArgs{...}
+type GetKafkaClustersClusterBasicInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterBasicOutput() GetKafkaClustersClusterBasicOutput
+	ToGetKafkaClustersClusterBasicOutputWithContext(context.Context) GetKafkaClustersClusterBasicOutput
+}
+
+type GetKafkaClustersClusterBasicArgs struct {
+}
+
+func (GetKafkaClustersClusterBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterBasic)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterBasicArgs) ToGetKafkaClustersClusterBasicOutput() GetKafkaClustersClusterBasicOutput {
+	return i.ToGetKafkaClustersClusterBasicOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterBasicArgs) ToGetKafkaClustersClusterBasicOutputWithContext(ctx context.Context) GetKafkaClustersClusterBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterBasicOutput)
+}
+
+// GetKafkaClustersClusterBasicArrayInput is an input type that accepts GetKafkaClustersClusterBasicArray and GetKafkaClustersClusterBasicArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterBasicArrayInput` via:
+//
+//	GetKafkaClustersClusterBasicArray{ GetKafkaClustersClusterBasicArgs{...} }
+type GetKafkaClustersClusterBasicArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterBasicArrayOutput() GetKafkaClustersClusterBasicArrayOutput
+	ToGetKafkaClustersClusterBasicArrayOutputWithContext(context.Context) GetKafkaClustersClusterBasicArrayOutput
+}
+
+type GetKafkaClustersClusterBasicArray []GetKafkaClustersClusterBasicInput
+
+func (GetKafkaClustersClusterBasicArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterBasic)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterBasicArray) ToGetKafkaClustersClusterBasicArrayOutput() GetKafkaClustersClusterBasicArrayOutput {
+	return i.ToGetKafkaClustersClusterBasicArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterBasicArray) ToGetKafkaClustersClusterBasicArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterBasicArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterBasicArrayOutput)
+}
+
+type GetKafkaClustersClusterBasicOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterBasic)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterBasicOutput) ToGetKafkaClustersClusterBasicOutput() GetKafkaClustersClusterBasicOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterBasicOutput) ToGetKafkaClustersClusterBasicOutputWithContext(ctx context.Context) GetKafkaClustersClusterBasicOutput {
+	return o
+}
+
+type GetKafkaClustersClusterBasicArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterBasicArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterBasic)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterBasicArrayOutput) ToGetKafkaClustersClusterBasicArrayOutput() GetKafkaClustersClusterBasicArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterBasicArrayOutput) ToGetKafkaClustersClusterBasicArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterBasicArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterBasicArrayOutput) Index(i pulumi.IntInput) GetKafkaClustersClusterBasicOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClustersClusterBasic {
+		return vs[0].([]GetKafkaClustersClusterBasic)[vs[1].(int)]
+	}).(GetKafkaClustersClusterBasicOutput)
+}
+
+type GetKafkaClustersClusterByokKey struct {
+	// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+	Id string `pulumi:"id"`
+}
+
+// GetKafkaClustersClusterByokKeyInput is an input type that accepts GetKafkaClustersClusterByokKeyArgs and GetKafkaClustersClusterByokKeyOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterByokKeyInput` via:
+//
+//	GetKafkaClustersClusterByokKeyArgs{...}
+type GetKafkaClustersClusterByokKeyInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterByokKeyOutput() GetKafkaClustersClusterByokKeyOutput
+	ToGetKafkaClustersClusterByokKeyOutputWithContext(context.Context) GetKafkaClustersClusterByokKeyOutput
+}
+
+type GetKafkaClustersClusterByokKeyArgs struct {
+	// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetKafkaClustersClusterByokKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterByokKey)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterByokKeyArgs) ToGetKafkaClustersClusterByokKeyOutput() GetKafkaClustersClusterByokKeyOutput {
+	return i.ToGetKafkaClustersClusterByokKeyOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterByokKeyArgs) ToGetKafkaClustersClusterByokKeyOutputWithContext(ctx context.Context) GetKafkaClustersClusterByokKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterByokKeyOutput)
+}
+
+// GetKafkaClustersClusterByokKeyArrayInput is an input type that accepts GetKafkaClustersClusterByokKeyArray and GetKafkaClustersClusterByokKeyArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterByokKeyArrayInput` via:
+//
+//	GetKafkaClustersClusterByokKeyArray{ GetKafkaClustersClusterByokKeyArgs{...} }
+type GetKafkaClustersClusterByokKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterByokKeyArrayOutput() GetKafkaClustersClusterByokKeyArrayOutput
+	ToGetKafkaClustersClusterByokKeyArrayOutputWithContext(context.Context) GetKafkaClustersClusterByokKeyArrayOutput
+}
+
+type GetKafkaClustersClusterByokKeyArray []GetKafkaClustersClusterByokKeyInput
+
+func (GetKafkaClustersClusterByokKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterByokKey)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterByokKeyArray) ToGetKafkaClustersClusterByokKeyArrayOutput() GetKafkaClustersClusterByokKeyArrayOutput {
+	return i.ToGetKafkaClustersClusterByokKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterByokKeyArray) ToGetKafkaClustersClusterByokKeyArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterByokKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterByokKeyArrayOutput)
+}
+
+type GetKafkaClustersClusterByokKeyOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterByokKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterByokKey)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterByokKeyOutput) ToGetKafkaClustersClusterByokKeyOutput() GetKafkaClustersClusterByokKeyOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterByokKeyOutput) ToGetKafkaClustersClusterByokKeyOutputWithContext(ctx context.Context) GetKafkaClustersClusterByokKeyOutput {
+	return o
+}
+
+// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+func (o GetKafkaClustersClusterByokKeyOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterByokKey) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetKafkaClustersClusterByokKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterByokKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterByokKey)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterByokKeyArrayOutput) ToGetKafkaClustersClusterByokKeyArrayOutput() GetKafkaClustersClusterByokKeyArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterByokKeyArrayOutput) ToGetKafkaClustersClusterByokKeyArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterByokKeyArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterByokKeyArrayOutput) Index(i pulumi.IntInput) GetKafkaClustersClusterByokKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClustersClusterByokKey {
+		return vs[0].([]GetKafkaClustersClusterByokKey)[vs[1].(int)]
+	}).(GetKafkaClustersClusterByokKeyOutput)
+}
+
+type GetKafkaClustersClusterDedicated struct {
+	// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
+	Cku int `pulumi:"cku"`
+	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+	EncryptionKey string `pulumi:"encryptionKey"`
+	// (Required List of String) The list of zones the cluster is in.
+	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+	// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	Zones []string `pulumi:"zones"`
+}
+
+// GetKafkaClustersClusterDedicatedInput is an input type that accepts GetKafkaClustersClusterDedicatedArgs and GetKafkaClustersClusterDedicatedOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterDedicatedInput` via:
+//
+//	GetKafkaClustersClusterDedicatedArgs{...}
+type GetKafkaClustersClusterDedicatedInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterDedicatedOutput() GetKafkaClustersClusterDedicatedOutput
+	ToGetKafkaClustersClusterDedicatedOutputWithContext(context.Context) GetKafkaClustersClusterDedicatedOutput
+}
+
+type GetKafkaClustersClusterDedicatedArgs struct {
+	// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
+	Cku pulumi.IntInput `pulumi:"cku"`
+	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+	EncryptionKey pulumi.StringInput `pulumi:"encryptionKey"`
+	// (Required List of String) The list of zones the cluster is in.
+	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+	// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (GetKafkaClustersClusterDedicatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterDedicated)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterDedicatedArgs) ToGetKafkaClustersClusterDedicatedOutput() GetKafkaClustersClusterDedicatedOutput {
+	return i.ToGetKafkaClustersClusterDedicatedOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterDedicatedArgs) ToGetKafkaClustersClusterDedicatedOutputWithContext(ctx context.Context) GetKafkaClustersClusterDedicatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterDedicatedOutput)
+}
+
+func (i GetKafkaClustersClusterDedicatedArgs) ToGetKafkaClustersClusterDedicatedPtrOutput() GetKafkaClustersClusterDedicatedPtrOutput {
+	return i.ToGetKafkaClustersClusterDedicatedPtrOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterDedicatedArgs) ToGetKafkaClustersClusterDedicatedPtrOutputWithContext(ctx context.Context) GetKafkaClustersClusterDedicatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterDedicatedOutput).ToGetKafkaClustersClusterDedicatedPtrOutputWithContext(ctx)
+}
+
+// GetKafkaClustersClusterDedicatedPtrInput is an input type that accepts GetKafkaClustersClusterDedicatedArgs, GetKafkaClustersClusterDedicatedPtr and GetKafkaClustersClusterDedicatedPtrOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterDedicatedPtrInput` via:
+//
+//	        GetKafkaClustersClusterDedicatedArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetKafkaClustersClusterDedicatedPtrInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterDedicatedPtrOutput() GetKafkaClustersClusterDedicatedPtrOutput
+	ToGetKafkaClustersClusterDedicatedPtrOutputWithContext(context.Context) GetKafkaClustersClusterDedicatedPtrOutput
+}
+
+type getKafkaClustersClusterDedicatedPtrType GetKafkaClustersClusterDedicatedArgs
+
+func GetKafkaClustersClusterDedicatedPtr(v *GetKafkaClustersClusterDedicatedArgs) GetKafkaClustersClusterDedicatedPtrInput {
+	return (*getKafkaClustersClusterDedicatedPtrType)(v)
+}
+
+func (*getKafkaClustersClusterDedicatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetKafkaClustersClusterDedicated)(nil)).Elem()
+}
+
+func (i *getKafkaClustersClusterDedicatedPtrType) ToGetKafkaClustersClusterDedicatedPtrOutput() GetKafkaClustersClusterDedicatedPtrOutput {
+	return i.ToGetKafkaClustersClusterDedicatedPtrOutputWithContext(context.Background())
+}
+
+func (i *getKafkaClustersClusterDedicatedPtrType) ToGetKafkaClustersClusterDedicatedPtrOutputWithContext(ctx context.Context) GetKafkaClustersClusterDedicatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterDedicatedPtrOutput)
+}
+
+type GetKafkaClustersClusterDedicatedOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterDedicatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterDedicated)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterDedicatedOutput) ToGetKafkaClustersClusterDedicatedOutput() GetKafkaClustersClusterDedicatedOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterDedicatedOutput) ToGetKafkaClustersClusterDedicatedOutputWithContext(ctx context.Context) GetKafkaClustersClusterDedicatedOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterDedicatedOutput) ToGetKafkaClustersClusterDedicatedPtrOutput() GetKafkaClustersClusterDedicatedPtrOutput {
+	return o.ToGetKafkaClustersClusterDedicatedPtrOutputWithContext(context.Background())
+}
+
+func (o GetKafkaClustersClusterDedicatedOutput) ToGetKafkaClustersClusterDedicatedPtrOutputWithContext(ctx context.Context) GetKafkaClustersClusterDedicatedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetKafkaClustersClusterDedicated) *GetKafkaClustersClusterDedicated {
+		return &v
+	}).(GetKafkaClustersClusterDedicatedPtrOutput)
+}
+
+// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
+func (o GetKafkaClustersClusterDedicatedOutput) Cku() pulumi.IntOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterDedicated) int { return v.Cku }).(pulumi.IntOutput)
+}
+
+// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+func (o GetKafkaClustersClusterDedicatedOutput) EncryptionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterDedicated) string { return v.EncryptionKey }).(pulumi.StringOutput)
+}
+
+// (Required List of String) The list of zones the cluster is in.
+// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+func (o GetKafkaClustersClusterDedicatedOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterDedicated) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+type GetKafkaClustersClusterDedicatedPtrOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterDedicatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetKafkaClustersClusterDedicated)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterDedicatedPtrOutput) ToGetKafkaClustersClusterDedicatedPtrOutput() GetKafkaClustersClusterDedicatedPtrOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterDedicatedPtrOutput) ToGetKafkaClustersClusterDedicatedPtrOutputWithContext(ctx context.Context) GetKafkaClustersClusterDedicatedPtrOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterDedicatedPtrOutput) Elem() GetKafkaClustersClusterDedicatedOutput {
+	return o.ApplyT(func(v *GetKafkaClustersClusterDedicated) GetKafkaClustersClusterDedicated {
+		if v != nil {
+			return *v
+		}
+		var ret GetKafkaClustersClusterDedicated
+		return ret
+	}).(GetKafkaClustersClusterDedicatedOutput)
+}
+
+// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
+func (o GetKafkaClustersClusterDedicatedPtrOutput) Cku() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetKafkaClustersClusterDedicated) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Cku
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+func (o GetKafkaClustersClusterDedicatedPtrOutput) EncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetKafkaClustersClusterDedicated) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Required List of String) The list of zones the cluster is in.
+// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+func (o GetKafkaClustersClusterDedicatedPtrOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetKafkaClustersClusterDedicated) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Zones
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetKafkaClustersClusterEndpoint struct {
+	// (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+	AccessPointId string `pulumi:"accessPointId"`
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+	BootstrapEndpoint string `pulumi:"bootstrapEndpoint"`
+	// (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+	ConnectionType string `pulumi:"connectionType"`
+	// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+	RestEndpoint string `pulumi:"restEndpoint"`
+}
+
+// GetKafkaClustersClusterEndpointInput is an input type that accepts GetKafkaClustersClusterEndpointArgs and GetKafkaClustersClusterEndpointOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterEndpointInput` via:
+//
+//	GetKafkaClustersClusterEndpointArgs{...}
+type GetKafkaClustersClusterEndpointInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterEndpointOutput() GetKafkaClustersClusterEndpointOutput
+	ToGetKafkaClustersClusterEndpointOutputWithContext(context.Context) GetKafkaClustersClusterEndpointOutput
+}
+
+type GetKafkaClustersClusterEndpointArgs struct {
+	// (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+	AccessPointId pulumi.StringInput `pulumi:"accessPointId"`
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+	BootstrapEndpoint pulumi.StringInput `pulumi:"bootstrapEndpoint"`
+	// (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+	ConnectionType pulumi.StringInput `pulumi:"connectionType"`
+	// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+	RestEndpoint pulumi.StringInput `pulumi:"restEndpoint"`
+}
+
+func (GetKafkaClustersClusterEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterEndpoint)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterEndpointArgs) ToGetKafkaClustersClusterEndpointOutput() GetKafkaClustersClusterEndpointOutput {
+	return i.ToGetKafkaClustersClusterEndpointOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterEndpointArgs) ToGetKafkaClustersClusterEndpointOutputWithContext(ctx context.Context) GetKafkaClustersClusterEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterEndpointOutput)
+}
+
+// GetKafkaClustersClusterEndpointArrayInput is an input type that accepts GetKafkaClustersClusterEndpointArray and GetKafkaClustersClusterEndpointArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterEndpointArrayInput` via:
+//
+//	GetKafkaClustersClusterEndpointArray{ GetKafkaClustersClusterEndpointArgs{...} }
+type GetKafkaClustersClusterEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterEndpointArrayOutput() GetKafkaClustersClusterEndpointArrayOutput
+	ToGetKafkaClustersClusterEndpointArrayOutputWithContext(context.Context) GetKafkaClustersClusterEndpointArrayOutput
+}
+
+type GetKafkaClustersClusterEndpointArray []GetKafkaClustersClusterEndpointInput
+
+func (GetKafkaClustersClusterEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterEndpoint)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterEndpointArray) ToGetKafkaClustersClusterEndpointArrayOutput() GetKafkaClustersClusterEndpointArrayOutput {
+	return i.ToGetKafkaClustersClusterEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterEndpointArray) ToGetKafkaClustersClusterEndpointArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterEndpointArrayOutput)
+}
+
+type GetKafkaClustersClusterEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterEndpoint)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterEndpointOutput) ToGetKafkaClustersClusterEndpointOutput() GetKafkaClustersClusterEndpointOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterEndpointOutput) ToGetKafkaClustersClusterEndpointOutputWithContext(ctx context.Context) GetKafkaClustersClusterEndpointOutput {
+	return o
+}
+
+// (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+func (o GetKafkaClustersClusterEndpointOutput) AccessPointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterEndpoint) string { return v.AccessPointId }).(pulumi.StringOutput)
+}
+
+// (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+func (o GetKafkaClustersClusterEndpointOutput) BootstrapEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterEndpoint) string { return v.BootstrapEndpoint }).(pulumi.StringOutput)
+}
+
+// (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+func (o GetKafkaClustersClusterEndpointOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterEndpoint) string { return v.ConnectionType }).(pulumi.StringOutput)
+}
+
+// (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+func (o GetKafkaClustersClusterEndpointOutput) RestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterEndpoint) string { return v.RestEndpoint }).(pulumi.StringOutput)
+}
+
+type GetKafkaClustersClusterEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterEndpoint)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterEndpointArrayOutput) ToGetKafkaClustersClusterEndpointArrayOutput() GetKafkaClustersClusterEndpointArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterEndpointArrayOutput) ToGetKafkaClustersClusterEndpointArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterEndpointArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterEndpointArrayOutput) Index(i pulumi.IntInput) GetKafkaClustersClusterEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClustersClusterEndpoint {
+		return vs[0].([]GetKafkaClustersClusterEndpoint)[vs[1].(int)]
+	}).(GetKafkaClustersClusterEndpointOutput)
+}
+
+type GetKafkaClustersClusterEnterprise struct {
+}
+
+// GetKafkaClustersClusterEnterpriseInput is an input type that accepts GetKafkaClustersClusterEnterpriseArgs and GetKafkaClustersClusterEnterpriseOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterEnterpriseInput` via:
+//
+//	GetKafkaClustersClusterEnterpriseArgs{...}
+type GetKafkaClustersClusterEnterpriseInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterEnterpriseOutput() GetKafkaClustersClusterEnterpriseOutput
+	ToGetKafkaClustersClusterEnterpriseOutputWithContext(context.Context) GetKafkaClustersClusterEnterpriseOutput
+}
+
+type GetKafkaClustersClusterEnterpriseArgs struct {
+}
+
+func (GetKafkaClustersClusterEnterpriseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterEnterprise)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterEnterpriseArgs) ToGetKafkaClustersClusterEnterpriseOutput() GetKafkaClustersClusterEnterpriseOutput {
+	return i.ToGetKafkaClustersClusterEnterpriseOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterEnterpriseArgs) ToGetKafkaClustersClusterEnterpriseOutputWithContext(ctx context.Context) GetKafkaClustersClusterEnterpriseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterEnterpriseOutput)
+}
+
+// GetKafkaClustersClusterEnterpriseArrayInput is an input type that accepts GetKafkaClustersClusterEnterpriseArray and GetKafkaClustersClusterEnterpriseArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterEnterpriseArrayInput` via:
+//
+//	GetKafkaClustersClusterEnterpriseArray{ GetKafkaClustersClusterEnterpriseArgs{...} }
+type GetKafkaClustersClusterEnterpriseArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterEnterpriseArrayOutput() GetKafkaClustersClusterEnterpriseArrayOutput
+	ToGetKafkaClustersClusterEnterpriseArrayOutputWithContext(context.Context) GetKafkaClustersClusterEnterpriseArrayOutput
+}
+
+type GetKafkaClustersClusterEnterpriseArray []GetKafkaClustersClusterEnterpriseInput
+
+func (GetKafkaClustersClusterEnterpriseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterEnterprise)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterEnterpriseArray) ToGetKafkaClustersClusterEnterpriseArrayOutput() GetKafkaClustersClusterEnterpriseArrayOutput {
+	return i.ToGetKafkaClustersClusterEnterpriseArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterEnterpriseArray) ToGetKafkaClustersClusterEnterpriseArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterEnterpriseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterEnterpriseArrayOutput)
+}
+
+type GetKafkaClustersClusterEnterpriseOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterEnterpriseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterEnterprise)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterEnterpriseOutput) ToGetKafkaClustersClusterEnterpriseOutput() GetKafkaClustersClusterEnterpriseOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterEnterpriseOutput) ToGetKafkaClustersClusterEnterpriseOutputWithContext(ctx context.Context) GetKafkaClustersClusterEnterpriseOutput {
+	return o
+}
+
+type GetKafkaClustersClusterEnterpriseArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterEnterpriseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterEnterprise)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterEnterpriseArrayOutput) ToGetKafkaClustersClusterEnterpriseArrayOutput() GetKafkaClustersClusterEnterpriseArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterEnterpriseArrayOutput) ToGetKafkaClustersClusterEnterpriseArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterEnterpriseArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterEnterpriseArrayOutput) Index(i pulumi.IntInput) GetKafkaClustersClusterEnterpriseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClustersClusterEnterprise {
+		return vs[0].([]GetKafkaClustersClusterEnterprise)[vs[1].(int)]
+	}).(GetKafkaClustersClusterEnterpriseOutput)
+}
+
+type GetKafkaClustersClusterEnvironment struct {
+	// The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetKafkaClustersClusterEnvironmentInput is an input type that accepts GetKafkaClustersClusterEnvironmentArgs and GetKafkaClustersClusterEnvironmentOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterEnvironmentInput` via:
+//
+//	GetKafkaClustersClusterEnvironmentArgs{...}
+type GetKafkaClustersClusterEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterEnvironmentOutput() GetKafkaClustersClusterEnvironmentOutput
+	ToGetKafkaClustersClusterEnvironmentOutputWithContext(context.Context) GetKafkaClustersClusterEnvironmentOutput
+}
+
+type GetKafkaClustersClusterEnvironmentArgs struct {
+	// The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetKafkaClustersClusterEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterEnvironment)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterEnvironmentArgs) ToGetKafkaClustersClusterEnvironmentOutput() GetKafkaClustersClusterEnvironmentOutput {
+	return i.ToGetKafkaClustersClusterEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterEnvironmentArgs) ToGetKafkaClustersClusterEnvironmentOutputWithContext(ctx context.Context) GetKafkaClustersClusterEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterEnvironmentOutput)
+}
+
+type GetKafkaClustersClusterEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterEnvironment)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterEnvironmentOutput) ToGetKafkaClustersClusterEnvironmentOutput() GetKafkaClustersClusterEnvironmentOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterEnvironmentOutput) ToGetKafkaClustersClusterEnvironmentOutputWithContext(ctx context.Context) GetKafkaClustersClusterEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+func (o GetKafkaClustersClusterEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetKafkaClustersClusterFreight struct {
+	// (Required List of String) The list of zones the cluster is in.
+	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+	// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	Zones []string `pulumi:"zones"`
+}
+
+// GetKafkaClustersClusterFreightInput is an input type that accepts GetKafkaClustersClusterFreightArgs and GetKafkaClustersClusterFreightOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterFreightInput` via:
+//
+//	GetKafkaClustersClusterFreightArgs{...}
+type GetKafkaClustersClusterFreightInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterFreightOutput() GetKafkaClustersClusterFreightOutput
+	ToGetKafkaClustersClusterFreightOutputWithContext(context.Context) GetKafkaClustersClusterFreightOutput
+}
+
+type GetKafkaClustersClusterFreightArgs struct {
+	// (Required List of String) The list of zones the cluster is in.
+	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+	// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (GetKafkaClustersClusterFreightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterFreight)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterFreightArgs) ToGetKafkaClustersClusterFreightOutput() GetKafkaClustersClusterFreightOutput {
+	return i.ToGetKafkaClustersClusterFreightOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterFreightArgs) ToGetKafkaClustersClusterFreightOutputWithContext(ctx context.Context) GetKafkaClustersClusterFreightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterFreightOutput)
+}
+
+// GetKafkaClustersClusterFreightArrayInput is an input type that accepts GetKafkaClustersClusterFreightArray and GetKafkaClustersClusterFreightArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterFreightArrayInput` via:
+//
+//	GetKafkaClustersClusterFreightArray{ GetKafkaClustersClusterFreightArgs{...} }
+type GetKafkaClustersClusterFreightArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterFreightArrayOutput() GetKafkaClustersClusterFreightArrayOutput
+	ToGetKafkaClustersClusterFreightArrayOutputWithContext(context.Context) GetKafkaClustersClusterFreightArrayOutput
+}
+
+type GetKafkaClustersClusterFreightArray []GetKafkaClustersClusterFreightInput
+
+func (GetKafkaClustersClusterFreightArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterFreight)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterFreightArray) ToGetKafkaClustersClusterFreightArrayOutput() GetKafkaClustersClusterFreightArrayOutput {
+	return i.ToGetKafkaClustersClusterFreightArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterFreightArray) ToGetKafkaClustersClusterFreightArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterFreightArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterFreightArrayOutput)
+}
+
+type GetKafkaClustersClusterFreightOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterFreightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterFreight)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterFreightOutput) ToGetKafkaClustersClusterFreightOutput() GetKafkaClustersClusterFreightOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterFreightOutput) ToGetKafkaClustersClusterFreightOutputWithContext(ctx context.Context) GetKafkaClustersClusterFreightOutput {
+	return o
+}
+
+// (Required List of String) The list of zones the cluster is in.
+// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+// - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+func (o GetKafkaClustersClusterFreightOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterFreight) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+type GetKafkaClustersClusterFreightArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterFreightArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterFreight)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterFreightArrayOutput) ToGetKafkaClustersClusterFreightArrayOutput() GetKafkaClustersClusterFreightArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterFreightArrayOutput) ToGetKafkaClustersClusterFreightArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterFreightArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterFreightArrayOutput) Index(i pulumi.IntInput) GetKafkaClustersClusterFreightOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClustersClusterFreight {
+		return vs[0].([]GetKafkaClustersClusterFreight)[vs[1].(int)]
+	}).(GetKafkaClustersClusterFreightOutput)
+}
+
+type GetKafkaClustersClusterNetwork struct {
+	// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+	Id string `pulumi:"id"`
+}
+
+// GetKafkaClustersClusterNetworkInput is an input type that accepts GetKafkaClustersClusterNetworkArgs and GetKafkaClustersClusterNetworkOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterNetworkInput` via:
+//
+//	GetKafkaClustersClusterNetworkArgs{...}
+type GetKafkaClustersClusterNetworkInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterNetworkOutput() GetKafkaClustersClusterNetworkOutput
+	ToGetKafkaClustersClusterNetworkOutputWithContext(context.Context) GetKafkaClustersClusterNetworkOutput
+}
+
+type GetKafkaClustersClusterNetworkArgs struct {
+	// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetKafkaClustersClusterNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterNetwork)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterNetworkArgs) ToGetKafkaClustersClusterNetworkOutput() GetKafkaClustersClusterNetworkOutput {
+	return i.ToGetKafkaClustersClusterNetworkOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterNetworkArgs) ToGetKafkaClustersClusterNetworkOutputWithContext(ctx context.Context) GetKafkaClustersClusterNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterNetworkOutput)
+}
+
+// GetKafkaClustersClusterNetworkArrayInput is an input type that accepts GetKafkaClustersClusterNetworkArray and GetKafkaClustersClusterNetworkArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterNetworkArrayInput` via:
+//
+//	GetKafkaClustersClusterNetworkArray{ GetKafkaClustersClusterNetworkArgs{...} }
+type GetKafkaClustersClusterNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterNetworkArrayOutput() GetKafkaClustersClusterNetworkArrayOutput
+	ToGetKafkaClustersClusterNetworkArrayOutputWithContext(context.Context) GetKafkaClustersClusterNetworkArrayOutput
+}
+
+type GetKafkaClustersClusterNetworkArray []GetKafkaClustersClusterNetworkInput
+
+func (GetKafkaClustersClusterNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterNetwork)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterNetworkArray) ToGetKafkaClustersClusterNetworkArrayOutput() GetKafkaClustersClusterNetworkArrayOutput {
+	return i.ToGetKafkaClustersClusterNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterNetworkArray) ToGetKafkaClustersClusterNetworkArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterNetworkArrayOutput)
+}
+
+type GetKafkaClustersClusterNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterNetwork)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterNetworkOutput) ToGetKafkaClustersClusterNetworkOutput() GetKafkaClustersClusterNetworkOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterNetworkOutput) ToGetKafkaClustersClusterNetworkOutputWithContext(ctx context.Context) GetKafkaClustersClusterNetworkOutput {
+	return o
+}
+
+// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+func (o GetKafkaClustersClusterNetworkOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterNetwork) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetKafkaClustersClusterNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterNetwork)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterNetworkArrayOutput) ToGetKafkaClustersClusterNetworkArrayOutput() GetKafkaClustersClusterNetworkArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterNetworkArrayOutput) ToGetKafkaClustersClusterNetworkArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterNetworkArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterNetworkArrayOutput) Index(i pulumi.IntInput) GetKafkaClustersClusterNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClustersClusterNetwork {
+		return vs[0].([]GetKafkaClustersClusterNetwork)[vs[1].(int)]
+	}).(GetKafkaClustersClusterNetworkOutput)
+}
+
+type GetKafkaClustersClusterStandard struct {
+}
+
+// GetKafkaClustersClusterStandardInput is an input type that accepts GetKafkaClustersClusterStandardArgs and GetKafkaClustersClusterStandardOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterStandardInput` via:
+//
+//	GetKafkaClustersClusterStandardArgs{...}
+type GetKafkaClustersClusterStandardInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterStandardOutput() GetKafkaClustersClusterStandardOutput
+	ToGetKafkaClustersClusterStandardOutputWithContext(context.Context) GetKafkaClustersClusterStandardOutput
+}
+
+type GetKafkaClustersClusterStandardArgs struct {
+}
+
+func (GetKafkaClustersClusterStandardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterStandard)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterStandardArgs) ToGetKafkaClustersClusterStandardOutput() GetKafkaClustersClusterStandardOutput {
+	return i.ToGetKafkaClustersClusterStandardOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterStandardArgs) ToGetKafkaClustersClusterStandardOutputWithContext(ctx context.Context) GetKafkaClustersClusterStandardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterStandardOutput)
+}
+
+// GetKafkaClustersClusterStandardArrayInput is an input type that accepts GetKafkaClustersClusterStandardArray and GetKafkaClustersClusterStandardArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClustersClusterStandardArrayInput` via:
+//
+//	GetKafkaClustersClusterStandardArray{ GetKafkaClustersClusterStandardArgs{...} }
+type GetKafkaClustersClusterStandardArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersClusterStandardArrayOutput() GetKafkaClustersClusterStandardArrayOutput
+	ToGetKafkaClustersClusterStandardArrayOutputWithContext(context.Context) GetKafkaClustersClusterStandardArrayOutput
+}
+
+type GetKafkaClustersClusterStandardArray []GetKafkaClustersClusterStandardInput
+
+func (GetKafkaClustersClusterStandardArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterStandard)(nil)).Elem()
+}
+
+func (i GetKafkaClustersClusterStandardArray) ToGetKafkaClustersClusterStandardArrayOutput() GetKafkaClustersClusterStandardArrayOutput {
+	return i.ToGetKafkaClustersClusterStandardArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersClusterStandardArray) ToGetKafkaClustersClusterStandardArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterStandardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersClusterStandardArrayOutput)
+}
+
+type GetKafkaClustersClusterStandardOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterStandardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersClusterStandard)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterStandardOutput) ToGetKafkaClustersClusterStandardOutput() GetKafkaClustersClusterStandardOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterStandardOutput) ToGetKafkaClustersClusterStandardOutputWithContext(ctx context.Context) GetKafkaClustersClusterStandardOutput {
+	return o
+}
+
+type GetKafkaClustersClusterStandardArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersClusterStandardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClustersClusterStandard)(nil)).Elem()
+}
+
+func (o GetKafkaClustersClusterStandardArrayOutput) ToGetKafkaClustersClusterStandardArrayOutput() GetKafkaClustersClusterStandardArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterStandardArrayOutput) ToGetKafkaClustersClusterStandardArrayOutputWithContext(ctx context.Context) GetKafkaClustersClusterStandardArrayOutput {
+	return o
+}
+
+func (o GetKafkaClustersClusterStandardArrayOutput) Index(i pulumi.IntInput) GetKafkaClustersClusterStandardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClustersClusterStandard {
+		return vs[0].([]GetKafkaClustersClusterStandard)[vs[1].(int)]
+	}).(GetKafkaClustersClusterStandardOutput)
+}
+
+type GetKafkaClustersEnvironment struct {
+	// The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetKafkaClustersEnvironmentInput is an input type that accepts GetKafkaClustersEnvironmentArgs and GetKafkaClustersEnvironmentOutput values.
+// You can construct a concrete instance of `GetKafkaClustersEnvironmentInput` via:
+//
+//	GetKafkaClustersEnvironmentArgs{...}
+type GetKafkaClustersEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetKafkaClustersEnvironmentOutput() GetKafkaClustersEnvironmentOutput
+	ToGetKafkaClustersEnvironmentOutputWithContext(context.Context) GetKafkaClustersEnvironmentOutput
+}
+
+type GetKafkaClustersEnvironmentArgs struct {
+	// The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetKafkaClustersEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersEnvironment)(nil)).Elem()
+}
+
+func (i GetKafkaClustersEnvironmentArgs) ToGetKafkaClustersEnvironmentOutput() GetKafkaClustersEnvironmentOutput {
+	return i.ToGetKafkaClustersEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClustersEnvironmentArgs) ToGetKafkaClustersEnvironmentOutputWithContext(ctx context.Context) GetKafkaClustersEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClustersEnvironmentOutput)
+}
+
+type GetKafkaClustersEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClustersEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClustersEnvironment)(nil)).Elem()
+}
+
+func (o GetKafkaClustersEnvironmentOutput) ToGetKafkaClustersEnvironmentOutput() GetKafkaClustersEnvironmentOutput {
+	return o
+}
+
+func (o GetKafkaClustersEnvironmentOutput) ToGetKafkaClustersEnvironmentOutputWithContext(ctx context.Context) GetKafkaClustersEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+func (o GetKafkaClustersEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClustersEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
 type GetKafkaTopicCredentials struct {
 	// The Kafka API Key.
 	Key string `pulumi:"key"`
@@ -34137,6 +35969,270 @@ func (o GetPrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) GetPriv
 	}).(GetPrivateLinkAttachmentGcpOutput)
 }
 
+type GetProviderIntegrationAuthorizationAzure struct {
+	// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+	ConfluentMultiTenantAppId string `pulumi:"confluentMultiTenantAppId"`
+	// (Computed String) Customer's Azure Tenant ID.
+	CustomerAzureTenantId string `pulumi:"customerAzureTenantId"`
+}
+
+// GetProviderIntegrationAuthorizationAzureInput is an input type that accepts GetProviderIntegrationAuthorizationAzureArgs and GetProviderIntegrationAuthorizationAzureOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationAuthorizationAzureInput` via:
+//
+//	GetProviderIntegrationAuthorizationAzureArgs{...}
+type GetProviderIntegrationAuthorizationAzureInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationAuthorizationAzureOutput() GetProviderIntegrationAuthorizationAzureOutput
+	ToGetProviderIntegrationAuthorizationAzureOutputWithContext(context.Context) GetProviderIntegrationAuthorizationAzureOutput
+}
+
+type GetProviderIntegrationAuthorizationAzureArgs struct {
+	// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+	ConfluentMultiTenantAppId pulumi.StringInput `pulumi:"confluentMultiTenantAppId"`
+	// (Computed String) Customer's Azure Tenant ID.
+	CustomerAzureTenantId pulumi.StringInput `pulumi:"customerAzureTenantId"`
+}
+
+func (GetProviderIntegrationAuthorizationAzureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationAuthorizationAzureArgs) ToGetProviderIntegrationAuthorizationAzureOutput() GetProviderIntegrationAuthorizationAzureOutput {
+	return i.ToGetProviderIntegrationAuthorizationAzureOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationAuthorizationAzureArgs) ToGetProviderIntegrationAuthorizationAzureOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationAzureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationAuthorizationAzureOutput)
+}
+
+// GetProviderIntegrationAuthorizationAzureArrayInput is an input type that accepts GetProviderIntegrationAuthorizationAzureArray and GetProviderIntegrationAuthorizationAzureArrayOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationAuthorizationAzureArrayInput` via:
+//
+//	GetProviderIntegrationAuthorizationAzureArray{ GetProviderIntegrationAuthorizationAzureArgs{...} }
+type GetProviderIntegrationAuthorizationAzureArrayInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationAuthorizationAzureArrayOutput() GetProviderIntegrationAuthorizationAzureArrayOutput
+	ToGetProviderIntegrationAuthorizationAzureArrayOutputWithContext(context.Context) GetProviderIntegrationAuthorizationAzureArrayOutput
+}
+
+type GetProviderIntegrationAuthorizationAzureArray []GetProviderIntegrationAuthorizationAzureInput
+
+func (GetProviderIntegrationAuthorizationAzureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationAuthorizationAzureArray) ToGetProviderIntegrationAuthorizationAzureArrayOutput() GetProviderIntegrationAuthorizationAzureArrayOutput {
+	return i.ToGetProviderIntegrationAuthorizationAzureArrayOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationAuthorizationAzureArray) ToGetProviderIntegrationAuthorizationAzureArrayOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationAzureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationAuthorizationAzureArrayOutput)
+}
+
+type GetProviderIntegrationAuthorizationAzureOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationAuthorizationAzureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationAuthorizationAzureOutput) ToGetProviderIntegrationAuthorizationAzureOutput() GetProviderIntegrationAuthorizationAzureOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationAzureOutput) ToGetProviderIntegrationAuthorizationAzureOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationAzureOutput {
+	return o
+}
+
+// (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+func (o GetProviderIntegrationAuthorizationAzureOutput) ConfluentMultiTenantAppId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAuthorizationAzure) string { return v.ConfluentMultiTenantAppId }).(pulumi.StringOutput)
+}
+
+// (Computed String) Customer's Azure Tenant ID.
+func (o GetProviderIntegrationAuthorizationAzureOutput) CustomerAzureTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAuthorizationAzure) string { return v.CustomerAzureTenantId }).(pulumi.StringOutput)
+}
+
+type GetProviderIntegrationAuthorizationAzureArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationAuthorizationAzureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProviderIntegrationAuthorizationAzure)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationAuthorizationAzureArrayOutput) ToGetProviderIntegrationAuthorizationAzureArrayOutput() GetProviderIntegrationAuthorizationAzureArrayOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationAzureArrayOutput) ToGetProviderIntegrationAuthorizationAzureArrayOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationAzureArrayOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationAzureArrayOutput) Index(i pulumi.IntInput) GetProviderIntegrationAuthorizationAzureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProviderIntegrationAuthorizationAzure {
+		return vs[0].([]GetProviderIntegrationAuthorizationAzure)[vs[1].(int)]
+	}).(GetProviderIntegrationAuthorizationAzureOutput)
+}
+
+type GetProviderIntegrationAuthorizationEnvironment struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetProviderIntegrationAuthorizationEnvironmentInput is an input type that accepts GetProviderIntegrationAuthorizationEnvironmentArgs and GetProviderIntegrationAuthorizationEnvironmentOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationAuthorizationEnvironmentInput` via:
+//
+//	GetProviderIntegrationAuthorizationEnvironmentArgs{...}
+type GetProviderIntegrationAuthorizationEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationAuthorizationEnvironmentOutput() GetProviderIntegrationAuthorizationEnvironmentOutput
+	ToGetProviderIntegrationAuthorizationEnvironmentOutputWithContext(context.Context) GetProviderIntegrationAuthorizationEnvironmentOutput
+}
+
+type GetProviderIntegrationAuthorizationEnvironmentArgs struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetProviderIntegrationAuthorizationEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAuthorizationEnvironment)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationAuthorizationEnvironmentArgs) ToGetProviderIntegrationAuthorizationEnvironmentOutput() GetProviderIntegrationAuthorizationEnvironmentOutput {
+	return i.ToGetProviderIntegrationAuthorizationEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationAuthorizationEnvironmentArgs) ToGetProviderIntegrationAuthorizationEnvironmentOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationAuthorizationEnvironmentOutput)
+}
+
+type GetProviderIntegrationAuthorizationEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationAuthorizationEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAuthorizationEnvironment)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationAuthorizationEnvironmentOutput) ToGetProviderIntegrationAuthorizationEnvironmentOutput() GetProviderIntegrationAuthorizationEnvironmentOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationEnvironmentOutput) ToGetProviderIntegrationAuthorizationEnvironmentOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o GetProviderIntegrationAuthorizationEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAuthorizationEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetProviderIntegrationAuthorizationGcp struct {
+	// (Computed String) Customer's Google Service Account that Confluent Cloud impersonates.
+	CustomerGoogleServiceAccount string `pulumi:"customerGoogleServiceAccount"`
+	// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+	GoogleServiceAccount string `pulumi:"googleServiceAccount"`
+}
+
+// GetProviderIntegrationAuthorizationGcpInput is an input type that accepts GetProviderIntegrationAuthorizationGcpArgs and GetProviderIntegrationAuthorizationGcpOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationAuthorizationGcpInput` via:
+//
+//	GetProviderIntegrationAuthorizationGcpArgs{...}
+type GetProviderIntegrationAuthorizationGcpInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationAuthorizationGcpOutput() GetProviderIntegrationAuthorizationGcpOutput
+	ToGetProviderIntegrationAuthorizationGcpOutputWithContext(context.Context) GetProviderIntegrationAuthorizationGcpOutput
+}
+
+type GetProviderIntegrationAuthorizationGcpArgs struct {
+	// (Computed String) Customer's Google Service Account that Confluent Cloud impersonates.
+	CustomerGoogleServiceAccount pulumi.StringInput `pulumi:"customerGoogleServiceAccount"`
+	// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+	GoogleServiceAccount pulumi.StringInput `pulumi:"googleServiceAccount"`
+}
+
+func (GetProviderIntegrationAuthorizationGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationAuthorizationGcpArgs) ToGetProviderIntegrationAuthorizationGcpOutput() GetProviderIntegrationAuthorizationGcpOutput {
+	return i.ToGetProviderIntegrationAuthorizationGcpOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationAuthorizationGcpArgs) ToGetProviderIntegrationAuthorizationGcpOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationAuthorizationGcpOutput)
+}
+
+// GetProviderIntegrationAuthorizationGcpArrayInput is an input type that accepts GetProviderIntegrationAuthorizationGcpArray and GetProviderIntegrationAuthorizationGcpArrayOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationAuthorizationGcpArrayInput` via:
+//
+//	GetProviderIntegrationAuthorizationGcpArray{ GetProviderIntegrationAuthorizationGcpArgs{...} }
+type GetProviderIntegrationAuthorizationGcpArrayInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationAuthorizationGcpArrayOutput() GetProviderIntegrationAuthorizationGcpArrayOutput
+	ToGetProviderIntegrationAuthorizationGcpArrayOutputWithContext(context.Context) GetProviderIntegrationAuthorizationGcpArrayOutput
+}
+
+type GetProviderIntegrationAuthorizationGcpArray []GetProviderIntegrationAuthorizationGcpInput
+
+func (GetProviderIntegrationAuthorizationGcpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationAuthorizationGcpArray) ToGetProviderIntegrationAuthorizationGcpArrayOutput() GetProviderIntegrationAuthorizationGcpArrayOutput {
+	return i.ToGetProviderIntegrationAuthorizationGcpArrayOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationAuthorizationGcpArray) ToGetProviderIntegrationAuthorizationGcpArrayOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationGcpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationAuthorizationGcpArrayOutput)
+}
+
+type GetProviderIntegrationAuthorizationGcpOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationAuthorizationGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationAuthorizationGcpOutput) ToGetProviderIntegrationAuthorizationGcpOutput() GetProviderIntegrationAuthorizationGcpOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationGcpOutput) ToGetProviderIntegrationAuthorizationGcpOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationGcpOutput {
+	return o
+}
+
+// (Computed String) Customer's Google Service Account that Confluent Cloud impersonates.
+func (o GetProviderIntegrationAuthorizationGcpOutput) CustomerGoogleServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAuthorizationGcp) string { return v.CustomerGoogleServiceAccount }).(pulumi.StringOutput)
+}
+
+// (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+func (o GetProviderIntegrationAuthorizationGcpOutput) GoogleServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationAuthorizationGcp) string { return v.GoogleServiceAccount }).(pulumi.StringOutput)
+}
+
+type GetProviderIntegrationAuthorizationGcpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationAuthorizationGcpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProviderIntegrationAuthorizationGcp)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationAuthorizationGcpArrayOutput) ToGetProviderIntegrationAuthorizationGcpArrayOutput() GetProviderIntegrationAuthorizationGcpArrayOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationGcpArrayOutput) ToGetProviderIntegrationAuthorizationGcpArrayOutputWithContext(ctx context.Context) GetProviderIntegrationAuthorizationGcpArrayOutput {
+	return o
+}
+
+func (o GetProviderIntegrationAuthorizationGcpArrayOutput) Index(i pulumi.IntInput) GetProviderIntegrationAuthorizationGcpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProviderIntegrationAuthorizationGcp {
+		return vs[0].([]GetProviderIntegrationAuthorizationGcp)[vs[1].(int)]
+	}).(GetProviderIntegrationAuthorizationGcpOutput)
+}
+
 type GetProviderIntegrationAw struct {
 	// (Required String) Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account, and must be unique in the same environment.
 	CustomerRoleArn string `pulumi:"customerRoleArn"`
@@ -34308,6 +36404,58 @@ func (o GetProviderIntegrationEnvironmentOutput) ToGetProviderIntegrationEnviron
 // > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 func (o GetProviderIntegrationEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProviderIntegrationEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetProviderIntegrationSetupEnvironment struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetProviderIntegrationSetupEnvironmentInput is an input type that accepts GetProviderIntegrationSetupEnvironmentArgs and GetProviderIntegrationSetupEnvironmentOutput values.
+// You can construct a concrete instance of `GetProviderIntegrationSetupEnvironmentInput` via:
+//
+//	GetProviderIntegrationSetupEnvironmentArgs{...}
+type GetProviderIntegrationSetupEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetProviderIntegrationSetupEnvironmentOutput() GetProviderIntegrationSetupEnvironmentOutput
+	ToGetProviderIntegrationSetupEnvironmentOutputWithContext(context.Context) GetProviderIntegrationSetupEnvironmentOutput
+}
+
+type GetProviderIntegrationSetupEnvironmentArgs struct {
+	// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetProviderIntegrationSetupEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationSetupEnvironment)(nil)).Elem()
+}
+
+func (i GetProviderIntegrationSetupEnvironmentArgs) ToGetProviderIntegrationSetupEnvironmentOutput() GetProviderIntegrationSetupEnvironmentOutput {
+	return i.ToGetProviderIntegrationSetupEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetProviderIntegrationSetupEnvironmentArgs) ToGetProviderIntegrationSetupEnvironmentOutputWithContext(ctx context.Context) GetProviderIntegrationSetupEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProviderIntegrationSetupEnvironmentOutput)
+}
+
+type GetProviderIntegrationSetupEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetProviderIntegrationSetupEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProviderIntegrationSetupEnvironment)(nil)).Elem()
+}
+
+func (o GetProviderIntegrationSetupEnvironmentOutput) ToGetProviderIntegrationSetupEnvironmentOutput() GetProviderIntegrationSetupEnvironmentOutput {
+	return o
+}
+
+func (o GetProviderIntegrationSetupEnvironmentOutput) ToGetProviderIntegrationSetupEnvironmentOutputWithContext(ctx context.Context) GetProviderIntegrationSetupEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+func (o GetProviderIntegrationSetupEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProviderIntegrationSetupEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
 
 type GetSchemaCredentials struct {
@@ -40166,10 +42314,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentEnvironmentPtrInput)(nil)).Elem(), PrivateLinkAttachmentEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentGcpInput)(nil)).Elem(), PrivateLinkAttachmentGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentGcpArrayInput)(nil)).Elem(), PrivateLinkAttachmentGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAuthorizationAzureInput)(nil)).Elem(), ProviderIntegrationAuthorizationAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAuthorizationAzurePtrInput)(nil)).Elem(), ProviderIntegrationAuthorizationAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAuthorizationEnvironmentInput)(nil)).Elem(), ProviderIntegrationAuthorizationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAuthorizationEnvironmentPtrInput)(nil)).Elem(), ProviderIntegrationAuthorizationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAuthorizationGcpInput)(nil)).Elem(), ProviderIntegrationAuthorizationGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAuthorizationGcpPtrInput)(nil)).Elem(), ProviderIntegrationAuthorizationGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAwsInput)(nil)).Elem(), ProviderIntegrationAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationAwsPtrInput)(nil)).Elem(), ProviderIntegrationAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationEnvironmentInput)(nil)).Elem(), ProviderIntegrationEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationEnvironmentPtrInput)(nil)).Elem(), ProviderIntegrationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationSetupEnvironmentInput)(nil)).Elem(), ProviderIntegrationSetupEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIntegrationSetupEnvironmentPtrInput)(nil)).Elem(), ProviderIntegrationSetupEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderOauthInput)(nil)).Elem(), ProviderOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderOauthPtrInput)(nil)).Elem(), ProviderOauthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsInput)(nil)).Elem(), SchemaCredentialsArgs{})
@@ -40355,6 +42511,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterNetworkArrayInput)(nil)).Elem(), GetKafkaClusterNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterStandardInput)(nil)).Elem(), GetKafkaClusterStandardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterStandardArrayInput)(nil)).Elem(), GetKafkaClusterStandardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterInput)(nil)).Elem(), GetKafkaClustersClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterArrayInput)(nil)).Elem(), GetKafkaClustersClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterBasicInput)(nil)).Elem(), GetKafkaClustersClusterBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterBasicArrayInput)(nil)).Elem(), GetKafkaClustersClusterBasicArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterByokKeyInput)(nil)).Elem(), GetKafkaClustersClusterByokKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterByokKeyArrayInput)(nil)).Elem(), GetKafkaClustersClusterByokKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterDedicatedInput)(nil)).Elem(), GetKafkaClustersClusterDedicatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterDedicatedPtrInput)(nil)).Elem(), GetKafkaClustersClusterDedicatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterEndpointInput)(nil)).Elem(), GetKafkaClustersClusterEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterEndpointArrayInput)(nil)).Elem(), GetKafkaClustersClusterEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterEnterpriseInput)(nil)).Elem(), GetKafkaClustersClusterEnterpriseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterEnterpriseArrayInput)(nil)).Elem(), GetKafkaClustersClusterEnterpriseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterEnvironmentInput)(nil)).Elem(), GetKafkaClustersClusterEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterFreightInput)(nil)).Elem(), GetKafkaClustersClusterFreightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterFreightArrayInput)(nil)).Elem(), GetKafkaClustersClusterFreightArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterNetworkInput)(nil)).Elem(), GetKafkaClustersClusterNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterNetworkArrayInput)(nil)).Elem(), GetKafkaClustersClusterNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterStandardInput)(nil)).Elem(), GetKafkaClustersClusterStandardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersClusterStandardArrayInput)(nil)).Elem(), GetKafkaClustersClusterStandardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClustersEnvironmentInput)(nil)).Elem(), GetKafkaClustersEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicCredentialsInput)(nil)).Elem(), GetKafkaTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicCredentialsPtrInput)(nil)).Elem(), GetKafkaTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicKafkaClusterInput)(nil)).Elem(), GetKafkaTopicKafkaClusterArgs{})
@@ -40421,9 +42597,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentEnvironmentInput)(nil)).Elem(), GetPrivateLinkAttachmentEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentGcpInput)(nil)).Elem(), GetPrivateLinkAttachmentGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentGcpArrayInput)(nil)).Elem(), GetPrivateLinkAttachmentGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAuthorizationAzureInput)(nil)).Elem(), GetProviderIntegrationAuthorizationAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAuthorizationAzureArrayInput)(nil)).Elem(), GetProviderIntegrationAuthorizationAzureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAuthorizationEnvironmentInput)(nil)).Elem(), GetProviderIntegrationAuthorizationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAuthorizationGcpInput)(nil)).Elem(), GetProviderIntegrationAuthorizationGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAuthorizationGcpArrayInput)(nil)).Elem(), GetProviderIntegrationAuthorizationGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAwInput)(nil)).Elem(), GetProviderIntegrationAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationAwArrayInput)(nil)).Elem(), GetProviderIntegrationAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationEnvironmentInput)(nil)).Elem(), GetProviderIntegrationEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProviderIntegrationSetupEnvironmentInput)(nil)).Elem(), GetProviderIntegrationSetupEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsPtrInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaMetadataInput)(nil)).Elem(), GetSchemaMetadataArgs{})
@@ -40753,10 +42935,18 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkAttachmentEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAttachmentGcpOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAttachmentGcpArrayOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAuthorizationAzureOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAuthorizationAzurePtrOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAuthorizationEnvironmentOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAuthorizationEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAuthorizationGcpOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationAuthorizationGcpPtrOutput{})
 	pulumi.RegisterOutputType(ProviderIntegrationAwsOutput{})
 	pulumi.RegisterOutputType(ProviderIntegrationAwsPtrOutput{})
 	pulumi.RegisterOutputType(ProviderIntegrationEnvironmentOutput{})
 	pulumi.RegisterOutputType(ProviderIntegrationEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationSetupEnvironmentOutput{})
+	pulumi.RegisterOutputType(ProviderIntegrationSetupEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ProviderOauthOutput{})
 	pulumi.RegisterOutputType(ProviderOauthPtrOutput{})
 	pulumi.RegisterOutputType(SchemaCredentialsOutput{})
@@ -40942,6 +43132,26 @@ func init() {
 	pulumi.RegisterOutputType(GetKafkaClusterNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterStandardOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterStandardArrayOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterArrayOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterBasicOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterBasicArrayOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterByokKeyOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterByokKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterDedicatedOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterDedicatedPtrOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterEndpointOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterEnterpriseOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterEnterpriseArrayOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterFreightOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterFreightArrayOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterNetworkOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterNetworkArrayOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterStandardOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersClusterStandardArrayOutput{})
+	pulumi.RegisterOutputType(GetKafkaClustersEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetKafkaTopicCredentialsOutput{})
 	pulumi.RegisterOutputType(GetKafkaTopicCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetKafkaTopicKafkaClusterOutput{})
@@ -41008,9 +43218,15 @@ func init() {
 	pulumi.RegisterOutputType(GetPrivateLinkAttachmentEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAttachmentGcpOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAttachmentGcpArrayOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationAuthorizationAzureOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationAuthorizationAzureArrayOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationAuthorizationEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationAuthorizationGcpOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationAuthorizationGcpArrayOutput{})
 	pulumi.RegisterOutputType(GetProviderIntegrationAwOutput{})
 	pulumi.RegisterOutputType(GetProviderIntegrationAwArrayOutput{})
 	pulumi.RegisterOutputType(GetProviderIntegrationEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetProviderIntegrationSetupEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetSchemaCredentialsOutput{})
 	pulumi.RegisterOutputType(GetSchemaCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetSchemaMetadataOutput{})

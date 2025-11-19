@@ -1314,6 +1314,169 @@ export interface GetKafkaClusterNetwork {
 export interface GetKafkaClusterStandard {
 }
 
+export interface GetKafkaClustersCluster {
+    /**
+     * (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
+     */
+    apiVersion: string;
+    /**
+     * (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
+     */
+    availability: string;
+    /**
+     * (Optional Configuration Block) The configuration of the Basic Kafka cluster.
+     */
+    basics?: outputs.GetKafkaClustersClusterBasic[];
+    /**
+     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+     */
+    bootstrapEndpoint: string;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    byokKeys: outputs.GetKafkaClustersClusterByokKey[];
+    /**
+     * (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+     */
+    cloud: string;
+    /**
+     * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+     */
+    dedicated?: outputs.GetKafkaClustersClusterDedicated;
+    /**
+     * (Required String) The name of the Kafka cluster.
+     */
+    displayName: string;
+    /**
+     * (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+     */
+    endpoints: outputs.GetKafkaClustersClusterEndpoint[];
+    /**
+     * (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+     */
+    enterprises?: outputs.GetKafkaClustersClusterEnterprise[];
+    /**
+     * (Required Object) exports the following attributes:
+     */
+    environment: outputs.GetKafkaClustersClusterEnvironment;
+    /**
+     * (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+     */
+    freights?: outputs.GetKafkaClustersClusterFreight[];
+    /**
+     * (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     */
+    id: string;
+    /**
+     * (Required String) A kind of the Kafka cluster, for example, `Cluster`.
+     */
+    kind: string;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    networks: outputs.GetKafkaClustersClusterNetwork[];
+    /**
+     * (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+     */
+    rbacCrn: string;
+    /**
+     * (Required String) The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
+     */
+    region: string;
+    /**
+     * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+     */
+    restEndpoint: string;
+    /**
+     * (Optional Configuration Block) The configuration of the Standard Kafka cluster.
+     */
+    standards?: outputs.GetKafkaClustersClusterStandard[];
+}
+
+export interface GetKafkaClustersClusterBasic {
+}
+
+export interface GetKafkaClustersClusterByokKey {
+    /**
+     * (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     */
+    id: string;
+}
+
+export interface GetKafkaClustersClusterDedicated {
+    /**
+     * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
+     */
+    cku: number;
+    /**
+     * The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+     */
+    encryptionKey: string;
+    /**
+     * (Required List of String) The list of zones the cluster is in.
+     * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+     * - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+     * - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+     */
+    zones: string[];
+}
+
+export interface GetKafkaClustersClusterEndpoint {
+    /**
+     * (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+     */
+    accessPointId: string;
+    /**
+     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+     */
+    bootstrapEndpoint: string;
+    /**
+     * (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+     */
+    connectionType: string;
+    /**
+     * (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+     */
+    restEndpoint: string;
+}
+
+export interface GetKafkaClustersClusterEnterprise {
+}
+
+export interface GetKafkaClustersClusterEnvironment {
+    /**
+     * The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetKafkaClustersClusterFreight {
+    /**
+     * (Required List of String) The list of zones the cluster is in.
+     * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+     * - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+     * - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+     */
+    zones: string[];
+}
+
+export interface GetKafkaClustersClusterNetwork {
+    /**
+     * (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     */
+    id: string;
+}
+
+export interface GetKafkaClustersClusterStandard {
+}
+
+export interface GetKafkaClustersEnvironment {
+    /**
+     * The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
 export interface GetKafkaTopicCredentials {
     /**
      * The Kafka API Key.
@@ -1645,6 +1808,35 @@ export interface GetPrivateLinkAttachmentGcp {
     privateServiceConnectServiceAttachment: string;
 }
 
+export interface GetProviderIntegrationAuthorizationAzure {
+    /**
+     * (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+     */
+    confluentMultiTenantAppId: string;
+    /**
+     * (Computed String) Customer's Azure Tenant ID.
+     */
+    customerAzureTenantId: string;
+}
+
+export interface GetProviderIntegrationAuthorizationEnvironment {
+    /**
+     * The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface GetProviderIntegrationAuthorizationGcp {
+    /**
+     * (Computed String) Customer's Google Service Account that Confluent Cloud impersonates.
+     */
+    customerGoogleServiceAccount: string;
+    /**
+     * (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+     */
+    googleServiceAccount: string;
+}
+
 export interface GetProviderIntegrationAw {
     /**
      * (Required String) Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account, and must be unique in the same environment.
@@ -1665,6 +1857,13 @@ export interface GetProviderIntegrationEnvironment {
      * The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
      *
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     */
+    id: string;
+}
+
+export interface GetProviderIntegrationSetupEnvironment {
+    /**
+     * The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
      */
     id: string;
 }
@@ -2781,6 +2980,37 @@ export interface PrivateLinkAttachmentGcp {
     privateServiceConnectServiceAttachment: string;
 }
 
+export interface ProviderIntegrationAuthorizationAzure {
+    /**
+     * (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+     */
+    confluentMultiTenantAppId: string;
+    /**
+     * Customer's Azure Tenant ID.
+     */
+    customerAzureTenantId: string;
+}
+
+export interface ProviderIntegrationAuthorizationEnvironment {
+    /**
+     * The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface ProviderIntegrationAuthorizationGcp {
+    /**
+     * Customer's Google Service Account that Confluent Cloud impersonates.
+     *
+     * > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+     */
+    customerGoogleServiceAccount: string;
+    /**
+     * (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+     */
+    googleServiceAccount: string;
+}
+
 export interface ProviderIntegrationAws {
     /**
      * Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
@@ -2801,6 +3031,13 @@ export interface ProviderIntegrationAws {
 }
 
 export interface ProviderIntegrationEnvironment {
+    /**
+     * The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface ProviderIntegrationSetupEnvironment {
     /**
      * The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
      */

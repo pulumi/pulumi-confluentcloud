@@ -141,8 +141,12 @@ __all__ = [
     'PrivateLinkAttachmentConnectionPrivateLinkAttachment',
     'PrivateLinkAttachmentEnvironment',
     'PrivateLinkAttachmentGcp',
+    'ProviderIntegrationAuthorizationAzure',
+    'ProviderIntegrationAuthorizationEnvironment',
+    'ProviderIntegrationAuthorizationGcp',
     'ProviderIntegrationAws',
     'ProviderIntegrationEnvironment',
+    'ProviderIntegrationSetupEnvironment',
     'SchemaCredentials',
     'SchemaExporterCredentials',
     'SchemaExporterDestinationSchemaRegistryCluster',
@@ -240,6 +244,17 @@ __all__ = [
     'GetKafkaClusterFreightResult',
     'GetKafkaClusterNetworkResult',
     'GetKafkaClusterStandardResult',
+    'GetKafkaClustersClusterResult',
+    'GetKafkaClustersClusterBasicResult',
+    'GetKafkaClustersClusterByokKeyResult',
+    'GetKafkaClustersClusterDedicatedResult',
+    'GetKafkaClustersClusterEndpointResult',
+    'GetKafkaClustersClusterEnterpriseResult',
+    'GetKafkaClustersClusterEnvironmentResult',
+    'GetKafkaClustersClusterFreightResult',
+    'GetKafkaClustersClusterNetworkResult',
+    'GetKafkaClustersClusterStandardResult',
+    'GetKafkaClustersEnvironmentResult',
     'GetKafkaTopicCredentialsResult',
     'GetKafkaTopicKafkaClusterResult',
     'GetKsqlClusterCredentialIdentityResult',
@@ -277,8 +292,12 @@ __all__ = [
     'GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentResult',
     'GetPrivateLinkAttachmentEnvironmentResult',
     'GetPrivateLinkAttachmentGcpResult',
+    'GetProviderIntegrationAuthorizationAzureResult',
+    'GetProviderIntegrationAuthorizationEnvironmentResult',
+    'GetProviderIntegrationAuthorizationGcpResult',
     'GetProviderIntegrationAwResult',
     'GetProviderIntegrationEnvironmentResult',
+    'GetProviderIntegrationSetupEnvironmentResult',
     'GetSchemaCredentialsResult',
     'GetSchemaMetadataResult',
     'GetSchemaMetadataTagResult',
@@ -4331,6 +4350,126 @@ class PrivateLinkAttachmentGcp(dict):
 
 
 @pulumi.output_type
+class ProviderIntegrationAuthorizationAzure(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerAzureTenantId":
+            suggest = "customer_azure_tenant_id"
+        elif key == "confluentMultiTenantAppId":
+            suggest = "confluent_multi_tenant_app_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderIntegrationAuthorizationAzure. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderIntegrationAuthorizationAzure.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderIntegrationAuthorizationAzure.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_azure_tenant_id: _builtins.str,
+                 confluent_multi_tenant_app_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str customer_azure_tenant_id: Customer's Azure Tenant ID.
+        :param _builtins.str confluent_multi_tenant_app_id: (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+        """
+        pulumi.set(__self__, "customer_azure_tenant_id", customer_azure_tenant_id)
+        if confluent_multi_tenant_app_id is not None:
+            pulumi.set(__self__, "confluent_multi_tenant_app_id", confluent_multi_tenant_app_id)
+
+    @_builtins.property
+    @pulumi.getter(name="customerAzureTenantId")
+    def customer_azure_tenant_id(self) -> _builtins.str:
+        """
+        Customer's Azure Tenant ID.
+        """
+        return pulumi.get(self, "customer_azure_tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="confluentMultiTenantAppId")
+    def confluent_multi_tenant_app_id(self) -> Optional[_builtins.str]:
+        """
+        (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+        """
+        return pulumi.get(self, "confluent_multi_tenant_app_id")
+
+
+@pulumi.output_type
+class ProviderIntegrationAuthorizationEnvironment(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ProviderIntegrationAuthorizationGcp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerGoogleServiceAccount":
+            suggest = "customer_google_service_account"
+        elif key == "googleServiceAccount":
+            suggest = "google_service_account"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderIntegrationAuthorizationGcp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderIntegrationAuthorizationGcp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderIntegrationAuthorizationGcp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_google_service_account: _builtins.str,
+                 google_service_account: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str customer_google_service_account: Customer's Google Service Account that Confluent Cloud impersonates.
+               
+               > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+        :param _builtins.str google_service_account: (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+        """
+        pulumi.set(__self__, "customer_google_service_account", customer_google_service_account)
+        if google_service_account is not None:
+            pulumi.set(__self__, "google_service_account", google_service_account)
+
+    @_builtins.property
+    @pulumi.getter(name="customerGoogleServiceAccount")
+    def customer_google_service_account(self) -> _builtins.str:
+        """
+        Customer's Google Service Account that Confluent Cloud impersonates.
+
+        > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+        """
+        return pulumi.get(self, "customer_google_service_account")
+
+    @_builtins.property
+    @pulumi.getter(name="googleServiceAccount")
+    def google_service_account(self) -> Optional[_builtins.str]:
+        """
+        (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+        """
+        return pulumi.get(self, "google_service_account")
+
+
+@pulumi.output_type
 class ProviderIntegrationAws(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4403,6 +4542,24 @@ class ProviderIntegrationAws(dict):
 
 @pulumi.output_type
 class ProviderIntegrationEnvironment(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ProviderIntegrationSetupEnvironment(dict):
     def __init__(__self__, *,
                  id: _builtins.str):
         """
@@ -7293,6 +7450,438 @@ class GetKafkaClusterStandardResult(dict):
 
 
 @pulumi.output_type
+class GetKafkaClustersClusterResult(dict):
+    def __init__(__self__, *,
+                 api_version: _builtins.str,
+                 availability: _builtins.str,
+                 bootstrap_endpoint: _builtins.str,
+                 byok_keys: Sequence['outputs.GetKafkaClustersClusterByokKeyResult'],
+                 cloud: _builtins.str,
+                 display_name: _builtins.str,
+                 endpoints: Sequence['outputs.GetKafkaClustersClusterEndpointResult'],
+                 environment: 'outputs.GetKafkaClustersClusterEnvironmentResult',
+                 id: _builtins.str,
+                 kind: _builtins.str,
+                 networks: Sequence['outputs.GetKafkaClustersClusterNetworkResult'],
+                 rbac_crn: _builtins.str,
+                 region: _builtins.str,
+                 rest_endpoint: _builtins.str,
+                 basics: Optional[Sequence['outputs.GetKafkaClustersClusterBasicResult']] = None,
+                 dedicated: Optional['outputs.GetKafkaClustersClusterDedicatedResult'] = None,
+                 enterprises: Optional[Sequence['outputs.GetKafkaClustersClusterEnterpriseResult']] = None,
+                 freights: Optional[Sequence['outputs.GetKafkaClustersClusterFreightResult']] = None,
+                 standards: Optional[Sequence['outputs.GetKafkaClustersClusterStandardResult']] = None):
+        """
+        :param _builtins.str api_version: (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
+        :param _builtins.str availability: (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
+        :param _builtins.str bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+        :param Sequence['GetKafkaClustersClusterByokKeyArgs'] byok_keys: (Optional Configuration Block) supports the following:
+        :param _builtins.str cloud: (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+        :param _builtins.str display_name: (Required String) The name of the Kafka cluster.
+        :param Sequence['GetKafkaClustersClusterEndpointArgs'] endpoints: (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+        :param 'GetKafkaClustersClusterEnvironmentArgs' environment: (Required Object) exports the following attributes:
+        :param _builtins.str id: (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        :param _builtins.str kind: (Required String) A kind of the Kafka cluster, for example, `Cluster`.
+        :param Sequence['GetKafkaClustersClusterNetworkArgs'] networks: (Optional Configuration Block) supports the following:
+        :param _builtins.str rbac_crn: (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+        :param _builtins.str region: (Required String) The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
+        :param _builtins.str rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+        :param Sequence['GetKafkaClustersClusterBasicArgs'] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.
+        :param 'GetKafkaClustersClusterDedicatedArgs' dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        :param Sequence['GetKafkaClustersClusterEnterpriseArgs'] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+        :param Sequence['GetKafkaClustersClusterFreightArgs'] freights: (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+        :param Sequence['GetKafkaClustersClusterStandardArgs'] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
+        """
+        pulumi.set(__self__, "api_version", api_version)
+        pulumi.set(__self__, "availability", availability)
+        pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+        pulumi.set(__self__, "byok_keys", byok_keys)
+        pulumi.set(__self__, "cloud", cloud)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "endpoints", endpoints)
+        pulumi.set(__self__, "environment", environment)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "networks", networks)
+        pulumi.set(__self__, "rbac_crn", rbac_crn)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+        if basics is not None:
+            pulumi.set(__self__, "basics", basics)
+        if dedicated is not None:
+            pulumi.set(__self__, "dedicated", dedicated)
+        if enterprises is not None:
+            pulumi.set(__self__, "enterprises", enterprises)
+        if freights is not None:
+            pulumi.set(__self__, "freights", freights)
+        if standards is not None:
+            pulumi.set(__self__, "standards", standards)
+
+    @_builtins.property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> _builtins.str:
+        """
+        (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
+        """
+        return pulumi.get(self, "api_version")
+
+    @_builtins.property
+    @pulumi.getter
+    def availability(self) -> _builtins.str:
+        """
+        (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
+        """
+        return pulumi.get(self, "availability")
+
+    @_builtins.property
+    @pulumi.getter(name="bootstrapEndpoint")
+    def bootstrap_endpoint(self) -> _builtins.str:
+        """
+        (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+        """
+        return pulumi.get(self, "bootstrap_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="byokKeys")
+    def byok_keys(self) -> Sequence['outputs.GetKafkaClustersClusterByokKeyResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "byok_keys")
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> _builtins.str:
+        """
+        (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+        """
+        return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        (Required String) The name of the Kafka cluster.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoints(self) -> Sequence['outputs.GetKafkaClustersClusterEndpointResult']:
+        """
+        (Optional List) The list of endpoints for connecting to the Kafka cluster. These endpoints provide different network access methods or regions for connecting to the cluster:
+        """
+        return pulumi.get(self, "endpoints")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> 'outputs.GetKafkaClustersClusterEnvironmentResult':
+        """
+        (Required Object) exports the following attributes:
+        """
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        """
+        (Required String) A kind of the Kafka cluster, for example, `Cluster`.
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def networks(self) -> Sequence['outputs.GetKafkaClustersClusterNetworkResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "networks")
+
+    @_builtins.property
+    @pulumi.getter(name="rbacCrn")
+    def rbac_crn(self) -> _builtins.str:
+        """
+        (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+        """
+        return pulumi.get(self, "rbac_crn")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        (Required String) The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> _builtins.str:
+        """
+        (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def basics(self) -> Optional[Sequence['outputs.GetKafkaClustersClusterBasicResult']]:
+        """
+        (Optional Configuration Block) The configuration of the Basic Kafka cluster.
+        """
+        return pulumi.get(self, "basics")
+
+    @_builtins.property
+    @pulumi.getter
+    def dedicated(self) -> Optional['outputs.GetKafkaClustersClusterDedicatedResult']:
+        """
+        (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        """
+        return pulumi.get(self, "dedicated")
+
+    @_builtins.property
+    @pulumi.getter
+    def enterprises(self) -> Optional[Sequence['outputs.GetKafkaClustersClusterEnterpriseResult']]:
+        """
+        (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+        """
+        return pulumi.get(self, "enterprises")
+
+    @_builtins.property
+    @pulumi.getter
+    def freights(self) -> Optional[Sequence['outputs.GetKafkaClustersClusterFreightResult']]:
+        """
+        (Optional Configuration Block) The configuration of the Freight Kafka cluster.
+        """
+        return pulumi.get(self, "freights")
+
+    @_builtins.property
+    @pulumi.getter
+    def standards(self) -> Optional[Sequence['outputs.GetKafkaClustersClusterStandardResult']]:
+        """
+        (Optional Configuration Block) The configuration of the Standard Kafka cluster.
+        """
+        return pulumi.get(self, "standards")
+
+
+@pulumi.output_type
+class GetKafkaClustersClusterBasicResult(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class GetKafkaClustersClusterByokKeyResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetKafkaClustersClusterDedicatedResult(dict):
+    def __init__(__self__, *,
+                 cku: _builtins.int,
+                 encryption_key: _builtins.str,
+                 zones: Sequence[_builtins.str]):
+        """
+        :param _builtins.int cku: (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
+        :param _builtins.str encryption_key: The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+        :param Sequence[_builtins.str] zones: (Required List of String) The list of zones the cluster is in.
+               - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+               - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+               - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        """
+        pulumi.set(__self__, "cku", cku)
+        pulumi.set(__self__, "encryption_key", encryption_key)
+        pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter
+    def cku(self) -> _builtins.int:
+        """
+        (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
+        """
+        return pulumi.get(self, "cku")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> _builtins.str:
+        """
+        The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def zones(self) -> Sequence[_builtins.str]:
+        """
+        (Required List of String) The list of zones the cluster is in.
+        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+        - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+        - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        """
+        return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class GetKafkaClustersClusterEndpointResult(dict):
+    def __init__(__self__, *,
+                 access_point_id: _builtins.str,
+                 bootstrap_endpoint: _builtins.str,
+                 connection_type: _builtins.str,
+                 rest_endpoint: _builtins.str):
+        """
+        :param _builtins.str access_point_id: (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+        :param _builtins.str bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+        :param _builtins.str connection_type: (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+        :param _builtins.str rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+        """
+        pulumi.set(__self__, "access_point_id", access_point_id)
+        pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+        pulumi.set(__self__, "connection_type", connection_type)
+        pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointId")
+    def access_point_id(self) -> _builtins.str:
+        """
+        (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+        """
+        return pulumi.get(self, "access_point_id")
+
+    @_builtins.property
+    @pulumi.getter(name="bootstrapEndpoint")
+    def bootstrap_endpoint(self) -> _builtins.str:
+        """
+        (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+        """
+        return pulumi.get(self, "bootstrap_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> _builtins.str:
+        """
+        (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+        """
+        return pulumi.get(self, "connection_type")
+
+    @_builtins.property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> _builtins.str:
+        """
+        (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
+
+
+@pulumi.output_type
+class GetKafkaClustersClusterEnterpriseResult(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class GetKafkaClustersClusterEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetKafkaClustersClusterFreightResult(dict):
+    def __init__(__self__, *,
+                 zones: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] zones: (Required List of String) The list of zones the cluster is in.
+               - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+               - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+               - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        """
+        pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter
+    def zones(self) -> Sequence[_builtins.str]:
+        """
+        (Required List of String) The list of zones the cluster is in.
+        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+        - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+        - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        """
+        return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class GetKafkaClustersClusterNetworkResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetKafkaClustersClusterStandardResult(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class GetKafkaClustersEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class GetKafkaTopicCredentialsResult(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
@@ -8148,6 +8737,82 @@ class GetPrivateLinkAttachmentGcpResult(dict):
 
 
 @pulumi.output_type
+class GetProviderIntegrationAuthorizationAzureResult(dict):
+    def __init__(__self__, *,
+                 confluent_multi_tenant_app_id: _builtins.str,
+                 customer_azure_tenant_id: _builtins.str):
+        """
+        :param _builtins.str confluent_multi_tenant_app_id: (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+        :param _builtins.str customer_azure_tenant_id: (Computed String) Customer's Azure Tenant ID.
+        """
+        pulumi.set(__self__, "confluent_multi_tenant_app_id", confluent_multi_tenant_app_id)
+        pulumi.set(__self__, "customer_azure_tenant_id", customer_azure_tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="confluentMultiTenantAppId")
+    def confluent_multi_tenant_app_id(self) -> _builtins.str:
+        """
+        (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+        """
+        return pulumi.get(self, "confluent_multi_tenant_app_id")
+
+    @_builtins.property
+    @pulumi.getter(name="customerAzureTenantId")
+    def customer_azure_tenant_id(self) -> _builtins.str:
+        """
+        (Computed String) Customer's Azure Tenant ID.
+        """
+        return pulumi.get(self, "customer_azure_tenant_id")
+
+
+@pulumi.output_type
+class GetProviderIntegrationAuthorizationEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetProviderIntegrationAuthorizationGcpResult(dict):
+    def __init__(__self__, *,
+                 customer_google_service_account: _builtins.str,
+                 google_service_account: _builtins.str):
+        """
+        :param _builtins.str customer_google_service_account: (Computed String) Customer's Google Service Account that Confluent Cloud impersonates.
+        :param _builtins.str google_service_account: (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+        """
+        pulumi.set(__self__, "customer_google_service_account", customer_google_service_account)
+        pulumi.set(__self__, "google_service_account", google_service_account)
+
+    @_builtins.property
+    @pulumi.getter(name="customerGoogleServiceAccount")
+    def customer_google_service_account(self) -> _builtins.str:
+        """
+        (Computed String) Customer's Google Service Account that Confluent Cloud impersonates.
+        """
+        return pulumi.get(self, "customer_google_service_account")
+
+    @_builtins.property
+    @pulumi.getter(name="googleServiceAccount")
+    def google_service_account(self) -> _builtins.str:
+        """
+        (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+        """
+        return pulumi.get(self, "google_service_account")
+
+
+@pulumi.output_type
 class GetProviderIntegrationAwResult(dict):
     def __init__(__self__, *,
                  customer_role_arn: _builtins.str,
@@ -8205,6 +8870,24 @@ class GetProviderIntegrationEnvironmentResult(dict):
         The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
 
         > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetProviderIntegrationSetupEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
