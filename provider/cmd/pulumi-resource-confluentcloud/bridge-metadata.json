@@ -727,6 +727,31 @@
                     }
                 }
             },
+            "confluent_provider_integration_authorization": {
+                "current": "confluentcloud:index/providerIntegrationAuthorization:ProviderIntegrationAuthorization",
+                "fields": {
+                    "azure": {
+                        "maxItemsOne": true
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gcp": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "confluent_provider_integration_setup": {
+                "current": "confluentcloud:index/providerIntegrationSetup:ProviderIntegrationSetup",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "usages": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_role_binding": {
                 "current": "confluentcloud:index/roleBinding:RoleBinding"
             },
@@ -1359,6 +1384,62 @@
                     }
                 }
             },
+            "confluent_kafka_clusters": {
+                "current": "confluentcloud:index/getKafkaClusters:getKafkaClusters",
+                "fields": {
+                    "clusters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "basic": {
+                                    "maxItemsOne": false
+                                },
+                                "byok_key": {
+                                    "maxItemsOne": false
+                                },
+                                "dedicated": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "zones": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "endpoints": {
+                                    "maxItemsOne": false
+                                },
+                                "enterprise": {
+                                    "maxItemsOne": false
+                                },
+                                "environment": {
+                                    "maxItemsOne": true
+                                },
+                                "freight": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "zones": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "network": {
+                                    "maxItemsOne": false
+                                },
+                                "standard": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_kafka_topic": {
                 "current": "confluentcloud:index/getKafkaTopic:getKafkaTopic",
                 "fields": {
@@ -1547,6 +1628,31 @@
                     "aws": {
                         "maxItemsOne": false
                     },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "usages": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_provider_integration_authorization": {
+                "current": "confluentcloud:index/getProviderIntegrationAuthorization:getProviderIntegrationAuthorization",
+                "fields": {
+                    "azure": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gcp": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_provider_integration_setup": {
+                "current": "confluentcloud:index/getProviderIntegrationSetup:getProviderIntegrationSetup",
+                "fields": {
                     "environment": {
                         "maxItemsOne": true
                     },
