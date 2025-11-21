@@ -55,15 +55,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- *
- * ## Getting Started
- *
- * The following end-to-end examples might help to get started with `confluentcloud.TableflowTopic` resource:
- * * confluent-managed-storage: Tableflow topic with Confluent-managed storage.
- * * byob-aws-storage: Tableflow topic with custom (BYOB AWS) storage.
- * * datagen-connector-byob-aws-storage: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.
- * * datagen-connector-confluent-managed-storage: Datagen Source connector with a Tableflow topic with Confluent-managed storage.
- *
  * ## Import
  *
  * You can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `<Environment ID>/<Kafka Cluster ID>/<Tableflow Topic name>`, for example:
@@ -114,6 +105,10 @@ export class TableflowTopic extends pulumi.CustomResource {
         return obj['__pulumiType'] === TableflowTopic.__pulumiType;
     }
 
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    declare public readonly azureDataLakeStorageGen2: pulumi.Output<outputs.TableflowTopicAzureDataLakeStorageGen2 | undefined>;
     /**
      * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      */
@@ -184,6 +179,7 @@ export class TableflowTopic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableflowTopicState | undefined;
+            resourceInputs["azureDataLakeStorageGen2"] = state?.azureDataLakeStorageGen2;
             resourceInputs["byobAws"] = state?.byobAws;
             resourceInputs["credentials"] = state?.credentials;
             resourceInputs["displayName"] = state?.displayName;
@@ -210,6 +206,7 @@ export class TableflowTopic extends pulumi.CustomResource {
             if (args?.kafkaCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaCluster'");
             }
+            resourceInputs["azureDataLakeStorageGen2"] = args?.azureDataLakeStorageGen2;
             resourceInputs["byobAws"] = args?.byobAws;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["displayName"] = args?.displayName;
@@ -237,6 +234,10 @@ export class TableflowTopic extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TableflowTopic resources.
  */
 export interface TableflowTopicState {
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    azureDataLakeStorageGen2?: pulumi.Input<inputs.TableflowTopicAzureDataLakeStorageGen2>;
     /**
      * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      */
@@ -299,6 +300,10 @@ export interface TableflowTopicState {
  * The set of arguments for constructing a TableflowTopic resource.
  */
 export interface TableflowTopicArgs {
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    azureDataLakeStorageGen2?: pulumi.Input<inputs.TableflowTopicAzureDataLakeStorageGen2>;
     /**
      * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      */

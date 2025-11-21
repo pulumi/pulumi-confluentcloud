@@ -171,6 +171,7 @@ __all__ = [
     'SubjectConfigSchemaRegistryCluster',
     'SubjectModeCredentials',
     'SubjectModeSchemaRegistryCluster',
+    'TableflowTopicAzureDataLakeStorageGen2',
     'TableflowTopicByobAws',
     'TableflowTopicCredentials',
     'TableflowTopicEnvironment',
@@ -327,6 +328,7 @@ __all__ = [
     'GetSubjectConfigSchemaRegistryClusterResult',
     'GetSubjectModeCredentialsResult',
     'GetSubjectModeSchemaRegistryClusterResult',
+    'GetTableflowTopicAzureDataLakeStorageGen2Result',
     'GetTableflowTopicByobAwResult',
     'GetTableflowTopicCredentialsResult',
     'GetTableflowTopicEnvironmentResult',
@@ -5420,6 +5422,81 @@ class SubjectModeSchemaRegistryCluster(dict):
 
 
 @pulumi.output_type
+class TableflowTopicAzureDataLakeStorageGen2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "providerIntegrationId":
+            suggest = "provider_integration_id"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "storageRegion":
+            suggest = "storage_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableflowTopicAzureDataLakeStorageGen2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableflowTopicAzureDataLakeStorageGen2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableflowTopicAzureDataLakeStorageGen2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: _builtins.str,
+                 provider_integration_id: _builtins.str,
+                 storage_account_name: _builtins.str,
+                 storage_region: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str container_name: The container name.
+        :param _builtins.str provider_integration_id: The provider integration id.
+        :param _builtins.str storage_account_name: The storage account name.
+        :param _builtins.str storage_region: (Required String) The storage region.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "provider_integration_id", provider_integration_id)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_region is not None:
+            pulumi.set(__self__, "storage_region", storage_region)
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> _builtins.str:
+        """
+        The container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @_builtins.property
+    @pulumi.getter(name="providerIntegrationId")
+    def provider_integration_id(self) -> _builtins.str:
+        """
+        The provider integration id.
+        """
+        return pulumi.get(self, "provider_integration_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> _builtins.str:
+        """
+        The storage account name.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageRegion")
+    def storage_region(self) -> Optional[_builtins.str]:
+        """
+        (Required String) The storage region.
+        """
+        return pulumi.get(self, "storage_region")
+
+
+@pulumi.output_type
 class TableflowTopicByobAws(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -10041,6 +10118,68 @@ class GetSubjectModeSchemaRegistryClusterResult(dict):
         The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetTableflowTopicAzureDataLakeStorageGen2Result(dict):
+    def __init__(__self__, *,
+                 container_name: _builtins.str,
+                 provider_integration_id: _builtins.str,
+                 storage_account_name: _builtins.str,
+                 storage_region: _builtins.str,
+                 table_path: _builtins.str):
+        """
+        :param _builtins.str container_name: (Required String) The container name.
+        :param _builtins.str provider_integration_id: (Required String) The provider integration id.
+        :param _builtins.str storage_account_name: (Required String) The storage account name.
+        :param _builtins.str storage_region: (Required String) The storage region.
+        :param _builtins.str table_path: (Optional String) The current storage path where the data and metadata is stored for this table.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "provider_integration_id", provider_integration_id)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "storage_region", storage_region)
+        pulumi.set(__self__, "table_path", table_path)
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> _builtins.str:
+        """
+        (Required String) The container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @_builtins.property
+    @pulumi.getter(name="providerIntegrationId")
+    def provider_integration_id(self) -> _builtins.str:
+        """
+        (Required String) The provider integration id.
+        """
+        return pulumi.get(self, "provider_integration_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> _builtins.str:
+        """
+        (Required String) The storage account name.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageRegion")
+    def storage_region(self) -> _builtins.str:
+        """
+        (Required String) The storage region.
+        """
+        return pulumi.get(self, "storage_region")
+
+    @_builtins.property
+    @pulumi.getter(name="tablePath")
+    def table_path(self) -> _builtins.str:
+        """
+        (Optional String) The current storage path where the data and metadata is stored for this table.
+        """
+        return pulumi.get(self, "table_path")
 
 
 @pulumi.output_type

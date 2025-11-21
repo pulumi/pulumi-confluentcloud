@@ -82,15 +82,6 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Getting Started
-    /// 
-    /// The following end-to-end examples might help to get started with `confluentcloud.TableflowTopic` resource:
-    /// * confluent-managed-storage: Tableflow topic with Confluent-managed storage.
-    /// * byob-aws-storage: Tableflow topic with custom (BYOB AWS) storage.
-    /// * datagen-connector-byob-aws-storage: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.
-    /// * datagen-connector-confluent-managed-storage: Datagen Source connector with a Tableflow topic with Confluent-managed storage.
-    /// 
     /// ## Import
     /// 
     /// You can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `&lt;Environment ID&gt;/&lt;Kafka Cluster ID&gt;/&lt;Tableflow Topic name&gt;`, for example:
@@ -116,6 +107,12 @@ namespace Pulumi.ConfluentCloud
     [ConfluentCloudResourceType("confluentcloud:index/tableflowTopic:TableflowTopic")]
     public partial class TableflowTopic : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Output("azureDataLakeStorageGen2")]
+        public Output<Outputs.TableflowTopicAzureDataLakeStorageGen2?> AzureDataLakeStorageGen2 { get; private set; } = null!;
+
         /// <summary>
         /// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         /// </summary>
@@ -251,6 +248,12 @@ namespace Pulumi.ConfluentCloud
     public sealed class TableflowTopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("azureDataLakeStorageGen2")]
+        public Input<Inputs.TableflowTopicAzureDataLakeStorageGen2Args>? AzureDataLakeStorageGen2 { get; set; }
+
+        /// <summary>
         /// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         /// </summary>
         [Input("byobAws")]
@@ -334,6 +337,12 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class TableflowTopicState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("azureDataLakeStorageGen2")]
+        public Input<Inputs.TableflowTopicAzureDataLakeStorageGen2GetArgs>? AzureDataLakeStorageGen2 { get; set; }
+
         /// <summary>
         /// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         /// </summary>

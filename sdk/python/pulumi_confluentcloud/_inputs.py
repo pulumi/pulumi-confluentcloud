@@ -327,6 +327,8 @@ __all__ = [
     'SubjectModeCredentialsArgsDict',
     'SubjectModeSchemaRegistryClusterArgs',
     'SubjectModeSchemaRegistryClusterArgsDict',
+    'TableflowTopicAzureDataLakeStorageGen2Args',
+    'TableflowTopicAzureDataLakeStorageGen2ArgsDict',
     'TableflowTopicByobAwsArgs',
     'TableflowTopicByobAwsArgsDict',
     'TableflowTopicCredentialsArgs',
@@ -7838,6 +7840,95 @@ class SubjectModeSchemaRegistryClusterArgs:
     @id.setter
     def id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class TableflowTopicAzureDataLakeStorageGen2ArgsDict(TypedDict):
+        container_name: pulumi.Input[_builtins.str]
+        """
+        The container name.
+        """
+        provider_integration_id: pulumi.Input[_builtins.str]
+        """
+        The provider integration id.
+        """
+        storage_account_name: pulumi.Input[_builtins.str]
+        """
+        The storage account name.
+        """
+        storage_region: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        (Required String) The storage region.
+        """
+elif False:
+    TableflowTopicAzureDataLakeStorageGen2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableflowTopicAzureDataLakeStorageGen2Args:
+    def __init__(__self__, *,
+                 container_name: pulumi.Input[_builtins.str],
+                 provider_integration_id: pulumi.Input[_builtins.str],
+                 storage_account_name: pulumi.Input[_builtins.str],
+                 storage_region: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] container_name: The container name.
+        :param pulumi.Input[_builtins.str] provider_integration_id: The provider integration id.
+        :param pulumi.Input[_builtins.str] storage_account_name: The storage account name.
+        :param pulumi.Input[_builtins.str] storage_region: (Required String) The storage region.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "provider_integration_id", provider_integration_id)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_region is not None:
+            pulumi.set(__self__, "storage_region", storage_region)
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "container_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="providerIntegrationId")
+    def provider_integration_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The provider integration id.
+        """
+        return pulumi.get(self, "provider_integration_id")
+
+    @provider_integration_id.setter
+    def provider_integration_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "provider_integration_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The storage account name.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageRegion")
+    def storage_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Required String) The storage region.
+        """
+        return pulumi.get(self, "storage_region")
+
+    @storage_region.setter
+    def storage_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_region", value)
 
 
 if not MYPY:

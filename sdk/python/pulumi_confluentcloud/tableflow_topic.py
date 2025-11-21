@@ -24,6 +24,7 @@ class TableflowTopicArgs:
                  display_name: pulumi.Input[_builtins.str],
                  environment: pulumi.Input['TableflowTopicEnvironmentArgs'],
                  kafka_cluster: pulumi.Input['TableflowTopicKafkaClusterArgs'],
+                 azure_data_lake_storage_gen2: Optional[pulumi.Input['TableflowTopicAzureDataLakeStorageGen2Args']] = None,
                  byob_aws: Optional[pulumi.Input['TableflowTopicByobAwsArgs']] = None,
                  credentials: Optional[pulumi.Input['TableflowTopicCredentialsArgs']] = None,
                  error_handling: Optional[pulumi.Input['TableflowTopicErrorHandlingArgs']] = None,
@@ -35,6 +36,7 @@ class TableflowTopicArgs:
         The set of arguments for constructing a TableflowTopic resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka topic for which Tableflow is enabled.
         :param pulumi.Input['TableflowTopicEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input['TableflowTopicAzureDataLakeStorageGen2Args'] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
         :param pulumi.Input['TableflowTopicByobAwsArgs'] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input['TableflowTopicCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[Sequence[pulumi.Input['TableflowTopicManagedStorageArgs']]] managed_storages: The configuration of the Confluent managed storage. See [Quick Start with Managed Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-managed-storage.html#cloud-tableflow-quick-start-managed-storage) for more details.
@@ -45,6 +47,8 @@ class TableflowTopicArgs:
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+        if azure_data_lake_storage_gen2 is not None:
+            pulumi.set(__self__, "azure_data_lake_storage_gen2", azure_data_lake_storage_gen2)
         if byob_aws is not None:
             pulumi.set(__self__, "byob_aws", byob_aws)
         if credentials is not None:
@@ -95,6 +99,18 @@ class TableflowTopicArgs:
     @kafka_cluster.setter
     def kafka_cluster(self, value: pulumi.Input['TableflowTopicKafkaClusterArgs']):
         pulumi.set(self, "kafka_cluster", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureDataLakeStorageGen2")
+    def azure_data_lake_storage_gen2(self) -> Optional[pulumi.Input['TableflowTopicAzureDataLakeStorageGen2Args']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_data_lake_storage_gen2")
+
+    @azure_data_lake_storage_gen2.setter
+    def azure_data_lake_storage_gen2(self, value: Optional[pulumi.Input['TableflowTopicAzureDataLakeStorageGen2Args']]):
+        pulumi.set(self, "azure_data_lake_storage_gen2", value)
 
     @_builtins.property
     @pulumi.getter(name="byobAws")
@@ -182,6 +198,7 @@ class TableflowTopicArgs:
 @pulumi.input_type
 class _TableflowTopicState:
     def __init__(__self__, *,
+                 azure_data_lake_storage_gen2: Optional[pulumi.Input['TableflowTopicAzureDataLakeStorageGen2Args']] = None,
                  byob_aws: Optional[pulumi.Input['TableflowTopicByobAwsArgs']] = None,
                  credentials: Optional[pulumi.Input['TableflowTopicCredentialsArgs']] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -199,6 +216,7 @@ class _TableflowTopicState:
                  write_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableflowTopic resources.
+        :param pulumi.Input['TableflowTopicAzureDataLakeStorageGen2Args'] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
         :param pulumi.Input['TableflowTopicByobAwsArgs'] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input['TableflowTopicCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka topic for which Tableflow is enabled.
@@ -213,6 +231,8 @@ class _TableflowTopicState:
         :param pulumi.Input[_builtins.str] table_path: (Optional String) The current storage path where the data and metadata is stored for this table.
         :param pulumi.Input[_builtins.str] write_mode: (Optional String) Indicates the write mode of the Tableflow topic.
         """
+        if azure_data_lake_storage_gen2 is not None:
+            pulumi.set(__self__, "azure_data_lake_storage_gen2", azure_data_lake_storage_gen2)
         if byob_aws is not None:
             pulumi.set(__self__, "byob_aws", byob_aws)
         if credentials is not None:
@@ -246,6 +266,18 @@ class _TableflowTopicState:
             pulumi.set(__self__, "table_path", table_path)
         if write_mode is not None:
             pulumi.set(__self__, "write_mode", write_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="azureDataLakeStorageGen2")
+    def azure_data_lake_storage_gen2(self) -> Optional[pulumi.Input['TableflowTopicAzureDataLakeStorageGen2Args']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_data_lake_storage_gen2")
+
+    @azure_data_lake_storage_gen2.setter
+    def azure_data_lake_storage_gen2(self, value: Optional[pulumi.Input['TableflowTopicAzureDataLakeStorageGen2Args']]):
+        pulumi.set(self, "azure_data_lake_storage_gen2", value)
 
     @_builtins.property
     @pulumi.getter(name="byobAws")
@@ -429,6 +461,7 @@ class TableflowTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_data_lake_storage_gen2: Optional[pulumi.Input[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']]] = None,
                  byob_aws: Optional[pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']]] = None,
                  credentials: Optional[pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -487,15 +520,6 @@ class TableflowTopic(pulumi.CustomResource):
                 "provider_integration_id": main["id"],
             })
         ```
-
-        ## Getting Started
-
-        The following end-to-end examples might help to get started with `TableflowTopic` resource:
-        * confluent-managed-storage: Tableflow topic with Confluent-managed storage.
-        * byob-aws-storage: Tableflow topic with custom (BYOB AWS) storage.
-        * datagen-connector-byob-aws-storage: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.
-        * datagen-connector-confluent-managed-storage: Datagen Source connector with a Tableflow topic with Confluent-managed storage.
-
         ## Import
 
         You can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `<Environment ID>/<Kafka Cluster ID>/<Tableflow Topic name>`, for example:
@@ -520,6 +544,7 @@ class TableflowTopic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka topic for which Tableflow is enabled.
@@ -582,15 +607,6 @@ class TableflowTopic(pulumi.CustomResource):
                 "provider_integration_id": main["id"],
             })
         ```
-
-        ## Getting Started
-
-        The following end-to-end examples might help to get started with `TableflowTopic` resource:
-        * confluent-managed-storage: Tableflow topic with Confluent-managed storage.
-        * byob-aws-storage: Tableflow topic with custom (BYOB AWS) storage.
-        * datagen-connector-byob-aws-storage: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.
-        * datagen-connector-confluent-managed-storage: Datagen Source connector with a Tableflow topic with Confluent-managed storage.
-
         ## Import
 
         You can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `<Environment ID>/<Kafka Cluster ID>/<Tableflow Topic name>`, for example:
@@ -628,6 +644,7 @@ class TableflowTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_data_lake_storage_gen2: Optional[pulumi.Input[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']]] = None,
                  byob_aws: Optional[pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']]] = None,
                  credentials: Optional[pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -647,6 +664,7 @@ class TableflowTopic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TableflowTopicArgs.__new__(TableflowTopicArgs)
 
+            __props__.__dict__["azure_data_lake_storage_gen2"] = azure_data_lake_storage_gen2
             __props__.__dict__["byob_aws"] = byob_aws
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             if display_name is None and not opts.urn:
@@ -680,6 +698,7 @@ class TableflowTopic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            azure_data_lake_storage_gen2: Optional[pulumi.Input[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']]] = None,
             byob_aws: Optional[pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']]] = None,
             credentials: Optional[pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']]] = None,
             display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -702,6 +721,7 @@ class TableflowTopic(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Union['TableflowTopicByobAwsArgs', 'TableflowTopicByobAwsArgsDict']] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input[Union['TableflowTopicCredentialsArgs', 'TableflowTopicCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka topic for which Tableflow is enabled.
@@ -720,6 +740,7 @@ class TableflowTopic(pulumi.CustomResource):
 
         __props__ = _TableflowTopicState.__new__(_TableflowTopicState)
 
+        __props__.__dict__["azure_data_lake_storage_gen2"] = azure_data_lake_storage_gen2
         __props__.__dict__["byob_aws"] = byob_aws
         __props__.__dict__["credentials"] = credentials
         __props__.__dict__["display_name"] = display_name
@@ -736,6 +757,14 @@ class TableflowTopic(pulumi.CustomResource):
         __props__.__dict__["table_path"] = table_path
         __props__.__dict__["write_mode"] = write_mode
         return TableflowTopic(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="azureDataLakeStorageGen2")
+    def azure_data_lake_storage_gen2(self) -> pulumi.Output[Optional['outputs.TableflowTopicAzureDataLakeStorageGen2']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_data_lake_storage_gen2")
 
     @_builtins.property
     @pulumi.getter(name="byobAws")

@@ -2297,6 +2297,29 @@ export interface GetSubjectModeSchemaRegistryCluster {
     id: string;
 }
 
+export interface GetTableflowTopicAzureDataLakeStorageGen2 {
+    /**
+     * (Required String) The container name.
+     */
+    containerName: string;
+    /**
+     * (Required String) The provider integration id.
+     */
+    providerIntegrationId: string;
+    /**
+     * (Required String) The storage account name.
+     */
+    storageAccountName: string;
+    /**
+     * (Required String) The storage region.
+     */
+    storageRegion: string;
+    /**
+     * (Optional String) The current storage path where the data and metadata is stored for this table.
+     */
+    tablePath: string;
+}
+
 export interface GetTableflowTopicByobAw {
     /**
      * (Required String) The bucket name.
@@ -3280,6 +3303,25 @@ export interface SubjectModeSchemaRegistryCluster {
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: string;
+}
+
+export interface TableflowTopicAzureDataLakeStorageGen2 {
+    /**
+     * The container name.
+     */
+    containerName: string;
+    /**
+     * The provider integration id.
+     */
+    providerIntegrationId: string;
+    /**
+     * The storage account name.
+     */
+    storageAccountName: string;
+    /**
+     * (Required String) The storage region.
+     */
+    storageRegion: string;
 }
 
 export interface TableflowTopicByobAws {

@@ -102,6 +102,8 @@ type LookupTableflowTopicArgs struct {
 // A collection of values returned by getTableflowTopic.
 type LookupTableflowTopicResult struct {
 	// (Optional Configuration Block) supports the following:
+	AzureDataLakeStorageGen2s []GetTableflowTopicAzureDataLakeStorageGen2 `pulumi:"azureDataLakeStorageGen2s"`
+	// (Optional Configuration Block) supports the following:
 	ByobAws     []GetTableflowTopicByobAw     `pulumi:"byobAws"`
 	Credentials *GetTableflowTopicCredentials `pulumi:"credentials"`
 	DisplayName string                        `pulumi:"displayName"`
@@ -166,6 +168,13 @@ func (o LookupTableflowTopicResultOutput) ToLookupTableflowTopicResultOutput() L
 
 func (o LookupTableflowTopicResultOutput) ToLookupTableflowTopicResultOutputWithContext(ctx context.Context) LookupTableflowTopicResultOutput {
 	return o
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupTableflowTopicResultOutput) AzureDataLakeStorageGen2s() GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput {
+	return o.ApplyT(func(v LookupTableflowTopicResult) []GetTableflowTopicAzureDataLakeStorageGen2 {
+		return v.AzureDataLakeStorageGen2s
+	}).(GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput)
 }
 
 // (Optional Configuration Block) supports the following:

@@ -85,6 +85,10 @@ export interface GetTableflowTopicResult {
     /**
      * (Optional Configuration Block) supports the following:
      */
+    readonly azureDataLakeStorageGen2s: outputs.GetTableflowTopicAzureDataLakeStorageGen2[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     readonly byobAws: outputs.GetTableflowTopicByobAw[];
     readonly credentials?: outputs.GetTableflowTopicCredentials;
     readonly displayName: string;
