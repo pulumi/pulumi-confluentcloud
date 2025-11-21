@@ -3221,6 +3221,25 @@ export interface SubjectModeSchemaRegistryCluster {
     id: pulumi.Input<string>;
 }
 
+export interface TableflowTopicAzureDataLakeStorageGen2 {
+    /**
+     * The container name.
+     */
+    containerName: pulumi.Input<string>;
+    /**
+     * The provider integration id.
+     */
+    providerIntegrationId: pulumi.Input<string>;
+    /**
+     * The storage account name.
+     */
+    storageAccountName: pulumi.Input<string>;
+    /**
+     * (Required String) The storage region.
+     */
+    storageRegion?: pulumi.Input<string>;
+}
+
 export interface TableflowTopicByobAws {
     /**
      * The bucket name.

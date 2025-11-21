@@ -3,6 +3,7 @@
 
 package com.pulumi.confluentcloud.outputs;
 
+import com.pulumi.confluentcloud.outputs.GetTableflowTopicAzureDataLakeStorageGen2;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicByobAw;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicCredentials;
 import com.pulumi.confluentcloud.outputs.GetTableflowTopicEnvironment;
@@ -20,6 +21,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTableflowTopicResult {
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetTableflowTopicAzureDataLakeStorageGen2> azureDataLakeStorageGen2s;
     /**
      * @return (Optional Configuration Block) supports the following:
      * 
@@ -86,6 +92,13 @@ public final class GetTableflowTopicResult {
     private String writeMode;
 
     private GetTableflowTopicResult() {}
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetTableflowTopicAzureDataLakeStorageGen2> azureDataLakeStorageGen2s() {
+        return this.azureDataLakeStorageGen2s;
+    }
     /**
      * @return (Optional Configuration Block) supports the following:
      * 
@@ -192,6 +205,7 @@ public final class GetTableflowTopicResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetTableflowTopicAzureDataLakeStorageGen2> azureDataLakeStorageGen2s;
         private List<GetTableflowTopicByobAw> byobAws;
         private @Nullable GetTableflowTopicCredentials credentials;
         private String displayName;
@@ -211,6 +225,7 @@ public final class GetTableflowTopicResult {
         public Builder() {}
         public Builder(GetTableflowTopicResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.azureDataLakeStorageGen2s = defaults.azureDataLakeStorageGen2s;
     	      this.byobAws = defaults.byobAws;
     	      this.credentials = defaults.credentials;
     	      this.displayName = defaults.displayName;
@@ -229,6 +244,17 @@ public final class GetTableflowTopicResult {
     	      this.writeMode = defaults.writeMode;
         }
 
+        @CustomType.Setter
+        public Builder azureDataLakeStorageGen2s(List<GetTableflowTopicAzureDataLakeStorageGen2> azureDataLakeStorageGen2s) {
+            if (azureDataLakeStorageGen2s == null) {
+              throw new MissingRequiredPropertyException("GetTableflowTopicResult", "azureDataLakeStorageGen2s");
+            }
+            this.azureDataLakeStorageGen2s = azureDataLakeStorageGen2s;
+            return this;
+        }
+        public Builder azureDataLakeStorageGen2s(GetTableflowTopicAzureDataLakeStorageGen2... azureDataLakeStorageGen2s) {
+            return azureDataLakeStorageGen2s(List.of(azureDataLakeStorageGen2s));
+        }
         @CustomType.Setter
         public Builder byobAws(List<GetTableflowTopicByobAw> byobAws) {
             if (byobAws == null) {
@@ -369,6 +395,7 @@ public final class GetTableflowTopicResult {
         }
         public GetTableflowTopicResult build() {
             final var _resultValue = new GetTableflowTopicResult();
+            _resultValue.azureDataLakeStorageGen2s = azureDataLakeStorageGen2s;
             _resultValue.byobAws = byobAws;
             _resultValue.credentials = credentials;
             _resultValue.displayName = displayName;

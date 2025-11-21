@@ -22747,6 +22747,200 @@ func (o SubjectModeSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TableflowTopicAzureDataLakeStorageGen2 struct {
+	// The container name.
+	ContainerName string `pulumi:"containerName"`
+	// The provider integration id.
+	ProviderIntegrationId string `pulumi:"providerIntegrationId"`
+	// The storage account name.
+	StorageAccountName string `pulumi:"storageAccountName"`
+	// (Required String) The storage region.
+	StorageRegion *string `pulumi:"storageRegion"`
+}
+
+// TableflowTopicAzureDataLakeStorageGen2Input is an input type that accepts TableflowTopicAzureDataLakeStorageGen2Args and TableflowTopicAzureDataLakeStorageGen2Output values.
+// You can construct a concrete instance of `TableflowTopicAzureDataLakeStorageGen2Input` via:
+//
+//	TableflowTopicAzureDataLakeStorageGen2Args{...}
+type TableflowTopicAzureDataLakeStorageGen2Input interface {
+	pulumi.Input
+
+	ToTableflowTopicAzureDataLakeStorageGen2Output() TableflowTopicAzureDataLakeStorageGen2Output
+	ToTableflowTopicAzureDataLakeStorageGen2OutputWithContext(context.Context) TableflowTopicAzureDataLakeStorageGen2Output
+}
+
+type TableflowTopicAzureDataLakeStorageGen2Args struct {
+	// The container name.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The provider integration id.
+	ProviderIntegrationId pulumi.StringInput `pulumi:"providerIntegrationId"`
+	// The storage account name.
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	// (Required String) The storage region.
+	StorageRegion pulumi.StringPtrInput `pulumi:"storageRegion"`
+}
+
+func (TableflowTopicAzureDataLakeStorageGen2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicAzureDataLakeStorageGen2)(nil)).Elem()
+}
+
+func (i TableflowTopicAzureDataLakeStorageGen2Args) ToTableflowTopicAzureDataLakeStorageGen2Output() TableflowTopicAzureDataLakeStorageGen2Output {
+	return i.ToTableflowTopicAzureDataLakeStorageGen2OutputWithContext(context.Background())
+}
+
+func (i TableflowTopicAzureDataLakeStorageGen2Args) ToTableflowTopicAzureDataLakeStorageGen2OutputWithContext(ctx context.Context) TableflowTopicAzureDataLakeStorageGen2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicAzureDataLakeStorageGen2Output)
+}
+
+func (i TableflowTopicAzureDataLakeStorageGen2Args) ToTableflowTopicAzureDataLakeStorageGen2PtrOutput() TableflowTopicAzureDataLakeStorageGen2PtrOutput {
+	return i.ToTableflowTopicAzureDataLakeStorageGen2PtrOutputWithContext(context.Background())
+}
+
+func (i TableflowTopicAzureDataLakeStorageGen2Args) ToTableflowTopicAzureDataLakeStorageGen2PtrOutputWithContext(ctx context.Context) TableflowTopicAzureDataLakeStorageGen2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicAzureDataLakeStorageGen2Output).ToTableflowTopicAzureDataLakeStorageGen2PtrOutputWithContext(ctx)
+}
+
+// TableflowTopicAzureDataLakeStorageGen2PtrInput is an input type that accepts TableflowTopicAzureDataLakeStorageGen2Args, TableflowTopicAzureDataLakeStorageGen2Ptr and TableflowTopicAzureDataLakeStorageGen2PtrOutput values.
+// You can construct a concrete instance of `TableflowTopicAzureDataLakeStorageGen2PtrInput` via:
+//
+//	        TableflowTopicAzureDataLakeStorageGen2Args{...}
+//
+//	or:
+//
+//	        nil
+type TableflowTopicAzureDataLakeStorageGen2PtrInput interface {
+	pulumi.Input
+
+	ToTableflowTopicAzureDataLakeStorageGen2PtrOutput() TableflowTopicAzureDataLakeStorageGen2PtrOutput
+	ToTableflowTopicAzureDataLakeStorageGen2PtrOutputWithContext(context.Context) TableflowTopicAzureDataLakeStorageGen2PtrOutput
+}
+
+type tableflowTopicAzureDataLakeStorageGen2PtrType TableflowTopicAzureDataLakeStorageGen2Args
+
+func TableflowTopicAzureDataLakeStorageGen2Ptr(v *TableflowTopicAzureDataLakeStorageGen2Args) TableflowTopicAzureDataLakeStorageGen2PtrInput {
+	return (*tableflowTopicAzureDataLakeStorageGen2PtrType)(v)
+}
+
+func (*tableflowTopicAzureDataLakeStorageGen2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicAzureDataLakeStorageGen2)(nil)).Elem()
+}
+
+func (i *tableflowTopicAzureDataLakeStorageGen2PtrType) ToTableflowTopicAzureDataLakeStorageGen2PtrOutput() TableflowTopicAzureDataLakeStorageGen2PtrOutput {
+	return i.ToTableflowTopicAzureDataLakeStorageGen2PtrOutputWithContext(context.Background())
+}
+
+func (i *tableflowTopicAzureDataLakeStorageGen2PtrType) ToTableflowTopicAzureDataLakeStorageGen2PtrOutputWithContext(ctx context.Context) TableflowTopicAzureDataLakeStorageGen2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableflowTopicAzureDataLakeStorageGen2PtrOutput)
+}
+
+type TableflowTopicAzureDataLakeStorageGen2Output struct{ *pulumi.OutputState }
+
+func (TableflowTopicAzureDataLakeStorageGen2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableflowTopicAzureDataLakeStorageGen2)(nil)).Elem()
+}
+
+func (o TableflowTopicAzureDataLakeStorageGen2Output) ToTableflowTopicAzureDataLakeStorageGen2Output() TableflowTopicAzureDataLakeStorageGen2Output {
+	return o
+}
+
+func (o TableflowTopicAzureDataLakeStorageGen2Output) ToTableflowTopicAzureDataLakeStorageGen2OutputWithContext(ctx context.Context) TableflowTopicAzureDataLakeStorageGen2Output {
+	return o
+}
+
+func (o TableflowTopicAzureDataLakeStorageGen2Output) ToTableflowTopicAzureDataLakeStorageGen2PtrOutput() TableflowTopicAzureDataLakeStorageGen2PtrOutput {
+	return o.ToTableflowTopicAzureDataLakeStorageGen2PtrOutputWithContext(context.Background())
+}
+
+func (o TableflowTopicAzureDataLakeStorageGen2Output) ToTableflowTopicAzureDataLakeStorageGen2PtrOutputWithContext(ctx context.Context) TableflowTopicAzureDataLakeStorageGen2PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableflowTopicAzureDataLakeStorageGen2) *TableflowTopicAzureDataLakeStorageGen2 {
+		return &v
+	}).(TableflowTopicAzureDataLakeStorageGen2PtrOutput)
+}
+
+// The container name.
+func (o TableflowTopicAzureDataLakeStorageGen2Output) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableflowTopicAzureDataLakeStorageGen2) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The provider integration id.
+func (o TableflowTopicAzureDataLakeStorageGen2Output) ProviderIntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v TableflowTopicAzureDataLakeStorageGen2) string { return v.ProviderIntegrationId }).(pulumi.StringOutput)
+}
+
+// The storage account name.
+func (o TableflowTopicAzureDataLakeStorageGen2Output) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableflowTopicAzureDataLakeStorageGen2) string { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// (Required String) The storage region.
+func (o TableflowTopicAzureDataLakeStorageGen2Output) StorageRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableflowTopicAzureDataLakeStorageGen2) *string { return v.StorageRegion }).(pulumi.StringPtrOutput)
+}
+
+type TableflowTopicAzureDataLakeStorageGen2PtrOutput struct{ *pulumi.OutputState }
+
+func (TableflowTopicAzureDataLakeStorageGen2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableflowTopicAzureDataLakeStorageGen2)(nil)).Elem()
+}
+
+func (o TableflowTopicAzureDataLakeStorageGen2PtrOutput) ToTableflowTopicAzureDataLakeStorageGen2PtrOutput() TableflowTopicAzureDataLakeStorageGen2PtrOutput {
+	return o
+}
+
+func (o TableflowTopicAzureDataLakeStorageGen2PtrOutput) ToTableflowTopicAzureDataLakeStorageGen2PtrOutputWithContext(ctx context.Context) TableflowTopicAzureDataLakeStorageGen2PtrOutput {
+	return o
+}
+
+func (o TableflowTopicAzureDataLakeStorageGen2PtrOutput) Elem() TableflowTopicAzureDataLakeStorageGen2Output {
+	return o.ApplyT(func(v *TableflowTopicAzureDataLakeStorageGen2) TableflowTopicAzureDataLakeStorageGen2 {
+		if v != nil {
+			return *v
+		}
+		var ret TableflowTopicAzureDataLakeStorageGen2
+		return ret
+	}).(TableflowTopicAzureDataLakeStorageGen2Output)
+}
+
+// The container name.
+func (o TableflowTopicAzureDataLakeStorageGen2PtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicAzureDataLakeStorageGen2) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The provider integration id.
+func (o TableflowTopicAzureDataLakeStorageGen2PtrOutput) ProviderIntegrationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicAzureDataLakeStorageGen2) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProviderIntegrationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The storage account name.
+func (o TableflowTopicAzureDataLakeStorageGen2PtrOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicAzureDataLakeStorageGen2) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The storage region.
+func (o TableflowTopicAzureDataLakeStorageGen2PtrOutput) StorageRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableflowTopicAzureDataLakeStorageGen2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageRegion
+	}).(pulumi.StringPtrOutput)
+}
+
 type TableflowTopicByobAws struct {
 	// The bucket name.
 	BucketName string `pulumi:"bucketName"`
@@ -40629,6 +40823,139 @@ func (o GetSubjectModeSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetTableflowTopicAzureDataLakeStorageGen2 struct {
+	// (Required String) The container name.
+	ContainerName string `pulumi:"containerName"`
+	// (Required String) The provider integration id.
+	ProviderIntegrationId string `pulumi:"providerIntegrationId"`
+	// (Required String) The storage account name.
+	StorageAccountName string `pulumi:"storageAccountName"`
+	// (Required String) The storage region.
+	StorageRegion string `pulumi:"storageRegion"`
+	// (Optional String) The current storage path where the data and metadata is stored for this table.
+	TablePath string `pulumi:"tablePath"`
+}
+
+// GetTableflowTopicAzureDataLakeStorageGen2Input is an input type that accepts GetTableflowTopicAzureDataLakeStorageGen2Args and GetTableflowTopicAzureDataLakeStorageGen2Output values.
+// You can construct a concrete instance of `GetTableflowTopicAzureDataLakeStorageGen2Input` via:
+//
+//	GetTableflowTopicAzureDataLakeStorageGen2Args{...}
+type GetTableflowTopicAzureDataLakeStorageGen2Input interface {
+	pulumi.Input
+
+	ToGetTableflowTopicAzureDataLakeStorageGen2Output() GetTableflowTopicAzureDataLakeStorageGen2Output
+	ToGetTableflowTopicAzureDataLakeStorageGen2OutputWithContext(context.Context) GetTableflowTopicAzureDataLakeStorageGen2Output
+}
+
+type GetTableflowTopicAzureDataLakeStorageGen2Args struct {
+	// (Required String) The container name.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// (Required String) The provider integration id.
+	ProviderIntegrationId pulumi.StringInput `pulumi:"providerIntegrationId"`
+	// (Required String) The storage account name.
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	// (Required String) The storage region.
+	StorageRegion pulumi.StringInput `pulumi:"storageRegion"`
+	// (Optional String) The current storage path where the data and metadata is stored for this table.
+	TablePath pulumi.StringInput `pulumi:"tablePath"`
+}
+
+func (GetTableflowTopicAzureDataLakeStorageGen2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicAzureDataLakeStorageGen2)(nil)).Elem()
+}
+
+func (i GetTableflowTopicAzureDataLakeStorageGen2Args) ToGetTableflowTopicAzureDataLakeStorageGen2Output() GetTableflowTopicAzureDataLakeStorageGen2Output {
+	return i.ToGetTableflowTopicAzureDataLakeStorageGen2OutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicAzureDataLakeStorageGen2Args) ToGetTableflowTopicAzureDataLakeStorageGen2OutputWithContext(ctx context.Context) GetTableflowTopicAzureDataLakeStorageGen2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicAzureDataLakeStorageGen2Output)
+}
+
+// GetTableflowTopicAzureDataLakeStorageGen2ArrayInput is an input type that accepts GetTableflowTopicAzureDataLakeStorageGen2Array and GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput values.
+// You can construct a concrete instance of `GetTableflowTopicAzureDataLakeStorageGen2ArrayInput` via:
+//
+//	GetTableflowTopicAzureDataLakeStorageGen2Array{ GetTableflowTopicAzureDataLakeStorageGen2Args{...} }
+type GetTableflowTopicAzureDataLakeStorageGen2ArrayInput interface {
+	pulumi.Input
+
+	ToGetTableflowTopicAzureDataLakeStorageGen2ArrayOutput() GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput
+	ToGetTableflowTopicAzureDataLakeStorageGen2ArrayOutputWithContext(context.Context) GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput
+}
+
+type GetTableflowTopicAzureDataLakeStorageGen2Array []GetTableflowTopicAzureDataLakeStorageGen2Input
+
+func (GetTableflowTopicAzureDataLakeStorageGen2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableflowTopicAzureDataLakeStorageGen2)(nil)).Elem()
+}
+
+func (i GetTableflowTopicAzureDataLakeStorageGen2Array) ToGetTableflowTopicAzureDataLakeStorageGen2ArrayOutput() GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput {
+	return i.ToGetTableflowTopicAzureDataLakeStorageGen2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableflowTopicAzureDataLakeStorageGen2Array) ToGetTableflowTopicAzureDataLakeStorageGen2ArrayOutputWithContext(ctx context.Context) GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput)
+}
+
+type GetTableflowTopicAzureDataLakeStorageGen2Output struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicAzureDataLakeStorageGen2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableflowTopicAzureDataLakeStorageGen2)(nil)).Elem()
+}
+
+func (o GetTableflowTopicAzureDataLakeStorageGen2Output) ToGetTableflowTopicAzureDataLakeStorageGen2Output() GetTableflowTopicAzureDataLakeStorageGen2Output {
+	return o
+}
+
+func (o GetTableflowTopicAzureDataLakeStorageGen2Output) ToGetTableflowTopicAzureDataLakeStorageGen2OutputWithContext(ctx context.Context) GetTableflowTopicAzureDataLakeStorageGen2Output {
+	return o
+}
+
+// (Required String) The container name.
+func (o GetTableflowTopicAzureDataLakeStorageGen2Output) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicAzureDataLakeStorageGen2) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// (Required String) The provider integration id.
+func (o GetTableflowTopicAzureDataLakeStorageGen2Output) ProviderIntegrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicAzureDataLakeStorageGen2) string { return v.ProviderIntegrationId }).(pulumi.StringOutput)
+}
+
+// (Required String) The storage account name.
+func (o GetTableflowTopicAzureDataLakeStorageGen2Output) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicAzureDataLakeStorageGen2) string { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// (Required String) The storage region.
+func (o GetTableflowTopicAzureDataLakeStorageGen2Output) StorageRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicAzureDataLakeStorageGen2) string { return v.StorageRegion }).(pulumi.StringOutput)
+}
+
+// (Optional String) The current storage path where the data and metadata is stored for this table.
+func (o GetTableflowTopicAzureDataLakeStorageGen2Output) TablePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableflowTopicAzureDataLakeStorageGen2) string { return v.TablePath }).(pulumi.StringOutput)
+}
+
+type GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableflowTopicAzureDataLakeStorageGen2)(nil)).Elem()
+}
+
+func (o GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput) ToGetTableflowTopicAzureDataLakeStorageGen2ArrayOutput() GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput {
+	return o
+}
+
+func (o GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput) ToGetTableflowTopicAzureDataLakeStorageGen2ArrayOutputWithContext(ctx context.Context) GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput {
+	return o
+}
+
+func (o GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput) Index(i pulumi.IntInput) GetTableflowTopicAzureDataLakeStorageGen2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableflowTopicAzureDataLakeStorageGen2 {
+		return vs[0].([]GetTableflowTopicAzureDataLakeStorageGen2)[vs[1].(int)]
+	}).(GetTableflowTopicAzureDataLakeStorageGen2Output)
+}
+
 type GetTableflowTopicByobAw struct {
 	// (Required String) The bucket name.
 	BucketName string `pulumi:"bucketName"`
@@ -42376,6 +42703,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeCredentialsPtrInput)(nil)).Elem(), SubjectModeCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeSchemaRegistryClusterInput)(nil)).Elem(), SubjectModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeSchemaRegistryClusterPtrInput)(nil)).Elem(), SubjectModeSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicAzureDataLakeStorageGen2Input)(nil)).Elem(), TableflowTopicAzureDataLakeStorageGen2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicAzureDataLakeStorageGen2PtrInput)(nil)).Elem(), TableflowTopicAzureDataLakeStorageGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicByobAwsInput)(nil)).Elem(), TableflowTopicByobAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicByobAwsPtrInput)(nil)).Elem(), TableflowTopicByobAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableflowTopicCredentialsInput)(nil)).Elem(), TableflowTopicCredentialsArgs{})
@@ -42662,6 +42991,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeCredentialsPtrInput)(nil)).Elem(), GetSubjectModeCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeSchemaRegistryClusterInput)(nil)).Elem(), GetSubjectModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSubjectModeSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicAzureDataLakeStorageGen2Input)(nil)).Elem(), GetTableflowTopicAzureDataLakeStorageGen2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicAzureDataLakeStorageGen2ArrayInput)(nil)).Elem(), GetTableflowTopicAzureDataLakeStorageGen2Array{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicByobAwInput)(nil)).Elem(), GetTableflowTopicByobAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicByobAwArrayInput)(nil)).Elem(), GetTableflowTopicByobAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableflowTopicCredentialsInput)(nil)).Elem(), GetTableflowTopicCredentialsArgs{})
@@ -42997,6 +43328,8 @@ func init() {
 	pulumi.RegisterOutputType(SubjectModeCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SubjectModeSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(SubjectModeSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(TableflowTopicAzureDataLakeStorageGen2Output{})
+	pulumi.RegisterOutputType(TableflowTopicAzureDataLakeStorageGen2PtrOutput{})
 	pulumi.RegisterOutputType(TableflowTopicByobAwsOutput{})
 	pulumi.RegisterOutputType(TableflowTopicByobAwsPtrOutput{})
 	pulumi.RegisterOutputType(TableflowTopicCredentialsOutput{})
@@ -43283,6 +43616,8 @@ func init() {
 	pulumi.RegisterOutputType(GetSubjectModeCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetSubjectModeSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(GetSubjectModeSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(GetTableflowTopicAzureDataLakeStorageGen2Output{})
+	pulumi.RegisterOutputType(GetTableflowTopicAzureDataLakeStorageGen2ArrayOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicByobAwOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicByobAwArrayOutput{})
 	pulumi.RegisterOutputType(GetTableflowTopicCredentialsOutput{})

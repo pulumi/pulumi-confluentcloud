@@ -92,15 +92,6 @@ import (
 //	}
 //
 // ```
-//
-// ## Getting Started
-//
-// The following end-to-end examples might help to get started with `TableflowTopic` resource:
-// * confluent-managed-storage: Tableflow topic with Confluent-managed storage.
-// * byob-aws-storage: Tableflow topic with custom (BYOB AWS) storage.
-// * datagen-connector-byob-aws-storage: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.
-// * datagen-connector-confluent-managed-storage: Datagen Source connector with a Tableflow topic with Confluent-managed storage.
-//
 // ## Import
 //
 // You can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `<Environment ID>/<Kafka Cluster ID>/<Tableflow Topic name>`, for example:
@@ -125,6 +116,8 @@ import (
 type TableflowTopic struct {
 	pulumi.CustomResourceState
 
+	// (Optional Configuration Block) supports the following:
+	AzureDataLakeStorageGen2 TableflowTopicAzureDataLakeStorageGen2PtrOutput `pulumi:"azureDataLakeStorageGen2"`
 	// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
 	ByobAws TableflowTopicByobAwsPtrOutput `pulumi:"byobAws"`
 	// The Cluster API Credentials.
@@ -203,6 +196,8 @@ func GetTableflowTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TableflowTopic resources.
 type tableflowTopicState struct {
+	// (Optional Configuration Block) supports the following:
+	AzureDataLakeStorageGen2 *TableflowTopicAzureDataLakeStorageGen2 `pulumi:"azureDataLakeStorageGen2"`
 	// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
 	ByobAws *TableflowTopicByobAws `pulumi:"byobAws"`
 	// The Cluster API Credentials.
@@ -236,6 +231,8 @@ type tableflowTopicState struct {
 }
 
 type TableflowTopicState struct {
+	// (Optional Configuration Block) supports the following:
+	AzureDataLakeStorageGen2 TableflowTopicAzureDataLakeStorageGen2PtrInput
 	// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
 	ByobAws TableflowTopicByobAwsPtrInput
 	// The Cluster API Credentials.
@@ -273,6 +270,8 @@ func (TableflowTopicState) ElementType() reflect.Type {
 }
 
 type tableflowTopicArgs struct {
+	// (Optional Configuration Block) supports the following:
+	AzureDataLakeStorageGen2 *TableflowTopicAzureDataLakeStorageGen2 `pulumi:"azureDataLakeStorageGen2"`
 	// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
 	ByobAws *TableflowTopicByobAws `pulumi:"byobAws"`
 	// The Cluster API Credentials.
@@ -297,6 +296,8 @@ type tableflowTopicArgs struct {
 
 // The set of arguments for constructing a TableflowTopic resource.
 type TableflowTopicArgs struct {
+	// (Optional Configuration Block) supports the following:
+	AzureDataLakeStorageGen2 TableflowTopicAzureDataLakeStorageGen2PtrInput
 	// supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
 	ByobAws TableflowTopicByobAwsPtrInput
 	// The Cluster API Credentials.
@@ -404,6 +405,13 @@ func (o TableflowTopicOutput) ToTableflowTopicOutput() TableflowTopicOutput {
 
 func (o TableflowTopicOutput) ToTableflowTopicOutputWithContext(ctx context.Context) TableflowTopicOutput {
 	return o
+}
+
+// (Optional Configuration Block) supports the following:
+func (o TableflowTopicOutput) AzureDataLakeStorageGen2() TableflowTopicAzureDataLakeStorageGen2PtrOutput {
+	return o.ApplyT(func(v *TableflowTopic) TableflowTopicAzureDataLakeStorageGen2PtrOutput {
+		return v.AzureDataLakeStorageGen2
+	}).(TableflowTopicAzureDataLakeStorageGen2PtrOutput)
 }
 
 // supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):

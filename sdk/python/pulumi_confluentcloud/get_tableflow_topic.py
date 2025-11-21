@@ -28,7 +28,10 @@ class GetTableflowTopicResult:
     """
     A collection of values returned by getTableflowTopic.
     """
-    def __init__(__self__, byob_aws=None, credentials=None, display_name=None, enable_compaction=None, enable_partitioning=None, environment=None, error_handlings=None, id=None, kafka_cluster=None, managed_storages=None, record_failure_strategy=None, retention_ms=None, suspended=None, table_formats=None, table_path=None, write_mode=None):
+    def __init__(__self__, azure_data_lake_storage_gen2s=None, byob_aws=None, credentials=None, display_name=None, enable_compaction=None, enable_partitioning=None, environment=None, error_handlings=None, id=None, kafka_cluster=None, managed_storages=None, record_failure_strategy=None, retention_ms=None, suspended=None, table_formats=None, table_path=None, write_mode=None):
+        if azure_data_lake_storage_gen2s and not isinstance(azure_data_lake_storage_gen2s, list):
+            raise TypeError("Expected argument 'azure_data_lake_storage_gen2s' to be a list")
+        pulumi.set(__self__, "azure_data_lake_storage_gen2s", azure_data_lake_storage_gen2s)
         if byob_aws and not isinstance(byob_aws, list):
             raise TypeError("Expected argument 'byob_aws' to be a list")
         pulumi.set(__self__, "byob_aws", byob_aws)
@@ -77,6 +80,14 @@ class GetTableflowTopicResult:
         if write_mode and not isinstance(write_mode, str):
             raise TypeError("Expected argument 'write_mode' to be a str")
         pulumi.set(__self__, "write_mode", write_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="azureDataLakeStorageGen2s")
+    def azure_data_lake_storage_gen2s(self) -> Sequence['outputs.GetTableflowTopicAzureDataLakeStorageGen2Result']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_data_lake_storage_gen2s")
 
     @_builtins.property
     @pulumi.getter(name="byobAws")
@@ -201,6 +212,7 @@ class AwaitableGetTableflowTopicResult(GetTableflowTopicResult):
         if False:
             yield self
         return GetTableflowTopicResult(
+            azure_data_lake_storage_gen2s=self.azure_data_lake_storage_gen2s,
             byob_aws=self.byob_aws,
             credentials=self.credentials,
             display_name=self.display_name,
@@ -273,6 +285,7 @@ def get_tableflow_topic(credentials: Optional[Union['GetTableflowTopicCredential
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getTableflowTopic:getTableflowTopic', __args__, opts=opts, typ=GetTableflowTopicResult).value
 
     return AwaitableGetTableflowTopicResult(
+        azure_data_lake_storage_gen2s=pulumi.get(__ret__, 'azure_data_lake_storage_gen2s'),
         byob_aws=pulumi.get(__ret__, 'byob_aws'),
         credentials=pulumi.get(__ret__, 'credentials'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -342,6 +355,7 @@ def get_tableflow_topic_output(credentials: Optional[pulumi.Input[Optional[Union
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getTableflowTopic:getTableflowTopic', __args__, opts=opts, typ=GetTableflowTopicResult)
     return __ret__.apply(lambda __response__: GetTableflowTopicResult(
+        azure_data_lake_storage_gen2s=pulumi.get(__response__, 'azure_data_lake_storage_gen2s'),
         byob_aws=pulumi.get(__response__, 'byob_aws'),
         credentials=pulumi.get(__response__, 'credentials'),
         display_name=pulumi.get(__response__, 'display_name'),

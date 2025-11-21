@@ -281,6 +281,10 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// (Optional Configuration Block) supports the following:
         /// </summary>
+        public readonly ImmutableArray<Outputs.GetTableflowTopicAzureDataLakeStorageGen2Result> AzureDataLakeStorageGen2s;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetTableflowTopicByobAwResult> ByobAws;
         public readonly Outputs.GetTableflowTopicCredentialsResult? Credentials;
         public readonly string DisplayName;
@@ -333,6 +337,8 @@ namespace Pulumi.ConfluentCloud
 
         [OutputConstructor]
         private GetTableflowTopicResult(
+            ImmutableArray<Outputs.GetTableflowTopicAzureDataLakeStorageGen2Result> azureDataLakeStorageGen2s,
+
             ImmutableArray<Outputs.GetTableflowTopicByobAwResult> byobAws,
 
             Outputs.GetTableflowTopicCredentialsResult? credentials,
@@ -365,6 +371,7 @@ namespace Pulumi.ConfluentCloud
 
             string writeMode)
         {
+            AzureDataLakeStorageGen2s = azureDataLakeStorageGen2s;
             ByobAws = byobAws;
             Credentials = credentials;
             DisplayName = displayName;

@@ -3,6 +3,7 @@
 
 package com.pulumi.confluentcloud.inputs;
 
+import com.pulumi.confluentcloud.inputs.TableflowTopicAzureDataLakeStorageGen2Args;
 import com.pulumi.confluentcloud.inputs.TableflowTopicByobAwsArgs;
 import com.pulumi.confluentcloud.inputs.TableflowTopicCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.TableflowTopicEnvironmentArgs;
@@ -22,6 +23,21 @@ import javax.annotation.Nullable;
 public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs {
 
     public static final TableflowTopicState Empty = new TableflowTopicState();
+
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Import(name="azureDataLakeStorageGen2")
+    private @Nullable Output<TableflowTopicAzureDataLakeStorageGen2Args> azureDataLakeStorageGen2;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Optional<Output<TableflowTopicAzureDataLakeStorageGen2Args>> azureDataLakeStorageGen2() {
+        return Optional.ofNullable(this.azureDataLakeStorageGen2);
+    }
 
     /**
      * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
@@ -243,6 +259,7 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
     private TableflowTopicState() {}
 
     private TableflowTopicState(TableflowTopicState $) {
+        this.azureDataLakeStorageGen2 = $.azureDataLakeStorageGen2;
         this.byobAws = $.byobAws;
         this.credentials = $.credentials;
         this.displayName = $.displayName;
@@ -276,6 +293,27 @@ public final class TableflowTopicState extends com.pulumi.resources.ResourceArgs
 
         public Builder(TableflowTopicState defaults) {
             $ = new TableflowTopicState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param azureDataLakeStorageGen2 (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureDataLakeStorageGen2(@Nullable Output<TableflowTopicAzureDataLakeStorageGen2Args> azureDataLakeStorageGen2) {
+            $.azureDataLakeStorageGen2 = azureDataLakeStorageGen2;
+            return this;
+        }
+
+        /**
+         * @param azureDataLakeStorageGen2 (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureDataLakeStorageGen2(TableflowTopicAzureDataLakeStorageGen2Args azureDataLakeStorageGen2) {
+            return azureDataLakeStorageGen2(Output.of(azureDataLakeStorageGen2));
         }
 
         /**

@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud;
 import com.pulumi.confluentcloud.TableflowTopicArgs;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.TableflowTopicState;
+import com.pulumi.confluentcloud.outputs.TableflowTopicAzureDataLakeStorageGen2;
 import com.pulumi.confluentcloud.outputs.TableflowTopicByobAws;
 import com.pulumi.confluentcloud.outputs.TableflowTopicCredentials;
 import com.pulumi.confluentcloud.outputs.TableflowTopicEnvironment;
@@ -122,15 +123,6 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * 
- * ## Getting Started
- * 
- * The following end-to-end examples might help to get started with `confluentcloud.TableflowTopic` resource:
- * * confluent-managed-storage: Tableflow topic with Confluent-managed storage.
- * * byob-aws-storage: Tableflow topic with custom (BYOB AWS) storage.
- * * datagen-connector-byob-aws-storage: Datagen Source connector with a Tableflow topic with custom (BYOB AWS) storage.
- * * datagen-connector-confluent-managed-storage: Datagen Source connector with a Tableflow topic with Confluent-managed storage.
- * 
  * ## Import
  * 
  * You can import a Tableflow Topic by using the Tableflow Topic name, Environment ID, and Kafka Cluster ID, in the format `&lt;Environment ID&gt;/&lt;Kafka Cluster ID&gt;/&lt;Tableflow Topic name&gt;`, for example:
@@ -156,6 +148,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/tableflowTopic:TableflowTopic")
 public class TableflowTopic extends com.pulumi.resources.CustomResource {
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Export(name="azureDataLakeStorageGen2", refs={TableflowTopicAzureDataLakeStorageGen2.class}, tree="[0]")
+    private Output</* @Nullable */ TableflowTopicAzureDataLakeStorageGen2> azureDataLakeStorageGen2;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Output<Optional<TableflowTopicAzureDataLakeStorageGen2>> azureDataLakeStorageGen2() {
+        return Codegen.optional(this.azureDataLakeStorageGen2);
+    }
     /**
      * supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
      * 
