@@ -5,12 +5,12 @@ Subject: [PATCH] Add Go module version to upstream go.mod
 
 
 diff --git a/go.mod b/go.mod
-index 71093a4e..7d0efb91 100644
+index 4dd9742c..cb445535 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -1,4 +1,4 @@
 -module github.com/confluentinc/terraform-provider-confluent
 +module github.com/confluentinc/terraform-provider-confluent/v2
  
- go 1.24.6
+ go 1.24.9
  

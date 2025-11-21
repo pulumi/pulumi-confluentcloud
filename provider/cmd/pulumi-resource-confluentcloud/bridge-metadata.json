@@ -912,6 +912,9 @@
             "confluent_tableflow_topic": {
                 "current": "confluentcloud:index/tableflowTopic:TableflowTopic",
                 "fields": {
+                    "azure_data_lake_storage_gen_2": {
+                        "maxItemsOne": true
+                    },
                     "byob_aws": {
                         "maxItemsOne": true
                     },
@@ -1847,6 +1850,9 @@
             "confluent_tableflow_topic": {
                 "current": "confluentcloud:index/getTableflowTopic:getTableflowTopic",
                 "fields": {
+                    "azure_data_lake_storage_gen_2": {
+                        "maxItemsOne": false
+                    },
                     "byob_aws": {
                         "maxItemsOne": false
                     },
