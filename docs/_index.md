@@ -37,10 +37,12 @@ config:
         value: 'TODO: var.confluent_cloud_api_secret'
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -54,10 +56,12 @@ config:
         value: 'TODO: var.confluent_cloud_api_secret'
 
 ```
+
 ```python
 import pulumi
 
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -71,6 +75,7 @@ config:
         value: 'TODO: var.confluent_cloud_api_secret'
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -81,6 +86,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -94,6 +100,7 @@ config:
         value: 'TODO: var.confluent_cloud_api_secret'
 
 ```
+
 ```go
 package main
 
@@ -107,6 +114,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -120,9 +128,11 @@ config:
         value: 'TODO: var.confluent_cloud_api_secret'
 
 ```
+
 ```yaml
 {}
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -136,6 +146,7 @@ config:
         value: 'TODO: var.confluent_cloud_api_secret'
 
 ```
+
 ```java
 package generated_program;
 
@@ -158,6 +169,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 #### Option #2: Manage a single Kafka cluster in the same Pulumi Stack
@@ -251,6 +263,7 @@ provider "confluent" {
 }
 # Token refresh capability is NOT supported by Confluent Provider for Option #2.
 ```
+
 Complete examples (with Okta and Microsoft Azure Entra ID as identity provider) for using OAuth credentials with the Confluent Pulumi Provider can be found here.
 
 > **Note:** You still need `cloudApiKey` and `cloudApiSecret` to manage below Confluent Cloud resources/data-sources as they are not supported with OAuth credentials yet:
