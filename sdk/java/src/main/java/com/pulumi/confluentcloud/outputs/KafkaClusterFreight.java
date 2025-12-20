@@ -4,13 +4,20 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class KafkaClusterFreight {
+    /**
+     * @return The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs.
+     * 
+     */
+    private @Nullable Integer maxEcku;
     /**
      * @return (Required List of String) The list of zones the cluster is in.
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -19,6 +26,13 @@ public final class KafkaClusterFreight {
     private @Nullable List<String> zones;
 
     private KafkaClusterFreight() {}
+    /**
+     * @return The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs.
+     * 
+     */
+    public Optional<Integer> maxEcku() {
+        return Optional.ofNullable(this.maxEcku);
+    }
     /**
      * @return (Required List of String) The list of zones the cluster is in.
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -37,13 +51,21 @@ public final class KafkaClusterFreight {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer maxEcku;
         private @Nullable List<String> zones;
         public Builder() {}
         public Builder(KafkaClusterFreight defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.maxEcku = defaults.maxEcku;
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
+        public Builder maxEcku(@Nullable Integer maxEcku) {
+
+            this.maxEcku = maxEcku;
+            return this;
+        }
         @CustomType.Setter
         public Builder zones(@Nullable List<String> zones) {
 
@@ -55,6 +77,7 @@ public final class KafkaClusterFreight {
         }
         public KafkaClusterFreight build() {
             final var _resultValue = new KafkaClusterFreight();
+            _resultValue.maxEcku = maxEcku;
             _resultValue.zones = zones;
             return _resultValue;
         }

@@ -1236,6 +1236,10 @@ export interface GetKafkaClientQuotaThroughput {
 }
 
 export interface GetKafkaClusterBasic {
+    /**
+     * (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+     */
+    maxEcku: number;
 }
 
 export interface GetKafkaClusterByokKey {
@@ -1283,6 +1287,10 @@ export interface GetKafkaClusterEndpoint {
 }
 
 export interface GetKafkaClusterEnterprise {
+    /**
+     * (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+     */
+    maxEcku: number;
 }
 
 export interface GetKafkaClusterEnvironment {
@@ -1295,6 +1303,10 @@ export interface GetKafkaClusterEnvironment {
 }
 
 export interface GetKafkaClusterFreight {
+    /**
+     * (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+     */
+    maxEcku: number;
     /**
      * (Required List of String) The list of zones the cluster is in.
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -1312,6 +1324,10 @@ export interface GetKafkaClusterNetwork {
 }
 
 export interface GetKafkaClusterStandard {
+    /**
+     * (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+     */
+    maxEcku: number;
 }
 
 export interface GetKafkaClustersCluster {
@@ -1394,6 +1410,10 @@ export interface GetKafkaClustersCluster {
 }
 
 export interface GetKafkaClustersClusterBasic {
+    /**
+     * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+     */
+    maxEcku: number;
 }
 
 export interface GetKafkaClustersClusterByokKey {
@@ -1441,6 +1461,10 @@ export interface GetKafkaClustersClusterEndpoint {
 }
 
 export interface GetKafkaClustersClusterEnterprise {
+    /**
+     * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+     */
+    maxEcku: number;
 }
 
 export interface GetKafkaClustersClusterEnvironment {
@@ -1451,6 +1475,10 @@ export interface GetKafkaClustersClusterEnvironment {
 }
 
 export interface GetKafkaClustersClusterFreight {
+    /**
+     * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+     */
+    maxEcku: number;
     /**
      * (Required List of String) The list of zones the cluster is in.
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -1468,6 +1496,10 @@ export interface GetKafkaClustersClusterNetwork {
 }
 
 export interface GetKafkaClustersClusterStandard {
+    /**
+     * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+     */
+    maxEcku: number;
 }
 
 export interface GetKafkaClustersEnvironment {
@@ -2514,6 +2546,10 @@ export interface KafkaClientQuotaThroughput {
 }
 
 export interface KafkaClusterBasic {
+    /**
+     * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+     */
+    maxEcku: number;
 }
 
 export interface KafkaClusterByokKey {
@@ -2556,6 +2592,8 @@ export interface KafkaClusterDedicated {
      * !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
      *
      * > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+     *
+     * > **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
      */
     cku: number;
     /**
@@ -2589,6 +2627,10 @@ export interface KafkaClusterEndpoint {
 }
 
 export interface KafkaClusterEnterprise {
+    /**
+     * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+     */
+    maxEcku: number;
 }
 
 export interface KafkaClusterEnvironment {
@@ -2599,6 +2641,10 @@ export interface KafkaClusterEnvironment {
 }
 
 export interface KafkaClusterFreight {
+    /**
+     * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+     */
+    maxEcku: number;
     /**
      * (Required List of String) The list of zones the cluster is in.
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -2614,6 +2660,10 @@ export interface KafkaClusterNetwork {
 }
 
 export interface KafkaClusterStandard {
+    /**
+     * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+     */
+    maxEcku: number;
 }
 
 export interface KafkaMirrorTopicClusterLink {

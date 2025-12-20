@@ -3,15 +3,44 @@
 
 package com.pulumi.confluentcloud.inputs;
 
-
+import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
+import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class KafkaClusterEnterpriseArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KafkaClusterEnterpriseArgs Empty = new KafkaClusterEnterpriseArgs();
 
+    /**
+     * The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs.
+     * 
+     */
+    @Import(name="maxEcku")
+    private @Nullable Output<Integer> maxEcku;
+
+    /**
+     * @return The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs.
+     * 
+     */
+    public Optional<Output<Integer>> maxEcku() {
+        return Optional.ofNullable(this.maxEcku);
+    }
+
+    private KafkaClusterEnterpriseArgs() {}
+
+    private KafkaClusterEnterpriseArgs(KafkaClusterEnterpriseArgs $) {
+        this.maxEcku = $.maxEcku;
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+    public static Builder builder(KafkaClusterEnterpriseArgs defaults) {
+        return new Builder(defaults);
     }
 
     public static final class Builder {
@@ -20,6 +49,32 @@ public final class KafkaClusterEnterpriseArgs extends com.pulumi.resources.Resou
         public Builder() {
             $ = new KafkaClusterEnterpriseArgs();
         }
+
+        public Builder(KafkaClusterEnterpriseArgs defaults) {
+            $ = new KafkaClusterEnterpriseArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param maxEcku The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxEcku(@Nullable Output<Integer> maxEcku) {
+            $.maxEcku = maxEcku;
+            return this;
+        }
+
+        /**
+         * @param maxEcku The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxEcku(Integer maxEcku) {
+            return maxEcku(Output.of(maxEcku));
+        }
+
         public KafkaClusterEnterpriseArgs build() {
             return $;
         }

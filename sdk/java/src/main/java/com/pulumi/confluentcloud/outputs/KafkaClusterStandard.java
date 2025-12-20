@@ -4,11 +4,27 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class KafkaClusterStandard {
+    /**
+     * @return The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs.
+     * 
+     */
+    private @Nullable Integer maxEcku;
+
     private KafkaClusterStandard() {}
+    /**
+     * @return The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs.
+     * 
+     */
+    public Optional<Integer> maxEcku() {
+        return Optional.ofNullable(this.maxEcku);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -19,13 +35,22 @@ public final class KafkaClusterStandard {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer maxEcku;
         public Builder() {}
         public Builder(KafkaClusterStandard defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.maxEcku = defaults.maxEcku;
         }
 
+        @CustomType.Setter
+        public Builder maxEcku(@Nullable Integer maxEcku) {
+
+            this.maxEcku = maxEcku;
+            return this;
+        }
         public KafkaClusterStandard build() {
             final var _resultValue = new KafkaClusterStandard();
+            _resultValue.maxEcku = maxEcku;
             return _resultValue;
         }
     }

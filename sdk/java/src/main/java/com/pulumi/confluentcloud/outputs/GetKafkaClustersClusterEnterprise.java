@@ -4,11 +4,26 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.util.Objects;
 
 @CustomType
 public final class GetKafkaClustersClusterEnterprise {
+    /**
+     * @return The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+     * 
+     */
+    private Integer maxEcku;
+
     private GetKafkaClustersClusterEnterprise() {}
+    /**
+     * @return The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+     * 
+     */
+    public Integer maxEcku() {
+        return this.maxEcku;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -19,13 +34,24 @@ public final class GetKafkaClustersClusterEnterprise {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Integer maxEcku;
         public Builder() {}
         public Builder(GetKafkaClustersClusterEnterprise defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.maxEcku = defaults.maxEcku;
         }
 
+        @CustomType.Setter
+        public Builder maxEcku(Integer maxEcku) {
+            if (maxEcku == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClustersClusterEnterprise", "maxEcku");
+            }
+            this.maxEcku = maxEcku;
+            return this;
+        }
         public GetKafkaClustersClusterEnterprise build() {
             final var _resultValue = new GetKafkaClustersClusterEnterprise();
+            _resultValue.maxEcku = maxEcku;
             return _resultValue;
         }
     }

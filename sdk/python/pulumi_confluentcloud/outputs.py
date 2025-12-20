@@ -2757,8 +2757,38 @@ class KafkaClientQuotaThroughput(dict):
 
 @pulumi.output_type
 class KafkaClusterBasic(dict):
-    def __init__(__self__):
-        pass
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxEcku":
+            suggest = "max_ecku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterBasic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterBasic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterBasic.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_ecku: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_ecku: The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+        """
+        if max_ecku is not None:
+            pulumi.set(__self__, "max_ecku", max_ecku)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEcku")
+    def max_ecku(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+        """
+        return pulumi.get(self, "max_ecku")
 
 
 @pulumi.output_type
@@ -2867,6 +2897,8 @@ class KafkaClusterDedicated(dict):
                !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
                
                > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+               
+               > **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
         :param _builtins.str encryption_key: The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
         :param Sequence[_builtins.str] zones: (Required List of String) The list of zones the cluster is in.
                - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -2890,6 +2922,8 @@ class KafkaClusterDedicated(dict):
         !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 
         > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+
+        > **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
         """
         return pulumi.get(self, "cku")
 
@@ -2991,8 +3025,38 @@ class KafkaClusterEndpoint(dict):
 
 @pulumi.output_type
 class KafkaClusterEnterprise(dict):
-    def __init__(__self__):
-        pass
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxEcku":
+            suggest = "max_ecku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterEnterprise. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterEnterprise.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterEnterprise.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_ecku: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_ecku: The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+        """
+        if max_ecku is not None:
+            pulumi.set(__self__, "max_ecku", max_ecku)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEcku")
+    def max_ecku(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+        """
+        return pulumi.get(self, "max_ecku")
 
 
 @pulumi.output_type
@@ -3015,14 +3079,43 @@ class KafkaClusterEnvironment(dict):
 
 @pulumi.output_type
 class KafkaClusterFreight(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxEcku":
+            suggest = "max_ecku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterFreight. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterFreight.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterFreight.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 max_ecku: Optional[_builtins.int] = None,
                  zones: Optional[Sequence[_builtins.str]] = None):
         """
+        :param _builtins.int max_ecku: The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
         :param Sequence[_builtins.str] zones: (Required List of String) The list of zones the cluster is in.
                - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         """
+        if max_ecku is not None:
+            pulumi.set(__self__, "max_ecku", max_ecku)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEcku")
+    def max_ecku(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+        """
+        return pulumi.get(self, "max_ecku")
 
     @_builtins.property
     @pulumi.getter
@@ -3054,8 +3147,38 @@ class KafkaClusterNetwork(dict):
 
 @pulumi.output_type
 class KafkaClusterStandard(dict):
-    def __init__(__self__):
-        pass
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxEcku":
+            suggest = "max_ecku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterStandard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterStandard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterStandard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_ecku: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_ecku: The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+        """
+        if max_ecku is not None:
+            pulumi.set(__self__, "max_ecku", max_ecku)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEcku")
+    def max_ecku(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+        """
+        return pulumi.get(self, "max_ecku")
 
 
 @pulumi.output_type
@@ -7331,8 +7454,20 @@ class GetKafkaClientQuotaThroughputResult(dict):
 
 @pulumi.output_type
 class GetKafkaClusterBasicResult(dict):
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 max_ecku: _builtins.int):
+        """
+        :param _builtins.int max_ecku: (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+        """
+        pulumi.set(__self__, "max_ecku", max_ecku)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEcku")
+    def max_ecku(self) -> _builtins.int:
+        """
+        (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+        """
+        return pulumi.get(self, "max_ecku")
 
 
 @pulumi.output_type
@@ -7452,8 +7587,20 @@ class GetKafkaClusterEndpointResult(dict):
 
 @pulumi.output_type
 class GetKafkaClusterEnterpriseResult(dict):
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 max_ecku: _builtins.int):
+        """
+        :param _builtins.int max_ecku: (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+        """
+        pulumi.set(__self__, "max_ecku", max_ecku)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEcku")
+    def max_ecku(self) -> _builtins.int:
+        """
+        (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+        """
+        return pulumi.get(self, "max_ecku")
 
 
 @pulumi.output_type
@@ -7481,14 +7628,25 @@ class GetKafkaClusterEnvironmentResult(dict):
 @pulumi.output_type
 class GetKafkaClusterFreightResult(dict):
     def __init__(__self__, *,
+                 max_ecku: _builtins.int,
                  zones: Sequence[_builtins.str]):
         """
+        :param _builtins.int max_ecku: (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
         :param Sequence[_builtins.str] zones: (Required List of String) The list of zones the cluster is in.
                - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
                - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
         """
+        pulumi.set(__self__, "max_ecku", max_ecku)
         pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEcku")
+    def max_ecku(self) -> _builtins.int:
+        """
+        (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+        """
+        return pulumi.get(self, "max_ecku")
 
     @_builtins.property
     @pulumi.getter
@@ -7522,8 +7680,20 @@ class GetKafkaClusterNetworkResult(dict):
 
 @pulumi.output_type
 class GetKafkaClusterStandardResult(dict):
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 max_ecku: _builtins.int):
+        """
+        :param _builtins.int max_ecku: (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+        """
+        pulumi.set(__self__, "max_ecku", max_ecku)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEcku")
+    def max_ecku(self) -> _builtins.int:
+        """
+        (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+        """
+        return pulumi.get(self, "max_ecku")
 
 
 @pulumi.output_type
@@ -7749,8 +7919,20 @@ class GetKafkaClustersClusterResult(dict):
 
 @pulumi.output_type
 class GetKafkaClustersClusterBasicResult(dict):
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 max_ecku: _builtins.int):
+        """
+        :param _builtins.int max_ecku: The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+        """
+        pulumi.set(__self__, "max_ecku", max_ecku)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEcku")
+    def max_ecku(self) -> _builtins.int:
+        """
+        The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+        """
+        return pulumi.get(self, "max_ecku")
 
 
 @pulumi.output_type
@@ -7870,8 +8052,20 @@ class GetKafkaClustersClusterEndpointResult(dict):
 
 @pulumi.output_type
 class GetKafkaClustersClusterEnterpriseResult(dict):
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 max_ecku: _builtins.int):
+        """
+        :param _builtins.int max_ecku: The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+        """
+        pulumi.set(__self__, "max_ecku", max_ecku)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEcku")
+    def max_ecku(self) -> _builtins.int:
+        """
+        The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+        """
+        return pulumi.get(self, "max_ecku")
 
 
 @pulumi.output_type
@@ -7895,14 +8089,25 @@ class GetKafkaClustersClusterEnvironmentResult(dict):
 @pulumi.output_type
 class GetKafkaClustersClusterFreightResult(dict):
     def __init__(__self__, *,
+                 max_ecku: _builtins.int,
                  zones: Sequence[_builtins.str]):
         """
+        :param _builtins.int max_ecku: The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
         :param Sequence[_builtins.str] zones: (Required List of String) The list of zones the cluster is in.
                - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
                - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
         """
+        pulumi.set(__self__, "max_ecku", max_ecku)
         pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEcku")
+    def max_ecku(self) -> _builtins.int:
+        """
+        The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+        """
+        return pulumi.get(self, "max_ecku")
 
     @_builtins.property
     @pulumi.getter
@@ -7936,8 +8141,20 @@ class GetKafkaClustersClusterNetworkResult(dict):
 
 @pulumi.output_type
 class GetKafkaClustersClusterStandardResult(dict):
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 max_ecku: _builtins.int):
+        """
+        :param _builtins.int max_ecku: The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+        """
+        pulumi.set(__self__, "max_ecku", max_ecku)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEcku")
+    def max_ecku(self) -> _builtins.int:
+        """
+        The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+        """
+        return pulumi.get(self, "max_ecku")
 
 
 @pulumi.output_type

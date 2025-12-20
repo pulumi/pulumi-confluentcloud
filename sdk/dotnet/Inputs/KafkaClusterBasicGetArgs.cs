@@ -12,6 +12,12 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class KafkaClusterBasicGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+        /// </summary>
+        [Input("maxEcku")]
+        public Input<int>? MaxEcku { get; set; }
+
         public KafkaClusterBasicGetArgs()
         {
         }

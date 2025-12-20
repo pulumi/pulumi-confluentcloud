@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -13,6 +14,21 @@ import java.util.Objects;
 public final class GetKafkaClusterFreight extends com.pulumi.resources.InvokeArgs {
 
     public static final GetKafkaClusterFreight Empty = new GetKafkaClusterFreight();
+
+    /**
+     * (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+     * 
+     */
+    @Import(name="maxEcku", required=true)
+    private Integer maxEcku;
+
+    /**
+     * @return (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+     * 
+     */
+    public Integer maxEcku() {
+        return this.maxEcku;
+    }
 
     /**
      * (Required List of String) The list of zones the cluster is in.
@@ -38,6 +54,7 @@ public final class GetKafkaClusterFreight extends com.pulumi.resources.InvokeArg
     private GetKafkaClusterFreight() {}
 
     private GetKafkaClusterFreight(GetKafkaClusterFreight $) {
+        this.maxEcku = $.maxEcku;
         this.zones = $.zones;
     }
 
@@ -57,6 +74,17 @@ public final class GetKafkaClusterFreight extends com.pulumi.resources.InvokeArg
 
         public Builder(GetKafkaClusterFreight defaults) {
             $ = new GetKafkaClusterFreight(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param maxEcku (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxEcku(Integer maxEcku) {
+            $.maxEcku = maxEcku;
+            return this;
         }
 
         /**
@@ -87,6 +115,9 @@ public final class GetKafkaClusterFreight extends com.pulumi.resources.InvokeArg
         }
 
         public GetKafkaClusterFreight build() {
+            if ($.maxEcku == null) {
+                throw new MissingRequiredPropertyException("GetKafkaClusterFreight", "maxEcku");
+            }
             if ($.zones == null) {
                 throw new MissingRequiredPropertyException("GetKafkaClusterFreight", "zones");
             }

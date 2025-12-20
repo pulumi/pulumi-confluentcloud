@@ -29,6 +29,8 @@ public final class KafkaClusterDedicatedArgs extends com.pulumi.resources.Resour
      * 
      * &gt; **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can&#39;t wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
      * 
+     * &gt; **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
+     * 
      */
     @Import(name="cku", required=true)
     private Output<Integer> cku;
@@ -43,6 +45,8 @@ public final class KafkaClusterDedicatedArgs extends com.pulumi.resources.Resour
      * !&gt; **Warning:** You can only upgrade clusters from `basic` to `standard`.
      * 
      * &gt; **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can&#39;t wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+     * 
+     * &gt; **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
      * 
      */
     public Output<Integer> cku() {
@@ -118,6 +122,8 @@ public final class KafkaClusterDedicatedArgs extends com.pulumi.resources.Resour
          * 
          * &gt; **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can&#39;t wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
          * 
+         * &gt; **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
+         * 
          * @return builder
          * 
          */
@@ -136,6 +142,8 @@ public final class KafkaClusterDedicatedArgs extends com.pulumi.resources.Resour
          * !&gt; **Warning:** You can only upgrade clusters from `basic` to `standard`.
          * 
          * &gt; **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can&#39;t wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+         * 
+         * &gt; **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
          * 
          * @return builder
          * 

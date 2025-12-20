@@ -1560,7 +1560,20 @@
             ]
         },
         "confluentcloud:index/KafkaClusterBasic:KafkaClusterBasic": {
-            "type": "object"
+            "properties": {
+                "maxEcku": {
+                    "type": "integer",
+                    "description": "The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with \"HIGH\" availability must have at least two eCKUs.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "maxEcku"
+                    ]
+                }
+            }
         },
         "confluentcloud:index/KafkaClusterByokKey:KafkaClusterByokKey": {
             "properties": {
@@ -1611,7 +1624,7 @@
             "properties": {
                 "cku": {
                     "type": "integer",
-                    "description": "The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is \u003cspan pulumi-lang-nodejs=\"`1`\" pulumi-lang-dotnet=\"`1`\" pulumi-lang-go=\"`1`\" pulumi-lang-python=\"`1`\" pulumi-lang-yaml=\"`1`\" pulumi-lang-java=\"`1`\"\u003e`1`\u003c/span\u003e whereas `MULTI_ZONE` dedicated clusters must have \u003cspan pulumi-lang-nodejs=\"`2`\" pulumi-lang-dotnet=\"`2`\" pulumi-lang-go=\"`2`\" pulumi-lang-python=\"`2`\" pulumi-lang-yaml=\"`2`\" pulumi-lang-java=\"`2`\"\u003e`2`\u003c/span\u003e CKUs or more.\n\n\u003e **Note:** Exactly one from the \u003cspan pulumi-lang-nodejs=\"`basic`\" pulumi-lang-dotnet=\"`Basic`\" pulumi-lang-go=\"`basic`\" pulumi-lang-python=\"`basic`\" pulumi-lang-yaml=\"`basic`\" pulumi-lang-java=\"`basic`\"\u003e`basic`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`standard`\" pulumi-lang-dotnet=\"`Standard`\" pulumi-lang-go=\"`standard`\" pulumi-lang-python=\"`standard`\" pulumi-lang-yaml=\"`standard`\" pulumi-lang-java=\"`standard`\"\u003e`standard`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`dedicated`\" pulumi-lang-dotnet=\"`Dedicated`\" pulumi-lang-go=\"`dedicated`\" pulumi-lang-python=\"`dedicated`\" pulumi-lang-yaml=\"`dedicated`\" pulumi-lang-java=\"`dedicated`\"\u003e`dedicated`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`enterprise`\" pulumi-lang-dotnet=\"`Enterprise`\" pulumi-lang-go=\"`enterprise`\" pulumi-lang-python=\"`enterprise`\" pulumi-lang-yaml=\"`enterprise`\" pulumi-lang-java=\"`enterprise`\"\u003e`enterprise`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`freight`\" pulumi-lang-dotnet=\"`Freight`\" pulumi-lang-go=\"`freight`\" pulumi-lang-python=\"`freight`\" pulumi-lang-yaml=\"`freight`\" pulumi-lang-java=\"`freight`\"\u003e`freight`\u003c/span\u003e configuration blocks must be specified.\n\n\u003e **Note:** The \u003cspan pulumi-lang-nodejs=\"`freight`\" pulumi-lang-dotnet=\"`Freight`\" pulumi-lang-go=\"`freight`\" pulumi-lang-python=\"`freight`\" pulumi-lang-yaml=\"`freight`\" pulumi-lang-java=\"`freight`\"\u003e`freight`\u003c/span\u003e Kafka cluster type is currently available only on AWS.\n\n!\u003e **Warning:** You can only upgrade clusters from \u003cspan pulumi-lang-nodejs=\"`basic`\" pulumi-lang-dotnet=\"`Basic`\" pulumi-lang-go=\"`basic`\" pulumi-lang-python=\"`basic`\" pulumi-lang-yaml=\"`basic`\" pulumi-lang-java=\"`basic`\"\u003e`basic`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`standard`\" pulumi-lang-dotnet=\"`Standard`\" pulumi-lang-go=\"`standard`\" pulumi-lang-python=\"`standard`\" pulumi-lang-yaml=\"`standard`\" pulumi-lang-java=\"`standard`\"\u003e`standard`\u003c/span\u003e.\n\n\u003e **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.\n"
+                    "description": "The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is \u003cspan pulumi-lang-nodejs=\"`1`\" pulumi-lang-dotnet=\"`1`\" pulumi-lang-go=\"`1`\" pulumi-lang-python=\"`1`\" pulumi-lang-yaml=\"`1`\" pulumi-lang-java=\"`1`\"\u003e`1`\u003c/span\u003e whereas `MULTI_ZONE` dedicated clusters must have \u003cspan pulumi-lang-nodejs=\"`2`\" pulumi-lang-dotnet=\"`2`\" pulumi-lang-go=\"`2`\" pulumi-lang-python=\"`2`\" pulumi-lang-yaml=\"`2`\" pulumi-lang-java=\"`2`\"\u003e`2`\u003c/span\u003e CKUs or more.\n\n\u003e **Note:** Exactly one from the \u003cspan pulumi-lang-nodejs=\"`basic`\" pulumi-lang-dotnet=\"`Basic`\" pulumi-lang-go=\"`basic`\" pulumi-lang-python=\"`basic`\" pulumi-lang-yaml=\"`basic`\" pulumi-lang-java=\"`basic`\"\u003e`basic`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`standard`\" pulumi-lang-dotnet=\"`Standard`\" pulumi-lang-go=\"`standard`\" pulumi-lang-python=\"`standard`\" pulumi-lang-yaml=\"`standard`\" pulumi-lang-java=\"`standard`\"\u003e`standard`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`dedicated`\" pulumi-lang-dotnet=\"`Dedicated`\" pulumi-lang-go=\"`dedicated`\" pulumi-lang-python=\"`dedicated`\" pulumi-lang-yaml=\"`dedicated`\" pulumi-lang-java=\"`dedicated`\"\u003e`dedicated`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`enterprise`\" pulumi-lang-dotnet=\"`Enterprise`\" pulumi-lang-go=\"`enterprise`\" pulumi-lang-python=\"`enterprise`\" pulumi-lang-yaml=\"`enterprise`\" pulumi-lang-java=\"`enterprise`\"\u003e`enterprise`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`freight`\" pulumi-lang-dotnet=\"`Freight`\" pulumi-lang-go=\"`freight`\" pulumi-lang-python=\"`freight`\" pulumi-lang-yaml=\"`freight`\" pulumi-lang-java=\"`freight`\"\u003e`freight`\u003c/span\u003e configuration blocks must be specified.\n\n\u003e **Note:** The \u003cspan pulumi-lang-nodejs=\"`freight`\" pulumi-lang-dotnet=\"`Freight`\" pulumi-lang-go=\"`freight`\" pulumi-lang-python=\"`freight`\" pulumi-lang-yaml=\"`freight`\" pulumi-lang-java=\"`freight`\"\u003e`freight`\u003c/span\u003e Kafka cluster type is currently available only on AWS.\n\n!\u003e **Warning:** You can only upgrade clusters from \u003cspan pulumi-lang-nodejs=\"`basic`\" pulumi-lang-dotnet=\"`Basic`\" pulumi-lang-go=\"`basic`\" pulumi-lang-python=\"`basic`\" pulumi-lang-yaml=\"`basic`\" pulumi-lang-java=\"`basic`\"\u003e`basic`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`standard`\" pulumi-lang-dotnet=\"`Standard`\" pulumi-lang-go=\"`standard`\" pulumi-lang-python=\"`standard`\" pulumi-lang-yaml=\"`standard`\" pulumi-lang-java=\"`standard`\"\u003e`standard`\u003c/span\u003e.\n\n\u003e **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.\n\n\u003e **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.\n"
                 },
                 "encryptionKey": {
                     "type": "string",
@@ -1671,7 +1684,20 @@
             }
         },
         "confluentcloud:index/KafkaClusterEnterprise:KafkaClusterEnterprise": {
-            "type": "object"
+            "properties": {
+                "maxEcku": {
+                    "type": "integer",
+                    "description": "The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with \"HIGH\" availability must have at least two eCKUs.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "maxEcku"
+                    ]
+                }
+            }
         },
         "confluentcloud:index/KafkaClusterEnvironment:KafkaClusterEnvironment": {
             "properties": {
@@ -1688,6 +1714,10 @@
         },
         "confluentcloud:index/KafkaClusterFreight:KafkaClusterFreight": {
             "properties": {
+                "maxEcku": {
+                    "type": "integer",
+                    "description": "The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with \"HIGH\" availability must have at least two eCKUs.\n"
+                },
                 "zones": {
                     "type": "array",
                     "items": {
@@ -1700,6 +1730,7 @@
             "language": {
                 "nodejs": {
                     "requiredOutputs": [
+                        "maxEcku",
                         "zones"
                     ]
                 }
@@ -1719,7 +1750,20 @@
             ]
         },
         "confluentcloud:index/KafkaClusterStandard:KafkaClusterStandard": {
-            "type": "object"
+            "properties": {
+                "maxEcku": {
+                    "type": "integer",
+                    "description": "The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with \"HIGH\" availability must have at least two eCKUs.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "maxEcku"
+                    ]
+                }
+            }
         },
         "confluentcloud:index/KafkaMirrorTopicClusterLink:KafkaMirrorTopicClusterLink": {
             "properties": {
@@ -4371,7 +4415,21 @@
             }
         },
         "confluentcloud:index/getKafkaClusterBasic:getKafkaClusterBasic": {
-            "type": "object"
+            "properties": {
+                "maxEcku": {
+                    "type": "integer",
+                    "description": "(Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with \"HIGH\" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "maxEcku"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "confluentcloud:index/getKafkaClusterByokKey:getKafkaClusterByokKey": {
             "properties": {
@@ -4453,7 +4511,21 @@
             }
         },
         "confluentcloud:index/getKafkaClusterEnterprise:getKafkaClusterEnterprise": {
-            "type": "object"
+            "properties": {
+                "maxEcku": {
+                    "type": "integer",
+                    "description": "(Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with \"HIGH\" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "maxEcku"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "confluentcloud:index/getKafkaClusterEnvironment:getKafkaClusterEnvironment": {
             "properties": {
@@ -4469,6 +4541,10 @@
         },
         "confluentcloud:index/getKafkaClusterFreight:getKafkaClusterFreight": {
             "properties": {
+                "maxEcku": {
+                    "type": "integer",
+                    "description": "(Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with \"HIGH\" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).\n"
+                },
                 "zones": {
                     "type": "array",
                     "items": {
@@ -4479,6 +4555,7 @@
             },
             "type": "object",
             "required": [
+                "maxEcku",
                 "zones"
             ],
             "language": {
@@ -4505,7 +4582,21 @@
             }
         },
         "confluentcloud:index/getKafkaClusterStandard:getKafkaClusterStandard": {
-            "type": "object"
+            "properties": {
+                "maxEcku": {
+                    "type": "integer",
+                    "description": "(Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with \"HIGH\" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "maxEcku"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "confluentcloud:index/getKafkaClustersCluster:getKafkaClustersCluster": {
             "properties": {
@@ -4631,7 +4722,21 @@
             }
         },
         "confluentcloud:index/getKafkaClustersClusterBasic:getKafkaClustersClusterBasic": {
-            "type": "object"
+            "properties": {
+                "maxEcku": {
+                    "type": "integer",
+                    "description": "The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "maxEcku"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "confluentcloud:index/getKafkaClustersClusterByokKey:getKafkaClustersClusterByokKey": {
             "properties": {
@@ -4713,7 +4818,21 @@
             }
         },
         "confluentcloud:index/getKafkaClustersClusterEnterprise:getKafkaClustersClusterEnterprise": {
-            "type": "object"
+            "properties": {
+                "maxEcku": {
+                    "type": "integer",
+                    "description": "The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "maxEcku"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "confluentcloud:index/getKafkaClustersClusterEnvironment:getKafkaClustersClusterEnvironment": {
             "properties": {
@@ -4734,6 +4853,10 @@
         },
         "confluentcloud:index/getKafkaClustersClusterFreight:getKafkaClustersClusterFreight": {
             "properties": {
+                "maxEcku": {
+                    "type": "integer",
+                    "description": "The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.\n"
+                },
                 "zones": {
                     "type": "array",
                     "items": {
@@ -4744,6 +4867,7 @@
             },
             "type": "object",
             "required": [
+                "maxEcku",
                 "zones"
             ],
             "language": {
@@ -4770,7 +4894,21 @@
             }
         },
         "confluentcloud:index/getKafkaClustersClusterStandard:getKafkaClustersClusterStandard": {
-            "type": "object"
+            "properties": {
+                "maxEcku": {
+                    "type": "integer",
+                    "description": "The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "maxEcku"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "confluentcloud:index/getKafkaClustersEnvironment:getKafkaClustersEnvironment": {
             "properties": {
