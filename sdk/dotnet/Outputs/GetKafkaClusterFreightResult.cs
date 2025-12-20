@@ -14,6 +14,10 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetKafkaClusterFreightResult
     {
         /// <summary>
+        /// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+        /// </summary>
+        public readonly int MaxEcku;
+        /// <summary>
         /// (Required List of String) The list of zones the cluster is in.
         /// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         /// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
@@ -22,8 +26,12 @@ namespace Pulumi.ConfluentCloud.Outputs
         public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
-        private GetKafkaClusterFreightResult(ImmutableArray<string> zones)
+        private GetKafkaClusterFreightResult(
+            int maxEcku,
+
+            ImmutableArray<string> zones)
         {
+            MaxEcku = maxEcku;
             Zones = zones;
         }
     }

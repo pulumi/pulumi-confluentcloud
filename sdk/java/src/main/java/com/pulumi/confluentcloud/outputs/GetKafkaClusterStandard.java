@@ -4,11 +4,26 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.util.Objects;
 
 @CustomType
 public final class GetKafkaClusterStandard {
+    /**
+     * @return (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+     * 
+     */
+    private Integer maxEcku;
+
     private GetKafkaClusterStandard() {}
+    /**
+     * @return (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with &#34;HIGH&#34; availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+     * 
+     */
+    public Integer maxEcku() {
+        return this.maxEcku;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -19,13 +34,24 @@ public final class GetKafkaClusterStandard {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Integer maxEcku;
         public Builder() {}
         public Builder(GetKafkaClusterStandard defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.maxEcku = defaults.maxEcku;
         }
 
+        @CustomType.Setter
+        public Builder maxEcku(Integer maxEcku) {
+            if (maxEcku == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterStandard", "maxEcku");
+            }
+            this.maxEcku = maxEcku;
+            return this;
+        }
         public GetKafkaClusterStandard build() {
             final var _resultValue = new GetKafkaClusterStandard();
+            _resultValue.maxEcku = maxEcku;
             return _resultValue;
         }
     }

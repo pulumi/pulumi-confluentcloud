@@ -10773,6 +10773,8 @@ func (o KafkaClientQuotaThroughputPtrOutput) IngressByteRate() pulumi.StringPtrO
 }
 
 type KafkaClusterBasic struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+	MaxEcku *int `pulumi:"maxEcku"`
 }
 
 // KafkaClusterBasicInput is an input type that accepts KafkaClusterBasicArgs and KafkaClusterBasicOutput values.
@@ -10787,6 +10789,8 @@ type KafkaClusterBasicInput interface {
 }
 
 type KafkaClusterBasicArgs struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+	MaxEcku pulumi.IntPtrInput `pulumi:"maxEcku"`
 }
 
 func (KafkaClusterBasicArgs) ElementType() reflect.Type {
@@ -10866,6 +10870,11 @@ func (o KafkaClusterBasicOutput) ToKafkaClusterBasicPtrOutputWithContext(ctx con
 	}).(KafkaClusterBasicPtrOutput)
 }
 
+// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+func (o KafkaClusterBasicOutput) MaxEcku() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KafkaClusterBasic) *int { return v.MaxEcku }).(pulumi.IntPtrOutput)
+}
+
 type KafkaClusterBasicPtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterBasicPtrOutput) ElementType() reflect.Type {
@@ -10888,6 +10897,16 @@ func (o KafkaClusterBasicPtrOutput) Elem() KafkaClusterBasicOutput {
 		var ret KafkaClusterBasic
 		return ret
 	}).(KafkaClusterBasicOutput)
+}
+
+// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+func (o KafkaClusterBasicPtrOutput) MaxEcku() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterBasic) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEcku
+	}).(pulumi.IntPtrOutput)
 }
 
 type KafkaClusterByokKey struct {
@@ -11346,6 +11365,8 @@ type KafkaClusterDedicated struct {
 	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 	//
 	// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+	//
+	// > **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
 	Cku int `pulumi:"cku"`
 	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 	EncryptionKey *string `pulumi:"encryptionKey"`
@@ -11375,6 +11396,8 @@ type KafkaClusterDedicatedArgs struct {
 	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 	//
 	// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+	//
+	// > **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
 	Cku pulumi.IntInput `pulumi:"cku"`
 	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 	EncryptionKey pulumi.StringPtrInput `pulumi:"encryptionKey"`
@@ -11469,6 +11492,8 @@ func (o KafkaClusterDedicatedOutput) ToKafkaClusterDedicatedPtrOutputWithContext
 // !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 //
 // > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+//
+// > **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
 func (o KafkaClusterDedicatedOutput) Cku() pulumi.IntOutput {
 	return o.ApplyT(func(v KafkaClusterDedicated) int { return v.Cku }).(pulumi.IntOutput)
 }
@@ -11517,6 +11542,8 @@ func (o KafkaClusterDedicatedPtrOutput) Elem() KafkaClusterDedicatedOutput {
 // !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 //
 // > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+//
+// > **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
 func (o KafkaClusterDedicatedPtrOutput) Cku() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterDedicated) *int {
 		if v == nil {
@@ -11672,6 +11699,8 @@ func (o KafkaClusterEndpointArrayOutput) Index(i pulumi.IntInput) KafkaClusterEn
 }
 
 type KafkaClusterEnterprise struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+	MaxEcku *int `pulumi:"maxEcku"`
 }
 
 // KafkaClusterEnterpriseInput is an input type that accepts KafkaClusterEnterpriseArgs and KafkaClusterEnterpriseOutput values.
@@ -11686,6 +11715,8 @@ type KafkaClusterEnterpriseInput interface {
 }
 
 type KafkaClusterEnterpriseArgs struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+	MaxEcku pulumi.IntPtrInput `pulumi:"maxEcku"`
 }
 
 func (KafkaClusterEnterpriseArgs) ElementType() reflect.Type {
@@ -11737,6 +11768,11 @@ func (o KafkaClusterEnterpriseOutput) ToKafkaClusterEnterpriseOutput() KafkaClus
 
 func (o KafkaClusterEnterpriseOutput) ToKafkaClusterEnterpriseOutputWithContext(ctx context.Context) KafkaClusterEnterpriseOutput {
 	return o
+}
+
+// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+func (o KafkaClusterEnterpriseOutput) MaxEcku() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KafkaClusterEnterprise) *int { return v.MaxEcku }).(pulumi.IntPtrOutput)
 }
 
 type KafkaClusterEnterpriseArrayOutput struct{ *pulumi.OutputState }
@@ -11897,6 +11933,8 @@ func (o KafkaClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type KafkaClusterFreight struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+	MaxEcku *int `pulumi:"maxEcku"`
 	// (Required List of String) The list of zones the cluster is in.
 	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
 	Zones []string `pulumi:"zones"`
@@ -11914,6 +11952,8 @@ type KafkaClusterFreightInput interface {
 }
 
 type KafkaClusterFreightArgs struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+	MaxEcku pulumi.IntPtrInput `pulumi:"maxEcku"`
 	// (Required List of String) The list of zones the cluster is in.
 	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
@@ -11968,6 +12008,11 @@ func (o KafkaClusterFreightOutput) ToKafkaClusterFreightOutput() KafkaClusterFre
 
 func (o KafkaClusterFreightOutput) ToKafkaClusterFreightOutputWithContext(ctx context.Context) KafkaClusterFreightOutput {
 	return o
+}
+
+// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+func (o KafkaClusterFreightOutput) MaxEcku() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KafkaClusterFreight) *int { return v.MaxEcku }).(pulumi.IntPtrOutput)
 }
 
 // (Required List of String) The list of zones the cluster is in.
@@ -12134,6 +12179,8 @@ func (o KafkaClusterNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type KafkaClusterStandard struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+	MaxEcku *int `pulumi:"maxEcku"`
 }
 
 // KafkaClusterStandardInput is an input type that accepts KafkaClusterStandardArgs and KafkaClusterStandardOutput values.
@@ -12148,6 +12195,8 @@ type KafkaClusterStandardInput interface {
 }
 
 type KafkaClusterStandardArgs struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+	MaxEcku pulumi.IntPtrInput `pulumi:"maxEcku"`
 }
 
 func (KafkaClusterStandardArgs) ElementType() reflect.Type {
@@ -12227,6 +12276,11 @@ func (o KafkaClusterStandardOutput) ToKafkaClusterStandardPtrOutputWithContext(c
 	}).(KafkaClusterStandardPtrOutput)
 }
 
+// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+func (o KafkaClusterStandardOutput) MaxEcku() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KafkaClusterStandard) *int { return v.MaxEcku }).(pulumi.IntPtrOutput)
+}
+
 type KafkaClusterStandardPtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterStandardPtrOutput) ElementType() reflect.Type {
@@ -12249,6 +12303,16 @@ func (o KafkaClusterStandardPtrOutput) Elem() KafkaClusterStandardOutput {
 		var ret KafkaClusterStandard
 		return ret
 	}).(KafkaClusterStandardOutput)
+}
+
+// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+func (o KafkaClusterStandardPtrOutput) MaxEcku() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterStandard) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEcku
+	}).(pulumi.IntPtrOutput)
 }
 
 type KafkaMirrorTopicClusterLink struct {
@@ -30453,6 +30517,8 @@ func (o GetKafkaClientQuotaThroughputArrayOutput) Index(i pulumi.IntInput) GetKa
 }
 
 type GetKafkaClusterBasic struct {
+	// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+	MaxEcku int `pulumi:"maxEcku"`
 }
 
 // GetKafkaClusterBasicInput is an input type that accepts GetKafkaClusterBasicArgs and GetKafkaClusterBasicOutput values.
@@ -30467,6 +30533,8 @@ type GetKafkaClusterBasicInput interface {
 }
 
 type GetKafkaClusterBasicArgs struct {
+	// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+	MaxEcku pulumi.IntInput `pulumi:"maxEcku"`
 }
 
 func (GetKafkaClusterBasicArgs) ElementType() reflect.Type {
@@ -30518,6 +30586,11 @@ func (o GetKafkaClusterBasicOutput) ToGetKafkaClusterBasicOutput() GetKafkaClust
 
 func (o GetKafkaClusterBasicOutput) ToGetKafkaClusterBasicOutputWithContext(ctx context.Context) GetKafkaClusterBasicOutput {
 	return o
+}
+
+// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+func (o GetKafkaClusterBasicOutput) MaxEcku() pulumi.IntOutput {
+	return o.ApplyT(func(v GetKafkaClusterBasic) int { return v.MaxEcku }).(pulumi.IntOutput)
 }
 
 type GetKafkaClusterBasicArrayOutput struct{ *pulumi.OutputState }
@@ -30949,6 +31022,8 @@ func (o GetKafkaClusterEndpointArrayOutput) Index(i pulumi.IntInput) GetKafkaClu
 }
 
 type GetKafkaClusterEnterprise struct {
+	// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+	MaxEcku int `pulumi:"maxEcku"`
 }
 
 // GetKafkaClusterEnterpriseInput is an input type that accepts GetKafkaClusterEnterpriseArgs and GetKafkaClusterEnterpriseOutput values.
@@ -30963,6 +31038,8 @@ type GetKafkaClusterEnterpriseInput interface {
 }
 
 type GetKafkaClusterEnterpriseArgs struct {
+	// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+	MaxEcku pulumi.IntInput `pulumi:"maxEcku"`
 }
 
 func (GetKafkaClusterEnterpriseArgs) ElementType() reflect.Type {
@@ -31014,6 +31091,11 @@ func (o GetKafkaClusterEnterpriseOutput) ToGetKafkaClusterEnterpriseOutput() Get
 
 func (o GetKafkaClusterEnterpriseOutput) ToGetKafkaClusterEnterpriseOutputWithContext(ctx context.Context) GetKafkaClusterEnterpriseOutput {
 	return o
+}
+
+// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+func (o GetKafkaClusterEnterpriseOutput) MaxEcku() pulumi.IntOutput {
+	return o.ApplyT(func(v GetKafkaClusterEnterprise) int { return v.MaxEcku }).(pulumi.IntOutput)
 }
 
 type GetKafkaClusterEnterpriseArrayOutput struct{ *pulumi.OutputState }
@@ -31095,6 +31177,8 @@ func (o GetKafkaClusterEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetKafkaClusterFreight struct {
+	// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+	MaxEcku int `pulumi:"maxEcku"`
 	// (Required List of String) The list of zones the cluster is in.
 	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
 	// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
@@ -31114,6 +31198,8 @@ type GetKafkaClusterFreightInput interface {
 }
 
 type GetKafkaClusterFreightArgs struct {
+	// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+	MaxEcku pulumi.IntInput `pulumi:"maxEcku"`
 	// (Required List of String) The list of zones the cluster is in.
 	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
 	// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
@@ -31170,6 +31256,11 @@ func (o GetKafkaClusterFreightOutput) ToGetKafkaClusterFreightOutput() GetKafkaC
 
 func (o GetKafkaClusterFreightOutput) ToGetKafkaClusterFreightOutputWithContext(ctx context.Context) GetKafkaClusterFreightOutput {
 	return o
+}
+
+// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+func (o GetKafkaClusterFreightOutput) MaxEcku() pulumi.IntOutput {
+	return o.ApplyT(func(v GetKafkaClusterFreight) int { return v.MaxEcku }).(pulumi.IntOutput)
 }
 
 // (Required List of String) The list of zones the cluster is in.
@@ -31298,6 +31389,8 @@ func (o GetKafkaClusterNetworkArrayOutput) Index(i pulumi.IntInput) GetKafkaClus
 }
 
 type GetKafkaClusterStandard struct {
+	// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+	MaxEcku int `pulumi:"maxEcku"`
 }
 
 // GetKafkaClusterStandardInput is an input type that accepts GetKafkaClusterStandardArgs and GetKafkaClusterStandardOutput values.
@@ -31312,6 +31405,8 @@ type GetKafkaClusterStandardInput interface {
 }
 
 type GetKafkaClusterStandardArgs struct {
+	// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+	MaxEcku pulumi.IntInput `pulumi:"maxEcku"`
 }
 
 func (GetKafkaClusterStandardArgs) ElementType() reflect.Type {
@@ -31363,6 +31458,11 @@ func (o GetKafkaClusterStandardOutput) ToGetKafkaClusterStandardOutput() GetKafk
 
 func (o GetKafkaClusterStandardOutput) ToGetKafkaClusterStandardOutputWithContext(ctx context.Context) GetKafkaClusterStandardOutput {
 	return o
+}
+
+// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+func (o GetKafkaClusterStandardOutput) MaxEcku() pulumi.IntOutput {
+	return o.ApplyT(func(v GetKafkaClusterStandard) int { return v.MaxEcku }).(pulumi.IntOutput)
 }
 
 type GetKafkaClusterStandardArrayOutput struct{ *pulumi.OutputState }
@@ -31645,6 +31745,8 @@ func (o GetKafkaClustersClusterArrayOutput) Index(i pulumi.IntInput) GetKafkaClu
 }
 
 type GetKafkaClustersClusterBasic struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+	MaxEcku int `pulumi:"maxEcku"`
 }
 
 // GetKafkaClustersClusterBasicInput is an input type that accepts GetKafkaClustersClusterBasicArgs and GetKafkaClustersClusterBasicOutput values.
@@ -31659,6 +31761,8 @@ type GetKafkaClustersClusterBasicInput interface {
 }
 
 type GetKafkaClustersClusterBasicArgs struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+	MaxEcku pulumi.IntInput `pulumi:"maxEcku"`
 }
 
 func (GetKafkaClustersClusterBasicArgs) ElementType() reflect.Type {
@@ -31710,6 +31814,11 @@ func (o GetKafkaClustersClusterBasicOutput) ToGetKafkaClustersClusterBasicOutput
 
 func (o GetKafkaClustersClusterBasicOutput) ToGetKafkaClustersClusterBasicOutputWithContext(ctx context.Context) GetKafkaClustersClusterBasicOutput {
 	return o
+}
+
+// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+func (o GetKafkaClustersClusterBasicOutput) MaxEcku() pulumi.IntOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterBasic) int { return v.MaxEcku }).(pulumi.IntOutput)
 }
 
 type GetKafkaClustersClusterBasicArrayOutput struct{ *pulumi.OutputState }
@@ -32141,6 +32250,8 @@ func (o GetKafkaClustersClusterEndpointArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetKafkaClustersClusterEnterprise struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+	MaxEcku int `pulumi:"maxEcku"`
 }
 
 // GetKafkaClustersClusterEnterpriseInput is an input type that accepts GetKafkaClustersClusterEnterpriseArgs and GetKafkaClustersClusterEnterpriseOutput values.
@@ -32155,6 +32266,8 @@ type GetKafkaClustersClusterEnterpriseInput interface {
 }
 
 type GetKafkaClustersClusterEnterpriseArgs struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+	MaxEcku pulumi.IntInput `pulumi:"maxEcku"`
 }
 
 func (GetKafkaClustersClusterEnterpriseArgs) ElementType() reflect.Type {
@@ -32206,6 +32319,11 @@ func (o GetKafkaClustersClusterEnterpriseOutput) ToGetKafkaClustersClusterEnterp
 
 func (o GetKafkaClustersClusterEnterpriseOutput) ToGetKafkaClustersClusterEnterpriseOutputWithContext(ctx context.Context) GetKafkaClustersClusterEnterpriseOutput {
 	return o
+}
+
+// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+func (o GetKafkaClustersClusterEnterpriseOutput) MaxEcku() pulumi.IntOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterEnterprise) int { return v.MaxEcku }).(pulumi.IntOutput)
 }
 
 type GetKafkaClustersClusterEnterpriseArrayOutput struct{ *pulumi.OutputState }
@@ -32281,6 +32399,8 @@ func (o GetKafkaClustersClusterEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetKafkaClustersClusterFreight struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+	MaxEcku int `pulumi:"maxEcku"`
 	// (Required List of String) The list of zones the cluster is in.
 	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
 	// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
@@ -32300,6 +32420,8 @@ type GetKafkaClustersClusterFreightInput interface {
 }
 
 type GetKafkaClustersClusterFreightArgs struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+	MaxEcku pulumi.IntInput `pulumi:"maxEcku"`
 	// (Required List of String) The list of zones the cluster is in.
 	// - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
 	// - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
@@ -32356,6 +32478,11 @@ func (o GetKafkaClustersClusterFreightOutput) ToGetKafkaClustersClusterFreightOu
 
 func (o GetKafkaClustersClusterFreightOutput) ToGetKafkaClustersClusterFreightOutputWithContext(ctx context.Context) GetKafkaClustersClusterFreightOutput {
 	return o
+}
+
+// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+func (o GetKafkaClustersClusterFreightOutput) MaxEcku() pulumi.IntOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterFreight) int { return v.MaxEcku }).(pulumi.IntOutput)
 }
 
 // (Required List of String) The list of zones the cluster is in.
@@ -32484,6 +32611,8 @@ func (o GetKafkaClustersClusterNetworkArrayOutput) Index(i pulumi.IntInput) GetK
 }
 
 type GetKafkaClustersClusterStandard struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+	MaxEcku int `pulumi:"maxEcku"`
 }
 
 // GetKafkaClustersClusterStandardInput is an input type that accepts GetKafkaClustersClusterStandardArgs and GetKafkaClustersClusterStandardOutput values.
@@ -32498,6 +32627,8 @@ type GetKafkaClustersClusterStandardInput interface {
 }
 
 type GetKafkaClustersClusterStandardArgs struct {
+	// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+	MaxEcku pulumi.IntInput `pulumi:"maxEcku"`
 }
 
 func (GetKafkaClustersClusterStandardArgs) ElementType() reflect.Type {
@@ -32549,6 +32680,11 @@ func (o GetKafkaClustersClusterStandardOutput) ToGetKafkaClustersClusterStandard
 
 func (o GetKafkaClustersClusterStandardOutput) ToGetKafkaClustersClusterStandardOutputWithContext(ctx context.Context) GetKafkaClustersClusterStandardOutput {
 	return o
+}
+
+// The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+func (o GetKafkaClustersClusterStandardOutput) MaxEcku() pulumi.IntOutput {
+	return o.ApplyT(func(v GetKafkaClustersClusterStandard) int { return v.MaxEcku }).(pulumi.IntOutput)
 }
 
 type GetKafkaClustersClusterStandardArrayOutput struct{ *pulumi.OutputState }

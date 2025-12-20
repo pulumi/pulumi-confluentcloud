@@ -5,12 +5,18 @@ package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetKafkaClustersClusterFreight {
+    /**
+     * @return The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+     * 
+     */
+    private Integer maxEcku;
     /**
      * @return (Required List of String) The list of zones the cluster is in.
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -21,6 +27,13 @@ public final class GetKafkaClustersClusterFreight {
     private List<String> zones;
 
     private GetKafkaClustersClusterFreight() {}
+    /**
+     * @return The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with HIGH availability must have at least two eCKUs.
+     * 
+     */
+    public Integer maxEcku() {
+        return this.maxEcku;
+    }
     /**
      * @return (Required List of String) The list of zones the cluster is in.
      * - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -41,13 +54,23 @@ public final class GetKafkaClustersClusterFreight {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Integer maxEcku;
         private List<String> zones;
         public Builder() {}
         public Builder(GetKafkaClustersClusterFreight defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.maxEcku = defaults.maxEcku;
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
+        public Builder maxEcku(Integer maxEcku) {
+            if (maxEcku == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClustersClusterFreight", "maxEcku");
+            }
+            this.maxEcku = maxEcku;
+            return this;
+        }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
             if (zones == null) {
@@ -61,6 +84,7 @@ public final class GetKafkaClustersClusterFreight {
         }
         public GetKafkaClustersClusterFreight build() {
             final var _resultValue = new GetKafkaClustersClusterFreight();
+            _resultValue.maxEcku = maxEcku;
             _resultValue.zones = zones;
             return _resultValue;
         }

@@ -13,9 +13,15 @@ namespace Pulumi.ConfluentCloud.Outputs
     [OutputType]
     public sealed class GetKafkaClusterEnterpriseResult
     {
+        /// <summary>
+        /// (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+        /// </summary>
+        public readonly int MaxEcku;
+
         [OutputConstructor]
-        private GetKafkaClusterEnterpriseResult()
+        private GetKafkaClusterEnterpriseResult(int maxEcku)
         {
+            MaxEcku = maxEcku;
         }
     }
 }
