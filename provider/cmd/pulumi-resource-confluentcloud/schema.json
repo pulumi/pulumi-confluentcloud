@@ -7996,7 +7996,7 @@
                 },
                 "cloud": {
                     "type": "string",
-                    "description": "Cloud provider where the Connect Artifact archive is uploaded.\n"
+                    "description": "Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.\n"
                 },
                 "contentFormat": {
                     "type": "string",
@@ -8034,7 +8034,7 @@
                 },
                 "cloud": {
                     "type": "string",
-                    "description": "Cloud provider where the Connect Artifact archive is uploaded.\n",
+                    "description": "Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.\n",
                     "willReplaceOnChanges": true
                 },
                 "contentFormat": {
@@ -8074,7 +8074,7 @@
                     },
                     "cloud": {
                         "type": "string",
-                        "description": "Cloud provider where the Connect Artifact archive is uploaded.\n",
+                        "description": "Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.\n",
                         "willReplaceOnChanges": true
                     },
                     "contentFormat": {
@@ -10475,7 +10475,7 @@
                 },
                 "rbacCrn": {
                     "type": "string",
-                    "description": "(Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.\n"
+                    "description": "(Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see\u003cspan pulumi-lang-nodejs=\" confluentcloud.RoleBinding \" pulumi-lang-dotnet=\" confluentcloud.RoleBinding \" pulumi-lang-go=\" RoleBinding \" pulumi-lang-python=\" RoleBinding \" pulumi-lang-yaml=\" confluentcloud.RoleBinding \" pulumi-lang-java=\" confluentcloud.RoleBinding \"\u003e confluentcloud.RoleBinding \u003c/span\u003eResource.\n"
                 },
                 "region": {
                     "type": "string",
@@ -10642,7 +10642,7 @@
                     },
                     "rbacCrn": {
                         "type": "string",
-                        "description": "(Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.\n"
+                        "description": "(Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see\u003cspan pulumi-lang-nodejs=\" confluentcloud.RoleBinding \" pulumi-lang-dotnet=\" confluentcloud.RoleBinding \" pulumi-lang-go=\" RoleBinding \" pulumi-lang-python=\" RoleBinding \" pulumi-lang-yaml=\" confluentcloud.RoleBinding \" pulumi-lang-java=\" confluentcloud.RoleBinding \"\u003e confluentcloud.RoleBinding \u003c/span\u003eResource.\n"
                     },
                     "region": {
                         "type": "string",
@@ -14763,7 +14763,7 @@
                 "properties": {
                     "cloud": {
                         "type": "string",
-                        "description": "Cloud provider where the Connect Artifact archive is uploaded.\n"
+                        "description": "Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.\n"
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/getConnectArtifactEnvironment:getConnectArtifactEnvironment"
