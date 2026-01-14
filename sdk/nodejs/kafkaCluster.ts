@@ -286,7 +286,7 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     declare public readonly network: pulumi.Output<outputs.KafkaClusterNetwork>;
     /**
-     * (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+     * (Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see confluentcloud.RoleBinding Resource.
      */
     declare public /*out*/ readonly rbacCrn: pulumi.Output<string>;
     /**
@@ -429,7 +429,7 @@ export interface KafkaClusterState {
      */
     network?: pulumi.Input<inputs.KafkaClusterNetwork>;
     /**
-     * (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+     * (Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see confluentcloud.RoleBinding Resource.
      */
     rbacCrn?: pulumi.Input<string>;
     /**

@@ -89,14 +89,14 @@ public class ConnectArtifact extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.artifactFile);
     }
     /**
-     * Cloud provider where the Connect Artifact archive is uploaded.
+     * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
      * 
      */
     @Export(name="cloud", refs={String.class}, tree="[0]")
     private Output<String> cloud;
 
     /**
-     * @return Cloud provider where the Connect Artifact archive is uploaded.
+     * @return Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
      * 
      */
     public Output<String> cloud() {

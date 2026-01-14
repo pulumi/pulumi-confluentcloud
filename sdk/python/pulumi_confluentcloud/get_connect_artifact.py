@@ -129,7 +129,7 @@ def get_connect_artifact(cloud: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str cloud: Cloud provider where the Connect Artifact archive is uploaded.
+    :param _builtins.str cloud: Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
     :param _builtins.str id: The ID of the Connect Artifact.
     """
     __args__ = dict()
@@ -173,7 +173,7 @@ def get_connect_artifact_output(cloud: Optional[pulumi.Input[_builtins.str]] = N
     ```
 
 
-    :param _builtins.str cloud: Cloud provider where the Connect Artifact archive is uploaded.
+    :param _builtins.str cloud: Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
     :param _builtins.str id: The ID of the Connect Artifact.
     """
     __args__ = dict()

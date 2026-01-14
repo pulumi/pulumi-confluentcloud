@@ -331,7 +331,7 @@ type KafkaCluster struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network KafkaClusterNetworkOutput `pulumi:"network"`
-	// (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+	// (Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see RoleBinding Resource.
 	RbacCrn pulumi.StringOutput `pulumi:"rbacCrn"`
 	// The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -410,7 +410,7 @@ type kafkaClusterState struct {
 	Kind *string `pulumi:"kind"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network *KafkaClusterNetwork `pulumi:"network"`
-	// (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+	// (Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see RoleBinding Resource.
 	RbacCrn *string `pulumi:"rbacCrn"`
 	// The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region *string `pulumi:"region"`
@@ -448,7 +448,7 @@ type KafkaClusterState struct {
 	Kind pulumi.StringPtrInput
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
 	Network KafkaClusterNetworkPtrInput
-	// (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+	// (Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see RoleBinding Resource.
 	RbacCrn pulumi.StringPtrInput
 	// The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region pulumi.StringPtrInput
@@ -671,7 +671,7 @@ func (o KafkaClusterOutput) Network() KafkaClusterNetworkOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterNetworkOutput { return v.Network }).(KafkaClusterNetworkOutput)
 }
 
-// (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+// (Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see RoleBinding Resource.
 func (o KafkaClusterOutput) RbacCrn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.RbacCrn }).(pulumi.StringOutput)
 }

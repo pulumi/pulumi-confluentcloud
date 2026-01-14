@@ -367,7 +367,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.KafkaClusterNetwork> Network { get; private set; } = null!;
 
         /// <summary>
-        /// (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+        /// (Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see confluentcloud.RoleBinding Resource.
         /// </summary>
         [Output("rbacCrn")]
         public Output<string> RbacCrn { get; private set; } = null!;
@@ -625,7 +625,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.KafkaClusterNetworkGetArgs>? Network { get; set; }
 
         /// <summary>
-        /// (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+        /// (Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see confluentcloud.RoleBinding Resource.
         /// </summary>
         [Input("rbacCrn")]
         public Input<string>? RbacCrn { get; set; }

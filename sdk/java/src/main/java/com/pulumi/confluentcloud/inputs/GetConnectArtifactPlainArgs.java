@@ -15,14 +15,14 @@ public final class GetConnectArtifactPlainArgs extends com.pulumi.resources.Invo
     public static final GetConnectArtifactPlainArgs Empty = new GetConnectArtifactPlainArgs();
 
     /**
-     * Cloud provider where the Connect Artifact archive is uploaded.
+     * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
      * 
      */
     @Import(name="cloud", required=true)
     private String cloud;
 
     /**
-     * @return Cloud provider where the Connect Artifact archive is uploaded.
+     * @return Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
      * 
      */
     public String cloud() {
@@ -78,7 +78,7 @@ public final class GetConnectArtifactPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param cloud Cloud provider where the Connect Artifact archive is uploaded.
+         * @param cloud Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
          * 
          * @return builder
          * 
