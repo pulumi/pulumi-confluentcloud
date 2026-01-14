@@ -63,7 +63,7 @@ type ConnectArtifact struct {
 
 	// The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
 	ArtifactFile pulumi.StringPtrOutput `pulumi:"artifactFile"`
-	// Cloud provider where the Connect Artifact archive is uploaded.
+	// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
 	// Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
 	ContentFormat pulumi.StringOutput `pulumi:"contentFormat"`
@@ -121,7 +121,7 @@ func GetConnectArtifact(ctx *pulumi.Context,
 type connectArtifactState struct {
 	// The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
 	ArtifactFile *string `pulumi:"artifactFile"`
-	// Cloud provider where the Connect Artifact archive is uploaded.
+	// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
 	Cloud *string `pulumi:"cloud"`
 	// Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
 	ContentFormat *string `pulumi:"contentFormat"`
@@ -138,7 +138,7 @@ type connectArtifactState struct {
 type ConnectArtifactState struct {
 	// The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
 	ArtifactFile pulumi.StringPtrInput
-	// Cloud provider where the Connect Artifact archive is uploaded.
+	// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
 	Cloud pulumi.StringPtrInput
 	// Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
 	ContentFormat pulumi.StringPtrInput
@@ -159,7 +159,7 @@ func (ConnectArtifactState) ElementType() reflect.Type {
 type connectArtifactArgs struct {
 	// The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
 	ArtifactFile *string `pulumi:"artifactFile"`
-	// Cloud provider where the Connect Artifact archive is uploaded.
+	// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
 	Cloud string `pulumi:"cloud"`
 	// Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
 	ContentFormat string `pulumi:"contentFormat"`
@@ -175,7 +175,7 @@ type connectArtifactArgs struct {
 type ConnectArtifactArgs struct {
 	// The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
 	ArtifactFile pulumi.StringPtrInput
-	// Cloud provider where the Connect Artifact archive is uploaded.
+	// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
 	Cloud pulumi.StringInput
 	// Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
 	ContentFormat pulumi.StringInput
@@ -279,7 +279,7 @@ func (o ConnectArtifactOutput) ArtifactFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectArtifact) pulumi.StringPtrOutput { return v.ArtifactFile }).(pulumi.StringPtrOutput)
 }
 
-// Cloud provider where the Connect Artifact archive is uploaded.
+// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
 func (o ConnectArtifactOutput) Cloud() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectArtifact) pulumi.StringOutput { return v.Cloud }).(pulumi.StringOutput)
 }

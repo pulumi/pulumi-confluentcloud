@@ -528,14 +528,14 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
         return this.network;
     }
     /**
-     * (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+     * (Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see confluentcloud.RoleBinding Resource.
      * 
      */
     @Export(name="rbacCrn", refs={String.class}, tree="[0]")
     private Output<String> rbacCrn;
 
     /**
-     * @return (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
+     * @return (Required String) The Confluent Resource Name (CRN) of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`. Some resources, like topics, require appending the Kafka cluster ID for creating role bindings, for example, `/kafka=lkc-123abc`. For more information, see confluentcloud.RoleBinding Resource.
      * 
      */
     public Output<String> rbacCrn() {

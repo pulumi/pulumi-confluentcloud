@@ -44,7 +44,7 @@ export function getConnectArtifact(args: GetConnectArtifactArgs, opts?: pulumi.I
  */
 export interface GetConnectArtifactArgs {
     /**
-     * Cloud provider where the Connect Artifact archive is uploaded.
+     * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
      */
     cloud: string;
     environment: inputs.GetConnectArtifactEnvironment;
@@ -112,7 +112,7 @@ export function getConnectArtifactOutput(args: GetConnectArtifactOutputArgs, opt
  */
 export interface GetConnectArtifactOutputArgs {
     /**
-     * Cloud provider where the Connect Artifact archive is uploaded.
+     * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
      */
     cloud: pulumi.Input<string>;
     environment: pulumi.Input<inputs.GetConnectArtifactEnvironmentArgs>;

@@ -60,7 +60,7 @@ func LookupConnectArtifact(ctx *pulumi.Context, args *LookupConnectArtifactArgs,
 
 // A collection of arguments for invoking getConnectArtifact.
 type LookupConnectArtifactArgs struct {
-	// Cloud provider where the Connect Artifact archive is uploaded.
+	// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
 	Cloud       string                        `pulumi:"cloud"`
 	Environment GetConnectArtifactEnvironment `pulumi:"environment"`
 	// The ID of the Connect Artifact.
@@ -91,7 +91,7 @@ func LookupConnectArtifactOutput(ctx *pulumi.Context, args LookupConnectArtifact
 
 // A collection of arguments for invoking getConnectArtifact.
 type LookupConnectArtifactOutputArgs struct {
-	// Cloud provider where the Connect Artifact archive is uploaded.
+	// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
 	Cloud       pulumi.StringInput                 `pulumi:"cloud"`
 	Environment GetConnectArtifactEnvironmentInput `pulumi:"environment"`
 	// The ID of the Connect Artifact.
