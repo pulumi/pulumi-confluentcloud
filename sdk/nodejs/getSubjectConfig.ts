@@ -12,6 +12,38 @@ import * as utilities from "./utilities";
  * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
  *
  * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluent from "@pulumi/confluent";
+ *
+ * const example = confluent.index.SubjectCompatibilityLevel({
+ *     schemaRegistryCluster: [{
+ *         id: essentials.id,
+ *     }],
+ *     restEndpoint: essentials.restEndpoint,
+ *     subjectName: "proto-purchase-value",
+ *     credentials: [{
+ *         key: "<Schema Registry API Key for confluent_schema_registry_region.essentials>",
+ *         secret: "<Schema Registry API Secret for confluent_schema_registry_region.essentials>",
+ *     }],
+ * });
+ * export const compatibilityLevel = example.compatibilityLevel;
+ * ```
+ *
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluent from "@pulumi/confluent";
+ *
+ * const example = confluent.index.SubjectCompatibilityLevel({
+ *     subjectName: "proto-purchase-value",
+ * });
+ * export const compatibilityLevel = example.compatibilityLevel;
+ * ```
  */
 export function getSubjectConfig(args: GetSubjectConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetSubjectConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,6 +98,38 @@ export interface GetSubjectConfigResult {
  * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
  *
  * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluent from "@pulumi/confluent";
+ *
+ * const example = confluent.index.SubjectCompatibilityLevel({
+ *     schemaRegistryCluster: [{
+ *         id: essentials.id,
+ *     }],
+ *     restEndpoint: essentials.restEndpoint,
+ *     subjectName: "proto-purchase-value",
+ *     credentials: [{
+ *         key: "<Schema Registry API Key for confluent_schema_registry_region.essentials>",
+ *         secret: "<Schema Registry API Secret for confluent_schema_registry_region.essentials>",
+ *     }],
+ * });
+ * export const compatibilityLevel = example.compatibilityLevel;
+ * ```
+ *
+ * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluent from "@pulumi/confluent";
+ *
+ * const example = confluent.index.SubjectCompatibilityLevel({
+ *     subjectName: "proto-purchase-value",
+ * });
+ * export const compatibilityLevel = example.compatibilityLevel;
+ * ```
  */
 export function getSubjectConfigOutput(args: GetSubjectConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubjectConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

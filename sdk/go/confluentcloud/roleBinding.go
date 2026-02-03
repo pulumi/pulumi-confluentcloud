@@ -18,6 +18,185 @@ import (
 //
 // > **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewRoleBinding(ctx, "org-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("MetricsViewer"),
+//				CrnPattern: pulumi.Any(demo.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "environment-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("EnvironmentAdmin"),
+//				CrnPattern: pulumi.Any(stag.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "environment-example-rb-skip-sync", &confluentcloud.RoleBindingArgs{
+//				Principal:           pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:            pulumi.String("EnvironmentAdmin"),
+//				CrnPattern:          pulumi.Any(stag.ResourceName),
+//				DisableWaitForReady: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "environment-example-rb-2", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", testConfluentIdentityPool.Id),
+//				RoleName:   pulumi.String("EnvironmentAdmin"),
+//				CrnPattern: pulumi.Any(stag.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "data-discovery-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("DataDiscovery"),
+//				CrnPattern: pulumi.Any(stag.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "network-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("NetworkAdmin"),
+//				CrnPattern: pulumi.Any(demo.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "cluster-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("CloudClusterAdmin"),
+//				CrnPattern: pulumi.Any(basic.RbacCrn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "topic-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("DeveloperWrite"),
+//				CrnPattern: pulumi.Sprintf("%v/kafka=%v/topic=%v", standard.RbacCrn, standard.Id, orders.TopicName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "topic-example-rb-2", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", testConfluentIdentityPool.Id),
+//				RoleName:   pulumi.String("DeveloperWrite"),
+//				CrnPattern: pulumi.Sprintf("%v/kafka=%v/topic=%v", standard.RbacCrn, standard.Id, orders.TopicName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "group-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("DeveloperRead"),
+//				CrnPattern: pulumi.Sprintf("%v/kafka=%v/group=confluent_cli_consumer_*", basic.RbacCrn, standard.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "group-mapping-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", application_developers.Id),
+//				RoleName:   pulumi.String("EnvironmentAdmin"),
+//				CrnPattern: pulumi.Any(stag.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "transaction-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("DeveloperRead"),
+//				CrnPattern: pulumi.Sprintf("%v/kafka=%v/transactional-id=my_transaction", basic.RbacCrn, standard.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			connectorName := std.Lookup(ctx, map[string]interface{}{
+//				"map":     testConfluentConnector.ConfigNonsensitive,
+//				"key":     "name",
+//				"default": "\"name\" attribute is missing",
+//			}, nil).Result
+//			_, err = confluentcloud.NewRoleBinding(ctx, "connector-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("DeveloperRead"),
+//				CrnPattern: pulumi.Sprintf("%v/connector=%v", standard.RbacCrn, connectorName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "all-subjects-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("DeveloperRead"),
+//				CrnPattern: pulumi.Sprintf("%v/subject=*", example.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "subject-foo-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("DeveloperRead"),
+//				CrnPattern: pulumi.Sprintf("%v/subject=foo", example.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "subject-with-abc-prefix-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("DeveloperRead"),
+//				CrnPattern: pulumi.Sprintf("%v/subject=abc*", example.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "kek-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("DeveloperRead"),
+//				CrnPattern: pulumi.Sprintf("%v/kek=kek-name", example.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `RoleBinding` resource:
+//   - standard-kafka-rbac: _Standard_ Kafka cluster with authorization using RBAC
+//   - dedicated-public-kafka-rbac: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+//   - dedicated-privatelink-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+//   - dedicated-privatelink-azure-kafka-rbac: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+//   - dedicated-vnet-peering-azure-kafka-rbac: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+//   - dedicated-vpc-peering-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+//   - dedicated-vpc-peering-gcp-kafka-rbac: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+//   - dedicated-transit-gateway-attachment-aws-kafka-acls: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+//   - dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+//   - enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+//
 // ## Example of using timeSleep
 //
 // This configuration introduces a 360-second custom delay after the creation of a role binding, before creating a Kafka topic.

@@ -17,6 +17,66 @@ namespace Pulumi.ConfluentCloud
         /// `ConfluentSubjectCompatibilityLevel` describes a Subject Config data source.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Confluent = Pulumi.Confluent;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Confluent.Index.SubjectCompatibilityLevel.Invoke(new()
+        ///     {
+        ///         SchemaRegistryCluster = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "id", essentials.Id },
+        ///             },
+        ///         },
+        ///         RestEndpoint = essentials.RestEndpoint,
+        ///         SubjectName = "proto-purchase-value",
+        ///         Credentials = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "key", "&lt;Schema Registry API Key for confluent_schema_registry_region.essentials&gt;" },
+        ///                 { "secret", "&lt;Schema Registry API Secret for confluent_schema_registry_region.essentials&gt;" },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["compatibilityLevel"] = example.CompatibilityLevel,
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Confluent = Pulumi.Confluent;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Confluent.Index.SubjectCompatibilityLevel.Invoke(new()
+        ///     {
+        ///         SubjectName = "proto-purchase-value",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["compatibilityLevel"] = example.CompatibilityLevel,
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetSubjectConfigResult> InvokeAsync(GetSubjectConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubjectConfigResult>("confluentcloud:index/getSubjectConfig:getSubjectConfig", args ?? new GetSubjectConfigArgs(), options.WithDefaults());
@@ -27,6 +87,66 @@ namespace Pulumi.ConfluentCloud
         /// `ConfluentSubjectCompatibilityLevel` describes a Subject Config data source.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Confluent = Pulumi.Confluent;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Confluent.Index.SubjectCompatibilityLevel.Invoke(new()
+        ///     {
+        ///         SchemaRegistryCluster = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "id", essentials.Id },
+        ///             },
+        ///         },
+        ///         RestEndpoint = essentials.RestEndpoint,
+        ///         SubjectName = "proto-purchase-value",
+        ///         Credentials = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "key", "&lt;Schema Registry API Key for confluent_schema_registry_region.essentials&gt;" },
+        ///                 { "secret", "&lt;Schema Registry API Secret for confluent_schema_registry_region.essentials&gt;" },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["compatibilityLevel"] = example.CompatibilityLevel,
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Confluent = Pulumi.Confluent;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Confluent.Index.SubjectCompatibilityLevel.Invoke(new()
+        ///     {
+        ///         SubjectName = "proto-purchase-value",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["compatibilityLevel"] = example.CompatibilityLevel,
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetSubjectConfigResult> Invoke(GetSubjectConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubjectConfigResult>("confluentcloud:index/getSubjectConfig:getSubjectConfig", args ?? new GetSubjectConfigInvokeArgs(), options.WithDefaults());
@@ -37,6 +157,66 @@ namespace Pulumi.ConfluentCloud
         /// `ConfluentSubjectCompatibilityLevel` describes a Subject Config data source.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Confluent = Pulumi.Confluent;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Confluent.Index.SubjectCompatibilityLevel.Invoke(new()
+        ///     {
+        ///         SchemaRegistryCluster = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "id", essentials.Id },
+        ///             },
+        ///         },
+        ///         RestEndpoint = essentials.RestEndpoint,
+        ///         SubjectName = "proto-purchase-value",
+        ///         Credentials = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "key", "&lt;Schema Registry API Key for confluent_schema_registry_region.essentials&gt;" },
+        ///                 { "secret", "&lt;Schema Registry API Secret for confluent_schema_registry_region.essentials&gt;" },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["compatibilityLevel"] = example.CompatibilityLevel,
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Confluent = Pulumi.Confluent;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Confluent.Index.SubjectCompatibilityLevel.Invoke(new()
+        ///     {
+        ///         SubjectName = "proto-purchase-value",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["compatibilityLevel"] = example.CompatibilityLevel,
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetSubjectConfigResult> Invoke(GetSubjectConfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubjectConfigResult>("confluentcloud:index/getSubjectConfig:getSubjectConfig", args ?? new GetSubjectConfigInvokeArgs(), options.WithDefaults());
