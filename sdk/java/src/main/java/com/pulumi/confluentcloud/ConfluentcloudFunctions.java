@@ -16422,6 +16422,76 @@ public final class ConfluentcloudFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluent.ConfluentFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
+     *             Map.entry("schemaRegistryCluster", List.of(Map.of("id", essentials.id()))),
+     *             Map.entry("restEndpoint", essentials.restEndpoint()),
+     *             Map.entry("subjectName", "proto-purchase-value"),
+     *             Map.entry("credentials", List.of(Map.ofEntries(
+     *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
+     *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
+     *             )))
+     *         ));
+     * 
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluent.ConfluentFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.of("subjectName", "proto-purchase-value"));
+     * 
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSubjectConfigResult> getSubjectConfig(GetSubjectConfigArgs args) {
         return getSubjectConfig(args, InvokeOptions.Empty);
@@ -16432,6 +16502,76 @@ public final class ConfluentcloudFunctions {
      * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
      * 
      * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluent.ConfluentFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
+     *             Map.entry("schemaRegistryCluster", List.of(Map.of("id", essentials.id()))),
+     *             Map.entry("restEndpoint", essentials.restEndpoint()),
+     *             Map.entry("subjectName", "proto-purchase-value"),
+     *             Map.entry("credentials", List.of(Map.ofEntries(
+     *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
+     *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
+     *             )))
+     *         ));
+     * 
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluent.ConfluentFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.of("subjectName", "proto-purchase-value"));
+     * 
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetSubjectConfigResult> getSubjectConfigPlain(GetSubjectConfigPlainArgs args) {
@@ -16444,6 +16584,76 @@ public final class ConfluentcloudFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluent.ConfluentFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
+     *             Map.entry("schemaRegistryCluster", List.of(Map.of("id", essentials.id()))),
+     *             Map.entry("restEndpoint", essentials.restEndpoint()),
+     *             Map.entry("subjectName", "proto-purchase-value"),
+     *             Map.entry("credentials", List.of(Map.ofEntries(
+     *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
+     *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
+     *             )))
+     *         ));
+     * 
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluent.ConfluentFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.of("subjectName", "proto-purchase-value"));
+     * 
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSubjectConfigResult> getSubjectConfig(GetSubjectConfigArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSubjectConfig:getSubjectConfig", TypeShape.of(GetSubjectConfigResult.class), args, Utilities.withVersion(options));
@@ -16455,6 +16665,76 @@ public final class ConfluentcloudFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluent.ConfluentFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
+     *             Map.entry("schemaRegistryCluster", List.of(Map.of("id", essentials.id()))),
+     *             Map.entry("restEndpoint", essentials.restEndpoint()),
+     *             Map.entry("subjectName", "proto-purchase-value"),
+     *             Map.entry("credentials", List.of(Map.ofEntries(
+     *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
+     *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
+     *             )))
+     *         ));
+     * 
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluent.ConfluentFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.of("subjectName", "proto-purchase-value"));
+     * 
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSubjectConfigResult> getSubjectConfig(GetSubjectConfigArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getSubjectConfig:getSubjectConfig", TypeShape.of(GetSubjectConfigResult.class), args, Utilities.withVersion(options));
@@ -16465,6 +16745,76 @@ public final class ConfluentcloudFunctions {
      * `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
      * 
      * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluent.ConfluentFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.ofEntries(
+     *             Map.entry("schemaRegistryCluster", List.of(Map.of("id", essentials.id()))),
+     *             Map.entry("restEndpoint", essentials.restEndpoint()),
+     *             Map.entry("subjectName", "proto-purchase-value"),
+     *             Map.entry("credentials", List.of(Map.ofEntries(
+     *                 Map.entry("key", "<Schema Registry API Key for confluent_schema_registry_region.essentials>"),
+     *                 Map.entry("secret", "<Schema Registry API Secret for confluent_schema_registry_region.essentials>")
+     *             )))
+     *         ));
+     * 
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluent.ConfluentFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentFunctions.SubjectCompatibilityLevel(Map.of("subjectName", "proto-purchase-value"));
+     * 
+     *         ctx.export("compatibilityLevel", example.compatibilityLevel());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetSubjectConfigResult> getSubjectConfigPlain(GetSubjectConfigPlainArgs args, InvokeOptions options) {

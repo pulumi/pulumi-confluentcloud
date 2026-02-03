@@ -123,6 +123,34 @@ def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsA
 
     ## Example Usage
 
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluent as confluent
+
+    example = confluent.index.subject_compatibility_level(schema_registry_cluster=[{
+            "id": essentials["id"],
+        }],
+        rest_endpoint=essentials["restEndpoint"],
+        subject_name="proto-purchase-value",
+        credentials=[{
+            "key": "<Schema Registry API Key for confluent_schema_registry_region.essentials>",
+            "secret": "<Schema Registry API Secret for confluent_schema_registry_region.essentials>",
+        }])
+    pulumi.export("compatibilityLevel", example["compatibilityLevel"])
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluent as confluent
+
+    example = confluent.index.subject_compatibility_level(subject_name="proto-purchase-value")
+    pulumi.export("compatibilityLevel", example["compatibilityLevel"])
+    ```
+
 
     :param _builtins.str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     :param _builtins.str subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
@@ -154,6 +182,34 @@ def get_subject_config_output(credentials: Optional[pulumi.Input[Optional[Union[
     `confluent_subject_compatibility_level` describes a Subject Config data source.
 
     ## Example Usage
+
+    ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluent as confluent
+
+    example = confluent.index.subject_compatibility_level(schema_registry_cluster=[{
+            "id": essentials["id"],
+        }],
+        rest_endpoint=essentials["restEndpoint"],
+        subject_name="proto-purchase-value",
+        credentials=[{
+            "key": "<Schema Registry API Key for confluent_schema_registry_region.essentials>",
+            "secret": "<Schema Registry API Secret for confluent_schema_registry_region.essentials>",
+        }])
+    pulumi.export("compatibilityLevel", example["compatibilityLevel"])
+    ```
+
+    ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluent as confluent
+
+    example = confluent.index.subject_compatibility_level(subject_name="proto-purchase-value")
+    pulumi.export("compatibilityLevel", example["compatibilityLevel"])
+    ```
 
 
     :param _builtins.str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

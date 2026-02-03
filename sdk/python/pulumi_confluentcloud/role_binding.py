@@ -167,6 +167,101 @@ class RoleBinding(pulumi.CustomResource):
 
         > **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+        import pulumi_std as std
+
+        org_example_rb = confluentcloud.RoleBinding("org-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="MetricsViewer",
+            crn_pattern=demo["resourceName"])
+        environment_example_rb = confluentcloud.RoleBinding("environment-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="EnvironmentAdmin",
+            crn_pattern=stag["resourceName"])
+        environment_example_rb_skip_sync = confluentcloud.RoleBinding("environment-example-rb-skip-sync",
+            principal=f"User:{test['id']}",
+            role_name="EnvironmentAdmin",
+            crn_pattern=stag["resourceName"],
+            disable_wait_for_ready=True)
+        environment_example_rb_2 = confluentcloud.RoleBinding("environment-example-rb-2",
+            principal=f"User:{test_confluent_identity_pool['id']}",
+            role_name="EnvironmentAdmin",
+            crn_pattern=stag["resourceName"])
+        data_discovery_example_rb = confluentcloud.RoleBinding("data-discovery-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DataDiscovery",
+            crn_pattern=stag["resourceName"])
+        network_example_rb = confluentcloud.RoleBinding("network-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="NetworkAdmin",
+            crn_pattern=demo["resourceName"])
+        cluster_example_rb = confluentcloud.RoleBinding("cluster-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="CloudClusterAdmin",
+            crn_pattern=basic["rbacCrn"])
+        topic_example_rb = confluentcloud.RoleBinding("topic-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperWrite",
+            crn_pattern=f"{standard['rbacCrn']}/kafka={standard['id']}/topic={orders['topicName']}")
+        topic_example_rb_2 = confluentcloud.RoleBinding("topic-example-rb-2",
+            principal=f"User:{test_confluent_identity_pool['id']}",
+            role_name="DeveloperWrite",
+            crn_pattern=f"{standard['rbacCrn']}/kafka={standard['id']}/topic={orders['topicName']}")
+        group_example_rb = confluentcloud.RoleBinding("group-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{basic['rbacCrn']}/kafka={standard['id']}/group=confluent_cli_consumer_*")
+        group_mapping_example_rb = confluentcloud.RoleBinding("group-mapping-example-rb",
+            principal=f"User:{application_developers['id']}",
+            role_name="EnvironmentAdmin",
+            crn_pattern=stag["resourceName"])
+        transaction_example_rb = confluentcloud.RoleBinding("transaction-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{basic['rbacCrn']}/kafka={standard['id']}/transactional-id=my_transaction")
+        connector_name = std.index.lookup(map=test_confluent_connector["configNonsensitive"],
+            key="name",
+            default="\\"name\\" attribute is missing")["result"]
+        connector_example_rb = confluentcloud.RoleBinding("connector-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{standard['rbacCrn']}/connector={connector_name}")
+        all_subjects_example_rb = confluentcloud.RoleBinding("all-subjects-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{example['resourceName']}/subject=*")
+        subject_foo_example_rb = confluentcloud.RoleBinding("subject-foo-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{example['resourceName']}/subject=foo")
+        subject_with_abc_prefix_example_rb = confluentcloud.RoleBinding("subject-with-abc-prefix-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{example['resourceName']}/subject=abc*")
+        kek_example_rb = confluentcloud.RoleBinding("kek-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{example['resourceName']}/kek=kek-name")
+        ```
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `RoleBinding` resource:
+          * standard-kafka-rbac: _Standard_ Kafka cluster with authorization using RBAC
+          * dedicated-public-kafka-rbac: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+          * dedicated-privatelink-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+          * dedicated-privatelink-azure-kafka-rbac: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+          * dedicated-vnet-peering-azure-kafka-rbac: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+          * dedicated-vpc-peering-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+          * dedicated-vpc-peering-gcp-kafka-rbac: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+          * dedicated-transit-gateway-attachment-aws-kafka-acls: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+          * dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+          * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+
         ## Example of using time_sleep
 
         This configuration introduces a 360-second custom delay after the creation of a role binding, before creating a Kafka topic.
@@ -230,6 +325,101 @@ class RoleBinding(pulumi.CustomResource):
         `RoleBinding` provides a Role Binding resource that enables creating, reading, and deleting role bindings on Confluent Cloud.
 
         > **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+        import pulumi_std as std
+
+        org_example_rb = confluentcloud.RoleBinding("org-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="MetricsViewer",
+            crn_pattern=demo["resourceName"])
+        environment_example_rb = confluentcloud.RoleBinding("environment-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="EnvironmentAdmin",
+            crn_pattern=stag["resourceName"])
+        environment_example_rb_skip_sync = confluentcloud.RoleBinding("environment-example-rb-skip-sync",
+            principal=f"User:{test['id']}",
+            role_name="EnvironmentAdmin",
+            crn_pattern=stag["resourceName"],
+            disable_wait_for_ready=True)
+        environment_example_rb_2 = confluentcloud.RoleBinding("environment-example-rb-2",
+            principal=f"User:{test_confluent_identity_pool['id']}",
+            role_name="EnvironmentAdmin",
+            crn_pattern=stag["resourceName"])
+        data_discovery_example_rb = confluentcloud.RoleBinding("data-discovery-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DataDiscovery",
+            crn_pattern=stag["resourceName"])
+        network_example_rb = confluentcloud.RoleBinding("network-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="NetworkAdmin",
+            crn_pattern=demo["resourceName"])
+        cluster_example_rb = confluentcloud.RoleBinding("cluster-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="CloudClusterAdmin",
+            crn_pattern=basic["rbacCrn"])
+        topic_example_rb = confluentcloud.RoleBinding("topic-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperWrite",
+            crn_pattern=f"{standard['rbacCrn']}/kafka={standard['id']}/topic={orders['topicName']}")
+        topic_example_rb_2 = confluentcloud.RoleBinding("topic-example-rb-2",
+            principal=f"User:{test_confluent_identity_pool['id']}",
+            role_name="DeveloperWrite",
+            crn_pattern=f"{standard['rbacCrn']}/kafka={standard['id']}/topic={orders['topicName']}")
+        group_example_rb = confluentcloud.RoleBinding("group-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{basic['rbacCrn']}/kafka={standard['id']}/group=confluent_cli_consumer_*")
+        group_mapping_example_rb = confluentcloud.RoleBinding("group-mapping-example-rb",
+            principal=f"User:{application_developers['id']}",
+            role_name="EnvironmentAdmin",
+            crn_pattern=stag["resourceName"])
+        transaction_example_rb = confluentcloud.RoleBinding("transaction-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{basic['rbacCrn']}/kafka={standard['id']}/transactional-id=my_transaction")
+        connector_name = std.index.lookup(map=test_confluent_connector["configNonsensitive"],
+            key="name",
+            default="\\"name\\" attribute is missing")["result"]
+        connector_example_rb = confluentcloud.RoleBinding("connector-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{standard['rbacCrn']}/connector={connector_name}")
+        all_subjects_example_rb = confluentcloud.RoleBinding("all-subjects-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{example['resourceName']}/subject=*")
+        subject_foo_example_rb = confluentcloud.RoleBinding("subject-foo-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{example['resourceName']}/subject=foo")
+        subject_with_abc_prefix_example_rb = confluentcloud.RoleBinding("subject-with-abc-prefix-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{example['resourceName']}/subject=abc*")
+        kek_example_rb = confluentcloud.RoleBinding("kek-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="DeveloperRead",
+            crn_pattern=f"{example['resourceName']}/kek=kek-name")
+        ```
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `RoleBinding` resource:
+          * standard-kafka-rbac: _Standard_ Kafka cluster with authorization using RBAC
+          * dedicated-public-kafka-rbac: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+          * dedicated-privatelink-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+          * dedicated-privatelink-azure-kafka-rbac: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+          * dedicated-vnet-peering-azure-kafka-rbac: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+          * dedicated-vpc-peering-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+          * dedicated-vpc-peering-gcp-kafka-rbac: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+          * dedicated-transit-gateway-attachment-aws-kafka-acls: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+          * dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+          * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
 
         ## Example of using time_sleep
 

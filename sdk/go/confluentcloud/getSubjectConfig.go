@@ -16,6 +16,72 @@ import (
 // `confluentSubjectCompatibilityLevel` describes a Subject Config data source.
 //
 // ## Example Usage
+//
+// ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluent/sdk/go/confluent"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := confluent.SubjectCompatibilityLevel(ctx, map[string]interface{}{
+//				"schemaRegistryCluster": []map[string]interface{}{
+//					map[string]interface{}{
+//						"id": essentials.Id,
+//					},
+//				},
+//				"restEndpoint": essentials.RestEndpoint,
+//				"subjectName":  "proto-purchase-value",
+//				"credentials": []map[string]interface{}{
+//					map[string]interface{}{
+//						"key":    "<Schema Registry API Key for confluent_schema_registry_region.essentials>",
+//						"secret": "<Schema Registry API Secret for confluent_schema_registry_region.essentials>",
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("compatibilityLevel", example.CompatibilityLevel)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluent/sdk/go/confluent"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := confluent.SubjectCompatibilityLevel(ctx, map[string]interface{}{
+//				"subjectName": "proto-purchase-value",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("compatibilityLevel", example.CompatibilityLevel)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSubjectConfig(ctx *pulumi.Context, args *LookupSubjectConfigArgs, opts ...pulumi.InvokeOption) (*LookupSubjectConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubjectConfigResult
