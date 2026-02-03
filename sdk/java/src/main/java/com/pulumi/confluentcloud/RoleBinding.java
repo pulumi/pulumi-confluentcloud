@@ -22,6 +22,159 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.RoleBinding;
+ * import com.pulumi.confluentcloud.RoleBindingArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var org_example_rb = new RoleBinding("org-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("MetricsViewer")
+ *             .crnPattern(demo.resourceName())
+ *             .build());
+ * 
+ *         var environment_example_rb = new RoleBinding("environment-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("EnvironmentAdmin")
+ *             .crnPattern(stag.resourceName())
+ *             .build());
+ * 
+ *         var environment_example_rb_skip_sync = new RoleBinding("environment-example-rb-skip-sync", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("EnvironmentAdmin")
+ *             .crnPattern(stag.resourceName())
+ *             .disableWaitForReady(true)
+ *             .build());
+ * 
+ *         var environment_example_rb_2 = new RoleBinding("environment-example-rb-2", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", testConfluentIdentityPool.id()))
+ *             .roleName("EnvironmentAdmin")
+ *             .crnPattern(stag.resourceName())
+ *             .build());
+ * 
+ *         var data_discovery_example_rb = new RoleBinding("data-discovery-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DataDiscovery")
+ *             .crnPattern(stag.resourceName())
+ *             .build());
+ * 
+ *         var network_example_rb = new RoleBinding("network-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("NetworkAdmin")
+ *             .crnPattern(demo.resourceName())
+ *             .build());
+ * 
+ *         var cluster_example_rb = new RoleBinding("cluster-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("CloudClusterAdmin")
+ *             .crnPattern(basic.rbacCrn())
+ *             .build());
+ * 
+ *         var topic_example_rb = new RoleBinding("topic-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DeveloperWrite")
+ *             .crnPattern(String.format("%s/kafka=%s/topic=%s", standard.rbacCrn(),standard.id(),orders.topicName()))
+ *             .build());
+ * 
+ *         var topic_example_rb_2 = new RoleBinding("topic-example-rb-2", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", testConfluentIdentityPool.id()))
+ *             .roleName("DeveloperWrite")
+ *             .crnPattern(String.format("%s/kafka=%s/topic=%s", standard.rbacCrn(),standard.id(),orders.topicName()))
+ *             .build());
+ * 
+ *         var group_example_rb = new RoleBinding("group-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DeveloperRead")
+ *             .crnPattern(String.format("%s/kafka=%s/group=confluent_cli_consumer_*", basic.rbacCrn(),standard.id()))
+ *             .build());
+ * 
+ *         var group_mapping_example_rb = new RoleBinding("group-mapping-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", application_developers.id()))
+ *             .roleName("EnvironmentAdmin")
+ *             .crnPattern(stag.resourceName())
+ *             .build());
+ * 
+ *         var transaction_example_rb = new RoleBinding("transaction-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DeveloperRead")
+ *             .crnPattern(String.format("%s/kafka=%s/transactional-id=my_transaction", basic.rbacCrn(),standard.id()))
+ *             .build());
+ * 
+ *         final var connectorName = StdFunctions.lookup(Map.ofEntries(
+ *             Map.entry("map", testConfluentConnector.configNonsensitive()),
+ *             Map.entry("key", "name"),
+ *             Map.entry("default", "\"name\" attribute is missing")
+ *         )).result();
+ * 
+ *         var connector_example_rb = new RoleBinding("connector-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DeveloperRead")
+ *             .crnPattern(String.format("%s/connector=%s", standard.rbacCrn(),connectorName))
+ *             .build());
+ * 
+ *         var all_subjects_example_rb = new RoleBinding("all-subjects-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DeveloperRead")
+ *             .crnPattern(String.format("%s/subject=*", example.resourceName()))
+ *             .build());
+ * 
+ *         var subject_foo_example_rb = new RoleBinding("subject-foo-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DeveloperRead")
+ *             .crnPattern(String.format("%s/subject=foo", example.resourceName()))
+ *             .build());
+ * 
+ *         var subject_with_abc_prefix_example_rb = new RoleBinding("subject-with-abc-prefix-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DeveloperRead")
+ *             .crnPattern(String.format("%s/subject=abc*", example.resourceName()))
+ *             .build());
+ * 
+ *         var kek_example_rb = new RoleBinding("kek-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("DeveloperRead")
+ *             .crnPattern(String.format("%s/kek=kek-name", example.resourceName()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.RoleBinding` resource:
+ *   * standard-kafka-rbac: _Standard_ Kafka cluster with authorization using RBAC
+ *   * dedicated-public-kafka-rbac: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+ *   * dedicated-privatelink-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+ *   * dedicated-privatelink-azure-kafka-rbac: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+ *   * dedicated-vnet-peering-azure-kafka-rbac: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+ *   * dedicated-vpc-peering-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+ *   * dedicated-vpc-peering-gcp-kafka-rbac: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+ *   * dedicated-transit-gateway-attachment-aws-kafka-acls: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+ *   * dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+ *   * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ * 
  * ## Example of using timeSleep
  * 
  * This configuration introduces a 360-second custom delay after the creation of a role binding, before creating a Kafka topic.

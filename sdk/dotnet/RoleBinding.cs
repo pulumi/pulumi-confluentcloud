@@ -16,6 +16,161 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var org_example_rb = new ConfluentCloud.RoleBinding("org-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "MetricsViewer",
+    ///         CrnPattern = demo.ResourceName,
+    ///     });
+    /// 
+    ///     var environment_example_rb = new ConfluentCloud.RoleBinding("environment-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "EnvironmentAdmin",
+    ///         CrnPattern = stag.ResourceName,
+    ///     });
+    /// 
+    ///     var environment_example_rb_skip_sync = new ConfluentCloud.RoleBinding("environment-example-rb-skip-sync", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "EnvironmentAdmin",
+    ///         CrnPattern = stag.ResourceName,
+    ///         DisableWaitForReady = true,
+    ///     });
+    /// 
+    ///     var environment_example_rb_2 = new ConfluentCloud.RoleBinding("environment-example-rb-2", new()
+    ///     {
+    ///         Principal = $"User:{testConfluentIdentityPool.Id}",
+    ///         RoleName = "EnvironmentAdmin",
+    ///         CrnPattern = stag.ResourceName,
+    ///     });
+    /// 
+    ///     var data_discovery_example_rb = new ConfluentCloud.RoleBinding("data-discovery-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "DataDiscovery",
+    ///         CrnPattern = stag.ResourceName,
+    ///     });
+    /// 
+    ///     var network_example_rb = new ConfluentCloud.RoleBinding("network-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "NetworkAdmin",
+    ///         CrnPattern = demo.ResourceName,
+    ///     });
+    /// 
+    ///     var cluster_example_rb = new ConfluentCloud.RoleBinding("cluster-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "CloudClusterAdmin",
+    ///         CrnPattern = basic.RbacCrn,
+    ///     });
+    /// 
+    ///     var topic_example_rb = new ConfluentCloud.RoleBinding("topic-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "DeveloperWrite",
+    ///         CrnPattern = $"{standard.RbacCrn}/kafka={standard.Id}/topic={orders.TopicName}",
+    ///     });
+    /// 
+    ///     var topic_example_rb_2 = new ConfluentCloud.RoleBinding("topic-example-rb-2", new()
+    ///     {
+    ///         Principal = $"User:{testConfluentIdentityPool.Id}",
+    ///         RoleName = "DeveloperWrite",
+    ///         CrnPattern = $"{standard.RbacCrn}/kafka={standard.Id}/topic={orders.TopicName}",
+    ///     });
+    /// 
+    ///     var group_example_rb = new ConfluentCloud.RoleBinding("group-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "DeveloperRead",
+    ///         CrnPattern = $"{basic.RbacCrn}/kafka={standard.Id}/group=confluent_cli_consumer_*",
+    ///     });
+    /// 
+    ///     var group_mapping_example_rb = new ConfluentCloud.RoleBinding("group-mapping-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{application_developers.Id}",
+    ///         RoleName = "EnvironmentAdmin",
+    ///         CrnPattern = stag.ResourceName,
+    ///     });
+    /// 
+    ///     var transaction_example_rb = new ConfluentCloud.RoleBinding("transaction-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "DeveloperRead",
+    ///         CrnPattern = $"{basic.RbacCrn}/kafka={standard.Id}/transactional-id=my_transaction",
+    ///     });
+    /// 
+    ///     var connectorName = Std.Index.Lookup.Invoke(new()
+    ///     {
+    ///         Map = testConfluentConnector.ConfigNonsensitive,
+    ///         Key = "name",
+    ///         Default = "\"name\" attribute is missing",
+    ///     }).Result;
+    /// 
+    ///     var connector_example_rb = new ConfluentCloud.RoleBinding("connector-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "DeveloperRead",
+    ///         CrnPattern = $"{standard.RbacCrn}/connector={connectorName}",
+    ///     });
+    /// 
+    ///     var all_subjects_example_rb = new ConfluentCloud.RoleBinding("all-subjects-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "DeveloperRead",
+    ///         CrnPattern = $"{example.ResourceName}/subject=*",
+    ///     });
+    /// 
+    ///     var subject_foo_example_rb = new ConfluentCloud.RoleBinding("subject-foo-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "DeveloperRead",
+    ///         CrnPattern = $"{example.ResourceName}/subject=foo",
+    ///     });
+    /// 
+    ///     var subject_with_abc_prefix_example_rb = new ConfluentCloud.RoleBinding("subject-with-abc-prefix-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "DeveloperRead",
+    ///         CrnPattern = $"{example.ResourceName}/subject=abc*",
+    ///     });
+    /// 
+    ///     var kek_example_rb = new ConfluentCloud.RoleBinding("kek-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "DeveloperRead",
+    ///         CrnPattern = $"{example.ResourceName}/kek=kek-name",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.RoleBinding` resource:
+    ///   * standard-kafka-rbac: _Standard_ Kafka cluster with authorization using RBAC
+    ///   * dedicated-public-kafka-rbac: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+    ///   * dedicated-privatelink-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+    ///   * dedicated-privatelink-azure-kafka-rbac: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+    ///   * dedicated-vnet-peering-azure-kafka-rbac: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+    ///   * dedicated-vpc-peering-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+    ///   * dedicated-vpc-peering-gcp-kafka-rbac: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+    ///   * dedicated-transit-gateway-attachment-aws-kafka-acls: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+    ///   * dedicated-transit-gateway-attachment-aws-kafka-rbac: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+    ///   * enterprise-privatelinkattachment-aws-kafka-acls: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    /// 
     /// ## Example of using TimeSleep
     /// 
     /// This configuration introduces a 360-second custom delay after the creation of a role binding, before creating a Kafka topic.
