@@ -37,6 +37,7 @@ import * as utilities from "./utilities";
  * const example = new confluentcloud.SchemaRegistryClusterConfig("example", {
  *     compatibilityLevel: "FULL",
  *     compatibilityGroup: "abc.cg.version",
+ *     normalize: true,
  * });
  * ```
  *
@@ -97,6 +98,10 @@ export class SchemaRegistryClusterConfig extends pulumi.CustomResource {
      */
     declare public readonly credentials: pulumi.Output<outputs.SchemaRegistryClusterConfigCredentials | undefined>;
     /**
+     * Whether schemas are automatically normalized when registered or passed during lookups.
+     */
+    declare public readonly normalize: pulumi.Output<boolean>;
+    /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     declare public readonly restEndpoint: pulumi.Output<string | undefined>;
@@ -118,6 +123,7 @@ export class SchemaRegistryClusterConfig extends pulumi.CustomResource {
             resourceInputs["compatibilityGroup"] = state?.compatibilityGroup;
             resourceInputs["compatibilityLevel"] = state?.compatibilityLevel;
             resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["normalize"] = state?.normalize;
             resourceInputs["restEndpoint"] = state?.restEndpoint;
             resourceInputs["schemaRegistryCluster"] = state?.schemaRegistryCluster;
         } else {
@@ -125,6 +131,7 @@ export class SchemaRegistryClusterConfig extends pulumi.CustomResource {
             resourceInputs["compatibilityGroup"] = args?.compatibilityGroup;
             resourceInputs["compatibilityLevel"] = args?.compatibilityLevel;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
+            resourceInputs["normalize"] = args?.normalize;
             resourceInputs["restEndpoint"] = args?.restEndpoint;
             resourceInputs["schemaRegistryCluster"] = args?.schemaRegistryCluster;
         }
@@ -152,6 +159,10 @@ export interface SchemaRegistryClusterConfigState {
      */
     credentials?: pulumi.Input<inputs.SchemaRegistryClusterConfigCredentials>;
     /**
+     * Whether schemas are automatically normalized when registered or passed during lookups.
+     */
+    normalize?: pulumi.Input<boolean>;
+    /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
@@ -174,6 +185,10 @@ export interface SchemaRegistryClusterConfigArgs {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.SchemaRegistryClusterConfigCredentials>;
+    /**
+     * Whether schemas are automatically normalized when registered or passed during lookups.
+     */
+    normalize?: pulumi.Input<boolean>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */

@@ -252,11 +252,11 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetSchemaRegistryClusterConfigResult
     {
         /// <summary>
-        /// (Required String) The global Schema Registry compatibility group.
+        /// (Optional String) The global Schema Registry compatibility group.
         /// </summary>
         public readonly string CompatibilityGroup;
         /// <summary>
-        /// (Required String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+        /// (Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         /// </summary>
         public readonly string CompatibilityLevel;
         public readonly Outputs.GetSchemaRegistryClusterConfigCredentialsResult? Credentials;
@@ -264,6 +264,10 @@ namespace Pulumi.ConfluentCloud
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+        /// </summary>
+        public readonly bool Normalize;
         public readonly string? RestEndpoint;
         public readonly Outputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterResult? SchemaRegistryCluster;
 
@@ -277,6 +281,8 @@ namespace Pulumi.ConfluentCloud
 
             string id,
 
+            bool normalize,
+
             string? restEndpoint,
 
             Outputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterResult? schemaRegistryCluster)
@@ -285,6 +291,7 @@ namespace Pulumi.ConfluentCloud
             CompatibilityLevel = compatibilityLevel;
             Credentials = credentials;
             Id = id;
+            Normalize = normalize;
             RestEndpoint = restEndpoint;
             SchemaRegistryCluster = schemaRegistryCluster;
         }

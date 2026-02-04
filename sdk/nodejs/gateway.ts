@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  *
  * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const main = new confluentcloud.Gateway("main", {
- *     displayName: "my_gateway",
+ *     displayName: "my_egress_gateway",
  *     environment: {
  *         id: development.id,
  *     },
@@ -84,6 +84,10 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * (Optional Configuration Block) supports the following:
      */
+    declare public readonly awsIngressPrivateLinkGateway: pulumi.Output<outputs.GatewayAwsIngressPrivateLinkGateway>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     declare public readonly awsPrivateNetworkInterfaceGateway: pulumi.Output<outputs.GatewayAwsPrivateNetworkInterfaceGateway>;
     /**
      * (Optional Configuration Block) supports the following:
@@ -112,6 +116,7 @@ export class Gateway extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as GatewayState | undefined;
             resourceInputs["awsEgressPrivateLinkGateway"] = state?.awsEgressPrivateLinkGateway;
+            resourceInputs["awsIngressPrivateLinkGateway"] = state?.awsIngressPrivateLinkGateway;
             resourceInputs["awsPrivateNetworkInterfaceGateway"] = state?.awsPrivateNetworkInterfaceGateway;
             resourceInputs["azureEgressPrivateLinkGateway"] = state?.azureEgressPrivateLinkGateway;
             resourceInputs["displayName"] = state?.displayName;
@@ -125,6 +130,7 @@ export class Gateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'environment'");
             }
             resourceInputs["awsEgressPrivateLinkGateway"] = args?.awsEgressPrivateLinkGateway;
+            resourceInputs["awsIngressPrivateLinkGateway"] = args?.awsIngressPrivateLinkGateway;
             resourceInputs["awsPrivateNetworkInterfaceGateway"] = args?.awsPrivateNetworkInterfaceGateway;
             resourceInputs["azureEgressPrivateLinkGateway"] = args?.azureEgressPrivateLinkGateway;
             resourceInputs["displayName"] = args?.displayName;
@@ -143,6 +149,10 @@ export interface GatewayState {
      * (Optional Configuration Block) supports the following:
      */
     awsEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsEgressPrivateLinkGateway>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    awsIngressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsIngressPrivateLinkGateway>;
     /**
      * (Optional Configuration Block) supports the following:
      */
@@ -169,6 +179,10 @@ export interface GatewayArgs {
      * (Optional Configuration Block) supports the following:
      */
     awsEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsEgressPrivateLinkGateway>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    awsIngressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAwsIngressPrivateLinkGateway>;
     /**
      * (Optional Configuration Block) supports the following:
      */

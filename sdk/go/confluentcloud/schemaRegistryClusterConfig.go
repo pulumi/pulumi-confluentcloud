@@ -64,6 +64,7 @@ import (
 //			_, err := confluentcloud.NewSchemaRegistryClusterConfig(ctx, "example", &confluentcloud.SchemaRegistryClusterConfigArgs{
 //				CompatibilityLevel: pulumi.String("FULL"),
 //				CompatibilityGroup: pulumi.String("abc.cg.version"),
+//				Normalize:          pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -98,6 +99,8 @@ type SchemaRegistryClusterConfig struct {
 	CompatibilityLevel pulumi.StringOutput `pulumi:"compatibilityLevel"`
 	// The Cluster API Credentials.
 	Credentials SchemaRegistryClusterConfigCredentialsPtrOutput `pulumi:"credentials"`
+	// Whether schemas are automatically normalized when registered or passed during lookups.
+	Normalize pulumi.BoolOutput `pulumi:"normalize"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrOutput                                    `pulumi:"restEndpoint"`
 	SchemaRegistryCluster SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput `pulumi:"schemaRegistryCluster"`
@@ -146,6 +149,8 @@ type schemaRegistryClusterConfigState struct {
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// The Cluster API Credentials.
 	Credentials *SchemaRegistryClusterConfigCredentials `pulumi:"credentials"`
+	// Whether schemas are automatically normalized when registered or passed during lookups.
+	Normalize *bool `pulumi:"normalize"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                                           `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *SchemaRegistryClusterConfigSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
@@ -158,6 +163,8 @@ type SchemaRegistryClusterConfigState struct {
 	CompatibilityLevel pulumi.StringPtrInput
 	// The Cluster API Credentials.
 	Credentials SchemaRegistryClusterConfigCredentialsPtrInput
+	// Whether schemas are automatically normalized when registered or passed during lookups.
+	Normalize pulumi.BoolPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
 	SchemaRegistryCluster SchemaRegistryClusterConfigSchemaRegistryClusterPtrInput
@@ -174,6 +181,8 @@ type schemaRegistryClusterConfigArgs struct {
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// The Cluster API Credentials.
 	Credentials *SchemaRegistryClusterConfigCredentials `pulumi:"credentials"`
+	// Whether schemas are automatically normalized when registered or passed during lookups.
+	Normalize *bool `pulumi:"normalize"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                                           `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *SchemaRegistryClusterConfigSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
@@ -187,6 +196,8 @@ type SchemaRegistryClusterConfigArgs struct {
 	CompatibilityLevel pulumi.StringPtrInput
 	// The Cluster API Credentials.
 	Credentials SchemaRegistryClusterConfigCredentialsPtrInput
+	// Whether schemas are automatically normalized when registered or passed during lookups.
+	Normalize pulumi.BoolPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
 	SchemaRegistryCluster SchemaRegistryClusterConfigSchemaRegistryClusterPtrInput
@@ -294,6 +305,11 @@ func (o SchemaRegistryClusterConfigOutput) Credentials() SchemaRegistryClusterCo
 	return o.ApplyT(func(v *SchemaRegistryClusterConfig) SchemaRegistryClusterConfigCredentialsPtrOutput {
 		return v.Credentials
 	}).(SchemaRegistryClusterConfigCredentialsPtrOutput)
+}
+
+// Whether schemas are automatically normalized when registered or passed during lookups.
+func (o SchemaRegistryClusterConfigOutput) Normalize() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SchemaRegistryClusterConfig) pulumi.BoolOutput { return v.Normalize }).(pulumi.BoolOutput)
 }
 
 // The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

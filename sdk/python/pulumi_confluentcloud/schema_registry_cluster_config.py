@@ -24,6 +24,7 @@ class SchemaRegistryClusterConfigArgs:
                  compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
                  compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
                  credentials: Optional[pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs']] = None,
+                 normalize: Optional[pulumi.Input[_builtins.bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']] = None):
         """
@@ -31,6 +32,7 @@ class SchemaRegistryClusterConfigArgs:
         :param pulumi.Input[_builtins.str] compatibility_group: The global Schema Registry compatibility group.
         :param pulumi.Input[_builtins.str] compatibility_level: The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs'] credentials: The Cluster API Credentials.
+        :param pulumi.Input[_builtins.bool] normalize: Whether schemas are automatically normalized when registered or passed during lookups.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         if compatibility_group is not None:
@@ -39,6 +41,8 @@ class SchemaRegistryClusterConfigArgs:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if normalize is not None:
+            pulumi.set(__self__, "normalize", normalize)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
@@ -79,6 +83,18 @@ class SchemaRegistryClusterConfigArgs:
     @credentials.setter
     def credentials(self, value: Optional[pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def normalize(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether schemas are automatically normalized when registered or passed during lookups.
+        """
+        return pulumi.get(self, "normalize")
+
+    @normalize.setter
+    def normalize(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "normalize", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
@@ -108,6 +124,7 @@ class _SchemaRegistryClusterConfigState:
                  compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
                  compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
                  credentials: Optional[pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs']] = None,
+                 normalize: Optional[pulumi.Input[_builtins.bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']] = None):
         """
@@ -115,6 +132,7 @@ class _SchemaRegistryClusterConfigState:
         :param pulumi.Input[_builtins.str] compatibility_group: The global Schema Registry compatibility group.
         :param pulumi.Input[_builtins.str] compatibility_level: The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs'] credentials: The Cluster API Credentials.
+        :param pulumi.Input[_builtins.bool] normalize: Whether schemas are automatically normalized when registered or passed during lookups.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         if compatibility_group is not None:
@@ -123,6 +141,8 @@ class _SchemaRegistryClusterConfigState:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if normalize is not None:
+            pulumi.set(__self__, "normalize", normalize)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
@@ -163,6 +183,18 @@ class _SchemaRegistryClusterConfigState:
     @credentials.setter
     def credentials(self, value: Optional[pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def normalize(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether schemas are automatically normalized when registered or passed during lookups.
+        """
+        return pulumi.get(self, "normalize")
+
+    @normalize.setter
+    def normalize(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "normalize", value)
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
@@ -195,6 +227,7 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
                  compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
                  compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
                  credentials: Optional[pulumi.Input[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']]] = None,
+                 normalize: Optional[pulumi.Input[_builtins.bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
@@ -227,7 +260,8 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
 
         example = confluentcloud.SchemaRegistryClusterConfig("example",
             compatibility_level="FULL",
-            compatibility_group="abc.cg.version")
+            compatibility_group="abc.cg.version",
+            normalize=True)
         ```
 
         ## Import
@@ -251,6 +285,7 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] compatibility_group: The global Schema Registry compatibility group.
         :param pulumi.Input[_builtins.str] compatibility_level: The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[_builtins.bool] normalize: Whether schemas are automatically normalized when registered or passed during lookups.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         ...
@@ -288,7 +323,8 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
 
         example = confluentcloud.SchemaRegistryClusterConfig("example",
             compatibility_level="FULL",
-            compatibility_group="abc.cg.version")
+            compatibility_group="abc.cg.version",
+            normalize=True)
         ```
 
         ## Import
@@ -325,6 +361,7 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
                  compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
                  compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
                  credentials: Optional[pulumi.Input[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']]] = None,
+                 normalize: Optional[pulumi.Input[_builtins.bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]] = None,
                  __props__=None):
@@ -339,6 +376,7 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
             __props__.__dict__["compatibility_group"] = compatibility_group
             __props__.__dict__["compatibility_level"] = compatibility_level
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
+            __props__.__dict__["normalize"] = normalize
             __props__.__dict__["rest_endpoint"] = rest_endpoint
             __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
@@ -356,6 +394,7 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
             compatibility_group: Optional[pulumi.Input[_builtins.str]] = None,
             compatibility_level: Optional[pulumi.Input[_builtins.str]] = None,
             credentials: Optional[pulumi.Input[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']]] = None,
+            normalize: Optional[pulumi.Input[_builtins.bool]] = None,
             rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
             schema_registry_cluster: Optional[pulumi.Input[Union['SchemaRegistryClusterConfigSchemaRegistryClusterArgs', 'SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict']]] = None) -> 'SchemaRegistryClusterConfig':
         """
@@ -368,6 +407,7 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] compatibility_group: The global Schema Registry compatibility group.
         :param pulumi.Input[_builtins.str] compatibility_level: The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input[Union['SchemaRegistryClusterConfigCredentialsArgs', 'SchemaRegistryClusterConfigCredentialsArgsDict']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[_builtins.bool] normalize: Whether schemas are automatically normalized when registered or passed during lookups.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -377,6 +417,7 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
         __props__.__dict__["compatibility_group"] = compatibility_group
         __props__.__dict__["compatibility_level"] = compatibility_level
         __props__.__dict__["credentials"] = credentials
+        __props__.__dict__["normalize"] = normalize
         __props__.__dict__["rest_endpoint"] = rest_endpoint
         __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
         return SchemaRegistryClusterConfig(resource_name, opts=opts, __props__=__props__)
@@ -404,6 +445,14 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
+
+    @_builtins.property
+    @pulumi.getter
+    def normalize(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether schemas are automatically normalized when registered or passed during lookups.
+        """
+        return pulumi.get(self, "normalize")
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")

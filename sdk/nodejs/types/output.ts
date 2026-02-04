@@ -24,6 +24,21 @@ export interface AccessPointAwsEgressPrivateLinkEndpoint {
     vpcEndpointServiceName: string;
 }
 
+export interface AccessPointAwsIngressPrivateLinkEndpoint {
+    /**
+     * (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+     */
+    dnsDomain: string;
+    /**
+     * ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+     */
+    vpcEndpointId: string;
+    /**
+     * (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+     */
+    vpcEndpointServiceName: string;
+}
+
 export interface AccessPointAwsPrivateNetworkInterface {
     /**
      * (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
@@ -651,6 +666,17 @@ export interface GatewayAwsEgressPrivateLinkGateway {
     region: string;
 }
 
+export interface GatewayAwsIngressPrivateLinkGateway {
+    /**
+     * AWS region of the Ingress Private Link Gateway, for example, `us-east-1`.
+     */
+    region: string;
+    /**
+     * (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+     */
+    vpcEndpointServiceName: string;
+}
+
 export interface GatewayAwsPrivateNetworkInterfaceGateway {
     /**
      * (Required String) The AWS account ID associated with the Private Network Interface Gateway.
@@ -694,11 +720,26 @@ export interface GetAccessPointAwsEgressPrivateLinkEndpoint {
      */
     vpcEndpointDnsName: string;
     /**
-     * (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+     * (Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.
      */
     vpcEndpointId: string;
     /**
-     * (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+     * (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+     */
+    vpcEndpointServiceName: string;
+}
+
+export interface GetAccessPointAwsIngressPrivateLinkEndpoint {
+    /**
+     * (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+     */
+    dnsDomain: string;
+    /**
+     * (Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+     */
+    vpcEndpointId: string;
+    /**
+     * (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
      */
     vpcEndpointServiceName: string;
 }
@@ -984,6 +1025,134 @@ export interface GetDnsRecordPrivateLinkAccessPoint {
     id: string;
 }
 
+export interface GetEndpointEndpoint {
+    /**
+     * (Computed Configuration Block) supports the following:
+     */
+    accessPoints: outputs.GetEndpointEndpointAccessPoint[];
+    /**
+     * (Computed String) API Version defines the schema version of this representation of an Endpoint.
+     */
+    apiVersion: string;
+    /**
+     * (Computed String) The cloud service provider.
+     */
+    cloud: string;
+    /**
+     * (Computed String) The network connection type. Accepted values are: `PUBLIC`, `PRIVATE_LINK`, `PEERING`, `TRANSIT_GATEWAY`, `PRIVATE_NETWORK_INTERFACE`.
+     */
+    connectionType: string;
+    /**
+     * (Computed String) The endpoint URL or address, for example, `https://lkc-abc123-ap12345.us-west-2.aws.accesspoint.glb.confluent.cloud:443`.
+     */
+    endpoint: string;
+    /**
+     * (Computed String) The endpoint type enum values:
+     * - `REST` - REST API endpoint for HTTP/HTTPS access, used by Kafka/Flink/Schema Registry services.
+     * - `BOOTSTRAP` - Kafka native protocol bootstrap servers for direct client connections, used by Kafka only.
+     * - `LANGUAGE_SERVICE` - Flink language service endpoint for SQL/Table API, used by Flink only.
+     */
+    endpointType: string;
+    /**
+     * (Computed Configuration Block) supports the following:
+     */
+    environment: outputs.GetEndpointEndpointEnvironment;
+    /**
+     * (Computed Configuration Block) supports the following:
+     */
+    gateways: outputs.GetEndpointEndpointGateway[];
+    /**
+     * (Computed String) The ID of the access point to which the Endpoint belongs.
+     */
+    id: string;
+    /**
+     * (Computed Boolean) Whether the endpoint is private (true) or public (false).
+     */
+    isPrivate: boolean;
+    /**
+     * (Computed String) The kind of the resource.
+     */
+    kind: string;
+    /**
+     * (Computed String) The cloud service provider region in which the resource is located.
+     */
+    region: string;
+    /**
+     * (Computed Configuration Block) supports the following:
+     */
+    resources: outputs.GetEndpointEndpointResource[];
+    /**
+     * (Computed String) The Confluent Cloud service.
+     */
+    service: string;
+}
+
+export interface GetEndpointEndpointAccessPoint {
+    /**
+     * (Computed String) The ID of the access point to which the Endpoint belongs.
+     */
+    id: string;
+}
+
+export interface GetEndpointEndpointEnvironment {
+    /**
+     * (Computed String) The ID of the access point to which the Endpoint belongs.
+     */
+    id: string;
+}
+
+export interface GetEndpointEndpointGateway {
+    /**
+     * (Computed String) The ID of the access point to which the Endpoint belongs.
+     */
+    id: string;
+}
+
+export interface GetEndpointEndpointResource {
+    /**
+     * (Computed String) The ID of the access point to which the Endpoint belongs.
+     */
+    id: string;
+    /**
+     * (Computed String) The kind of the resource.
+     */
+    kind: string;
+}
+
+export interface GetEndpointFilter {
+    /**
+     * The cloud service provider. Accepted values are: `AWS`, `GCP`, `AZURE`.
+     */
+    cloud?: string;
+    /**
+     * (Computed Configuration Block) supports the following:
+     */
+    environment: outputs.GetEndpointFilterEnvironment;
+    /**
+     * Whether the endpoint is private (true) or public (false).
+     */
+    isPrivate?: boolean;
+    /**
+     * The cloud service provider region in which the resource is located, for example, `us-west-2`.
+     */
+    region?: string;
+    /**
+     * The resource associated with the endpoint. The resource can be one of Kafka Cluster ID (example: `lkc-12345`), or Schema Registry Cluster ID (example: `lsrc-12345`). May be omitted if not associated with a resource.
+     */
+    resource?: string;
+    /**
+     * The Confluent Cloud service. Accepted values are: `KAFKA`, `SCHEMA_REGISTRY`, `FLINK`.
+     */
+    service: string;
+}
+
+export interface GetEndpointFilterEnvironment {
+    /**
+     * The ID of the Environment that the Endpoint belongs to, for example, `env-123abc`.
+     */
+    id: string;
+}
+
 export interface GetEnvironmentStreamGovernance {
     /**
      * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
@@ -1068,6 +1237,17 @@ export interface GetGatewayAwsEgressPrivateLinkGateway {
     region: string;
 }
 
+export interface GetGatewayAwsIngressPrivateLinkGateway {
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+    /**
+     * (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+     */
+    vpcEndpointServiceName: string;
+}
+
 export interface GetGatewayAwsPeeringGateway {
     /**
      * (Required String) GCP region of the Peering Gateway.
@@ -1127,6 +1307,163 @@ export interface GetGatewayGcpEgressPrivateServiceConnectGateway {
 }
 
 export interface GetGatewayGcpPeeringGateway {
+    /**
+     * (Required String) The IAM principal used by the GCP Peering Gateway.
+     */
+    iamPrincipal: string;
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+}
+
+export interface GetGatewaysEnvironment {
+    /**
+     * The ID of the Environment that the Gateways belong to, for example, `env-123abc`.
+     */
+    id: string;
+}
+
+export interface GetGatewaysFilter {
+    /**
+     * Filter the results by exact match for spec.display_name. Pass multiple times to see results matching any of the values, for example, `["prod-gateway-ingress-use1", "prod-gateway-ingress-use2"]`.
+     */
+    displayNames?: string[];
+    /**
+     * Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+     */
+    gatewayTypes?: string[];
+    /**
+     * Filter the results by exact match for id. Pass multiple times to see results matching any of the values, for example, `["gw-abc123", "gw-def456"]`.
+     */
+    ids?: string[];
+    /**
+     * Filter the results by exact match for status.phase. Pass multiple times to see results matching any of the values. Valid values are: `CREATED`, `PROVISIONING`, `READY`, `FAILED`, `DEPROVISIONING`, `EXPIRED`.
+     */
+    phases?: string[];
+    /**
+     * Filter the results by exact match for spec.config.region. Pass multiple times to see results matching any of the values, for example, `["us-east-1", "us-west-2"]`.
+     */
+    regions?: string[];
+}
+
+export interface GetGatewaysGateway {
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    awsEgressPrivateLinkGateways: outputs.GetGatewaysGatewayAwsEgressPrivateLinkGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    awsIngressPrivateLinkGateways: outputs.GetGatewaysGatewayAwsIngressPrivateLinkGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    awsPeeringGateways: outputs.GetGatewaysGatewayAwsPeeringGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    awsPrivateNetworkInterfaceGateways: outputs.GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    azureEgressPrivateLinkGateways: outputs.GetGatewaysGatewayAzureEgressPrivateLinkGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    azurePeeringGateways: outputs.GetGatewaysGatewayAzurePeeringGateway[];
+    /**
+     * (Required String) A human-readable name for the Gateway.
+     */
+    displayName: string;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcpEgressPrivateServiceConnectGateways: outputs.GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcpPeeringGateways: outputs.GetGatewaysGatewayGcpPeeringGateway[];
+    /**
+     * (Required String) The ID of the Gateway, for example, `gw-abc123`.
+     */
+    id: string;
+}
+
+export interface GetGatewaysGatewayAwsEgressPrivateLinkGateway {
+    /**
+     * (Required String) The principal ARN used by the AWS Egress Private Link Gateway.
+     */
+    principalArn: string;
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+}
+
+export interface GetGatewaysGatewayAwsIngressPrivateLinkGateway {
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+    /**
+     * (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+     */
+    vpcEndpointServiceName: string;
+}
+
+export interface GetGatewaysGatewayAwsPeeringGateway {
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+}
+
+export interface GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway {
+    /**
+     * (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+     */
+    account: string;
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+    /**
+     * (Required List of Strings) AWS availability zone ids of the Private Network Interface Gateway.
+     */
+    zones: string[];
+}
+
+export interface GetGatewaysGatewayAzureEgressPrivateLinkGateway {
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+    /**
+     * (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC.
+     */
+    subscription: string;
+}
+
+export interface GetGatewaysGatewayAzurePeeringGateway {
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+}
+
+export interface GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway {
+    /**
+     * (Required String) The GCP project used by the GCP Private Service Connect Gateway.
+     */
+    project: string;
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+}
+
+export interface GetGatewaysGatewayGcpPeeringGateway {
     /**
      * (Required String) The IAM principal used by the GCP Peering Gateway.
      */

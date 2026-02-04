@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterConfigCredentia
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterConfigSchemaRegistryCluster;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSchemaRegistryClusterConfigResult {
     /**
-     * @return (Required String) The global Schema Registry compatibility group.
+     * @return (Optional String) The global Schema Registry compatibility group.
      * 
      */
     private String compatibilityGroup;
     /**
-     * @return (Required String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+     * @return (Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      * 
      */
     private String compatibilityLevel;
@@ -30,19 +31,24 @@ public final class GetSchemaRegistryClusterConfigResult {
      * 
      */
     private String id;
+    /**
+     * @return (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+     * 
+     */
+    private Boolean normalize;
     private @Nullable String restEndpoint;
     private @Nullable GetSchemaRegistryClusterConfigSchemaRegistryCluster schemaRegistryCluster;
 
     private GetSchemaRegistryClusterConfigResult() {}
     /**
-     * @return (Required String) The global Schema Registry compatibility group.
+     * @return (Optional String) The global Schema Registry compatibility group.
      * 
      */
     public String compatibilityGroup() {
         return this.compatibilityGroup;
     }
     /**
-     * @return (Required String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+     * @return (Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      * 
      */
     public String compatibilityLevel() {
@@ -57,6 +63,13 @@ public final class GetSchemaRegistryClusterConfigResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+     * 
+     */
+    public Boolean normalize() {
+        return this.normalize;
     }
     public Optional<String> restEndpoint() {
         return Optional.ofNullable(this.restEndpoint);
@@ -78,6 +91,7 @@ public final class GetSchemaRegistryClusterConfigResult {
         private String compatibilityLevel;
         private @Nullable GetSchemaRegistryClusterConfigCredentials credentials;
         private String id;
+        private Boolean normalize;
         private @Nullable String restEndpoint;
         private @Nullable GetSchemaRegistryClusterConfigSchemaRegistryCluster schemaRegistryCluster;
         public Builder() {}
@@ -87,6 +101,7 @@ public final class GetSchemaRegistryClusterConfigResult {
     	      this.compatibilityLevel = defaults.compatibilityLevel;
     	      this.credentials = defaults.credentials;
     	      this.id = defaults.id;
+    	      this.normalize = defaults.normalize;
     	      this.restEndpoint = defaults.restEndpoint;
     	      this.schemaRegistryCluster = defaults.schemaRegistryCluster;
         }
@@ -122,6 +137,14 @@ public final class GetSchemaRegistryClusterConfigResult {
             return this;
         }
         @CustomType.Setter
+        public Builder normalize(Boolean normalize) {
+            if (normalize == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterConfigResult", "normalize");
+            }
+            this.normalize = normalize;
+            return this;
+        }
+        @CustomType.Setter
         public Builder restEndpoint(@Nullable String restEndpoint) {
 
             this.restEndpoint = restEndpoint;
@@ -139,6 +162,7 @@ public final class GetSchemaRegistryClusterConfigResult {
             _resultValue.compatibilityLevel = compatibilityLevel;
             _resultValue.credentials = credentials;
             _resultValue.id = id;
+            _resultValue.normalize = normalize;
             _resultValue.restEndpoint = restEndpoint;
             _resultValue.schemaRegistryCluster = schemaRegistryCluster;
             return _resultValue;

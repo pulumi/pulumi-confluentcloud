@@ -95,13 +95,15 @@ type LookupSchemaRegistryClusterConfigArgs struct {
 
 // A collection of values returned by getSchemaRegistryClusterConfig.
 type LookupSchemaRegistryClusterConfigResult struct {
-	// (Required String) The global Schema Registry compatibility group.
+	// (Optional String) The global Schema Registry compatibility group.
 	CompatibilityGroup string `pulumi:"compatibilityGroup"`
-	// (Required String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+	// (Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel string                                     `pulumi:"compatibilityLevel"`
 	Credentials        *GetSchemaRegistryClusterConfigCredentials `pulumi:"credentials"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                    string                                               `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+	Normalize             bool                                                 `pulumi:"normalize"`
 	RestEndpoint          *string                                              `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *GetSchemaRegistryClusterConfigSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
 }
@@ -142,12 +144,12 @@ func (o LookupSchemaRegistryClusterConfigResultOutput) ToLookupSchemaRegistryClu
 	return o
 }
 
-// (Required String) The global Schema Registry compatibility group.
+// (Optional String) The global Schema Registry compatibility group.
 func (o LookupSchemaRegistryClusterConfigResultOutput) CompatibilityGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryClusterConfigResult) string { return v.CompatibilityGroup }).(pulumi.StringOutput)
 }
 
-// (Required String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+// (Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 func (o LookupSchemaRegistryClusterConfigResultOutput) CompatibilityLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryClusterConfigResult) string { return v.CompatibilityLevel }).(pulumi.StringOutput)
 }
@@ -161,6 +163,11 @@ func (o LookupSchemaRegistryClusterConfigResultOutput) Credentials() GetSchemaRe
 // The provider-assigned unique ID for this managed resource.
 func (o LookupSchemaRegistryClusterConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryClusterConfigResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+func (o LookupSchemaRegistryClusterConfigResultOutput) Normalize() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSchemaRegistryClusterConfigResult) bool { return v.Normalize }).(pulumi.BoolOutput)
 }
 
 func (o LookupSchemaRegistryClusterConfigResultOutput) RestEndpoint() pulumi.StringPtrOutput {

@@ -67,6 +67,8 @@ type LookupAccessPointArgs struct {
 type LookupAccessPointResult struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoints []GetAccessPointAwsEgressPrivateLinkEndpoint `pulumi:"awsEgressPrivateLinkEndpoints"`
+	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkEndpoints []GetAccessPointAwsIngressPrivateLinkEndpoint `pulumi:"awsIngressPrivateLinkEndpoints"`
 	// (Optional Configuration Block) Supports the following:
 	AwsPrivateNetworkInterfaces []GetAccessPointAwsPrivateNetworkInterface `pulumi:"awsPrivateNetworkInterfaces"`
 	// (Optional Configuration Block) supports the following:
@@ -124,6 +126,13 @@ func (o LookupAccessPointResultOutput) AwsEgressPrivateLinkEndpoints() GetAccess
 	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointAwsEgressPrivateLinkEndpoint {
 		return v.AwsEgressPrivateLinkEndpoints
 	}).(GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupAccessPointResultOutput) AwsIngressPrivateLinkEndpoints() GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointAwsIngressPrivateLinkEndpoint {
+		return v.AwsIngressPrivateLinkEndpoints
+	}).(GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput)
 }
 
 // (Optional Configuration Block) Supports the following:

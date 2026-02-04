@@ -24,6 +24,8 @@ import com.pulumi.confluentcloud.inputs.GetConnectArtifactArgs;
 import com.pulumi.confluentcloud.inputs.GetConnectArtifactPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
 import com.pulumi.confluentcloud.inputs.GetDnsRecordPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetEndpointArgs;
+import com.pulumi.confluentcloud.inputs.GetEndpointPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
@@ -36,6 +38,8 @@ import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkRegionPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
 import com.pulumi.confluentcloud.inputs.GetGatewayPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetGatewaysArgs;
+import com.pulumi.confluentcloud.inputs.GetGatewaysPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
 import com.pulumi.confluentcloud.inputs.GetGroupMappingPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
@@ -124,6 +128,7 @@ import com.pulumi.confluentcloud.outputs.GetCertificatePoolResult;
 import com.pulumi.confluentcloud.outputs.GetClusterLinkResult;
 import com.pulumi.confluentcloud.outputs.GetConnectArtifactResult;
 import com.pulumi.confluentcloud.outputs.GetDnsRecordResult;
+import com.pulumi.confluentcloud.outputs.GetEndpointResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentsResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkArtifactResult;
@@ -131,6 +136,7 @@ import com.pulumi.confluentcloud.outputs.GetFlinkComputePoolResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkConnectionResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkRegionResult;
 import com.pulumi.confluentcloud.outputs.GetGatewayResult;
+import com.pulumi.confluentcloud.outputs.GetGatewaysResult;
 import com.pulumi.confluentcloud.outputs.GetGroupMappingResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityPoolResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityProviderResult;
@@ -3574,6 +3580,281 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
+     * `confluentcloud.getEndpoint` describes an Endpoint data source.
+     * 
+     * An Endpoint object represents a Fully Qualified Domain Name (FQDN) for a Confluent service resource via a specific networking solution for a given Confluent Cloud environment. Endpoints can be filtered by service, cloud provider, region, etc.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointArgs;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointFilterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointFilterEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getEndpoint(GetEndpointArgs.builder()
+     *             .filter(GetEndpointFilterArgs.builder()
+     *                 .environment(GetEndpointFilterEnvironmentArgs.builder()
+     *                     .id("env-123abc")
+     *                     .build())
+     *                 .service("KAFKA")
+     *                 .resource("lkc-abc123")
+     *                 .cloud("AWS")
+     *                 .region("us-west-2")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("endpoints", main.endpoints());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args) {
+        return getEndpoint(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getEndpoint` describes an Endpoint data source.
+     * 
+     * An Endpoint object represents a Fully Qualified Domain Name (FQDN) for a Confluent service resource via a specific networking solution for a given Confluent Cloud environment. Endpoints can be filtered by service, cloud provider, region, etc.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointArgs;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointFilterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointFilterEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getEndpoint(GetEndpointArgs.builder()
+     *             .filter(GetEndpointFilterArgs.builder()
+     *                 .environment(GetEndpointFilterEnvironmentArgs.builder()
+     *                     .id("env-123abc")
+     *                     .build())
+     *                 .service("KAFKA")
+     *                 .resource("lkc-abc123")
+     *                 .cloud("AWS")
+     *                 .region("us-west-2")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("endpoints", main.endpoints());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args) {
+        return getEndpointPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getEndpoint` describes an Endpoint data source.
+     * 
+     * An Endpoint object represents a Fully Qualified Domain Name (FQDN) for a Confluent service resource via a specific networking solution for a given Confluent Cloud environment. Endpoints can be filtered by service, cloud provider, region, etc.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointArgs;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointFilterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointFilterEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getEndpoint(GetEndpointArgs.builder()
+     *             .filter(GetEndpointFilterArgs.builder()
+     *                 .environment(GetEndpointFilterEnvironmentArgs.builder()
+     *                     .id("env-123abc")
+     *                     .build())
+     *                 .service("KAFKA")
+     *                 .resource("lkc-abc123")
+     *                 .cloud("AWS")
+     *                 .region("us-west-2")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("endpoints", main.endpoints());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getEndpoint` describes an Endpoint data source.
+     * 
+     * An Endpoint object represents a Fully Qualified Domain Name (FQDN) for a Confluent service resource via a specific networking solution for a given Confluent Cloud environment. Endpoints can be filtered by service, cloud provider, region, etc.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointArgs;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointFilterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointFilterEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getEndpoint(GetEndpointArgs.builder()
+     *             .filter(GetEndpointFilterArgs.builder()
+     *                 .environment(GetEndpointFilterEnvironmentArgs.builder()
+     *                     .id("env-123abc")
+     *                     .build())
+     *                 .service("KAFKA")
+     *                 .resource("lkc-abc123")
+     *                 .cloud("AWS")
+     *                 .region("us-west-2")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("endpoints", main.endpoints());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getEndpoint` describes an Endpoint data source.
+     * 
+     * An Endpoint object represents a Fully Qualified Domain Name (FQDN) for a Confluent service resource via a specific networking solution for a given Confluent Cloud environment. Endpoints can be filtered by service, cloud provider, region, etc.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointArgs;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointFilterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetEndpointFilterEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getEndpoint(GetEndpointArgs.builder()
+     *             .filter(GetEndpointFilterArgs.builder()
+     *                 .environment(GetEndpointFilterEnvironmentArgs.builder()
+     *                     .id("env-123abc")
+     *                     .build())
+     *                 .service("KAFKA")
+     *                 .resource("lkc-abc123")
+     *                 .cloud("AWS")
+     *                 .region("us-west-2")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("endpoints", main.endpoints());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
      * `confluentcloud.Environment` describes an Environment data source.
      * 
      * ## Example Usage
@@ -5330,6 +5611,346 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getGateway:getGateway", TypeShape.of(GetGatewayResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getGateways` describes a Gateways data source that allows you to filter and list multiple Gateways.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .build());
+     * 
+     *         final var readyIngress = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .filter(GetGatewaysFilterArgs.builder()
+     *                 .gatewayTypes("AwsIngressPrivateLink")
+     *                 .phases("READY")
+     *                 .build())
+     *             .build());
+     * 
+     *         final var usEast = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .filter(GetGatewaysFilterArgs.builder()
+     *                 .regions("us-east-1")
+     *                 .displayNames("prod-gateway-ingress-use1")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("allGateways", all.gateways());
+     *         ctx.export("readyIngressGateways", readyIngress.gateways());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetGatewaysResult> getGateways(GetGatewaysArgs args) {
+        return getGateways(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getGateways` describes a Gateways data source that allows you to filter and list multiple Gateways.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .build());
+     * 
+     *         final var readyIngress = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .filter(GetGatewaysFilterArgs.builder()
+     *                 .gatewayTypes("AwsIngressPrivateLink")
+     *                 .phases("READY")
+     *                 .build())
+     *             .build());
+     * 
+     *         final var usEast = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .filter(GetGatewaysFilterArgs.builder()
+     *                 .regions("us-east-1")
+     *                 .displayNames("prod-gateway-ingress-use1")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("allGateways", all.gateways());
+     *         ctx.export("readyIngressGateways", readyIngress.gateways());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetGatewaysResult> getGatewaysPlain(GetGatewaysPlainArgs args) {
+        return getGatewaysPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getGateways` describes a Gateways data source that allows you to filter and list multiple Gateways.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .build());
+     * 
+     *         final var readyIngress = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .filter(GetGatewaysFilterArgs.builder()
+     *                 .gatewayTypes("AwsIngressPrivateLink")
+     *                 .phases("READY")
+     *                 .build())
+     *             .build());
+     * 
+     *         final var usEast = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .filter(GetGatewaysFilterArgs.builder()
+     *                 .regions("us-east-1")
+     *                 .displayNames("prod-gateway-ingress-use1")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("allGateways", all.gateways());
+     *         ctx.export("readyIngressGateways", readyIngress.gateways());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetGatewaysResult> getGateways(GetGatewaysArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getGateways:getGateways", TypeShape.of(GetGatewaysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getGateways` describes a Gateways data source that allows you to filter and list multiple Gateways.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .build());
+     * 
+     *         final var readyIngress = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .filter(GetGatewaysFilterArgs.builder()
+     *                 .gatewayTypes("AwsIngressPrivateLink")
+     *                 .phases("READY")
+     *                 .build())
+     *             .build());
+     * 
+     *         final var usEast = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .filter(GetGatewaysFilterArgs.builder()
+     *                 .regions("us-east-1")
+     *                 .displayNames("prod-gateway-ingress-use1")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("allGateways", all.gateways());
+     *         ctx.export("readyIngressGateways", readyIngress.gateways());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetGatewaysResult> getGateways(GetGatewaysArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getGateways:getGateways", TypeShape.of(GetGatewaysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getGateways` describes a Gateways data source that allows you to filter and list multiple Gateways.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewaysFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .build());
+     * 
+     *         final var readyIngress = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .filter(GetGatewaysFilterArgs.builder()
+     *                 .gatewayTypes("AwsIngressPrivateLink")
+     *                 .phases("READY")
+     *                 .build())
+     *             .build());
+     * 
+     *         final var usEast = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()
+     *             .environment(GetGatewaysEnvironmentArgs.builder()
+     *                 .id("env-123abc")
+     *                 .build())
+     *             .filter(GetGatewaysFilterArgs.builder()
+     *                 .regions("us-east-1")
+     *                 .displayNames("prod-gateway-ingress-use1")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("allGateways", all.gateways());
+     *         ctx.export("readyIngressGateways", readyIngress.gateways());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetGatewaysResult> getGatewaysPlain(GetGatewaysPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getGateways:getGateways", TypeShape.of(GetGatewaysResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

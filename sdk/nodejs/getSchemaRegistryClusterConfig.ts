@@ -69,11 +69,11 @@ export interface GetSchemaRegistryClusterConfigArgs {
  */
 export interface GetSchemaRegistryClusterConfigResult {
     /**
-     * (Required String) The global Schema Registry compatibility group.
+     * (Optional String) The global Schema Registry compatibility group.
      */
     readonly compatibilityGroup: string;
     /**
-     * (Required String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+     * (Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
     readonly compatibilityLevel: string;
     readonly credentials?: outputs.GetSchemaRegistryClusterConfigCredentials;
@@ -81,6 +81,10 @@ export interface GetSchemaRegistryClusterConfigResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+     */
+    readonly normalize: boolean;
     readonly restEndpoint?: string;
     readonly schemaRegistryCluster?: outputs.GetSchemaRegistryClusterConfigSchemaRegistryCluster;
 }

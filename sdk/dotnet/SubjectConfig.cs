@@ -32,6 +32,7 @@ namespace Pulumi.ConfluentCloud
     ///         SubjectName = "proto-purchase-value",
     ///         CompatibilityLevel = "BACKWARD",
     ///         CompatibilityGroup = "abc.cg.version",
+    ///         Normalize = true,
     ///         Credentials = new ConfluentCloud.Inputs.SubjectConfigCredentialsArgs
     ///         {
     ///             Key = "&lt;Schema Registry API Key for data.confluent_schema_registry_cluster.essentials&gt;",
@@ -57,6 +58,46 @@ namespace Pulumi.ConfluentCloud
     ///         SubjectName = "proto-purchase-value",
     ///         CompatibilityLevel = "BACKWARD",
     ///         CompatibilityGroup = "abc.cg.version",
+    ///         Normalize = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Example: Creating a Subject Alias
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // First, ensure the original subject exists with a schema
+    ///     var original = new ConfluentCloud.Schema("original", new()
+    ///     {
+    ///         SubjectName = "orders-long-subject-name-value",
+    ///         Format = "AVRO",
+    ///         SchemaDetails = Std.Index.File.Invoke(new()
+    ///         {
+    ///             Input = "./schemas/avro/orders.avsc",
+    ///         }).Result,
+    ///     });
+    /// 
+    ///     // Create an alias that points to the original subject
+    ///     // Any reference to "orders-value" will now resolve to "orders-long-subject-name-value"
+    ///     var ordersAlias = new ConfluentCloud.SubjectConfig("orders_alias", new()
+    ///     {
+    ///         SubjectName = "orders-value",
+    ///         Alias = "orders-long-subject-name-value",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             original,
+    ///         },
     ///     });
     /// 
     /// });
@@ -82,6 +123,14 @@ namespace Pulumi.ConfluentCloud
     public partial class SubjectConfig : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+        /// 
+        /// &gt; **Note:** To create an alias for a subject, create a new subject config where `SubjectName` is the alias and `Alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `SubjectName = "short-name"` and `alias = "very-long-subject-name"`.
+        /// </summary>
+        [Output("alias")]
+        public Output<string> Alias { get; private set; } = null!;
+
+        /// <summary>
         /// The Compatibility Group of the specified subject.
         /// </summary>
         [Output("compatibilityGroup")]
@@ -98,6 +147,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.SubjectConfigCredentials?> Credentials { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether schemas are automatically normalized when registered or passed during lookups.
+        /// </summary>
+        [Output("normalize")]
+        public Output<bool> Normalize { get; private set; } = null!;
 
         /// <summary>
         /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -169,6 +224,14 @@ namespace Pulumi.ConfluentCloud
     public sealed class SubjectConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+        /// 
+        /// &gt; **Note:** To create an alias for a subject, create a new subject config where `SubjectName` is the alias and `Alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `SubjectName = "short-name"` and `alias = "very-long-subject-name"`.
+        /// </summary>
+        [Input("alias")]
+        public Input<string>? Alias { get; set; }
+
+        /// <summary>
         /// The Compatibility Group of the specified subject.
         /// </summary>
         [Input("compatibilityGroup")]
@@ -195,6 +258,12 @@ namespace Pulumi.ConfluentCloud
                 _credentials = Output.Tuple<Input<Inputs.SubjectConfigCredentialsArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Whether schemas are automatically normalized when registered or passed during lookups.
+        /// </summary>
+        [Input("normalize")]
+        public Input<bool>? Normalize { get; set; }
 
         /// <summary>
         /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -224,6 +293,14 @@ namespace Pulumi.ConfluentCloud
     public sealed class SubjectConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+        /// 
+        /// &gt; **Note:** To create an alias for a subject, create a new subject config where `SubjectName` is the alias and `Alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `SubjectName = "short-name"` and `alias = "very-long-subject-name"`.
+        /// </summary>
+        [Input("alias")]
+        public Input<string>? Alias { get; set; }
+
+        /// <summary>
         /// The Compatibility Group of the specified subject.
         /// </summary>
         [Input("compatibilityGroup")]
@@ -250,6 +327,12 @@ namespace Pulumi.ConfluentCloud
                 _credentials = Output.Tuple<Input<Inputs.SubjectConfigCredentialsGetArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Whether schemas are automatically normalized when registered or passed during lookups.
+        /// </summary>
+        [Input("normalize")]
+        public Input<bool>? Normalize { get; set; }
 
         /// <summary>
         /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

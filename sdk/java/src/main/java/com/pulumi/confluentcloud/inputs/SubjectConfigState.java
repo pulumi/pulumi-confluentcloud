@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.SubjectConfigCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.SubjectConfigSchemaRegistryClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,25 @@ import javax.annotation.Nullable;
 public final class SubjectConfigState extends com.pulumi.resources.ResourceArgs {
 
     public static final SubjectConfigState Empty = new SubjectConfigState();
+
+    /**
+     * The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+     * 
+     * &gt; **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = &#34;short-name&#34;` and `alias = &#34;very-long-subject-name&#34;`.
+     * 
+     */
+    @Import(name="alias")
+    private @Nullable Output<String> alias;
+
+    /**
+     * @return The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+     * 
+     * &gt; **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = &#34;short-name&#34;` and `alias = &#34;very-long-subject-name&#34;`.
+     * 
+     */
+    public Optional<Output<String>> alias() {
+        return Optional.ofNullable(this.alias);
+    }
 
     /**
      * The Compatibility Group of the specified subject.
@@ -60,6 +80,21 @@ public final class SubjectConfigState extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<SubjectConfigCredentialsArgs>> credentials() {
         return Optional.ofNullable(this.credentials);
+    }
+
+    /**
+     * Whether schemas are automatically normalized when registered or passed during lookups.
+     * 
+     */
+    @Import(name="normalize")
+    private @Nullable Output<Boolean> normalize;
+
+    /**
+     * @return Whether schemas are automatically normalized when registered or passed during lookups.
+     * 
+     */
+    public Optional<Output<Boolean>> normalize() {
+        return Optional.ofNullable(this.normalize);
     }
 
     /**
@@ -110,9 +145,11 @@ public final class SubjectConfigState extends com.pulumi.resources.ResourceArgs 
     private SubjectConfigState() {}
 
     private SubjectConfigState(SubjectConfigState $) {
+        this.alias = $.alias;
         this.compatibilityGroup = $.compatibilityGroup;
         this.compatibilityLevel = $.compatibilityLevel;
         this.credentials = $.credentials;
+        this.normalize = $.normalize;
         this.restEndpoint = $.restEndpoint;
         this.schemaRegistryCluster = $.schemaRegistryCluster;
         this.subjectName = $.subjectName;
@@ -134,6 +171,31 @@ public final class SubjectConfigState extends com.pulumi.resources.ResourceArgs 
 
         public Builder(SubjectConfigState defaults) {
             $ = new SubjectConfigState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param alias The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+         * 
+         * &gt; **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = &#34;short-name&#34;` and `alias = &#34;very-long-subject-name&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alias(@Nullable Output<String> alias) {
+            $.alias = alias;
+            return this;
+        }
+
+        /**
+         * @param alias The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+         * 
+         * &gt; **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = &#34;short-name&#34;` and `alias = &#34;very-long-subject-name&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alias(String alias) {
+            return alias(Output.of(alias));
         }
 
         /**
@@ -197,6 +259,27 @@ public final class SubjectConfigState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder credentials(SubjectConfigCredentialsArgs credentials) {
             return credentials(Output.of(credentials));
+        }
+
+        /**
+         * @param normalize Whether schemas are automatically normalized when registered or passed during lookups.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder normalize(@Nullable Output<Boolean> normalize) {
+            $.normalize = normalize;
+            return this;
+        }
+
+        /**
+         * @param normalize Whether schemas are automatically normalized when registered or passed during lookups.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder normalize(Boolean normalize) {
+            return normalize(Output.of(normalize));
         }
 
         /**

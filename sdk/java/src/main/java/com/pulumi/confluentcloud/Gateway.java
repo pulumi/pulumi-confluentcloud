@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.GatewayArgs;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.GatewayState;
 import com.pulumi.confluentcloud.outputs.GatewayAwsEgressPrivateLinkGateway;
+import com.pulumi.confluentcloud.outputs.GatewayAwsIngressPrivateLinkGateway;
 import com.pulumi.confluentcloud.outputs.GatewayAwsPrivateNetworkInterfaceGateway;
 import com.pulumi.confluentcloud.outputs.GatewayAzureEgressPrivateLinkGateway;
 import com.pulumi.confluentcloud.outputs.GatewayEnvironment;
@@ -55,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var main = new Gateway("main", GatewayArgs.builder()
- *             .displayName("my_gateway")
+ *             .displayName("my_egress_gateway")
  *             .environment(GatewayEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
@@ -105,6 +106,20 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      */
     public Output<GatewayAwsEgressPrivateLinkGateway> awsEgressPrivateLinkGateway() {
         return this.awsEgressPrivateLinkGateway;
+    }
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Export(name="awsIngressPrivateLinkGateway", refs={GatewayAwsIngressPrivateLinkGateway.class}, tree="[0]")
+    private Output<GatewayAwsIngressPrivateLinkGateway> awsIngressPrivateLinkGateway;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Output<GatewayAwsIngressPrivateLinkGateway> awsIngressPrivateLinkGateway() {
+        return this.awsIngressPrivateLinkGateway;
     }
     /**
      * (Optional Configuration Block) supports the following:

@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewGateway(ctx, "main", &confluentcloud.GatewayArgs{
-//				DisplayName: pulumi.String("my_gateway"),
+//				DisplayName: pulumi.String("my_egress_gateway"),
 //				Environment: &confluentcloud.GatewayEnvironmentArgs{
 //					Id: development.ID(),
 //				},
@@ -78,6 +78,8 @@ type Gateway struct {
 
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkGateway GatewayAwsEgressPrivateLinkGatewayOutput `pulumi:"awsEgressPrivateLinkGateway"`
+	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkGateway GatewayAwsIngressPrivateLinkGatewayOutput `pulumi:"awsIngressPrivateLinkGateway"`
 	// (Optional Configuration Block) supports the following:
 	AwsPrivateNetworkInterfaceGateway GatewayAwsPrivateNetworkInterfaceGatewayOutput `pulumi:"awsPrivateNetworkInterfaceGateway"`
 	// (Optional Configuration Block) supports the following:
@@ -127,6 +129,8 @@ type gatewayState struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkGateway *GatewayAwsEgressPrivateLinkGateway `pulumi:"awsEgressPrivateLinkGateway"`
 	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkGateway *GatewayAwsIngressPrivateLinkGateway `pulumi:"awsIngressPrivateLinkGateway"`
+	// (Optional Configuration Block) supports the following:
 	AwsPrivateNetworkInterfaceGateway *GatewayAwsPrivateNetworkInterfaceGateway `pulumi:"awsPrivateNetworkInterfaceGateway"`
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateway *GatewayAzureEgressPrivateLinkGateway `pulumi:"azureEgressPrivateLinkGateway"`
@@ -139,6 +143,8 @@ type gatewayState struct {
 type GatewayState struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkGateway GatewayAwsEgressPrivateLinkGatewayPtrInput
+	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkGateway GatewayAwsIngressPrivateLinkGatewayPtrInput
 	// (Optional Configuration Block) supports the following:
 	AwsPrivateNetworkInterfaceGateway GatewayAwsPrivateNetworkInterfaceGatewayPtrInput
 	// (Optional Configuration Block) supports the following:
@@ -157,6 +163,8 @@ type gatewayArgs struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkGateway *GatewayAwsEgressPrivateLinkGateway `pulumi:"awsEgressPrivateLinkGateway"`
 	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkGateway *GatewayAwsIngressPrivateLinkGateway `pulumi:"awsIngressPrivateLinkGateway"`
+	// (Optional Configuration Block) supports the following:
 	AwsPrivateNetworkInterfaceGateway *GatewayAwsPrivateNetworkInterfaceGateway `pulumi:"awsPrivateNetworkInterfaceGateway"`
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateway *GatewayAzureEgressPrivateLinkGateway `pulumi:"azureEgressPrivateLinkGateway"`
@@ -170,6 +178,8 @@ type gatewayArgs struct {
 type GatewayArgs struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkGateway GatewayAwsEgressPrivateLinkGatewayPtrInput
+	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkGateway GatewayAwsIngressPrivateLinkGatewayPtrInput
 	// (Optional Configuration Block) supports the following:
 	AwsPrivateNetworkInterfaceGateway GatewayAwsPrivateNetworkInterfaceGatewayPtrInput
 	// (Optional Configuration Block) supports the following:
@@ -270,6 +280,11 @@ func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOu
 // (Optional Configuration Block) supports the following:
 func (o GatewayOutput) AwsEgressPrivateLinkGateway() GatewayAwsEgressPrivateLinkGatewayOutput {
 	return o.ApplyT(func(v *Gateway) GatewayAwsEgressPrivateLinkGatewayOutput { return v.AwsEgressPrivateLinkGateway }).(GatewayAwsEgressPrivateLinkGatewayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GatewayOutput) AwsIngressPrivateLinkGateway() GatewayAwsIngressPrivateLinkGatewayOutput {
+	return o.ApplyT(func(v *Gateway) GatewayAwsIngressPrivateLinkGatewayOutput { return v.AwsIngressPrivateLinkGateway }).(GatewayAwsIngressPrivateLinkGatewayOutput)
 }
 
 // (Optional Configuration Block) supports the following:

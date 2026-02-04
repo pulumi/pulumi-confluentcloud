@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -90,6 +91,7 @@ import javax.annotation.Nullable;
  *         var example = new SchemaRegistryClusterConfig("example", SchemaRegistryClusterConfigArgs.builder()
  *             .compatibilityLevel("FULL")
  *             .compatibilityGroup("abc.cg.version")
+ *             .normalize(true)
  *             .build());
  * 
  *     }
@@ -157,6 +159,20 @@ public class SchemaRegistryClusterConfig extends com.pulumi.resources.CustomReso
      */
     public Output<Optional<SchemaRegistryClusterConfigCredentials>> credentials() {
         return Codegen.optional(this.credentials);
+    }
+    /**
+     * Whether schemas are automatically normalized when registered or passed during lookups.
+     * 
+     */
+    @Export(name="normalize", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> normalize;
+
+    /**
+     * @return Whether schemas are automatically normalized when registered or passed during lookups.
+     * 
+     */
+    public Output<Boolean> normalize() {
+        return this.normalize;
     }
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

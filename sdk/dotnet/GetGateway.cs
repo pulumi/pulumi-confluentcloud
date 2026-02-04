@@ -160,6 +160,10 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// (Optional Configuration Block) supports the following:
         /// </summary>
+        public readonly ImmutableArray<Outputs.GetGatewayAwsIngressPrivateLinkGatewayResult> AwsIngressPrivateLinkGateways;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetGatewayAwsPeeringGatewayResult> AwsPeeringGateways;
         /// <summary>
         /// (Optional Configuration Block) supports the following:
@@ -192,6 +196,8 @@ namespace Pulumi.ConfluentCloud
         private GetGatewayResult(
             ImmutableArray<Outputs.GetGatewayAwsEgressPrivateLinkGatewayResult> awsEgressPrivateLinkGateways,
 
+            ImmutableArray<Outputs.GetGatewayAwsIngressPrivateLinkGatewayResult> awsIngressPrivateLinkGateways,
+
             ImmutableArray<Outputs.GetGatewayAwsPeeringGatewayResult> awsPeeringGateways,
 
             ImmutableArray<Outputs.GetGatewayAwsPrivateNetworkInterfaceGatewayResult> awsPrivateNetworkInterfaceGateways,
@@ -211,6 +217,7 @@ namespace Pulumi.ConfluentCloud
             string id)
         {
             AwsEgressPrivateLinkGateways = awsEgressPrivateLinkGateways;
+            AwsIngressPrivateLinkGateways = awsIngressPrivateLinkGateways;
             AwsPeeringGateways = awsPeeringGateways;
             AwsPrivateNetworkInterfaceGateways = awsPrivateNetworkInterfaceGateways;
             AzureEgressPrivateLinkGateways = azureEgressPrivateLinkGateways;

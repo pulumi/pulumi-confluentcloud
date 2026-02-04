@@ -104,13 +104,17 @@ type LookupSubjectConfigArgs struct {
 
 // A collection of values returned by getSubjectConfig.
 type LookupSubjectConfigResult struct {
-	// (Required String) The Compatibility Group of the specified subject.
+	// (Optional String) The subject name that this subject is an alias for.
+	Alias string `pulumi:"alias"`
+	// (Optional String) The Compatibility Group of the specified subject.
 	CompatibilityGroup string `pulumi:"compatibilityGroup"`
-	// (Required String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+	// (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel string                       `pulumi:"compatibilityLevel"`
 	Credentials        *GetSubjectConfigCredentials `pulumi:"credentials"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                    string                                 `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+	Normalize             bool                                   `pulumi:"normalize"`
 	RestEndpoint          *string                                `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *GetSubjectConfigSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
 	SubjectName           string                                 `pulumi:"subjectName"`
@@ -154,12 +158,17 @@ func (o LookupSubjectConfigResultOutput) ToLookupSubjectConfigResultOutputWithCo
 	return o
 }
 
-// (Required String) The Compatibility Group of the specified subject.
+// (Optional String) The subject name that this subject is an alias for.
+func (o LookupSubjectConfigResultOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubjectConfigResult) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+// (Optional String) The Compatibility Group of the specified subject.
 func (o LookupSubjectConfigResultOutput) CompatibilityGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubjectConfigResult) string { return v.CompatibilityGroup }).(pulumi.StringOutput)
 }
 
-// (Required String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+// (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 func (o LookupSubjectConfigResultOutput) CompatibilityLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubjectConfigResult) string { return v.CompatibilityLevel }).(pulumi.StringOutput)
 }
@@ -171,6 +180,11 @@ func (o LookupSubjectConfigResultOutput) Credentials() GetSubjectConfigCredentia
 // The provider-assigned unique ID for this managed resource.
 func (o LookupSubjectConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubjectConfigResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+func (o LookupSubjectConfigResultOutput) Normalize() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubjectConfigResult) bool { return v.Normalize }).(pulumi.BoolOutput)
 }
 
 func (o LookupSubjectConfigResultOutput) RestEndpoint() pulumi.StringPtrOutput {

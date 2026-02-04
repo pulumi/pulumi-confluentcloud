@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetAccessPointAwsEgressPrivateLinkEndpoint;
+import com.pulumi.confluentcloud.outputs.GetAccessPointAwsIngressPrivateLinkEndpoint;
 import com.pulumi.confluentcloud.outputs.GetAccessPointAwsPrivateNetworkInterface;
 import com.pulumi.confluentcloud.outputs.GetAccessPointAzureEgressPrivateLinkEndpoint;
 import com.pulumi.confluentcloud.outputs.GetAccessPointEnvironment;
@@ -23,6 +24,11 @@ public final class GetAccessPointResult {
      * 
      */
     private List<GetAccessPointAwsEgressPrivateLinkEndpoint> awsEgressPrivateLinkEndpoints;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetAccessPointAwsIngressPrivateLinkEndpoint> awsIngressPrivateLinkEndpoints;
     /**
      * @return (Optional Configuration Block) Supports the following:
      * 
@@ -62,6 +68,13 @@ public final class GetAccessPointResult {
      */
     public List<GetAccessPointAwsEgressPrivateLinkEndpoint> awsEgressPrivateLinkEndpoints() {
         return this.awsEgressPrivateLinkEndpoints;
+    }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetAccessPointAwsIngressPrivateLinkEndpoint> awsIngressPrivateLinkEndpoints() {
+        return this.awsIngressPrivateLinkEndpoints;
     }
     /**
      * @return (Optional Configuration Block) Supports the following:
@@ -119,6 +132,7 @@ public final class GetAccessPointResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetAccessPointAwsEgressPrivateLinkEndpoint> awsEgressPrivateLinkEndpoints;
+        private List<GetAccessPointAwsIngressPrivateLinkEndpoint> awsIngressPrivateLinkEndpoints;
         private List<GetAccessPointAwsPrivateNetworkInterface> awsPrivateNetworkInterfaces;
         private List<GetAccessPointAzureEgressPrivateLinkEndpoint> azureEgressPrivateLinkEndpoints;
         private String displayName;
@@ -130,6 +144,7 @@ public final class GetAccessPointResult {
         public Builder(GetAccessPointResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsEgressPrivateLinkEndpoints = defaults.awsEgressPrivateLinkEndpoints;
+    	      this.awsIngressPrivateLinkEndpoints = defaults.awsIngressPrivateLinkEndpoints;
     	      this.awsPrivateNetworkInterfaces = defaults.awsPrivateNetworkInterfaces;
     	      this.azureEgressPrivateLinkEndpoints = defaults.azureEgressPrivateLinkEndpoints;
     	      this.displayName = defaults.displayName;
@@ -149,6 +164,17 @@ public final class GetAccessPointResult {
         }
         public Builder awsEgressPrivateLinkEndpoints(GetAccessPointAwsEgressPrivateLinkEndpoint... awsEgressPrivateLinkEndpoints) {
             return awsEgressPrivateLinkEndpoints(List.of(awsEgressPrivateLinkEndpoints));
+        }
+        @CustomType.Setter
+        public Builder awsIngressPrivateLinkEndpoints(List<GetAccessPointAwsIngressPrivateLinkEndpoint> awsIngressPrivateLinkEndpoints) {
+            if (awsIngressPrivateLinkEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "awsIngressPrivateLinkEndpoints");
+            }
+            this.awsIngressPrivateLinkEndpoints = awsIngressPrivateLinkEndpoints;
+            return this;
+        }
+        public Builder awsIngressPrivateLinkEndpoints(GetAccessPointAwsIngressPrivateLinkEndpoint... awsIngressPrivateLinkEndpoints) {
+            return awsIngressPrivateLinkEndpoints(List.of(awsIngressPrivateLinkEndpoints));
         }
         @CustomType.Setter
         public Builder awsPrivateNetworkInterfaces(List<GetAccessPointAwsPrivateNetworkInterface> awsPrivateNetworkInterfaces) {
@@ -219,6 +245,7 @@ public final class GetAccessPointResult {
         public GetAccessPointResult build() {
             final var _resultValue = new GetAccessPointResult();
             _resultValue.awsEgressPrivateLinkEndpoints = awsEgressPrivateLinkEndpoints;
+            _resultValue.awsIngressPrivateLinkEndpoints = awsIngressPrivateLinkEndpoints;
             _resultValue.awsPrivateNetworkInterfaces = awsPrivateNetworkInterfaces;
             _resultValue.azureEgressPrivateLinkEndpoints = azureEgressPrivateLinkEndpoints;
             _resultValue.displayName = displayName;

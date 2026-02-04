@@ -38,6 +38,7 @@ from .get_certificate_pool import *
 from .get_cluster_link import *
 from .get_connect_artifact import *
 from .get_dns_record import *
+from .get_endpoint import *
 from .get_environment import *
 from .get_environments import *
 from .get_flink_artifact import *
@@ -45,6 +46,7 @@ from .get_flink_compute_pool import *
 from .get_flink_connection import *
 from .get_flink_region import *
 from .get_gateway import *
+from .get_gateways import *
 from .get_group_mapping import *
 from .get_identity_pool import *
 from .get_identity_provider import *

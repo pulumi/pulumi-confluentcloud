@@ -66,6 +66,8 @@ type LookupGatewayResult struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkGateways []GetGatewayAwsEgressPrivateLinkGateway `pulumi:"awsEgressPrivateLinkGateways"`
 	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkGateways []GetGatewayAwsIngressPrivateLinkGateway `pulumi:"awsIngressPrivateLinkGateways"`
+	// (Optional Configuration Block) supports the following:
 	AwsPeeringGateways []GetGatewayAwsPeeringGateway `pulumi:"awsPeeringGateways"`
 	// (Optional Configuration Block) supports the following:
 	AwsPrivateNetworkInterfaceGateways []GetGatewayAwsPrivateNetworkInterfaceGateway `pulumi:"awsPrivateNetworkInterfaceGateways"`
@@ -123,6 +125,13 @@ func (o LookupGatewayResultOutput) AwsEgressPrivateLinkGateways() GetGatewayAwsE
 	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayAwsEgressPrivateLinkGateway {
 		return v.AwsEgressPrivateLinkGateways
 	}).(GetGatewayAwsEgressPrivateLinkGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupGatewayResultOutput) AwsIngressPrivateLinkGateways() GetGatewayAwsIngressPrivateLinkGatewayArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayAwsIngressPrivateLinkGateway {
+		return v.AwsIngressPrivateLinkGateways
+	}).(GetGatewayAwsIngressPrivateLinkGatewayArrayOutput)
 }
 
 // (Optional Configuration Block) supports the following:

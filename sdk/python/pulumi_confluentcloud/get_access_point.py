@@ -28,10 +28,13 @@ class GetAccessPointResult:
     """
     A collection of values returned by getAccessPoint.
     """
-    def __init__(__self__, aws_egress_private_link_endpoints=None, aws_private_network_interfaces=None, azure_egress_private_link_endpoints=None, display_name=None, environment=None, gateways=None, gcp_egress_private_service_connect_endpoints=None, id=None):
+    def __init__(__self__, aws_egress_private_link_endpoints=None, aws_ingress_private_link_endpoints=None, aws_private_network_interfaces=None, azure_egress_private_link_endpoints=None, display_name=None, environment=None, gateways=None, gcp_egress_private_service_connect_endpoints=None, id=None):
         if aws_egress_private_link_endpoints and not isinstance(aws_egress_private_link_endpoints, list):
             raise TypeError("Expected argument 'aws_egress_private_link_endpoints' to be a list")
         pulumi.set(__self__, "aws_egress_private_link_endpoints", aws_egress_private_link_endpoints)
+        if aws_ingress_private_link_endpoints and not isinstance(aws_ingress_private_link_endpoints, list):
+            raise TypeError("Expected argument 'aws_ingress_private_link_endpoints' to be a list")
+        pulumi.set(__self__, "aws_ingress_private_link_endpoints", aws_ingress_private_link_endpoints)
         if aws_private_network_interfaces and not isinstance(aws_private_network_interfaces, list):
             raise TypeError("Expected argument 'aws_private_network_interfaces' to be a list")
         pulumi.set(__self__, "aws_private_network_interfaces", aws_private_network_interfaces)
@@ -61,6 +64,14 @@ class GetAccessPointResult:
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "aws_egress_private_link_endpoints")
+
+    @_builtins.property
+    @pulumi.getter(name="awsIngressPrivateLinkEndpoints")
+    def aws_ingress_private_link_endpoints(self) -> Sequence['outputs.GetAccessPointAwsIngressPrivateLinkEndpointResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "aws_ingress_private_link_endpoints")
 
     @_builtins.property
     @pulumi.getter(name="awsPrivateNetworkInterfaces")
@@ -123,6 +134,7 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
             yield self
         return GetAccessPointResult(
             aws_egress_private_link_endpoints=self.aws_egress_private_link_endpoints,
+            aws_ingress_private_link_endpoints=self.aws_ingress_private_link_endpoints,
             aws_private_network_interfaces=self.aws_private_network_interfaces,
             azure_egress_private_link_endpoints=self.azure_egress_private_link_endpoints,
             display_name=self.display_name,
@@ -167,6 +179,7 @@ def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs'
 
     return AwaitableGetAccessPointResult(
         aws_egress_private_link_endpoints=pulumi.get(__ret__, 'aws_egress_private_link_endpoints'),
+        aws_ingress_private_link_endpoints=pulumi.get(__ret__, 'aws_ingress_private_link_endpoints'),
         aws_private_network_interfaces=pulumi.get(__ret__, 'aws_private_network_interfaces'),
         azure_egress_private_link_endpoints=pulumi.get(__ret__, 'azure_egress_private_link_endpoints'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -208,6 +221,7 @@ def get_access_point_output(environment: Optional[pulumi.Input[Union['GetAccessP
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getAccessPoint:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult)
     return __ret__.apply(lambda __response__: GetAccessPointResult(
         aws_egress_private_link_endpoints=pulumi.get(__response__, 'aws_egress_private_link_endpoints'),
+        aws_ingress_private_link_endpoints=pulumi.get(__response__, 'aws_ingress_private_link_endpoints'),
         aws_private_network_interfaces=pulumi.get(__response__, 'aws_private_network_interfaces'),
         azure_egress_private_link_endpoints=pulumi.get(__response__, 'azure_egress_private_link_endpoints'),
         display_name=pulumi.get(__response__, 'display_name'),

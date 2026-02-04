@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.SchemaRegistryClusterConfigCredentialsAr
 import com.pulumi.confluentcloud.inputs.SchemaRegistryClusterConfigSchemaRegistryClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -63,6 +64,21 @@ public final class SchemaRegistryClusterConfigState extends com.pulumi.resources
     }
 
     /**
+     * Whether schemas are automatically normalized when registered or passed during lookups.
+     * 
+     */
+    @Import(name="normalize")
+    private @Nullable Output<Boolean> normalize;
+
+    /**
+     * @return Whether schemas are automatically normalized when registered or passed during lookups.
+     * 
+     */
+    public Optional<Output<Boolean>> normalize() {
+        return Optional.ofNullable(this.normalize);
+    }
+
+    /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
@@ -90,6 +106,7 @@ public final class SchemaRegistryClusterConfigState extends com.pulumi.resources
         this.compatibilityGroup = $.compatibilityGroup;
         this.compatibilityLevel = $.compatibilityLevel;
         this.credentials = $.credentials;
+        this.normalize = $.normalize;
         this.restEndpoint = $.restEndpoint;
         this.schemaRegistryCluster = $.schemaRegistryCluster;
     }
@@ -173,6 +190,27 @@ public final class SchemaRegistryClusterConfigState extends com.pulumi.resources
          */
         public Builder credentials(SchemaRegistryClusterConfigCredentialsArgs credentials) {
             return credentials(Output.of(credentials));
+        }
+
+        /**
+         * @param normalize Whether schemas are automatically normalized when registered or passed during lookups.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder normalize(@Nullable Output<Boolean> normalize) {
+            $.normalize = normalize;
+            return this;
+        }
+
+        /**
+         * @param normalize Whether schemas are automatically normalized when registered or passed during lookups.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder normalize(Boolean normalize) {
+            return normalize(Output.of(normalize));
         }
 
         /**

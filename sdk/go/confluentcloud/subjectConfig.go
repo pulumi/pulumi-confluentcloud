@@ -36,6 +36,7 @@ import (
 //				SubjectName:        pulumi.String("proto-purchase-value"),
 //				CompatibilityLevel: pulumi.String("BACKWARD"),
 //				CompatibilityGroup: pulumi.String("abc.cg.version"),
+//				Normalize:          pulumi.Bool(true),
 //				Credentials: &confluentcloud.SubjectConfigCredentialsArgs{
 //					Key:    pulumi.String("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>"),
 //					Secret: pulumi.String("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>"),
@@ -68,7 +69,55 @@ import (
 //				SubjectName:        pulumi.String("proto-purchase-value"),
 //				CompatibilityLevel: pulumi.String("BACKWARD"),
 //				CompatibilityGroup: pulumi.String("abc.cg.version"),
+//				Normalize:          pulumi.Bool(true),
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Example: Creating a Subject Alias
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, map[string]interface{}{
+//				"input": "./schemas/avro/orders.avsc",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// First, ensure the original subject exists with a schema
+//			original, err := confluentcloud.NewSchema(ctx, "original", &confluentcloud.SchemaArgs{
+//				SubjectName: pulumi.String("orders-long-subject-name-value"),
+//				Format:      pulumi.String("AVRO"),
+//				Schema:      invokeFile.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Create an alias that points to the original subject
+//			// Any reference to "orders-value" will now resolve to "orders-long-subject-name-value"
+//			_, err = confluentcloud.NewSubjectConfig(ctx, "orders_alias", &confluentcloud.SubjectConfigArgs{
+//				SubjectName: pulumi.String("orders-value"),
+//				Alias:       pulumi.String("orders-long-subject-name-value"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				original,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -96,12 +145,18 @@ import (
 type SubjectConfig struct {
 	pulumi.CustomResourceState
 
+	// The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+	//
+	// > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
+	Alias pulumi.StringOutput `pulumi:"alias"`
 	// The Compatibility Group of the specified subject.
 	CompatibilityGroup pulumi.StringOutput `pulumi:"compatibilityGroup"`
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel pulumi.StringOutput `pulumi:"compatibilityLevel"`
 	// The Cluster API Credentials.
 	Credentials SubjectConfigCredentialsPtrOutput `pulumi:"credentials"`
+	// Whether schemas are automatically normalized when registered or passed during lookups.
+	Normalize pulumi.BoolOutput `pulumi:"normalize"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrOutput                      `pulumi:"restEndpoint"`
 	SchemaRegistryCluster SubjectConfigSchemaRegistryClusterPtrOutput `pulumi:"schemaRegistryCluster"`
@@ -153,12 +208,18 @@ func GetSubjectConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubjectConfig resources.
 type subjectConfigState struct {
+	// The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+	//
+	// > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
+	Alias *string `pulumi:"alias"`
 	// The Compatibility Group of the specified subject.
 	CompatibilityGroup *string `pulumi:"compatibilityGroup"`
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// The Cluster API Credentials.
 	Credentials *SubjectConfigCredentials `pulumi:"credentials"`
+	// Whether schemas are automatically normalized when registered or passed during lookups.
+	Normalize *bool `pulumi:"normalize"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                             `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *SubjectConfigSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
@@ -171,12 +232,18 @@ type subjectConfigState struct {
 }
 
 type SubjectConfigState struct {
+	// The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+	//
+	// > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
+	Alias pulumi.StringPtrInput
 	// The Compatibility Group of the specified subject.
 	CompatibilityGroup pulumi.StringPtrInput
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel pulumi.StringPtrInput
 	// The Cluster API Credentials.
 	Credentials SubjectConfigCredentialsPtrInput
+	// Whether schemas are automatically normalized when registered or passed during lookups.
+	Normalize pulumi.BoolPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
 	SchemaRegistryCluster SubjectConfigSchemaRegistryClusterPtrInput
@@ -193,12 +260,18 @@ func (SubjectConfigState) ElementType() reflect.Type {
 }
 
 type subjectConfigArgs struct {
+	// The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+	//
+	// > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
+	Alias *string `pulumi:"alias"`
 	// The Compatibility Group of the specified subject.
 	CompatibilityGroup *string `pulumi:"compatibilityGroup"`
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// The Cluster API Credentials.
 	Credentials *SubjectConfigCredentials `pulumi:"credentials"`
+	// Whether schemas are automatically normalized when registered or passed during lookups.
+	Normalize *bool `pulumi:"normalize"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                             `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *SubjectConfigSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
@@ -212,12 +285,18 @@ type subjectConfigArgs struct {
 
 // The set of arguments for constructing a SubjectConfig resource.
 type SubjectConfigArgs struct {
+	// The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+	//
+	// > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
+	Alias pulumi.StringPtrInput
 	// The Compatibility Group of the specified subject.
 	CompatibilityGroup pulumi.StringPtrInput
 	// The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
 	CompatibilityLevel pulumi.StringPtrInput
 	// The Cluster API Credentials.
 	Credentials SubjectConfigCredentialsPtrInput
+	// Whether schemas are automatically normalized when registered or passed during lookups.
+	Normalize pulumi.BoolPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
 	SchemaRegistryCluster SubjectConfigSchemaRegistryClusterPtrInput
@@ -316,6 +395,13 @@ func (o SubjectConfigOutput) ToSubjectConfigOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+//
+// > **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = "short-name"` and `alias = "very-long-subject-name"`.
+func (o SubjectConfigOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubjectConfig) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+}
+
 // The Compatibility Group of the specified subject.
 func (o SubjectConfigOutput) CompatibilityGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubjectConfig) pulumi.StringOutput { return v.CompatibilityGroup }).(pulumi.StringOutput)
@@ -329,6 +415,11 @@ func (o SubjectConfigOutput) CompatibilityLevel() pulumi.StringOutput {
 // The Cluster API Credentials.
 func (o SubjectConfigOutput) Credentials() SubjectConfigCredentialsPtrOutput {
 	return o.ApplyT(func(v *SubjectConfig) SubjectConfigCredentialsPtrOutput { return v.Credentials }).(SubjectConfigCredentialsPtrOutput)
+}
+
+// Whether schemas are automatically normalized when registered or passed during lookups.
+func (o SubjectConfigOutput) Normalize() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SubjectConfig) pulumi.BoolOutput { return v.Normalize }).(pulumi.BoolOutput)
 }
 
 // The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

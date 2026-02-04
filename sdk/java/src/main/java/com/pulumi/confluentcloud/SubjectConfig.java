@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -54,6 +55,7 @@ import javax.annotation.Nullable;
  *             .subjectName("proto-purchase-value")
  *             .compatibilityLevel("BACKWARD")
  *             .compatibilityGroup("abc.cg.version")
+ *             .normalize(true)
  *             .credentials(SubjectConfigCredentialsArgs.builder()
  *                 .key("<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>")
  *                 .secret("<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>")
@@ -93,7 +95,57 @@ import javax.annotation.Nullable;
  *             .subjectName("proto-purchase-value")
  *             .compatibilityLevel("BACKWARD")
  *             .compatibilityGroup("abc.cg.version")
+ *             .normalize(true)
  *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Example: Creating a Subject Alias
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Schema;
+ * import com.pulumi.confluentcloud.SchemaArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.confluentcloud.SubjectConfig;
+ * import com.pulumi.confluentcloud.SubjectConfigArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // First, ensure the original subject exists with a schema
+ *         var original = new Schema("original", SchemaArgs.builder()
+ *             .subjectName("orders-long-subject-name-value")
+ *             .format("AVRO")
+ *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/orders.avsc")).result())
+ *             .build());
+ * 
+ *         // Create an alias that points to the original subject
+ *         // Any reference to "orders-value" will now resolve to "orders-long-subject-name-value"
+ *         var ordersAlias = new SubjectConfig("ordersAlias", SubjectConfigArgs.builder()
+ *             .subjectName("orders-value")
+ *             .alias("orders-long-subject-name-value")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(original)
+ *                 .build());
  * 
  *     }
  * }
@@ -119,6 +171,24 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/subjectConfig:SubjectConfig")
 public class SubjectConfig extends com.pulumi.resources.CustomResource {
+    /**
+     * The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+     * 
+     * &gt; **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = &#34;short-name&#34;` and `alias = &#34;very-long-subject-name&#34;`.
+     * 
+     */
+    @Export(name="alias", refs={String.class}, tree="[0]")
+    private Output<String> alias;
+
+    /**
+     * @return The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
+     * 
+     * &gt; **Note:** To create an alias for a subject, create a new subject config where `subjectName` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subjectName = &#34;short-name&#34;` and `alias = &#34;very-long-subject-name&#34;`.
+     * 
+     */
+    public Output<String> alias() {
+        return this.alias;
+    }
     /**
      * The Compatibility Group of the specified subject.
      * 
@@ -160,6 +230,20 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<SubjectConfigCredentials>> credentials() {
         return Codegen.optional(this.credentials);
+    }
+    /**
+     * Whether schemas are automatically normalized when registered or passed during lookups.
+     * 
+     */
+    @Export(name="normalize", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> normalize;
+
+    /**
+     * @return Whether schemas are automatically normalized when registered or passed during lookups.
+     * 
+     */
+    public Output<Boolean> normalize() {
+        return this.normalize;
     }
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
