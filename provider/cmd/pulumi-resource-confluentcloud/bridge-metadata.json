@@ -7,6 +7,9 @@
                     "aws_egress_private_link_endpoint": {
                         "maxItemsOne": true
                     },
+                    "aws_ingress_private_link_endpoint": {
+                        "maxItemsOne": true
+                    },
                     "aws_private_network_interface": {
                         "maxItemsOne": true,
                         "elem": {
@@ -356,6 +359,9 @@
                 "current": "confluentcloud:index/gateway:Gateway",
                 "fields": {
                     "aws_egress_private_link_gateway": {
+                        "maxItemsOne": true
+                    },
+                    "aws_ingress_private_link_gateway": {
                         "maxItemsOne": true
                     },
                     "aws_private_network_interface_gateway": {
@@ -1000,6 +1006,9 @@
                     "aws_egress_private_link_endpoint": {
                         "maxItemsOne": false
                     },
+                    "aws_ingress_private_link_endpoint": {
+                        "maxItemsOne": false
+                    },
                     "aws_private_network_interface": {
                         "maxItemsOne": false,
                         "elem": {
@@ -1152,6 +1161,40 @@
                     }
                 }
             },
+            "confluent_endpoint": {
+                "current": "confluentcloud:index/getEndpoint:getEndpoint",
+                "fields": {
+                    "endpoints": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "access_point": {
+                                    "maxItemsOne": false
+                                },
+                                "environment": {
+                                    "maxItemsOne": true
+                                },
+                                "gateway": {
+                                    "maxItemsOne": false
+                                },
+                                "resource": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "filter": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "environment": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "confluent_environment": {
                 "current": "confluentcloud:index/getEnvironment:getEnvironment",
                 "fields": {
@@ -1216,6 +1259,9 @@
                     "aws_egress_private_link_gateway": {
                         "maxItemsOne": false
                     },
+                    "aws_ingress_private_link_gateway": {
+                        "maxItemsOne": false
+                    },
                     "aws_peering_gateway": {
                         "maxItemsOne": false
                     },
@@ -1243,6 +1289,74 @@
                     },
                     "gcp_peering_gateway": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_gateways": {
+                "current": "confluentcloud:index/getGateways:getGateways",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "filter": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "display_name": {
+                                    "maxItemsOne": false
+                                },
+                                "gateway_type": {
+                                    "maxItemsOne": false
+                                },
+                                "id": {
+                                    "maxItemsOne": false
+                                },
+                                "phase": {
+                                    "maxItemsOne": false
+                                },
+                                "region": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "gateways": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "aws_egress_private_link_gateway": {
+                                    "maxItemsOne": false
+                                },
+                                "aws_ingress_private_link_gateway": {
+                                    "maxItemsOne": false
+                                },
+                                "aws_peering_gateway": {
+                                    "maxItemsOne": false
+                                },
+                                "aws_private_network_interface_gateway": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "zones": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "azure_egress_private_link_gateway": {
+                                    "maxItemsOne": false
+                                },
+                                "azure_peering_gateway": {
+                                    "maxItemsOne": false
+                                },
+                                "gcp_egress_private_service_connect_gateway": {
+                                    "maxItemsOne": false
+                                },
+                                "gcp_peering_gateway": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
