@@ -36,7 +36,7 @@ import (
 // return err
 // }
 // _, err = confluentcloud.NewAccessPoint(ctx, "aws", &confluentcloud.AccessPointArgs{
-// DisplayName: pulumi.String("access_point"),
+// DisplayName: pulumi.String("access_point_egress"),
 // Environment: &confluentcloud.AccessPointEnvironmentArgs{
 // Id: development.ID(),
 // },
@@ -51,7 +51,7 @@ import (
 // return err
 // }
 // _, err = confluentcloud.NewAccessPoint(ctx, "azure", &confluentcloud.AccessPointArgs{
-// DisplayName: pulumi.String("access_point"),
+// DisplayName: pulumi.String("access_point_egress"),
 // Environment: &confluentcloud.AccessPointEnvironmentArgs{
 // Id: development.ID(),
 // },
@@ -82,7 +82,7 @@ import (
 // return err
 // }
 // _, err = confluentcloud.NewAccessPoint(ctx, "pni", &confluentcloud.AccessPointArgs{
-// DisplayName: pulumi.String("access_point"),
+// DisplayName: pulumi.String("access_point_egress"),
 // Environment: &confluentcloud.AccessPointEnvironmentArgs{
 // Id: development.ID(),
 // },
@@ -96,6 +96,21 @@ import (
 // }, pulumi.DependsOn([]pulumi.Resource{
 // mainAwsNetworkInterfacePermission,
 // }))
+// if err != nil {
+// return err
+// }
+// _, err = confluentcloud.NewAccessPoint(ctx, "aws_ingress", &confluentcloud.AccessPointArgs{
+// DisplayName: pulumi.String("access_point_ingress"),
+// Environment: &confluentcloud.AccessPointEnvironmentArgs{
+// Id: development.ID(),
+// },
+// Gateway: &confluentcloud.AccessPointGatewayArgs{
+// Id: pulumi.Any(ingress.Id),
+// },
+// AwsIngressPrivateLinkEndpoint: &confluentcloud.AccessPointAwsIngressPrivateLinkEndpointArgs{
+// VpcEndpointId: pulumi.String("vpce-00000000000000000"),
+// },
+// })
 // if err != nil {
 // return err
 // }
@@ -128,6 +143,8 @@ type AccessPoint struct {
 
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoint AccessPointAwsEgressPrivateLinkEndpointPtrOutput `pulumi:"awsEgressPrivateLinkEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkEndpoint AccessPointAwsIngressPrivateLinkEndpointPtrOutput `pulumi:"awsIngressPrivateLinkEndpoint"`
 	// (Optional Configuration Block) supports the following:
 	AwsPrivateNetworkInterface AccessPointAwsPrivateNetworkInterfacePtrOutput `pulumi:"awsPrivateNetworkInterface"`
 	// (Optional Configuration Block) supports the following:
@@ -180,6 +197,8 @@ type accessPointState struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoint *AccessPointAwsEgressPrivateLinkEndpoint `pulumi:"awsEgressPrivateLinkEndpoint"`
 	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkEndpoint *AccessPointAwsIngressPrivateLinkEndpoint `pulumi:"awsIngressPrivateLinkEndpoint"`
+	// (Optional Configuration Block) supports the following:
 	AwsPrivateNetworkInterface *AccessPointAwsPrivateNetworkInterface `pulumi:"awsPrivateNetworkInterface"`
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkEndpoint *AccessPointAzureEgressPrivateLinkEndpoint `pulumi:"azureEgressPrivateLinkEndpoint"`
@@ -195,6 +214,8 @@ type accessPointState struct {
 type AccessPointState struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoint AccessPointAwsEgressPrivateLinkEndpointPtrInput
+	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkEndpoint AccessPointAwsIngressPrivateLinkEndpointPtrInput
 	// (Optional Configuration Block) supports the following:
 	AwsPrivateNetworkInterface AccessPointAwsPrivateNetworkInterfacePtrInput
 	// (Optional Configuration Block) supports the following:
@@ -216,6 +237,8 @@ type accessPointArgs struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoint *AccessPointAwsEgressPrivateLinkEndpoint `pulumi:"awsEgressPrivateLinkEndpoint"`
 	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkEndpoint *AccessPointAwsIngressPrivateLinkEndpoint `pulumi:"awsIngressPrivateLinkEndpoint"`
+	// (Optional Configuration Block) supports the following:
 	AwsPrivateNetworkInterface *AccessPointAwsPrivateNetworkInterface `pulumi:"awsPrivateNetworkInterface"`
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkEndpoint *AccessPointAzureEgressPrivateLinkEndpoint `pulumi:"azureEgressPrivateLinkEndpoint"`
@@ -232,6 +255,8 @@ type accessPointArgs struct {
 type AccessPointArgs struct {
 	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoint AccessPointAwsEgressPrivateLinkEndpointPtrInput
+	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkEndpoint AccessPointAwsIngressPrivateLinkEndpointPtrInput
 	// (Optional Configuration Block) supports the following:
 	AwsPrivateNetworkInterface AccessPointAwsPrivateNetworkInterfacePtrInput
 	// (Optional Configuration Block) supports the following:
@@ -337,6 +362,13 @@ func (o AccessPointOutput) AwsEgressPrivateLinkEndpoint() AccessPointAwsEgressPr
 	return o.ApplyT(func(v *AccessPoint) AccessPointAwsEgressPrivateLinkEndpointPtrOutput {
 		return v.AwsEgressPrivateLinkEndpoint
 	}).(AccessPointAwsEgressPrivateLinkEndpointPtrOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o AccessPointOutput) AwsIngressPrivateLinkEndpoint() AccessPointAwsIngressPrivateLinkEndpointPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointAwsIngressPrivateLinkEndpointPtrOutput {
+		return v.AwsIngressPrivateLinkEndpoint
+	}).(AccessPointAwsIngressPrivateLinkEndpointPtrOutput)
 }
 
 // (Optional Configuration Block) supports the following:

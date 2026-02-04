@@ -28,7 +28,10 @@ class GetSubjectConfigResult:
     """
     A collection of values returned by getSubjectConfig.
     """
-    def __init__(__self__, compatibility_group=None, compatibility_level=None, credentials=None, id=None, rest_endpoint=None, schema_registry_cluster=None, subject_name=None):
+    def __init__(__self__, alias=None, compatibility_group=None, compatibility_level=None, credentials=None, id=None, normalize=None, rest_endpoint=None, schema_registry_cluster=None, subject_name=None):
+        if alias and not isinstance(alias, str):
+            raise TypeError("Expected argument 'alias' to be a str")
+        pulumi.set(__self__, "alias", alias)
         if compatibility_group and not isinstance(compatibility_group, str):
             raise TypeError("Expected argument 'compatibility_group' to be a str")
         pulumi.set(__self__, "compatibility_group", compatibility_group)
@@ -41,6 +44,9 @@ class GetSubjectConfigResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if normalize and not isinstance(normalize, bool):
+            raise TypeError("Expected argument 'normalize' to be a bool")
+        pulumi.set(__self__, "normalize", normalize)
         if rest_endpoint and not isinstance(rest_endpoint, str):
             raise TypeError("Expected argument 'rest_endpoint' to be a str")
         pulumi.set(__self__, "rest_endpoint", rest_endpoint)
@@ -52,10 +58,18 @@ class GetSubjectConfigResult:
         pulumi.set(__self__, "subject_name", subject_name)
 
     @_builtins.property
+    @pulumi.getter
+    def alias(self) -> _builtins.str:
+        """
+        (Optional String) The subject name that this subject is an alias for.
+        """
+        return pulumi.get(self, "alias")
+
+    @_builtins.property
     @pulumi.getter(name="compatibilityGroup")
     def compatibility_group(self) -> _builtins.str:
         """
-        (Required String) The Compatibility Group of the specified subject.
+        (Optional String) The Compatibility Group of the specified subject.
         """
         return pulumi.get(self, "compatibility_group")
 
@@ -63,7 +77,7 @@ class GetSubjectConfigResult:
     @pulumi.getter(name="compatibilityLevel")
     def compatibility_level(self) -> _builtins.str:
         """
-        (Required String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+        (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         """
         return pulumi.get(self, "compatibility_level")
 
@@ -79,6 +93,14 @@ class GetSubjectConfigResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def normalize(self) -> _builtins.bool:
+        """
+        (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+        """
+        return pulumi.get(self, "normalize")
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
@@ -102,10 +124,12 @@ class AwaitableGetSubjectConfigResult(GetSubjectConfigResult):
         if False:
             yield self
         return GetSubjectConfigResult(
+            alias=self.alias,
             compatibility_group=self.compatibility_group,
             compatibility_level=self.compatibility_level,
             credentials=self.credentials,
             id=self.id,
+            normalize=self.normalize,
             rest_endpoint=self.rest_endpoint,
             schema_registry_cluster=self.schema_registry_cluster,
             subject_name=self.subject_name)
@@ -164,10 +188,12 @@ def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsA
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getSubjectConfig:getSubjectConfig', __args__, opts=opts, typ=GetSubjectConfigResult).value
 
     return AwaitableGetSubjectConfigResult(
+        alias=pulumi.get(__ret__, 'alias'),
         compatibility_group=pulumi.get(__ret__, 'compatibility_group'),
         compatibility_level=pulumi.get(__ret__, 'compatibility_level'),
         credentials=pulumi.get(__ret__, 'credentials'),
         id=pulumi.get(__ret__, 'id'),
+        normalize=pulumi.get(__ret__, 'normalize'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
         subject_name=pulumi.get(__ret__, 'subject_name'))
@@ -223,10 +249,12 @@ def get_subject_config_output(credentials: Optional[pulumi.Input[Optional[Union[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getSubjectConfig:getSubjectConfig', __args__, opts=opts, typ=GetSubjectConfigResult)
     return __ret__.apply(lambda __response__: GetSubjectConfigResult(
+        alias=pulumi.get(__response__, 'alias'),
         compatibility_group=pulumi.get(__response__, 'compatibility_group'),
         compatibility_level=pulumi.get(__response__, 'compatibility_level'),
         credentials=pulumi.get(__response__, 'credentials'),
         id=pulumi.get(__response__, 'id'),
+        normalize=pulumi.get(__response__, 'normalize'),
         rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__response__, 'schema_registry_cluster'),
         subject_name=pulumi.get(__response__, 'subject_name')))

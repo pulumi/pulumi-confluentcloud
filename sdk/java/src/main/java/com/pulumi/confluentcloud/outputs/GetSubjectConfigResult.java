@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.outputs.GetSubjectConfigCredentials;
 import com.pulumi.confluentcloud.outputs.GetSubjectConfigSchemaRegistryCluster;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,12 +16,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSubjectConfigResult {
     /**
-     * @return (Required String) The Compatibility Group of the specified subject.
+     * @return (Optional String) The subject name that this subject is an alias for.
+     * 
+     */
+    private String alias;
+    /**
+     * @return (Optional String) The Compatibility Group of the specified subject.
      * 
      */
     private String compatibilityGroup;
     /**
-     * @return (Required String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+     * @return (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      * 
      */
     private String compatibilityLevel;
@@ -30,20 +36,32 @@ public final class GetSubjectConfigResult {
      * 
      */
     private String id;
+    /**
+     * @return (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+     * 
+     */
+    private Boolean normalize;
     private @Nullable String restEndpoint;
     private @Nullable GetSubjectConfigSchemaRegistryCluster schemaRegistryCluster;
     private String subjectName;
 
     private GetSubjectConfigResult() {}
     /**
-     * @return (Required String) The Compatibility Group of the specified subject.
+     * @return (Optional String) The subject name that this subject is an alias for.
+     * 
+     */
+    public String alias() {
+        return this.alias;
+    }
+    /**
+     * @return (Optional String) The Compatibility Group of the specified subject.
      * 
      */
     public String compatibilityGroup() {
         return this.compatibilityGroup;
     }
     /**
-     * @return (Required String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+     * @return (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      * 
      */
     public String compatibilityLevel() {
@@ -58,6 +76,13 @@ public final class GetSubjectConfigResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+     * 
+     */
+    public Boolean normalize() {
+        return this.normalize;
     }
     public Optional<String> restEndpoint() {
         return Optional.ofNullable(this.restEndpoint);
@@ -78,25 +103,37 @@ public final class GetSubjectConfigResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String alias;
         private String compatibilityGroup;
         private String compatibilityLevel;
         private @Nullable GetSubjectConfigCredentials credentials;
         private String id;
+        private Boolean normalize;
         private @Nullable String restEndpoint;
         private @Nullable GetSubjectConfigSchemaRegistryCluster schemaRegistryCluster;
         private String subjectName;
         public Builder() {}
         public Builder(GetSubjectConfigResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.alias = defaults.alias;
     	      this.compatibilityGroup = defaults.compatibilityGroup;
     	      this.compatibilityLevel = defaults.compatibilityLevel;
     	      this.credentials = defaults.credentials;
     	      this.id = defaults.id;
+    	      this.normalize = defaults.normalize;
     	      this.restEndpoint = defaults.restEndpoint;
     	      this.schemaRegistryCluster = defaults.schemaRegistryCluster;
     	      this.subjectName = defaults.subjectName;
         }
 
+        @CustomType.Setter
+        public Builder alias(String alias) {
+            if (alias == null) {
+              throw new MissingRequiredPropertyException("GetSubjectConfigResult", "alias");
+            }
+            this.alias = alias;
+            return this;
+        }
         @CustomType.Setter
         public Builder compatibilityGroup(String compatibilityGroup) {
             if (compatibilityGroup == null) {
@@ -128,6 +165,14 @@ public final class GetSubjectConfigResult {
             return this;
         }
         @CustomType.Setter
+        public Builder normalize(Boolean normalize) {
+            if (normalize == null) {
+              throw new MissingRequiredPropertyException("GetSubjectConfigResult", "normalize");
+            }
+            this.normalize = normalize;
+            return this;
+        }
+        @CustomType.Setter
         public Builder restEndpoint(@Nullable String restEndpoint) {
 
             this.restEndpoint = restEndpoint;
@@ -149,10 +194,12 @@ public final class GetSubjectConfigResult {
         }
         public GetSubjectConfigResult build() {
             final var _resultValue = new GetSubjectConfigResult();
+            _resultValue.alias = alias;
             _resultValue.compatibilityGroup = compatibilityGroup;
             _resultValue.compatibilityLevel = compatibilityLevel;
             _resultValue.credentials = credentials;
             _resultValue.id = id;
+            _resultValue.normalize = normalize;
             _resultValue.restEndpoint = restEndpoint;
             _resultValue.schemaRegistryCluster = schemaRegistryCluster;
             _resultValue.subjectName = subjectName;

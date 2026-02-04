@@ -76,11 +76,15 @@ export interface GetSubjectConfigArgs {
  */
 export interface GetSubjectConfigResult {
     /**
-     * (Required String) The Compatibility Group of the specified subject.
+     * (Optional String) The subject name that this subject is an alias for.
+     */
+    readonly alias: string;
+    /**
+     * (Optional String) The Compatibility Group of the specified subject.
      */
     readonly compatibilityGroup: string;
     /**
-     * (Required String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+     * (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      */
     readonly compatibilityLevel: string;
     readonly credentials?: outputs.GetSubjectConfigCredentials;
@@ -88,6 +92,10 @@ export interface GetSubjectConfigResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+     */
+    readonly normalize: boolean;
     readonly restEndpoint?: string;
     readonly schemaRegistryCluster?: outputs.GetSubjectConfigSchemaRegistryCluster;
     readonly subjectName: string;

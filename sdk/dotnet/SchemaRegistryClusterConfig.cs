@@ -54,6 +54,7 @@ namespace Pulumi.ConfluentCloud
     ///     {
     ///         CompatibilityLevel = "FULL",
     ///         CompatibilityGroup = "abc.cg.version",
+    ///         Normalize = true,
     ///     });
     /// 
     /// });
@@ -95,6 +96,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.SchemaRegistryClusterConfigCredentials?> Credentials { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether schemas are automatically normalized when registered or passed during lookups.
+        /// </summary>
+        [Output("normalize")]
+        public Output<bool> Normalize { get; private set; } = null!;
 
         /// <summary>
         /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -184,6 +191,12 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
+        /// Whether schemas are automatically normalized when registered or passed during lookups.
+        /// </summary>
+        [Input("normalize")]
+        public Input<bool>? Normalize { get; set; }
+
+        /// <summary>
         /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Input("restEndpoint")]
@@ -227,6 +240,12 @@ namespace Pulumi.ConfluentCloud
                 _credentials = Output.Tuple<Input<Inputs.SchemaRegistryClusterConfigCredentialsGetArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Whether schemas are automatically normalized when registered or passed during lookups.
+        /// </summary>
+        [Input("normalize")]
+        public Input<bool>? Normalize { get; set; }
 
         /// <summary>
         /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

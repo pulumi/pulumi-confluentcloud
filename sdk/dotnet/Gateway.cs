@@ -31,7 +31,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var main = new ConfluentCloud.Gateway("main", new()
     ///     {
-    ///         DisplayName = "my_gateway",
+    ///         DisplayName = "my_egress_gateway",
     ///         Environment = new ConfluentCloud.Inputs.GatewayEnvironmentArgs
     ///         {
     ///             Id = development.Id,
@@ -73,6 +73,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("awsEgressPrivateLinkGateway")]
         public Output<Outputs.GatewayAwsEgressPrivateLinkGateway> AwsEgressPrivateLinkGateway { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Output("awsIngressPrivateLinkGateway")]
+        public Output<Outputs.GatewayAwsIngressPrivateLinkGateway> AwsIngressPrivateLinkGateway { get; private set; } = null!;
 
         /// <summary>
         /// (Optional Configuration Block) supports the following:
@@ -153,6 +159,12 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// (Optional Configuration Block) supports the following:
         /// </summary>
+        [Input("awsIngressPrivateLinkGateway")]
+        public Input<Inputs.GatewayAwsIngressPrivateLinkGatewayArgs>? AwsIngressPrivateLinkGateway { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         [Input("awsPrivateNetworkInterfaceGateway")]
         public Input<Inputs.GatewayAwsPrivateNetworkInterfaceGatewayArgs>? AwsPrivateNetworkInterfaceGateway { get; set; }
 
@@ -187,6 +199,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("awsEgressPrivateLinkGateway")]
         public Input<Inputs.GatewayAwsEgressPrivateLinkGatewayGetArgs>? AwsEgressPrivateLinkGateway { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("awsIngressPrivateLinkGateway")]
+        public Input<Inputs.GatewayAwsIngressPrivateLinkGatewayGetArgs>? AwsIngressPrivateLinkGateway { get; set; }
 
         /// <summary>
         /// (Optional Configuration Block) supports the following:

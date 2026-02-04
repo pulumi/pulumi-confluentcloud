@@ -31,7 +31,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var aws = new ConfluentCloud.AccessPoint("aws", new()
     ///     {
-    ///         DisplayName = "access_point",
+    ///         DisplayName = "access_point_egress",
     ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
     ///         {
     ///             Id = development.Id,
@@ -48,7 +48,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var azure = new ConfluentCloud.AccessPoint("azure", new()
     ///     {
-    ///         DisplayName = "access_point",
+    ///         DisplayName = "access_point_egress",
     ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
     ///         {
     ///             Id = development.Id,
@@ -83,7 +83,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var pni = new ConfluentCloud.AccessPoint("pni", new()
     ///     {
-    ///         DisplayName = "access_point",
+    ///         DisplayName = "access_point_egress",
     ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
     ///         {
     ///             Id = development.Id,
@@ -102,6 +102,23 @@ namespace Pulumi.ConfluentCloud
     ///         DependsOn =
     ///         {
     ///             mainAwsNetworkInterfacePermission,
+    ///         },
+    ///     });
+    /// 
+    ///     var awsIngress = new ConfluentCloud.AccessPoint("aws_ingress", new()
+    ///     {
+    ///         DisplayName = "access_point_ingress",
+    ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///         Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs
+    ///         {
+    ///             Id = ingress.Id,
+    ///         },
+    ///         AwsIngressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAwsIngressPrivateLinkEndpointArgs
+    ///         {
+    ///             VpcEndpointId = "vpce-00000000000000000",
     ///         },
     ///     });
     /// 
@@ -136,6 +153,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("awsEgressPrivateLinkEndpoint")]
         public Output<Outputs.AccessPointAwsEgressPrivateLinkEndpoint?> AwsEgressPrivateLinkEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Output("awsIngressPrivateLinkEndpoint")]
+        public Output<Outputs.AccessPointAwsIngressPrivateLinkEndpoint?> AwsIngressPrivateLinkEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// (Optional Configuration Block) supports the following:
@@ -225,6 +248,12 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// (Optional Configuration Block) supports the following:
         /// </summary>
+        [Input("awsIngressPrivateLinkEndpoint")]
+        public Input<Inputs.AccessPointAwsIngressPrivateLinkEndpointArgs>? AwsIngressPrivateLinkEndpoint { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         [Input("awsPrivateNetworkInterface")]
         public Input<Inputs.AccessPointAwsPrivateNetworkInterfaceArgs>? AwsPrivateNetworkInterface { get; set; }
 
@@ -268,6 +297,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("awsEgressPrivateLinkEndpoint")]
         public Input<Inputs.AccessPointAwsEgressPrivateLinkEndpointGetArgs>? AwsEgressPrivateLinkEndpoint { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("awsIngressPrivateLinkEndpoint")]
+        public Input<Inputs.AccessPointAwsIngressPrivateLinkEndpointGetArgs>? AwsIngressPrivateLinkEndpoint { get; set; }
 
         /// <summary>
         /// (Optional Configuration Block) supports the following:

@@ -24,6 +24,21 @@ export interface AccessPointAwsEgressPrivateLinkEndpoint {
     vpcEndpointServiceName: pulumi.Input<string>;
 }
 
+export interface AccessPointAwsIngressPrivateLinkEndpoint {
+    /**
+     * (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+     */
+    dnsDomain?: pulumi.Input<string>;
+    /**
+     * ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+     */
+    vpcEndpointId: pulumi.Input<string>;
+    /**
+     * (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+     */
+    vpcEndpointServiceName?: pulumi.Input<string>;
+}
+
 export interface AccessPointAwsPrivateNetworkInterface {
     /**
      * (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
@@ -651,6 +666,17 @@ export interface GatewayAwsEgressPrivateLinkGateway {
     region: pulumi.Input<string>;
 }
 
+export interface GatewayAwsIngressPrivateLinkGateway {
+    /**
+     * AWS region of the Ingress Private Link Gateway, for example, `us-east-1`.
+     */
+    region: pulumi.Input<string>;
+    /**
+     * (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+     */
+    vpcEndpointServiceName?: pulumi.Input<string>;
+}
+
 export interface GatewayAwsPrivateNetworkInterfaceGateway {
     /**
      * (Required String) The AWS account ID associated with the Private Network Interface Gateway.
@@ -940,6 +966,74 @@ export interface GetDnsRecordEnvironmentArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetEndpointFilter {
+    /**
+     * The cloud service provider. Accepted values are: `AWS`, `GCP`, `AZURE`.
+     */
+    cloud?: string;
+    /**
+     * (Computed Configuration Block) supports the following:
+     */
+    environment: inputs.GetEndpointFilterEnvironment;
+    /**
+     * Whether the endpoint is private (true) or public (false).
+     */
+    isPrivate?: boolean;
+    /**
+     * The cloud service provider region in which the resource is located, for example, `us-west-2`.
+     */
+    region?: string;
+    /**
+     * The resource associated with the endpoint. The resource can be one of Kafka Cluster ID (example: `lkc-12345`), or Schema Registry Cluster ID (example: `lsrc-12345`). May be omitted if not associated with a resource.
+     */
+    resource?: string;
+    /**
+     * The Confluent Cloud service. Accepted values are: `KAFKA`, `SCHEMA_REGISTRY`, `FLINK`.
+     */
+    service: string;
+}
+
+export interface GetEndpointFilterArgs {
+    /**
+     * The cloud service provider. Accepted values are: `AWS`, `GCP`, `AZURE`.
+     */
+    cloud?: pulumi.Input<string>;
+    /**
+     * (Computed Configuration Block) supports the following:
+     */
+    environment: pulumi.Input<inputs.GetEndpointFilterEnvironmentArgs>;
+    /**
+     * Whether the endpoint is private (true) or public (false).
+     */
+    isPrivate?: pulumi.Input<boolean>;
+    /**
+     * The cloud service provider region in which the resource is located, for example, `us-west-2`.
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * The resource associated with the endpoint. The resource can be one of Kafka Cluster ID (example: `lkc-12345`), or Schema Registry Cluster ID (example: `lsrc-12345`). May be omitted if not associated with a resource.
+     */
+    resource?: pulumi.Input<string>;
+    /**
+     * The Confluent Cloud service. Accepted values are: `KAFKA`, `SCHEMA_REGISTRY`, `FLINK`.
+     */
+    service: pulumi.Input<string>;
+}
+
+export interface GetEndpointFilterEnvironment {
+    /**
+     * The ID of the Environment that the Endpoint belongs to, for example, `env-123abc`.
+     */
+    id: string;
+}
+
+export interface GetEndpointFilterEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Endpoint belongs to, for example, `env-123abc`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetEnvironmentStreamGovernance {
     /**
      * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
@@ -1084,6 +1178,66 @@ export interface GetGatewayEnvironmentArgs {
      * The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
      */
     id: pulumi.Input<string>;
+}
+
+export interface GetGatewaysEnvironment {
+    /**
+     * The ID of the Environment that the Gateways belong to, for example, `env-123abc`.
+     */
+    id: string;
+}
+
+export interface GetGatewaysEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Gateways belong to, for example, `env-123abc`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetGatewaysFilter {
+    /**
+     * Filter the results by exact match for spec.display_name. Pass multiple times to see results matching any of the values, for example, `["prod-gateway-ingress-use1", "prod-gateway-ingress-use2"]`.
+     */
+    displayNames?: string[];
+    /**
+     * Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+     */
+    gatewayTypes?: string[];
+    /**
+     * Filter the results by exact match for id. Pass multiple times to see results matching any of the values, for example, `["gw-abc123", "gw-def456"]`.
+     */
+    ids?: string[];
+    /**
+     * Filter the results by exact match for status.phase. Pass multiple times to see results matching any of the values. Valid values are: `CREATED`, `PROVISIONING`, `READY`, `FAILED`, `DEPROVISIONING`, `EXPIRED`.
+     */
+    phases?: string[];
+    /**
+     * Filter the results by exact match for spec.config.region. Pass multiple times to see results matching any of the values, for example, `["us-east-1", "us-west-2"]`.
+     */
+    regions?: string[];
+}
+
+export interface GetGatewaysFilterArgs {
+    /**
+     * Filter the results by exact match for spec.display_name. Pass multiple times to see results matching any of the values, for example, `["prod-gateway-ingress-use1", "prod-gateway-ingress-use2"]`.
+     */
+    displayNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+     */
+    gatewayTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Filter the results by exact match for id. Pass multiple times to see results matching any of the values, for example, `["gw-abc123", "gw-def456"]`.
+     */
+    ids?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Filter the results by exact match for status.phase. Pass multiple times to see results matching any of the values. Valid values are: `CREATED`, `PROVISIONING`, `READY`, `FAILED`, `DEPROVISIONING`, `EXPIRED`.
+     */
+    phases?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Filter the results by exact match for spec.config.region. Pass multiple times to see results matching any of the values, for example, `["us-east-1", "us-west-2"]`.
+     */
+    regions?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetIdentityPoolIdentityProvider {

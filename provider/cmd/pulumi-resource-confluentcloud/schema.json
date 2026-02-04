@@ -237,6 +237,36 @@
                 }
             }
         },
+        "confluentcloud:index/AccessPointAwsIngressPrivateLinkEndpoint:AccessPointAwsIngressPrivateLinkEndpoint": {
+            "properties": {
+                "dnsDomain": {
+                    "type": "string",
+                    "description": "(Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.\n"
+                },
+                "vpcEndpointId": {
+                    "type": "string",
+                    "description": "ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "vpcEndpointServiceName": {
+                    "type": "string",
+                    "description": "(Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "vpcEndpointId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "dnsDomain",
+                        "vpcEndpointId",
+                        "vpcEndpointServiceName"
+                    ]
+                }
+            }
+        },
         "confluentcloud:index/AccessPointAwsPrivateNetworkInterface:AccessPointAwsPrivateNetworkInterface": {
             "properties": {
                 "account": {
@@ -1362,6 +1392,31 @@
                     "requiredOutputs": [
                         "principalArn",
                         "region"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/GatewayAwsIngressPrivateLinkGateway:GatewayAwsIngressPrivateLinkGateway": {
+            "properties": {
+                "region": {
+                    "type": "string",
+                    "description": "AWS region of the Ingress Private Link Gateway, for example, `us-east-1`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "vpcEndpointServiceName": {
+                    "type": "string",
+                    "description": "(Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "region",
+                        "vpcEndpointServiceName"
                     ]
                 }
             }
@@ -3420,17 +3475,44 @@
                 },
                 "vpcEndpointId": {
                     "type": "string",
-                    "description": "(Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.\n"
+                    "description": "(Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.\n"
                 },
                 "vpcEndpointServiceName": {
                     "type": "string",
-                    "description": "(Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.\n"
+                    "description": "(Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.\n"
                 }
             },
             "type": "object",
             "required": [
                 "enableHighAvailability",
                 "vpcEndpointDnsName",
+                "vpcEndpointId",
+                "vpcEndpointServiceName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getAccessPointAwsIngressPrivateLinkEndpoint:getAccessPointAwsIngressPrivateLinkEndpoint": {
+            "properties": {
+                "dnsDomain": {
+                    "type": "string",
+                    "description": "(Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.\n"
+                },
+                "vpcEndpointId": {
+                    "type": "string",
+                    "description": "(Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.\n"
+                },
+                "vpcEndpointServiceName": {
+                    "type": "string",
+                    "description": "(Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dnsDomain",
                 "vpcEndpointId",
                 "vpcEndpointServiceName"
             ],
@@ -3945,6 +4027,215 @@
                 }
             }
         },
+        "confluentcloud:index/getEndpointEndpoint:getEndpointEndpoint": {
+            "properties": {
+                "accessPoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getEndpointEndpointAccessPoint:getEndpointEndpointAccessPoint"
+                    },
+                    "description": "(Computed Configuration Block) supports the following:\n"
+                },
+                "apiVersion": {
+                    "type": "string",
+                    "description": "(Computed String) API Version defines the schema version of this representation of an Endpoint.\n"
+                },
+                "cloud": {
+                    "type": "string",
+                    "description": "(Computed String) The cloud service provider.\n"
+                },
+                "connectionType": {
+                    "type": "string",
+                    "description": "(Computed String) The network connection type. Accepted values are: `PUBLIC`, `PRIVATE_LINK`, `PEERING`, `TRANSIT_GATEWAY`, `PRIVATE_NETWORK_INTERFACE`.\n"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "(Computed String) The endpoint URL or address, for example, `https://lkc-abc123-ap12345.us-west-2.aws.accesspoint.glb.confluent.cloud:443`.\n"
+                },
+                "endpointType": {
+                    "type": "string",
+                    "description": "(Computed String) The endpoint type enum values:\n- `REST` - REST API endpoint for HTTP/HTTPS access, used by Kafka/Flink/Schema Registry services.\n- `BOOTSTRAP` - Kafka native protocol bootstrap servers for direct client connections, used by Kafka only.\n- `LANGUAGE_SERVICE` - Flink language service endpoint for SQL/Table API, used by Flink only.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/getEndpointEndpointEnvironment:getEndpointEndpointEnvironment",
+                    "description": "(Computed Configuration Block) supports the following:\n"
+                },
+                "gateways": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getEndpointEndpointGateway:getEndpointEndpointGateway"
+                    },
+                    "description": "(Computed Configuration Block) supports the following:\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "(Computed String) The ID of the access point to which the Endpoint belongs.\n"
+                },
+                "isPrivate": {
+                    "type": "boolean",
+                    "description": "(Computed Boolean) Whether the endpoint is private (true) or public (false).\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Computed String) The kind of the resource.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "(Computed String) The cloud service provider region in which the resource is located.\n"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getEndpointEndpointResource:getEndpointEndpointResource"
+                    },
+                    "description": "(Computed Configuration Block) supports the following:\n"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "(Computed String) The Confluent Cloud service.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accessPoints",
+                "apiVersion",
+                "cloud",
+                "connectionType",
+                "endpoint",
+                "endpointType",
+                "environment",
+                "gateways",
+                "id",
+                "isPrivate",
+                "kind",
+                "region",
+                "resources",
+                "service"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getEndpointEndpointAccessPoint:getEndpointEndpointAccessPoint": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "(Computed String) The ID of the access point to which the Endpoint belongs.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getEndpointEndpointEnvironment:getEndpointEndpointEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "(Computed String) The ID of the access point to which the Endpoint belongs.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getEndpointEndpointGateway:getEndpointEndpointGateway": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "(Computed String) The ID of the access point to which the Endpoint belongs.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getEndpointEndpointResource:getEndpointEndpointResource": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "(Computed String) The ID of the access point to which the Endpoint belongs.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Computed String) The kind of the resource.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "kind"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getEndpointFilter:getEndpointFilter": {
+            "properties": {
+                "cloud": {
+                    "type": "string",
+                    "description": "The cloud service provider. Accepted values are: `AWS`, `GCP`, `AZURE`.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/getEndpointFilterEnvironment:getEndpointFilterEnvironment",
+                    "description": "(Computed Configuration Block) supports the following:\n"
+                },
+                "isPrivate": {
+                    "type": "boolean",
+                    "description": "Whether the endpoint is private (true) or public (false).\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The cloud service provider region in which the resource is located, for example, `us-west-2`.\n"
+                },
+                "resource": {
+                    "type": "string",
+                    "description": "The resource associated with the endpoint. The resource can be one of Kafka Cluster ID (example: `lkc-12345`), or Schema Registry Cluster ID (example: `lsrc-12345`). May be omitted if not associated with a resource.\n"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "The Confluent Cloud service. Accepted values are: `KAFKA`, `SCHEMA_REGISTRY`, `FLINK`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "environment",
+                "service"
+            ]
+        },
+        "confluentcloud:index/getEndpointFilterEnvironment:getEndpointFilterEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Endpoint belongs to, for example, `env-123abc`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/getEnvironmentStreamGovernance:getEnvironmentStreamGovernance": {
             "properties": {
                 "package": {
@@ -4087,6 +4378,28 @@
                 }
             }
         },
+        "confluentcloud:index/getGatewayAwsIngressPrivateLinkGateway:getGatewayAwsIngressPrivateLinkGateway": {
+            "properties": {
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) GCP region of the Peering Gateway.\n"
+                },
+                "vpcEndpointServiceName": {
+                    "type": "string",
+                    "description": "(Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "region",
+                "vpcEndpointServiceName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getGatewayAwsPeeringGateway:getGatewayAwsPeeringGateway": {
             "properties": {
                 "region": {
@@ -4208,6 +4521,318 @@
             }
         },
         "confluentcloud:index/getGatewayGcpPeeringGateway:getGatewayGcpPeeringGateway": {
+            "properties": {
+                "iamPrincipal": {
+                    "type": "string",
+                    "description": "(Required String) The IAM principal used by the GCP Peering Gateway.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) GCP region of the Peering Gateway.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "iamPrincipal",
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getGatewaysEnvironment:getGatewaysEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Gateways belong to, for example, `env-123abc`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getGatewaysFilter:getGatewaysFilter": {
+            "properties": {
+                "displayNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Filter the results by exact match for spec.display_name. Pass multiple times to see results matching any of the values, for example, `[\"prod-gateway-ingress-use1\", \"prod-gateway-ingress-use2\"]`.\n"
+                },
+                "gatewayTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.\n"
+                },
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Filter the results by exact match for id. Pass multiple times to see results matching any of the values, for example, `[\"gw-abc123\", \"gw-def456\"]`.\n"
+                },
+                "phases": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Filter the results by exact match for status.phase. Pass multiple times to see results matching any of the values. Valid values are: `CREATED`, `PROVISIONING`, `READY`, `FAILED`, `DEPROVISIONING`, `EXPIRED`.\n"
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Filter the results by exact match for spec.config.region. Pass multiple times to see results matching any of the values, for example, `[\"us-east-1\", \"us-west-2\"]`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "confluentcloud:index/getGatewaysGateway:getGatewaysGateway": {
+            "properties": {
+                "awsEgressPrivateLinkGateways": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getGatewaysGatewayAwsEgressPrivateLinkGateway:getGatewaysGatewayAwsEgressPrivateLinkGateway"
+                    },
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "awsIngressPrivateLinkGateways": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getGatewaysGatewayAwsIngressPrivateLinkGateway:getGatewaysGatewayAwsIngressPrivateLinkGateway"
+                    },
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "awsPeeringGateways": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getGatewaysGatewayAwsPeeringGateway:getGatewaysGatewayAwsPeeringGateway"
+                    },
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "awsPrivateNetworkInterfaceGateways": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getGatewaysGatewayAwsPrivateNetworkInterfaceGateway:getGatewaysGatewayAwsPrivateNetworkInterfaceGateway"
+                    },
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "azureEgressPrivateLinkGateways": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getGatewaysGatewayAzureEgressPrivateLinkGateway:getGatewaysGatewayAzureEgressPrivateLinkGateway"
+                    },
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "azurePeeringGateways": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getGatewaysGatewayAzurePeeringGateway:getGatewaysGatewayAzurePeeringGateway"
+                    },
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "(Required String) A human-readable name for the Gateway.\n"
+                },
+                "gcpEgressPrivateServiceConnectGateways": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getGatewaysGatewayGcpEgressPrivateServiceConnectGateway:getGatewaysGatewayGcpEgressPrivateServiceConnectGateway"
+                    },
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "gcpPeeringGateways": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getGatewaysGatewayGcpPeeringGateway:getGatewaysGatewayGcpPeeringGateway"
+                    },
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "(Required String) The ID of the Gateway, for example, `gw-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "awsEgressPrivateLinkGateways",
+                "awsIngressPrivateLinkGateways",
+                "awsPeeringGateways",
+                "awsPrivateNetworkInterfaceGateways",
+                "azureEgressPrivateLinkGateways",
+                "azurePeeringGateways",
+                "displayName",
+                "gcpEgressPrivateServiceConnectGateways",
+                "gcpPeeringGateways",
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getGatewaysGatewayAwsEgressPrivateLinkGateway:getGatewaysGatewayAwsEgressPrivateLinkGateway": {
+            "properties": {
+                "principalArn": {
+                    "type": "string",
+                    "description": "(Required String) The principal ARN used by the AWS Egress Private Link Gateway.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) GCP region of the Peering Gateway.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "principalArn",
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getGatewaysGatewayAwsIngressPrivateLinkGateway:getGatewaysGatewayAwsIngressPrivateLinkGateway": {
+            "properties": {
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) GCP region of the Peering Gateway.\n"
+                },
+                "vpcEndpointServiceName": {
+                    "type": "string",
+                    "description": "(Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "region",
+                "vpcEndpointServiceName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getGatewaysGatewayAwsPeeringGateway:getGatewaysGatewayAwsPeeringGateway": {
+            "properties": {
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) GCP region of the Peering Gateway.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getGatewaysGatewayAwsPrivateNetworkInterfaceGateway:getGatewaysGatewayAwsPrivateNetworkInterfaceGateway": {
+            "properties": {
+                "account": {
+                    "type": "string",
+                    "description": "(Required String) The AWS account ID associated with the Private Network Interface Gateway.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) GCP region of the Peering Gateway.\n"
+                },
+                "zones": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Required List of Strings) AWS availability zone ids of the Private Network Interface Gateway.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "account",
+                "region",
+                "zones"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getGatewaysGatewayAzureEgressPrivateLinkGateway:getGatewaysGatewayAzureEgressPrivateLinkGateway": {
+            "properties": {
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) GCP region of the Peering Gateway.\n"
+                },
+                "subscription": {
+                    "type": "string",
+                    "description": "(Required String) The Azure Subscription ID associated with the Confluent Cloud VPC.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "region",
+                "subscription"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getGatewaysGatewayAzurePeeringGateway:getGatewaysGatewayAzurePeeringGateway": {
+            "properties": {
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) GCP region of the Peering Gateway.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getGatewaysGatewayGcpEgressPrivateServiceConnectGateway:getGatewaysGatewayGcpEgressPrivateServiceConnectGateway": {
+            "properties": {
+                "project": {
+                    "type": "string",
+                    "description": "(Required String) The GCP project used by the GCP Private Service Connect Gateway.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) GCP region of the Peering Gateway.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "project",
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getGatewaysGatewayGcpPeeringGateway:getGatewaysGatewayGcpPeeringGateway": {
             "properties": {
                 "iamPrincipal": {
                     "type": "string",
@@ -6887,10 +7512,14 @@
     },
     "resources": {
         "confluentcloud:index/accessPoint:AccessPoint": {
-            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.AccessPoint`\" pulumi-lang-dotnet=\"`confluentcloud.AccessPoint`\" pulumi-lang-go=\"`AccessPoint`\" pulumi-lang-python=\"`AccessPoint`\" pulumi-lang-yaml=\"`confluentcloud.AccessPoint`\" pulumi-lang-java=\"`confluentcloud.AccessPoint`\"\u003e`confluentcloud.AccessPoint`\u003c/span\u003e provides a Access Point resource that enables creating, editing, and deleting Access Points on Confluent Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst aws = new confluentcloud.AccessPoint(\"aws\", {\n    displayName: \"access_point\",\n    environment: {\n        id: development.id,\n    },\n    gateway: {\n        id: main.gateway[0].id,\n    },\n    awsEgressPrivateLinkEndpoint: {\n        vpcEndpointServiceName: \"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\",\n    },\n});\nconst azure = new confluentcloud.AccessPoint(\"azure\", {\n    displayName: \"access_point\",\n    environment: {\n        id: development.id,\n    },\n    gateway: {\n        id: main.gateway[0].id,\n    },\n    azureEgressPrivateLinkEndpoint: {\n        privateLinkServiceResourceId: \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\",\n        privateLinkSubresourceName: \"sqlServer\",\n    },\n});\nconst gcp = new confluentcloud.AccessPoint(\"gcp\", {\n    displayName: \"access_point\",\n    environment: {\n        id: development.id,\n    },\n    gateway: {\n        id: main.gateway[0].id,\n    },\n    gcpEgressPrivateServiceConnectEndpoint: {\n        privateServiceConnectEndpointTarget: \"projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment\",\n    },\n});\nconst pni = new confluentcloud.AccessPoint(\"pni\", {\n    displayName: \"access_point\",\n    environment: {\n        id: development.id,\n    },\n    gateway: {\n        id: mainConfluentGateway.id,\n    },\n    awsPrivateNetworkInterface: {\n        networkInterfaces: mainAwsNetworkInterface.map(__item =\u003e __item.id),\n        account: awsAccountId,\n    },\n}, {\n    dependsOn: [mainAwsNetworkInterfacePermission],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\naws = confluentcloud.AccessPoint(\"aws\",\n    display_name=\"access_point\",\n    environment={\n        \"id\": development.id,\n    },\n    gateway={\n        \"id\": main[\"gateway\"][0][\"id\"],\n    },\n    aws_egress_private_link_endpoint={\n        \"vpc_endpoint_service_name\": \"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\",\n    })\nazure = confluentcloud.AccessPoint(\"azure\",\n    display_name=\"access_point\",\n    environment={\n        \"id\": development.id,\n    },\n    gateway={\n        \"id\": main[\"gateway\"][0][\"id\"],\n    },\n    azure_egress_private_link_endpoint={\n        \"private_link_service_resource_id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\",\n        \"private_link_subresource_name\": \"sqlServer\",\n    })\ngcp = confluentcloud.AccessPoint(\"gcp\",\n    display_name=\"access_point\",\n    environment={\n        \"id\": development.id,\n    },\n    gateway={\n        \"id\": main[\"gateway\"][0][\"id\"],\n    },\n    gcp_egress_private_service_connect_endpoint={\n        \"private_service_connect_endpoint_target\": \"projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment\",\n    })\npni = confluentcloud.AccessPoint(\"pni\",\n    display_name=\"access_point\",\n    environment={\n        \"id\": development.id,\n    },\n    gateway={\n        \"id\": main_confluent_gateway[\"id\"],\n    },\n    aws_private_network_interface={\n        \"network_interfaces\": [__item[\"id\"] for __item in main_aws_network_interface],\n        \"account\": aws_account_id,\n    },\n    opts = pulumi.ResourceOptions(depends_on=[main_aws_network_interface_permission]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var aws = new ConfluentCloud.AccessPoint(\"aws\", new()\n    {\n        DisplayName = \"access_point\",\n        Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs\n        {\n            Id = main.Gateway[0].Id,\n        },\n        AwsEgressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAwsEgressPrivateLinkEndpointArgs\n        {\n            VpcEndpointServiceName = \"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\",\n        },\n    });\n\n    var azure = new ConfluentCloud.AccessPoint(\"azure\", new()\n    {\n        DisplayName = \"access_point\",\n        Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs\n        {\n            Id = main.Gateway[0].Id,\n        },\n        AzureEgressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAzureEgressPrivateLinkEndpointArgs\n        {\n            PrivateLinkServiceResourceId = \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\",\n            PrivateLinkSubresourceName = \"sqlServer\",\n        },\n    });\n\n    var gcp = new ConfluentCloud.AccessPoint(\"gcp\", new()\n    {\n        DisplayName = \"access_point\",\n        Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs\n        {\n            Id = main.Gateway[0].Id,\n        },\n        GcpEgressPrivateServiceConnectEndpoint = new ConfluentCloud.Inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs\n        {\n            PrivateServiceConnectEndpointTarget = \"projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment\",\n        },\n    });\n\n    var pni = new ConfluentCloud.AccessPoint(\"pni\", new()\n    {\n        DisplayName = \"access_point\",\n        Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs\n        {\n            Id = mainConfluentGateway.Id,\n        },\n        AwsPrivateNetworkInterface = new ConfluentCloud.Inputs.AccessPointAwsPrivateNetworkInterfaceArgs\n        {\n            NetworkInterfaces = mainAwsNetworkInterface.Select(__item =\u003e __item.Id).ToList(),\n            Account = awsAccountId,\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            mainAwsNetworkInterfacePermission,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\nfunc main() {\npulumi.Run(func(ctx *pulumi.Context) error {\ndevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\nDisplayName: pulumi.String(\"Development\"),\n})\nif err != nil {\nreturn err\n}\n_, err = confluentcloud.NewAccessPoint(ctx, \"aws\", \u0026confluentcloud.AccessPointArgs{\nDisplayName: pulumi.String(\"access_point\"),\nEnvironment: \u0026confluentcloud.AccessPointEnvironmentArgs{\nId: development.ID(),\n},\nGateway: \u0026confluentcloud.AccessPointGatewayArgs{\nId: pulumi.Any(main.Gateway[0].Id),\n},\nAwsEgressPrivateLinkEndpoint: \u0026confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs{\nVpcEndpointServiceName: pulumi.String(\"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\"),\n},\n})\nif err != nil {\nreturn err\n}\n_, err = confluentcloud.NewAccessPoint(ctx, \"azure\", \u0026confluentcloud.AccessPointArgs{\nDisplayName: pulumi.String(\"access_point\"),\nEnvironment: \u0026confluentcloud.AccessPointEnvironmentArgs{\nId: development.ID(),\n},\nGateway: \u0026confluentcloud.AccessPointGatewayArgs{\nId: pulumi.Any(main.Gateway[0].Id),\n},\nAzureEgressPrivateLinkEndpoint: \u0026confluentcloud.AccessPointAzureEgressPrivateLinkEndpointArgs{\nPrivateLinkServiceResourceId: pulumi.String(\"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\"),\nPrivateLinkSubresourceName: pulumi.String(\"sqlServer\"),\n},\n})\nif err != nil {\nreturn err\n}\n_, err = confluentcloud.NewAccessPoint(ctx, \"gcp\", \u0026confluentcloud.AccessPointArgs{\nDisplayName: pulumi.String(\"access_point\"),\nEnvironment: \u0026confluentcloud.AccessPointEnvironmentArgs{\nId: development.ID(),\n},\nGateway: \u0026confluentcloud.AccessPointGatewayArgs{\nId: pulumi.Any(main.Gateway[0].Id),\n},\nGcpEgressPrivateServiceConnectEndpoint: \u0026confluentcloud.AccessPointGcpEgressPrivateServiceConnectEndpointArgs{\nPrivateServiceConnectEndpointTarget: pulumi.String(\"projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment\"),\n},\n})\nif err != nil {\nreturn err\n}\n_, err = confluentcloud.NewAccessPoint(ctx, \"pni\", \u0026confluentcloud.AccessPointArgs{\nDisplayName: pulumi.String(\"access_point\"),\nEnvironment: \u0026confluentcloud.AccessPointEnvironmentArgs{\nId: development.ID(),\n},\nGateway: \u0026confluentcloud.AccessPointGatewayArgs{\nId: pulumi.Any(mainConfluentGateway.Id),\n},\nAwsPrivateNetworkInterface: \u0026confluentcloud.AccessPointAwsPrivateNetworkInterfaceArgs{\nNetworkInterfaces: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:56,25-54)),\nAccount: pulumi.Any(awsAccountId),\n},\n}, pulumi.DependsOn([]pulumi.Resource{\nmainAwsNetworkInterfacePermission,\n}))\nif err != nil {\nreturn err\n}\nreturn nil\n})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.AccessPoint;\nimport com.pulumi.confluentcloud.AccessPointArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointGatewayArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointAwsEgressPrivateLinkEndpointArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointAzureEgressPrivateLinkEndpointArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointAwsPrivateNetworkInterfaceArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var aws = new AccessPoint(\"aws\", AccessPointArgs.builder()\n            .displayName(\"access_point\")\n            .environment(AccessPointEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .gateway(AccessPointGatewayArgs.builder()\n                .id(main.gateway()[0].id())\n                .build())\n            .awsEgressPrivateLinkEndpoint(AccessPointAwsEgressPrivateLinkEndpointArgs.builder()\n                .vpcEndpointServiceName(\"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\")\n                .build())\n            .build());\n\n        var azure = new AccessPoint(\"azure\", AccessPointArgs.builder()\n            .displayName(\"access_point\")\n            .environment(AccessPointEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .gateway(AccessPointGatewayArgs.builder()\n                .id(main.gateway()[0].id())\n                .build())\n            .azureEgressPrivateLinkEndpoint(AccessPointAzureEgressPrivateLinkEndpointArgs.builder()\n                .privateLinkServiceResourceId(\"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\")\n                .privateLinkSubresourceName(\"sqlServer\")\n                .build())\n            .build());\n\n        var gcp = new AccessPoint(\"gcp\", AccessPointArgs.builder()\n            .displayName(\"access_point\")\n            .environment(AccessPointEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .gateway(AccessPointGatewayArgs.builder()\n                .id(main.gateway()[0].id())\n                .build())\n            .gcpEgressPrivateServiceConnectEndpoint(AccessPointGcpEgressPrivateServiceConnectEndpointArgs.builder()\n                .privateServiceConnectEndpointTarget(\"projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment\")\n                .build())\n            .build());\n\n        var pni = new AccessPoint(\"pni\", AccessPointArgs.builder()\n            .displayName(\"access_point\")\n            .environment(AccessPointEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .gateway(AccessPointGatewayArgs.builder()\n                .id(mainConfluentGateway.id())\n                .build())\n            .awsPrivateNetworkInterface(AccessPointAwsPrivateNetworkInterfaceArgs.builder()\n                .networkInterfaces(mainAwsNetworkInterface.stream().map(element -\u003e element.id()).collect(toList()))\n                .account(awsAccountId)\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(mainAwsNetworkInterfacePermission)\n                .build());\n\n    }\n}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with \u003cspan pulumi-lang-nodejs=\"`confluentcloud.AccessPoint`\" pulumi-lang-dotnet=\"`confluentcloud.AccessPoint`\" pulumi-lang-go=\"`AccessPoint`\" pulumi-lang-python=\"`AccessPoint`\" pulumi-lang-yaml=\"`confluentcloud.AccessPoint`\" pulumi-lang-java=\"`confluentcloud.AccessPoint`\"\u003e`confluentcloud.AccessPoint`\u003c/span\u003e resource:\n  * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC\n  * freight-aws-kafka-rbac: _Freight_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC\n\n## Import\n\nYou can import a Access Point by using Environment ID and Access Point ID, in the format `\u003cEnvironment ID\u003e/\u003cAccess Point ID\u003e`. The following example shows how to import a Access Point:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/accessPoint:AccessPoint main env-abc123/ap-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.AccessPoint`\" pulumi-lang-dotnet=\"`confluentcloud.AccessPoint`\" pulumi-lang-go=\"`AccessPoint`\" pulumi-lang-python=\"`AccessPoint`\" pulumi-lang-yaml=\"`confluentcloud.AccessPoint`\" pulumi-lang-java=\"`confluentcloud.AccessPoint`\"\u003e`confluentcloud.AccessPoint`\u003c/span\u003e provides a Access Point resource that enables creating, editing, and deleting Access Points on Confluent Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst aws = new confluentcloud.AccessPoint(\"aws\", {\n    displayName: \"access_point_egress\",\n    environment: {\n        id: development.id,\n    },\n    gateway: {\n        id: main.gateway[0].id,\n    },\n    awsEgressPrivateLinkEndpoint: {\n        vpcEndpointServiceName: \"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\",\n    },\n});\nconst azure = new confluentcloud.AccessPoint(\"azure\", {\n    displayName: \"access_point_egress\",\n    environment: {\n        id: development.id,\n    },\n    gateway: {\n        id: main.gateway[0].id,\n    },\n    azureEgressPrivateLinkEndpoint: {\n        privateLinkServiceResourceId: \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\",\n        privateLinkSubresourceName: \"sqlServer\",\n    },\n});\nconst gcp = new confluentcloud.AccessPoint(\"gcp\", {\n    displayName: \"access_point\",\n    environment: {\n        id: development.id,\n    },\n    gateway: {\n        id: main.gateway[0].id,\n    },\n    gcpEgressPrivateServiceConnectEndpoint: {\n        privateServiceConnectEndpointTarget: \"projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment\",\n    },\n});\nconst pni = new confluentcloud.AccessPoint(\"pni\", {\n    displayName: \"access_point_egress\",\n    environment: {\n        id: development.id,\n    },\n    gateway: {\n        id: mainConfluentGateway.id,\n    },\n    awsPrivateNetworkInterface: {\n        networkInterfaces: mainAwsNetworkInterface.map(__item =\u003e __item.id),\n        account: awsAccountId,\n    },\n}, {\n    dependsOn: [mainAwsNetworkInterfacePermission],\n});\nconst awsIngress = new confluentcloud.AccessPoint(\"aws_ingress\", {\n    displayName: \"access_point_ingress\",\n    environment: {\n        id: development.id,\n    },\n    gateway: {\n        id: ingress.id,\n    },\n    awsIngressPrivateLinkEndpoint: {\n        vpcEndpointId: \"vpce-00000000000000000\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\naws = confluentcloud.AccessPoint(\"aws\",\n    display_name=\"access_point_egress\",\n    environment={\n        \"id\": development.id,\n    },\n    gateway={\n        \"id\": main[\"gateway\"][0][\"id\"],\n    },\n    aws_egress_private_link_endpoint={\n        \"vpc_endpoint_service_name\": \"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\",\n    })\nazure = confluentcloud.AccessPoint(\"azure\",\n    display_name=\"access_point_egress\",\n    environment={\n        \"id\": development.id,\n    },\n    gateway={\n        \"id\": main[\"gateway\"][0][\"id\"],\n    },\n    azure_egress_private_link_endpoint={\n        \"private_link_service_resource_id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\",\n        \"private_link_subresource_name\": \"sqlServer\",\n    })\ngcp = confluentcloud.AccessPoint(\"gcp\",\n    display_name=\"access_point\",\n    environment={\n        \"id\": development.id,\n    },\n    gateway={\n        \"id\": main[\"gateway\"][0][\"id\"],\n    },\n    gcp_egress_private_service_connect_endpoint={\n        \"private_service_connect_endpoint_target\": \"projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment\",\n    })\npni = confluentcloud.AccessPoint(\"pni\",\n    display_name=\"access_point_egress\",\n    environment={\n        \"id\": development.id,\n    },\n    gateway={\n        \"id\": main_confluent_gateway[\"id\"],\n    },\n    aws_private_network_interface={\n        \"network_interfaces\": [__item[\"id\"] for __item in main_aws_network_interface],\n        \"account\": aws_account_id,\n    },\n    opts = pulumi.ResourceOptions(depends_on=[main_aws_network_interface_permission]))\naws_ingress = confluentcloud.AccessPoint(\"aws_ingress\",\n    display_name=\"access_point_ingress\",\n    environment={\n        \"id\": development.id,\n    },\n    gateway={\n        \"id\": ingress[\"id\"],\n    },\n    aws_ingress_private_link_endpoint={\n        \"vpc_endpoint_id\": \"vpce-00000000000000000\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var aws = new ConfluentCloud.AccessPoint(\"aws\", new()\n    {\n        DisplayName = \"access_point_egress\",\n        Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs\n        {\n            Id = main.Gateway[0].Id,\n        },\n        AwsEgressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAwsEgressPrivateLinkEndpointArgs\n        {\n            VpcEndpointServiceName = \"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\",\n        },\n    });\n\n    var azure = new ConfluentCloud.AccessPoint(\"azure\", new()\n    {\n        DisplayName = \"access_point_egress\",\n        Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs\n        {\n            Id = main.Gateway[0].Id,\n        },\n        AzureEgressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAzureEgressPrivateLinkEndpointArgs\n        {\n            PrivateLinkServiceResourceId = \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\",\n            PrivateLinkSubresourceName = \"sqlServer\",\n        },\n    });\n\n    var gcp = new ConfluentCloud.AccessPoint(\"gcp\", new()\n    {\n        DisplayName = \"access_point\",\n        Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs\n        {\n            Id = main.Gateway[0].Id,\n        },\n        GcpEgressPrivateServiceConnectEndpoint = new ConfluentCloud.Inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs\n        {\n            PrivateServiceConnectEndpointTarget = \"projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment\",\n        },\n    });\n\n    var pni = new ConfluentCloud.AccessPoint(\"pni\", new()\n    {\n        DisplayName = \"access_point_egress\",\n        Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs\n        {\n            Id = mainConfluentGateway.Id,\n        },\n        AwsPrivateNetworkInterface = new ConfluentCloud.Inputs.AccessPointAwsPrivateNetworkInterfaceArgs\n        {\n            NetworkInterfaces = mainAwsNetworkInterface.Select(__item =\u003e __item.Id).ToList(),\n            Account = awsAccountId,\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            mainAwsNetworkInterfacePermission,\n        },\n    });\n\n    var awsIngress = new ConfluentCloud.AccessPoint(\"aws_ingress\", new()\n    {\n        DisplayName = \"access_point_ingress\",\n        Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs\n        {\n            Id = ingress.Id,\n        },\n        AwsIngressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAwsIngressPrivateLinkEndpointArgs\n        {\n            VpcEndpointId = \"vpce-00000000000000000\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\nfunc main() {\npulumi.Run(func(ctx *pulumi.Context) error {\ndevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\nDisplayName: pulumi.String(\"Development\"),\n})\nif err != nil {\nreturn err\n}\n_, err = confluentcloud.NewAccessPoint(ctx, \"aws\", \u0026confluentcloud.AccessPointArgs{\nDisplayName: pulumi.String(\"access_point_egress\"),\nEnvironment: \u0026confluentcloud.AccessPointEnvironmentArgs{\nId: development.ID(),\n},\nGateway: \u0026confluentcloud.AccessPointGatewayArgs{\nId: pulumi.Any(main.Gateway[0].Id),\n},\nAwsEgressPrivateLinkEndpoint: \u0026confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs{\nVpcEndpointServiceName: pulumi.String(\"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\"),\n},\n})\nif err != nil {\nreturn err\n}\n_, err = confluentcloud.NewAccessPoint(ctx, \"azure\", \u0026confluentcloud.AccessPointArgs{\nDisplayName: pulumi.String(\"access_point_egress\"),\nEnvironment: \u0026confluentcloud.AccessPointEnvironmentArgs{\nId: development.ID(),\n},\nGateway: \u0026confluentcloud.AccessPointGatewayArgs{\nId: pulumi.Any(main.Gateway[0].Id),\n},\nAzureEgressPrivateLinkEndpoint: \u0026confluentcloud.AccessPointAzureEgressPrivateLinkEndpointArgs{\nPrivateLinkServiceResourceId: pulumi.String(\"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\"),\nPrivateLinkSubresourceName: pulumi.String(\"sqlServer\"),\n},\n})\nif err != nil {\nreturn err\n}\n_, err = confluentcloud.NewAccessPoint(ctx, \"gcp\", \u0026confluentcloud.AccessPointArgs{\nDisplayName: pulumi.String(\"access_point\"),\nEnvironment: \u0026confluentcloud.AccessPointEnvironmentArgs{\nId: development.ID(),\n},\nGateway: \u0026confluentcloud.AccessPointGatewayArgs{\nId: pulumi.Any(main.Gateway[0].Id),\n},\nGcpEgressPrivateServiceConnectEndpoint: \u0026confluentcloud.AccessPointGcpEgressPrivateServiceConnectEndpointArgs{\nPrivateServiceConnectEndpointTarget: pulumi.String(\"projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment\"),\n},\n})\nif err != nil {\nreturn err\n}\n_, err = confluentcloud.NewAccessPoint(ctx, \"pni\", \u0026confluentcloud.AccessPointArgs{\nDisplayName: pulumi.String(\"access_point_egress\"),\nEnvironment: \u0026confluentcloud.AccessPointEnvironmentArgs{\nId: development.ID(),\n},\nGateway: \u0026confluentcloud.AccessPointGatewayArgs{\nId: pulumi.Any(mainConfluentGateway.Id),\n},\nAwsPrivateNetworkInterface: \u0026confluentcloud.AccessPointAwsPrivateNetworkInterfaceArgs{\nNetworkInterfaces: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:56,25-54)),\nAccount: pulumi.Any(awsAccountId),\n},\n}, pulumi.DependsOn([]pulumi.Resource{\nmainAwsNetworkInterfacePermission,\n}))\nif err != nil {\nreturn err\n}\n_, err = confluentcloud.NewAccessPoint(ctx, \"aws_ingress\", \u0026confluentcloud.AccessPointArgs{\nDisplayName: pulumi.String(\"access_point_ingress\"),\nEnvironment: \u0026confluentcloud.AccessPointEnvironmentArgs{\nId: development.ID(),\n},\nGateway: \u0026confluentcloud.AccessPointGatewayArgs{\nId: pulumi.Any(ingress.Id),\n},\nAwsIngressPrivateLinkEndpoint: \u0026confluentcloud.AccessPointAwsIngressPrivateLinkEndpointArgs{\nVpcEndpointId: pulumi.String(\"vpce-00000000000000000\"),\n},\n})\nif err != nil {\nreturn err\n}\nreturn nil\n})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.AccessPoint;\nimport com.pulumi.confluentcloud.AccessPointArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointGatewayArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointAwsEgressPrivateLinkEndpointArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointAzureEgressPrivateLinkEndpointArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointAwsPrivateNetworkInterfaceArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointAwsIngressPrivateLinkEndpointArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var aws = new AccessPoint(\"aws\", AccessPointArgs.builder()\n            .displayName(\"access_point_egress\")\n            .environment(AccessPointEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .gateway(AccessPointGatewayArgs.builder()\n                .id(main.gateway()[0].id())\n                .build())\n            .awsEgressPrivateLinkEndpoint(AccessPointAwsEgressPrivateLinkEndpointArgs.builder()\n                .vpcEndpointServiceName(\"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\")\n                .build())\n            .build());\n\n        var azure = new AccessPoint(\"azure\", AccessPointArgs.builder()\n            .displayName(\"access_point_egress\")\n            .environment(AccessPointEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .gateway(AccessPointGatewayArgs.builder()\n                .id(main.gateway()[0].id())\n                .build())\n            .azureEgressPrivateLinkEndpoint(AccessPointAzureEgressPrivateLinkEndpointArgs.builder()\n                .privateLinkServiceResourceId(\"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\")\n                .privateLinkSubresourceName(\"sqlServer\")\n                .build())\n            .build());\n\n        var gcp = new AccessPoint(\"gcp\", AccessPointArgs.builder()\n            .displayName(\"access_point\")\n            .environment(AccessPointEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .gateway(AccessPointGatewayArgs.builder()\n                .id(main.gateway()[0].id())\n                .build())\n            .gcpEgressPrivateServiceConnectEndpoint(AccessPointGcpEgressPrivateServiceConnectEndpointArgs.builder()\n                .privateServiceConnectEndpointTarget(\"projects/example-project/regions/us-central1/serviceAttachments/my-service-attachment\")\n                .build())\n            .build());\n\n        var pni = new AccessPoint(\"pni\", AccessPointArgs.builder()\n            .displayName(\"access_point_egress\")\n            .environment(AccessPointEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .gateway(AccessPointGatewayArgs.builder()\n                .id(mainConfluentGateway.id())\n                .build())\n            .awsPrivateNetworkInterface(AccessPointAwsPrivateNetworkInterfaceArgs.builder()\n                .networkInterfaces(mainAwsNetworkInterface.stream().map(element -\u003e element.id()).collect(toList()))\n                .account(awsAccountId)\n                .build())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(mainAwsNetworkInterfacePermission)\n                .build());\n\n        var awsIngress = new AccessPoint(\"awsIngress\", AccessPointArgs.builder()\n            .displayName(\"access_point_ingress\")\n            .environment(AccessPointEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .gateway(AccessPointGatewayArgs.builder()\n                .id(ingress.id())\n                .build())\n            .awsIngressPrivateLinkEndpoint(AccessPointAwsIngressPrivateLinkEndpointArgs.builder()\n                .vpcEndpointId(\"vpce-00000000000000000\")\n                .build())\n            .build());\n\n    }\n}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with \u003cspan pulumi-lang-nodejs=\"`confluentcloud.AccessPoint`\" pulumi-lang-dotnet=\"`confluentcloud.AccessPoint`\" pulumi-lang-go=\"`AccessPoint`\" pulumi-lang-python=\"`AccessPoint`\" pulumi-lang-yaml=\"`confluentcloud.AccessPoint`\" pulumi-lang-java=\"`confluentcloud.AccessPoint`\"\u003e`confluentcloud.AccessPoint`\u003c/span\u003e resource:\n  * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC\n  * freight-aws-kafka-rbac: _Freight_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC\n\n## Import\n\nYou can import a Access Point by using Environment ID and Access Point ID, in the format `\u003cEnvironment ID\u003e/\u003cAccess Point ID\u003e`. The following example shows how to import a Access Point:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/accessPoint:AccessPoint main env-abc123/ap-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "awsEgressPrivateLinkEndpoint": {
                     "$ref": "#/types/confluentcloud:index/AccessPointAwsEgressPrivateLinkEndpoint:AccessPointAwsEgressPrivateLinkEndpoint",
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "awsIngressPrivateLinkEndpoint": {
+                    "$ref": "#/types/confluentcloud:index/AccessPointAwsIngressPrivateLinkEndpoint:AccessPointAwsIngressPrivateLinkEndpoint",
                     "description": "(Optional Configuration Block) supports the following:\n"
                 },
                 "awsPrivateNetworkInterface": {
@@ -6925,6 +7554,11 @@
             "inputProperties": {
                 "awsEgressPrivateLinkEndpoint": {
                     "$ref": "#/types/confluentcloud:index/AccessPointAwsEgressPrivateLinkEndpoint:AccessPointAwsEgressPrivateLinkEndpoint",
+                    "description": "(Optional Configuration Block) supports the following:\n",
+                    "willReplaceOnChanges": true
+                },
+                "awsIngressPrivateLinkEndpoint": {
+                    "$ref": "#/types/confluentcloud:index/AccessPointAwsIngressPrivateLinkEndpoint:AccessPointAwsIngressPrivateLinkEndpoint",
                     "description": "(Optional Configuration Block) supports the following:\n",
                     "willReplaceOnChanges": true
                 },
@@ -6965,6 +7599,11 @@
                 "properties": {
                     "awsEgressPrivateLinkEndpoint": {
                         "$ref": "#/types/confluentcloud:index/AccessPointAwsEgressPrivateLinkEndpoint:AccessPointAwsEgressPrivateLinkEndpoint",
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "awsIngressPrivateLinkEndpoint": {
+                        "$ref": "#/types/confluentcloud:index/AccessPointAwsIngressPrivateLinkEndpoint:AccessPointAwsIngressPrivateLinkEndpoint",
                         "description": "(Optional Configuration Block) supports the following:\n",
                         "willReplaceOnChanges": true
                     },
@@ -9536,10 +10175,14 @@
             }
         },
         "confluentcloud:index/gateway:Gateway": {
-            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.Gateway`\" pulumi-lang-dotnet=\"`confluentcloud.Gateway`\" pulumi-lang-go=\"`Gateway`\" pulumi-lang-python=\"`Gateway`\" pulumi-lang-yaml=\"`confluentcloud.Gateway`\" pulumi-lang-java=\"`confluentcloud.Gateway`\"\u003e`confluentcloud.Gateway`\u003c/span\u003e provides a Gateway resource that enables creating, editing, and deleting Gateways on Confluent Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst main = new confluentcloud.Gateway(\"main\", {\n    displayName: \"my_gateway\",\n    environment: {\n        id: development.id,\n    },\n    awsEgressPrivateLinkGateway: {\n        region: \"us-west-2\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\nmain = confluentcloud.Gateway(\"main\",\n    display_name=\"my_gateway\",\n    environment={\n        \"id\": development.id,\n    },\n    aws_egress_private_link_gateway={\n        \"region\": \"us-west-2\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var main = new ConfluentCloud.Gateway(\"main\", new()\n    {\n        DisplayName = \"my_gateway\",\n        Environment = new ConfluentCloud.Inputs.GatewayEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        AwsEgressPrivateLinkGateway = new ConfluentCloud.Inputs.GatewayAwsEgressPrivateLinkGatewayArgs\n        {\n            Region = \"us-west-2\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewGateway(ctx, \"main\", \u0026confluentcloud.GatewayArgs{\n\t\t\tDisplayName: pulumi.String(\"my_gateway\"),\n\t\t\tEnvironment: \u0026confluentcloud.GatewayEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t\tAwsEgressPrivateLinkGateway: \u0026confluentcloud.GatewayAwsEgressPrivateLinkGatewayArgs{\n\t\t\t\tRegion: pulumi.String(\"us-west-2\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.Gateway;\nimport com.pulumi.confluentcloud.GatewayArgs;\nimport com.pulumi.confluentcloud.inputs.GatewayEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.GatewayAwsEgressPrivateLinkGatewayArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var main = new Gateway(\"main\", GatewayArgs.builder()\n            .displayName(\"my_gateway\")\n            .environment(GatewayEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .awsEgressPrivateLinkGateway(GatewayAwsEgressPrivateLinkGatewayArgs.builder()\n                .region(\"us-west-2\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  main:\n    type: confluentcloud:Gateway\n    properties:\n      displayName: my_gateway\n      environment:\n        id: ${development.id}\n      awsEgressPrivateLinkGateway:\n        region: us-west-2\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with \u003cspan pulumi-lang-nodejs=\"`confluentcloud.Gateway`\" pulumi-lang-dotnet=\"`confluentcloud.Gateway`\" pulumi-lang-go=\"`Gateway`\" pulumi-lang-python=\"`Gateway`\" pulumi-lang-yaml=\"`confluentcloud.Gateway`\" pulumi-lang-java=\"`confluentcloud.Gateway`\"\u003e`confluentcloud.Gateway`\u003c/span\u003e resource:\n  * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC\n  * freight-aws-kafka-rbac: _Freight_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC\n\n## Import\n\nYou can import a Gateway by using Environment ID and Gateway ID, in the format `\u003cEnvironment ID\u003e/\u003cGateway ID\u003e`. The following example shows how to import a Gateway:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/gateway:Gateway main env-abc123/gw-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.Gateway`\" pulumi-lang-dotnet=\"`confluentcloud.Gateway`\" pulumi-lang-go=\"`Gateway`\" pulumi-lang-python=\"`Gateway`\" pulumi-lang-yaml=\"`confluentcloud.Gateway`\" pulumi-lang-java=\"`confluentcloud.Gateway`\"\u003e`confluentcloud.Gateway`\u003c/span\u003e provides a Gateway resource that enables creating, editing, and deleting Gateways on Confluent Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst main = new confluentcloud.Gateway(\"main\", {\n    displayName: \"my_egress_gateway\",\n    environment: {\n        id: development.id,\n    },\n    awsEgressPrivateLinkGateway: {\n        region: \"us-west-2\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\nmain = confluentcloud.Gateway(\"main\",\n    display_name=\"my_egress_gateway\",\n    environment={\n        \"id\": development.id,\n    },\n    aws_egress_private_link_gateway={\n        \"region\": \"us-west-2\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var main = new ConfluentCloud.Gateway(\"main\", new()\n    {\n        DisplayName = \"my_egress_gateway\",\n        Environment = new ConfluentCloud.Inputs.GatewayEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        AwsEgressPrivateLinkGateway = new ConfluentCloud.Inputs.GatewayAwsEgressPrivateLinkGatewayArgs\n        {\n            Region = \"us-west-2\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewGateway(ctx, \"main\", \u0026confluentcloud.GatewayArgs{\n\t\t\tDisplayName: pulumi.String(\"my_egress_gateway\"),\n\t\t\tEnvironment: \u0026confluentcloud.GatewayEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t\tAwsEgressPrivateLinkGateway: \u0026confluentcloud.GatewayAwsEgressPrivateLinkGatewayArgs{\n\t\t\t\tRegion: pulumi.String(\"us-west-2\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.Gateway;\nimport com.pulumi.confluentcloud.GatewayArgs;\nimport com.pulumi.confluentcloud.inputs.GatewayEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.GatewayAwsEgressPrivateLinkGatewayArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()\n            .displayName(\"Development\")\n            .build());\n\n        var main = new Gateway(\"main\", GatewayArgs.builder()\n            .displayName(\"my_egress_gateway\")\n            .environment(GatewayEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .awsEgressPrivateLinkGateway(GatewayAwsEgressPrivateLinkGatewayArgs.builder()\n                .region(\"us-west-2\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  main:\n    type: confluentcloud:Gateway\n    properties:\n      displayName: my_egress_gateway\n      environment:\n        id: ${development.id}\n      awsEgressPrivateLinkGateway:\n        region: us-west-2\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with \u003cspan pulumi-lang-nodejs=\"`confluentcloud.Gateway`\" pulumi-lang-dotnet=\"`confluentcloud.Gateway`\" pulumi-lang-go=\"`Gateway`\" pulumi-lang-python=\"`Gateway`\" pulumi-lang-yaml=\"`confluentcloud.Gateway`\" pulumi-lang-java=\"`confluentcloud.Gateway`\"\u003e`confluentcloud.Gateway`\u003c/span\u003e resource:\n  * enterprise-pni-aws-kafka-rbac: _Enterprise_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC\n  * freight-aws-kafka-rbac: _Freight_ Kafka cluster on AWS that is accessible via Confluent Private Network Interface (PNI) with authorization using RBAC\n\n## Import\n\nYou can import a Gateway by using Environment ID and Gateway ID, in the format `\u003cEnvironment ID\u003e/\u003cGateway ID\u003e`. The following example shows how to import a Gateway:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/gateway:Gateway main env-abc123/gw-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "awsEgressPrivateLinkGateway": {
                     "$ref": "#/types/confluentcloud:index/GatewayAwsEgressPrivateLinkGateway:GatewayAwsEgressPrivateLinkGateway",
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "awsIngressPrivateLinkGateway": {
+                    "$ref": "#/types/confluentcloud:index/GatewayAwsIngressPrivateLinkGateway:GatewayAwsIngressPrivateLinkGateway",
                     "description": "(Optional Configuration Block) supports the following:\n"
                 },
                 "awsPrivateNetworkInterfaceGateway": {
@@ -9561,6 +10204,7 @@
             },
             "required": [
                 "awsEgressPrivateLinkGateway",
+                "awsIngressPrivateLinkGateway",
                 "awsPrivateNetworkInterfaceGateway",
                 "azureEgressPrivateLinkGateway",
                 "displayName",
@@ -9569,6 +10213,11 @@
             "inputProperties": {
                 "awsEgressPrivateLinkGateway": {
                     "$ref": "#/types/confluentcloud:index/GatewayAwsEgressPrivateLinkGateway:GatewayAwsEgressPrivateLinkGateway",
+                    "description": "(Optional Configuration Block) supports the following:\n",
+                    "willReplaceOnChanges": true
+                },
+                "awsIngressPrivateLinkGateway": {
+                    "$ref": "#/types/confluentcloud:index/GatewayAwsIngressPrivateLinkGateway:GatewayAwsIngressPrivateLinkGateway",
                     "description": "(Optional Configuration Block) supports the following:\n",
                     "willReplaceOnChanges": true
                 },
@@ -9601,6 +10250,11 @@
                 "properties": {
                     "awsEgressPrivateLinkGateway": {
                         "$ref": "#/types/confluentcloud:index/GatewayAwsEgressPrivateLinkGateway:GatewayAwsEgressPrivateLinkGateway",
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "awsIngressPrivateLinkGateway": {
+                        "$ref": "#/types/confluentcloud:index/GatewayAwsIngressPrivateLinkGateway:GatewayAwsIngressPrivateLinkGateway",
                         "description": "(Optional Configuration Block) supports the following:\n",
                         "willReplaceOnChanges": true
                     },
@@ -12860,7 +13514,7 @@
             }
         },
         "confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig": {
-            "description": "## Example Usage\n\n### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.SchemaRegistryClusterConfig(\"example\", {\n    schemaRegistryCluster: {\n        id: essentials.id,\n    },\n    restEndpoint: essentials.restEndpoint,\n    compatibilityLevel: \"FULL\",\n    credentials: {\n        key: \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        secret: \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.SchemaRegistryClusterConfig(\"example\",\n    schema_registry_cluster={\n        \"id\": essentials[\"id\"],\n    },\n    rest_endpoint=essentials[\"restEndpoint\"],\n    compatibility_level=\"FULL\",\n    credentials={\n        \"key\": \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        \"secret\": \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.SchemaRegistryClusterConfig(\"example\", new()\n    {\n        SchemaRegistryCluster = new ConfluentCloud.Inputs.SchemaRegistryClusterConfigSchemaRegistryClusterArgs\n        {\n            Id = essentials.Id,\n        },\n        RestEndpoint = essentials.RestEndpoint,\n        CompatibilityLevel = \"FULL\",\n        Credentials = new ConfluentCloud.Inputs.SchemaRegistryClusterConfigCredentialsArgs\n        {\n            Key = \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n            Secret = \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewSchemaRegistryClusterConfig(ctx, \"example\", \u0026confluentcloud.SchemaRegistryClusterConfigArgs{\n\t\t\tSchemaRegistryCluster: \u0026confluentcloud.SchemaRegistryClusterConfigSchemaRegistryClusterArgs{\n\t\t\t\tId: pulumi.Any(essentials.Id),\n\t\t\t},\n\t\t\tRestEndpoint:       pulumi.Any(essentials.RestEndpoint),\n\t\t\tCompatibilityLevel: pulumi.String(\"FULL\"),\n\t\t\tCredentials: \u0026confluentcloud.SchemaRegistryClusterConfigCredentialsArgs{\n\t\t\t\tKey:    pulumi.String(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t\tSecret: pulumi.String(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.SchemaRegistryClusterConfig;\nimport com.pulumi.confluentcloud.SchemaRegistryClusterConfigArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaRegistryClusterConfigSchemaRegistryClusterArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaRegistryClusterConfigCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SchemaRegistryClusterConfig(\"example\", SchemaRegistryClusterConfigArgs.builder()\n            .schemaRegistryCluster(SchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()\n                .id(essentials.id())\n                .build())\n            .restEndpoint(essentials.restEndpoint())\n            .compatibilityLevel(\"FULL\")\n            .credentials(SchemaRegistryClusterConfigCredentialsArgs.builder()\n                .key(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .secret(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:SchemaRegistryClusterConfig\n    properties:\n      schemaRegistryCluster:\n        id: ${essentials.id}\n      restEndpoint: ${essentials.restEndpoint}\n      compatibilityLevel: FULL\n      credentials:\n        key: \u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\n        secret: \u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.SchemaRegistryClusterConfig(\"example\", {\n    compatibilityLevel: \"FULL\",\n    compatibilityGroup: \"abc.cg.version\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.SchemaRegistryClusterConfig(\"example\",\n    compatibility_level=\"FULL\",\n    compatibility_group=\"abc.cg.version\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.SchemaRegistryClusterConfig(\"example\", new()\n    {\n        CompatibilityLevel = \"FULL\",\n        CompatibilityGroup = \"abc.cg.version\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewSchemaRegistryClusterConfig(ctx, \"example\", \u0026confluentcloud.SchemaRegistryClusterConfigArgs{\n\t\t\tCompatibilityLevel: pulumi.String(\"FULL\"),\n\t\t\tCompatibilityGroup: pulumi.String(\"abc.cg.version\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.SchemaRegistryClusterConfig;\nimport com.pulumi.confluentcloud.SchemaRegistryClusterConfigArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SchemaRegistryClusterConfig(\"example\", SchemaRegistryClusterConfigArgs.builder()\n            .compatibilityLevel(\"FULL\")\n            .compatibilityGroup(\"abc.cg.version\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:SchemaRegistryClusterConfig\n    properties:\n      compatibilityLevel: FULL\n      compatibilityGroup: abc.cg.version\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Schema Registry Cluster Config by using the Schema Registry cluster ID, Subject name in the format `\u003cSchema Registry cluster ID\u003e`, for example:\n\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig example lsrc-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "description": "## Example Usage\n\n### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.SchemaRegistryClusterConfig(\"example\", {\n    schemaRegistryCluster: {\n        id: essentials.id,\n    },\n    restEndpoint: essentials.restEndpoint,\n    compatibilityLevel: \"FULL\",\n    credentials: {\n        key: \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        secret: \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.SchemaRegistryClusterConfig(\"example\",\n    schema_registry_cluster={\n        \"id\": essentials[\"id\"],\n    },\n    rest_endpoint=essentials[\"restEndpoint\"],\n    compatibility_level=\"FULL\",\n    credentials={\n        \"key\": \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        \"secret\": \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.SchemaRegistryClusterConfig(\"example\", new()\n    {\n        SchemaRegistryCluster = new ConfluentCloud.Inputs.SchemaRegistryClusterConfigSchemaRegistryClusterArgs\n        {\n            Id = essentials.Id,\n        },\n        RestEndpoint = essentials.RestEndpoint,\n        CompatibilityLevel = \"FULL\",\n        Credentials = new ConfluentCloud.Inputs.SchemaRegistryClusterConfigCredentialsArgs\n        {\n            Key = \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n            Secret = \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewSchemaRegistryClusterConfig(ctx, \"example\", \u0026confluentcloud.SchemaRegistryClusterConfigArgs{\n\t\t\tSchemaRegistryCluster: \u0026confluentcloud.SchemaRegistryClusterConfigSchemaRegistryClusterArgs{\n\t\t\t\tId: pulumi.Any(essentials.Id),\n\t\t\t},\n\t\t\tRestEndpoint:       pulumi.Any(essentials.RestEndpoint),\n\t\t\tCompatibilityLevel: pulumi.String(\"FULL\"),\n\t\t\tCredentials: \u0026confluentcloud.SchemaRegistryClusterConfigCredentialsArgs{\n\t\t\t\tKey:    pulumi.String(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t\tSecret: pulumi.String(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.SchemaRegistryClusterConfig;\nimport com.pulumi.confluentcloud.SchemaRegistryClusterConfigArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaRegistryClusterConfigSchemaRegistryClusterArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaRegistryClusterConfigCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SchemaRegistryClusterConfig(\"example\", SchemaRegistryClusterConfigArgs.builder()\n            .schemaRegistryCluster(SchemaRegistryClusterConfigSchemaRegistryClusterArgs.builder()\n                .id(essentials.id())\n                .build())\n            .restEndpoint(essentials.restEndpoint())\n            .compatibilityLevel(\"FULL\")\n            .credentials(SchemaRegistryClusterConfigCredentialsArgs.builder()\n                .key(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .secret(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:SchemaRegistryClusterConfig\n    properties:\n      schemaRegistryCluster:\n        id: ${essentials.id}\n      restEndpoint: ${essentials.restEndpoint}\n      compatibilityLevel: FULL\n      credentials:\n        key: \u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\n        secret: \u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.SchemaRegistryClusterConfig(\"example\", {\n    compatibilityLevel: \"FULL\",\n    compatibilityGroup: \"abc.cg.version\",\n    normalize: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.SchemaRegistryClusterConfig(\"example\",\n    compatibility_level=\"FULL\",\n    compatibility_group=\"abc.cg.version\",\n    normalize=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.SchemaRegistryClusterConfig(\"example\", new()\n    {\n        CompatibilityLevel = \"FULL\",\n        CompatibilityGroup = \"abc.cg.version\",\n        Normalize = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewSchemaRegistryClusterConfig(ctx, \"example\", \u0026confluentcloud.SchemaRegistryClusterConfigArgs{\n\t\t\tCompatibilityLevel: pulumi.String(\"FULL\"),\n\t\t\tCompatibilityGroup: pulumi.String(\"abc.cg.version\"),\n\t\t\tNormalize:          pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.SchemaRegistryClusterConfig;\nimport com.pulumi.confluentcloud.SchemaRegistryClusterConfigArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SchemaRegistryClusterConfig(\"example\", SchemaRegistryClusterConfigArgs.builder()\n            .compatibilityLevel(\"FULL\")\n            .compatibilityGroup(\"abc.cg.version\")\n            .normalize(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:SchemaRegistryClusterConfig\n    properties:\n      compatibilityLevel: FULL\n      compatibilityGroup: abc.cg.version\n      normalize: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Schema Registry Cluster Config by using the Schema Registry cluster ID, Subject name in the format `\u003cSchema Registry cluster ID\u003e`, for example:\n\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig example lsrc-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "compatibilityGroup": {
                     "type": "string",
@@ -12875,6 +13529,10 @@
                     "description": "The Cluster API Credentials.",
                     "secret": true
                 },
+                "normalize": {
+                    "type": "boolean",
+                    "description": "Whether schemas are automatically normalized when registered or passed during lookups.\n"
+                },
                 "restEndpoint": {
                     "type": "string",
                     "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
@@ -12885,7 +13543,8 @@
             },
             "required": [
                 "compatibilityGroup",
-                "compatibilityLevel"
+                "compatibilityLevel",
+                "normalize"
             ],
             "inputProperties": {
                 "compatibilityGroup": {
@@ -12900,6 +13559,10 @@
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterConfigCredentials:SchemaRegistryClusterConfigCredentials",
                     "description": "The Cluster API Credentials.",
                     "secret": true
+                },
+                "normalize": {
+                    "type": "boolean",
+                    "description": "Whether schemas are automatically normalized when registered or passed during lookups.\n"
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -12926,6 +13589,10 @@
                         "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterConfigCredentials:SchemaRegistryClusterConfigCredentials",
                         "description": "The Cluster API Credentials.",
                         "secret": true
+                    },
+                    "normalize": {
+                        "type": "boolean",
+                        "description": "Whether schemas are automatically normalized when registered or passed during lookups.\n"
                     },
                     "restEndpoint": {
                         "type": "string",
@@ -13389,8 +14056,12 @@
             }
         },
         "confluentcloud:index/subjectConfig:SubjectConfig": {
-            "description": "## Example Usage\n\n### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.SubjectConfig(\"example\", {\n    schemaRegistryCluster: {\n        id: essentials.id,\n    },\n    restEndpoint: essentialsConfluentSchemaRegistryCluster.restEndpoint,\n    subjectName: \"proto-purchase-value\",\n    compatibilityLevel: \"BACKWARD\",\n    compatibilityGroup: \"abc.cg.version\",\n    credentials: {\n        key: \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        secret: \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.SubjectConfig(\"example\",\n    schema_registry_cluster={\n        \"id\": essentials[\"id\"],\n    },\n    rest_endpoint=essentials_confluent_schema_registry_cluster[\"restEndpoint\"],\n    subject_name=\"proto-purchase-value\",\n    compatibility_level=\"BACKWARD\",\n    compatibility_group=\"abc.cg.version\",\n    credentials={\n        \"key\": \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        \"secret\": \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.SubjectConfig(\"example\", new()\n    {\n        SchemaRegistryCluster = new ConfluentCloud.Inputs.SubjectConfigSchemaRegistryClusterArgs\n        {\n            Id = essentials.Id,\n        },\n        RestEndpoint = essentialsConfluentSchemaRegistryCluster.RestEndpoint,\n        SubjectName = \"proto-purchase-value\",\n        CompatibilityLevel = \"BACKWARD\",\n        CompatibilityGroup = \"abc.cg.version\",\n        Credentials = new ConfluentCloud.Inputs.SubjectConfigCredentialsArgs\n        {\n            Key = \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n            Secret = \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewSubjectConfig(ctx, \"example\", \u0026confluentcloud.SubjectConfigArgs{\n\t\t\tSchemaRegistryCluster: \u0026confluentcloud.SubjectConfigSchemaRegistryClusterArgs{\n\t\t\t\tId: pulumi.Any(essentials.Id),\n\t\t\t},\n\t\t\tRestEndpoint:       pulumi.Any(essentialsConfluentSchemaRegistryCluster.RestEndpoint),\n\t\t\tSubjectName:        pulumi.String(\"proto-purchase-value\"),\n\t\t\tCompatibilityLevel: pulumi.String(\"BACKWARD\"),\n\t\t\tCompatibilityGroup: pulumi.String(\"abc.cg.version\"),\n\t\t\tCredentials: \u0026confluentcloud.SubjectConfigCredentialsArgs{\n\t\t\t\tKey:    pulumi.String(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t\tSecret: pulumi.String(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.SubjectConfig;\nimport com.pulumi.confluentcloud.SubjectConfigArgs;\nimport com.pulumi.confluentcloud.inputs.SubjectConfigSchemaRegistryClusterArgs;\nimport com.pulumi.confluentcloud.inputs.SubjectConfigCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SubjectConfig(\"example\", SubjectConfigArgs.builder()\n            .schemaRegistryCluster(SubjectConfigSchemaRegistryClusterArgs.builder()\n                .id(essentials.id())\n                .build())\n            .restEndpoint(essentialsConfluentSchemaRegistryCluster.restEndpoint())\n            .subjectName(\"proto-purchase-value\")\n            .compatibilityLevel(\"BACKWARD\")\n            .compatibilityGroup(\"abc.cg.version\")\n            .credentials(SubjectConfigCredentialsArgs.builder()\n                .key(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .secret(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:SubjectConfig\n    properties:\n      schemaRegistryCluster:\n        id: ${essentials.id}\n      restEndpoint: ${essentialsConfluentSchemaRegistryCluster.restEndpoint}\n      subjectName: proto-purchase-value\n      compatibilityLevel: BACKWARD\n      compatibilityGroup: abc.cg.version\n      credentials:\n        key: \u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\n        secret: \u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.SubjectConfig(\"example\", {\n    subjectName: \"proto-purchase-value\",\n    compatibilityLevel: \"BACKWARD\",\n    compatibilityGroup: \"abc.cg.version\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.SubjectConfig(\"example\",\n    subject_name=\"proto-purchase-value\",\n    compatibility_level=\"BACKWARD\",\n    compatibility_group=\"abc.cg.version\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.SubjectConfig(\"example\", new()\n    {\n        SubjectName = \"proto-purchase-value\",\n        CompatibilityLevel = \"BACKWARD\",\n        CompatibilityGroup = \"abc.cg.version\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewSubjectConfig(ctx, \"example\", \u0026confluentcloud.SubjectConfigArgs{\n\t\t\tSubjectName:        pulumi.String(\"proto-purchase-value\"),\n\t\t\tCompatibilityLevel: pulumi.String(\"BACKWARD\"),\n\t\t\tCompatibilityGroup: pulumi.String(\"abc.cg.version\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.SubjectConfig;\nimport com.pulumi.confluentcloud.SubjectConfigArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SubjectConfig(\"example\", SubjectConfigArgs.builder()\n            .subjectName(\"proto-purchase-value\")\n            .compatibilityLevel(\"BACKWARD\")\n            .compatibilityGroup(\"abc.cg.version\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:SubjectConfig\n    properties:\n      subjectName: proto-purchase-value\n      compatibilityLevel: BACKWARD\n      compatibilityGroup: abc.cg.version\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Subject Config by using the Schema Registry cluster ID, Subject name in the format `\u003cSchema Registry cluster ID\u003e/\u003cSubject name\u003e`, for example:\n\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/subjectConfig:SubjectConfig example lsrc-abc123/test-subject\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "description": "## Example Usage\n\n### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.SubjectConfig(\"example\", {\n    schemaRegistryCluster: {\n        id: essentials.id,\n    },\n    restEndpoint: essentialsConfluentSchemaRegistryCluster.restEndpoint,\n    subjectName: \"proto-purchase-value\",\n    compatibilityLevel: \"BACKWARD\",\n    compatibilityGroup: \"abc.cg.version\",\n    normalize: true,\n    credentials: {\n        key: \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        secret: \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.SubjectConfig(\"example\",\n    schema_registry_cluster={\n        \"id\": essentials[\"id\"],\n    },\n    rest_endpoint=essentials_confluent_schema_registry_cluster[\"restEndpoint\"],\n    subject_name=\"proto-purchase-value\",\n    compatibility_level=\"BACKWARD\",\n    compatibility_group=\"abc.cg.version\",\n    normalize=True,\n    credentials={\n        \"key\": \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        \"secret\": \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.SubjectConfig(\"example\", new()\n    {\n        SchemaRegistryCluster = new ConfluentCloud.Inputs.SubjectConfigSchemaRegistryClusterArgs\n        {\n            Id = essentials.Id,\n        },\n        RestEndpoint = essentialsConfluentSchemaRegistryCluster.RestEndpoint,\n        SubjectName = \"proto-purchase-value\",\n        CompatibilityLevel = \"BACKWARD\",\n        CompatibilityGroup = \"abc.cg.version\",\n        Normalize = true,\n        Credentials = new ConfluentCloud.Inputs.SubjectConfigCredentialsArgs\n        {\n            Key = \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n            Secret = \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewSubjectConfig(ctx, \"example\", \u0026confluentcloud.SubjectConfigArgs{\n\t\t\tSchemaRegistryCluster: \u0026confluentcloud.SubjectConfigSchemaRegistryClusterArgs{\n\t\t\t\tId: pulumi.Any(essentials.Id),\n\t\t\t},\n\t\t\tRestEndpoint:       pulumi.Any(essentialsConfluentSchemaRegistryCluster.RestEndpoint),\n\t\t\tSubjectName:        pulumi.String(\"proto-purchase-value\"),\n\t\t\tCompatibilityLevel: pulumi.String(\"BACKWARD\"),\n\t\t\tCompatibilityGroup: pulumi.String(\"abc.cg.version\"),\n\t\t\tNormalize:          pulumi.Bool(true),\n\t\t\tCredentials: \u0026confluentcloud.SubjectConfigCredentialsArgs{\n\t\t\t\tKey:    pulumi.String(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t\tSecret: pulumi.String(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.SubjectConfig;\nimport com.pulumi.confluentcloud.SubjectConfigArgs;\nimport com.pulumi.confluentcloud.inputs.SubjectConfigSchemaRegistryClusterArgs;\nimport com.pulumi.confluentcloud.inputs.SubjectConfigCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SubjectConfig(\"example\", SubjectConfigArgs.builder()\n            .schemaRegistryCluster(SubjectConfigSchemaRegistryClusterArgs.builder()\n                .id(essentials.id())\n                .build())\n            .restEndpoint(essentialsConfluentSchemaRegistryCluster.restEndpoint())\n            .subjectName(\"proto-purchase-value\")\n            .compatibilityLevel(\"BACKWARD\")\n            .compatibilityGroup(\"abc.cg.version\")\n            .normalize(true)\n            .credentials(SubjectConfigCredentialsArgs.builder()\n                .key(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .secret(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:SubjectConfig\n    properties:\n      schemaRegistryCluster:\n        id: ${essentials.id}\n      restEndpoint: ${essentialsConfluentSchemaRegistryCluster.restEndpoint}\n      subjectName: proto-purchase-value\n      compatibilityLevel: BACKWARD\n      compatibilityGroup: abc.cg.version\n      normalize: true\n      credentials:\n        key: \u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\n        secret: \u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.SubjectConfig(\"example\", {\n    subjectName: \"proto-purchase-value\",\n    compatibilityLevel: \"BACKWARD\",\n    compatibilityGroup: \"abc.cg.version\",\n    normalize: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.SubjectConfig(\"example\",\n    subject_name=\"proto-purchase-value\",\n    compatibility_level=\"BACKWARD\",\n    compatibility_group=\"abc.cg.version\",\n    normalize=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.SubjectConfig(\"example\", new()\n    {\n        SubjectName = \"proto-purchase-value\",\n        CompatibilityLevel = \"BACKWARD\",\n        CompatibilityGroup = \"abc.cg.version\",\n        Normalize = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewSubjectConfig(ctx, \"example\", \u0026confluentcloud.SubjectConfigArgs{\n\t\t\tSubjectName:        pulumi.String(\"proto-purchase-value\"),\n\t\t\tCompatibilityLevel: pulumi.String(\"BACKWARD\"),\n\t\t\tCompatibilityGroup: pulumi.String(\"abc.cg.version\"),\n\t\t\tNormalize:          pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.SubjectConfig;\nimport com.pulumi.confluentcloud.SubjectConfigArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SubjectConfig(\"example\", SubjectConfigArgs.builder()\n            .subjectName(\"proto-purchase-value\")\n            .compatibilityLevel(\"BACKWARD\")\n            .compatibilityGroup(\"abc.cg.version\")\n            .normalize(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:SubjectConfig\n    properties:\n      subjectName: proto-purchase-value\n      compatibilityLevel: BACKWARD\n      compatibilityGroup: abc.cg.version\n      normalize: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example: Creating a Subject Alias\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\nimport * as std from \"@pulumi/std\";\n\n// First, ensure the original subject exists with a schema\nconst original = new confluentcloud.Schema(\"original\", {\n    subjectName: \"orders-long-subject-name-value\",\n    format: \"AVRO\",\n    schema: std.index.file({\n        input: \"./schemas/avro/orders.avsc\",\n    }).result,\n});\n// Create an alias that points to the original subject\n// Any reference to \"orders-value\" will now resolve to \"orders-long-subject-name-value\"\nconst ordersAlias = new confluentcloud.SubjectConfig(\"orders_alias\", {\n    subjectName: \"orders-value\",\n    alias: \"orders-long-subject-name-value\",\n}, {\n    dependsOn: [original],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\nimport pulumi_std as std\n\n# First, ensure the original subject exists with a schema\noriginal = confluentcloud.Schema(\"original\",\n    subject_name=\"orders-long-subject-name-value\",\n    format=\"AVRO\",\n    schema=std.index.file(input=\"./schemas/avro/orders.avsc\")[\"result\"])\n# Create an alias that points to the original subject\n# Any reference to \"orders-value\" will now resolve to \"orders-long-subject-name-value\"\norders_alias = confluentcloud.SubjectConfig(\"orders_alias\",\n    subject_name=\"orders-value\",\n    alias=\"orders-long-subject-name-value\",\n    opts = pulumi.ResourceOptions(depends_on=[original]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // First, ensure the original subject exists with a schema\n    var original = new ConfluentCloud.Schema(\"original\", new()\n    {\n        SubjectName = \"orders-long-subject-name-value\",\n        Format = \"AVRO\",\n        SchemaDetails = Std.Index.File.Invoke(new()\n        {\n            Input = \"./schemas/avro/orders.avsc\",\n        }).Result,\n    });\n\n    // Create an alias that points to the original subject\n    // Any reference to \"orders-value\" will now resolve to \"orders-long-subject-name-value\"\n    var ordersAlias = new ConfluentCloud.SubjectConfig(\"orders_alias\", new()\n    {\n        SubjectName = \"orders-value\",\n        Alias = \"orders-long-subject-name-value\",\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            original,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, map[string]interface{}{\n\t\t\t\"input\": \"./schemas/avro/orders.avsc\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// First, ensure the original subject exists with a schema\n\t\toriginal, err := confluentcloud.NewSchema(ctx, \"original\", \u0026confluentcloud.SchemaArgs{\n\t\t\tSubjectName: pulumi.String(\"orders-long-subject-name-value\"),\n\t\t\tFormat:      pulumi.String(\"AVRO\"),\n\t\t\tSchema:      invokeFile.Result,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Create an alias that points to the original subject\n\t\t// Any reference to \"orders-value\" will now resolve to \"orders-long-subject-name-value\"\n\t\t_, err = confluentcloud.NewSubjectConfig(ctx, \"orders_alias\", \u0026confluentcloud.SubjectConfigArgs{\n\t\t\tSubjectName: pulumi.String(\"orders-value\"),\n\t\t\tAlias:       pulumi.String(\"orders-long-subject-name-value\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\toriginal,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Schema;\nimport com.pulumi.confluentcloud.SchemaArgs;\nimport com.pulumi.std.StdFunctions;\nimport com.pulumi.confluentcloud.SubjectConfig;\nimport com.pulumi.confluentcloud.SubjectConfigArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // First, ensure the original subject exists with a schema\n        var original = new Schema(\"original\", SchemaArgs.builder()\n            .subjectName(\"orders-long-subject-name-value\")\n            .format(\"AVRO\")\n            .schema(StdFunctions.file(Map.of(\"input\", \"./schemas/avro/orders.avsc\")).result())\n            .build());\n\n        // Create an alias that points to the original subject\n        // Any reference to \"orders-value\" will now resolve to \"orders-long-subject-name-value\"\n        var ordersAlias = new SubjectConfig(\"ordersAlias\", SubjectConfigArgs.builder()\n            .subjectName(\"orders-value\")\n            .alias(\"orders-long-subject-name-value\")\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(original)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # First, ensure the original subject exists with a schema\n  original:\n    type: confluentcloud:Schema\n    properties:\n      subjectName: orders-long-subject-name-value\n      format: AVRO\n      schema:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: ./schemas/avro/orders.avsc\n          return: result\n  # Create an alias that points to the original subject\n  # Any reference to \"orders-value\" will now resolve to \"orders-long-subject-name-value\"\n  ordersAlias:\n    type: confluentcloud:SubjectConfig\n    name: orders_alias\n    properties:\n      subjectName: orders-value\n      alias: orders-long-subject-name-value\n    options:\n      dependsOn:\n        - ${original}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Subject Config by using the Schema Registry cluster ID, Subject name in the format `\u003cSchema Registry cluster ID\u003e/\u003cSubject name\u003e`, for example:\n\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/subjectConfig:SubjectConfig example lsrc-abc123/test-subject\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
+                "alias": {
+                    "type": "string",
+                    "description": "The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.\n\n\u003e **Note:** To create an alias for a subject, create a new subject config where \u003cspan pulumi-lang-nodejs=\"`subjectName`\" pulumi-lang-dotnet=\"`SubjectName`\" pulumi-lang-go=\"`subjectName`\" pulumi-lang-python=\"`subject_name`\" pulumi-lang-yaml=\"`subjectName`\" pulumi-lang-java=\"`subjectName`\"\u003e`subject_name`\u003c/span\u003e is the alias and \u003cspan pulumi-lang-nodejs=\"`alias`\" pulumi-lang-dotnet=\"`Alias`\" pulumi-lang-go=\"`alias`\" pulumi-lang-python=\"`alias`\" pulumi-lang-yaml=\"`alias`\" pulumi-lang-java=\"`alias`\"\u003e`alias`\u003c/span\u003e points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set \u003cspan pulumi-lang-nodejs=\"`subjectName \" pulumi-lang-dotnet=\"`SubjectName \" pulumi-lang-go=\"`subjectName \" pulumi-lang-python=\"`subject_name \" pulumi-lang-yaml=\"`subjectName \" pulumi-lang-java=\"`subjectName \"\u003e`subject_name \u003c/span\u003e= \"short-name\"` and `alias = \"very-long-subject-name\"`.\n"
+                },
                 "compatibilityGroup": {
                     "type": "string",
                     "description": "The Compatibility Group of the specified subject.\n"
@@ -13403,6 +14074,10 @@
                     "$ref": "#/types/confluentcloud:index/SubjectConfigCredentials:SubjectConfigCredentials",
                     "description": "The Cluster API Credentials.",
                     "secret": true
+                },
+                "normalize": {
+                    "type": "boolean",
+                    "description": "Whether schemas are automatically normalized when registered or passed during lookups.\n"
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -13417,11 +14092,17 @@
                 }
             },
             "required": [
+                "alias",
                 "compatibilityGroup",
                 "compatibilityLevel",
+                "normalize",
                 "subjectName"
             ],
             "inputProperties": {
+                "alias": {
+                    "type": "string",
+                    "description": "The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.\n\n\u003e **Note:** To create an alias for a subject, create a new subject config where \u003cspan pulumi-lang-nodejs=\"`subjectName`\" pulumi-lang-dotnet=\"`SubjectName`\" pulumi-lang-go=\"`subjectName`\" pulumi-lang-python=\"`subject_name`\" pulumi-lang-yaml=\"`subjectName`\" pulumi-lang-java=\"`subjectName`\"\u003e`subject_name`\u003c/span\u003e is the alias and \u003cspan pulumi-lang-nodejs=\"`alias`\" pulumi-lang-dotnet=\"`Alias`\" pulumi-lang-go=\"`alias`\" pulumi-lang-python=\"`alias`\" pulumi-lang-yaml=\"`alias`\" pulumi-lang-java=\"`alias`\"\u003e`alias`\u003c/span\u003e points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set \u003cspan pulumi-lang-nodejs=\"`subjectName \" pulumi-lang-dotnet=\"`SubjectName \" pulumi-lang-go=\"`subjectName \" pulumi-lang-python=\"`subject_name \" pulumi-lang-yaml=\"`subjectName \" pulumi-lang-java=\"`subjectName \"\u003e`subject_name \u003c/span\u003e= \"short-name\"` and `alias = \"very-long-subject-name\"`.\n"
+                },
                 "compatibilityGroup": {
                     "type": "string",
                     "description": "The Compatibility Group of the specified subject.\n"
@@ -13434,6 +14115,10 @@
                     "$ref": "#/types/confluentcloud:index/SubjectConfigCredentials:SubjectConfigCredentials",
                     "description": "The Cluster API Credentials.",
                     "secret": true
+                },
+                "normalize": {
+                    "type": "boolean",
+                    "description": "Whether schemas are automatically normalized when registered or passed during lookups.\n"
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -13456,6 +14141,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering SubjectConfig resources.\n",
                 "properties": {
+                    "alias": {
+                        "type": "string",
+                        "description": "The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.\n\n\u003e **Note:** To create an alias for a subject, create a new subject config where \u003cspan pulumi-lang-nodejs=\"`subjectName`\" pulumi-lang-dotnet=\"`SubjectName`\" pulumi-lang-go=\"`subjectName`\" pulumi-lang-python=\"`subject_name`\" pulumi-lang-yaml=\"`subjectName`\" pulumi-lang-java=\"`subjectName`\"\u003e`subject_name`\u003c/span\u003e is the alias and \u003cspan pulumi-lang-nodejs=\"`alias`\" pulumi-lang-dotnet=\"`Alias`\" pulumi-lang-go=\"`alias`\" pulumi-lang-python=\"`alias`\" pulumi-lang-yaml=\"`alias`\" pulumi-lang-java=\"`alias`\"\u003e`alias`\u003c/span\u003e points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set \u003cspan pulumi-lang-nodejs=\"`subjectName \" pulumi-lang-dotnet=\"`SubjectName \" pulumi-lang-go=\"`subjectName \" pulumi-lang-python=\"`subject_name \" pulumi-lang-yaml=\"`subjectName \" pulumi-lang-java=\"`subjectName \"\u003e`subject_name \u003c/span\u003e= \"short-name\"` and `alias = \"very-long-subject-name\"`.\n"
+                    },
                     "compatibilityGroup": {
                         "type": "string",
                         "description": "The Compatibility Group of the specified subject.\n"
@@ -13468,6 +14157,10 @@
                         "$ref": "#/types/confluentcloud:index/SubjectConfigCredentials:SubjectConfigCredentials",
                         "description": "The Cluster API Credentials.",
                         "secret": true
+                    },
+                    "normalize": {
+                        "type": "boolean",
+                        "description": "Whether schemas are automatically normalized when registered or passed during lookups.\n"
                     },
                     "restEndpoint": {
                         "type": "string",
@@ -14198,6 +14891,13 @@
                         },
                         "type": "array"
                     },
+                    "awsIngressPrivateLinkEndpoints": {
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getAccessPointAwsIngressPrivateLinkEndpoint:getAccessPointAwsIngressPrivateLinkEndpoint"
+                        },
+                        "type": "array"
+                    },
                     "awsPrivateNetworkInterfaces": {
                         "description": "(Optional Configuration Block) Supports the following:\n",
                         "items": {
@@ -14240,6 +14940,7 @@
                 },
                 "required": [
                     "awsEgressPrivateLinkEndpoints",
+                    "awsIngressPrivateLinkEndpoints",
                     "awsPrivateNetworkInterfaces",
                     "azureEgressPrivateLinkEndpoints",
                     "displayName",
@@ -14879,6 +15580,46 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/getEndpoint:getEndpoint": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.getEndpoint`\" pulumi-lang-dotnet=\"`confluentcloud.getEndpoint`\" pulumi-lang-go=\"`getEndpoint`\" pulumi-lang-python=\"`get_endpoint`\" pulumi-lang-yaml=\"`confluentcloud.getEndpoint`\" pulumi-lang-java=\"`confluentcloud.getEndpoint`\"\u003e`confluentcloud.getEndpoint`\u003c/span\u003e describes an Endpoint data source.\n\nAn Endpoint object represents a Fully Qualified Domain Name (FQDN) for a Confluent service resource via a specific networking solution for a given Confluent Cloud environment. Endpoints can be filtered by service, cloud provider, region, etc.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getEndpoint({\n    filter: {\n        environment: {\n            id: \"env-123abc\",\n        },\n        service: \"KAFKA\",\n        resource: \"lkc-abc123\",\n        cloud: \"AWS\",\n        region: \"us-west-2\",\n    },\n});\nexport const endpoints = main.then(main =\u003e main.endpoints);\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_endpoint(filter={\n    \"environment\": {\n        \"id\": \"env-123abc\",\n    },\n    \"service\": \"KAFKA\",\n    \"resource\": \"lkc-abc123\",\n    \"cloud\": \"AWS\",\n    \"region\": \"us-west-2\",\n})\npulumi.export(\"endpoints\", main.endpoints)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetEndpoint.Invoke(new()\n    {\n        Filter = new ConfluentCloud.Inputs.GetEndpointFilterInputArgs\n        {\n            Environment = new ConfluentCloud.Inputs.GetEndpointFilterEnvironmentInputArgs\n            {\n                Id = \"env-123abc\",\n            },\n            Service = \"KAFKA\",\n            Resource = \"lkc-abc123\",\n            Cloud = \"AWS\",\n            Region = \"us-west-2\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"endpoints\"] = main.Apply(getEndpointResult =\u003e getEndpointResult.Endpoints),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.GetEndpoint(ctx, \u0026confluentcloud.GetEndpointArgs{\n\t\t\tFilter: confluentcloud.GetEndpointFilter{\n\t\t\t\tEnvironment: confluentcloud.GetEndpointFilterEnvironment{\n\t\t\t\t\tId: \"env-123abc\",\n\t\t\t\t},\n\t\t\t\tService:  \"KAFKA\",\n\t\t\t\tResource: pulumi.StringRef(\"lkc-abc123\"),\n\t\t\t\tCloud:    pulumi.StringRef(\"AWS\"),\n\t\t\t\tRegion:   pulumi.StringRef(\"us-west-2\"),\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"endpoints\", main.Endpoints)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetEndpointArgs;\nimport com.pulumi.confluentcloud.inputs.GetEndpointFilterArgs;\nimport com.pulumi.confluentcloud.inputs.GetEndpointFilterEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getEndpoint(GetEndpointArgs.builder()\n            .filter(GetEndpointFilterArgs.builder()\n                .environment(GetEndpointFilterEnvironmentArgs.builder()\n                    .id(\"env-123abc\")\n                    .build())\n                .service(\"KAFKA\")\n                .resource(\"lkc-abc123\")\n                .cloud(\"AWS\")\n                .region(\"us-west-2\")\n                .build())\n            .build());\n\n        ctx.export(\"endpoints\", main.endpoints());\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      function: confluentcloud:getEndpoint\n      arguments:\n        filter:\n          environment:\n            id: env-123abc\n          service: KAFKA\n          resource: lkc-abc123\n          cloud: AWS\n          region: us-west-2\noutputs:\n  endpoints: ${main.endpoints}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getEndpoint.\n",
+                "properties": {
+                    "filter": {
+                        "$ref": "#/types/confluentcloud:index/getEndpointFilter:getEndpointFilter"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "filter"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getEndpoint.\n",
+                "properties": {
+                    "endpoints": {
+                        "description": "(Computed List) List of endpoints matching the filter criteria. Each endpoint object contains:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getEndpointEndpoint:getEndpointEndpoint"
+                        },
+                        "type": "array"
+                    },
+                    "filter": {
+                        "$ref": "#/types/confluentcloud:index/getEndpointFilter:getEndpointFilter"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "endpoints",
+                    "filter",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
         "confluentcloud:index/getEnvironment:getEnvironment": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.Environment`\" pulumi-lang-dotnet=\"`confluentcloud.Environment`\" pulumi-lang-go=\"`Environment`\" pulumi-lang-python=\"`Environment`\" pulumi-lang-yaml=\"`confluentcloud.Environment`\" pulumi-lang-java=\"`confluentcloud.Environment`\"\u003e`confluentcloud.Environment`\u003c/span\u003e describes an Environment data source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nexport = async () =\u003e {\n    const exampleUsingId = await confluentcloud.getEnvironment({\n        id: \"env-abc123\",\n    });\n    const exampleUsingName = await confluentcloud.getEnvironment({\n        displayName: \"stag\",\n    });\n    const exampleUsingNameGetServiceAccount = await confluentcloud.getServiceAccount({\n        displayName: \"test_sa\",\n    });\n    const test_role_binding = new confluentcloud.RoleBinding(\"test-role-binding\", {\n        principal: `User:${exampleUsingNameGetServiceAccount.id}`,\n        roleName: \"EnvironmentAdmin\",\n        crnPattern: exampleUsingName.resourceName,\n    });\n    return {\n        exampleUsingId: exampleUsingId,\n    };\n}\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_using_id = confluentcloud.get_environment(id=\"env-abc123\")\npulumi.export(\"exampleUsingId\", example_using_id)\nexample_using_name = confluentcloud.get_environment(display_name=\"stag\")\nexample_using_name_get_service_account = confluentcloud.get_service_account(display_name=\"test_sa\")\ntest_role_binding = confluentcloud.RoleBinding(\"test-role-binding\",\n    principal=f\"User:{example_using_name_get_service_account.id}\",\n    role_name=\"EnvironmentAdmin\",\n    crn_pattern=example_using_name.resource_name)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUsingId = ConfluentCloud.GetEnvironment.Invoke(new()\n    {\n        Id = \"env-abc123\",\n    });\n\n    var exampleUsingName = ConfluentCloud.GetEnvironment.Invoke(new()\n    {\n        DisplayName = \"stag\",\n    });\n\n    var exampleUsingNameGetServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()\n    {\n        DisplayName = \"test_sa\",\n    });\n\n    var test_role_binding = new ConfluentCloud.RoleBinding(\"test-role-binding\", new()\n    {\n        Principal = $\"User:{exampleUsingNameGetServiceAccount.Apply(getServiceAccountResult =\u003e getServiceAccountResult.Id)}\",\n        RoleName = \"EnvironmentAdmin\",\n        CrnPattern = exampleUsingName.Apply(getEnvironmentResult =\u003e getEnvironmentResult.ResourceName),\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"exampleUsingId\"] = exampleUsingId,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUsingId, err := confluentcloud.LookupEnvironment(ctx, \u0026confluentcloud.LookupEnvironmentArgs{\n\t\t\tId: pulumi.StringRef(\"env-abc123\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingId\", exampleUsingId)\n\t\texampleUsingName, err := confluentcloud.LookupEnvironment(ctx, \u0026confluentcloud.LookupEnvironmentArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"stag\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUsingNameGetServiceAccount, err := confluentcloud.LookupServiceAccount(ctx, \u0026confluentcloud.LookupServiceAccountArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"test_sa\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewRoleBinding(ctx, \"test-role-binding\", \u0026confluentcloud.RoleBindingArgs{\n\t\t\tPrincipal:  pulumi.Sprintf(\"User:%v\", exampleUsingNameGetServiceAccount.Id),\n\t\t\tRoleName:   pulumi.String(\"EnvironmentAdmin\"),\n\t\t\tCrnPattern: pulumi.String(exampleUsingName.ResourceName),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;\nimport com.pulumi.confluentcloud.RoleBinding;\nimport com.pulumi.confluentcloud.RoleBindingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()\n            .id(\"env-abc123\")\n            .build());\n\n        ctx.export(\"exampleUsingId\", exampleUsingId);\n        final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()\n            .displayName(\"stag\")\n            .build());\n\n        final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()\n            .displayName(\"test_sa\")\n            .build());\n\n        var test_role_binding = new RoleBinding(\"test-role-binding\", RoleBindingArgs.builder()\n            .principal(String.format(\"User:%s\", exampleUsingNameGetServiceAccount.id()))\n            .roleName(\"EnvironmentAdmin\")\n            .crnPattern(exampleUsingName.resourceName())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test-role-binding:\n    type: confluentcloud:RoleBinding\n    properties:\n      principal: User:${exampleUsingNameGetServiceAccount.id}\n      roleName: EnvironmentAdmin\n      crnPattern: ${exampleUsingName.resourceName}\nvariables:\n  exampleUsingId:\n    fn::invoke:\n      function: confluentcloud:getEnvironment\n      arguments:\n        id: env-abc123\n  exampleUsingName:\n    fn::invoke:\n      function: confluentcloud:getEnvironment\n      arguments:\n        displayName: stag\n  exampleUsingNameGetServiceAccount:\n    fn::invoke:\n      function: confluentcloud:getServiceAccount\n      arguments:\n        displayName: test_sa\noutputs:\n  exampleUsingId: ${exampleUsingId}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
@@ -15330,6 +16071,13 @@
                         },
                         "type": "array"
                     },
+                    "awsIngressPrivateLinkGateways": {
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getGatewayAwsIngressPrivateLinkGateway:getGatewayAwsIngressPrivateLinkGateway"
+                        },
+                        "type": "array"
+                    },
                     "awsPeeringGateways": {
                         "description": "(Optional Configuration Block) supports the following:\n",
                         "items": {
@@ -15385,6 +16133,7 @@
                 },
                 "required": [
                     "awsEgressPrivateLinkGateways",
+                    "awsIngressPrivateLinkGateways",
                     "awsPeeringGateways",
                     "awsPrivateNetworkInterfaceGateways",
                     "azureEgressPrivateLinkGateways",
@@ -15393,6 +16142,52 @@
                     "environment",
                     "gcpEgressPrivateServiceConnectGateways",
                     "gcpPeeringGateways",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getGateways:getGateways": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.getGateways`\" pulumi-lang-dotnet=\"`confluentcloud.getGateways`\" pulumi-lang-go=\"`getGateways`\" pulumi-lang-python=\"`get_gateways`\" pulumi-lang-yaml=\"`confluentcloud.getGateways`\" pulumi-lang-java=\"`confluentcloud.getGateways`\"\u003e`confluentcloud.getGateways`\u003c/span\u003e describes a Gateways data source that allows you to filter and list multiple Gateways.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst all = confluentcloud.getGateways({\n    environment: {\n        id: \"env-123abc\",\n    },\n});\nconst readyIngress = confluentcloud.getGateways({\n    environment: {\n        id: \"env-123abc\",\n    },\n    filter: {\n        gatewayTypes: [\"AwsIngressPrivateLink\"],\n        phases: [\"READY\"],\n    },\n});\nconst usEast = confluentcloud.getGateways({\n    environment: {\n        id: \"env-123abc\",\n    },\n    filter: {\n        regions: [\"us-east-1\"],\n        displayNames: [\"prod-gateway-ingress-use1\"],\n    },\n});\nexport const allGateways = all.then(all =\u003e all.gateways);\nexport const readyIngressGateways = readyIngress.then(readyIngress =\u003e readyIngress.gateways);\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nall = confluentcloud.get_gateways(environment={\n    \"id\": \"env-123abc\",\n})\nready_ingress = confluentcloud.get_gateways(environment={\n        \"id\": \"env-123abc\",\n    },\n    filter={\n        \"gateway_types\": [\"AwsIngressPrivateLink\"],\n        \"phases\": [\"READY\"],\n    })\nus_east = confluentcloud.get_gateways(environment={\n        \"id\": \"env-123abc\",\n    },\n    filter={\n        \"regions\": [\"us-east-1\"],\n        \"display_names\": [\"prod-gateway-ingress-use1\"],\n    })\npulumi.export(\"allGateways\", all.gateways)\npulumi.export(\"readyIngressGateways\", ready_ingress.gateways)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var all = ConfluentCloud.GetGateways.Invoke(new()\n    {\n        Environment = new ConfluentCloud.Inputs.GetGatewaysEnvironmentInputArgs\n        {\n            Id = \"env-123abc\",\n        },\n    });\n\n    var readyIngress = ConfluentCloud.GetGateways.Invoke(new()\n    {\n        Environment = new ConfluentCloud.Inputs.GetGatewaysEnvironmentInputArgs\n        {\n            Id = \"env-123abc\",\n        },\n        Filter = new ConfluentCloud.Inputs.GetGatewaysFilterInputArgs\n        {\n            GatewayTypes = new[]\n            {\n                \"AwsIngressPrivateLink\",\n            },\n            Phases = new[]\n            {\n                \"READY\",\n            },\n        },\n    });\n\n    var usEast = ConfluentCloud.GetGateways.Invoke(new()\n    {\n        Environment = new ConfluentCloud.Inputs.GetGatewaysEnvironmentInputArgs\n        {\n            Id = \"env-123abc\",\n        },\n        Filter = new ConfluentCloud.Inputs.GetGatewaysFilterInputArgs\n        {\n            Regions = new[]\n            {\n                \"us-east-1\",\n            },\n            DisplayNames = new[]\n            {\n                \"prod-gateway-ingress-use1\",\n            },\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"allGateways\"] = all.Apply(getGatewaysResult =\u003e getGatewaysResult.Gateways),\n        [\"readyIngressGateways\"] = readyIngress.Apply(getGatewaysResult =\u003e getGatewaysResult.Gateways),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tall, err := confluentcloud.GetGateways(ctx, \u0026confluentcloud.GetGatewaysArgs{\n\t\t\tEnvironment: confluentcloud.GetGatewaysEnvironment{\n\t\t\t\tId: \"env-123abc\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treadyIngress, err := confluentcloud.GetGateways(ctx, \u0026confluentcloud.GetGatewaysArgs{\n\t\t\tEnvironment: confluentcloud.GetGatewaysEnvironment{\n\t\t\t\tId: \"env-123abc\",\n\t\t\t},\n\t\t\tFilter: confluentcloud.GetGatewaysFilter{\n\t\t\t\tGatewayTypes: []string{\n\t\t\t\t\t\"AwsIngressPrivateLink\",\n\t\t\t\t},\n\t\t\t\tPhases: []string{\n\t\t\t\t\t\"READY\",\n\t\t\t\t},\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.GetGateways(ctx, \u0026confluentcloud.GetGatewaysArgs{\n\t\t\tEnvironment: confluentcloud.GetGatewaysEnvironment{\n\t\t\t\tId: \"env-123abc\",\n\t\t\t},\n\t\t\tFilter: confluentcloud.GetGatewaysFilter{\n\t\t\t\tRegions: []string{\n\t\t\t\t\t\"us-east-1\",\n\t\t\t\t},\n\t\t\t\tDisplayNames: []string{\n\t\t\t\t\t\"prod-gateway-ingress-use1\",\n\t\t\t\t},\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"allGateways\", all.Gateways)\n\t\tctx.Export(\"readyIngressGateways\", readyIngress.Gateways)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetGatewaysArgs;\nimport com.pulumi.confluentcloud.inputs.GetGatewaysEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.GetGatewaysFilterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var all = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()\n            .environment(GetGatewaysEnvironmentArgs.builder()\n                .id(\"env-123abc\")\n                .build())\n            .build());\n\n        final var readyIngress = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()\n            .environment(GetGatewaysEnvironmentArgs.builder()\n                .id(\"env-123abc\")\n                .build())\n            .filter(GetGatewaysFilterArgs.builder()\n                .gatewayTypes(\"AwsIngressPrivateLink\")\n                .phases(\"READY\")\n                .build())\n            .build());\n\n        final var usEast = ConfluentcloudFunctions.getGateways(GetGatewaysArgs.builder()\n            .environment(GetGatewaysEnvironmentArgs.builder()\n                .id(\"env-123abc\")\n                .build())\n            .filter(GetGatewaysFilterArgs.builder()\n                .regions(\"us-east-1\")\n                .displayNames(\"prod-gateway-ingress-use1\")\n                .build())\n            .build());\n\n        ctx.export(\"allGateways\", all.gateways());\n        ctx.export(\"readyIngressGateways\", readyIngress.gateways());\n    }\n}\n```\n```yaml\nvariables:\n  all:\n    fn::invoke:\n      function: confluentcloud:getGateways\n      arguments:\n        environment:\n          id: env-123abc\n  readyIngress:\n    fn::invoke:\n      function: confluentcloud:getGateways\n      arguments:\n        environment:\n          id: env-123abc\n        filter:\n          gatewayTypes:\n            - AwsIngressPrivateLink\n          phases:\n            - READY\n  usEast:\n    fn::invoke:\n      function: confluentcloud:getGateways\n      arguments:\n        environment:\n          id: env-123abc\n        filter:\n          regions:\n            - us-east-1\n          displayNames:\n            - prod-gateway-ingress-use1\noutputs:\n  allGateways: ${all.gateways}\n  readyIngressGateways: ${readyIngress.gateways}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getGateways.\n",
+                "properties": {
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getGatewaysEnvironment:getGatewaysEnvironment"
+                    },
+                    "filter": {
+                        "$ref": "#/types/confluentcloud:index/getGatewaysFilter:getGatewaysFilter"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environment"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getGateways.\n",
+                "properties": {
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getGatewaysEnvironment:getGatewaysEnvironment"
+                    },
+                    "filter": {
+                        "$ref": "#/types/confluentcloud:index/getGatewaysFilter:getGatewaysFilter"
+                    },
+                    "gateways": {
+                        "description": "(List of Object) List of Gateways. Each gateway object exports the following attributes:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getGatewaysGateway:getGatewaysGateway"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "environment",
+                    "gateways",
                     "id"
                 ],
                 "type": "object"
@@ -17352,11 +18147,11 @@
                 "description": "A collection of values returned by getSchemaRegistryClusterConfig.\n",
                 "properties": {
                     "compatibilityGroup": {
-                        "description": "(Required String) The global Schema Registry compatibility group.\n",
+                        "description": "(Optional String) The global Schema Registry compatibility group.\n",
                         "type": "string"
                     },
                     "compatibilityLevel": {
-                        "description": "(Required String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.\n",
+                        "description": "(Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.\n",
                         "type": "string"
                     },
                     "credentials": {
@@ -17366,6 +18161,10 @@
                     "id": {
                         "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
+                    },
+                    "normalize": {
+                        "description": "(Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.\n",
+                        "type": "boolean"
                     },
                     "restEndpoint": {
                         "type": "string"
@@ -17377,6 +18176,7 @@
                 "required": [
                     "compatibilityGroup",
                     "compatibilityLevel",
+                    "normalize",
                     "id"
                 ],
                 "type": "object"
@@ -17788,12 +18588,16 @@
             "outputs": {
                 "description": "A collection of values returned by getSubjectConfig.\n",
                 "properties": {
+                    "alias": {
+                        "description": "(Optional String) The subject name that this subject is an alias for.\n",
+                        "type": "string"
+                    },
                     "compatibilityGroup": {
-                        "description": "(Required String) The Compatibility Group of the specified subject.\n",
+                        "description": "(Optional String) The Compatibility Group of the specified subject.\n",
                         "type": "string"
                     },
                     "compatibilityLevel": {
-                        "description": "(Required String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.\n",
+                        "description": "(Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.\n",
                         "type": "string"
                     },
                     "credentials": {
@@ -17803,6 +18607,10 @@
                     "id": {
                         "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
+                    },
+                    "normalize": {
+                        "description": "(Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.\n",
+                        "type": "boolean"
                     },
                     "restEndpoint": {
                         "type": "string"
@@ -17815,8 +18623,10 @@
                     }
                 },
                 "required": [
+                    "alias",
                     "compatibilityGroup",
                     "compatibilityLevel",
+                    "normalize",
                     "subjectName",
                     "id"
                 ],

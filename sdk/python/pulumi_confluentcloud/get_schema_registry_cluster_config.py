@@ -28,7 +28,7 @@ class GetSchemaRegistryClusterConfigResult:
     """
     A collection of values returned by getSchemaRegistryClusterConfig.
     """
-    def __init__(__self__, compatibility_group=None, compatibility_level=None, credentials=None, id=None, rest_endpoint=None, schema_registry_cluster=None):
+    def __init__(__self__, compatibility_group=None, compatibility_level=None, credentials=None, id=None, normalize=None, rest_endpoint=None, schema_registry_cluster=None):
         if compatibility_group and not isinstance(compatibility_group, str):
             raise TypeError("Expected argument 'compatibility_group' to be a str")
         pulumi.set(__self__, "compatibility_group", compatibility_group)
@@ -41,6 +41,9 @@ class GetSchemaRegistryClusterConfigResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if normalize and not isinstance(normalize, bool):
+            raise TypeError("Expected argument 'normalize' to be a bool")
+        pulumi.set(__self__, "normalize", normalize)
         if rest_endpoint and not isinstance(rest_endpoint, str):
             raise TypeError("Expected argument 'rest_endpoint' to be a str")
         pulumi.set(__self__, "rest_endpoint", rest_endpoint)
@@ -52,7 +55,7 @@ class GetSchemaRegistryClusterConfigResult:
     @pulumi.getter(name="compatibilityGroup")
     def compatibility_group(self) -> _builtins.str:
         """
-        (Required String) The global Schema Registry compatibility group.
+        (Optional String) The global Schema Registry compatibility group.
         """
         return pulumi.get(self, "compatibility_group")
 
@@ -60,7 +63,7 @@ class GetSchemaRegistryClusterConfigResult:
     @pulumi.getter(name="compatibilityLevel")
     def compatibility_level(self) -> _builtins.str:
         """
-        (Required String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+        (Optional String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         """
         return pulumi.get(self, "compatibility_level")
 
@@ -76,6 +79,14 @@ class GetSchemaRegistryClusterConfigResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def normalize(self) -> _builtins.bool:
+        """
+        (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+        """
+        return pulumi.get(self, "normalize")
 
     @_builtins.property
     @pulumi.getter(name="restEndpoint")
@@ -98,6 +109,7 @@ class AwaitableGetSchemaRegistryClusterConfigResult(GetSchemaRegistryClusterConf
             compatibility_level=self.compatibility_level,
             credentials=self.credentials,
             id=self.id,
+            normalize=self.normalize,
             rest_endpoint=self.rest_endpoint,
             schema_registry_cluster=self.schema_registry_cluster)
 
@@ -155,6 +167,7 @@ def get_schema_registry_cluster_config(credentials: Optional[Union['GetSchemaReg
         compatibility_level=pulumi.get(__ret__, 'compatibility_level'),
         credentials=pulumi.get(__ret__, 'credentials'),
         id=pulumi.get(__ret__, 'id'),
+        normalize=pulumi.get(__ret__, 'normalize'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'))
 def get_schema_registry_cluster_config_output(credentials: Optional[pulumi.Input[Optional[Union['GetSchemaRegistryClusterConfigCredentialsArgs', 'GetSchemaRegistryClusterConfigCredentialsArgsDict']]]] = None,
@@ -209,5 +222,6 @@ def get_schema_registry_cluster_config_output(credentials: Optional[pulumi.Input
         compatibility_level=pulumi.get(__response__, 'compatibility_level'),
         credentials=pulumi.get(__response__, 'credentials'),
         id=pulumi.get(__response__, 'id'),
+        normalize=pulumi.get(__response__, 'normalize'),
         rest_endpoint=pulumi.get(__response__, 'rest_endpoint'),
         schema_registry_cluster=pulumi.get(__response__, 'schema_registry_cluster')))

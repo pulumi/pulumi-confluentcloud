@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.AccessPointAwsEgressPrivateLinkEndpointArgs;
+import com.pulumi.confluentcloud.inputs.AccessPointAwsIngressPrivateLinkEndpointArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointAwsPrivateNetworkInterfaceArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointAzureEgressPrivateLinkEndpointArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointEnvironmentArgs;
@@ -34,6 +35,21 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<AccessPointAwsEgressPrivateLinkEndpointArgs>> awsEgressPrivateLinkEndpoint() {
         return Optional.ofNullable(this.awsEgressPrivateLinkEndpoint);
+    }
+
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Import(name="awsIngressPrivateLinkEndpoint")
+    private @Nullable Output<AccessPointAwsIngressPrivateLinkEndpointArgs> awsIngressPrivateLinkEndpoint;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Optional<Output<AccessPointAwsIngressPrivateLinkEndpointArgs>> awsIngressPrivateLinkEndpoint() {
+        return Optional.ofNullable(this.awsIngressPrivateLinkEndpoint);
     }
 
     /**
@@ -122,6 +138,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
 
     private AccessPointState(AccessPointState $) {
         this.awsEgressPrivateLinkEndpoint = $.awsEgressPrivateLinkEndpoint;
+        this.awsIngressPrivateLinkEndpoint = $.awsIngressPrivateLinkEndpoint;
         this.awsPrivateNetworkInterface = $.awsPrivateNetworkInterface;
         this.azureEgressPrivateLinkEndpoint = $.azureEgressPrivateLinkEndpoint;
         this.displayName = $.displayName;
@@ -167,6 +184,27 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder awsEgressPrivateLinkEndpoint(AccessPointAwsEgressPrivateLinkEndpointArgs awsEgressPrivateLinkEndpoint) {
             return awsEgressPrivateLinkEndpoint(Output.of(awsEgressPrivateLinkEndpoint));
+        }
+
+        /**
+         * @param awsIngressPrivateLinkEndpoint (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsIngressPrivateLinkEndpoint(@Nullable Output<AccessPointAwsIngressPrivateLinkEndpointArgs> awsIngressPrivateLinkEndpoint) {
+            $.awsIngressPrivateLinkEndpoint = awsIngressPrivateLinkEndpoint;
+            return this;
+        }
+
+        /**
+         * @param awsIngressPrivateLinkEndpoint (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsIngressPrivateLinkEndpoint(AccessPointAwsIngressPrivateLinkEndpointArgs awsIngressPrivateLinkEndpoint) {
+            return awsIngressPrivateLinkEndpoint(Output.of(awsIngressPrivateLinkEndpoint));
         }
 
         /**

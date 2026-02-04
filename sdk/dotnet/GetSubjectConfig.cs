@@ -294,11 +294,15 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetSubjectConfigResult
     {
         /// <summary>
-        /// (Required String) The Compatibility Group of the specified subject.
+        /// (Optional String) The subject name that this subject is an alias for.
+        /// </summary>
+        public readonly string Alias;
+        /// <summary>
+        /// (Optional String) The Compatibility Group of the specified subject.
         /// </summary>
         public readonly string CompatibilityGroup;
         /// <summary>
-        /// (Required String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
+        /// (Optional String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         /// </summary>
         public readonly string CompatibilityLevel;
         public readonly Outputs.GetSubjectConfigCredentialsResult? Credentials;
@@ -306,12 +310,18 @@ namespace Pulumi.ConfluentCloud
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// (Optional Boolean) Whether schemas are automatically normalized when registered or passed during lookups.
+        /// </summary>
+        public readonly bool Normalize;
         public readonly string? RestEndpoint;
         public readonly Outputs.GetSubjectConfigSchemaRegistryClusterResult? SchemaRegistryCluster;
         public readonly string SubjectName;
 
         [OutputConstructor]
         private GetSubjectConfigResult(
+            string alias,
+
             string compatibilityGroup,
 
             string compatibilityLevel,
@@ -320,16 +330,20 @@ namespace Pulumi.ConfluentCloud
 
             string id,
 
+            bool normalize,
+
             string? restEndpoint,
 
             Outputs.GetSubjectConfigSchemaRegistryClusterResult? schemaRegistryCluster,
 
             string subjectName)
         {
+            Alias = alias;
             CompatibilityGroup = compatibilityGroup;
             CompatibilityLevel = compatibilityLevel;
             Credentials = credentials;
             Id = id;
+            Normalize = normalize;
             RestEndpoint = restEndpoint;
             SchemaRegistryCluster = schemaRegistryCluster;
             SubjectName = subjectName;

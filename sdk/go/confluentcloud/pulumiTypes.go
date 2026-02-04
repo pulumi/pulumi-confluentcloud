@@ -207,6 +207,181 @@ func (o AccessPointAwsEgressPrivateLinkEndpointPtrOutput) VpcEndpointServiceName
 	}).(pulumi.StringPtrOutput)
 }
 
+type AccessPointAwsIngressPrivateLinkEndpoint struct {
+	// (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+	DnsDomain *string `pulumi:"dnsDomain"`
+	// ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
+	// (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+	VpcEndpointServiceName *string `pulumi:"vpcEndpointServiceName"`
+}
+
+// AccessPointAwsIngressPrivateLinkEndpointInput is an input type that accepts AccessPointAwsIngressPrivateLinkEndpointArgs and AccessPointAwsIngressPrivateLinkEndpointOutput values.
+// You can construct a concrete instance of `AccessPointAwsIngressPrivateLinkEndpointInput` via:
+//
+//	AccessPointAwsIngressPrivateLinkEndpointArgs{...}
+type AccessPointAwsIngressPrivateLinkEndpointInput interface {
+	pulumi.Input
+
+	ToAccessPointAwsIngressPrivateLinkEndpointOutput() AccessPointAwsIngressPrivateLinkEndpointOutput
+	ToAccessPointAwsIngressPrivateLinkEndpointOutputWithContext(context.Context) AccessPointAwsIngressPrivateLinkEndpointOutput
+}
+
+type AccessPointAwsIngressPrivateLinkEndpointArgs struct {
+	// (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+	DnsDomain pulumi.StringPtrInput `pulumi:"dnsDomain"`
+	// ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
+	// (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+	VpcEndpointServiceName pulumi.StringPtrInput `pulumi:"vpcEndpointServiceName"`
+}
+
+func (AccessPointAwsIngressPrivateLinkEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointAwsIngressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (i AccessPointAwsIngressPrivateLinkEndpointArgs) ToAccessPointAwsIngressPrivateLinkEndpointOutput() AccessPointAwsIngressPrivateLinkEndpointOutput {
+	return i.ToAccessPointAwsIngressPrivateLinkEndpointOutputWithContext(context.Background())
+}
+
+func (i AccessPointAwsIngressPrivateLinkEndpointArgs) ToAccessPointAwsIngressPrivateLinkEndpointOutputWithContext(ctx context.Context) AccessPointAwsIngressPrivateLinkEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointAwsIngressPrivateLinkEndpointOutput)
+}
+
+func (i AccessPointAwsIngressPrivateLinkEndpointArgs) ToAccessPointAwsIngressPrivateLinkEndpointPtrOutput() AccessPointAwsIngressPrivateLinkEndpointPtrOutput {
+	return i.ToAccessPointAwsIngressPrivateLinkEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointAwsIngressPrivateLinkEndpointArgs) ToAccessPointAwsIngressPrivateLinkEndpointPtrOutputWithContext(ctx context.Context) AccessPointAwsIngressPrivateLinkEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointAwsIngressPrivateLinkEndpointOutput).ToAccessPointAwsIngressPrivateLinkEndpointPtrOutputWithContext(ctx)
+}
+
+// AccessPointAwsIngressPrivateLinkEndpointPtrInput is an input type that accepts AccessPointAwsIngressPrivateLinkEndpointArgs, AccessPointAwsIngressPrivateLinkEndpointPtr and AccessPointAwsIngressPrivateLinkEndpointPtrOutput values.
+// You can construct a concrete instance of `AccessPointAwsIngressPrivateLinkEndpointPtrInput` via:
+//
+//	        AccessPointAwsIngressPrivateLinkEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessPointAwsIngressPrivateLinkEndpointPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointAwsIngressPrivateLinkEndpointPtrOutput() AccessPointAwsIngressPrivateLinkEndpointPtrOutput
+	ToAccessPointAwsIngressPrivateLinkEndpointPtrOutputWithContext(context.Context) AccessPointAwsIngressPrivateLinkEndpointPtrOutput
+}
+
+type accessPointAwsIngressPrivateLinkEndpointPtrType AccessPointAwsIngressPrivateLinkEndpointArgs
+
+func AccessPointAwsIngressPrivateLinkEndpointPtr(v *AccessPointAwsIngressPrivateLinkEndpointArgs) AccessPointAwsIngressPrivateLinkEndpointPtrInput {
+	return (*accessPointAwsIngressPrivateLinkEndpointPtrType)(v)
+}
+
+func (*accessPointAwsIngressPrivateLinkEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointAwsIngressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (i *accessPointAwsIngressPrivateLinkEndpointPtrType) ToAccessPointAwsIngressPrivateLinkEndpointPtrOutput() AccessPointAwsIngressPrivateLinkEndpointPtrOutput {
+	return i.ToAccessPointAwsIngressPrivateLinkEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointAwsIngressPrivateLinkEndpointPtrType) ToAccessPointAwsIngressPrivateLinkEndpointPtrOutputWithContext(ctx context.Context) AccessPointAwsIngressPrivateLinkEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointAwsIngressPrivateLinkEndpointPtrOutput)
+}
+
+type AccessPointAwsIngressPrivateLinkEndpointOutput struct{ *pulumi.OutputState }
+
+func (AccessPointAwsIngressPrivateLinkEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointAwsIngressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (o AccessPointAwsIngressPrivateLinkEndpointOutput) ToAccessPointAwsIngressPrivateLinkEndpointOutput() AccessPointAwsIngressPrivateLinkEndpointOutput {
+	return o
+}
+
+func (o AccessPointAwsIngressPrivateLinkEndpointOutput) ToAccessPointAwsIngressPrivateLinkEndpointOutputWithContext(ctx context.Context) AccessPointAwsIngressPrivateLinkEndpointOutput {
+	return o
+}
+
+func (o AccessPointAwsIngressPrivateLinkEndpointOutput) ToAccessPointAwsIngressPrivateLinkEndpointPtrOutput() AccessPointAwsIngressPrivateLinkEndpointPtrOutput {
+	return o.ToAccessPointAwsIngressPrivateLinkEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointAwsIngressPrivateLinkEndpointOutput) ToAccessPointAwsIngressPrivateLinkEndpointPtrOutputWithContext(ctx context.Context) AccessPointAwsIngressPrivateLinkEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointAwsIngressPrivateLinkEndpoint) *AccessPointAwsIngressPrivateLinkEndpoint {
+		return &v
+	}).(AccessPointAwsIngressPrivateLinkEndpointPtrOutput)
+}
+
+// (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+func (o AccessPointAwsIngressPrivateLinkEndpointOutput) DnsDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPointAwsIngressPrivateLinkEndpoint) *string { return v.DnsDomain }).(pulumi.StringPtrOutput)
+}
+
+// ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+func (o AccessPointAwsIngressPrivateLinkEndpointOutput) VpcEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessPointAwsIngressPrivateLinkEndpoint) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+}
+
+// (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+func (o AccessPointAwsIngressPrivateLinkEndpointOutput) VpcEndpointServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPointAwsIngressPrivateLinkEndpoint) *string { return v.VpcEndpointServiceName }).(pulumi.StringPtrOutput)
+}
+
+type AccessPointAwsIngressPrivateLinkEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointAwsIngressPrivateLinkEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointAwsIngressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (o AccessPointAwsIngressPrivateLinkEndpointPtrOutput) ToAccessPointAwsIngressPrivateLinkEndpointPtrOutput() AccessPointAwsIngressPrivateLinkEndpointPtrOutput {
+	return o
+}
+
+func (o AccessPointAwsIngressPrivateLinkEndpointPtrOutput) ToAccessPointAwsIngressPrivateLinkEndpointPtrOutputWithContext(ctx context.Context) AccessPointAwsIngressPrivateLinkEndpointPtrOutput {
+	return o
+}
+
+func (o AccessPointAwsIngressPrivateLinkEndpointPtrOutput) Elem() AccessPointAwsIngressPrivateLinkEndpointOutput {
+	return o.ApplyT(func(v *AccessPointAwsIngressPrivateLinkEndpoint) AccessPointAwsIngressPrivateLinkEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointAwsIngressPrivateLinkEndpoint
+		return ret
+	}).(AccessPointAwsIngressPrivateLinkEndpointOutput)
+}
+
+// (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+func (o AccessPointAwsIngressPrivateLinkEndpointPtrOutput) DnsDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointAwsIngressPrivateLinkEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+func (o AccessPointAwsIngressPrivateLinkEndpointPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointAwsIngressPrivateLinkEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcEndpointId
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+func (o AccessPointAwsIngressPrivateLinkEndpointPtrOutput) VpcEndpointServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointAwsIngressPrivateLinkEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccessPointAwsPrivateNetworkInterface struct {
 	// (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
 	Account string `pulumi:"account"`
@@ -9231,6 +9406,162 @@ func (o GatewayAwsEgressPrivateLinkGatewayPtrOutput) Region() pulumi.StringPtrOu
 			return nil
 		}
 		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayAwsIngressPrivateLinkGateway struct {
+	// AWS region of the Ingress Private Link Gateway, for example, `us-east-1`.
+	Region string `pulumi:"region"`
+	// (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+	VpcEndpointServiceName *string `pulumi:"vpcEndpointServiceName"`
+}
+
+// GatewayAwsIngressPrivateLinkGatewayInput is an input type that accepts GatewayAwsIngressPrivateLinkGatewayArgs and GatewayAwsIngressPrivateLinkGatewayOutput values.
+// You can construct a concrete instance of `GatewayAwsIngressPrivateLinkGatewayInput` via:
+//
+//	GatewayAwsIngressPrivateLinkGatewayArgs{...}
+type GatewayAwsIngressPrivateLinkGatewayInput interface {
+	pulumi.Input
+
+	ToGatewayAwsIngressPrivateLinkGatewayOutput() GatewayAwsIngressPrivateLinkGatewayOutput
+	ToGatewayAwsIngressPrivateLinkGatewayOutputWithContext(context.Context) GatewayAwsIngressPrivateLinkGatewayOutput
+}
+
+type GatewayAwsIngressPrivateLinkGatewayArgs struct {
+	// AWS region of the Ingress Private Link Gateway, for example, `us-east-1`.
+	Region pulumi.StringInput `pulumi:"region"`
+	// (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+	VpcEndpointServiceName pulumi.StringPtrInput `pulumi:"vpcEndpointServiceName"`
+}
+
+func (GatewayAwsIngressPrivateLinkGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAwsIngressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GatewayAwsIngressPrivateLinkGatewayArgs) ToGatewayAwsIngressPrivateLinkGatewayOutput() GatewayAwsIngressPrivateLinkGatewayOutput {
+	return i.ToGatewayAwsIngressPrivateLinkGatewayOutputWithContext(context.Background())
+}
+
+func (i GatewayAwsIngressPrivateLinkGatewayArgs) ToGatewayAwsIngressPrivateLinkGatewayOutputWithContext(ctx context.Context) GatewayAwsIngressPrivateLinkGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAwsIngressPrivateLinkGatewayOutput)
+}
+
+func (i GatewayAwsIngressPrivateLinkGatewayArgs) ToGatewayAwsIngressPrivateLinkGatewayPtrOutput() GatewayAwsIngressPrivateLinkGatewayPtrOutput {
+	return i.ToGatewayAwsIngressPrivateLinkGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayAwsIngressPrivateLinkGatewayArgs) ToGatewayAwsIngressPrivateLinkGatewayPtrOutputWithContext(ctx context.Context) GatewayAwsIngressPrivateLinkGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAwsIngressPrivateLinkGatewayOutput).ToGatewayAwsIngressPrivateLinkGatewayPtrOutputWithContext(ctx)
+}
+
+// GatewayAwsIngressPrivateLinkGatewayPtrInput is an input type that accepts GatewayAwsIngressPrivateLinkGatewayArgs, GatewayAwsIngressPrivateLinkGatewayPtr and GatewayAwsIngressPrivateLinkGatewayPtrOutput values.
+// You can construct a concrete instance of `GatewayAwsIngressPrivateLinkGatewayPtrInput` via:
+//
+//	        GatewayAwsIngressPrivateLinkGatewayArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayAwsIngressPrivateLinkGatewayPtrInput interface {
+	pulumi.Input
+
+	ToGatewayAwsIngressPrivateLinkGatewayPtrOutput() GatewayAwsIngressPrivateLinkGatewayPtrOutput
+	ToGatewayAwsIngressPrivateLinkGatewayPtrOutputWithContext(context.Context) GatewayAwsIngressPrivateLinkGatewayPtrOutput
+}
+
+type gatewayAwsIngressPrivateLinkGatewayPtrType GatewayAwsIngressPrivateLinkGatewayArgs
+
+func GatewayAwsIngressPrivateLinkGatewayPtr(v *GatewayAwsIngressPrivateLinkGatewayArgs) GatewayAwsIngressPrivateLinkGatewayPtrInput {
+	return (*gatewayAwsIngressPrivateLinkGatewayPtrType)(v)
+}
+
+func (*gatewayAwsIngressPrivateLinkGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayAwsIngressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i *gatewayAwsIngressPrivateLinkGatewayPtrType) ToGatewayAwsIngressPrivateLinkGatewayPtrOutput() GatewayAwsIngressPrivateLinkGatewayPtrOutput {
+	return i.ToGatewayAwsIngressPrivateLinkGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayAwsIngressPrivateLinkGatewayPtrType) ToGatewayAwsIngressPrivateLinkGatewayPtrOutputWithContext(ctx context.Context) GatewayAwsIngressPrivateLinkGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAwsIngressPrivateLinkGatewayPtrOutput)
+}
+
+type GatewayAwsIngressPrivateLinkGatewayOutput struct{ *pulumi.OutputState }
+
+func (GatewayAwsIngressPrivateLinkGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAwsIngressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GatewayAwsIngressPrivateLinkGatewayOutput) ToGatewayAwsIngressPrivateLinkGatewayOutput() GatewayAwsIngressPrivateLinkGatewayOutput {
+	return o
+}
+
+func (o GatewayAwsIngressPrivateLinkGatewayOutput) ToGatewayAwsIngressPrivateLinkGatewayOutputWithContext(ctx context.Context) GatewayAwsIngressPrivateLinkGatewayOutput {
+	return o
+}
+
+func (o GatewayAwsIngressPrivateLinkGatewayOutput) ToGatewayAwsIngressPrivateLinkGatewayPtrOutput() GatewayAwsIngressPrivateLinkGatewayPtrOutput {
+	return o.ToGatewayAwsIngressPrivateLinkGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayAwsIngressPrivateLinkGatewayOutput) ToGatewayAwsIngressPrivateLinkGatewayPtrOutputWithContext(ctx context.Context) GatewayAwsIngressPrivateLinkGatewayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayAwsIngressPrivateLinkGateway) *GatewayAwsIngressPrivateLinkGateway {
+		return &v
+	}).(GatewayAwsIngressPrivateLinkGatewayPtrOutput)
+}
+
+// AWS region of the Ingress Private Link Gateway, for example, `us-east-1`.
+func (o GatewayAwsIngressPrivateLinkGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayAwsIngressPrivateLinkGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+func (o GatewayAwsIngressPrivateLinkGatewayOutput) VpcEndpointServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayAwsIngressPrivateLinkGateway) *string { return v.VpcEndpointServiceName }).(pulumi.StringPtrOutput)
+}
+
+type GatewayAwsIngressPrivateLinkGatewayPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayAwsIngressPrivateLinkGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayAwsIngressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GatewayAwsIngressPrivateLinkGatewayPtrOutput) ToGatewayAwsIngressPrivateLinkGatewayPtrOutput() GatewayAwsIngressPrivateLinkGatewayPtrOutput {
+	return o
+}
+
+func (o GatewayAwsIngressPrivateLinkGatewayPtrOutput) ToGatewayAwsIngressPrivateLinkGatewayPtrOutputWithContext(ctx context.Context) GatewayAwsIngressPrivateLinkGatewayPtrOutput {
+	return o
+}
+
+func (o GatewayAwsIngressPrivateLinkGatewayPtrOutput) Elem() GatewayAwsIngressPrivateLinkGatewayOutput {
+	return o.ApplyT(func(v *GatewayAwsIngressPrivateLinkGateway) GatewayAwsIngressPrivateLinkGateway {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayAwsIngressPrivateLinkGateway
+		return ret
+	}).(GatewayAwsIngressPrivateLinkGatewayOutput)
+}
+
+// AWS region of the Ingress Private Link Gateway, for example, `us-east-1`.
+func (o GatewayAwsIngressPrivateLinkGatewayPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAwsIngressPrivateLinkGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+func (o GatewayAwsIngressPrivateLinkGatewayPtrOutput) VpcEndpointServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayAwsIngressPrivateLinkGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointServiceName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -24921,9 +25252,9 @@ type GetAccessPointAwsEgressPrivateLinkEndpoint struct {
 	EnableHighAvailability bool `pulumi:"enableHighAvailability"`
 	// (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
 	VpcEndpointDnsName string `pulumi:"vpcEndpointDnsName"`
-	// (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+	// (Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
-	// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+	// (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
 	VpcEndpointServiceName string `pulumi:"vpcEndpointServiceName"`
 }
 
@@ -24943,9 +25274,9 @@ type GetAccessPointAwsEgressPrivateLinkEndpointArgs struct {
 	EnableHighAvailability pulumi.BoolInput `pulumi:"enableHighAvailability"`
 	// (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
 	VpcEndpointDnsName pulumi.StringInput `pulumi:"vpcEndpointDnsName"`
-	// (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+	// (Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.
 	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
-	// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+	// (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
 	VpcEndpointServiceName pulumi.StringInput `pulumi:"vpcEndpointServiceName"`
 }
 
@@ -25010,12 +25341,12 @@ func (o GetAccessPointAwsEgressPrivateLinkEndpointOutput) VpcEndpointDnsName() p
 	return o.ApplyT(func(v GetAccessPointAwsEgressPrivateLinkEndpoint) string { return v.VpcEndpointDnsName }).(pulumi.StringOutput)
 }
 
-// (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+// (Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.
 func (o GetAccessPointAwsEgressPrivateLinkEndpointOutput) VpcEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccessPointAwsEgressPrivateLinkEndpoint) string { return v.VpcEndpointId }).(pulumi.StringOutput)
 }
 
-// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+// (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
 func (o GetAccessPointAwsEgressPrivateLinkEndpointOutput) VpcEndpointServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccessPointAwsEgressPrivateLinkEndpoint) string { return v.VpcEndpointServiceName }).(pulumi.StringOutput)
 }
@@ -25038,6 +25369,121 @@ func (o GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput) Index(i pulumi.In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessPointAwsEgressPrivateLinkEndpoint {
 		return vs[0].([]GetAccessPointAwsEgressPrivateLinkEndpoint)[vs[1].(int)]
 	}).(GetAccessPointAwsEgressPrivateLinkEndpointOutput)
+}
+
+type GetAccessPointAwsIngressPrivateLinkEndpoint struct {
+	// (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+	DnsDomain string `pulumi:"dnsDomain"`
+	// (Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
+	// (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+	VpcEndpointServiceName string `pulumi:"vpcEndpointServiceName"`
+}
+
+// GetAccessPointAwsIngressPrivateLinkEndpointInput is an input type that accepts GetAccessPointAwsIngressPrivateLinkEndpointArgs and GetAccessPointAwsIngressPrivateLinkEndpointOutput values.
+// You can construct a concrete instance of `GetAccessPointAwsIngressPrivateLinkEndpointInput` via:
+//
+//	GetAccessPointAwsIngressPrivateLinkEndpointArgs{...}
+type GetAccessPointAwsIngressPrivateLinkEndpointInput interface {
+	pulumi.Input
+
+	ToGetAccessPointAwsIngressPrivateLinkEndpointOutput() GetAccessPointAwsIngressPrivateLinkEndpointOutput
+	ToGetAccessPointAwsIngressPrivateLinkEndpointOutputWithContext(context.Context) GetAccessPointAwsIngressPrivateLinkEndpointOutput
+}
+
+type GetAccessPointAwsIngressPrivateLinkEndpointArgs struct {
+	// (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+	DnsDomain pulumi.StringInput `pulumi:"dnsDomain"`
+	// (Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
+	// (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+	VpcEndpointServiceName pulumi.StringInput `pulumi:"vpcEndpointServiceName"`
+}
+
+func (GetAccessPointAwsIngressPrivateLinkEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointAwsIngressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (i GetAccessPointAwsIngressPrivateLinkEndpointArgs) ToGetAccessPointAwsIngressPrivateLinkEndpointOutput() GetAccessPointAwsIngressPrivateLinkEndpointOutput {
+	return i.ToGetAccessPointAwsIngressPrivateLinkEndpointOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointAwsIngressPrivateLinkEndpointArgs) ToGetAccessPointAwsIngressPrivateLinkEndpointOutputWithContext(ctx context.Context) GetAccessPointAwsIngressPrivateLinkEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointAwsIngressPrivateLinkEndpointOutput)
+}
+
+// GetAccessPointAwsIngressPrivateLinkEndpointArrayInput is an input type that accepts GetAccessPointAwsIngressPrivateLinkEndpointArray and GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput values.
+// You can construct a concrete instance of `GetAccessPointAwsIngressPrivateLinkEndpointArrayInput` via:
+//
+//	GetAccessPointAwsIngressPrivateLinkEndpointArray{ GetAccessPointAwsIngressPrivateLinkEndpointArgs{...} }
+type GetAccessPointAwsIngressPrivateLinkEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessPointAwsIngressPrivateLinkEndpointArrayOutput() GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput
+	ToGetAccessPointAwsIngressPrivateLinkEndpointArrayOutputWithContext(context.Context) GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput
+}
+
+type GetAccessPointAwsIngressPrivateLinkEndpointArray []GetAccessPointAwsIngressPrivateLinkEndpointInput
+
+func (GetAccessPointAwsIngressPrivateLinkEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointAwsIngressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (i GetAccessPointAwsIngressPrivateLinkEndpointArray) ToGetAccessPointAwsIngressPrivateLinkEndpointArrayOutput() GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput {
+	return i.ToGetAccessPointAwsIngressPrivateLinkEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointAwsIngressPrivateLinkEndpointArray) ToGetAccessPointAwsIngressPrivateLinkEndpointArrayOutputWithContext(ctx context.Context) GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput)
+}
+
+type GetAccessPointAwsIngressPrivateLinkEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointAwsIngressPrivateLinkEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointAwsIngressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (o GetAccessPointAwsIngressPrivateLinkEndpointOutput) ToGetAccessPointAwsIngressPrivateLinkEndpointOutput() GetAccessPointAwsIngressPrivateLinkEndpointOutput {
+	return o
+}
+
+func (o GetAccessPointAwsIngressPrivateLinkEndpointOutput) ToGetAccessPointAwsIngressPrivateLinkEndpointOutputWithContext(ctx context.Context) GetAccessPointAwsIngressPrivateLinkEndpointOutput {
+	return o
+}
+
+// (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+func (o GetAccessPointAwsIngressPrivateLinkEndpointOutput) DnsDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointAwsIngressPrivateLinkEndpoint) string { return v.DnsDomain }).(pulumi.StringOutput)
+}
+
+// (Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+func (o GetAccessPointAwsIngressPrivateLinkEndpointOutput) VpcEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointAwsIngressPrivateLinkEndpoint) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+}
+
+// (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+func (o GetAccessPointAwsIngressPrivateLinkEndpointOutput) VpcEndpointServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointAwsIngressPrivateLinkEndpoint) string { return v.VpcEndpointServiceName }).(pulumi.StringOutput)
+}
+
+type GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointAwsIngressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (o GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput) ToGetAccessPointAwsIngressPrivateLinkEndpointArrayOutput() GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput {
+	return o
+}
+
+func (o GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput) ToGetAccessPointAwsIngressPrivateLinkEndpointArrayOutputWithContext(ctx context.Context) GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput {
+	return o
+}
+
+func (o GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput) Index(i pulumi.IntInput) GetAccessPointAwsIngressPrivateLinkEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessPointAwsIngressPrivateLinkEndpoint {
+		return vs[0].([]GetAccessPointAwsIngressPrivateLinkEndpoint)[vs[1].(int)]
+	}).(GetAccessPointAwsIngressPrivateLinkEndpointOutput)
 }
 
 type GetAccessPointAwsPrivateNetworkInterface struct {
@@ -27770,6 +28216,730 @@ func (o GetDnsRecordPrivateLinkAccessPointArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetDnsRecordPrivateLinkAccessPointOutput)
 }
 
+type GetEndpointEndpoint struct {
+	// (Computed Configuration Block) supports the following:
+	AccessPoints []GetEndpointEndpointAccessPoint `pulumi:"accessPoints"`
+	// (Computed String) API Version defines the schema version of this representation of an Endpoint.
+	ApiVersion string `pulumi:"apiVersion"`
+	// (Computed String) The cloud service provider.
+	Cloud string `pulumi:"cloud"`
+	// (Computed String) The network connection type. Accepted values are: `PUBLIC`, `PRIVATE_LINK`, `PEERING`, `TRANSIT_GATEWAY`, `PRIVATE_NETWORK_INTERFACE`.
+	ConnectionType string `pulumi:"connectionType"`
+	// (Computed String) The endpoint URL or address, for example, `https://lkc-abc123-ap12345.us-west-2.aws.accesspoint.glb.confluent.cloud:443`.
+	Endpoint string `pulumi:"endpoint"`
+	// (Computed String) The endpoint type enum values:
+	// - `REST` - REST API endpoint for HTTP/HTTPS access, used by Kafka/Flink/Schema Registry services.
+	// - `BOOTSTRAP` - Kafka native protocol bootstrap servers for direct client connections, used by Kafka only.
+	// - `LANGUAGE_SERVICE` - Flink language service endpoint for SQL/Table API, used by Flink only.
+	EndpointType string `pulumi:"endpointType"`
+	// (Computed Configuration Block) supports the following:
+	Environment GetEndpointEndpointEnvironment `pulumi:"environment"`
+	// (Computed Configuration Block) supports the following:
+	Gateways []GetEndpointEndpointGateway `pulumi:"gateways"`
+	// (Computed String) The ID of the access point to which the Endpoint belongs.
+	Id string `pulumi:"id"`
+	// (Computed Boolean) Whether the endpoint is private (true) or public (false).
+	IsPrivate bool `pulumi:"isPrivate"`
+	// (Computed String) The kind of the resource.
+	Kind string `pulumi:"kind"`
+	// (Computed String) The cloud service provider region in which the resource is located.
+	Region string `pulumi:"region"`
+	// (Computed Configuration Block) supports the following:
+	Resources []GetEndpointEndpointResource `pulumi:"resources"`
+	// (Computed String) The Confluent Cloud service.
+	Service string `pulumi:"service"`
+}
+
+// GetEndpointEndpointInput is an input type that accepts GetEndpointEndpointArgs and GetEndpointEndpointOutput values.
+// You can construct a concrete instance of `GetEndpointEndpointInput` via:
+//
+//	GetEndpointEndpointArgs{...}
+type GetEndpointEndpointInput interface {
+	pulumi.Input
+
+	ToGetEndpointEndpointOutput() GetEndpointEndpointOutput
+	ToGetEndpointEndpointOutputWithContext(context.Context) GetEndpointEndpointOutput
+}
+
+type GetEndpointEndpointArgs struct {
+	// (Computed Configuration Block) supports the following:
+	AccessPoints GetEndpointEndpointAccessPointArrayInput `pulumi:"accessPoints"`
+	// (Computed String) API Version defines the schema version of this representation of an Endpoint.
+	ApiVersion pulumi.StringInput `pulumi:"apiVersion"`
+	// (Computed String) The cloud service provider.
+	Cloud pulumi.StringInput `pulumi:"cloud"`
+	// (Computed String) The network connection type. Accepted values are: `PUBLIC`, `PRIVATE_LINK`, `PEERING`, `TRANSIT_GATEWAY`, `PRIVATE_NETWORK_INTERFACE`.
+	ConnectionType pulumi.StringInput `pulumi:"connectionType"`
+	// (Computed String) The endpoint URL or address, for example, `https://lkc-abc123-ap12345.us-west-2.aws.accesspoint.glb.confluent.cloud:443`.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// (Computed String) The endpoint type enum values:
+	// - `REST` - REST API endpoint for HTTP/HTTPS access, used by Kafka/Flink/Schema Registry services.
+	// - `BOOTSTRAP` - Kafka native protocol bootstrap servers for direct client connections, used by Kafka only.
+	// - `LANGUAGE_SERVICE` - Flink language service endpoint for SQL/Table API, used by Flink only.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// (Computed Configuration Block) supports the following:
+	Environment GetEndpointEndpointEnvironmentInput `pulumi:"environment"`
+	// (Computed Configuration Block) supports the following:
+	Gateways GetEndpointEndpointGatewayArrayInput `pulumi:"gateways"`
+	// (Computed String) The ID of the access point to which the Endpoint belongs.
+	Id pulumi.StringInput `pulumi:"id"`
+	// (Computed Boolean) Whether the endpoint is private (true) or public (false).
+	IsPrivate pulumi.BoolInput `pulumi:"isPrivate"`
+	// (Computed String) The kind of the resource.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// (Computed String) The cloud service provider region in which the resource is located.
+	Region pulumi.StringInput `pulumi:"region"`
+	// (Computed Configuration Block) supports the following:
+	Resources GetEndpointEndpointResourceArrayInput `pulumi:"resources"`
+	// (Computed String) The Confluent Cloud service.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (GetEndpointEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointEndpoint)(nil)).Elem()
+}
+
+func (i GetEndpointEndpointArgs) ToGetEndpointEndpointOutput() GetEndpointEndpointOutput {
+	return i.ToGetEndpointEndpointOutputWithContext(context.Background())
+}
+
+func (i GetEndpointEndpointArgs) ToGetEndpointEndpointOutputWithContext(ctx context.Context) GetEndpointEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointEndpointOutput)
+}
+
+// GetEndpointEndpointArrayInput is an input type that accepts GetEndpointEndpointArray and GetEndpointEndpointArrayOutput values.
+// You can construct a concrete instance of `GetEndpointEndpointArrayInput` via:
+//
+//	GetEndpointEndpointArray{ GetEndpointEndpointArgs{...} }
+type GetEndpointEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointEndpointArrayOutput() GetEndpointEndpointArrayOutput
+	ToGetEndpointEndpointArrayOutputWithContext(context.Context) GetEndpointEndpointArrayOutput
+}
+
+type GetEndpointEndpointArray []GetEndpointEndpointInput
+
+func (GetEndpointEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointEndpoint)(nil)).Elem()
+}
+
+func (i GetEndpointEndpointArray) ToGetEndpointEndpointArrayOutput() GetEndpointEndpointArrayOutput {
+	return i.ToGetEndpointEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointEndpointArray) ToGetEndpointEndpointArrayOutputWithContext(ctx context.Context) GetEndpointEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointEndpointArrayOutput)
+}
+
+type GetEndpointEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointEndpoint)(nil)).Elem()
+}
+
+func (o GetEndpointEndpointOutput) ToGetEndpointEndpointOutput() GetEndpointEndpointOutput {
+	return o
+}
+
+func (o GetEndpointEndpointOutput) ToGetEndpointEndpointOutputWithContext(ctx context.Context) GetEndpointEndpointOutput {
+	return o
+}
+
+// (Computed Configuration Block) supports the following:
+func (o GetEndpointEndpointOutput) AccessPoints() GetEndpointEndpointAccessPointArrayOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) []GetEndpointEndpointAccessPoint { return v.AccessPoints }).(GetEndpointEndpointAccessPointArrayOutput)
+}
+
+// (Computed String) API Version defines the schema version of this representation of an Endpoint.
+func (o GetEndpointEndpointOutput) ApiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) string { return v.ApiVersion }).(pulumi.StringOutput)
+}
+
+// (Computed String) The cloud service provider.
+func (o GetEndpointEndpointOutput) Cloud() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) string { return v.Cloud }).(pulumi.StringOutput)
+}
+
+// (Computed String) The network connection type. Accepted values are: `PUBLIC`, `PRIVATE_LINK`, `PEERING`, `TRANSIT_GATEWAY`, `PRIVATE_NETWORK_INTERFACE`.
+func (o GetEndpointEndpointOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) string { return v.ConnectionType }).(pulumi.StringOutput)
+}
+
+// (Computed String) The endpoint URL or address, for example, `https://lkc-abc123-ap12345.us-west-2.aws.accesspoint.glb.confluent.cloud:443`.
+func (o GetEndpointEndpointOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// (Computed String) The endpoint type enum values:
+// - `REST` - REST API endpoint for HTTP/HTTPS access, used by Kafka/Flink/Schema Registry services.
+// - `BOOTSTRAP` - Kafka native protocol bootstrap servers for direct client connections, used by Kafka only.
+// - `LANGUAGE_SERVICE` - Flink language service endpoint for SQL/Table API, used by Flink only.
+func (o GetEndpointEndpointOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// (Computed Configuration Block) supports the following:
+func (o GetEndpointEndpointOutput) Environment() GetEndpointEndpointEnvironmentOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) GetEndpointEndpointEnvironment { return v.Environment }).(GetEndpointEndpointEnvironmentOutput)
+}
+
+// (Computed Configuration Block) supports the following:
+func (o GetEndpointEndpointOutput) Gateways() GetEndpointEndpointGatewayArrayOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) []GetEndpointEndpointGateway { return v.Gateways }).(GetEndpointEndpointGatewayArrayOutput)
+}
+
+// (Computed String) The ID of the access point to which the Endpoint belongs.
+func (o GetEndpointEndpointOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Computed Boolean) Whether the endpoint is private (true) or public (false).
+func (o GetEndpointEndpointOutput) IsPrivate() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) bool { return v.IsPrivate }).(pulumi.BoolOutput)
+}
+
+// (Computed String) The kind of the resource.
+func (o GetEndpointEndpointOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// (Computed String) The cloud service provider region in which the resource is located.
+func (o GetEndpointEndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (Computed Configuration Block) supports the following:
+func (o GetEndpointEndpointOutput) Resources() GetEndpointEndpointResourceArrayOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) []GetEndpointEndpointResource { return v.Resources }).(GetEndpointEndpointResourceArrayOutput)
+}
+
+// (Computed String) The Confluent Cloud service.
+func (o GetEndpointEndpointOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpoint) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type GetEndpointEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointEndpoint)(nil)).Elem()
+}
+
+func (o GetEndpointEndpointArrayOutput) ToGetEndpointEndpointArrayOutput() GetEndpointEndpointArrayOutput {
+	return o
+}
+
+func (o GetEndpointEndpointArrayOutput) ToGetEndpointEndpointArrayOutputWithContext(ctx context.Context) GetEndpointEndpointArrayOutput {
+	return o
+}
+
+func (o GetEndpointEndpointArrayOutput) Index(i pulumi.IntInput) GetEndpointEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointEndpoint {
+		return vs[0].([]GetEndpointEndpoint)[vs[1].(int)]
+	}).(GetEndpointEndpointOutput)
+}
+
+type GetEndpointEndpointAccessPoint struct {
+	// (Computed String) The ID of the access point to which the Endpoint belongs.
+	Id string `pulumi:"id"`
+}
+
+// GetEndpointEndpointAccessPointInput is an input type that accepts GetEndpointEndpointAccessPointArgs and GetEndpointEndpointAccessPointOutput values.
+// You can construct a concrete instance of `GetEndpointEndpointAccessPointInput` via:
+//
+//	GetEndpointEndpointAccessPointArgs{...}
+type GetEndpointEndpointAccessPointInput interface {
+	pulumi.Input
+
+	ToGetEndpointEndpointAccessPointOutput() GetEndpointEndpointAccessPointOutput
+	ToGetEndpointEndpointAccessPointOutputWithContext(context.Context) GetEndpointEndpointAccessPointOutput
+}
+
+type GetEndpointEndpointAccessPointArgs struct {
+	// (Computed String) The ID of the access point to which the Endpoint belongs.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetEndpointEndpointAccessPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointEndpointAccessPoint)(nil)).Elem()
+}
+
+func (i GetEndpointEndpointAccessPointArgs) ToGetEndpointEndpointAccessPointOutput() GetEndpointEndpointAccessPointOutput {
+	return i.ToGetEndpointEndpointAccessPointOutputWithContext(context.Background())
+}
+
+func (i GetEndpointEndpointAccessPointArgs) ToGetEndpointEndpointAccessPointOutputWithContext(ctx context.Context) GetEndpointEndpointAccessPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointEndpointAccessPointOutput)
+}
+
+// GetEndpointEndpointAccessPointArrayInput is an input type that accepts GetEndpointEndpointAccessPointArray and GetEndpointEndpointAccessPointArrayOutput values.
+// You can construct a concrete instance of `GetEndpointEndpointAccessPointArrayInput` via:
+//
+//	GetEndpointEndpointAccessPointArray{ GetEndpointEndpointAccessPointArgs{...} }
+type GetEndpointEndpointAccessPointArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointEndpointAccessPointArrayOutput() GetEndpointEndpointAccessPointArrayOutput
+	ToGetEndpointEndpointAccessPointArrayOutputWithContext(context.Context) GetEndpointEndpointAccessPointArrayOutput
+}
+
+type GetEndpointEndpointAccessPointArray []GetEndpointEndpointAccessPointInput
+
+func (GetEndpointEndpointAccessPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointEndpointAccessPoint)(nil)).Elem()
+}
+
+func (i GetEndpointEndpointAccessPointArray) ToGetEndpointEndpointAccessPointArrayOutput() GetEndpointEndpointAccessPointArrayOutput {
+	return i.ToGetEndpointEndpointAccessPointArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointEndpointAccessPointArray) ToGetEndpointEndpointAccessPointArrayOutputWithContext(ctx context.Context) GetEndpointEndpointAccessPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointEndpointAccessPointArrayOutput)
+}
+
+type GetEndpointEndpointAccessPointOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointEndpointAccessPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointEndpointAccessPoint)(nil)).Elem()
+}
+
+func (o GetEndpointEndpointAccessPointOutput) ToGetEndpointEndpointAccessPointOutput() GetEndpointEndpointAccessPointOutput {
+	return o
+}
+
+func (o GetEndpointEndpointAccessPointOutput) ToGetEndpointEndpointAccessPointOutputWithContext(ctx context.Context) GetEndpointEndpointAccessPointOutput {
+	return o
+}
+
+// (Computed String) The ID of the access point to which the Endpoint belongs.
+func (o GetEndpointEndpointAccessPointOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpointAccessPoint) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetEndpointEndpointAccessPointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointEndpointAccessPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointEndpointAccessPoint)(nil)).Elem()
+}
+
+func (o GetEndpointEndpointAccessPointArrayOutput) ToGetEndpointEndpointAccessPointArrayOutput() GetEndpointEndpointAccessPointArrayOutput {
+	return o
+}
+
+func (o GetEndpointEndpointAccessPointArrayOutput) ToGetEndpointEndpointAccessPointArrayOutputWithContext(ctx context.Context) GetEndpointEndpointAccessPointArrayOutput {
+	return o
+}
+
+func (o GetEndpointEndpointAccessPointArrayOutput) Index(i pulumi.IntInput) GetEndpointEndpointAccessPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointEndpointAccessPoint {
+		return vs[0].([]GetEndpointEndpointAccessPoint)[vs[1].(int)]
+	}).(GetEndpointEndpointAccessPointOutput)
+}
+
+type GetEndpointEndpointEnvironment struct {
+	// (Computed String) The ID of the access point to which the Endpoint belongs.
+	Id string `pulumi:"id"`
+}
+
+// GetEndpointEndpointEnvironmentInput is an input type that accepts GetEndpointEndpointEnvironmentArgs and GetEndpointEndpointEnvironmentOutput values.
+// You can construct a concrete instance of `GetEndpointEndpointEnvironmentInput` via:
+//
+//	GetEndpointEndpointEnvironmentArgs{...}
+type GetEndpointEndpointEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetEndpointEndpointEnvironmentOutput() GetEndpointEndpointEnvironmentOutput
+	ToGetEndpointEndpointEnvironmentOutputWithContext(context.Context) GetEndpointEndpointEnvironmentOutput
+}
+
+type GetEndpointEndpointEnvironmentArgs struct {
+	// (Computed String) The ID of the access point to which the Endpoint belongs.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetEndpointEndpointEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointEndpointEnvironment)(nil)).Elem()
+}
+
+func (i GetEndpointEndpointEnvironmentArgs) ToGetEndpointEndpointEnvironmentOutput() GetEndpointEndpointEnvironmentOutput {
+	return i.ToGetEndpointEndpointEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetEndpointEndpointEnvironmentArgs) ToGetEndpointEndpointEnvironmentOutputWithContext(ctx context.Context) GetEndpointEndpointEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointEndpointEnvironmentOutput)
+}
+
+type GetEndpointEndpointEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointEndpointEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointEndpointEnvironment)(nil)).Elem()
+}
+
+func (o GetEndpointEndpointEnvironmentOutput) ToGetEndpointEndpointEnvironmentOutput() GetEndpointEndpointEnvironmentOutput {
+	return o
+}
+
+func (o GetEndpointEndpointEnvironmentOutput) ToGetEndpointEndpointEnvironmentOutputWithContext(ctx context.Context) GetEndpointEndpointEnvironmentOutput {
+	return o
+}
+
+// (Computed String) The ID of the access point to which the Endpoint belongs.
+func (o GetEndpointEndpointEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpointEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetEndpointEndpointGateway struct {
+	// (Computed String) The ID of the access point to which the Endpoint belongs.
+	Id string `pulumi:"id"`
+}
+
+// GetEndpointEndpointGatewayInput is an input type that accepts GetEndpointEndpointGatewayArgs and GetEndpointEndpointGatewayOutput values.
+// You can construct a concrete instance of `GetEndpointEndpointGatewayInput` via:
+//
+//	GetEndpointEndpointGatewayArgs{...}
+type GetEndpointEndpointGatewayInput interface {
+	pulumi.Input
+
+	ToGetEndpointEndpointGatewayOutput() GetEndpointEndpointGatewayOutput
+	ToGetEndpointEndpointGatewayOutputWithContext(context.Context) GetEndpointEndpointGatewayOutput
+}
+
+type GetEndpointEndpointGatewayArgs struct {
+	// (Computed String) The ID of the access point to which the Endpoint belongs.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetEndpointEndpointGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointEndpointGateway)(nil)).Elem()
+}
+
+func (i GetEndpointEndpointGatewayArgs) ToGetEndpointEndpointGatewayOutput() GetEndpointEndpointGatewayOutput {
+	return i.ToGetEndpointEndpointGatewayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointEndpointGatewayArgs) ToGetEndpointEndpointGatewayOutputWithContext(ctx context.Context) GetEndpointEndpointGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointEndpointGatewayOutput)
+}
+
+// GetEndpointEndpointGatewayArrayInput is an input type that accepts GetEndpointEndpointGatewayArray and GetEndpointEndpointGatewayArrayOutput values.
+// You can construct a concrete instance of `GetEndpointEndpointGatewayArrayInput` via:
+//
+//	GetEndpointEndpointGatewayArray{ GetEndpointEndpointGatewayArgs{...} }
+type GetEndpointEndpointGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointEndpointGatewayArrayOutput() GetEndpointEndpointGatewayArrayOutput
+	ToGetEndpointEndpointGatewayArrayOutputWithContext(context.Context) GetEndpointEndpointGatewayArrayOutput
+}
+
+type GetEndpointEndpointGatewayArray []GetEndpointEndpointGatewayInput
+
+func (GetEndpointEndpointGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointEndpointGateway)(nil)).Elem()
+}
+
+func (i GetEndpointEndpointGatewayArray) ToGetEndpointEndpointGatewayArrayOutput() GetEndpointEndpointGatewayArrayOutput {
+	return i.ToGetEndpointEndpointGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointEndpointGatewayArray) ToGetEndpointEndpointGatewayArrayOutputWithContext(ctx context.Context) GetEndpointEndpointGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointEndpointGatewayArrayOutput)
+}
+
+type GetEndpointEndpointGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointEndpointGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointEndpointGateway)(nil)).Elem()
+}
+
+func (o GetEndpointEndpointGatewayOutput) ToGetEndpointEndpointGatewayOutput() GetEndpointEndpointGatewayOutput {
+	return o
+}
+
+func (o GetEndpointEndpointGatewayOutput) ToGetEndpointEndpointGatewayOutputWithContext(ctx context.Context) GetEndpointEndpointGatewayOutput {
+	return o
+}
+
+// (Computed String) The ID of the access point to which the Endpoint belongs.
+func (o GetEndpointEndpointGatewayOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpointGateway) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetEndpointEndpointGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointEndpointGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointEndpointGateway)(nil)).Elem()
+}
+
+func (o GetEndpointEndpointGatewayArrayOutput) ToGetEndpointEndpointGatewayArrayOutput() GetEndpointEndpointGatewayArrayOutput {
+	return o
+}
+
+func (o GetEndpointEndpointGatewayArrayOutput) ToGetEndpointEndpointGatewayArrayOutputWithContext(ctx context.Context) GetEndpointEndpointGatewayArrayOutput {
+	return o
+}
+
+func (o GetEndpointEndpointGatewayArrayOutput) Index(i pulumi.IntInput) GetEndpointEndpointGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointEndpointGateway {
+		return vs[0].([]GetEndpointEndpointGateway)[vs[1].(int)]
+	}).(GetEndpointEndpointGatewayOutput)
+}
+
+type GetEndpointEndpointResource struct {
+	// (Computed String) The ID of the access point to which the Endpoint belongs.
+	Id string `pulumi:"id"`
+	// (Computed String) The kind of the resource.
+	Kind string `pulumi:"kind"`
+}
+
+// GetEndpointEndpointResourceInput is an input type that accepts GetEndpointEndpointResourceArgs and GetEndpointEndpointResourceOutput values.
+// You can construct a concrete instance of `GetEndpointEndpointResourceInput` via:
+//
+//	GetEndpointEndpointResourceArgs{...}
+type GetEndpointEndpointResourceInput interface {
+	pulumi.Input
+
+	ToGetEndpointEndpointResourceOutput() GetEndpointEndpointResourceOutput
+	ToGetEndpointEndpointResourceOutputWithContext(context.Context) GetEndpointEndpointResourceOutput
+}
+
+type GetEndpointEndpointResourceArgs struct {
+	// (Computed String) The ID of the access point to which the Endpoint belongs.
+	Id pulumi.StringInput `pulumi:"id"`
+	// (Computed String) The kind of the resource.
+	Kind pulumi.StringInput `pulumi:"kind"`
+}
+
+func (GetEndpointEndpointResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointEndpointResource)(nil)).Elem()
+}
+
+func (i GetEndpointEndpointResourceArgs) ToGetEndpointEndpointResourceOutput() GetEndpointEndpointResourceOutput {
+	return i.ToGetEndpointEndpointResourceOutputWithContext(context.Background())
+}
+
+func (i GetEndpointEndpointResourceArgs) ToGetEndpointEndpointResourceOutputWithContext(ctx context.Context) GetEndpointEndpointResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointEndpointResourceOutput)
+}
+
+// GetEndpointEndpointResourceArrayInput is an input type that accepts GetEndpointEndpointResourceArray and GetEndpointEndpointResourceArrayOutput values.
+// You can construct a concrete instance of `GetEndpointEndpointResourceArrayInput` via:
+//
+//	GetEndpointEndpointResourceArray{ GetEndpointEndpointResourceArgs{...} }
+type GetEndpointEndpointResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointEndpointResourceArrayOutput() GetEndpointEndpointResourceArrayOutput
+	ToGetEndpointEndpointResourceArrayOutputWithContext(context.Context) GetEndpointEndpointResourceArrayOutput
+}
+
+type GetEndpointEndpointResourceArray []GetEndpointEndpointResourceInput
+
+func (GetEndpointEndpointResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointEndpointResource)(nil)).Elem()
+}
+
+func (i GetEndpointEndpointResourceArray) ToGetEndpointEndpointResourceArrayOutput() GetEndpointEndpointResourceArrayOutput {
+	return i.ToGetEndpointEndpointResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointEndpointResourceArray) ToGetEndpointEndpointResourceArrayOutputWithContext(ctx context.Context) GetEndpointEndpointResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointEndpointResourceArrayOutput)
+}
+
+type GetEndpointEndpointResourceOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointEndpointResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointEndpointResource)(nil)).Elem()
+}
+
+func (o GetEndpointEndpointResourceOutput) ToGetEndpointEndpointResourceOutput() GetEndpointEndpointResourceOutput {
+	return o
+}
+
+func (o GetEndpointEndpointResourceOutput) ToGetEndpointEndpointResourceOutputWithContext(ctx context.Context) GetEndpointEndpointResourceOutput {
+	return o
+}
+
+// (Computed String) The ID of the access point to which the Endpoint belongs.
+func (o GetEndpointEndpointResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpointResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Computed String) The kind of the resource.
+func (o GetEndpointEndpointResourceOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointEndpointResource) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+type GetEndpointEndpointResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointEndpointResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointEndpointResource)(nil)).Elem()
+}
+
+func (o GetEndpointEndpointResourceArrayOutput) ToGetEndpointEndpointResourceArrayOutput() GetEndpointEndpointResourceArrayOutput {
+	return o
+}
+
+func (o GetEndpointEndpointResourceArrayOutput) ToGetEndpointEndpointResourceArrayOutputWithContext(ctx context.Context) GetEndpointEndpointResourceArrayOutput {
+	return o
+}
+
+func (o GetEndpointEndpointResourceArrayOutput) Index(i pulumi.IntInput) GetEndpointEndpointResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointEndpointResource {
+		return vs[0].([]GetEndpointEndpointResource)[vs[1].(int)]
+	}).(GetEndpointEndpointResourceOutput)
+}
+
+type GetEndpointFilter struct {
+	// The cloud service provider. Accepted values are: `AWS`, `GCP`, `AZURE`.
+	Cloud *string `pulumi:"cloud"`
+	// (Computed Configuration Block) supports the following:
+	Environment GetEndpointFilterEnvironment `pulumi:"environment"`
+	// Whether the endpoint is private (true) or public (false).
+	IsPrivate *bool `pulumi:"isPrivate"`
+	// The cloud service provider region in which the resource is located, for example, `us-west-2`.
+	Region *string `pulumi:"region"`
+	// The resource associated with the endpoint. The resource can be one of Kafka Cluster ID (example: `lkc-12345`), or Schema Registry Cluster ID (example: `lsrc-12345`). May be omitted if not associated with a resource.
+	Resource *string `pulumi:"resource"`
+	// The Confluent Cloud service. Accepted values are: `KAFKA`, `SCHEMA_REGISTRY`, `FLINK`.
+	Service string `pulumi:"service"`
+}
+
+// GetEndpointFilterInput is an input type that accepts GetEndpointFilterArgs and GetEndpointFilterOutput values.
+// You can construct a concrete instance of `GetEndpointFilterInput` via:
+//
+//	GetEndpointFilterArgs{...}
+type GetEndpointFilterInput interface {
+	pulumi.Input
+
+	ToGetEndpointFilterOutput() GetEndpointFilterOutput
+	ToGetEndpointFilterOutputWithContext(context.Context) GetEndpointFilterOutput
+}
+
+type GetEndpointFilterArgs struct {
+	// The cloud service provider. Accepted values are: `AWS`, `GCP`, `AZURE`.
+	Cloud pulumi.StringPtrInput `pulumi:"cloud"`
+	// (Computed Configuration Block) supports the following:
+	Environment GetEndpointFilterEnvironmentInput `pulumi:"environment"`
+	// Whether the endpoint is private (true) or public (false).
+	IsPrivate pulumi.BoolPtrInput `pulumi:"isPrivate"`
+	// The cloud service provider region in which the resource is located, for example, `us-west-2`.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// The resource associated with the endpoint. The resource can be one of Kafka Cluster ID (example: `lkc-12345`), or Schema Registry Cluster ID (example: `lsrc-12345`). May be omitted if not associated with a resource.
+	Resource pulumi.StringPtrInput `pulumi:"resource"`
+	// The Confluent Cloud service. Accepted values are: `KAFKA`, `SCHEMA_REGISTRY`, `FLINK`.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (GetEndpointFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointFilter)(nil)).Elem()
+}
+
+func (i GetEndpointFilterArgs) ToGetEndpointFilterOutput() GetEndpointFilterOutput {
+	return i.ToGetEndpointFilterOutputWithContext(context.Background())
+}
+
+func (i GetEndpointFilterArgs) ToGetEndpointFilterOutputWithContext(ctx context.Context) GetEndpointFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointFilterOutput)
+}
+
+type GetEndpointFilterOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointFilter)(nil)).Elem()
+}
+
+func (o GetEndpointFilterOutput) ToGetEndpointFilterOutput() GetEndpointFilterOutput {
+	return o
+}
+
+func (o GetEndpointFilterOutput) ToGetEndpointFilterOutputWithContext(ctx context.Context) GetEndpointFilterOutput {
+	return o
+}
+
+// The cloud service provider. Accepted values are: `AWS`, `GCP`, `AZURE`.
+func (o GetEndpointFilterOutput) Cloud() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointFilter) *string { return v.Cloud }).(pulumi.StringPtrOutput)
+}
+
+// (Computed Configuration Block) supports the following:
+func (o GetEndpointFilterOutput) Environment() GetEndpointFilterEnvironmentOutput {
+	return o.ApplyT(func(v GetEndpointFilter) GetEndpointFilterEnvironment { return v.Environment }).(GetEndpointFilterEnvironmentOutput)
+}
+
+// Whether the endpoint is private (true) or public (false).
+func (o GetEndpointFilterOutput) IsPrivate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetEndpointFilter) *bool { return v.IsPrivate }).(pulumi.BoolPtrOutput)
+}
+
+// The cloud service provider region in which the resource is located, for example, `us-west-2`.
+func (o GetEndpointFilterOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointFilter) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The resource associated with the endpoint. The resource can be one of Kafka Cluster ID (example: `lkc-12345`), or Schema Registry Cluster ID (example: `lsrc-12345`). May be omitted if not associated with a resource.
+func (o GetEndpointFilterOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndpointFilter) *string { return v.Resource }).(pulumi.StringPtrOutput)
+}
+
+// The Confluent Cloud service. Accepted values are: `KAFKA`, `SCHEMA_REGISTRY`, `FLINK`.
+func (o GetEndpointFilterOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointFilter) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type GetEndpointFilterEnvironment struct {
+	// The ID of the Environment that the Endpoint belongs to, for example, `env-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// GetEndpointFilterEnvironmentInput is an input type that accepts GetEndpointFilterEnvironmentArgs and GetEndpointFilterEnvironmentOutput values.
+// You can construct a concrete instance of `GetEndpointFilterEnvironmentInput` via:
+//
+//	GetEndpointFilterEnvironmentArgs{...}
+type GetEndpointFilterEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetEndpointFilterEnvironmentOutput() GetEndpointFilterEnvironmentOutput
+	ToGetEndpointFilterEnvironmentOutputWithContext(context.Context) GetEndpointFilterEnvironmentOutput
+}
+
+type GetEndpointFilterEnvironmentArgs struct {
+	// The ID of the Environment that the Endpoint belongs to, for example, `env-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetEndpointFilterEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointFilterEnvironment)(nil)).Elem()
+}
+
+func (i GetEndpointFilterEnvironmentArgs) ToGetEndpointFilterEnvironmentOutput() GetEndpointFilterEnvironmentOutput {
+	return i.ToGetEndpointFilterEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetEndpointFilterEnvironmentArgs) ToGetEndpointFilterEnvironmentOutputWithContext(ctx context.Context) GetEndpointFilterEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointFilterEnvironmentOutput)
+}
+
+type GetEndpointFilterEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointFilterEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointFilterEnvironment)(nil)).Elem()
+}
+
+func (o GetEndpointFilterEnvironmentOutput) ToGetEndpointFilterEnvironmentOutput() GetEndpointFilterEnvironmentOutput {
+	return o
+}
+
+func (o GetEndpointFilterEnvironmentOutput) ToGetEndpointFilterEnvironmentOutputWithContext(ctx context.Context) GetEndpointFilterEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Endpoint belongs to, for example, `env-123abc`.
+func (o GetEndpointFilterEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointFilterEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
 type GetEnvironmentStreamGovernance struct {
 	// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
 	Package string `pulumi:"package"`
@@ -28940,6 +30110,112 @@ func (o GetGatewayAwsEgressPrivateLinkGatewayArrayOutput) Index(i pulumi.IntInpu
 	}).(GetGatewayAwsEgressPrivateLinkGatewayOutput)
 }
 
+type GetGatewayAwsIngressPrivateLinkGateway struct {
+	// (Required String) GCP region of the Peering Gateway.
+	Region string `pulumi:"region"`
+	// (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+	VpcEndpointServiceName string `pulumi:"vpcEndpointServiceName"`
+}
+
+// GetGatewayAwsIngressPrivateLinkGatewayInput is an input type that accepts GetGatewayAwsIngressPrivateLinkGatewayArgs and GetGatewayAwsIngressPrivateLinkGatewayOutput values.
+// You can construct a concrete instance of `GetGatewayAwsIngressPrivateLinkGatewayInput` via:
+//
+//	GetGatewayAwsIngressPrivateLinkGatewayArgs{...}
+type GetGatewayAwsIngressPrivateLinkGatewayInput interface {
+	pulumi.Input
+
+	ToGetGatewayAwsIngressPrivateLinkGatewayOutput() GetGatewayAwsIngressPrivateLinkGatewayOutput
+	ToGetGatewayAwsIngressPrivateLinkGatewayOutputWithContext(context.Context) GetGatewayAwsIngressPrivateLinkGatewayOutput
+}
+
+type GetGatewayAwsIngressPrivateLinkGatewayArgs struct {
+	// (Required String) GCP region of the Peering Gateway.
+	Region pulumi.StringInput `pulumi:"region"`
+	// (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+	VpcEndpointServiceName pulumi.StringInput `pulumi:"vpcEndpointServiceName"`
+}
+
+func (GetGatewayAwsIngressPrivateLinkGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayAwsIngressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GetGatewayAwsIngressPrivateLinkGatewayArgs) ToGetGatewayAwsIngressPrivateLinkGatewayOutput() GetGatewayAwsIngressPrivateLinkGatewayOutput {
+	return i.ToGetGatewayAwsIngressPrivateLinkGatewayOutputWithContext(context.Background())
+}
+
+func (i GetGatewayAwsIngressPrivateLinkGatewayArgs) ToGetGatewayAwsIngressPrivateLinkGatewayOutputWithContext(ctx context.Context) GetGatewayAwsIngressPrivateLinkGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayAwsIngressPrivateLinkGatewayOutput)
+}
+
+// GetGatewayAwsIngressPrivateLinkGatewayArrayInput is an input type that accepts GetGatewayAwsIngressPrivateLinkGatewayArray and GetGatewayAwsIngressPrivateLinkGatewayArrayOutput values.
+// You can construct a concrete instance of `GetGatewayAwsIngressPrivateLinkGatewayArrayInput` via:
+//
+//	GetGatewayAwsIngressPrivateLinkGatewayArray{ GetGatewayAwsIngressPrivateLinkGatewayArgs{...} }
+type GetGatewayAwsIngressPrivateLinkGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewayAwsIngressPrivateLinkGatewayArrayOutput() GetGatewayAwsIngressPrivateLinkGatewayArrayOutput
+	ToGetGatewayAwsIngressPrivateLinkGatewayArrayOutputWithContext(context.Context) GetGatewayAwsIngressPrivateLinkGatewayArrayOutput
+}
+
+type GetGatewayAwsIngressPrivateLinkGatewayArray []GetGatewayAwsIngressPrivateLinkGatewayInput
+
+func (GetGatewayAwsIngressPrivateLinkGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayAwsIngressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GetGatewayAwsIngressPrivateLinkGatewayArray) ToGetGatewayAwsIngressPrivateLinkGatewayArrayOutput() GetGatewayAwsIngressPrivateLinkGatewayArrayOutput {
+	return i.ToGetGatewayAwsIngressPrivateLinkGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewayAwsIngressPrivateLinkGatewayArray) ToGetGatewayAwsIngressPrivateLinkGatewayArrayOutputWithContext(ctx context.Context) GetGatewayAwsIngressPrivateLinkGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayAwsIngressPrivateLinkGatewayArrayOutput)
+}
+
+type GetGatewayAwsIngressPrivateLinkGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayAwsIngressPrivateLinkGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayAwsIngressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GetGatewayAwsIngressPrivateLinkGatewayOutput) ToGetGatewayAwsIngressPrivateLinkGatewayOutput() GetGatewayAwsIngressPrivateLinkGatewayOutput {
+	return o
+}
+
+func (o GetGatewayAwsIngressPrivateLinkGatewayOutput) ToGetGatewayAwsIngressPrivateLinkGatewayOutputWithContext(ctx context.Context) GetGatewayAwsIngressPrivateLinkGatewayOutput {
+	return o
+}
+
+// (Required String) GCP region of the Peering Gateway.
+func (o GetGatewayAwsIngressPrivateLinkGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayAwsIngressPrivateLinkGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+func (o GetGatewayAwsIngressPrivateLinkGatewayOutput) VpcEndpointServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayAwsIngressPrivateLinkGateway) string { return v.VpcEndpointServiceName }).(pulumi.StringOutput)
+}
+
+type GetGatewayAwsIngressPrivateLinkGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayAwsIngressPrivateLinkGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayAwsIngressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GetGatewayAwsIngressPrivateLinkGatewayArrayOutput) ToGetGatewayAwsIngressPrivateLinkGatewayArrayOutput() GetGatewayAwsIngressPrivateLinkGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewayAwsIngressPrivateLinkGatewayArrayOutput) ToGetGatewayAwsIngressPrivateLinkGatewayArrayOutputWithContext(ctx context.Context) GetGatewayAwsIngressPrivateLinkGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewayAwsIngressPrivateLinkGatewayArrayOutput) Index(i pulumi.IntInput) GetGatewayAwsIngressPrivateLinkGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewayAwsIngressPrivateLinkGateway {
+		return vs[0].([]GetGatewayAwsIngressPrivateLinkGateway)[vs[1].(int)]
+	}).(GetGatewayAwsIngressPrivateLinkGatewayOutput)
+}
+
 type GetGatewayAwsPeeringGateway struct {
 	// (Required String) GCP region of the Peering Gateway.
 	Region string `pulumi:"region"`
@@ -29617,6 +30893,1298 @@ func (o GetGatewayGcpPeeringGatewayArrayOutput) Index(i pulumi.IntInput) GetGate
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewayGcpPeeringGateway {
 		return vs[0].([]GetGatewayGcpPeeringGateway)[vs[1].(int)]
 	}).(GetGatewayGcpPeeringGatewayOutput)
+}
+
+type GetGatewaysEnvironment struct {
+	// The ID of the Environment that the Gateways belong to, for example, `env-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// GetGatewaysEnvironmentInput is an input type that accepts GetGatewaysEnvironmentArgs and GetGatewaysEnvironmentOutput values.
+// You can construct a concrete instance of `GetGatewaysEnvironmentInput` via:
+//
+//	GetGatewaysEnvironmentArgs{...}
+type GetGatewaysEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetGatewaysEnvironmentOutput() GetGatewaysEnvironmentOutput
+	ToGetGatewaysEnvironmentOutputWithContext(context.Context) GetGatewaysEnvironmentOutput
+}
+
+type GetGatewaysEnvironmentArgs struct {
+	// The ID of the Environment that the Gateways belong to, for example, `env-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetGatewaysEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysEnvironment)(nil)).Elem()
+}
+
+func (i GetGatewaysEnvironmentArgs) ToGetGatewaysEnvironmentOutput() GetGatewaysEnvironmentOutput {
+	return i.ToGetGatewaysEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysEnvironmentArgs) ToGetGatewaysEnvironmentOutputWithContext(ctx context.Context) GetGatewaysEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysEnvironmentOutput)
+}
+
+type GetGatewaysEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysEnvironment)(nil)).Elem()
+}
+
+func (o GetGatewaysEnvironmentOutput) ToGetGatewaysEnvironmentOutput() GetGatewaysEnvironmentOutput {
+	return o
+}
+
+func (o GetGatewaysEnvironmentOutput) ToGetGatewaysEnvironmentOutputWithContext(ctx context.Context) GetGatewaysEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Gateways belong to, for example, `env-123abc`.
+func (o GetGatewaysEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetGatewaysFilter struct {
+	// Filter the results by exact match for spec.display_name. Pass multiple times to see results matching any of the values, for example, `["prod-gateway-ingress-use1", "prod-gateway-ingress-use2"]`.
+	DisplayNames []string `pulumi:"displayNames"`
+	// Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+	GatewayTypes []string `pulumi:"gatewayTypes"`
+	// Filter the results by exact match for id. Pass multiple times to see results matching any of the values, for example, `["gw-abc123", "gw-def456"]`.
+	Ids []string `pulumi:"ids"`
+	// Filter the results by exact match for status.phase. Pass multiple times to see results matching any of the values. Valid values are: `CREATED`, `PROVISIONING`, `READY`, `FAILED`, `DEPROVISIONING`, `EXPIRED`.
+	Phases []string `pulumi:"phases"`
+	// Filter the results by exact match for spec.config.region. Pass multiple times to see results matching any of the values, for example, `["us-east-1", "us-west-2"]`.
+	Regions []string `pulumi:"regions"`
+}
+
+// GetGatewaysFilterInput is an input type that accepts GetGatewaysFilterArgs and GetGatewaysFilterOutput values.
+// You can construct a concrete instance of `GetGatewaysFilterInput` via:
+//
+//	GetGatewaysFilterArgs{...}
+type GetGatewaysFilterInput interface {
+	pulumi.Input
+
+	ToGetGatewaysFilterOutput() GetGatewaysFilterOutput
+	ToGetGatewaysFilterOutputWithContext(context.Context) GetGatewaysFilterOutput
+}
+
+type GetGatewaysFilterArgs struct {
+	// Filter the results by exact match for spec.display_name. Pass multiple times to see results matching any of the values, for example, `["prod-gateway-ingress-use1", "prod-gateway-ingress-use2"]`.
+	DisplayNames pulumi.StringArrayInput `pulumi:"displayNames"`
+	// Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+	GatewayTypes pulumi.StringArrayInput `pulumi:"gatewayTypes"`
+	// Filter the results by exact match for id. Pass multiple times to see results matching any of the values, for example, `["gw-abc123", "gw-def456"]`.
+	Ids pulumi.StringArrayInput `pulumi:"ids"`
+	// Filter the results by exact match for status.phase. Pass multiple times to see results matching any of the values. Valid values are: `CREATED`, `PROVISIONING`, `READY`, `FAILED`, `DEPROVISIONING`, `EXPIRED`.
+	Phases pulumi.StringArrayInput `pulumi:"phases"`
+	// Filter the results by exact match for spec.config.region. Pass multiple times to see results matching any of the values, for example, `["us-east-1", "us-west-2"]`.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+}
+
+func (GetGatewaysFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysFilter)(nil)).Elem()
+}
+
+func (i GetGatewaysFilterArgs) ToGetGatewaysFilterOutput() GetGatewaysFilterOutput {
+	return i.ToGetGatewaysFilterOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysFilterArgs) ToGetGatewaysFilterOutputWithContext(ctx context.Context) GetGatewaysFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysFilterOutput)
+}
+
+func (i GetGatewaysFilterArgs) ToGetGatewaysFilterPtrOutput() GetGatewaysFilterPtrOutput {
+	return i.ToGetGatewaysFilterPtrOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysFilterArgs) ToGetGatewaysFilterPtrOutputWithContext(ctx context.Context) GetGatewaysFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysFilterOutput).ToGetGatewaysFilterPtrOutputWithContext(ctx)
+}
+
+// GetGatewaysFilterPtrInput is an input type that accepts GetGatewaysFilterArgs, GetGatewaysFilterPtr and GetGatewaysFilterPtrOutput values.
+// You can construct a concrete instance of `GetGatewaysFilterPtrInput` via:
+//
+//	        GetGatewaysFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGatewaysFilterPtrInput interface {
+	pulumi.Input
+
+	ToGetGatewaysFilterPtrOutput() GetGatewaysFilterPtrOutput
+	ToGetGatewaysFilterPtrOutputWithContext(context.Context) GetGatewaysFilterPtrOutput
+}
+
+type getGatewaysFilterPtrType GetGatewaysFilterArgs
+
+func GetGatewaysFilterPtr(v *GetGatewaysFilterArgs) GetGatewaysFilterPtrInput {
+	return (*getGatewaysFilterPtrType)(v)
+}
+
+func (*getGatewaysFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGatewaysFilter)(nil)).Elem()
+}
+
+func (i *getGatewaysFilterPtrType) ToGetGatewaysFilterPtrOutput() GetGatewaysFilterPtrOutput {
+	return i.ToGetGatewaysFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *getGatewaysFilterPtrType) ToGetGatewaysFilterPtrOutputWithContext(ctx context.Context) GetGatewaysFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysFilterPtrOutput)
+}
+
+type GetGatewaysFilterOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysFilter)(nil)).Elem()
+}
+
+func (o GetGatewaysFilterOutput) ToGetGatewaysFilterOutput() GetGatewaysFilterOutput {
+	return o
+}
+
+func (o GetGatewaysFilterOutput) ToGetGatewaysFilterOutputWithContext(ctx context.Context) GetGatewaysFilterOutput {
+	return o
+}
+
+func (o GetGatewaysFilterOutput) ToGetGatewaysFilterPtrOutput() GetGatewaysFilterPtrOutput {
+	return o.ToGetGatewaysFilterPtrOutputWithContext(context.Background())
+}
+
+func (o GetGatewaysFilterOutput) ToGetGatewaysFilterPtrOutputWithContext(ctx context.Context) GetGatewaysFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGatewaysFilter) *GetGatewaysFilter {
+		return &v
+	}).(GetGatewaysFilterPtrOutput)
+}
+
+// Filter the results by exact match for spec.display_name. Pass multiple times to see results matching any of the values, for example, `["prod-gateway-ingress-use1", "prod-gateway-ingress-use2"]`.
+func (o GetGatewaysFilterOutput) DisplayNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetGatewaysFilter) []string { return v.DisplayNames }).(pulumi.StringArrayOutput)
+}
+
+// Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+func (o GetGatewaysFilterOutput) GatewayTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetGatewaysFilter) []string { return v.GatewayTypes }).(pulumi.StringArrayOutput)
+}
+
+// Filter the results by exact match for id. Pass multiple times to see results matching any of the values, for example, `["gw-abc123", "gw-def456"]`.
+func (o GetGatewaysFilterOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetGatewaysFilter) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+// Filter the results by exact match for status.phase. Pass multiple times to see results matching any of the values. Valid values are: `CREATED`, `PROVISIONING`, `READY`, `FAILED`, `DEPROVISIONING`, `EXPIRED`.
+func (o GetGatewaysFilterOutput) Phases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetGatewaysFilter) []string { return v.Phases }).(pulumi.StringArrayOutput)
+}
+
+// Filter the results by exact match for spec.config.region. Pass multiple times to see results matching any of the values, for example, `["us-east-1", "us-west-2"]`.
+func (o GetGatewaysFilterOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetGatewaysFilter) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+type GetGatewaysFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGatewaysFilter)(nil)).Elem()
+}
+
+func (o GetGatewaysFilterPtrOutput) ToGetGatewaysFilterPtrOutput() GetGatewaysFilterPtrOutput {
+	return o
+}
+
+func (o GetGatewaysFilterPtrOutput) ToGetGatewaysFilterPtrOutputWithContext(ctx context.Context) GetGatewaysFilterPtrOutput {
+	return o
+}
+
+func (o GetGatewaysFilterPtrOutput) Elem() GetGatewaysFilterOutput {
+	return o.ApplyT(func(v *GetGatewaysFilter) GetGatewaysFilter {
+		if v != nil {
+			return *v
+		}
+		var ret GetGatewaysFilter
+		return ret
+	}).(GetGatewaysFilterOutput)
+}
+
+// Filter the results by exact match for spec.display_name. Pass multiple times to see results matching any of the values, for example, `["prod-gateway-ingress-use1", "prod-gateway-ingress-use2"]`.
+func (o GetGatewaysFilterPtrOutput) DisplayNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetGatewaysFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+func (o GetGatewaysFilterPtrOutput) GatewayTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetGatewaysFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GatewayTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Filter the results by exact match for id. Pass multiple times to see results matching any of the values, for example, `["gw-abc123", "gw-def456"]`.
+func (o GetGatewaysFilterPtrOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetGatewaysFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.StringArrayOutput)
+}
+
+// Filter the results by exact match for status.phase. Pass multiple times to see results matching any of the values. Valid values are: `CREATED`, `PROVISIONING`, `READY`, `FAILED`, `DEPROVISIONING`, `EXPIRED`.
+func (o GetGatewaysFilterPtrOutput) Phases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetGatewaysFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Phases
+	}).(pulumi.StringArrayOutput)
+}
+
+// Filter the results by exact match for spec.config.region. Pass multiple times to see results matching any of the values, for example, `["us-east-1", "us-west-2"]`.
+func (o GetGatewaysFilterPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetGatewaysFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetGatewaysGateway struct {
+	// (Optional Configuration Block) supports the following:
+	AwsEgressPrivateLinkGateways []GetGatewaysGatewayAwsEgressPrivateLinkGateway `pulumi:"awsEgressPrivateLinkGateways"`
+	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkGateways []GetGatewaysGatewayAwsIngressPrivateLinkGateway `pulumi:"awsIngressPrivateLinkGateways"`
+	// (Optional Configuration Block) supports the following:
+	AwsPeeringGateways []GetGatewaysGatewayAwsPeeringGateway `pulumi:"awsPeeringGateways"`
+	// (Optional Configuration Block) supports the following:
+	AwsPrivateNetworkInterfaceGateways []GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway `pulumi:"awsPrivateNetworkInterfaceGateways"`
+	// (Optional Configuration Block) supports the following:
+	AzureEgressPrivateLinkGateways []GetGatewaysGatewayAzureEgressPrivateLinkGateway `pulumi:"azureEgressPrivateLinkGateways"`
+	// (Optional Configuration Block) supports the following:
+	AzurePeeringGateways []GetGatewaysGatewayAzurePeeringGateway `pulumi:"azurePeeringGateways"`
+	// (Required String) A human-readable name for the Gateway.
+	DisplayName string `pulumi:"displayName"`
+	// (Optional Configuration Block) supports the following:
+	GcpEgressPrivateServiceConnectGateways []GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway `pulumi:"gcpEgressPrivateServiceConnectGateways"`
+	// (Optional Configuration Block) supports the following:
+	GcpPeeringGateways []GetGatewaysGatewayGcpPeeringGateway `pulumi:"gcpPeeringGateways"`
+	// (Required String) The ID of the Gateway, for example, `gw-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetGatewaysGatewayInput is an input type that accepts GetGatewaysGatewayArgs and GetGatewaysGatewayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayInput` via:
+//
+//	GetGatewaysGatewayArgs{...}
+type GetGatewaysGatewayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayOutput() GetGatewaysGatewayOutput
+	ToGetGatewaysGatewayOutputWithContext(context.Context) GetGatewaysGatewayOutput
+}
+
+type GetGatewaysGatewayArgs struct {
+	// (Optional Configuration Block) supports the following:
+	AwsEgressPrivateLinkGateways GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayInput `pulumi:"awsEgressPrivateLinkGateways"`
+	// (Optional Configuration Block) supports the following:
+	AwsIngressPrivateLinkGateways GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayInput `pulumi:"awsIngressPrivateLinkGateways"`
+	// (Optional Configuration Block) supports the following:
+	AwsPeeringGateways GetGatewaysGatewayAwsPeeringGatewayArrayInput `pulumi:"awsPeeringGateways"`
+	// (Optional Configuration Block) supports the following:
+	AwsPrivateNetworkInterfaceGateways GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayInput `pulumi:"awsPrivateNetworkInterfaceGateways"`
+	// (Optional Configuration Block) supports the following:
+	AzureEgressPrivateLinkGateways GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayInput `pulumi:"azureEgressPrivateLinkGateways"`
+	// (Optional Configuration Block) supports the following:
+	AzurePeeringGateways GetGatewaysGatewayAzurePeeringGatewayArrayInput `pulumi:"azurePeeringGateways"`
+	// (Required String) A human-readable name for the Gateway.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// (Optional Configuration Block) supports the following:
+	GcpEgressPrivateServiceConnectGateways GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayInput `pulumi:"gcpEgressPrivateServiceConnectGateways"`
+	// (Optional Configuration Block) supports the following:
+	GcpPeeringGateways GetGatewaysGatewayGcpPeeringGatewayArrayInput `pulumi:"gcpPeeringGateways"`
+	// (Required String) The ID of the Gateway, for example, `gw-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetGatewaysGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayArgs) ToGetGatewaysGatewayOutput() GetGatewaysGatewayOutput {
+	return i.ToGetGatewaysGatewayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayArgs) ToGetGatewaysGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayOutput)
+}
+
+// GetGatewaysGatewayArrayInput is an input type that accepts GetGatewaysGatewayArray and GetGatewaysGatewayArrayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayArrayInput` via:
+//
+//	GetGatewaysGatewayArray{ GetGatewaysGatewayArgs{...} }
+type GetGatewaysGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayArrayOutput() GetGatewaysGatewayArrayOutput
+	ToGetGatewaysGatewayArrayOutputWithContext(context.Context) GetGatewaysGatewayArrayOutput
+}
+
+type GetGatewaysGatewayArray []GetGatewaysGatewayInput
+
+func (GetGatewaysGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayArray) ToGetGatewaysGatewayArrayOutput() GetGatewaysGatewayArrayOutput {
+	return i.ToGetGatewaysGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayArray) ToGetGatewaysGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayArrayOutput)
+}
+
+type GetGatewaysGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayOutput) ToGetGatewaysGatewayOutput() GetGatewaysGatewayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayOutput) ToGetGatewaysGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayOutput {
+	return o
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GetGatewaysGatewayOutput) AwsEgressPrivateLinkGateways() GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput {
+	return o.ApplyT(func(v GetGatewaysGateway) []GetGatewaysGatewayAwsEgressPrivateLinkGateway {
+		return v.AwsEgressPrivateLinkGateways
+	}).(GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GetGatewaysGatewayOutput) AwsIngressPrivateLinkGateways() GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput {
+	return o.ApplyT(func(v GetGatewaysGateway) []GetGatewaysGatewayAwsIngressPrivateLinkGateway {
+		return v.AwsIngressPrivateLinkGateways
+	}).(GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GetGatewaysGatewayOutput) AwsPeeringGateways() GetGatewaysGatewayAwsPeeringGatewayArrayOutput {
+	return o.ApplyT(func(v GetGatewaysGateway) []GetGatewaysGatewayAwsPeeringGateway { return v.AwsPeeringGateways }).(GetGatewaysGatewayAwsPeeringGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GetGatewaysGatewayOutput) AwsPrivateNetworkInterfaceGateways() GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput {
+	return o.ApplyT(func(v GetGatewaysGateway) []GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway {
+		return v.AwsPrivateNetworkInterfaceGateways
+	}).(GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GetGatewaysGatewayOutput) AzureEgressPrivateLinkGateways() GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput {
+	return o.ApplyT(func(v GetGatewaysGateway) []GetGatewaysGatewayAzureEgressPrivateLinkGateway {
+		return v.AzureEgressPrivateLinkGateways
+	}).(GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GetGatewaysGatewayOutput) AzurePeeringGateways() GetGatewaysGatewayAzurePeeringGatewayArrayOutput {
+	return o.ApplyT(func(v GetGatewaysGateway) []GetGatewaysGatewayAzurePeeringGateway { return v.AzurePeeringGateways }).(GetGatewaysGatewayAzurePeeringGatewayArrayOutput)
+}
+
+// (Required String) A human-readable name for the Gateway.
+func (o GetGatewaysGatewayOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGateway) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GetGatewaysGatewayOutput) GcpEgressPrivateServiceConnectGateways() GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput {
+	return o.ApplyT(func(v GetGatewaysGateway) []GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway {
+		return v.GcpEgressPrivateServiceConnectGateways
+	}).(GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GetGatewaysGatewayOutput) GcpPeeringGateways() GetGatewaysGatewayGcpPeeringGatewayArrayOutput {
+	return o.ApplyT(func(v GetGatewaysGateway) []GetGatewaysGatewayGcpPeeringGateway { return v.GcpPeeringGateways }).(GetGatewaysGatewayGcpPeeringGatewayArrayOutput)
+}
+
+// (Required String) The ID of the Gateway, for example, `gw-abc123`.
+func (o GetGatewaysGatewayOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGateway) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetGatewaysGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayArrayOutput) ToGetGatewaysGatewayArrayOutput() GetGatewaysGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayArrayOutput) ToGetGatewaysGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayArrayOutput) Index(i pulumi.IntInput) GetGatewaysGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewaysGateway {
+		return vs[0].([]GetGatewaysGateway)[vs[1].(int)]
+	}).(GetGatewaysGatewayOutput)
+}
+
+type GetGatewaysGatewayAwsEgressPrivateLinkGateway struct {
+	// (Required String) The principal ARN used by the AWS Egress Private Link Gateway.
+	PrincipalArn string `pulumi:"principalArn"`
+	// (Required String) GCP region of the Peering Gateway.
+	Region string `pulumi:"region"`
+}
+
+// GetGatewaysGatewayAwsEgressPrivateLinkGatewayInput is an input type that accepts GetGatewaysGatewayAwsEgressPrivateLinkGatewayArgs and GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayAwsEgressPrivateLinkGatewayInput` via:
+//
+//	GetGatewaysGatewayAwsEgressPrivateLinkGatewayArgs{...}
+type GetGatewaysGatewayAwsEgressPrivateLinkGatewayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput() GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput
+	ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayOutputWithContext(context.Context) GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput
+}
+
+type GetGatewaysGatewayAwsEgressPrivateLinkGatewayArgs struct {
+	// (Required String) The principal ARN used by the AWS Egress Private Link Gateway.
+	PrincipalArn pulumi.StringInput `pulumi:"principalArn"`
+	// (Required String) GCP region of the Peering Gateway.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetGatewaysGatewayAwsEgressPrivateLinkGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayAwsEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayAwsEgressPrivateLinkGatewayArgs) ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput() GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput {
+	return i.ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayAwsEgressPrivateLinkGatewayArgs) ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput)
+}
+
+// GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayInput is an input type that accepts GetGatewaysGatewayAwsEgressPrivateLinkGatewayArray and GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayInput` via:
+//
+//	GetGatewaysGatewayAwsEgressPrivateLinkGatewayArray{ GetGatewaysGatewayAwsEgressPrivateLinkGatewayArgs{...} }
+type GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput() GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput
+	ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutputWithContext(context.Context) GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput
+}
+
+type GetGatewaysGatewayAwsEgressPrivateLinkGatewayArray []GetGatewaysGatewayAwsEgressPrivateLinkGatewayInput
+
+func (GetGatewaysGatewayAwsEgressPrivateLinkGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayAwsEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayAwsEgressPrivateLinkGatewayArray) ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput() GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput {
+	return i.ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayAwsEgressPrivateLinkGatewayArray) ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput)
+}
+
+type GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayAwsEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput) ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput() GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput) ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput {
+	return o
+}
+
+// (Required String) The principal ARN used by the AWS Egress Private Link Gateway.
+func (o GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput) PrincipalArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayAwsEgressPrivateLinkGateway) string { return v.PrincipalArn }).(pulumi.StringOutput)
+}
+
+// (Required String) GCP region of the Peering Gateway.
+func (o GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayAwsEgressPrivateLinkGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayAwsEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput) ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput() GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput) ToGetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput) Index(i pulumi.IntInput) GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewaysGatewayAwsEgressPrivateLinkGateway {
+		return vs[0].([]GetGatewaysGatewayAwsEgressPrivateLinkGateway)[vs[1].(int)]
+	}).(GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput)
+}
+
+type GetGatewaysGatewayAwsIngressPrivateLinkGateway struct {
+	// (Required String) GCP region of the Peering Gateway.
+	Region string `pulumi:"region"`
+	// (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+	VpcEndpointServiceName string `pulumi:"vpcEndpointServiceName"`
+}
+
+// GetGatewaysGatewayAwsIngressPrivateLinkGatewayInput is an input type that accepts GetGatewaysGatewayAwsIngressPrivateLinkGatewayArgs and GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayAwsIngressPrivateLinkGatewayInput` via:
+//
+//	GetGatewaysGatewayAwsIngressPrivateLinkGatewayArgs{...}
+type GetGatewaysGatewayAwsIngressPrivateLinkGatewayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput() GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput
+	ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayOutputWithContext(context.Context) GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput
+}
+
+type GetGatewaysGatewayAwsIngressPrivateLinkGatewayArgs struct {
+	// (Required String) GCP region of the Peering Gateway.
+	Region pulumi.StringInput `pulumi:"region"`
+	// (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+	VpcEndpointServiceName pulumi.StringInput `pulumi:"vpcEndpointServiceName"`
+}
+
+func (GetGatewaysGatewayAwsIngressPrivateLinkGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayAwsIngressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayAwsIngressPrivateLinkGatewayArgs) ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput() GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput {
+	return i.ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayAwsIngressPrivateLinkGatewayArgs) ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput)
+}
+
+// GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayInput is an input type that accepts GetGatewaysGatewayAwsIngressPrivateLinkGatewayArray and GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayInput` via:
+//
+//	GetGatewaysGatewayAwsIngressPrivateLinkGatewayArray{ GetGatewaysGatewayAwsIngressPrivateLinkGatewayArgs{...} }
+type GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput() GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput
+	ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutputWithContext(context.Context) GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput
+}
+
+type GetGatewaysGatewayAwsIngressPrivateLinkGatewayArray []GetGatewaysGatewayAwsIngressPrivateLinkGatewayInput
+
+func (GetGatewaysGatewayAwsIngressPrivateLinkGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayAwsIngressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayAwsIngressPrivateLinkGatewayArray) ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput() GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput {
+	return i.ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayAwsIngressPrivateLinkGatewayArray) ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput)
+}
+
+type GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayAwsIngressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput) ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput() GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput) ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput {
+	return o
+}
+
+// (Required String) GCP region of the Peering Gateway.
+func (o GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayAwsIngressPrivateLinkGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+func (o GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput) VpcEndpointServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayAwsIngressPrivateLinkGateway) string { return v.VpcEndpointServiceName }).(pulumi.StringOutput)
+}
+
+type GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayAwsIngressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput) ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput() GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput) ToGetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput) Index(i pulumi.IntInput) GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewaysGatewayAwsIngressPrivateLinkGateway {
+		return vs[0].([]GetGatewaysGatewayAwsIngressPrivateLinkGateway)[vs[1].(int)]
+	}).(GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput)
+}
+
+type GetGatewaysGatewayAwsPeeringGateway struct {
+	// (Required String) GCP region of the Peering Gateway.
+	Region string `pulumi:"region"`
+}
+
+// GetGatewaysGatewayAwsPeeringGatewayInput is an input type that accepts GetGatewaysGatewayAwsPeeringGatewayArgs and GetGatewaysGatewayAwsPeeringGatewayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayAwsPeeringGatewayInput` via:
+//
+//	GetGatewaysGatewayAwsPeeringGatewayArgs{...}
+type GetGatewaysGatewayAwsPeeringGatewayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayAwsPeeringGatewayOutput() GetGatewaysGatewayAwsPeeringGatewayOutput
+	ToGetGatewaysGatewayAwsPeeringGatewayOutputWithContext(context.Context) GetGatewaysGatewayAwsPeeringGatewayOutput
+}
+
+type GetGatewaysGatewayAwsPeeringGatewayArgs struct {
+	// (Required String) GCP region of the Peering Gateway.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetGatewaysGatewayAwsPeeringGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayAwsPeeringGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayAwsPeeringGatewayArgs) ToGetGatewaysGatewayAwsPeeringGatewayOutput() GetGatewaysGatewayAwsPeeringGatewayOutput {
+	return i.ToGetGatewaysGatewayAwsPeeringGatewayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayAwsPeeringGatewayArgs) ToGetGatewaysGatewayAwsPeeringGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsPeeringGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayAwsPeeringGatewayOutput)
+}
+
+// GetGatewaysGatewayAwsPeeringGatewayArrayInput is an input type that accepts GetGatewaysGatewayAwsPeeringGatewayArray and GetGatewaysGatewayAwsPeeringGatewayArrayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayAwsPeeringGatewayArrayInput` via:
+//
+//	GetGatewaysGatewayAwsPeeringGatewayArray{ GetGatewaysGatewayAwsPeeringGatewayArgs{...} }
+type GetGatewaysGatewayAwsPeeringGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayAwsPeeringGatewayArrayOutput() GetGatewaysGatewayAwsPeeringGatewayArrayOutput
+	ToGetGatewaysGatewayAwsPeeringGatewayArrayOutputWithContext(context.Context) GetGatewaysGatewayAwsPeeringGatewayArrayOutput
+}
+
+type GetGatewaysGatewayAwsPeeringGatewayArray []GetGatewaysGatewayAwsPeeringGatewayInput
+
+func (GetGatewaysGatewayAwsPeeringGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayAwsPeeringGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayAwsPeeringGatewayArray) ToGetGatewaysGatewayAwsPeeringGatewayArrayOutput() GetGatewaysGatewayAwsPeeringGatewayArrayOutput {
+	return i.ToGetGatewaysGatewayAwsPeeringGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayAwsPeeringGatewayArray) ToGetGatewaysGatewayAwsPeeringGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsPeeringGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayAwsPeeringGatewayArrayOutput)
+}
+
+type GetGatewaysGatewayAwsPeeringGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayAwsPeeringGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayAwsPeeringGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayAwsPeeringGatewayOutput) ToGetGatewaysGatewayAwsPeeringGatewayOutput() GetGatewaysGatewayAwsPeeringGatewayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAwsPeeringGatewayOutput) ToGetGatewaysGatewayAwsPeeringGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsPeeringGatewayOutput {
+	return o
+}
+
+// (Required String) GCP region of the Peering Gateway.
+func (o GetGatewaysGatewayAwsPeeringGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayAwsPeeringGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetGatewaysGatewayAwsPeeringGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayAwsPeeringGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayAwsPeeringGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayAwsPeeringGatewayArrayOutput) ToGetGatewaysGatewayAwsPeeringGatewayArrayOutput() GetGatewaysGatewayAwsPeeringGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAwsPeeringGatewayArrayOutput) ToGetGatewaysGatewayAwsPeeringGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsPeeringGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAwsPeeringGatewayArrayOutput) Index(i pulumi.IntInput) GetGatewaysGatewayAwsPeeringGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewaysGatewayAwsPeeringGateway {
+		return vs[0].([]GetGatewaysGatewayAwsPeeringGateway)[vs[1].(int)]
+	}).(GetGatewaysGatewayAwsPeeringGatewayOutput)
+}
+
+type GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway struct {
+	// (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+	Account string `pulumi:"account"`
+	// (Required String) GCP region of the Peering Gateway.
+	Region string `pulumi:"region"`
+	// (Required List of Strings) AWS availability zone ids of the Private Network Interface Gateway.
+	Zones []string `pulumi:"zones"`
+}
+
+// GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayInput is an input type that accepts GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArgs and GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayInput` via:
+//
+//	GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArgs{...}
+type GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput() GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput
+	ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutputWithContext(context.Context) GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput
+}
+
+type GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArgs struct {
+	// (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+	Account pulumi.StringInput `pulumi:"account"`
+	// (Required String) GCP region of the Peering Gateway.
+	Region pulumi.StringInput `pulumi:"region"`
+	// (Required List of Strings) AWS availability zone ids of the Private Network Interface Gateway.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArgs) ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput() GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput {
+	return i.ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArgs) ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput)
+}
+
+// GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayInput is an input type that accepts GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArray and GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayInput` via:
+//
+//	GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArray{ GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArgs{...} }
+type GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput() GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput
+	ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutputWithContext(context.Context) GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput
+}
+
+type GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArray []GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayInput
+
+func (GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArray) ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput() GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput {
+	return i.ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArray) ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput)
+}
+
+type GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput) ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput() GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput) ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput {
+	return o
+}
+
+// (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+func (o GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput) Account() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway) string { return v.Account }).(pulumi.StringOutput)
+}
+
+// (Required String) GCP region of the Peering Gateway.
+func (o GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (Required List of Strings) AWS availability zone ids of the Private Network Interface Gateway.
+func (o GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+type GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput) ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput() GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput) ToGetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput) Index(i pulumi.IntInput) GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway {
+		return vs[0].([]GetGatewaysGatewayAwsPrivateNetworkInterfaceGateway)[vs[1].(int)]
+	}).(GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput)
+}
+
+type GetGatewaysGatewayAzureEgressPrivateLinkGateway struct {
+	// (Required String) GCP region of the Peering Gateway.
+	Region string `pulumi:"region"`
+	// (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC.
+	Subscription string `pulumi:"subscription"`
+}
+
+// GetGatewaysGatewayAzureEgressPrivateLinkGatewayInput is an input type that accepts GetGatewaysGatewayAzureEgressPrivateLinkGatewayArgs and GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayAzureEgressPrivateLinkGatewayInput` via:
+//
+//	GetGatewaysGatewayAzureEgressPrivateLinkGatewayArgs{...}
+type GetGatewaysGatewayAzureEgressPrivateLinkGatewayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput() GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput
+	ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayOutputWithContext(context.Context) GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput
+}
+
+type GetGatewaysGatewayAzureEgressPrivateLinkGatewayArgs struct {
+	// (Required String) GCP region of the Peering Gateway.
+	Region pulumi.StringInput `pulumi:"region"`
+	// (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC.
+	Subscription pulumi.StringInput `pulumi:"subscription"`
+}
+
+func (GetGatewaysGatewayAzureEgressPrivateLinkGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayAzureEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayAzureEgressPrivateLinkGatewayArgs) ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput() GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput {
+	return i.ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayAzureEgressPrivateLinkGatewayArgs) ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput)
+}
+
+// GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayInput is an input type that accepts GetGatewaysGatewayAzureEgressPrivateLinkGatewayArray and GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayInput` via:
+//
+//	GetGatewaysGatewayAzureEgressPrivateLinkGatewayArray{ GetGatewaysGatewayAzureEgressPrivateLinkGatewayArgs{...} }
+type GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput() GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput
+	ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutputWithContext(context.Context) GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput
+}
+
+type GetGatewaysGatewayAzureEgressPrivateLinkGatewayArray []GetGatewaysGatewayAzureEgressPrivateLinkGatewayInput
+
+func (GetGatewaysGatewayAzureEgressPrivateLinkGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayAzureEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayAzureEgressPrivateLinkGatewayArray) ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput() GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput {
+	return i.ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayAzureEgressPrivateLinkGatewayArray) ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput)
+}
+
+type GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayAzureEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput) ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput() GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput) ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput {
+	return o
+}
+
+// (Required String) GCP region of the Peering Gateway.
+func (o GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayAzureEgressPrivateLinkGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC.
+func (o GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput) Subscription() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayAzureEgressPrivateLinkGateway) string { return v.Subscription }).(pulumi.StringOutput)
+}
+
+type GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayAzureEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput) ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput() GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput) ToGetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput) Index(i pulumi.IntInput) GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewaysGatewayAzureEgressPrivateLinkGateway {
+		return vs[0].([]GetGatewaysGatewayAzureEgressPrivateLinkGateway)[vs[1].(int)]
+	}).(GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput)
+}
+
+type GetGatewaysGatewayAzurePeeringGateway struct {
+	// (Required String) GCP region of the Peering Gateway.
+	Region string `pulumi:"region"`
+}
+
+// GetGatewaysGatewayAzurePeeringGatewayInput is an input type that accepts GetGatewaysGatewayAzurePeeringGatewayArgs and GetGatewaysGatewayAzurePeeringGatewayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayAzurePeeringGatewayInput` via:
+//
+//	GetGatewaysGatewayAzurePeeringGatewayArgs{...}
+type GetGatewaysGatewayAzurePeeringGatewayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayAzurePeeringGatewayOutput() GetGatewaysGatewayAzurePeeringGatewayOutput
+	ToGetGatewaysGatewayAzurePeeringGatewayOutputWithContext(context.Context) GetGatewaysGatewayAzurePeeringGatewayOutput
+}
+
+type GetGatewaysGatewayAzurePeeringGatewayArgs struct {
+	// (Required String) GCP region of the Peering Gateway.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetGatewaysGatewayAzurePeeringGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayAzurePeeringGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayAzurePeeringGatewayArgs) ToGetGatewaysGatewayAzurePeeringGatewayOutput() GetGatewaysGatewayAzurePeeringGatewayOutput {
+	return i.ToGetGatewaysGatewayAzurePeeringGatewayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayAzurePeeringGatewayArgs) ToGetGatewaysGatewayAzurePeeringGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayAzurePeeringGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayAzurePeeringGatewayOutput)
+}
+
+// GetGatewaysGatewayAzurePeeringGatewayArrayInput is an input type that accepts GetGatewaysGatewayAzurePeeringGatewayArray and GetGatewaysGatewayAzurePeeringGatewayArrayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayAzurePeeringGatewayArrayInput` via:
+//
+//	GetGatewaysGatewayAzurePeeringGatewayArray{ GetGatewaysGatewayAzurePeeringGatewayArgs{...} }
+type GetGatewaysGatewayAzurePeeringGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayAzurePeeringGatewayArrayOutput() GetGatewaysGatewayAzurePeeringGatewayArrayOutput
+	ToGetGatewaysGatewayAzurePeeringGatewayArrayOutputWithContext(context.Context) GetGatewaysGatewayAzurePeeringGatewayArrayOutput
+}
+
+type GetGatewaysGatewayAzurePeeringGatewayArray []GetGatewaysGatewayAzurePeeringGatewayInput
+
+func (GetGatewaysGatewayAzurePeeringGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayAzurePeeringGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayAzurePeeringGatewayArray) ToGetGatewaysGatewayAzurePeeringGatewayArrayOutput() GetGatewaysGatewayAzurePeeringGatewayArrayOutput {
+	return i.ToGetGatewaysGatewayAzurePeeringGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayAzurePeeringGatewayArray) ToGetGatewaysGatewayAzurePeeringGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayAzurePeeringGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayAzurePeeringGatewayArrayOutput)
+}
+
+type GetGatewaysGatewayAzurePeeringGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayAzurePeeringGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayAzurePeeringGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayAzurePeeringGatewayOutput) ToGetGatewaysGatewayAzurePeeringGatewayOutput() GetGatewaysGatewayAzurePeeringGatewayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAzurePeeringGatewayOutput) ToGetGatewaysGatewayAzurePeeringGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayAzurePeeringGatewayOutput {
+	return o
+}
+
+// (Required String) GCP region of the Peering Gateway.
+func (o GetGatewaysGatewayAzurePeeringGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayAzurePeeringGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetGatewaysGatewayAzurePeeringGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayAzurePeeringGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayAzurePeeringGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayAzurePeeringGatewayArrayOutput) ToGetGatewaysGatewayAzurePeeringGatewayArrayOutput() GetGatewaysGatewayAzurePeeringGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAzurePeeringGatewayArrayOutput) ToGetGatewaysGatewayAzurePeeringGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayAzurePeeringGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayAzurePeeringGatewayArrayOutput) Index(i pulumi.IntInput) GetGatewaysGatewayAzurePeeringGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewaysGatewayAzurePeeringGateway {
+		return vs[0].([]GetGatewaysGatewayAzurePeeringGateway)[vs[1].(int)]
+	}).(GetGatewaysGatewayAzurePeeringGatewayOutput)
+}
+
+type GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway struct {
+	// (Required String) The GCP project used by the GCP Private Service Connect Gateway.
+	Project string `pulumi:"project"`
+	// (Required String) GCP region of the Peering Gateway.
+	Region string `pulumi:"region"`
+}
+
+// GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayInput is an input type that accepts GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArgs and GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayInput` via:
+//
+//	GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArgs{...}
+type GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput() GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput
+	ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutputWithContext(context.Context) GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput
+}
+
+type GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArgs struct {
+	// (Required String) The GCP project used by the GCP Private Service Connect Gateway.
+	Project pulumi.StringInput `pulumi:"project"`
+	// (Required String) GCP region of the Peering Gateway.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArgs) ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput() GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput {
+	return i.ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArgs) ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput)
+}
+
+// GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayInput is an input type that accepts GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArray and GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayInput` via:
+//
+//	GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArray{ GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArgs{...} }
+type GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput() GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput
+	ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutputWithContext(context.Context) GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput
+}
+
+type GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArray []GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayInput
+
+func (GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArray) ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput() GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput {
+	return i.ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArray) ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput)
+}
+
+type GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput) ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput() GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput) ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput {
+	return o
+}
+
+// (Required String) The GCP project used by the GCP Private Service Connect Gateway.
+func (o GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway) string { return v.Project }).(pulumi.StringOutput)
+}
+
+// (Required String) GCP region of the Peering Gateway.
+func (o GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput) ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput() GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput) ToGetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput) Index(i pulumi.IntInput) GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway {
+		return vs[0].([]GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway)[vs[1].(int)]
+	}).(GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput)
+}
+
+type GetGatewaysGatewayGcpPeeringGateway struct {
+	// (Required String) The IAM principal used by the GCP Peering Gateway.
+	IamPrincipal string `pulumi:"iamPrincipal"`
+	// (Required String) GCP region of the Peering Gateway.
+	Region string `pulumi:"region"`
+}
+
+// GetGatewaysGatewayGcpPeeringGatewayInput is an input type that accepts GetGatewaysGatewayGcpPeeringGatewayArgs and GetGatewaysGatewayGcpPeeringGatewayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayGcpPeeringGatewayInput` via:
+//
+//	GetGatewaysGatewayGcpPeeringGatewayArgs{...}
+type GetGatewaysGatewayGcpPeeringGatewayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayGcpPeeringGatewayOutput() GetGatewaysGatewayGcpPeeringGatewayOutput
+	ToGetGatewaysGatewayGcpPeeringGatewayOutputWithContext(context.Context) GetGatewaysGatewayGcpPeeringGatewayOutput
+}
+
+type GetGatewaysGatewayGcpPeeringGatewayArgs struct {
+	// (Required String) The IAM principal used by the GCP Peering Gateway.
+	IamPrincipal pulumi.StringInput `pulumi:"iamPrincipal"`
+	// (Required String) GCP region of the Peering Gateway.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetGatewaysGatewayGcpPeeringGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayGcpPeeringGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayGcpPeeringGatewayArgs) ToGetGatewaysGatewayGcpPeeringGatewayOutput() GetGatewaysGatewayGcpPeeringGatewayOutput {
+	return i.ToGetGatewaysGatewayGcpPeeringGatewayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayGcpPeeringGatewayArgs) ToGetGatewaysGatewayGcpPeeringGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayGcpPeeringGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayGcpPeeringGatewayOutput)
+}
+
+// GetGatewaysGatewayGcpPeeringGatewayArrayInput is an input type that accepts GetGatewaysGatewayGcpPeeringGatewayArray and GetGatewaysGatewayGcpPeeringGatewayArrayOutput values.
+// You can construct a concrete instance of `GetGatewaysGatewayGcpPeeringGatewayArrayInput` via:
+//
+//	GetGatewaysGatewayGcpPeeringGatewayArray{ GetGatewaysGatewayGcpPeeringGatewayArgs{...} }
+type GetGatewaysGatewayGcpPeeringGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewaysGatewayGcpPeeringGatewayArrayOutput() GetGatewaysGatewayGcpPeeringGatewayArrayOutput
+	ToGetGatewaysGatewayGcpPeeringGatewayArrayOutputWithContext(context.Context) GetGatewaysGatewayGcpPeeringGatewayArrayOutput
+}
+
+type GetGatewaysGatewayGcpPeeringGatewayArray []GetGatewaysGatewayGcpPeeringGatewayInput
+
+func (GetGatewaysGatewayGcpPeeringGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayGcpPeeringGateway)(nil)).Elem()
+}
+
+func (i GetGatewaysGatewayGcpPeeringGatewayArray) ToGetGatewaysGatewayGcpPeeringGatewayArrayOutput() GetGatewaysGatewayGcpPeeringGatewayArrayOutput {
+	return i.ToGetGatewaysGatewayGcpPeeringGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewaysGatewayGcpPeeringGatewayArray) ToGetGatewaysGatewayGcpPeeringGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayGcpPeeringGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewaysGatewayGcpPeeringGatewayArrayOutput)
+}
+
+type GetGatewaysGatewayGcpPeeringGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayGcpPeeringGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewaysGatewayGcpPeeringGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayGcpPeeringGatewayOutput) ToGetGatewaysGatewayGcpPeeringGatewayOutput() GetGatewaysGatewayGcpPeeringGatewayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayGcpPeeringGatewayOutput) ToGetGatewaysGatewayGcpPeeringGatewayOutputWithContext(ctx context.Context) GetGatewaysGatewayGcpPeeringGatewayOutput {
+	return o
+}
+
+// (Required String) The IAM principal used by the GCP Peering Gateway.
+func (o GetGatewaysGatewayGcpPeeringGatewayOutput) IamPrincipal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayGcpPeeringGateway) string { return v.IamPrincipal }).(pulumi.StringOutput)
+}
+
+// (Required String) GCP region of the Peering Gateway.
+func (o GetGatewaysGatewayGcpPeeringGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewaysGatewayGcpPeeringGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetGatewaysGatewayGcpPeeringGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewaysGatewayGcpPeeringGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewaysGatewayGcpPeeringGateway)(nil)).Elem()
+}
+
+func (o GetGatewaysGatewayGcpPeeringGatewayArrayOutput) ToGetGatewaysGatewayGcpPeeringGatewayArrayOutput() GetGatewaysGatewayGcpPeeringGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayGcpPeeringGatewayArrayOutput) ToGetGatewaysGatewayGcpPeeringGatewayArrayOutputWithContext(ctx context.Context) GetGatewaysGatewayGcpPeeringGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewaysGatewayGcpPeeringGatewayArrayOutput) Index(i pulumi.IntInput) GetGatewaysGatewayGcpPeeringGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewaysGatewayGcpPeeringGateway {
+		return vs[0].([]GetGatewaysGatewayGcpPeeringGateway)[vs[1].(int)]
+	}).(GetGatewaysGatewayGcpPeeringGatewayOutput)
 }
 
 type GetIdentityPoolIdentityProvider struct {
@@ -42529,6 +45097,8 @@ func (o GetTransitGatewayAttachmentNetworkArrayOutput) Index(i pulumi.IntInput) 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointAwsEgressPrivateLinkEndpointInput)(nil)).Elem(), AccessPointAwsEgressPrivateLinkEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointAwsEgressPrivateLinkEndpointPtrInput)(nil)).Elem(), AccessPointAwsEgressPrivateLinkEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointAwsIngressPrivateLinkEndpointInput)(nil)).Elem(), AccessPointAwsIngressPrivateLinkEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointAwsIngressPrivateLinkEndpointPtrInput)(nil)).Elem(), AccessPointAwsIngressPrivateLinkEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointAwsPrivateNetworkInterfaceInput)(nil)).Elem(), AccessPointAwsPrivateNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointAwsPrivateNetworkInterfacePtrInput)(nil)).Elem(), AccessPointAwsPrivateNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointAzureEgressPrivateLinkEndpointInput)(nil)).Elem(), AccessPointAzureEgressPrivateLinkEndpointArgs{})
@@ -42649,6 +45219,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementPrincipalPtrInput)(nil)).Elem(), FlinkStatementPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAwsEgressPrivateLinkGatewayInput)(nil)).Elem(), GatewayAwsEgressPrivateLinkGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAwsEgressPrivateLinkGatewayPtrInput)(nil)).Elem(), GatewayAwsEgressPrivateLinkGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAwsIngressPrivateLinkGatewayInput)(nil)).Elem(), GatewayAwsIngressPrivateLinkGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAwsIngressPrivateLinkGatewayPtrInput)(nil)).Elem(), GatewayAwsIngressPrivateLinkGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAwsPrivateNetworkInterfaceGatewayInput)(nil)).Elem(), GatewayAwsPrivateNetworkInterfaceGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAwsPrivateNetworkInterfaceGatewayPtrInput)(nil)).Elem(), GatewayAwsPrivateNetworkInterfaceGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAzureEgressPrivateLinkGatewayInput)(nil)).Elem(), GatewayAzureEgressPrivateLinkGatewayArgs{})
@@ -42869,6 +45441,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNetworkPtrInput)(nil)).Elem(), TransitGatewayAttachmentNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointAwsEgressPrivateLinkEndpointInput)(nil)).Elem(), GetAccessPointAwsEgressPrivateLinkEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointAwsEgressPrivateLinkEndpointArrayInput)(nil)).Elem(), GetAccessPointAwsEgressPrivateLinkEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointAwsIngressPrivateLinkEndpointInput)(nil)).Elem(), GetAccessPointAwsIngressPrivateLinkEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointAwsIngressPrivateLinkEndpointArrayInput)(nil)).Elem(), GetAccessPointAwsIngressPrivateLinkEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointAwsPrivateNetworkInterfaceInput)(nil)).Elem(), GetAccessPointAwsPrivateNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointAwsPrivateNetworkInterfaceArrayInput)(nil)).Elem(), GetAccessPointAwsPrivateNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointAzureEgressPrivateLinkEndpointInput)(nil)).Elem(), GetAccessPointAzureEgressPrivateLinkEndpointArgs{})
@@ -42913,6 +45487,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordGatewayArrayInput)(nil)).Elem(), GetDnsRecordGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordPrivateLinkAccessPointInput)(nil)).Elem(), GetDnsRecordPrivateLinkAccessPointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordPrivateLinkAccessPointArrayInput)(nil)).Elem(), GetDnsRecordPrivateLinkAccessPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointEndpointInput)(nil)).Elem(), GetEndpointEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointEndpointArrayInput)(nil)).Elem(), GetEndpointEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointEndpointAccessPointInput)(nil)).Elem(), GetEndpointEndpointAccessPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointEndpointAccessPointArrayInput)(nil)).Elem(), GetEndpointEndpointAccessPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointEndpointEnvironmentInput)(nil)).Elem(), GetEndpointEndpointEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointEndpointGatewayInput)(nil)).Elem(), GetEndpointEndpointGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointEndpointGatewayArrayInput)(nil)).Elem(), GetEndpointEndpointGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointEndpointResourceInput)(nil)).Elem(), GetEndpointEndpointResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointEndpointResourceArrayInput)(nil)).Elem(), GetEndpointEndpointResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointFilterInput)(nil)).Elem(), GetEndpointFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointFilterEnvironmentInput)(nil)).Elem(), GetEndpointFilterEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentStreamGovernanceInput)(nil)).Elem(), GetEnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentStreamGovernancePtrInput)(nil)).Elem(), GetEnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkArtifactEnvironmentInput)(nil)).Elem(), GetFlinkArtifactEnvironmentArgs{})
@@ -42931,6 +45516,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionPrincipalPtrInput)(nil)).Elem(), GetFlinkConnectionPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayArrayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsIngressPrivateLinkGatewayInput)(nil)).Elem(), GetGatewayAwsIngressPrivateLinkGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsIngressPrivateLinkGatewayArrayInput)(nil)).Elem(), GetGatewayAwsIngressPrivateLinkGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsPeeringGatewayInput)(nil)).Elem(), GetGatewayAwsPeeringGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsPeeringGatewayArrayInput)(nil)).Elem(), GetGatewayAwsPeeringGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsPrivateNetworkInterfaceGatewayInput)(nil)).Elem(), GetGatewayAwsPrivateNetworkInterfaceGatewayArgs{})
@@ -42944,6 +45531,27 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayGcpEgressPrivateServiceConnectGatewayArrayInput)(nil)).Elem(), GetGatewayGcpEgressPrivateServiceConnectGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayGcpPeeringGatewayInput)(nil)).Elem(), GetGatewayGcpPeeringGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayGcpPeeringGatewayArrayInput)(nil)).Elem(), GetGatewayGcpPeeringGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysEnvironmentInput)(nil)).Elem(), GetGatewaysEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysFilterInput)(nil)).Elem(), GetGatewaysFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysFilterPtrInput)(nil)).Elem(), GetGatewaysFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayInput)(nil)).Elem(), GetGatewaysGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayArrayInput)(nil)).Elem(), GetGatewaysGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayAwsEgressPrivateLinkGatewayInput)(nil)).Elem(), GetGatewaysGatewayAwsEgressPrivateLinkGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayInput)(nil)).Elem(), GetGatewaysGatewayAwsEgressPrivateLinkGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayAwsIngressPrivateLinkGatewayInput)(nil)).Elem(), GetGatewaysGatewayAwsIngressPrivateLinkGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayInput)(nil)).Elem(), GetGatewaysGatewayAwsIngressPrivateLinkGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayAwsPeeringGatewayInput)(nil)).Elem(), GetGatewaysGatewayAwsPeeringGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayAwsPeeringGatewayArrayInput)(nil)).Elem(), GetGatewaysGatewayAwsPeeringGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayInput)(nil)).Elem(), GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayInput)(nil)).Elem(), GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayAzureEgressPrivateLinkGatewayInput)(nil)).Elem(), GetGatewaysGatewayAzureEgressPrivateLinkGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayInput)(nil)).Elem(), GetGatewaysGatewayAzureEgressPrivateLinkGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayAzurePeeringGatewayInput)(nil)).Elem(), GetGatewaysGatewayAzurePeeringGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayAzurePeeringGatewayArrayInput)(nil)).Elem(), GetGatewaysGatewayAzurePeeringGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayInput)(nil)).Elem(), GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayInput)(nil)).Elem(), GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayGcpPeeringGatewayInput)(nil)).Elem(), GetGatewaysGatewayGcpPeeringGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewaysGatewayGcpPeeringGatewayArrayInput)(nil)).Elem(), GetGatewaysGatewayGcpPeeringGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolIdentityProviderInput)(nil)).Elem(), GetIdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorInput)(nil)).Elem(), GetInvitationCreatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorArrayInput)(nil)).Elem(), GetInvitationCreatorArray{})
@@ -43154,6 +45762,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentNetworkArrayInput)(nil)).Elem(), GetTransitGatewayAttachmentNetworkArray{})
 	pulumi.RegisterOutputType(AccessPointAwsEgressPrivateLinkEndpointOutput{})
 	pulumi.RegisterOutputType(AccessPointAwsEgressPrivateLinkEndpointPtrOutput{})
+	pulumi.RegisterOutputType(AccessPointAwsIngressPrivateLinkEndpointOutput{})
+	pulumi.RegisterOutputType(AccessPointAwsIngressPrivateLinkEndpointPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointAwsPrivateNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(AccessPointAwsPrivateNetworkInterfacePtrOutput{})
 	pulumi.RegisterOutputType(AccessPointAzureEgressPrivateLinkEndpointOutput{})
@@ -43274,6 +45884,8 @@ func init() {
 	pulumi.RegisterOutputType(FlinkStatementPrincipalPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAwsEgressPrivateLinkGatewayOutput{})
 	pulumi.RegisterOutputType(GatewayAwsEgressPrivateLinkGatewayPtrOutput{})
+	pulumi.RegisterOutputType(GatewayAwsIngressPrivateLinkGatewayOutput{})
+	pulumi.RegisterOutputType(GatewayAwsIngressPrivateLinkGatewayPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAwsPrivateNetworkInterfaceGatewayOutput{})
 	pulumi.RegisterOutputType(GatewayAwsPrivateNetworkInterfaceGatewayPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAzureEgressPrivateLinkGatewayOutput{})
@@ -43494,6 +46106,8 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayAttachmentNetworkPtrOutput{})
 	pulumi.RegisterOutputType(GetAccessPointAwsEgressPrivateLinkEndpointOutput{})
 	pulumi.RegisterOutputType(GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetAccessPointAwsIngressPrivateLinkEndpointOutput{})
+	pulumi.RegisterOutputType(GetAccessPointAwsIngressPrivateLinkEndpointArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessPointAwsPrivateNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(GetAccessPointAwsPrivateNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessPointAzureEgressPrivateLinkEndpointOutput{})
@@ -43538,6 +46152,17 @@ func init() {
 	pulumi.RegisterOutputType(GetDnsRecordGatewayArrayOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordPrivateLinkAccessPointOutput{})
 	pulumi.RegisterOutputType(GetDnsRecordPrivateLinkAccessPointArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointEndpointOutput{})
+	pulumi.RegisterOutputType(GetEndpointEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointEndpointAccessPointOutput{})
+	pulumi.RegisterOutputType(GetEndpointEndpointAccessPointArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointEndpointEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetEndpointEndpointGatewayOutput{})
+	pulumi.RegisterOutputType(GetEndpointEndpointGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointEndpointResourceOutput{})
+	pulumi.RegisterOutputType(GetEndpointEndpointResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointFilterOutput{})
+	pulumi.RegisterOutputType(GetEndpointFilterEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentStreamGovernanceOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentStreamGovernancePtrOutput{})
 	pulumi.RegisterOutputType(GetFlinkArtifactEnvironmentOutput{})
@@ -43556,6 +46181,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFlinkConnectionPrincipalPtrOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewayAwsIngressPrivateLinkGatewayOutput{})
+	pulumi.RegisterOutputType(GetGatewayAwsIngressPrivateLinkGatewayArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsPeeringGatewayOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsPeeringGatewayArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsPrivateNetworkInterfaceGatewayOutput{})
@@ -43569,6 +46196,27 @@ func init() {
 	pulumi.RegisterOutputType(GetGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayGcpPeeringGatewayOutput{})
 	pulumi.RegisterOutputType(GetGatewayGcpPeeringGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetGatewaysFilterOutput{})
+	pulumi.RegisterOutputType(GetGatewaysFilterPtrOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayAwsEgressPrivateLinkGatewayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayAwsEgressPrivateLinkGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayAwsIngressPrivateLinkGatewayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayAwsIngressPrivateLinkGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayAwsPeeringGatewayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayAwsPeeringGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayAzureEgressPrivateLinkGatewayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayAzureEgressPrivateLinkGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayAzurePeeringGatewayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayAzurePeeringGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayGcpPeeringGatewayOutput{})
+	pulumi.RegisterOutputType(GetGatewaysGatewayGcpPeeringGatewayArrayOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolIdentityProviderOutput{})
 	pulumi.RegisterOutputType(GetInvitationCreatorOutput{})
 	pulumi.RegisterOutputType(GetInvitationCreatorArrayOutput{})

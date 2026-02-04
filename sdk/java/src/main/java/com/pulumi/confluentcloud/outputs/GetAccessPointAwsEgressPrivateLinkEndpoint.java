@@ -22,12 +22,12 @@ public final class GetAccessPointAwsEgressPrivateLinkEndpoint {
      */
     private String vpcEndpointDnsName;
     /**
-     * @return (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+     * @return (Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.
      * 
      */
     private String vpcEndpointId;
     /**
-     * @return (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+     * @return (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
      * 
      */
     private String vpcEndpointServiceName;
@@ -48,14 +48,14 @@ public final class GetAccessPointAwsEgressPrivateLinkEndpoint {
         return this.vpcEndpointDnsName;
     }
     /**
-     * @return (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+     * @return (Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.
      * 
      */
     public String vpcEndpointId() {
         return this.vpcEndpointId;
     }
     /**
-     * @return (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+     * @return (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
      * 
      */
     public String vpcEndpointServiceName() {

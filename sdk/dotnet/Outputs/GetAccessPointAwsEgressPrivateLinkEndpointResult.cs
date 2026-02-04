@@ -22,11 +22,11 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string VpcEndpointDnsName;
         /// <summary>
-        /// (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+        /// (Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.
         /// </summary>
         public readonly string VpcEndpointId;
         /// <summary>
-        /// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        /// (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
         /// </summary>
         public readonly string VpcEndpointServiceName;
 

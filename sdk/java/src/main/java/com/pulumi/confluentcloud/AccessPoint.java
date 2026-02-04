@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.AccessPointArgs;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.AccessPointState;
 import com.pulumi.confluentcloud.outputs.AccessPointAwsEgressPrivateLinkEndpoint;
+import com.pulumi.confluentcloud.outputs.AccessPointAwsIngressPrivateLinkEndpoint;
 import com.pulumi.confluentcloud.outputs.AccessPointAwsPrivateNetworkInterface;
 import com.pulumi.confluentcloud.outputs.AccessPointAzureEgressPrivateLinkEndpoint;
 import com.pulumi.confluentcloud.outputs.AccessPointEnvironment;
@@ -44,6 +45,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.AccessPointAzureEgressPrivateLinkEndpointArgs;
  * import com.pulumi.confluentcloud.inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs;
  * import com.pulumi.confluentcloud.inputs.AccessPointAwsPrivateNetworkInterfaceArgs;
+ * import com.pulumi.confluentcloud.inputs.AccessPointAwsIngressPrivateLinkEndpointArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -63,7 +65,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var aws = new AccessPoint("aws", AccessPointArgs.builder()
- *             .displayName("access_point")
+ *             .displayName("access_point_egress")
  *             .environment(AccessPointEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
@@ -76,7 +78,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var azure = new AccessPoint("azure", AccessPointArgs.builder()
- *             .displayName("access_point")
+ *             .displayName("access_point_egress")
  *             .environment(AccessPointEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
@@ -103,7 +105,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var pni = new AccessPoint("pni", AccessPointArgs.builder()
- *             .displayName("access_point")
+ *             .displayName("access_point_egress")
  *             .environment(AccessPointEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
@@ -117,6 +119,19 @@ import javax.annotation.Nullable;
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(mainAwsNetworkInterfacePermission)
  *                 .build());
+ * 
+ *         var awsIngress = new AccessPoint("awsIngress", AccessPointArgs.builder()
+ *             .displayName("access_point_ingress")
+ *             .environment(AccessPointEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .gateway(AccessPointGatewayArgs.builder()
+ *                 .id(ingress.id())
+ *                 .build())
+ *             .awsIngressPrivateLinkEndpoint(AccessPointAwsIngressPrivateLinkEndpointArgs.builder()
+ *                 .vpcEndpointId("vpce-00000000000000000")
+ *                 .build())
+ *             .build());
  * 
  *     }
  * }
@@ -159,6 +174,20 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<AccessPointAwsEgressPrivateLinkEndpoint>> awsEgressPrivateLinkEndpoint() {
         return Codegen.optional(this.awsEgressPrivateLinkEndpoint);
+    }
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Export(name="awsIngressPrivateLinkEndpoint", refs={AccessPointAwsIngressPrivateLinkEndpoint.class}, tree="[0]")
+    private Output</* @Nullable */ AccessPointAwsIngressPrivateLinkEndpoint> awsIngressPrivateLinkEndpoint;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Output<Optional<AccessPointAwsIngressPrivateLinkEndpoint>> awsIngressPrivateLinkEndpoint() {
+        return Codegen.optional(this.awsIngressPrivateLinkEndpoint);
     }
     /**
      * (Optional Configuration Block) supports the following:
