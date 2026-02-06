@@ -12,6 +12,28 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var source = new ConfluentCloud.Plugin("source", new()
+    ///     {
+    ///         DisplayName = "Plugin-1",
+    ///         Description = "Custom connect plugin for versioning.",
+    ///         Cloud = "AWS",
+    ///         Environment = new ConfluentCloud.Inputs.PluginEnvironmentArgs
+    ///         {
+    ///             Id = "env-devc0k7oxp",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// You can import a Custom Connector Plugin by using a Plugin ID, in the format `&lt;Environment ID/Custom Connector Plugin ID&gt;`. The following example shows how to import a Plugin:

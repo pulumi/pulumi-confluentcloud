@@ -18,6 +18,43 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Plugin;
+ * import com.pulumi.confluentcloud.PluginArgs;
+ * import com.pulumi.confluentcloud.inputs.PluginEnvironmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var source = new Plugin("source", PluginArgs.builder()
+ *             .displayName("Plugin-1")
+ *             .description("Custom connect plugin for versioning.")
+ *             .cloud("AWS")
+ *             .environment(PluginEnvironmentArgs.builder()
+ *                 .id("env-devc0k7oxp")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * You can import a Custom Connector Plugin by using a Plugin ID, in the format `&lt;Environment ID/Custom Connector Plugin ID&gt;`. The following example shows how to import a Plugin:

@@ -9,6 +9,20 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const source = new confluentcloud.Plugin("source", {
+ *     displayName: "Plugin-1",
+ *     description: "Custom connect plugin for versioning.",
+ *     cloud: "AWS",
+ *     environment: {
+ *         id: "env-devc0k7oxp",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * You can import a Custom Connector Plugin by using a Plugin ID, in the format `<Environment ID/Custom Connector Plugin ID>`. The following example shows how to import a Plugin:

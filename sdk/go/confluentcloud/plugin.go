@@ -14,6 +14,35 @@ import (
 
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewPlugin(ctx, "source", &confluentcloud.PluginArgs{
+//				DisplayName: pulumi.String("Plugin-1"),
+//				Description: pulumi.String("Custom connect plugin for versioning."),
+//				Cloud:       pulumi.String("AWS"),
+//				Environment: &confluentcloud.PluginEnvironmentArgs{
+//					Id: pulumi.String("env-devc0k7oxp"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // You can import a Custom Connector Plugin by using a Plugin ID, in the format `<Environment ID/Custom Connector Plugin ID>`. The following example shows how to import a Plugin:
