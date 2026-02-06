@@ -238,6 +238,19 @@ class Plugin(pulumi.CustomResource):
         """
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        source = confluentcloud.Plugin("source",
+            display_name="Plugin-1",
+            description="Custom connect plugin for versioning.",
+            cloud="AWS",
+            environment={
+                "id": "env-devc0k7oxp",
+            })
+        ```
+
         ## Import
 
         You can import a Custom Connector Plugin by using a Plugin ID, in the format `<Environment ID/Custom Connector Plugin ID>`. The following example shows how to import a Plugin:
@@ -268,6 +281,19 @@ class Plugin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        source = confluentcloud.Plugin("source",
+            display_name="Plugin-1",
+            description="Custom connect plugin for versioning.",
+            cloud="AWS",
+            environment={
+                "id": "env-devc0k7oxp",
+            })
+        ```
 
         ## Import
 
