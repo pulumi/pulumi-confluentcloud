@@ -17,10 +17,6 @@ public final class GetCertificatePoolResult {
      * 
      */
     private String description;
-    /**
-     * @return (Required String) A human-readable name for the Certificate Pool.
-     * 
-     */
     private String displayName;
     /**
      * @return (Required String) The certificate field that will be used to represent the pool&#39;s external identity for audit logging, for example, `UID`.
@@ -45,10 +41,6 @@ public final class GetCertificatePoolResult {
     public String description() {
         return this.description;
     }
-    /**
-     * @return (Required String) A human-readable name for the Certificate Pool.
-     * 
-     */
     public String displayName() {
         return this.displayName;
     }

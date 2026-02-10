@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetCertificatePoolPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -22,24 +24,44 @@ public final class GetCertificatePoolPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
+     * A human-readable name for the Certificate Pool.
+     * 
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * 
+     */
+    @Import(name="displayName")
+    private @Nullable String displayName;
+
+    /**
+     * @return A human-readable name for the Certificate Pool.
+     * 
+     * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * 
+     */
+    public Optional<String> displayName() {
+        return Optional.ofNullable(this.displayName);
+    }
+
+    /**
      * The ID of the Certificate Pool, for example, `pool-abc123`.
      * 
      */
-    @Import(name="id", required=true)
-    private String id;
+    @Import(name="id")
+    private @Nullable String id;
 
     /**
      * @return The ID of the Certificate Pool, for example, `pool-abc123`.
      * 
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     private GetCertificatePoolPlainArgs() {}
 
     private GetCertificatePoolPlainArgs(GetCertificatePoolPlainArgs $) {
         this.certificateAuthority = $.certificateAuthority;
+        this.displayName = $.displayName;
         this.id = $.id;
     }
 
@@ -67,12 +89,25 @@ public final class GetCertificatePoolPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
+         * @param displayName A human-readable name for the Certificate Pool.
+         * 
+         * &gt; **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder displayName(@Nullable String displayName) {
+            $.displayName = displayName;
+            return this;
+        }
+
+        /**
          * @param id The ID of the Certificate Pool, for example, `pool-abc123`.
          * 
          * @return builder
          * 
          */
-        public Builder id(String id) {
+        public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
@@ -80,9 +115,6 @@ public final class GetCertificatePoolPlainArgs extends com.pulumi.resources.Invo
         public GetCertificatePoolPlainArgs build() {
             if ($.certificateAuthority == null) {
                 throw new MissingRequiredPropertyException("GetCertificatePoolPlainArgs", "certificateAuthority");
-            }
-            if ($.id == null) {
-                throw new MissingRequiredPropertyException("GetCertificatePoolPlainArgs", "id");
             }
             return $;
         }

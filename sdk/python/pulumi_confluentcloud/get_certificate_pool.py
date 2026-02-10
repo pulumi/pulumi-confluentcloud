@@ -64,9 +64,6 @@ class GetCertificatePoolResult:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
-        """
-        (Required String) A human-readable name for the Certificate Pool.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
@@ -106,6 +103,7 @@ class AwaitableGetCertificatePoolResult(GetCertificatePoolResult):
 
 
 def get_certificate_pool(certificate_authority: Optional[Union['GetCertificatePoolCertificateAuthorityArgs', 'GetCertificatePoolCertificateAuthorityArgsDict']] = None,
+                         display_name: Optional[_builtins.str] = None,
                          id: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificatePoolResult:
     """
@@ -124,13 +122,22 @@ def get_certificate_pool(certificate_authority: Optional[Union['GetCertificatePo
             "id": "op-abc123",
         })
     pulumi.export("certificatePool", main)
+    example_using_name = confluentcloud.get_certificate_pool(display_name="My Certificate Pool",
+        certificate_authority={
+            "id": "op-abc123",
+        })
+    pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
+    :param _builtins.str display_name: A human-readable name for the Certificate Pool.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param _builtins.str id: The ID of the Certificate Pool, for example, `pool-abc123`.
     """
     __args__ = dict()
     __args__['certificateAuthority'] = certificate_authority
+    __args__['displayName'] = display_name
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getCertificatePool:getCertificatePool', __args__, opts=opts, typ=GetCertificatePoolResult).value
@@ -143,7 +150,8 @@ def get_certificate_pool(certificate_authority: Optional[Union['GetCertificatePo
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'))
 def get_certificate_pool_output(certificate_authority: Optional[pulumi.Input[Union['GetCertificatePoolCertificateAuthorityArgs', 'GetCertificatePoolCertificateAuthorityArgsDict']]] = None,
-                                id: Optional[pulumi.Input[_builtins.str]] = None,
+                                display_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificatePoolResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -161,13 +169,22 @@ def get_certificate_pool_output(certificate_authority: Optional[pulumi.Input[Uni
             "id": "op-abc123",
         })
     pulumi.export("certificatePool", main)
+    example_using_name = confluentcloud.get_certificate_pool(display_name="My Certificate Pool",
+        certificate_authority={
+            "id": "op-abc123",
+        })
+    pulumi.export("exampleUsingName", example_using_name)
     ```
 
 
+    :param _builtins.str display_name: A human-readable name for the Certificate Pool.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param _builtins.str id: The ID of the Certificate Pool, for example, `pool-abc123`.
     """
     __args__ = dict()
     __args__['certificateAuthority'] = certificate_authority
+    __args__['displayName'] = display_name
     __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('confluentcloud:index/getCertificatePool:getCertificatePool', __args__, opts=opts, typ=GetCertificatePoolResult)

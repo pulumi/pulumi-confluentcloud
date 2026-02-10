@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			main, err := confluentcloud.LookupCertificatePool(ctx, &confluentcloud.LookupCertificatePoolArgs{
-//				Id: "pool-def456",
+//				Id: pulumi.StringRef("pool-def456"),
 //				CertificateAuthority: confluentcloud.GetCertificatePoolCertificateAuthority{
 //					Id: "op-abc123",
 //				},
@@ -39,6 +39,16 @@ import (
 //				return err
 //			}
 //			ctx.Export("certificatePool", main)
+//			exampleUsingName, err := confluentcloud.LookupCertificatePool(ctx, &confluentcloud.LookupCertificatePoolArgs{
+//				DisplayName: pulumi.StringRef("My Certificate Pool"),
+//				CertificateAuthority: confluentcloud.GetCertificatePoolCertificateAuthority{
+//					Id: "op-abc123",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("exampleUsingName", exampleUsingName)
 //			return nil
 //		})
 //	}
@@ -57,8 +67,12 @@ func LookupCertificatePool(ctx *pulumi.Context, args *LookupCertificatePoolArgs,
 // A collection of arguments for invoking getCertificatePool.
 type LookupCertificatePoolArgs struct {
 	CertificateAuthority GetCertificatePoolCertificateAuthority `pulumi:"certificateAuthority"`
+	// A human-readable name for the Certificate Pool.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Certificate Pool, for example, `pool-abc123`.
-	Id string `pulumi:"id"`
+	Id *string `pulumi:"id"`
 }
 
 // A collection of values returned by getCertificatePool.
@@ -66,7 +80,6 @@ type LookupCertificatePoolResult struct {
 	CertificateAuthority GetCertificatePoolCertificateAuthority `pulumi:"certificateAuthority"`
 	// (Required String) A description of the Certificate Pool.
 	Description string `pulumi:"description"`
-	// (Required String) A human-readable name for the Certificate Pool.
 	DisplayName string `pulumi:"displayName"`
 	// (Required String) The certificate field that will be used to represent the pool's external identity for audit logging, for example, `UID`.
 	ExternalIdentifier string `pulumi:"externalIdentifier"`
@@ -87,8 +100,12 @@ func LookupCertificatePoolOutput(ctx *pulumi.Context, args LookupCertificatePool
 // A collection of arguments for invoking getCertificatePool.
 type LookupCertificatePoolOutputArgs struct {
 	CertificateAuthority GetCertificatePoolCertificateAuthorityInput `pulumi:"certificateAuthority"`
+	// A human-readable name for the Certificate Pool.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The ID of the Certificate Pool, for example, `pool-abc123`.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
 func (LookupCertificatePoolOutputArgs) ElementType() reflect.Type {
@@ -121,7 +138,6 @@ func (o LookupCertificatePoolResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificatePoolResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// (Required String) A human-readable name for the Certificate Pool.
 func (o LookupCertificatePoolResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificatePoolResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }

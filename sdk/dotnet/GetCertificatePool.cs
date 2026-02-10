@@ -35,9 +35,19 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
+        ///     var exampleUsingName = ConfluentCloud.GetCertificatePool.Invoke(new()
+        ///     {
+        ///         DisplayName = "My Certificate Pool",
+        ///         CertificateAuthority = new ConfluentCloud.Inputs.GetCertificatePoolCertificateAuthorityInputArgs
+        ///         {
+        ///             Id = "op-abc123",
+        ///         },
+        ///     });
+        /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["certificatePool"] = main,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```
@@ -69,9 +79,19 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
+        ///     var exampleUsingName = ConfluentCloud.GetCertificatePool.Invoke(new()
+        ///     {
+        ///         DisplayName = "My Certificate Pool",
+        ///         CertificateAuthority = new ConfluentCloud.Inputs.GetCertificatePoolCertificateAuthorityInputArgs
+        ///         {
+        ///             Id = "op-abc123",
+        ///         },
+        ///     });
+        /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["certificatePool"] = main,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```
@@ -103,9 +123,19 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
+        ///     var exampleUsingName = ConfluentCloud.GetCertificatePool.Invoke(new()
+        ///     {
+        ///         DisplayName = "My Certificate Pool",
+        ///         CertificateAuthority = new ConfluentCloud.Inputs.GetCertificatePoolCertificateAuthorityInputArgs
+        ///         {
+        ///             Id = "op-abc123",
+        ///         },
+        ///     });
+        /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["certificatePool"] = main,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```
@@ -121,10 +151,18 @@ namespace Pulumi.ConfluentCloud
         public Inputs.GetCertificatePoolCertificateAuthorityArgs CertificateAuthority { get; set; } = null!;
 
         /// <summary>
+        /// A human-readable name for the Certificate Pool.
+        /// 
+        /// &gt; **Note:** Exactly one from the `Id` and `DisplayName` attributes must be specified.
+        /// </summary>
+        [Input("displayName")]
+        public string? DisplayName { get; set; }
+
+        /// <summary>
         /// The ID of the Certificate Pool, for example, `pool-abc123`.
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("id")]
+        public string? Id { get; set; }
 
         public GetCertificatePoolArgs()
         {
@@ -138,10 +176,18 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GetCertificatePoolCertificateAuthorityInputArgs> CertificateAuthority { get; set; } = null!;
 
         /// <summary>
+        /// A human-readable name for the Certificate Pool.
+        /// 
+        /// &gt; **Note:** Exactly one from the `Id` and `DisplayName` attributes must be specified.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// The ID of the Certificate Pool, for example, `pool-abc123`.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         public GetCertificatePoolInvokeArgs()
         {
@@ -158,9 +204,6 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) A description of the Certificate Pool.
         /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// (Required String) A human-readable name for the Certificate Pool.
-        /// </summary>
         public readonly string DisplayName;
         /// <summary>
         /// (Required String) The certificate field that will be used to represent the pool's external identity for audit logging, for example, `UID`.
