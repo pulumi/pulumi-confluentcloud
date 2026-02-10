@@ -2250,6 +2250,14 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         ctx.export("certificatePool", main);
+     *         final var exampleUsingName = ConfluentcloudFunctions.getCertificatePool(GetCertificatePoolArgs.builder()
+     *             .displayName("My Certificate Pool")
+     *             .certificateAuthority(GetCertificatePoolCertificateAuthorityArgs.builder()
+     *                 .id("op-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -2297,6 +2305,14 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         ctx.export("certificatePool", main);
+     *         final var exampleUsingName = ConfluentcloudFunctions.getCertificatePool(GetCertificatePoolArgs.builder()
+     *             .displayName("My Certificate Pool")
+     *             .certificateAuthority(GetCertificatePoolCertificateAuthorityArgs.builder()
+     *                 .id("op-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -2344,6 +2360,14 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         ctx.export("certificatePool", main);
+     *         final var exampleUsingName = ConfluentcloudFunctions.getCertificatePool(GetCertificatePoolArgs.builder()
+     *             .displayName("My Certificate Pool")
+     *             .certificateAuthority(GetCertificatePoolCertificateAuthorityArgs.builder()
+     *                 .id("op-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -2391,6 +2415,14 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         ctx.export("certificatePool", main);
+     *         final var exampleUsingName = ConfluentcloudFunctions.getCertificatePool(GetCertificatePoolArgs.builder()
+     *             .displayName("My Certificate Pool")
+     *             .certificateAuthority(GetCertificatePoolCertificateAuthorityArgs.builder()
+     *                 .id("op-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }
@@ -2438,6 +2470,14 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         ctx.export("certificatePool", main);
+     *         final var exampleUsingName = ConfluentcloudFunctions.getCertificatePool(GetCertificatePoolArgs.builder()
+     *             .displayName("My Certificate Pool")
+     *             .certificateAuthority(GetCertificatePoolCertificateAuthorityArgs.builder()
+     *                 .id("op-abc123")
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("exampleUsingName", exampleUsingName);
      *     }
      * }
      * }

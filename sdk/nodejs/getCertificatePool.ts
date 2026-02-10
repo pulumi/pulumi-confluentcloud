@@ -17,19 +17,31 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const main = confluentcloud.getCertificatePool({
- *     id: "pool-def456",
- *     certificateAuthority: {
- *         id: "op-abc123",
- *     },
- * });
- * export const certificatePool = main;
+ * export = async () => {
+ *     const main = await confluentcloud.getCertificatePool({
+ *         id: "pool-def456",
+ *         certificateAuthority: {
+ *             id: "op-abc123",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getCertificatePool({
+ *         displayName: "My Certificate Pool",
+ *         certificateAuthority: {
+ *             id: "op-abc123",
+ *         },
+ *     });
+ *     return {
+ *         certificatePool: main,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  */
 export function getCertificatePool(args: GetCertificatePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificatePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getCertificatePool:getCertificatePool", {
         "certificateAuthority": args.certificateAuthority,
+        "displayName": args.displayName,
         "id": args.id,
     }, opts);
 }
@@ -40,9 +52,15 @@ export function getCertificatePool(args: GetCertificatePoolArgs, opts?: pulumi.I
 export interface GetCertificatePoolArgs {
     certificateAuthority: inputs.GetCertificatePoolCertificateAuthority;
     /**
+     * A human-readable name for the Certificate Pool.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     */
+    displayName?: string;
+    /**
      * The ID of the Certificate Pool, for example, `pool-abc123`.
      */
-    id: string;
+    id?: string;
 }
 
 /**
@@ -54,9 +72,6 @@ export interface GetCertificatePoolResult {
      * (Required String) A description of the Certificate Pool.
      */
     readonly description: string;
-    /**
-     * (Required String) A human-readable name for the Certificate Pool.
-     */
     readonly displayName: string;
     /**
      * (Required String) The certificate field that will be used to represent the pool's external identity for audit logging, for example, `UID`.
@@ -79,19 +94,31 @@ export interface GetCertificatePoolResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const main = confluentcloud.getCertificatePool({
- *     id: "pool-def456",
- *     certificateAuthority: {
- *         id: "op-abc123",
- *     },
- * });
- * export const certificatePool = main;
+ * export = async () => {
+ *     const main = await confluentcloud.getCertificatePool({
+ *         id: "pool-def456",
+ *         certificateAuthority: {
+ *             id: "op-abc123",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getCertificatePool({
+ *         displayName: "My Certificate Pool",
+ *         certificateAuthority: {
+ *             id: "op-abc123",
+ *         },
+ *     });
+ *     return {
+ *         certificatePool: main,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  */
 export function getCertificatePoolOutput(args: GetCertificatePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificatePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getCertificatePool:getCertificatePool", {
         "certificateAuthority": args.certificateAuthority,
+        "displayName": args.displayName,
         "id": args.id,
     }, opts);
 }
@@ -102,7 +129,13 @@ export function getCertificatePoolOutput(args: GetCertificatePoolOutputArgs, opt
 export interface GetCertificatePoolOutputArgs {
     certificateAuthority: pulumi.Input<inputs.GetCertificatePoolCertificateAuthorityArgs>;
     /**
+     * A human-readable name for the Certificate Pool.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
      * The ID of the Certificate Pool, for example, `pool-abc123`.
      */
-    id: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
 }
