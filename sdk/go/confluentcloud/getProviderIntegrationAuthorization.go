@@ -11,6 +11,232 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `ProviderIntegrationAuthorization` describes the authorization configuration for a Cloud Service Provider (CSP) integration, including cloud-specific setup information like Azure multi-tenant app IDs or GCP service accounts.
+//
+// ## Example Usage
+//
+// ### Azure Provider Integration Authorization
+//
+// You can use the authorization data source with either approach:
+//
+// ### Option 1: With Azure Terraform Provider
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get the authorization data
+//			azure, err := confluentcloud.LookupProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
+//				Id: "cspi-abc123",
+//				Environment: confluentcloud.GetProviderIntegrationAuthorizationEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Create the service principal using Azure Terraform Provider
+//			confluent, err := azuread.NewServicePrincipal(ctx, "confluent", &azuread.ServicePrincipalArgs{
+//				ClientId: azure.Azures[0].ConfluentMultiTenantAppId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("azureAppId", azure.Azures[0].ConfluentMultiTenantAppId)
+//			ctx.Export("servicePrincipalObjectId", confluent.ObjectId)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option 2: With CLI Commands
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get the authorization data
+//			azure, err := confluentcloud.LookupProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
+//				Id: "cspi-abc123",
+//				Environment: confluentcloud.GetProviderIntegrationAuthorizationEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("azureSetupCommand", pulumi.Sprintf("az ad sp create --id %v", azure.Azures[0].ConfluentMultiTenantAppId))
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### GCP Provider Integration Authorization
+//
+// You can use the authorization data source with either approach:
+//
+// ### Option 1: With Google Terraform Provider
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi-google/sdk/go/google"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get the authorization data
+//			gcp, err := confluentcloud.LookupProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
+//				Id: "cspi-def456",
+//				Environment: confluentcloud.GetProviderIntegrationAuthorizationEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Grant IAM permissions using Google Terraform Provider
+//			_, err = google.NewProjectIamMember(ctx, "confluent_token_creator", &google.ProjectIamMemberArgs{
+//				Project: gcpProjectId,
+//				Role:    "roles/iam.serviceAccountTokenCreator",
+//				Member:  fmt.Sprintf("serviceAccount:%v", gcp.Gcps[0].GoogleServiceAccount),
+//				Condition: []map[string]interface{}{
+//					map[string]interface{}{
+//						"title":       "Confluent Cloud Access",
+//						"description": "Allow Confluent Cloud to impersonate the customer service account",
+//						"expression":  fmt.Sprintf("request.auth.claims.sub == '%v'", gcp.Gcps[0].GoogleServiceAccount),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("confluentServiceAccount", gcp.Gcps[0].GoogleServiceAccount)
+//			ctx.Export("customerServiceAccount", gcp.Gcps[0].CustomerGoogleServiceAccount)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option 2: With gcloud CLI Commands
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get the authorization data
+//			gcp, err := confluentcloud.LookupProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
+//				Id: "cspi-def456",
+//				Environment: confluentcloud.GetProviderIntegrationAuthorizationEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("gcpIamCommand", pulumi.Sprintf("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%v\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%v'\"", gcp.Gcps[0].GoogleServiceAccount, gcp.Gcps[0].GoogleServiceAccount))
+//			ctx.Export("confluentServiceAccount", gcp.Gcps[0].GoogleServiceAccount)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Using with Integration Data Source
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := confluentcloud.LookupProviderIntegrationSetup(ctx, &confluentcloud.LookupProviderIntegrationSetupArgs{
+//				DisplayName: pulumi.StringRef("my-integration"),
+//				Environment: confluentcloud.GetProviderIntegrationSetupEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			mainGetProviderIntegrationAuthorization, err := confluentcloud.LookupProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
+//				Id: main.Id,
+//				Environment: confluentcloud.GetProviderIntegrationAuthorizationEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			var tmp0 map[string]interface{}
+//			if main.Cloud == "AZURE" {
+//				tmp0 = map[string]interface{}{
+//					"appId":   mainGetProviderIntegrationAuthorization.Azures[0].ConfluentMultiTenantAppId,
+//					"command": fmt.Sprintf("az ad sp create --id %v", mainGetProviderIntegrationAuthorization.Azures[0].ConfluentMultiTenantAppId),
+//				}
+//			} else {
+//				tmp0 = map[string]interface{}{
+//					"confluentSa": mainGetProviderIntegrationAuthorization.Gcps[0].GoogleServiceAccount,
+//					"customerSa":  mainGetProviderIntegrationAuthorization.Gcps[0].CustomerGoogleServiceAccount,
+//				}
+//			}
+//			ctx.Export("setupInfo", tmp0)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `ProviderIntegrationAuthorization` data source:
+// * provider-integration-azure: Complete Azure Provider Integration setup
+// * provider-integration-gcp: Complete GCP Provider Integration setup
 func LookupProviderIntegrationAuthorization(ctx *pulumi.Context, args *LookupProviderIntegrationAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupProviderIntegrationAuthorizationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProviderIntegrationAuthorizationResult

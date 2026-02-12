@@ -23,6 +23,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.Schema` provides a Schema resource that enables creating, evolving, and deleting Schemas on a Schema Registry cluster on Confluent Cloud.
+ * 
+ * `confluentcloud.Schema` enables managing the latest version or a specific version of a schema. By design, `confluentcloud.Schema` won&#39;t destroy all versions of a schema, which differs from Confluent Platform, which permits hard delete on all schema versions at once.
+ * 
+ * &gt; **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental schema deletion. This setting rejects plans that would destroy or recreate the schema, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+ * 
  * ## Example Usage
  * 
  * ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
@@ -205,29 +213,23 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;/&lt;Schema identifier&gt;`, for example:
+ * You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreateOnUpdate = false`) of the Schema in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;/&lt;Schema identifier&gt;`, for example:
  * 
- * Option A: recreate_on_update = false (by default)
- * 
- * $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
- * 
- * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
- * 
- * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
+ * Option A: recreateOnUpdate = false (by default)
  * 
  * ```sh
+ * $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
+ * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
+ * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
  * $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
  * ```
  * 
- * Option B: recreate_on_update = true
- * 
- * $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
- * 
- * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
- * 
- * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
+ * Option B: recreateOnUpdate = true
  * 
  * ```sh
+ * $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
+ * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
+ * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
  * $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
  * ```
  * 
@@ -370,9 +372,17 @@ public class Schema extends com.pulumi.resources.CustomResource {
     public Output<Optional<SchemaSchemaRegistryCluster>> schemaRegistryCluster() {
         return Codegen.optional(this.schemaRegistryCluster);
     }
+    /**
+     * Controls whether a schema validation should be skipped during terraform plan.
+     * 
+     */
     @Export(name="skipValidationDuringPlan", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipValidationDuringPlan;
 
+    /**
+     * @return Controls whether a schema validation should be skipped during terraform plan.
+     * 
+     */
     public Output<Optional<Boolean>> skipValidationDuringPlan() {
         return Codegen.optional(this.skipValidationDuringPlan);
     }

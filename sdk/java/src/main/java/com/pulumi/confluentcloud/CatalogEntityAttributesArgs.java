@@ -20,14 +20,30 @@ public final class CatalogEntityAttributesArgs extends com.pulumi.resources.Reso
     public static final CatalogEntityAttributesArgs Empty = new CatalogEntityAttributesArgs();
 
     /**
-     * The attributes.
+     * The block of key-value pair attributes. Refer to the [add-a-topic-owner-and-email](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#add-a-topic-owner-and-email) for more details.
+     * 
+     * &gt; **Note:** You have to set the attribute value to an empty string if you plan to delete an attribute.
+     * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+     * 
+     * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target=&#34;confluent_catalog_entity_attributes.main&#34;`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_catalog_entity_attributes.main&#34; -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+     * 
+     * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     @Import(name="attributes")
     private @Nullable Output<Map<String,String>> attributes;
 
     /**
-     * @return The attributes.
+     * @return The block of key-value pair attributes. Refer to the [add-a-topic-owner-and-email](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#add-a-topic-owner-and-email) for more details.
+     * 
+     * &gt; **Note:** You have to set the attribute value to an empty string if you plan to delete an attribute.
+     * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+     * 
+     * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target=&#34;confluent_catalog_entity_attributes.main&#34;`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_catalog_entity_attributes.main&#34; -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+     * 
+     * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     public Optional<Output<Map<String,String>>> attributes() {
@@ -131,7 +147,15 @@ public final class CatalogEntityAttributesArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param attributes The attributes.
+         * @param attributes The block of key-value pair attributes. Refer to the [add-a-topic-owner-and-email](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#add-a-topic-owner-and-email) for more details.
+         * 
+         * &gt; **Note:** You have to set the attribute value to an empty string if you plan to delete an attribute.
+         * 
+         * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+         * 
+         * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target=&#34;confluent_catalog_entity_attributes.main&#34;`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_catalog_entity_attributes.main&#34; -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+         * 
+         * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
          * 
          * @return builder
          * 
@@ -142,7 +166,15 @@ public final class CatalogEntityAttributesArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param attributes The attributes.
+         * @param attributes The block of key-value pair attributes. Refer to the [add-a-topic-owner-and-email](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#add-a-topic-owner-and-email) for more details.
+         * 
+         * &gt; **Note:** You have to set the attribute value to an empty string if you plan to delete an attribute.
+         * 
+         * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+         * 
+         * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target=&#34;confluent_catalog_entity_attributes.main&#34;`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_catalog_entity_attributes.main&#34; -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+         * 
+         * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.CatalogEntityAttributes` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
          * 
          * @return builder
          * 

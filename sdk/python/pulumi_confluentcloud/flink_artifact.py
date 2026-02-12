@@ -424,6 +424,12 @@ class FlinkArtifact(pulumi.CustomResource):
                  runtime_language: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `FlinkArtifact` provides a Flink Artifact resource that enables creating and deleting Flink Artifact on Confluent Cloud.
+
+        > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental Flink Artifact deletion. This setting rejects plans that would destroy or recreate the Flink Artifact, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+
         ## Example Usage
 
         ```python
@@ -444,13 +450,15 @@ class FlinkArtifact(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** Set `artifact_file = ""` or use `IMPORT_ARTIFACT_FILENAME` environment variables before importing a Flink Artifact.
+
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Flink Artifact.
+
         You can import a Flink Artifact by using cloud, region, Flink Artifact ID and artifact file, in the format `<Environment ID>/<region>/<cloud>/<Flink Artifact ID>`. The following example shows how to import a Flink Artifact:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/flinkArtifact:FlinkArtifact main env-abc123/us-east-1/aws/fa-123
         ```
 
@@ -476,6 +484,12 @@ class FlinkArtifact(pulumi.CustomResource):
                  args: FlinkArtifactArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `FlinkArtifact` provides a Flink Artifact resource that enables creating and deleting Flink Artifact on Confluent Cloud.
+
+        > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental Flink Artifact deletion. This setting rejects plans that would destroy or recreate the Flink Artifact, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+
         ## Example Usage
 
         ```python
@@ -496,13 +510,15 @@ class FlinkArtifact(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** Set `artifact_file = ""` or use `IMPORT_ARTIFACT_FILENAME` environment variables before importing a Flink Artifact.
+
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Flink Artifact.
+
         You can import a Flink Artifact by using cloud, region, Flink Artifact ID and artifact file, in the format `<Environment ID>/<region>/<cloud>/<Flink Artifact ID>`. The following example shows how to import a Flink Artifact:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/flinkArtifact:FlinkArtifact main env-abc123/us-east-1/aws/fa-123
         ```
 

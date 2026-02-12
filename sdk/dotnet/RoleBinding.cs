@@ -231,13 +231,13 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
+    /// &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Role Binding.
+    /// 
     /// You can import a Role Binding by using Role Binding ID, for example:
     /// 
-    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
-    /// 
-    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
-    /// 
     /// ```sh
+    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// $ pulumi import confluentcloud:index/roleBinding:RoleBinding my_rb rb-f3a90de
     /// ```
     /// 
@@ -252,6 +252,17 @@ namespace Pulumi.ConfluentCloud
         [Output("crnPattern")]
         public Output<string> CrnPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `False`.
+        /// 
+        /// !&gt; **Warning:** When `DisableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
+        /// For example, if you're creating a new service account, a new Kafka API Key, a new `CloudClusterAdmin` role binding, and a Kafka topic in a single run (see this code snippet), the topic creation may fail if the role binding hasn’t taken effect yet. Without that role, the service account won’t have permission to create the topic.
+        /// This setting is best suited for scenarios where you're provisioning a large number of role bindings without dependent resources, as it significantly speeds up the apply process.
+        /// 
+        /// &gt; **Note:** If you encounter HTTP 403 Forbidden errors when creating role bindings, you can rerun `pulumi up` after a few minutes, once the role bindings have had time to propagate.
+        /// 
+        /// &gt; **Note:** You can also use `TimeSleep` resource of HashiCorp's `Time` TF provider to configure a custom waiting period, see this example for more details.
+        /// </summary>
         [Output("disableWaitForReady")]
         public Output<bool?> DisableWaitForReady { get; private set; } = null!;
 
@@ -319,6 +330,17 @@ namespace Pulumi.ConfluentCloud
         [Input("crnPattern", required: true)]
         public Input<string> CrnPattern { get; set; } = null!;
 
+        /// <summary>
+        /// An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `False`.
+        /// 
+        /// !&gt; **Warning:** When `DisableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
+        /// For example, if you're creating a new service account, a new Kafka API Key, a new `CloudClusterAdmin` role binding, and a Kafka topic in a single run (see this code snippet), the topic creation may fail if the role binding hasn’t taken effect yet. Without that role, the service account won’t have permission to create the topic.
+        /// This setting is best suited for scenarios where you're provisioning a large number of role bindings without dependent resources, as it significantly speeds up the apply process.
+        /// 
+        /// &gt; **Note:** If you encounter HTTP 403 Forbidden errors when creating role bindings, you can rerun `pulumi up` after a few minutes, once the role bindings have had time to propagate.
+        /// 
+        /// &gt; **Note:** You can also use `TimeSleep` resource of HashiCorp's `Time` TF provider to configure a custom waiting period, see this example for more details.
+        /// </summary>
         [Input("disableWaitForReady")]
         public Input<bool>? DisableWaitForReady { get; set; }
 
@@ -348,6 +370,17 @@ namespace Pulumi.ConfluentCloud
         [Input("crnPattern")]
         public Input<string>? CrnPattern { get; set; }
 
+        /// <summary>
+        /// An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `False`.
+        /// 
+        /// !&gt; **Warning:** When `DisableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
+        /// For example, if you're creating a new service account, a new Kafka API Key, a new `CloudClusterAdmin` role binding, and a Kafka topic in a single run (see this code snippet), the topic creation may fail if the role binding hasn’t taken effect yet. Without that role, the service account won’t have permission to create the topic.
+        /// This setting is best suited for scenarios where you're provisioning a large number of role bindings without dependent resources, as it significantly speeds up the apply process.
+        /// 
+        /// &gt; **Note:** If you encounter HTTP 403 Forbidden errors when creating role bindings, you can rerun `pulumi up` after a few minutes, once the role bindings have had time to propagate.
+        /// 
+        /// &gt; **Note:** You can also use `TimeSleep` resource of HashiCorp's `Time` TF provider to configure a custom waiting period, see this example for more details.
+        /// </summary>
         [Input("disableWaitForReady")]
         public Input<bool>? DisableWaitForReady { get; set; }
 

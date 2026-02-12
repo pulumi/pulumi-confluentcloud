@@ -300,6 +300,14 @@ class CustomConnectorPlugin(pulumi.CustomResource):
                  sensitive_config_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `CustomConnectorPlugin` provides a Custom Connector Plugin resource that enables creating, editing, and deleting Custom Connector Plugins on Confluent Cloud.
+
+        > **Note:** See [Custom Connector Quick Start](https://docs.confluent.io/cloud/current/connectors/bring-your-connector/custom-connector-qs.html#custom-connector-quick-start) and [Custom Connector Plugin Examples](https://docs.confluent.io/cloud/current/connectors/connect-api-section.html#custom-connector-plugin-examples) for more details.
+
+        > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental Custom Connector Plugin deletion. This setting rejects plans that would destroy or recreate the Custom Connector Plugin, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+
         ## Example Usage
 
         ```python
@@ -317,13 +325,15 @@ class CustomConnectorPlugin(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** Set `filename = ""` or use `IMPORT_CUSTOM_CONNECTOR_PLUGIN_FILENAME` environment variables before importing a Custom Connector Plugin.
+
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Custom Connector Plugin.
+
         You can import a Custom Connector Plugin by using a Custom Connector Plugin ID, in the format `<Custom Connector Plugin>`. The following example shows how to import a Custom Connector Plugin:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
         ```
 
@@ -347,6 +357,14 @@ class CustomConnectorPlugin(pulumi.CustomResource):
                  args: CustomConnectorPluginArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `CustomConnectorPlugin` provides a Custom Connector Plugin resource that enables creating, editing, and deleting Custom Connector Plugins on Confluent Cloud.
+
+        > **Note:** See [Custom Connector Quick Start](https://docs.confluent.io/cloud/current/connectors/bring-your-connector/custom-connector-qs.html#custom-connector-quick-start) and [Custom Connector Plugin Examples](https://docs.confluent.io/cloud/current/connectors/connect-api-section.html#custom-connector-plugin-examples) for more details.
+
+        > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental Custom Connector Plugin deletion. This setting rejects plans that would destroy or recreate the Custom Connector Plugin, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+
         ## Example Usage
 
         ```python
@@ -364,13 +382,15 @@ class CustomConnectorPlugin(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** Set `filename = ""` or use `IMPORT_CUSTOM_CONNECTOR_PLUGIN_FILENAME` environment variables before importing a Custom Connector Plugin.
+
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Custom Connector Plugin.
+
         You can import a Custom Connector Plugin by using a Custom Connector Plugin ID, in the format `<Custom Connector Plugin>`. The following example shows how to import a Custom Connector Plugin:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
         ```
 

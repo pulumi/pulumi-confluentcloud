@@ -12,6 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `Schema` provides a Schema resource that enables creating, evolving, and deleting Schemas on a Schema Registry cluster on Confluent Cloud.
+//
+// `Schema` enables managing the latest version or a specific version of a schema. By design, `Schema` won't destroy all versions of a schema, which differs from Confluent Platform, which permits hard delete on all schema versions at once.
+//
+// > **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental schema deletion. This setting rejects plans that would destroy or recreate the schema, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+//
 // ## Example Usage
 //
 // ### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack
@@ -208,29 +216,23 @@ import (
 //
 // ## Import
 //
-// You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `<Schema Registry cluster ID>/<Subject name>/<Schema identifier>`, for example:
+// You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreateOnUpdate = false`) of the Schema in the format `<Schema Registry cluster ID>/<Subject name>/<Schema identifier>`, for example:
 //
-// Option A: recreate_on_update = false (by default)
-//
-// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
-//
-// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
-//
-// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+// Option A: recreateOnUpdate = false (by default)
 //
 // ```sh
+// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
 // $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
 // ```
 //
-// Option B: recreate_on_update = true
-//
-// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
-//
-// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
-//
-// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+// Option B: recreateOnUpdate = true
 //
 // ```sh
+// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
 // $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
 // ```
 //
@@ -257,9 +259,10 @@ type Schema struct {
 	// (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
 	SchemaIdentifier pulumi.IntOutput `pulumi:"schemaIdentifier"`
 	// The list of references to other Schemas.
-	SchemaReferences         SchemaSchemaReferenceArrayOutput     `pulumi:"schemaReferences"`
-	SchemaRegistryCluster    SchemaSchemaRegistryClusterPtrOutput `pulumi:"schemaRegistryCluster"`
-	SkipValidationDuringPlan pulumi.BoolPtrOutput                 `pulumi:"skipValidationDuringPlan"`
+	SchemaReferences      SchemaSchemaReferenceArrayOutput     `pulumi:"schemaReferences"`
+	SchemaRegistryCluster SchemaSchemaRegistryClusterPtrOutput `pulumi:"schemaRegistryCluster"`
+	// Controls whether a schema validation should be skipped during terraform plan.
+	SkipValidationDuringPlan pulumi.BoolPtrOutput `pulumi:"skipValidationDuringPlan"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName pulumi.StringOutput `pulumi:"subjectName"`
 	// (Required Integer) The version of the Schema, for example, `4`.
@@ -328,9 +331,10 @@ type schemaState struct {
 	// (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
 	SchemaIdentifier *int `pulumi:"schemaIdentifier"`
 	// The list of references to other Schemas.
-	SchemaReferences         []SchemaSchemaReference      `pulumi:"schemaReferences"`
-	SchemaRegistryCluster    *SchemaSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
-	SkipValidationDuringPlan *bool                        `pulumi:"skipValidationDuringPlan"`
+	SchemaReferences      []SchemaSchemaReference      `pulumi:"schemaReferences"`
+	SchemaRegistryCluster *SchemaSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
+	// Controls whether a schema validation should be skipped during terraform plan.
+	SkipValidationDuringPlan *bool `pulumi:"skipValidationDuringPlan"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName *string `pulumi:"subjectName"`
 	// (Required Integer) The version of the Schema, for example, `4`.
@@ -357,8 +361,9 @@ type SchemaState struct {
 	// (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
 	SchemaIdentifier pulumi.IntPtrInput
 	// The list of references to other Schemas.
-	SchemaReferences         SchemaSchemaReferenceArrayInput
-	SchemaRegistryCluster    SchemaSchemaRegistryClusterPtrInput
+	SchemaReferences      SchemaSchemaReferenceArrayInput
+	SchemaRegistryCluster SchemaSchemaRegistryClusterPtrInput
+	// Controls whether a schema validation should be skipped during terraform plan.
 	SkipValidationDuringPlan pulumi.BoolPtrInput
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName pulumi.StringPtrInput
@@ -388,9 +393,10 @@ type schemaArgs struct {
 	// The definition of the Schema.
 	Schema *string `pulumi:"schema"`
 	// The list of references to other Schemas.
-	SchemaReferences         []SchemaSchemaReference      `pulumi:"schemaReferences"`
-	SchemaRegistryCluster    *SchemaSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
-	SkipValidationDuringPlan *bool                        `pulumi:"skipValidationDuringPlan"`
+	SchemaReferences      []SchemaSchemaReference      `pulumi:"schemaReferences"`
+	SchemaRegistryCluster *SchemaSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
+	// Controls whether a schema validation should be skipped during terraform plan.
+	SkipValidationDuringPlan *bool `pulumi:"skipValidationDuringPlan"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName string `pulumi:"subjectName"`
 }
@@ -414,8 +420,9 @@ type SchemaArgs struct {
 	// The definition of the Schema.
 	Schema pulumi.StringPtrInput
 	// The list of references to other Schemas.
-	SchemaReferences         SchemaSchemaReferenceArrayInput
-	SchemaRegistryCluster    SchemaSchemaRegistryClusterPtrInput
+	SchemaReferences      SchemaSchemaReferenceArrayInput
+	SchemaRegistryCluster SchemaSchemaRegistryClusterPtrInput
+	// Controls whether a schema validation should be skipped during terraform plan.
 	SkipValidationDuringPlan pulumi.BoolPtrInput
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName pulumi.StringInput
@@ -562,6 +569,7 @@ func (o SchemaOutput) SchemaRegistryCluster() SchemaSchemaRegistryClusterPtrOutp
 	return o.ApplyT(func(v *Schema) SchemaSchemaRegistryClusterPtrOutput { return v.SchemaRegistryCluster }).(SchemaSchemaRegistryClusterPtrOutput)
 }
 
+// Controls whether a schema validation should be skipped during terraform plan.
 func (o SchemaOutput) SkipValidationDuringPlan() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Schema) pulumi.BoolPtrOutput { return v.SkipValidationDuringPlan }).(pulumi.BoolPtrOutput)
 }

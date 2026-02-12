@@ -40,13 +40,13 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
+    /// &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing an Invitation.
+    /// 
     /// You can import an Invitation by using Invitation ID, for example:
     /// 
-    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
-    /// 
-    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
-    /// 
     /// ```sh
+    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1
     /// ```
     /// 
@@ -61,6 +61,9 @@ namespace Pulumi.ConfluentCloud
         [Output("acceptedAt")]
         public Output<string> AcceptedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `False`. See issue #263 for more context.
+        /// </summary>
         [Output("allowDeletion")]
         public Output<bool?> AllowDeletion { get; private set; } = null!;
 
@@ -146,6 +149,9 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class InvitationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `False`. See issue #263 for more context.
+        /// </summary>
         [Input("allowDeletion")]
         public Input<bool>? AllowDeletion { get; set; }
 
@@ -175,6 +181,9 @@ namespace Pulumi.ConfluentCloud
         [Input("acceptedAt")]
         public Input<string>? AcceptedAt { get; set; }
 
+        /// <summary>
+        /// Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `False`. See issue #263 for more context.
+        /// </summary>
         [Input("allowDeletion")]
         public Input<bool>? AllowDeletion { get; set; }
 

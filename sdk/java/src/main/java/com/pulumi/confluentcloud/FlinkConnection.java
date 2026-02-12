@@ -21,39 +21,174 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.FlinkConnection` provides a Flink Connection resource that enables creating, editing, and deleting Flink Connection on Confluent Cloud.
+ * 
+ * &gt; **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental Flink Connection deletion. This setting rejects plans that would destroy or recreate the Flink Connection, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+ * 
+ * ## Example Usage
+ * 
+ * ### Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.FlinkConnection;
+ * import com.pulumi.confluentcloud.FlinkConnectionArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkConnectionOrganizationArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkConnectionEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkConnectionComputePoolArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkConnectionPrincipalArgs;
+ * import com.pulumi.confluentcloud.inputs.FlinkConnectionCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var connection1 = new FlinkConnection("connection1", FlinkConnectionArgs.builder()
+ *             .organization(FlinkConnectionOrganizationArgs.builder()
+ *                 .id(main.id())
+ *                 .build())
+ *             .environment(FlinkConnectionEnvironmentArgs.builder()
+ *                 .id(staging.id())
+ *                 .build())
+ *             .computePool(FlinkConnectionComputePoolArgs.builder()
+ *                 .id(example.id())
+ *                 .build())
+ *             .principal(FlinkConnectionPrincipalArgs.builder()
+ *                 .id(app_manager_flink.id())
+ *                 .build())
+ *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+ *             .credentials(FlinkConnectionCredentialsArgs.builder()
+ *                 .key(env_admin_flink_api_key.id())
+ *                 .secret(env_admin_flink_api_key.secret())
+ *                 .build())
+ *             .displayName("connection1")
+ *             .type("OPENAI")
+ *             .endpoint("https://api.openai.com/v1/chat/completions")
+ *             .apiKey("API_Key_value")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.FlinkConnection;
+ * import com.pulumi.confluentcloud.FlinkConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new FlinkConnection("example", FlinkConnectionArgs.builder()
+ *             .displayName("connection1")
+ *             .type("OPENAI")
+ *             .endpoint("https://api.openai.com/v1/chat/completions")
+ *             .apiKey("API_Key_value")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * The following arguments are supported:
+ * 
+ * - `organization` (Optional Configuration Block) supports the following:
+ *     - `id` - (Required String) The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+ * - `environment` (Optional Configuration Block) supports the following:
+ *     - `id` - (Required String) The ID of the Environment, for example, `env-abc123`.
+ * - `computePool` - (Optional Configuration Block) supports the following:
+ *     - `id` - (Required String) The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+ * - `principal` - (Optional Configuration Block) supports the following:
+ *     - `id` - (Required String) The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
+ * - `restEndpoint` - (Optional String) The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.
+ * - `credentials` (Optional Configuration Block) supports the following:
+ *     - `key` - (Required String) The Flink API Key.
+ *     - `secret` - (Required String, Sensitive) The Flink API Secret.
+ * 
+ * &gt; **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+ * 
+ * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target=&#34;confluent_flink_connection.example&#34;`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_flink_connection.example&#34; -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+ * 
+ * - `displayName` - (Required String) The name of the Flink Connection.
+ * - `type` - (Required String) The type of the Flink Connection. The accepted values are: `OPENAI`, `AZUREML`, `AZUREOPENAI`, `BEDROCK`, `SAGEMAKER`, `GOOGLEAI`, `VERTEXAI`, `MONGODB`, `PINECONE`, `ELASTIC` and `COUCHBASE`.
+ * - `endpoint` - (Required String) The endpoint of the Flink Connection, for example, `https://api.openai.com/v1/chat/completions`
+ * - `apiKey` - (Optional String) The api key for the connection type. This is valid and required for types `OPENAI`, `AZUREML`, `AZUREOPENAI`, `GOOGLEAI`, `ELASTIC` and `PINECONE`.
+ * - `awsAccessKey` - (Optional String) The AWS access key for the connection type. This is valid and required for types `BEDROCK` and `SAGEMAKER`.
+ * - `awsSecretKey` - (Optional String) The AWS secret key for the connection type. This is valid and required for types `BEDROCK` and `SAGEMAKER`.
+ * - `awsSessionToken` - (Optional String) The AWS session key for the connection type. This is valid and required for types `BEDROCK` and `SAGEMAKER`.
+ * - `serviceKey` - (Optional String) The service key for the connection type. This is valid and required for type `VERTEXAI`.
+ * - `username` - (Optional String) The username for the connection type. This is valid and required for types `MONGODB` and `COUCHBASE`.
+ * - `password` - (Optional String) The password  for the connection type. This is valid and required for types `MONGODB` and `COUCHBASE`.
+ * 
+ * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.FlinkConnection` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+ * 
+ * # Attributes Reference
+ * 
+ * In addition to the preceding arguments, the following attributes are exported:
+ * 
+ * - `id` - (Required String) The ID of the Flink connection, in the format `&lt;Organization ID&gt;/&lt;Environment ID&gt;/&lt;Flink Connection name&gt;`, for example, `org-xyz123/env-abc123/connection1`.
+ * - `apiVersion` - (Required String) The API Version of the schema version of the Flink Connection, for example, `sql/v1`.
+ * - `kind` - (Required String) The kind of the Flink Connection, for example, `Connection`.
+ * 
  * ## Import
  * 
  * You can import a Flink connection by using the Flink Connection name, for example:
  * 
  * Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
  * 
- * $ export IMPORT_CONFLUENT_ORGANIZATION_ID=&#34;&lt;organization_id&gt;&#34;
- * 
- * $ export IMPORT_CONFLUENT_ENVIRONMENT_ID=&#34;&lt;environment_id&gt;&#34;
- * 
- * $ export IMPORT_FLINK_COMPUTE_POOL_ID=&#34;&lt;flink_compute_pool_id&gt;&#34;
- * 
- * $ export IMPORT_FLINK_API_KEY=&#34;&lt;flink_api_key&gt;&#34;
- * 
- * $ export IMPORT_FLINK_API_SECRET=&#34;&lt;flink_api_secret&gt;&#34;
- * 
- * $ export IMPORT_FLINK_REST_ENDPOINT=&#34;&lt;flink_rest_endpoint&gt;&#34;
- * 
- * $ export IMPORT_FLINK_PRINCIPAL_ID=&#34;&lt;flink_principal&gt;&#34;
- * 
- * $ export API_KEY=&#34;&lt;API_KEY&gt;&#34;
- * 
  * ```sh
+ * $ export IMPORT_CONFLUENT_ORGANIZATION_ID=&#34;&lt;organization_id&gt;&#34;
+ * $ export IMPORT_CONFLUENT_ENVIRONMENT_ID=&#34;&lt;environment_id&gt;&#34;
+ * $ export IMPORT_FLINK_COMPUTE_POOL_ID=&#34;&lt;flink_compute_pool_id&gt;&#34;
+ * $ export IMPORT_FLINK_API_KEY=&#34;&lt;flink_api_key&gt;&#34;
+ * $ export IMPORT_FLINK_API_SECRET=&#34;&lt;flink_api_secret&gt;&#34;
+ * $ export IMPORT_FLINK_REST_ENDPOINT=&#34;&lt;flink_rest_endpoint&gt;&#34;
+ * $ export IMPORT_FLINK_PRINCIPAL_ID=&#34;&lt;flink_principal&gt;&#34;
+ * $ export API_KEY=&#34;&lt;API_KEY&gt;&#34;
  * $ pulumi import confluentcloud:index/flinkConnection:FlinkConnection example org-xyz123/env-abc123/connection1
  * ```
  * 
  * Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
  * 
- * $ export API_KEY=&#34;&lt;API_KEY&gt;&#34;
- * 
  * ```sh
+ * $ export API_KEY=&#34;&lt;API_KEY&gt;&#34;
  * $ pulumi import confluentcloud:index/flinkConnection:FlinkConnection example org-xyz123/env-abc123/connection1
  * ```
+ * 
+ * &gt; **Note:** The example above is for `type = OPENAI`, so we exported `API_KEY`. Export the required field for each type as mentioned above. The fields that can be exported are: `API_KEY`, `AWS_SECRET_ACCESS_KEY_CONNECTION`, `AWS_ACCESS_KEY_ID_CONNECTION`, `AWS_SESSION_TOKEN_CONNECTION`, `SERVICE_KEY`, `USERNAME`, `PASSWORD`.
  * 
  * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 

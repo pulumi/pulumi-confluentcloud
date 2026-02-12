@@ -115,8 +115,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -145,27 +143,22 @@ import (
 //
 // ## Import
 //
-// You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for example:
+// You can import Kafka ACLs by using the Kafka cluster ID and attributes of `KafkaAcl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for example:
 //
 // Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
 //
-// $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
-//
-// $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
-//
-// $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
-//
 // ```sh
+// $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
+// $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
+// $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 // $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
 // ```
 //
 // Option #2: Manage a single Kafka cluster in the same Pulumi Stack
 //
-// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-//
-// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-//
 // ```sh
+// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 // $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
 // ```
 //
@@ -175,7 +168,15 @@ type KafkaAcl struct {
 
 	// The Cluster API Credentials.
 	Credentials KafkaAclCredentialsPtrOutput `pulumi:"credentials"`
-	// The host for the ACL.
+	// The host for the ACL. Should be set to `*` for Confluent Cloud.
+	//
+	// > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+	//
+	// > **Note:** You must set the `cloudApiKey` and `cloudApiSecret` provider arguments temporarily when you interact with the `KafkaAcl` resource, because of some implementation details, otherwise you will see `Error: 401 Unauthorized` error.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_acl.describe-basic-cluster"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_acl.describe-basic-cluster" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+	//
+	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Host         pulumi.StringOutput           `pulumi:"host"`
 	KafkaCluster KafkaAclKafkaClusterPtrOutput `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
@@ -254,7 +255,15 @@ func GetKafkaAcl(ctx *pulumi.Context,
 type kafkaAclState struct {
 	// The Cluster API Credentials.
 	Credentials *KafkaAclCredentials `pulumi:"credentials"`
-	// The host for the ACL.
+	// The host for the ACL. Should be set to `*` for Confluent Cloud.
+	//
+	// > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+	//
+	// > **Note:** You must set the `cloudApiKey` and `cloudApiSecret` provider arguments temporarily when you interact with the `KafkaAcl` resource, because of some implementation details, otherwise you will see `Error: 401 Unauthorized` error.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_acl.describe-basic-cluster"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_acl.describe-basic-cluster" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+	//
+	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Host         *string               `pulumi:"host"`
 	KafkaCluster *KafkaAclKafkaCluster `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
@@ -276,7 +285,15 @@ type kafkaAclState struct {
 type KafkaAclState struct {
 	// The Cluster API Credentials.
 	Credentials KafkaAclCredentialsPtrInput
-	// The host for the ACL.
+	// The host for the ACL. Should be set to `*` for Confluent Cloud.
+	//
+	// > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+	//
+	// > **Note:** You must set the `cloudApiKey` and `cloudApiSecret` provider arguments temporarily when you interact with the `KafkaAcl` resource, because of some implementation details, otherwise you will see `Error: 401 Unauthorized` error.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_acl.describe-basic-cluster"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_acl.describe-basic-cluster" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+	//
+	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Host         pulumi.StringPtrInput
 	KafkaCluster KafkaAclKafkaClusterPtrInput
 	// The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
@@ -302,7 +319,15 @@ func (KafkaAclState) ElementType() reflect.Type {
 type kafkaAclArgs struct {
 	// The Cluster API Credentials.
 	Credentials *KafkaAclCredentials `pulumi:"credentials"`
-	// The host for the ACL.
+	// The host for the ACL. Should be set to `*` for Confluent Cloud.
+	//
+	// > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+	//
+	// > **Note:** You must set the `cloudApiKey` and `cloudApiSecret` provider arguments temporarily when you interact with the `KafkaAcl` resource, because of some implementation details, otherwise you will see `Error: 401 Unauthorized` error.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_acl.describe-basic-cluster"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_acl.describe-basic-cluster" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+	//
+	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Host         string                `pulumi:"host"`
 	KafkaCluster *KafkaAclKafkaCluster `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
@@ -325,7 +350,15 @@ type kafkaAclArgs struct {
 type KafkaAclArgs struct {
 	// The Cluster API Credentials.
 	Credentials KafkaAclCredentialsPtrInput
-	// The host for the ACL.
+	// The host for the ACL. Should be set to `*` for Confluent Cloud.
+	//
+	// > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+	//
+	// > **Note:** You must set the `cloudApiKey` and `cloudApiSecret` provider arguments temporarily when you interact with the `KafkaAcl` resource, because of some implementation details, otherwise you will see `Error: 401 Unauthorized` error.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_acl.describe-basic-cluster"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_acl.describe-basic-cluster" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+	//
+	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Host         pulumi.StringInput
 	KafkaCluster KafkaAclKafkaClusterPtrInput
 	// The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
@@ -436,7 +469,15 @@ func (o KafkaAclOutput) Credentials() KafkaAclCredentialsPtrOutput {
 	return o.ApplyT(func(v *KafkaAcl) KafkaAclCredentialsPtrOutput { return v.Credentials }).(KafkaAclCredentialsPtrOutput)
 }
 
-// The host for the ACL.
+// The host for the ACL. Should be set to `*` for Confluent Cloud.
+//
+// > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+//
+// > **Note:** You must set the `cloudApiKey` and `cloudApiSecret` provider arguments temporarily when you interact with the `KafkaAcl` resource, because of some implementation details, otherwise you will see `Error: 401 Unauthorized` error.
+//
+// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_acl.describe-basic-cluster"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_acl.describe-basic-cluster" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+//
+// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaAcl` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o KafkaAclOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.Host }).(pulumi.StringOutput)
 }

@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    /// 
+    /// `confluentcloud.TfImporter` resource provides an Importer resource that enables exporting of your existing Confluent Cloud resources to Terraform Configuration (`main.tf`) and Terraform State (`terraform.tfstate`) files to a local directory called `ImportedConfluentInfrastructure`.
+    /// 
+    /// See Resource Importer for Confluent Terraform Provider for step-by-step instructions on how to use the `confluentcloud.TfImporter` resource.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

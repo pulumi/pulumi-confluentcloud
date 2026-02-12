@@ -90,13 +90,10 @@ import (
 //
 // Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
 //
-// $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
-//
-// $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
-//
-// $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
-//
 // ```sh
+// $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
+// $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
+// $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 // $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
 // ```
 //

@@ -16,7 +16,11 @@ public final class GetCatalogIntegrationCredentials {
      */
     private String key;
     /**
-     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * @return The Tableflow API Secret.
+     * 
+     * &gt; **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
+     * 
+     * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     private String secret;
@@ -30,7 +34,11 @@ public final class GetCatalogIntegrationCredentials {
         return this.key;
     }
     /**
-     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * @return The Tableflow API Secret.
+     * 
+     * &gt; **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
+     * 
+     * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     public String secret() {

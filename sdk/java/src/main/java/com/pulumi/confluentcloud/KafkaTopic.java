@@ -20,6 +20,12 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.KafkaTopic` provides a Kafka Topic resource that enables creating and deleting Kafka Topics on a Kafka cluster on Confluent Cloud.
+ * 
+ * &gt; **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental topic deletion. This setting rejects plans that would destroy or recreate the topic, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+ * 
  * ## Example Usage
  * 
  * ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
@@ -129,13 +135,10 @@ import javax.annotation.Nullable;
  * 
  * Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
  * 
- * $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34;
- * 
- * $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34;
- * 
- * $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
- * 
  * ```sh
+ * $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34;
+ * $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34;
+ * $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
  * $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
  * ```
  * 
@@ -145,63 +148,38 @@ import javax.annotation.Nullable;
  * $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
  * ```
  * 
+ * &gt; **Note:** When importing a Kafka topic that was created by using the Confluent Cloud Console, you must list all the default topic settings under the `config` block. Your Terraform configuration will look like this:
+ * ```sh
  * resource &#34;confluent_kafka_topic&#34; &#34;orders&#34; {
- * 
  *   kafka_cluster {
- * 
  *     id = confluent_kafka_cluster.basic-cluster.id
- * 
  *   }
- * 
  *   topic_name         = &#34;orders&#34;
- * 
  *   partitions_count   = 4
- * 
  *   rest_endpoint      = confluent_kafka_cluster.basic-cluster.rest_endpoint
- * 
- * # https://docs.confluent.io/cloud/current/client-apps/topics/manage.html#ak-topic-configurations-for-all-ccloud-cluster-types
- * 
+ *   # https://docs.confluent.io/cloud/current/client-apps/topics/manage.html#ak-topic-configurations-for-all-ccloud-cluster-types
  *   config = {
- * 
  *     &#34;cleanup.policy&#34;                      = &#34;delete&#34;
- *     
  *     &#34;delete.retention.ms&#34;                 = &#34;86400000&#34;
- *     
  *     &#34;max.compaction.lag.ms&#34;               = &#34;9223372036854775807&#34;
- *     
  *     &#34;max.message.bytes&#34;                   = &#34;2097164&#34;
- *     
  *     &#34;message.timestamp.after.max.ms&#34;      = &#34;9223372036854775807&#34;
- *     
  *     &#34;message.timestamp.before.max.ms&#34;     = &#34;9223372036854775807&#34;      
- *     
  *     &#34;message.timestamp.difference.max.ms&#34; = &#34;9223372036854775807&#34;
- *     
  *     &#34;message.timestamp.type&#34;              = &#34;CreateTime&#34;
- *     
  *     &#34;min.compaction.lag.ms&#34;               = &#34;0&#34;
- *     
  *     &#34;min.insync.replicas&#34;                 = &#34;2&#34;
- *     
  *     &#34;retention.bytes&#34;                     = &#34;-1&#34;
- *     
  *     &#34;retention.ms&#34;                        = &#34;604800000&#34;
- *     
  *     &#34;segment.bytes&#34;                       = &#34;104857600&#34;
- *     
  *     &#34;segment.ms&#34;                          = &#34;604800000&#34;
- * 
  *   }
- * 
  *   credentials {
- * 
  *     key    = confluent_api_key.app-manager-kafka-api-key.id
- *     
  *     secret = confluent_api_key.app-manager-kafka-api-key.secret
- * 
  *   }
- * 
  * }
+ * ```
  * 
  * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 

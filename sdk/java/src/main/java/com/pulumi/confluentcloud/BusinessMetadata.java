@@ -130,13 +130,10 @@ import javax.annotation.Nullable;
  * 
  * You can import a Business Metadata by using the Schema Registry cluster ID, Business Metadata name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Business Metadata name&gt;`, for example:
  * 
- * $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
- * 
- * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
- * 
- * $ export IMPORT_CATALOG_REST_ENDPOINT=&#34;&lt;catalog_rest_endpoint&gt;&#34;
- * 
  * ```sh
+ * $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
+ * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
+ * $ export IMPORT_CATALOG_REST_ENDPOINT=&#34;&lt;catalog_rest_endpoint&gt;&#34;
  * $ pulumi import confluentcloud:index/businessMetadata:BusinessMetadata pii lsrc-8wrx70/PII
  * ```
  * 

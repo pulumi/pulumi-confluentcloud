@@ -17,6 +17,12 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.KafkaMirrorTopic` provides a Kafka Mirror Topic resource that enables creating and deleting Kafka Mirror Topics on a Kafka cluster on Confluent Cloud.
+ * 
+ * &gt; **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental mirror topic deletion. This setting rejects plans that would destroy or recreate the mirror topic. Read more about it in the Terraform docs.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -77,15 +83,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * &gt; **Note:** `IMPORT_KAFKA_API_KEY` (`kafka_cluster.credentials.key`), `IMPORT_KAFKA_API_SECRET` (`kafka_cluster.credentials.secret`), and `IMPORT_KAFKA_REST_ENDPOINT` (`kafka_cluster.rest_endpoint`) environment variables must be set before importing a Kafka mirror topic.
+ * 
  * You can import a Kafka mirror topic by using the Kafka cluster ID, cluster link name, and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Cluster link name&gt;/&lt;Kafka topic name&gt;`, for example:
  * 
- * $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34;
- * 
- * $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34;
- * 
- * $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
- * 
  * ```sh
+ * $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34;
+ * $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34;
+ * $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
  * $ pulumi import confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic my_mirror_topic lkc-abc123/my-cluster-link/orders-123
  * ```
  * 
@@ -126,9 +131,41 @@ public class KafkaMirrorTopic extends com.pulumi.resources.CustomResource {
     public Output<KafkaMirrorTopicSourceKafkaTopic> sourceKafkaTopic() {
         return this.sourceKafkaTopic;
     }
+    /**
+     * The status of the mirror topic. The supported values are `&#34;ACTIVE&#34;`, `&#34;PAUSED&#34;`, `&#34;PROMOTED&#34;`, `&#34;FAILED_OVER&#34;`. Pausing (`&#34;ACTIVE&#34; &gt; &#34;PAUSED&#34;`), resuming (`&#34;PAUSED&#34; &gt; &#34;ACTIVE&#34;`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `&#34;ACTIVE&#34;`.
+     * 
+     * &gt; **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+     * 
+     * &gt; **Note:** To rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target=&#34;confluent_kafka_mirror_topic.example&#34;`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_kafka_mirror_topic.example&#34; -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+     * 
+     * &gt; **Note:** Setting or updating mirror topic settings is currently not supported.
+     * 
+     * &gt; **Note:** For more information on the topic settings, see [Cluster Linking configurations](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/mirror-topics-cc.html#configurations).
+     * 
+     * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaMirrorTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     * 
+     * !&gt; **Warning:** When promoting or failing over a mirror topic, don&#39;t destroy a mirror topic. Instead, import a Kafka topic, and then save have both resource definitions in Terraform configuration or run `terraform state rm confluent_kafka_mirror_topic.example` command to delete a mirror topic from Terraform state.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return The status of the mirror topic. The supported values are `&#34;ACTIVE&#34;`, `&#34;PAUSED&#34;`, `&#34;PROMOTED&#34;`, `&#34;FAILED_OVER&#34;`. Pausing (`&#34;ACTIVE&#34; &gt; &#34;PAUSED&#34;`), resuming (`&#34;PAUSED&#34; &gt; &#34;ACTIVE&#34;`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `&#34;ACTIVE&#34;`.
+     * 
+     * &gt; **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+     * 
+     * &gt; **Note:** To rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target=&#34;confluent_kafka_mirror_topic.example&#34;`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_kafka_mirror_topic.example&#34; -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+     * 
+     * &gt; **Note:** Setting or updating mirror topic settings is currently not supported.
+     * 
+     * &gt; **Note:** For more information on the topic settings, see [Cluster Linking configurations](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/mirror-topics-cc.html#configurations).
+     * 
+     * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaMirrorTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     * 
+     * !&gt; **Warning:** When promoting or failing over a mirror topic, don&#39;t destroy a mirror topic. Instead, import a Kafka topic, and then save have both resource definitions in Terraform configuration or run `terraform state rm confluent_kafka_mirror_topic.example` command to delete a mirror topic from Terraform state.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

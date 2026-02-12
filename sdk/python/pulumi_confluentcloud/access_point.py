@@ -375,13 +375,13 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Access Point.
+
         You can import a Access Point by using Environment ID and Access Point ID, in the format `<Environment ID>/<Access Point ID>`. The following example shows how to import a Access Point:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/accessPoint:AccessPoint main env-abc123/ap-abc123
         ```
 
@@ -483,13 +483,13 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Access Point.
+
         You can import a Access Point by using Environment ID and Access Point ID, in the format `<Environment ID>/<Access Point ID>`. The following example shows how to import a Access Point:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/accessPoint:AccessPoint main env-abc123/ap-abc123
         ```
 

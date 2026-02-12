@@ -18,15 +18,295 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.ProviderIntegrationAuthorization` configures and validates a Cloud Service Provider (CSP) integration created by `confluentcloud.ProviderIntegrationSetup`. This resource transitions the integration from DRAFT to CREATED status and validates the cloud provider setup.
+ * 
+ * &gt; **Note:** This resource will show persistent warnings until the cloud provider setup is complete. For Azure, you must grant admin consent and create a service principal. For GCP, you must configure IAM permissions.
+ * 
+ * ## Example Usage
+ * 
+ * ### Azure Provider Integration Authorization
+ * 
+ * You have two options to complete the Azure setup after creating the authorization resource:
+ * 
+ * ### Option 1: Using Azure Terraform Provider (Recommended for Infrastructure as Code)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ProviderIntegrationSetup;
+ * import com.pulumi.confluentcloud.ProviderIntegrationSetupArgs;
+ * import com.pulumi.confluentcloud.inputs.ProviderIntegrationSetupEnvironmentArgs;
+ * import com.pulumi.confluentcloud.ProviderIntegrationAuthorization;
+ * import com.pulumi.confluentcloud.ProviderIntegrationAuthorizationArgs;
+ * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationAzureArgs;
+ * import com.pulumi.azuread.ServicePrincipal;
+ * import com.pulumi.azuread.ServicePrincipalArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var azure = new ProviderIntegrationSetup("azure", ProviderIntegrationSetupArgs.builder()
+ *             .environment(ProviderIntegrationSetupEnvironmentArgs.builder()
+ *                 .id(environmentId)
+ *                 .build())
+ *             .displayName("azure-integration")
+ *             .cloud("AZURE")
+ *             .build());
+ * 
+ *         var azureProviderIntegrationAuthorization = new ProviderIntegrationAuthorization("azureProviderIntegrationAuthorization", ProviderIntegrationAuthorizationArgs.builder()
+ *             .providerIntegrationId(azure.id())
+ *             .environment(ProviderIntegrationAuthorizationEnvironmentArgs.builder()
+ *                 .id(environmentId)
+ *                 .build())
+ *             .azure(ProviderIntegrationAuthorizationAzureArgs.builder()
+ *                 .customerAzureTenantId(azureTenantId)
+ *                 .build())
+ *             .build());
+ * 
+ *         // Automatically create the service principal using Azure Terraform Provider
+ *         var confluent = new ServicePrincipal("confluent", ServicePrincipalArgs.builder()
+ *             .clientId(azureProviderIntegrationAuthorization.azure().confluentMultiTenantAppId())
+ *             .build());
+ * 
+ *         ctx.export("azureAppId", azureProviderIntegrationAuthorization.azure().applyValue(_azure -> _azure.confluentMultiTenantAppId()));
+ *         ctx.export("servicePrincipalObjectId", confluent.objectId());
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Option 2: Using Azure CLI Commands
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ProviderIntegrationSetup;
+ * import com.pulumi.confluentcloud.ProviderIntegrationSetupArgs;
+ * import com.pulumi.confluentcloud.inputs.ProviderIntegrationSetupEnvironmentArgs;
+ * import com.pulumi.confluentcloud.ProviderIntegrationAuthorization;
+ * import com.pulumi.confluentcloud.ProviderIntegrationAuthorizationArgs;
+ * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationAzureArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var azure = new ProviderIntegrationSetup("azure", ProviderIntegrationSetupArgs.builder()
+ *             .environment(ProviderIntegrationSetupEnvironmentArgs.builder()
+ *                 .id(environmentId)
+ *                 .build())
+ *             .displayName("azure-integration")
+ *             .cloud("AZURE")
+ *             .build());
+ * 
+ *         var azureProviderIntegrationAuthorization = new ProviderIntegrationAuthorization("azureProviderIntegrationAuthorization", ProviderIntegrationAuthorizationArgs.builder()
+ *             .providerIntegrationId(azure.id())
+ *             .environment(ProviderIntegrationAuthorizationEnvironmentArgs.builder()
+ *                 .id(environmentId)
+ *                 .build())
+ *             .azure(ProviderIntegrationAuthorizationAzureArgs.builder()
+ *                 .customerAzureTenantId(azureTenantId)
+ *                 .build())
+ *             .build());
+ * 
+ *         ctx.export("azureSetupCommand", azureProviderIntegrationAuthorization.azure().applyValue(_azure -> String.format("az ad sp create --id %s", _azure.confluentMultiTenantAppId())));
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### GCP Provider Integration Authorization
+ * 
+ * You have two options to complete the GCP setup after creating the authorization resource:
+ * 
+ * ### Option 1: Using Google Terraform Provider (Recommended for Infrastructure as Code)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ProviderIntegrationSetup;
+ * import com.pulumi.confluentcloud.ProviderIntegrationSetupArgs;
+ * import com.pulumi.confluentcloud.inputs.ProviderIntegrationSetupEnvironmentArgs;
+ * import com.pulumi.confluentcloud.ProviderIntegrationAuthorization;
+ * import com.pulumi.confluentcloud.ProviderIntegrationAuthorizationArgs;
+ * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationGcpArgs;
+ * import com.pulumi.google.ProjectIamMember;
+ * import com.pulumi.google.ProjectIamMemberArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var gcp = new ProviderIntegrationSetup("gcp", ProviderIntegrationSetupArgs.builder()
+ *             .environment(ProviderIntegrationSetupEnvironmentArgs.builder()
+ *                 .id(environmentId)
+ *                 .build())
+ *             .displayName("gcp-integration")
+ *             .cloud("GCP")
+ *             .build());
+ * 
+ *         var gcpProviderIntegrationAuthorization = new ProviderIntegrationAuthorization("gcpProviderIntegrationAuthorization", ProviderIntegrationAuthorizationArgs.builder()
+ *             .providerIntegrationId(gcp.id())
+ *             .environment(ProviderIntegrationAuthorizationEnvironmentArgs.builder()
+ *                 .id(environmentId)
+ *                 .build())
+ *             .gcp(ProviderIntegrationAuthorizationGcpArgs.builder()
+ *                 .customerGoogleServiceAccount(gcpServiceAccount)
+ *                 .build())
+ *             .build());
+ * 
+ *         // Grant IAM permissions using Google Terraform Provider
+ *         var confluentTokenCreator = new ProjectIamMember("confluentTokenCreator", ProjectIamMemberArgs.builder()
+ *             .project(gcpProjectId)
+ *             .role("roles/iam.serviceAccountTokenCreator")
+ *             .member(String.format("serviceAccount:%s", gcpProviderIntegrationAuthorization.gcp().googleServiceAccount()))
+ *             .condition(List.of(Map.ofEntries(
+ *                 Map.entry("title", "Confluent Cloud Access"),
+ *                 Map.entry("description", "Allow Confluent Cloud to impersonate the customer service account"),
+ *                 Map.entry("expression", String.format("request.auth.claims.sub == '%s'", gcpProviderIntegrationAuthorization.gcp().googleServiceAccount()))
+ *             )))
+ *             .build());
+ * 
+ *         ctx.export("confluentServiceAccount", gcpProviderIntegrationAuthorization.gcp().applyValue(_gcp -> _gcp.googleServiceAccount()));
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Option 2: Using gcloud CLI Commands
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ProviderIntegrationSetup;
+ * import com.pulumi.confluentcloud.ProviderIntegrationSetupArgs;
+ * import com.pulumi.confluentcloud.inputs.ProviderIntegrationSetupEnvironmentArgs;
+ * import com.pulumi.confluentcloud.ProviderIntegrationAuthorization;
+ * import com.pulumi.confluentcloud.ProviderIntegrationAuthorizationArgs;
+ * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationGcpArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var gcp = new ProviderIntegrationSetup("gcp", ProviderIntegrationSetupArgs.builder()
+ *             .environment(ProviderIntegrationSetupEnvironmentArgs.builder()
+ *                 .id(environmentId)
+ *                 .build())
+ *             .displayName("gcp-integration")
+ *             .cloud("GCP")
+ *             .build());
+ * 
+ *         var gcpProviderIntegrationAuthorization = new ProviderIntegrationAuthorization("gcpProviderIntegrationAuthorization", ProviderIntegrationAuthorizationArgs.builder()
+ *             .providerIntegrationId(gcp.id())
+ *             .environment(ProviderIntegrationAuthorizationEnvironmentArgs.builder()
+ *                 .id(environmentId)
+ *                 .build())
+ *             .gcp(ProviderIntegrationAuthorizationGcpArgs.builder()
+ *                 .customerGoogleServiceAccount(gcpServiceAccount)
+ *                 .build())
+ *             .build());
+ * 
+ *         ctx.export("gcpIamCommand", Output.tuple(gcpProviderIntegrationAuthorization.gcp(), gcpProviderIntegrationAuthorization.gcp()).applyValue(values -> {
+ *             var gcpProviderIntegrationAuthorizationGcp = values.t1;
+ *             var gcpProviderIntegrationAuthorizationGcp1 = values.t2;
+ *             return String.format("gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:%s\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='%s'\"", gcpProviderIntegrationAuthorizationGcp.googleServiceAccount(),gcpProviderIntegrationAuthorizationGcp1.googleServiceAccount());
+ *         }));
+ *         ctx.export("confluentServiceAccount", gcpProviderIntegrationAuthorization.gcp().applyValue(_gcp -> _gcp.googleServiceAccount()));
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Azure Setup Process
+ * 
+ * After applying the Terraform configuration, complete the Azure setup:
+ * 
+ * 1. **Get the multi-tenant app ID** from the Terraform outputs
+ * 2. **Grant admin consent** (if you have Global Admin rights):
+ * 4. **Grant permissions** in Azure Portal → Enterprise Applications
+ * 5. **Re-run `pulumi up`** to validate the connection
+ * 
+ * ## GCP Setup Process
+ * 
+ * After applying the Terraform configuration, complete the GCP setup:
+ * 
+ * 1. **Get the Confluent service account** from the Terraform outputs
+ * 2. **Grant IAM permissions** in GCP Console:
+ *    - Grant the Confluent service account &#34;Service Account Token Creator&#34; role on your service account
+ *    - Grant your service account the necessary permissions (e.g., BigQuery Data Editor)
+ * 3. **Re-run `pulumi up`** to validate the connection
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationAuthorization` resource:
+ * * provider-integration-azure: Complete Azure Provider Integration setup
+ * * provider-integration-gcp: Complete GCP Provider Integration setup
+ * 
  * ## Import
+ * 
+ * &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Provider Integration Authorization.
  * 
  * You can import a Provider Integration Authorization by using Environment ID and Provider Integration ID, in the format `&lt;Environment ID&gt;/&lt;Provider Integration ID&gt;`. The following example shows how to import a Provider Integration Authorization:
  * 
- * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
- * 
- * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
- * 
  * ```sh
+ * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * $ pulumi import confluentcloud:index/providerIntegrationAuthorization:ProviderIntegrationAuthorization main env-abc123/cspi-4xg0q
  * ```
  * 

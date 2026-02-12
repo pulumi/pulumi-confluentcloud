@@ -75,13 +75,10 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Schema Registry Key by using the Schema Registry cluster ID, KEK name, Subject, Version and Algorithm in the format `&lt;Schema Registry Cluster Id&gt;/&lt;Schema Registry KEK Name&gt;/&lt;Subject&gt;/&lt;Version&gt;/&lt;Algorithm&gt;`, for example:
     /// 
-    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
-    /// 
-    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
-    /// 
-    /// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
-    /// 
     /// ```sh
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
     /// $ pulumi import confluentcloud:index/schemaRegistryDek:SchemaRegistryDek my_dek lsrc-8wrx70/testkek/ts/1/AES256_GCM
     /// ```
     /// 
@@ -109,7 +106,13 @@ namespace Pulumi.ConfluentCloud
         public Output<string> EncryptedKeyMaterial { get; private set; } = null!;
 
         /// <summary>
-        /// Controls whether a dek should be soft or hard deleted. Set it to `True` if you want to hard delete a schema registry dek on destroy. Defaults to `False` (soft delete).
+        /// An optional flag to control whether a DEK should be soft-deleted or hard-deleted. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+        /// 
+        /// &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `Credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_dek.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_dek.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+        /// 
+        /// !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.SchemaRegistryDek` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         /// </summary>
         [Output("hardDelete")]
         public Output<bool?> HardDelete { get; private set; } = null!;
@@ -226,7 +229,13 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? EncryptedKeyMaterial { get; set; }
 
         /// <summary>
-        /// Controls whether a dek should be soft or hard deleted. Set it to `True` if you want to hard delete a schema registry dek on destroy. Defaults to `False` (soft delete).
+        /// An optional flag to control whether a DEK should be soft-deleted or hard-deleted. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+        /// 
+        /// &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `Credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_dek.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_dek.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+        /// 
+        /// !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.SchemaRegistryDek` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
@@ -295,7 +304,13 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? EncryptedKeyMaterial { get; set; }
 
         /// <summary>
-        /// Controls whether a dek should be soft or hard deleted. Set it to `True` if you want to hard delete a schema registry dek on destroy. Defaults to `False` (soft delete).
+        /// An optional flag to control whether a DEK should be soft-deleted or hard-deleted. Defaults to `False`.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+        /// 
+        /// &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `Credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_dek.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_dek.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+        /// 
+        /// !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.SchemaRegistryDek` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         /// </summary>
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }

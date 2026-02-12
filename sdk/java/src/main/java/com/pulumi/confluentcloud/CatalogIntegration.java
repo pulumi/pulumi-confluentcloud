@@ -22,6 +22,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * &gt; **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental catalog integration deletion. This setting rejects plans that would destroy or recreate the catalog integration, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+ * 
  * ## Example Usage
  * 
  * ### Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
@@ -129,11 +133,9 @@ import javax.annotation.Nullable;
  * 
  * Option #1: Manage multiple Catalog Integrations in the same Pulumi Stack
  * 
- * $ export IMPORT_TABLEFLOW_API_KEY=&#34;&lt;tableflow_api_key&gt;&#34;
- * 
- * $ export IMPORT_TABLEFLOW_API_SECRET=&#34;&lt;tableflow_api_secret&gt;&#34;
- * 
  * ```sh
+ * $ export IMPORT_TABLEFLOW_API_KEY=&#34;&lt;tableflow_api_key&gt;&#34;
+ * $ export IMPORT_TABLEFLOW_API_SECRET=&#34;&lt;tableflow_api_secret&gt;&#34;
  * $ pulumi import confluentcloud:index/catalogIntegration:CatalogIntegration example env-abc123/lkc-abc123/tci-abc123
  * ```
  * 

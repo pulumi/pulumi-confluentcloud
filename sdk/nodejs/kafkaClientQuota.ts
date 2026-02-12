@@ -7,6 +7,14 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.KafkaClientQuota` provides a Kafka Client Quota resource that enables creating, editing, and deleting Kafka Client Quotas on Confluent Cloud.
+ *
+ * > **Note:** See [Control application usage with Client Quotas](https://docs.confluent.io/cloud/current/clusters/client-quotas.html#control-application-usage-with-client-quotas) for more details.
+ *
+ * > **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental Kafka Client Quotas deletion. This setting rejects plans that would destroy or recreate the Kafka Client Quota, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -35,13 +43,13 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Kafka Client Quota.
+ *
  * You can import a Kafka Client Quota by using Kafka Client Quota ID. The following example shows how to import a Kafka Client Quota ID:
  *
- * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
- *
- * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
- *
  * ```sh
+ * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+ * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
  * $ pulumi import confluentcloud:index/kafkaClientQuota:KafkaClientQuota example cq-abc123
  * ```
  *

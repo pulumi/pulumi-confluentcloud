@@ -74,13 +74,10 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Tag by using the Schema Registry cluster ID, Tag name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Tag name&gt;`, for example:
     /// 
-    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
-    /// 
-    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
-    /// 
-    /// $ export IMPORT_CATALOG_REST_ENDPOINT="&lt;catalog_rest_endpoint&gt;"
-    /// 
     /// ```sh
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
+    /// $ export IMPORT_CATALOG_REST_ENDPOINT="&lt;catalog_rest_endpoint&gt;"
     /// $ pulumi import confluentcloud:index/tag:Tag pii lsrc-8wrx70/PII
     /// ```
     /// 
@@ -96,7 +93,13 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.TagCredentials?> Credentials { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the tag to be created.
+        /// The description of the tag.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+        /// 
+        /// &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `Credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_tag.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tag.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+        /// 
+        /// !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.Tag` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -195,7 +198,13 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The description of the tag to be created.
+        /// The description of the tag.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+        /// 
+        /// &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `Credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_tag.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tag.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+        /// 
+        /// !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.Tag` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -240,7 +249,13 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The description of the tag to be created.
+        /// The description of the tag.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+        /// 
+        /// &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `Credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_tag.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tag.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+        /// 
+        /// !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.Tag` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

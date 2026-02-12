@@ -16,6 +16,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.CustomConnectorPlugin` provides a Custom Connector Plugin resource that enables creating, editing, and deleting Custom Connector Plugins on Confluent Cloud.
+ * 
+ * &gt; **Note:** See [Custom Connector Quick Start](https://docs.confluent.io/cloud/current/connectors/bring-your-connector/custom-connector-qs.html#custom-connector-quick-start) and [Custom Connector Plugin Examples](https://docs.confluent.io/cloud/current/connectors/connect-api-section.html#custom-connector-plugin-examples) for more details.
+ * 
+ * &gt; **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental Custom Connector Plugin deletion. This setting rejects plans that would destroy or recreate the Custom Connector Plugin, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -56,13 +64,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * &gt; **Note:** Set `filename = &#34;&#34;` or use `IMPORT_CUSTOM_CONNECTOR_PLUGIN_FILENAME` environment variables before importing a Custom Connector Plugin.
+ * 
+ * &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Custom Connector Plugin.
+ * 
  * You can import a Custom Connector Plugin by using a Custom Connector Plugin ID, in the format `&lt;Custom Connector Plugin&gt;`. The following example shows how to import a Custom Connector Plugin:
  * 
- * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
- * 
- * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
- * 
  * ```sh
+ * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
  * ```
  * 

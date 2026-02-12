@@ -214,6 +214,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
                  network: Optional[pulumi.Input[Union['PrivateLinkAccessNetworkArgs', 'PrivateLinkAccessNetworkArgsDict']]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `PrivateLinkAccess` provides a Private Link Access resource that enables creating and deleting access to PrivateLink endpoints by AWS account, Azure subscription, or GCP project ID.
+
+        > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental Private Link Access deletion. This setting rejects plans that would destroy or recreate the Private Link Access, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+
         ## Example Usage
 
         ### Example Private Link Access on AWS
@@ -322,13 +328,13 @@ class PrivateLinkAccess(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Private Link Access.
+
         You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `<Environment ID>/<Private Link Access ID>`. The following example shows how to import a Private Link Access:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/privateLinkAccess:PrivateLinkAccess my_pla env-abc123/pla-abc123
         ```
 
@@ -347,6 +353,12 @@ class PrivateLinkAccess(pulumi.CustomResource):
                  args: PrivateLinkAccessArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `PrivateLinkAccess` provides a Private Link Access resource that enables creating and deleting access to PrivateLink endpoints by AWS account, Azure subscription, or GCP project ID.
+
+        > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental Private Link Access deletion. This setting rejects plans that would destroy or recreate the Private Link Access, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+
         ## Example Usage
 
         ### Example Private Link Access on AWS
@@ -455,13 +467,13 @@ class PrivateLinkAccess(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Private Link Access.
+
         You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `<Environment ID>/<Private Link Access ID>`. The following example shows how to import a Private Link Access:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/privateLinkAccess:PrivateLinkAccess my_pla env-abc123/pla-abc123
         ```
 

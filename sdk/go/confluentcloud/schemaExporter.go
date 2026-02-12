@@ -139,19 +139,17 @@ import (
 //
 // You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `<Schema Registry cluster ID>/<Schema Exporter name>`, for example:
 //
-// $ export IMPORT_SCHEMA_REGISTRY_ID="<schema_registry_cluster_id>"
-//
-// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
-//
-// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
-//
-// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
-//
 // ```sh
+// $ export IMPORT_SCHEMA_REGISTRY_ID="<schema_registry_cluster_id>"
+// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
 // $ pulumi import confluentcloud:index/schemaExporter:SchemaExporter main lsrc-8wrx70/test-exporter
 // ```
 //
 // !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+//
+// > **Note:** When using OAuth authentication in the provider block, only `IMPORT_SCHEMA_REGISTRY_ID` and `IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT` are required to be set.
 type SchemaExporter struct {
 	pulumi.CustomResourceState
 

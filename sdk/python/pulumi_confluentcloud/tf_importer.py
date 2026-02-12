@@ -150,6 +150,12 @@ class TfImporter(pulumi.CustomResource):
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `TfImporter` resource provides an Importer resource that enables exporting of your existing Confluent Cloud resources to Terraform Configuration (`main.tf`) and Terraform State (`terraform.tfstate`) files to a local directory called `imported_confluent_infrastructure`.
+
+        See Resource Importer for Confluent Terraform Provider for step-by-step instructions on how to use the `TfImporter` resource.
+
         ## Example Usage
 
         ```python
@@ -192,6 +198,12 @@ class TfImporter(pulumi.CustomResource):
                  args: Optional[TfImporterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `TfImporter` resource provides an Importer resource that enables exporting of your existing Confluent Cloud resources to Terraform Configuration (`main.tf`) and Terraform State (`terraform.tfstate`) files to a local directory called `imported_confluent_infrastructure`.
+
+        See Resource Importer for Confluent Terraform Provider for step-by-step instructions on how to use the `TfImporter` resource.
+
         ## Example Usage
 
         ```python

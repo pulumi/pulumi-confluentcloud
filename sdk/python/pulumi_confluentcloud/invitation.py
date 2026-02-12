@@ -27,6 +27,7 @@ class InvitationArgs:
         """
         The set of arguments for constructing a Invitation resource.
         :param pulumi.Input[_builtins.str] email: The user/invitee's email address.
+        :param pulumi.Input[_builtins.bool] allow_deletion: Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
         :param pulumi.Input[_builtins.str] auth_type: Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
         """
         pulumi.set(__self__, "email", email)
@@ -50,6 +51,9 @@ class InvitationArgs:
     @_builtins.property
     @pulumi.getter(name="allowDeletion")
     def allow_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
+        """
         return pulumi.get(self, "allow_deletion")
 
     @allow_deletion.setter
@@ -83,6 +87,7 @@ class _InvitationState:
         """
         Input properties used for looking up and filtering Invitation resources.
         :param pulumi.Input[_builtins.str] accepted_at: (Optional String) The timestamp that the invitation was accepted.
+        :param pulumi.Input[_builtins.bool] allow_deletion: Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
         :param pulumi.Input[_builtins.str] auth_type: Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
         :param pulumi.Input[Sequence[pulumi.Input['InvitationCreatorArgs']]] creators: (Required Configuration Block) supports the following:
         :param pulumi.Input[_builtins.str] email: The user/invitee's email address.
@@ -122,6 +127,9 @@ class _InvitationState:
     @_builtins.property
     @pulumi.getter(name="allowDeletion")
     def allow_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
+        """
         return pulumi.get(self, "allow_deletion")
 
     @allow_deletion.setter
@@ -230,13 +238,13 @@ class Invitation(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing an Invitation.
+
         You can import an Invitation by using Invitation ID, for example:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1
         ```
 
@@ -244,6 +252,7 @@ class Invitation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] allow_deletion: Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
         :param pulumi.Input[_builtins.str] auth_type: Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
         :param pulumi.Input[_builtins.str] email: The user/invitee's email address.
         """
@@ -272,13 +281,13 @@ class Invitation(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing an Invitation.
+
         You can import an Invitation by using Invitation ID, for example:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1
         ```
 
@@ -347,6 +356,7 @@ class Invitation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accepted_at: (Optional String) The timestamp that the invitation was accepted.
+        :param pulumi.Input[_builtins.bool] allow_deletion: Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
         :param pulumi.Input[_builtins.str] auth_type: Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InvitationCreatorArgs', 'InvitationCreatorArgsDict']]]] creators: (Required Configuration Block) supports the following:
         :param pulumi.Input[_builtins.str] email: The user/invitee's email address.
@@ -379,6 +389,9 @@ class Invitation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allowDeletion")
     def allow_deletion(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
+        """
         return pulumi.get(self, "allow_deletion")
 
     @_builtins.property

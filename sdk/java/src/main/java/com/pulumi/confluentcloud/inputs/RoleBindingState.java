@@ -31,9 +31,33 @@ public final class RoleBindingState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.crnPattern);
     }
 
+    /**
+     * An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
+     * 
+     * !&gt; **Warning:** When `disableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
+     * For example, if you&#39;re creating a new service account, a new Kafka API Key, a new `CloudClusterAdmin` role binding, and a Kafka topic in a single run (see this code snippet), the topic creation may fail if the role binding hasn’t taken effect yet. Without that role, the service account won’t have permission to create the topic.
+     * This setting is best suited for scenarios where you&#39;re provisioning a large number of role bindings without dependent resources, as it significantly speeds up the apply process.
+     * 
+     * &gt; **Note:** If you encounter HTTP 403 Forbidden errors when creating role bindings, you can rerun `pulumi up` after a few minutes, once the role bindings have had time to propagate.
+     * 
+     * &gt; **Note:** You can also use `timeSleep` resource of HashiCorp&#39;s `time` TF provider to configure a custom waiting period, see this example for more details.
+     * 
+     */
     @Import(name="disableWaitForReady")
     private @Nullable Output<Boolean> disableWaitForReady;
 
+    /**
+     * @return An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
+     * 
+     * !&gt; **Warning:** When `disableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
+     * For example, if you&#39;re creating a new service account, a new Kafka API Key, a new `CloudClusterAdmin` role binding, and a Kafka topic in a single run (see this code snippet), the topic creation may fail if the role binding hasn’t taken effect yet. Without that role, the service account won’t have permission to create the topic.
+     * This setting is best suited for scenarios where you&#39;re provisioning a large number of role bindings without dependent resources, as it significantly speeds up the apply process.
+     * 
+     * &gt; **Note:** If you encounter HTTP 403 Forbidden errors when creating role bindings, you can rerun `pulumi up` after a few minutes, once the role bindings have had time to propagate.
+     * 
+     * &gt; **Note:** You can also use `timeSleep` resource of HashiCorp&#39;s `time` TF provider to configure a custom waiting period, see this example for more details.
+     * 
+     */
     public Optional<Output<Boolean>> disableWaitForReady() {
         return Optional.ofNullable(this.disableWaitForReady);
     }
@@ -116,11 +140,39 @@ public final class RoleBindingState extends com.pulumi.resources.ResourceArgs {
             return crnPattern(Output.of(crnPattern));
         }
 
+        /**
+         * @param disableWaitForReady An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
+         * 
+         * !&gt; **Warning:** When `disableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
+         * For example, if you&#39;re creating a new service account, a new Kafka API Key, a new `CloudClusterAdmin` role binding, and a Kafka topic in a single run (see this code snippet), the topic creation may fail if the role binding hasn’t taken effect yet. Without that role, the service account won’t have permission to create the topic.
+         * This setting is best suited for scenarios where you&#39;re provisioning a large number of role bindings without dependent resources, as it significantly speeds up the apply process.
+         * 
+         * &gt; **Note:** If you encounter HTTP 403 Forbidden errors when creating role bindings, you can rerun `pulumi up` after a few minutes, once the role bindings have had time to propagate.
+         * 
+         * &gt; **Note:** You can also use `timeSleep` resource of HashiCorp&#39;s `time` TF provider to configure a custom waiting period, see this example for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder disableWaitForReady(@Nullable Output<Boolean> disableWaitForReady) {
             $.disableWaitForReady = disableWaitForReady;
             return this;
         }
 
+        /**
+         * @param disableWaitForReady An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
+         * 
+         * !&gt; **Warning:** When `disableWaitForReady = true` is used, Terraform skips waiting for role bindings to fully propagate. This can lead to a situation where Terraform attempts to create resources before the service account has the necessary permissions—resulting in HTTP 403 Forbidden errors.
+         * For example, if you&#39;re creating a new service account, a new Kafka API Key, a new `CloudClusterAdmin` role binding, and a Kafka topic in a single run (see this code snippet), the topic creation may fail if the role binding hasn’t taken effect yet. Without that role, the service account won’t have permission to create the topic.
+         * This setting is best suited for scenarios where you&#39;re provisioning a large number of role bindings without dependent resources, as it significantly speeds up the apply process.
+         * 
+         * &gt; **Note:** If you encounter HTTP 403 Forbidden errors when creating role bindings, you can rerun `pulumi up` after a few minutes, once the role bindings have had time to propagate.
+         * 
+         * &gt; **Note:** You can also use `timeSleep` resource of HashiCorp&#39;s `time` TF provider to configure a custom waiting period, see this example for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder disableWaitForReady(Boolean disableWaitForReady) {
             return disableWaitForReady(Output.of(disableWaitForReady));
         }

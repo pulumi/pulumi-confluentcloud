@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    /// 
+    /// &gt; **Note:** It is recommended to set `lifecycle { PreventDestroy = true }` on production instances to prevent accidental tableflow topic deletion. This setting rejects plans that would destroy or recreate the tableflow topic, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+    /// 
+    /// &gt; **Note:** Make sure to use `confluentcloud.CatalogIntegration` resource if you want to integrate Tableflow with AWS Glue Catalog or Snowflake Open Catalog.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack
@@ -88,11 +94,9 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// Option #1: Manage multiple Tableflow Topics in the same Pulumi Stack
     /// 
-    /// $ export IMPORT_TABLEFLOW_API_KEY="&lt;tableflow_api_key&gt;"
-    /// 
-    /// $ export IMPORT_TABLEFLOW_API_SECRET="&lt;tableflow_api_secret&gt;"
-    /// 
     /// ```sh
+    /// $ export IMPORT_TABLEFLOW_API_KEY="&lt;tableflow_api_key&gt;"
+    /// $ export IMPORT_TABLEFLOW_API_SECRET="&lt;tableflow_api_secret&gt;"
     /// $ pulumi import confluentcloud:index/tableflowTopic:TableflowTopic example env-abc123/lkc-abc123/orders
     /// ```
     /// 
