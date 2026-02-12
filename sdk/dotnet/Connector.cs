@@ -10,6 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    /// 
+    /// `confluentcloud.Connector` provides a connector resource that enables creating, editing, and deleting connectors on Confluent Cloud.
+    /// 
+    /// &gt; **Note:** Use [Confluent docs](https://docs.confluent.io/cloud/current/connectors/index.html) or the [Confluent Cloud Console](https://docs.confluent.io/cloud/current/connectors/cc-s3-sink.html#using-the-ccloud-console) to pregenerate the configuration for your desired connector and to see what ACLs are required to be created.
+    /// 
+    /// &gt; **Note:** It is recommended to set `lifecycle { PreventDestroy = true }` on production instances to prevent accidental connector deletion. This setting rejects plans that would destroy or recreate the connector, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Example Managed [Datagen Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-datagen-source.html) that uses a service account to communicate with your Kafka cluster
@@ -404,13 +412,13 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
+    /// &gt; **Note:** Set `ConfigSensitive = {}` and do not specify `Offsets` block before importing a connector.
+    /// 
     /// You can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `&lt;Environment ID&gt;/&lt;Kafka cluster ID&gt;/&lt;Connector name&gt;`, for example:
     /// 
-    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
-    /// 
-    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
-    /// 
     /// ```sh
+    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// $ pulumi import confluentcloud:index/connector:Connector my_connector "env-abc123/lkc-abc123/S3_SINKConnector_0"
     /// ```
     /// </summary>

@@ -17,6 +17,12 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.NetworkLinkEndpoint` provides a Network Link Endpoint resource that enables creating, editing, and deleting Network Link Endpoints on Confluent Cloud.
+ * 
+ * &gt; **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental Network Link Endpoint deletion. This setting rejects plans that would destroy or recreate the Network Link Endpoint, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -71,13 +77,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Network Link Endpoint.
+ * 
  * You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `&lt;Environment ID&gt;/&lt;Network Link Endpoint ID&gt;`. The following example shows how to import a Network Link Endpoint:
  * 
- * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
- * 
- * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
- * 
  * ```sh
+ * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * $ pulumi import confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint my_nle env-abc123/nle-abc123
  * ```
  * 

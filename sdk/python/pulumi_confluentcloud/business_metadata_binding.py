@@ -33,7 +33,13 @@ class BusinessMetadataBindingArgs:
         :param pulumi.Input[_builtins.str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
         :param pulumi.Input[_builtins.str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The attributes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The block of key-value pair attributes.
+               
+               > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata_binding.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata_binding.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadataBinding` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         :param pulumi.Input['BusinessMetadataBindingCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
@@ -89,7 +95,13 @@ class BusinessMetadataBindingArgs:
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The attributes.
+        The block of key-value pair attributes.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata_binding.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata_binding.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+        !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadataBinding` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "attributes")
 
@@ -143,7 +155,13 @@ class _BusinessMetadataBindingState:
                  schema_registry_cluster: Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']] = None):
         """
         Input properties used for looking up and filtering BusinessMetadataBinding resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The attributes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The block of key-value pair attributes.
+               
+               > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata_binding.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata_binding.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadataBinding` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         :param pulumi.Input[_builtins.str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input['BusinessMetadataBindingCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
@@ -169,7 +187,13 @@ class _BusinessMetadataBindingState:
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The attributes.
+        The block of key-value pair attributes.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata_binding.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata_binding.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+        !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadataBinding` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "attributes")
 
@@ -320,13 +344,10 @@ class BusinessMetadataBinding(pulumi.CustomResource):
 
         You can import a Business Metadata Binding by using the Schema Registry cluster ID, Business Metadata name, entity name and entity type in the format `<Schema Registry Cluster Id>/<Business Metadata Name>/<Entity Name>/<Entity Type>`, for example:
 
-        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
-
-        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
-
-        $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
-
         ```sh
+        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+        $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
         $ pulumi import confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding main lsrc-8wrx70/PII/lsrc-8wrx70:.:100001/sr_schema
         ```
 
@@ -334,7 +355,13 @@ class BusinessMetadataBinding(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The attributes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The block of key-value pair attributes.
+               
+               > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata_binding.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata_binding.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadataBinding` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         :param pulumi.Input[_builtins.str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
@@ -406,13 +433,10 @@ class BusinessMetadataBinding(pulumi.CustomResource):
 
         You can import a Business Metadata Binding by using the Schema Registry cluster ID, Business Metadata name, entity name and entity type in the format `<Schema Registry Cluster Id>/<Business Metadata Name>/<Entity Name>/<Entity Type>`, for example:
 
-        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
-
-        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
-
-        $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
-
         ```sh
+        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+        $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
         $ pulumi import confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding main lsrc-8wrx70/PII/lsrc-8wrx70:.:100001/sr_schema
         ```
 
@@ -488,7 +512,13 @@ class BusinessMetadataBinding(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The attributes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The block of key-value pair attributes.
+               
+               > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata_binding.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata_binding.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadataBinding` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         :param pulumi.Input[_builtins.str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[Union['BusinessMetadataBindingCredentialsArgs', 'BusinessMetadataBindingCredentialsArgsDict']] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
@@ -512,7 +542,13 @@ class BusinessMetadataBinding(pulumi.CustomResource):
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        The attributes.
+        The block of key-value pair attributes.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata_binding.main"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata_binding.main" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+        !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadataBinding` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "attributes")
 

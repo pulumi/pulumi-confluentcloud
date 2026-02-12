@@ -18,7 +18,11 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The Cluster API Secret for your Confluent Cloud cluster.
+        /// The Tableflow API Secret.
+        /// 
+        /// &gt; **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
+        /// 
+        /// !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.TableflowTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         /// </summary>
         public readonly string Secret;
 

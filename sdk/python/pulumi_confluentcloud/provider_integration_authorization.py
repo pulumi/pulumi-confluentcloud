@@ -172,15 +172,168 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
                  provider_integration_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `ProviderIntegrationAuthorization` configures and validates a Cloud Service Provider (CSP) integration created by `ProviderIntegrationSetup`. This resource transitions the integration from DRAFT to CREATED status and validates the cloud provider setup.
+
+        > **Note:** This resource will show persistent warnings until the cloud provider setup is complete. For Azure, you must grant admin consent and create a service principal. For GCP, you must configure IAM permissions.
+
+        ## Example Usage
+
+        ### Azure Provider Integration Authorization
+
+        You have two options to complete the Azure setup after creating the authorization resource:
+
+        ### Option 1: Using Azure Terraform Provider (Recommended for Infrastructure as Code)
+
+        ```python
+        import pulumi
+        import pulumi_azuread as azuread
+        import pulumi_confluentcloud as confluentcloud
+
+        azure = confluentcloud.ProviderIntegrationSetup("azure",
+            environment={
+                "id": environment_id,
+            },
+            display_name="azure-integration",
+            cloud="AZURE")
+        azure_provider_integration_authorization = confluentcloud.ProviderIntegrationAuthorization("azure",
+            provider_integration_id=azure.id,
+            environment={
+                "id": environment_id,
+            },
+            azure={
+                "customer_azure_tenant_id": azure_tenant_id,
+            })
+        # Automatically create the service principal using Azure Terraform Provider
+        confluent = azuread.index.ServicePrincipal("confluent", client_id=azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
+        pulumi.export("azureAppId", azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
+        pulumi.export("servicePrincipalObjectId", confluent["objectId"])
+        ```
+
+        ### Option 2: Using Azure CLI Commands
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        azure = confluentcloud.ProviderIntegrationSetup("azure",
+            environment={
+                "id": environment_id,
+            },
+            display_name="azure-integration",
+            cloud="AZURE")
+        azure_provider_integration_authorization = confluentcloud.ProviderIntegrationAuthorization("azure",
+            provider_integration_id=azure.id,
+            environment={
+                "id": environment_id,
+            },
+            azure={
+                "customer_azure_tenant_id": azure_tenant_id,
+            })
+        pulumi.export("azureSetupCommand", azure_provider_integration_authorization.azure.apply(lambda azure: f"az ad sp create --id {azure.confluent_multi_tenant_app_id}"))
+        ```
+
+        ### GCP Provider Integration Authorization
+
+        You have two options to complete the GCP setup after creating the authorization resource:
+
+        ### Option 1: Using Google Terraform Provider (Recommended for Infrastructure as Code)
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+        import pulumi_google as google
+
+        gcp = confluentcloud.ProviderIntegrationSetup("gcp",
+            environment={
+                "id": environment_id,
+            },
+            display_name="gcp-integration",
+            cloud="GCP")
+        gcp_provider_integration_authorization = confluentcloud.ProviderIntegrationAuthorization("gcp",
+            provider_integration_id=gcp.id,
+            environment={
+                "id": environment_id,
+            },
+            gcp={
+                "customer_google_service_account": gcp_service_account,
+            })
+        # Grant IAM permissions using Google Terraform Provider
+        confluent_token_creator = google.index.ProjectIamMember("confluent_token_creator",
+            project=gcp_project_id,
+            role=roles/iam.serviceAccountTokenCreator,
+            member=fserviceAccount:{gcp_provider_integration_authorization.gcp.google_service_account},
+            condition=[{
+                title: Confluent Cloud Access,
+                description: Allow Confluent Cloud to impersonate the customer service account,
+                expression: frequest.auth.claims.sub == '{gcp_provider_integration_authorization.gcp.google_service_account}',
+            }])
+        pulumi.export("confluentServiceAccount", gcp_provider_integration_authorization.gcp.google_service_account)
+        ```
+
+        ### Option 2: Using gcloud CLI Commands
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        gcp = confluentcloud.ProviderIntegrationSetup("gcp",
+            environment={
+                "id": environment_id,
+            },
+            display_name="gcp-integration",
+            cloud="GCP")
+        gcp_provider_integration_authorization = confluentcloud.ProviderIntegrationAuthorization("gcp",
+            provider_integration_id=gcp.id,
+            environment={
+                "id": environment_id,
+            },
+            gcp={
+                "customer_google_service_account": gcp_service_account,
+            })
+        pulumi.export("gcpIamCommand", pulumi.Output.all(
+            gcpProviderIntegrationAuthorizationGcp=gcp_provider_integration_authorization.gcp,
+            gcpProviderIntegrationAuthorizationGcp1=gcp_provider_integration_authorization.gcp
+        ).apply(lambda resolved_outputs: f"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\\"serviceAccount:{gcp_provider_integration_authorization_gcp.google_service_account}\\" --role=\\"roles/iam.serviceAccountTokenCreator\\" --condition=\\"expression=request.auth.claims.sub=='{gcp_provider_integration_authorization_gcp1.google_service_account}'\\"")
+        )
+        pulumi.export("confluentServiceAccount", gcp_provider_integration_authorization.gcp.google_service_account)
+        ```
+
+        ## Azure Setup Process
+
+        After applying the Terraform configuration, complete the Azure setup:
+
+        1. **Get the multi-tenant app ID** from the Terraform outputs
+        2. **Grant admin consent** (if you have Global Admin rights):
+        4. **Grant permissions** in Azure Portal → Enterprise Applications
+        5. **Re-run `pulumi up`** to validate the connection
+
+        ## GCP Setup Process
+
+        After applying the Terraform configuration, complete the GCP setup:
+
+        1. **Get the Confluent service account** from the Terraform outputs
+        2. **Grant IAM permissions** in GCP Console:
+           - Grant the Confluent service account "Service Account Token Creator" role on your service account
+           - Grant your service account the necessary permissions (e.g., BigQuery Data Editor)
+        3. **Re-run `pulumi up`** to validate the connection
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `ProviderIntegrationAuthorization` resource:
+        * provider-integration-azure: Complete Azure Provider Integration setup
+        * provider-integration-gcp: Complete GCP Provider Integration setup
+
         ## Import
+
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Provider Integration Authorization.
 
         You can import a Provider Integration Authorization by using Environment ID and Provider Integration ID, in the format `<Environment ID>/<Provider Integration ID>`. The following example shows how to import a Provider Integration Authorization:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/providerIntegrationAuthorization:ProviderIntegrationAuthorization main env-abc123/cspi-4xg0q
         ```
 
@@ -200,15 +353,168 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
                  args: ProviderIntegrationAuthorizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `ProviderIntegrationAuthorization` configures and validates a Cloud Service Provider (CSP) integration created by `ProviderIntegrationSetup`. This resource transitions the integration from DRAFT to CREATED status and validates the cloud provider setup.
+
+        > **Note:** This resource will show persistent warnings until the cloud provider setup is complete. For Azure, you must grant admin consent and create a service principal. For GCP, you must configure IAM permissions.
+
+        ## Example Usage
+
+        ### Azure Provider Integration Authorization
+
+        You have two options to complete the Azure setup after creating the authorization resource:
+
+        ### Option 1: Using Azure Terraform Provider (Recommended for Infrastructure as Code)
+
+        ```python
+        import pulumi
+        import pulumi_azuread as azuread
+        import pulumi_confluentcloud as confluentcloud
+
+        azure = confluentcloud.ProviderIntegrationSetup("azure",
+            environment={
+                "id": environment_id,
+            },
+            display_name="azure-integration",
+            cloud="AZURE")
+        azure_provider_integration_authorization = confluentcloud.ProviderIntegrationAuthorization("azure",
+            provider_integration_id=azure.id,
+            environment={
+                "id": environment_id,
+            },
+            azure={
+                "customer_azure_tenant_id": azure_tenant_id,
+            })
+        # Automatically create the service principal using Azure Terraform Provider
+        confluent = azuread.index.ServicePrincipal("confluent", client_id=azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
+        pulumi.export("azureAppId", azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
+        pulumi.export("servicePrincipalObjectId", confluent["objectId"])
+        ```
+
+        ### Option 2: Using Azure CLI Commands
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        azure = confluentcloud.ProviderIntegrationSetup("azure",
+            environment={
+                "id": environment_id,
+            },
+            display_name="azure-integration",
+            cloud="AZURE")
+        azure_provider_integration_authorization = confluentcloud.ProviderIntegrationAuthorization("azure",
+            provider_integration_id=azure.id,
+            environment={
+                "id": environment_id,
+            },
+            azure={
+                "customer_azure_tenant_id": azure_tenant_id,
+            })
+        pulumi.export("azureSetupCommand", azure_provider_integration_authorization.azure.apply(lambda azure: f"az ad sp create --id {azure.confluent_multi_tenant_app_id}"))
+        ```
+
+        ### GCP Provider Integration Authorization
+
+        You have two options to complete the GCP setup after creating the authorization resource:
+
+        ### Option 1: Using Google Terraform Provider (Recommended for Infrastructure as Code)
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+        import pulumi_google as google
+
+        gcp = confluentcloud.ProviderIntegrationSetup("gcp",
+            environment={
+                "id": environment_id,
+            },
+            display_name="gcp-integration",
+            cloud="GCP")
+        gcp_provider_integration_authorization = confluentcloud.ProviderIntegrationAuthorization("gcp",
+            provider_integration_id=gcp.id,
+            environment={
+                "id": environment_id,
+            },
+            gcp={
+                "customer_google_service_account": gcp_service_account,
+            })
+        # Grant IAM permissions using Google Terraform Provider
+        confluent_token_creator = google.index.ProjectIamMember("confluent_token_creator",
+            project=gcp_project_id,
+            role=roles/iam.serviceAccountTokenCreator,
+            member=fserviceAccount:{gcp_provider_integration_authorization.gcp.google_service_account},
+            condition=[{
+                title: Confluent Cloud Access,
+                description: Allow Confluent Cloud to impersonate the customer service account,
+                expression: frequest.auth.claims.sub == '{gcp_provider_integration_authorization.gcp.google_service_account}',
+            }])
+        pulumi.export("confluentServiceAccount", gcp_provider_integration_authorization.gcp.google_service_account)
+        ```
+
+        ### Option 2: Using gcloud CLI Commands
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        gcp = confluentcloud.ProviderIntegrationSetup("gcp",
+            environment={
+                "id": environment_id,
+            },
+            display_name="gcp-integration",
+            cloud="GCP")
+        gcp_provider_integration_authorization = confluentcloud.ProviderIntegrationAuthorization("gcp",
+            provider_integration_id=gcp.id,
+            environment={
+                "id": environment_id,
+            },
+            gcp={
+                "customer_google_service_account": gcp_service_account,
+            })
+        pulumi.export("gcpIamCommand", pulumi.Output.all(
+            gcpProviderIntegrationAuthorizationGcp=gcp_provider_integration_authorization.gcp,
+            gcpProviderIntegrationAuthorizationGcp1=gcp_provider_integration_authorization.gcp
+        ).apply(lambda resolved_outputs: f"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\\"serviceAccount:{gcp_provider_integration_authorization_gcp.google_service_account}\\" --role=\\"roles/iam.serviceAccountTokenCreator\\" --condition=\\"expression=request.auth.claims.sub=='{gcp_provider_integration_authorization_gcp1.google_service_account}'\\"")
+        )
+        pulumi.export("confluentServiceAccount", gcp_provider_integration_authorization.gcp.google_service_account)
+        ```
+
+        ## Azure Setup Process
+
+        After applying the Terraform configuration, complete the Azure setup:
+
+        1. **Get the multi-tenant app ID** from the Terraform outputs
+        2. **Grant admin consent** (if you have Global Admin rights):
+        4. **Grant permissions** in Azure Portal → Enterprise Applications
+        5. **Re-run `pulumi up`** to validate the connection
+
+        ## GCP Setup Process
+
+        After applying the Terraform configuration, complete the GCP setup:
+
+        1. **Get the Confluent service account** from the Terraform outputs
+        2. **Grant IAM permissions** in GCP Console:
+           - Grant the Confluent service account "Service Account Token Creator" role on your service account
+           - Grant your service account the necessary permissions (e.g., BigQuery Data Editor)
+        3. **Re-run `pulumi up`** to validate the connection
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `ProviderIntegrationAuthorization` resource:
+        * provider-integration-azure: Complete Azure Provider Integration setup
+        * provider-integration-gcp: Complete GCP Provider Integration setup
+
         ## Import
+
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Provider Integration Authorization.
 
         You can import a Provider Integration Authorization by using Environment ID and Provider Integration ID, in the format `<Environment ID>/<Provider Integration ID>`. The following example shows how to import a Provider Integration Authorization:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/providerIntegrationAuthorization:ProviderIntegrationAuthorization main env-abc123/cspi-4xg0q
         ```
 

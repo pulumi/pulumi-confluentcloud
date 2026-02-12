@@ -108,13 +108,13 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
+    /// &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a DNS Forwarder.
+    /// 
     /// You can import a DNS Forwarder by using Environment ID and DNS Forwarder ID, in the format `&lt;Environment ID&gt;/&lt;DNS Forwarder ID&gt;`. The following example shows how to import a DNS Forwarder:
     /// 
-    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
-    /// 
-    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
-    /// 
     /// ```sh
+    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// $ pulumi import confluentcloud:index/dnsForwarder:DnsForwarder main env-abc123/dnsf-abc123
     /// ```
     /// 

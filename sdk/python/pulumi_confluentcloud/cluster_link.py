@@ -290,6 +290,12 @@ class ClusterLink(pulumi.CustomResource):
                  source_kafka_cluster: Optional[pulumi.Input[Union['ClusterLinkSourceKafkaClusterArgs', 'ClusterLinkSourceKafkaClusterArgsDict']]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `ClusterLink` provides a Cluster Link resource that enables creating and deleting Cluster Links on a Kafka cluster on Confluent Cloud.
+
+        > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental cluster link deletion. This setting rejects plans that would destroy or recreate the cluster link. Read more about it in the Terraform docs.
+
         ## Example Usage
 
         ```python
@@ -352,42 +358,29 @@ class ClusterLink(pulumi.CustomResource):
         ## Import
 
         You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode,
-
         source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote  for bidirectional cluster links) Kafka cluster ID, in the format `<Cluster link name>/<Cluster link mode>/<Cluster connection mode>/<Source (Local) Kafka cluster ID>/<Destination (Remote) Kafka cluster ID>`, for example:
 
         Option #1 when using source-initiated or destination-initiated cluster links
 
-        $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>"
-
-        $ export IMPORT_SOURCE_KAFKA_API_KEY="<source_kafka_api_key>"
-
-        $ export IMPORT_SOURCE_KAFKA_API_SECRET="<source_kafka_api_secret>"
-
-        $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>"
-
-        $ export IMPORT_DESTINATION_KAFKA_API_KEY="<destination_kafka_api_key>"
-
-        $ export IMPORT_DESTINATION_KAFKA_API_SECRET="<destination_kafka_api_secret>"
-
         ```sh
+        $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>"
+        $ export IMPORT_SOURCE_KAFKA_API_KEY="<source_kafka_api_key>"
+        $ export IMPORT_SOURCE_KAFKA_API_SECRET="<source_kafka_api_secret>"
+        $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>"
+        $ export IMPORT_DESTINATION_KAFKA_API_KEY="<destination_kafka_api_key>"
+        $ export IMPORT_DESTINATION_KAFKA_API_SECRET="<destination_kafka_api_secret>"
         $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456
         ```
 
         Option #2 when using bidirectional cluster links
 
-        $ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT="<local_kafka_bootstrap_endpoint>"
-
-        $ export IMPORT_LOCAL_KAFKA_API_KEY="<local_kafka_api_key>"
-
-        $ export IMPORT_LOCAL_KAFKA_API_SECRET="<local_kafka_api_secret>"
-
-        $ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT="<remote_kafka_rest_endpoint>"
-
-        $ export IMPORT_REMOTE_KAFKA_API_KEY="<remote_kafka_api_key>"
-
-        $ export IMPORT_REMOTE_KAFKA_API_SECRET="<remote_kafka_api_secret>"
-
         ```sh
+        $ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT="<local_kafka_bootstrap_endpoint>"
+        $ export IMPORT_LOCAL_KAFKA_API_KEY="<local_kafka_api_key>"
+        $ export IMPORT_LOCAL_KAFKA_API_SECRET="<local_kafka_api_secret>"
+        $ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT="<remote_kafka_rest_endpoint>"
+        $ export IMPORT_REMOTE_KAFKA_API_KEY="<remote_kafka_api_key>"
+        $ export IMPORT_REMOTE_KAFKA_API_SECRET="<remote_kafka_api_secret>"
         $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
         ```
 
@@ -395,21 +388,17 @@ class ClusterLink(pulumi.CustomResource):
 
         Option #3 when using OAuth to authenticate the source-initiated or destination-initiated cluster links
 
-        $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>"
-
-        $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>"
-
         ```sh
+        $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>"
+        $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>"
         $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456
         ```
 
         Option #4 when using OAuth to authenticate the bidirectional cluster links
 
-        $ export IMPORT_LOCAL_KAFKA_REST_ENDPOINT="<local_kafka_rest_endpoint>"
-
-        $ export IMPORT_REMOTE_KAFKA_BOOTSTRAP_ENDPOINT="<remote_kafka_bootstrap_endpoint>"
-
         ```sh
+        $ export IMPORT_LOCAL_KAFKA_REST_ENDPOINT="<local_kafka_rest_endpoint>"
+        $ export IMPORT_REMOTE_KAFKA_BOOTSTRAP_ENDPOINT="<remote_kafka_bootstrap_endpoint>"
         $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
         ```
 
@@ -429,6 +418,12 @@ class ClusterLink(pulumi.CustomResource):
                  args: Optional[ClusterLinkArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `ClusterLink` provides a Cluster Link resource that enables creating and deleting Cluster Links on a Kafka cluster on Confluent Cloud.
+
+        > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental cluster link deletion. This setting rejects plans that would destroy or recreate the cluster link. Read more about it in the Terraform docs.
+
         ## Example Usage
 
         ```python
@@ -491,42 +486,29 @@ class ClusterLink(pulumi.CustomResource):
         ## Import
 
         You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode,
-
         source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote  for bidirectional cluster links) Kafka cluster ID, in the format `<Cluster link name>/<Cluster link mode>/<Cluster connection mode>/<Source (Local) Kafka cluster ID>/<Destination (Remote) Kafka cluster ID>`, for example:
 
         Option #1 when using source-initiated or destination-initiated cluster links
 
-        $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>"
-
-        $ export IMPORT_SOURCE_KAFKA_API_KEY="<source_kafka_api_key>"
-
-        $ export IMPORT_SOURCE_KAFKA_API_SECRET="<source_kafka_api_secret>"
-
-        $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>"
-
-        $ export IMPORT_DESTINATION_KAFKA_API_KEY="<destination_kafka_api_key>"
-
-        $ export IMPORT_DESTINATION_KAFKA_API_SECRET="<destination_kafka_api_secret>"
-
         ```sh
+        $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>"
+        $ export IMPORT_SOURCE_KAFKA_API_KEY="<source_kafka_api_key>"
+        $ export IMPORT_SOURCE_KAFKA_API_SECRET="<source_kafka_api_secret>"
+        $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>"
+        $ export IMPORT_DESTINATION_KAFKA_API_KEY="<destination_kafka_api_key>"
+        $ export IMPORT_DESTINATION_KAFKA_API_SECRET="<destination_kafka_api_secret>"
         $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456
         ```
 
         Option #2 when using bidirectional cluster links
 
-        $ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT="<local_kafka_bootstrap_endpoint>"
-
-        $ export IMPORT_LOCAL_KAFKA_API_KEY="<local_kafka_api_key>"
-
-        $ export IMPORT_LOCAL_KAFKA_API_SECRET="<local_kafka_api_secret>"
-
-        $ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT="<remote_kafka_rest_endpoint>"
-
-        $ export IMPORT_REMOTE_KAFKA_API_KEY="<remote_kafka_api_key>"
-
-        $ export IMPORT_REMOTE_KAFKA_API_SECRET="<remote_kafka_api_secret>"
-
         ```sh
+        $ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT="<local_kafka_bootstrap_endpoint>"
+        $ export IMPORT_LOCAL_KAFKA_API_KEY="<local_kafka_api_key>"
+        $ export IMPORT_LOCAL_KAFKA_API_SECRET="<local_kafka_api_secret>"
+        $ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT="<remote_kafka_rest_endpoint>"
+        $ export IMPORT_REMOTE_KAFKA_API_KEY="<remote_kafka_api_key>"
+        $ export IMPORT_REMOTE_KAFKA_API_SECRET="<remote_kafka_api_secret>"
         $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
         ```
 
@@ -534,21 +516,17 @@ class ClusterLink(pulumi.CustomResource):
 
         Option #3 when using OAuth to authenticate the source-initiated or destination-initiated cluster links
 
-        $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>"
-
-        $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>"
-
         ```sh
+        $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>"
+        $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>"
         $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456
         ```
 
         Option #4 when using OAuth to authenticate the bidirectional cluster links
 
-        $ export IMPORT_LOCAL_KAFKA_REST_ENDPOINT="<local_kafka_rest_endpoint>"
-
-        $ export IMPORT_REMOTE_KAFKA_BOOTSTRAP_ENDPOINT="<remote_kafka_bootstrap_endpoint>"
-
         ```sh
+        $ export IMPORT_LOCAL_KAFKA_REST_ENDPOINT="<local_kafka_rest_endpoint>"
+        $ export IMPORT_REMOTE_KAFKA_BOOTSTRAP_ENDPOINT="<remote_kafka_bootstrap_endpoint>"
         $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
         ```
 

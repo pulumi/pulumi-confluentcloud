@@ -18,7 +18,13 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The Cluster API Secret for your Confluent Cloud cluster.
+        /// The Tableflow API Secret.
+        /// 
+        /// &gt; **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
+        /// 
+        /// &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `Credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_tableflow_topic.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tableflow_topic.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+        /// 
+        /// !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         /// </summary>
         public readonly string Secret;
 

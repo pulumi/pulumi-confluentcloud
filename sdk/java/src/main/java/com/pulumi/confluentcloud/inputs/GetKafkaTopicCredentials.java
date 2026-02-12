@@ -29,14 +29,22 @@ public final class GetKafkaTopicCredentials extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The Cluster API Secret for your Confluent Cloud cluster.
+     * The Kafka API Secret.
+     * 
+     * &gt; **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+     * 
+     * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     @Import(name="secret", required=true)
     private String secret;
 
     /**
-     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * @return The Kafka API Secret.
+     * 
+     * &gt; **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+     * 
+     * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     public String secret() {
@@ -80,7 +88,11 @@ public final class GetKafkaTopicCredentials extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param secret The Cluster API Secret for your Confluent Cloud cluster.
+         * @param secret The Kafka API Secret.
+         * 
+         * &gt; **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+         * 
+         * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
          * 
          * @return builder
          * 

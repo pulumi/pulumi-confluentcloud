@@ -11,12 +11,654 @@ namespace Pulumi.ConfluentCloud
 {
     public static class GetProviderIntegrationAuthorization
     {
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.ProviderIntegrationAuthorization` describes the authorization configuration for a Cloud Service Provider (CSP) integration, including cloud-specific setup information like Azure multi-tenant app IDs or GCP service accounts.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Azure Provider Integration Authorization
+        /// 
+        /// You can use the authorization data source with either approach:
+        /// 
+        /// ### Option 1: With Azure Terraform Provider
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azuread = Pulumi.Azuread;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the authorization data
+        ///     var azure = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = "cspi-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     // Create the service principal using Azure Terraform Provider
+        ///     var confluent = new Azuread.Index.ServicePrincipal("confluent", new()
+        ///     {
+        ///         ClientId = azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azureAppId"] = azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId),
+        ///         ["servicePrincipalObjectId"] = confluent.ObjectId,
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option 2: With CLI Commands
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the authorization data
+        ///     var azure = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = "cspi-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azureSetupCommand"] = $"az ad sp create --id {azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId)}",
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### GCP Provider Integration Authorization
+        /// 
+        /// You can use the authorization data source with either approach:
+        /// 
+        /// ### Option 1: With Google Terraform Provider
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// using Google = Pulumi.Google;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the authorization data
+        ///     var gcp = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = "cspi-def456",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     // Grant IAM permissions using Google Terraform Provider
+        ///     var confluentTokenCreator = new Google.Index.ProjectIamMember("confluent_token_creator", new()
+        ///     {
+        ///         Project = gcpProjectId,
+        ///         Role = "roles/iam.serviceAccountTokenCreator",
+        ///         Member = $"serviceAccount:{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}",
+        ///         Condition = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "title", "Confluent Cloud Access" },
+        ///                 { "description", "Allow Confluent Cloud to impersonate the customer service account" },
+        ///                 { "expression", $"request.auth.claims.sub == '{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}'" },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["confluentServiceAccount"] = gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount),
+        ///         ["customerServiceAccount"] = gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.CustomerGoogleServiceAccount),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option 2: With gcloud CLI Commands
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the authorization data
+        ///     var gcp = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = "cspi-def456",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["gcpIamCommand"] = Output.Tuple(gcp, gcp).Apply(values =&gt;
+        ///         {
+        ///             var gcp = values.Item1;
+        ///             var gcp1 = values.Item2;
+        ///             return $"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='{gcp1.Gcps[0]?.GoogleServiceAccount}'\"";
+        ///         }),
+        ///         ["confluentServiceAccount"] = gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Using with Integration Data Source
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
+        ///     {
+        ///         DisplayName = "my-integration",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Id),
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["setupInfo"] = Output.Tuple(main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization).Apply(values =&gt;
+        ///         {
+        ///             var main = values.Item1;
+        ///             var mainGetProviderIntegrationAuthorization = values.Item2;
+        ///             var mainGetProviderIntegrationAuthorization1 = values.Item3;
+        ///             var mainGetProviderIntegrationAuthorization2 = values.Item4;
+        ///             var mainGetProviderIntegrationAuthorization3 = values.Item5;
+        ///             return main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Cloud) == "AZURE" ? 
+        ///             {
+        ///                 { "appId", mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId) },
+        ///                 { "command", $"az ad sp create --id {mainGetProviderIntegrationAuthorization1.Azures[0]?.ConfluentMultiTenantAppId}" },
+        ///             } : 
+        ///             {
+        ///                 { "confluentSa", mainGetProviderIntegrationAuthorization2.Gcps[0]?.GoogleServiceAccount },
+        ///                 { "customerSa", mainGetProviderIntegrationAuthorization3.Gcps[0]?.CustomerGoogleServiceAccount },
+        ///             };
+        ///         }),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// 
+        /// ## Getting Started
+        /// 
+        /// The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationAuthorization` data source:
+        /// * provider-integration-azure: Complete Azure Provider Integration setup
+        /// * provider-integration-gcp: Complete GCP Provider Integration setup
+        /// </summary>
         public static Task<GetProviderIntegrationAuthorizationResult> InvokeAsync(GetProviderIntegrationAuthorizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderIntegrationAuthorizationResult>("confluentcloud:index/getProviderIntegrationAuthorization:getProviderIntegrationAuthorization", args ?? new GetProviderIntegrationAuthorizationArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.ProviderIntegrationAuthorization` describes the authorization configuration for a Cloud Service Provider (CSP) integration, including cloud-specific setup information like Azure multi-tenant app IDs or GCP service accounts.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Azure Provider Integration Authorization
+        /// 
+        /// You can use the authorization data source with either approach:
+        /// 
+        /// ### Option 1: With Azure Terraform Provider
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azuread = Pulumi.Azuread;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the authorization data
+        ///     var azure = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = "cspi-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     // Create the service principal using Azure Terraform Provider
+        ///     var confluent = new Azuread.Index.ServicePrincipal("confluent", new()
+        ///     {
+        ///         ClientId = azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azureAppId"] = azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId),
+        ///         ["servicePrincipalObjectId"] = confluent.ObjectId,
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option 2: With CLI Commands
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the authorization data
+        ///     var azure = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = "cspi-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azureSetupCommand"] = $"az ad sp create --id {azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId)}",
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### GCP Provider Integration Authorization
+        /// 
+        /// You can use the authorization data source with either approach:
+        /// 
+        /// ### Option 1: With Google Terraform Provider
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// using Google = Pulumi.Google;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the authorization data
+        ///     var gcp = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = "cspi-def456",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     // Grant IAM permissions using Google Terraform Provider
+        ///     var confluentTokenCreator = new Google.Index.ProjectIamMember("confluent_token_creator", new()
+        ///     {
+        ///         Project = gcpProjectId,
+        ///         Role = "roles/iam.serviceAccountTokenCreator",
+        ///         Member = $"serviceAccount:{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}",
+        ///         Condition = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "title", "Confluent Cloud Access" },
+        ///                 { "description", "Allow Confluent Cloud to impersonate the customer service account" },
+        ///                 { "expression", $"request.auth.claims.sub == '{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}'" },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["confluentServiceAccount"] = gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount),
+        ///         ["customerServiceAccount"] = gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.CustomerGoogleServiceAccount),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option 2: With gcloud CLI Commands
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the authorization data
+        ///     var gcp = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = "cspi-def456",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["gcpIamCommand"] = Output.Tuple(gcp, gcp).Apply(values =&gt;
+        ///         {
+        ///             var gcp = values.Item1;
+        ///             var gcp1 = values.Item2;
+        ///             return $"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='{gcp1.Gcps[0]?.GoogleServiceAccount}'\"";
+        ///         }),
+        ///         ["confluentServiceAccount"] = gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Using with Integration Data Source
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
+        ///     {
+        ///         DisplayName = "my-integration",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Id),
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["setupInfo"] = Output.Tuple(main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization).Apply(values =&gt;
+        ///         {
+        ///             var main = values.Item1;
+        ///             var mainGetProviderIntegrationAuthorization = values.Item2;
+        ///             var mainGetProviderIntegrationAuthorization1 = values.Item3;
+        ///             var mainGetProviderIntegrationAuthorization2 = values.Item4;
+        ///             var mainGetProviderIntegrationAuthorization3 = values.Item5;
+        ///             return main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Cloud) == "AZURE" ? 
+        ///             {
+        ///                 { "appId", mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId) },
+        ///                 { "command", $"az ad sp create --id {mainGetProviderIntegrationAuthorization1.Azures[0]?.ConfluentMultiTenantAppId}" },
+        ///             } : 
+        ///             {
+        ///                 { "confluentSa", mainGetProviderIntegrationAuthorization2.Gcps[0]?.GoogleServiceAccount },
+        ///                 { "customerSa", mainGetProviderIntegrationAuthorization3.Gcps[0]?.CustomerGoogleServiceAccount },
+        ///             };
+        ///         }),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// 
+        /// ## Getting Started
+        /// 
+        /// The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationAuthorization` data source:
+        /// * provider-integration-azure: Complete Azure Provider Integration setup
+        /// * provider-integration-gcp: Complete GCP Provider Integration setup
+        /// </summary>
         public static Output<GetProviderIntegrationAuthorizationResult> Invoke(GetProviderIntegrationAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderIntegrationAuthorizationResult>("confluentcloud:index/getProviderIntegrationAuthorization:getProviderIntegrationAuthorization", args ?? new GetProviderIntegrationAuthorizationInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// `confluentcloud.ProviderIntegrationAuthorization` describes the authorization configuration for a Cloud Service Provider (CSP) integration, including cloud-specific setup information like Azure multi-tenant app IDs or GCP service accounts.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Azure Provider Integration Authorization
+        /// 
+        /// You can use the authorization data source with either approach:
+        /// 
+        /// ### Option 1: With Azure Terraform Provider
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azuread = Pulumi.Azuread;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the authorization data
+        ///     var azure = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = "cspi-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     // Create the service principal using Azure Terraform Provider
+        ///     var confluent = new Azuread.Index.ServicePrincipal("confluent", new()
+        ///     {
+        ///         ClientId = azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azureAppId"] = azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId),
+        ///         ["servicePrincipalObjectId"] = confluent.ObjectId,
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option 2: With CLI Commands
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the authorization data
+        ///     var azure = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = "cspi-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azureSetupCommand"] = $"az ad sp create --id {azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId)}",
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### GCP Provider Integration Authorization
+        /// 
+        /// You can use the authorization data source with either approach:
+        /// 
+        /// ### Option 1: With Google Terraform Provider
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// using Google = Pulumi.Google;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the authorization data
+        ///     var gcp = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = "cspi-def456",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     // Grant IAM permissions using Google Terraform Provider
+        ///     var confluentTokenCreator = new Google.Index.ProjectIamMember("confluent_token_creator", new()
+        ///     {
+        ///         Project = gcpProjectId,
+        ///         Role = "roles/iam.serviceAccountTokenCreator",
+        ///         Member = $"serviceAccount:{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}",
+        ///         Condition = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "title", "Confluent Cloud Access" },
+        ///                 { "description", "Allow Confluent Cloud to impersonate the customer service account" },
+        ///                 { "expression", $"request.auth.claims.sub == '{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}'" },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["confluentServiceAccount"] = gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount),
+        ///         ["customerServiceAccount"] = gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.CustomerGoogleServiceAccount),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option 2: With gcloud CLI Commands
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get the authorization data
+        ///     var gcp = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = "cspi-def456",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["gcpIamCommand"] = Output.Tuple(gcp, gcp).Apply(values =&gt;
+        ///         {
+        ///             var gcp = values.Item1;
+        ///             var gcp1 = values.Item2;
+        ///             return $"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:{gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount)}\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='{gcp1.Gcps[0]?.GoogleServiceAccount}'\"";
+        ///         }),
+        ///         ["confluentServiceAccount"] = gcp.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Gcps[0]?.GoogleServiceAccount),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Using with Integration Data Source
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
+        ///     {
+        ///         DisplayName = "my-integration",
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     {
+        ///         Id = main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Id),
+        ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["setupInfo"] = Output.Tuple(main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization).Apply(values =&gt;
+        ///         {
+        ///             var main = values.Item1;
+        ///             var mainGetProviderIntegrationAuthorization = values.Item2;
+        ///             var mainGetProviderIntegrationAuthorization1 = values.Item3;
+        ///             var mainGetProviderIntegrationAuthorization2 = values.Item4;
+        ///             var mainGetProviderIntegrationAuthorization3 = values.Item5;
+        ///             return main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Cloud) == "AZURE" ? 
+        ///             {
+        ///                 { "appId", mainGetProviderIntegrationAuthorization.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId) },
+        ///                 { "command", $"az ad sp create --id {mainGetProviderIntegrationAuthorization1.Azures[0]?.ConfluentMultiTenantAppId}" },
+        ///             } : 
+        ///             {
+        ///                 { "confluentSa", mainGetProviderIntegrationAuthorization2.Gcps[0]?.GoogleServiceAccount },
+        ///                 { "customerSa", mainGetProviderIntegrationAuthorization3.Gcps[0]?.CustomerGoogleServiceAccount },
+        ///             };
+        ///         }),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// 
+        /// ## Getting Started
+        /// 
+        /// The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationAuthorization` data source:
+        /// * provider-integration-azure: Complete Azure Provider Integration setup
+        /// * provider-integration-gcp: Complete GCP Provider Integration setup
+        /// </summary>
         public static Output<GetProviderIntegrationAuthorizationResult> Invoke(GetProviderIntegrationAuthorizationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderIntegrationAuthorizationResult>("confluentcloud:index/getProviderIntegrationAuthorization:getProviderIntegrationAuthorization", args ?? new GetProviderIntegrationAuthorizationInvokeArgs(), options.WithDefaults());
     }

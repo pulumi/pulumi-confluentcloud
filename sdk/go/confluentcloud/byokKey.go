@@ -85,13 +85,13 @@ import (
 //
 // ## Import
 //
+// > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a BYOK Key.
+//
 // You can import a BYOK Key by using BYOK Key ID. The following example shows how to import a BYOK Key:
 //
-// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-//
-// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-//
 // ```sh
+// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 // $ pulumi import confluentcloud:index/byokKey:ByokKey aws_key cck-abcde
 // ```
 //

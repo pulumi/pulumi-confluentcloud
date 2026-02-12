@@ -45,13 +45,13 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing an Identity Provider.
+ *
  * You can import an Identity Provider by using Identity Provider ID, for example:
  *
- * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
- *
- * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
- *
  * ```sh
+ * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+ * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
  * $ pulumi import confluentcloud:index/identityProvider:IdentityProvider example op-abc123
  * ```
  *

@@ -18,13 +18,13 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
+    /// &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a ksqlDB cluster.
+    /// 
     /// You can import a ksqlDB cluster by using Environment ID and ksqlDB cluster ID, in the format `&lt;Environment ID&gt;/&lt;ksqlDB cluster ID&gt;`, for example:
     /// 
-    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
-    /// 
-    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
-    /// 
     /// ```sh
+    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// $ pulumi import confluentcloud:index/ksqlCluster:KsqlCluster example env-abc123/lksqlc-abc123
     /// ```
     /// 

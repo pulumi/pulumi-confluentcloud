@@ -175,14 +175,30 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Indicates whether the statement should be stopped.
+     * The boolean flag is used to indicate the statement&#39;s running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
+     * 
+     * !&gt; **Note:** To stop a running statement, no other argument can be updated except `stopped`.
+     * 
+     * !&gt; **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+     * 
+     * !&gt; **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+     * 
+     * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     @Import(name="stopped")
     private @Nullable Output<Boolean> stopped;
 
     /**
-     * @return Indicates whether the statement should be stopped.
+     * @return The boolean flag is used to indicate the statement&#39;s running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
+     * 
+     * !&gt; **Note:** To stop a running statement, no other argument can be updated except `stopped`.
+     * 
+     * !&gt; **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+     * 
+     * !&gt; **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+     * 
+     * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     public Optional<Output<Boolean>> stopped() {
@@ -434,7 +450,15 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param stopped Indicates whether the statement should be stopped.
+         * @param stopped The boolean flag is used to indicate the statement&#39;s running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
+         * 
+         * !&gt; **Note:** To stop a running statement, no other argument can be updated except `stopped`.
+         * 
+         * !&gt; **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+         * 
+         * !&gt; **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+         * 
+         * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
          * 
          * @return builder
          * 
@@ -445,7 +469,15 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param stopped Indicates whether the statement should be stopped.
+         * @param stopped The boolean flag is used to indicate the statement&#39;s running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
+         * 
+         * !&gt; **Note:** To stop a running statement, no other argument can be updated except `stopped`.
+         * 
+         * !&gt; **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+         * 
+         * !&gt; **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+         * 
+         * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
          * 
          * @return builder
          * 

@@ -16,6 +16,12 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.FlinkComputePool` provides a Flink Compute Pool resource that enables creating, editing, and deleting Flink Compute Pool on Confluent Cloud.
+ * 
+ * &gt; **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental Flink Compute Pool deletion. This setting rejects plans that would destroy or recreate the Flink Compute Pool, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -64,13 +70,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Flink Compute Pool.
+ * 
  * You can import a Flink Compute Pool by using Environment ID and Flink Compute Pool ID, in the format `&lt;Environment ID&gt;/&lt;Flink Compute Pool ID&gt;`. The following example shows how to import a Flink Compute Pool:
  * 
- * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
- * 
- * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
- * 
  * ```sh
+ * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * $ pulumi import confluentcloud:index/flinkComputePool:FlinkComputePool main env-abc123/lfcp-abc123
  * ```
  * 

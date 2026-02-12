@@ -180,13 +180,13 @@ class ServiceAccount(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Service Account.
+
         You can import a Service Account by using Service Account ID, for example:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
         ```
 
@@ -246,13 +246,13 @@ class ServiceAccount(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Service Account.
+
         You can import a Service Account by using Service Account ID, for example:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
         ```
 

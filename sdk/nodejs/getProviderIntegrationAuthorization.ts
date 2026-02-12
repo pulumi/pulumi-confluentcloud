@@ -6,6 +6,136 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.ProviderIntegrationAuthorization` describes the authorization configuration for a Cloud Service Provider (CSP) integration, including cloud-specific setup information like Azure multi-tenant app IDs or GCP service accounts.
+ *
+ * ## Example Usage
+ *
+ * ### Azure Provider Integration Authorization
+ *
+ * You can use the authorization data source with either approach:
+ *
+ * ### Option 1: With Azure Terraform Provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuread from "@pulumi/azuread";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * // Get the authorization data
+ * const azure = confluentcloud.getProviderIntegrationAuthorization({
+ *     id: "cspi-abc123",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * // Create the service principal using Azure Terraform Provider
+ * const confluent = new azuread.index.ServicePrincipal("confluent", {clientId: azure.azures?.[0]?.confluentMultiTenantAppId});
+ * export const azureAppId = azure.then(azure => azure.azures?.[0]?.confluentMultiTenantAppId);
+ * export const servicePrincipalObjectId = confluent.objectId;
+ * ```
+ *
+ * ### Option 2: With CLI Commands
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * // Get the authorization data
+ * const azure = confluentcloud.getProviderIntegrationAuthorization({
+ *     id: "cspi-abc123",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * export const azureSetupCommand = azure.then(azure => `az ad sp create --id ${azure.azures?.[0]?.confluentMultiTenantAppId}`);
+ * ```
+ *
+ * ### GCP Provider Integration Authorization
+ *
+ * You can use the authorization data source with either approach:
+ *
+ * ### Option 1: With Google Terraform Provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ * import * as google from "@pulumi/google";
+ *
+ * // Get the authorization data
+ * const gcp = confluentcloud.getProviderIntegrationAuthorization({
+ *     id: "cspi-def456",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * // Grant IAM permissions using Google Terraform Provider
+ * const confluentTokenCreator = new google.index.ProjectIamMember("confluent_token_creator", {
+ *     project: gcpProjectId,
+ *     role: "roles/iam.serviceAccountTokenCreator",
+ *     member: `serviceAccount:${gcp.gcps?.[0]?.googleServiceAccount}`,
+ *     condition: [{
+ *         title: "Confluent Cloud Access",
+ *         description: "Allow Confluent Cloud to impersonate the customer service account",
+ *         expression: `request.auth.claims.sub == '${gcp.gcps?.[0]?.googleServiceAccount}'`,
+ *     }],
+ * });
+ * export const confluentServiceAccount = gcp.then(gcp => gcp.gcps?.[0]?.googleServiceAccount);
+ * export const customerServiceAccount = gcp.then(gcp => gcp.gcps?.[0]?.customerGoogleServiceAccount);
+ * ```
+ *
+ * ### Option 2: With gcloud CLI Commands
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * // Get the authorization data
+ * const gcp = confluentcloud.getProviderIntegrationAuthorization({
+ *     id: "cspi-def456",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * export const gcpIamCommand = Promise.all([gcp, gcp]).then(([gcp, gcp1]) => `gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member="serviceAccount:${gcp.gcps?.[0]?.googleServiceAccount}" --role="roles/iam.serviceAccountTokenCreator" --condition="expression=request.auth.claims.sub=='${gcp1.gcps?.[0]?.googleServiceAccount}'"`);
+ * export const confluentServiceAccount = gcp.then(gcp => gcp.gcps?.[0]?.googleServiceAccount);
+ * ```
+ *
+ * ### Using with Integration Data Source
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getProviderIntegrationSetup({
+ *     displayName: "my-integration",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * const mainGetProviderIntegrationAuthorization = main.then(main => confluentcloud.getProviderIntegrationAuthorization({
+ *     id: main.id,
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * }));
+ * export const setupInfo = Promise.all([main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization]).then(([main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization1, mainGetProviderIntegrationAuthorization2, mainGetProviderIntegrationAuthorization3]) => main.cloud == "AZURE" ? {
+ *     appId: mainGetProviderIntegrationAuthorization.azures?.[0]?.confluentMultiTenantAppId,
+ *     command: `az ad sp create --id ${mainGetProviderIntegrationAuthorization1.azures?.[0]?.confluentMultiTenantAppId}`,
+ * } : {
+ *     confluentSa: mainGetProviderIntegrationAuthorization2.gcps?.[0]?.googleServiceAccount,
+ *     customerSa: mainGetProviderIntegrationAuthorization3.gcps?.[0]?.customerGoogleServiceAccount,
+ * });
+ * ```
+ *
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationAuthorization` data source:
+ * * provider-integration-azure: Complete Azure Provider Integration setup
+ * * provider-integration-gcp: Complete GCP Provider Integration setup
+ */
 export function getProviderIntegrationAuthorization(args: GetProviderIntegrationAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderIntegrationAuthorizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getProviderIntegrationAuthorization:getProviderIntegrationAuthorization", {
@@ -53,6 +183,136 @@ export interface GetProviderIntegrationAuthorizationResult {
      */
     readonly providerIntegrationId: string;
 }
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.ProviderIntegrationAuthorization` describes the authorization configuration for a Cloud Service Provider (CSP) integration, including cloud-specific setup information like Azure multi-tenant app IDs or GCP service accounts.
+ *
+ * ## Example Usage
+ *
+ * ### Azure Provider Integration Authorization
+ *
+ * You can use the authorization data source with either approach:
+ *
+ * ### Option 1: With Azure Terraform Provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuread from "@pulumi/azuread";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * // Get the authorization data
+ * const azure = confluentcloud.getProviderIntegrationAuthorization({
+ *     id: "cspi-abc123",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * // Create the service principal using Azure Terraform Provider
+ * const confluent = new azuread.index.ServicePrincipal("confluent", {clientId: azure.azures?.[0]?.confluentMultiTenantAppId});
+ * export const azureAppId = azure.then(azure => azure.azures?.[0]?.confluentMultiTenantAppId);
+ * export const servicePrincipalObjectId = confluent.objectId;
+ * ```
+ *
+ * ### Option 2: With CLI Commands
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * // Get the authorization data
+ * const azure = confluentcloud.getProviderIntegrationAuthorization({
+ *     id: "cspi-abc123",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * export const azureSetupCommand = azure.then(azure => `az ad sp create --id ${azure.azures?.[0]?.confluentMultiTenantAppId}`);
+ * ```
+ *
+ * ### GCP Provider Integration Authorization
+ *
+ * You can use the authorization data source with either approach:
+ *
+ * ### Option 1: With Google Terraform Provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ * import * as google from "@pulumi/google";
+ *
+ * // Get the authorization data
+ * const gcp = confluentcloud.getProviderIntegrationAuthorization({
+ *     id: "cspi-def456",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * // Grant IAM permissions using Google Terraform Provider
+ * const confluentTokenCreator = new google.index.ProjectIamMember("confluent_token_creator", {
+ *     project: gcpProjectId,
+ *     role: "roles/iam.serviceAccountTokenCreator",
+ *     member: `serviceAccount:${gcp.gcps?.[0]?.googleServiceAccount}`,
+ *     condition: [{
+ *         title: "Confluent Cloud Access",
+ *         description: "Allow Confluent Cloud to impersonate the customer service account",
+ *         expression: `request.auth.claims.sub == '${gcp.gcps?.[0]?.googleServiceAccount}'`,
+ *     }],
+ * });
+ * export const confluentServiceAccount = gcp.then(gcp => gcp.gcps?.[0]?.googleServiceAccount);
+ * export const customerServiceAccount = gcp.then(gcp => gcp.gcps?.[0]?.customerGoogleServiceAccount);
+ * ```
+ *
+ * ### Option 2: With gcloud CLI Commands
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * // Get the authorization data
+ * const gcp = confluentcloud.getProviderIntegrationAuthorization({
+ *     id: "cspi-def456",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * export const gcpIamCommand = Promise.all([gcp, gcp]).then(([gcp, gcp1]) => `gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member="serviceAccount:${gcp.gcps?.[0]?.googleServiceAccount}" --role="roles/iam.serviceAccountTokenCreator" --condition="expression=request.auth.claims.sub=='${gcp1.gcps?.[0]?.googleServiceAccount}'"`);
+ * export const confluentServiceAccount = gcp.then(gcp => gcp.gcps?.[0]?.googleServiceAccount);
+ * ```
+ *
+ * ### Using with Integration Data Source
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getProviderIntegrationSetup({
+ *     displayName: "my-integration",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * const mainGetProviderIntegrationAuthorization = main.then(main => confluentcloud.getProviderIntegrationAuthorization({
+ *     id: main.id,
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * }));
+ * export const setupInfo = Promise.all([main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization]).then(([main, mainGetProviderIntegrationAuthorization, mainGetProviderIntegrationAuthorization1, mainGetProviderIntegrationAuthorization2, mainGetProviderIntegrationAuthorization3]) => main.cloud == "AZURE" ? {
+ *     appId: mainGetProviderIntegrationAuthorization.azures?.[0]?.confluentMultiTenantAppId,
+ *     command: `az ad sp create --id ${mainGetProviderIntegrationAuthorization1.azures?.[0]?.confluentMultiTenantAppId}`,
+ * } : {
+ *     confluentSa: mainGetProviderIntegrationAuthorization2.gcps?.[0]?.googleServiceAccount,
+ *     customerSa: mainGetProviderIntegrationAuthorization3.gcps?.[0]?.customerGoogleServiceAccount,
+ * });
+ * ```
+ *
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationAuthorization` data source:
+ * * provider-integration-azure: Complete Azure Provider Integration setup
+ * * provider-integration-gcp: Complete GCP Provider Integration setup
+ */
 export function getProviderIntegrationAuthorizationOutput(args: GetProviderIntegrationAuthorizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderIntegrationAuthorizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("confluentcloud:index/getProviderIntegrationAuthorization:getProviderIntegrationAuthorization", {

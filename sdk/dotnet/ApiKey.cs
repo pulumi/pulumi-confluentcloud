@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    /// 
+    /// `confluentcloud.ApiKey` provides an API Key resource that enables creating, editing, and deleting Cloud API Keys, Cluster API Keys (Kafka API Key, ksqlDB API Key, Schema Registry API Key, Flink API Key, Tableflow API Key) on Confluent Cloud.
+    /// 
+    /// &gt; **Note:** It is recommended to set `lifecycle { PreventDestroy = true }` on production instances to prevent accidental API Key deletion. This setting rejects plans that would destroy or recreate the API Key, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Example Kafka API Key
@@ -241,13 +247,15 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
+    /// &gt; **Note:** You must set the `API_KEY_SECRET` (`Secret`) environment variable before importing an API Key.
+    /// 
     /// You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `&lt;Environment ID&gt;/&lt;Cluster API Key ID&gt;`, for example:
     /// 
+    /// ```sh
     /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
-    /// 
     /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
-    /// 
     /// $ export API_KEY_SECRET="&lt;api_key_secret&gt;"
+    /// ```
     /// 
     /// Option #1: Cluster API Key
     /// 
@@ -257,11 +265,11 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Cloud or Tableflow API Key by using Cloud or Tableflow API Key ID, for example:
     /// 
+    /// ```sh
     /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
-    /// 
     /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
-    /// 
     /// $ export API_KEY_SECRET="&lt;api_key_secret&gt;"
+    /// ```
     /// 
     /// Option #2: Cloud or Tableflow API Key
     /// 

@@ -16,7 +16,13 @@ public final class CatalogIntegrationCredentials {
      */
     private String key;
     /**
-     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * @return The Tableflow API Secret.
+     * 
+     * &gt; **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
+     * 
+     * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target=&#34;confluent_catalog_integration.example&#34;`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_catalog_integration.example&#34; -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+     * 
+     * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     private String secret;
@@ -30,7 +36,13 @@ public final class CatalogIntegrationCredentials {
         return this.key;
     }
     /**
-     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * @return The Tableflow API Secret.
+     * 
+     * &gt; **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
+     * 
+     * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target=&#34;confluent_catalog_integration.example&#34;`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_catalog_integration.example&#34; -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+     * 
+     * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     public String secret() {

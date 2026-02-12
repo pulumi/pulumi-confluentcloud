@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// > **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental statement deletion. This setting rejects plans that would destroy or recreate the statement, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+//
 // ## Example Usage
 //
 // ### Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
@@ -135,21 +139,14 @@ import (
 //
 // Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
 //
-// $ export IMPORT_CONFLUENT_ORGANIZATION_ID="<organization_id>"
-//
-// $ export IMPORT_CONFLUENT_ENVIRONMENT_ID="<environment_id>"
-//
-// $ export IMPORT_FLINK_COMPUTE_POOL_ID="<flink_compute_pool_id>"
-//
-// $ export IMPORT_FLINK_API_KEY="<flink_api_key>"
-//
-// $ export IMPORT_FLINK_API_SECRET="<flink_api_secret>"
-//
-// $ export IMPORT_FLINK_REST_ENDPOINT="<flink_rest_endpoint>"
-//
-// $ export IMPORT_FLINK_PRINCIPAL_ID="<flink_rest_endpoint>"
-//
 // ```sh
+// $ export IMPORT_CONFLUENT_ORGANIZATION_ID="<organization_id>"
+// $ export IMPORT_CONFLUENT_ENVIRONMENT_ID="<environment_id>"
+// $ export IMPORT_FLINK_COMPUTE_POOL_ID="<flink_compute_pool_id>"
+// $ export IMPORT_FLINK_API_KEY="<flink_api_key>"
+// $ export IMPORT_FLINK_API_SECRET="<flink_api_secret>"
+// $ export IMPORT_FLINK_REST_ENDPOINT="<flink_rest_endpoint>"
+// $ export IMPORT_FLINK_PRINCIPAL_ID="<flink_rest_endpoint>"
 // $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
 // ```
 //
@@ -185,7 +182,15 @@ type FlinkStatement struct {
 	Statement pulumi.StringOutput `pulumi:"statement"`
 	// The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
 	StatementName pulumi.StringOutput `pulumi:"statementName"`
-	// Indicates whether the statement should be stopped.
+	// The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
+	//
+	// !> **Note:** To stop a running statement, no other argument can be updated except `stopped`.
+	//
+	// !> **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+	//
+	// !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+	//
+	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Stopped pulumi.BoolOutput `pulumi:"stopped"`
 }
 
@@ -255,7 +260,15 @@ type flinkStatementState struct {
 	Statement *string `pulumi:"statement"`
 	// The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
 	StatementName *string `pulumi:"statementName"`
-	// Indicates whether the statement should be stopped.
+	// The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
+	//
+	// !> **Note:** To stop a running statement, no other argument can be updated except `stopped`.
+	//
+	// !> **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+	//
+	// !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+	//
+	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Stopped *bool `pulumi:"stopped"`
 }
 
@@ -282,7 +295,15 @@ type FlinkStatementState struct {
 	Statement pulumi.StringPtrInput
 	// The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
 	StatementName pulumi.StringPtrInput
-	// Indicates whether the statement should be stopped.
+	// The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
+	//
+	// !> **Note:** To stop a running statement, no other argument can be updated except `stopped`.
+	//
+	// !> **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+	//
+	// !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+	//
+	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Stopped pulumi.BoolPtrInput
 }
 
@@ -309,7 +330,15 @@ type flinkStatementArgs struct {
 	Statement string `pulumi:"statement"`
 	// The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
 	StatementName *string `pulumi:"statementName"`
-	// Indicates whether the statement should be stopped.
+	// The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
+	//
+	// !> **Note:** To stop a running statement, no other argument can be updated except `stopped`.
+	//
+	// !> **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+	//
+	// !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+	//
+	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Stopped *bool `pulumi:"stopped"`
 }
 
@@ -333,7 +362,15 @@ type FlinkStatementArgs struct {
 	Statement pulumi.StringInput
 	// The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
 	StatementName pulumi.StringPtrInput
-	// Indicates whether the statement should be stopped.
+	// The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
+	//
+	// !> **Note:** To stop a running statement, no other argument can be updated except `stopped`.
+	//
+	// !> **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+	//
+	// !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+	//
+	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 	Stopped pulumi.BoolPtrInput
 }
 
@@ -482,7 +519,15 @@ func (o FlinkStatementOutput) StatementName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlinkStatement) pulumi.StringOutput { return v.StatementName }).(pulumi.StringOutput)
 }
 
-// Indicates whether the statement should be stopped.
+// The boolean flag is used to indicate the statement's running status and to control whether the Flink Statement should be stopped or resumed. Defaults to `false`. Update it to `true` to stop the statement. Subsequently update it to `false` to resume the statement.
+//
+// !> **Note:** To stop a running statement, no other argument can be updated except `stopped`.
+//
+// !> **Note:** When resuming a stopped statement, you can update `principal.id` and/or `compute_pool.id` in addition to `stopped` attribute. This enables the statement to run under a different principal (with the appropriate role assignment) or a different Flink compute pool (as long as it is in the same Flink region as the original).
+//
+// !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
+//
+// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
 func (o FlinkStatementOutput) Stopped() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FlinkStatement) pulumi.BoolOutput { return v.Stopped }).(pulumi.BoolOutput)
 }

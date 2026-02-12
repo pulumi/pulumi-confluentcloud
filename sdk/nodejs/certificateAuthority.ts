@@ -25,13 +25,13 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Certificate Authority.
+ *
  * You can import a Certificate Authority by using Certificate Authority ID, for example:
  *
- * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
- *
- * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
- *
  * ```sh
+ * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+ * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
  * $ pulumi import confluentcloud:index/certificateAuthority:CertificateAuthority main op-abc123
  * ```
  *

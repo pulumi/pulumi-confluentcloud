@@ -63,13 +63,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing an Invitation.
+ * 
  * You can import an Invitation by using Invitation ID, for example:
  * 
- * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
- * 
- * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
- * 
  * ```sh
+ * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1
  * ```
  * 
@@ -92,9 +92,17 @@ public class Invitation extends com.pulumi.resources.CustomResource {
     public Output<String> acceptedAt() {
         return this.acceptedAt;
     }
+    /**
+     * Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
+     * 
+     */
     @Export(name="allowDeletion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowDeletion;
 
+    /**
+     * @return Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
+     * 
+     */
     public Output<Optional<Boolean>> allowDeletion() {
         return Codegen.optional(this.allowDeletion);
     }

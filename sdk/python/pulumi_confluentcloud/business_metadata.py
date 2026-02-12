@@ -310,13 +310,10 @@ class BusinessMetadata(pulumi.CustomResource):
 
         You can import a Business Metadata by using the Schema Registry cluster ID, Business Metadata name in the format `<Schema Registry cluster ID>/<Business Metadata name>`, for example:
 
-        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
-
-        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
-
-        $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
-
         ```sh
+        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+        $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
         $ pulumi import confluentcloud:index/businessMetadata:BusinessMetadata pii lsrc-8wrx70/PII
         ```
 
@@ -399,13 +396,10 @@ class BusinessMetadata(pulumi.CustomResource):
 
         You can import a Business Metadata by using the Schema Registry cluster ID, Business Metadata name in the format `<Schema Registry cluster ID>/<Business Metadata name>`, for example:
 
-        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
-
-        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
-
-        $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
-
         ```sh
+        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+        $ export IMPORT_CATALOG_REST_ENDPOINT="<catalog_rest_endpoint>"
         $ pulumi import confluentcloud:index/businessMetadata:BusinessMetadata pii lsrc-8wrx70/PII
         ```
 

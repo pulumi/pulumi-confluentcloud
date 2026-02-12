@@ -31,13 +31,13 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Group Mapping.
+ *
  * You can import a Group Mapping by using Group Mapping ID, for example:
  *
- * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
- *
- * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
- *
  * ```sh
+ * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+ * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
  * $ pulumi import confluentcloud:index/groupMapping:GroupMapping application-developers group-abc123
  * ```
  *

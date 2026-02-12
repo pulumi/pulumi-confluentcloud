@@ -34,9 +34,17 @@ public final class InvitationState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.acceptedAt);
     }
 
+    /**
+     * Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
+     * 
+     */
     @Import(name="allowDeletion")
     private @Nullable Output<Boolean> allowDeletion;
 
+    /**
+     * @return Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
+     * 
+     */
     public Optional<Output<Boolean>> allowDeletion() {
         return Optional.ofNullable(this.allowDeletion);
     }
@@ -183,11 +191,23 @@ public final class InvitationState extends com.pulumi.resources.ResourceArgs {
             return acceptedAt(Output.of(acceptedAt));
         }
 
+        /**
+         * @param allowDeletion Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowDeletion(@Nullable Output<Boolean> allowDeletion) {
             $.allowDeletion = allowDeletion;
             return this;
         }
 
+        /**
+         * @param allowDeletion Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowDeletion(Boolean allowDeletion) {
             return allowDeletion(Output.of(allowDeletion));
         }

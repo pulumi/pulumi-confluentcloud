@@ -124,19 +124,17 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Schema Exporter name&gt;`, for example:
     /// 
-    /// $ export IMPORT_SCHEMA_REGISTRY_ID="&lt;schema_registry_cluster_id&gt;"
-    /// 
-    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
-    /// 
-    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
-    /// 
-    /// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
-    /// 
     /// ```sh
+    /// $ export IMPORT_SCHEMA_REGISTRY_ID="&lt;schema_registry_cluster_id&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
     /// $ pulumi import confluentcloud:index/schemaExporter:SchemaExporter main lsrc-8wrx70/test-exporter
     /// ```
     /// 
     /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// 
+    /// &gt; **Note:** When using OAuth authentication in the provider block, only `IMPORT_SCHEMA_REGISTRY_ID` and `IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT` are required to be set.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/schemaExporter:SchemaExporter")]
     public partial class SchemaExporter : global::Pulumi.CustomResource

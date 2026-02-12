@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `ConnectArtifact` provides a Connect Artifact resource that enables creating and deleting Connect Artifact on Confluent Cloud.
+//
+// > **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental Connect Artifact deletion. This setting rejects plans that would destroy or recreate the Connect Artifact, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+//
 // ## Example Usage
 //
 // ```go
@@ -47,13 +53,15 @@ import (
 //
 // ## Import
 //
+// > **Note:** Set `artifactFile = ""` or use `IMPORT_ARTIFACT_FILENAME` environment variables before importing a Connect Artifact.
+//
+// > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Connect Artifact.
+//
 // You can import a Connect Artifact by using Environment ID, Cloud, and Connect Artifact ID in the format `<Environment ID>/<cloud>/<Connect Artifact ID>`, for example:
 //
-// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-//
-// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-//
 // ```sh
+// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 // $ pulumi import confluentcloud:index/connectArtifact:ConnectArtifact example env-123456/AWS/ca-123456
 // ```
 //

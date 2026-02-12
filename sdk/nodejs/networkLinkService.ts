@@ -7,6 +7,12 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.NetworkLinkService` provides a Network Link Service resource that enables creating, editing, and deleting Network Link Services on Confluent Cloud.
+ *
+ * > **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental Network Link Service deletion. This setting rejects plans that would destroy or recreate the Network Link Service, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+ *
  * ## Example Usage
  *
  * ### Example Network Link Service on AWS
@@ -56,13 +62,13 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Network Link Service.
+ *
  * You can import a Network Link Service by using Environment ID and Network Link Service ID, in the format `<Environment ID>/<Network Link Service ID>`. The following example shows how to import a Network Link Service:
  *
- * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
- *
- * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
- *
  * ```sh
+ * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+ * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
  * $ pulumi import confluentcloud:index/networkLinkService:NetworkLinkService my_nls env-abc123/nls-abc123
  * ```
  *

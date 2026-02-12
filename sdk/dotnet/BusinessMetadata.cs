@@ -96,13 +96,10 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Business Metadata by using the Schema Registry cluster ID, Business Metadata name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Business Metadata name&gt;`, for example:
     /// 
-    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
-    /// 
-    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
-    /// 
-    /// $ export IMPORT_CATALOG_REST_ENDPOINT="&lt;catalog_rest_endpoint&gt;"
-    /// 
     /// ```sh
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
+    /// $ export IMPORT_CATALOG_REST_ENDPOINT="&lt;catalog_rest_endpoint&gt;"
     /// $ pulumi import confluentcloud:index/businessMetadata:BusinessMetadata pii lsrc-8wrx70/PII
     /// ```
     /// 

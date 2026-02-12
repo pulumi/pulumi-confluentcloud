@@ -26,13 +26,13 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing an Invitation.
+ *
  * You can import an Invitation by using Invitation ID, for example:
  *
- * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
- *
- * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
- *
  * ```sh
+ * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+ * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
  * $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1
  * ```
  *
@@ -70,6 +70,9 @@ export class Invitation extends pulumi.CustomResource {
      * (Optional String) The timestamp that the invitation was accepted.
      */
     declare public /*out*/ readonly acceptedAt: pulumi.Output<string>;
+    /**
+     * Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
+     */
     declare public readonly allowDeletion: pulumi.Output<boolean | undefined>;
     /**
      * Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's authType is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's authType is `AUTH_TYPE_LOCAL` by default.
@@ -144,6 +147,9 @@ export interface InvitationState {
      * (Optional String) The timestamp that the invitation was accepted.
      */
     acceptedAt?: pulumi.Input<string>;
+    /**
+     * Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
+     */
     allowDeletion?: pulumi.Input<boolean>;
     /**
      * Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's authType is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's authType is `AUTH_TYPE_LOCAL` by default.
@@ -175,6 +181,9 @@ export interface InvitationState {
  * The set of arguments for constructing a Invitation resource.
  */
 export interface InvitationArgs {
+    /**
+     * Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
+     */
     allowDeletion?: pulumi.Input<boolean>;
     /**
      * Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's authType is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's authType is `AUTH_TYPE_LOCAL` by default.

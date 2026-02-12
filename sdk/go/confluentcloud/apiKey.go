@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `ApiKey` provides an API Key resource that enables creating, editing, and deleting Cloud API Keys, Cluster API Keys (Kafka API Key, ksqlDB API Key, Schema Registry API Key, Flink API Key, Tableflow API Key) on Confluent Cloud.
+//
+// > **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental API Key deletion. This setting rejects plans that would destroy or recreate the API Key, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+//
 // ## Example Usage
 //
 // ### Example Kafka API Key
@@ -272,13 +278,15 @@ import (
 //
 // ## Import
 //
+// > **Note:** You must set the `API_KEY_SECRET` (`secret`) environment variable before importing an API Key.
+//
 // You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `<Environment ID>/<Cluster API Key ID>`, for example:
 //
+// ```sh
 // $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-//
 // $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-//
 // $ export API_KEY_SECRET="<api_key_secret>"
+// ```
 //
 // Option #1: Cluster API Key
 //
@@ -288,11 +296,11 @@ import (
 //
 // You can import a Cloud or Tableflow API Key by using Cloud or Tableflow API Key ID, for example:
 //
+// ```sh
 // $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-//
 // $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-//
 // $ export API_KEY_SECRET="<api_key_secret>"
+// ```
 //
 // Option #2: Cloud or Tableflow API Key
 //

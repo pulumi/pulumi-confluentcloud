@@ -533,28 +533,23 @@ __all__ = [
     'GetTransitGatewayAttachmentEnvironmentArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccessPointAwsEgressPrivateLinkEndpointArgsDict(TypedDict):
-        vpc_endpoint_service_name: pulumi.Input[_builtins.str]
-        """
-        AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
-        """
-        enable_high_availability: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
-        """
-        vpc_endpoint_dns_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
-        """
-        vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
-        """
-elif False:
-    AccessPointAwsEgressPrivateLinkEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointAwsEgressPrivateLinkEndpointArgsDict(TypedDict):
+    vpc_endpoint_service_name: pulumi.Input[_builtins.str]
+    """
+    AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+    """
+    enable_high_availability: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+    """
+    vpc_endpoint_dns_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+    """
+    vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+    """
 
 @pulumi.input_type
 class AccessPointAwsEgressPrivateLinkEndpointArgs:
@@ -626,22 +621,19 @@ class AccessPointAwsEgressPrivateLinkEndpointArgs:
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
-if not MYPY:
-    class AccessPointAwsIngressPrivateLinkEndpointArgsDict(TypedDict):
-        vpc_endpoint_id: pulumi.Input[_builtins.str]
-        """
-        ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
-        """
-        dns_domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
-        """
-        vpc_endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
-        """
-elif False:
-    AccessPointAwsIngressPrivateLinkEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointAwsIngressPrivateLinkEndpointArgsDict(TypedDict):
+    vpc_endpoint_id: pulumi.Input[_builtins.str]
+    """
+    ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+    """
+    dns_domain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+    """
+    vpc_endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+    """
 
 @pulumi.input_type
 class AccessPointAwsIngressPrivateLinkEndpointArgs:
@@ -697,18 +689,15 @@ class AccessPointAwsIngressPrivateLinkEndpointArgs:
         pulumi.set(self, "vpc_endpoint_service_name", value)
 
 
-if not MYPY:
-    class AccessPointAwsPrivateNetworkInterfaceArgsDict(TypedDict):
-        account: pulumi.Input[_builtins.str]
-        """
-        (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
-        """
-        network_interfaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
-        """
-elif False:
-    AccessPointAwsPrivateNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointAwsPrivateNetworkInterfaceArgsDict(TypedDict):
+    account: pulumi.Input[_builtins.str]
+    """
+    (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+    """
+    network_interfaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+    """
 
 @pulumi.input_type
 class AccessPointAwsPrivateNetworkInterfaceArgs:
@@ -747,34 +736,31 @@ class AccessPointAwsPrivateNetworkInterfaceArgs:
         pulumi.set(self, "network_interfaces", value)
 
 
-if not MYPY:
-    class AccessPointAzureEgressPrivateLinkEndpointArgsDict(TypedDict):
-        private_link_service_resource_id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of the Azure Private Link service.
-        """
-        private_endpoint_custom_dns_config_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
-        """
-        private_endpoint_domain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
-        """
-        private_endpoint_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
-        """
-        private_endpoint_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
-        """
-        private_link_subresource_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the subresource for the Private Endpoint to connect to.
-        """
-elif False:
-    AccessPointAzureEgressPrivateLinkEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointAzureEgressPrivateLinkEndpointArgsDict(TypedDict):
+    private_link_service_resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of the Azure Private Link service.
+    """
+    private_endpoint_custom_dns_config_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
+    """
+    private_endpoint_domain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
+    """
+    private_endpoint_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
+    """
+    private_endpoint_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+    """
+    private_link_subresource_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the subresource for the Private Endpoint to connect to.
+    """
 
 @pulumi.input_type
 class AccessPointAzureEgressPrivateLinkEndpointArgs:
@@ -878,14 +864,11 @@ class AccessPointAzureEgressPrivateLinkEndpointArgs:
         pulumi.set(self, "private_link_subresource_name", value)
 
 
-if not MYPY:
-    class AccessPointEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
-        """
-elif False:
-    AccessPointEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class AccessPointEnvironmentArgs:
@@ -909,14 +892,11 @@ class AccessPointEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class AccessPointGatewayArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
-        """
-elif False:
-    AccessPointGatewayArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointGatewayArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+    """
 
 @pulumi.input_type
 class AccessPointGatewayArgs:
@@ -940,26 +920,23 @@ class AccessPointGatewayArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class AccessPointGcpEgressPrivateServiceConnectEndpointArgsDict(TypedDict):
-        private_service_connect_endpoint_target: pulumi.Input[_builtins.str]
-        """
-        URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
-        """
-        private_service_connect_endpoint_connection_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
-        """
-        private_service_connect_endpoint_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
-        """
-        private_service_connect_endpoint_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
-        """
-elif False:
-    AccessPointGcpEgressPrivateServiceConnectEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPointGcpEgressPrivateServiceConnectEndpointArgsDict(TypedDict):
+    private_service_connect_endpoint_target: pulumi.Input[_builtins.str]
+    """
+    URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
+    """
+    private_service_connect_endpoint_connection_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+    """
+    private_service_connect_endpoint_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+    """
+    private_service_connect_endpoint_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+    """
 
 @pulumi.input_type
 class AccessPointGcpEgressPrivateServiceConnectEndpointArgs:
@@ -1031,23 +1008,20 @@ class AccessPointGcpEgressPrivateServiceConnectEndpointArgs:
         pulumi.set(self, "private_service_connect_endpoint_name", value)
 
 
-if not MYPY:
-    class ApiKeyManagedResourceArgsDict(TypedDict):
-        api_version: pulumi.Input[_builtins.str]
-        """
-        The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        The kind of the managed resource that the API Key associated with, for example, `Cluster`.
-        """
-        environment: NotRequired[pulumi.Input['ApiKeyManagedResourceEnvironmentArgsDict']]
-elif False:
-    ApiKeyManagedResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ApiKeyManagedResourceArgsDict(TypedDict):
+    api_version: pulumi.Input[_builtins.str]
+    """
+    The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+    """
+    environment: NotRequired[pulumi.Input['ApiKeyManagedResourceEnvironmentArgsDict']]
 
 @pulumi.input_type
 class ApiKeyManagedResourceArgs:
@@ -1113,14 +1087,11 @@ class ApiKeyManagedResourceArgs:
         pulumi.set(self, "environment", value)
 
 
-if not MYPY:
-    class ApiKeyManagedResourceEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
-        """
-elif False:
-    ApiKeyManagedResourceEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class ApiKeyManagedResourceEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class ApiKeyManagedResourceEnvironmentArgs:
@@ -1144,22 +1115,19 @@ class ApiKeyManagedResourceEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ApiKeyOwnerArgsDict(TypedDict):
-        api_version: pulumi.Input[_builtins.str]
-        """
-        The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
-        """
-elif False:
-    ApiKeyOwnerArgsDict: TypeAlias = Mapping[str, Any]
+class ApiKeyOwnerArgsDict(TypedDict):
+    api_version: pulumi.Input[_builtins.str]
+    """
+    The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
+    """
 
 @pulumi.input_type
 class ApiKeyOwnerArgs:
@@ -1213,36 +1181,33 @@ class ApiKeyOwnerArgs:
         pulumi.set(self, "kind", value)
 
 
-if not MYPY:
-    class BusinessMetadataAttributeDefinitionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the attribute.
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default value of this attribute.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of this attribute.
-        """
-        is_optional: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        An optional flag to control whether the attribute should be optional or required. The default value is `false`.
-        """
-        options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        (Optional Map) Block for the attribute options:
-        - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\"cf_entity\\"]`.
-        - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The type of the attribute, it always returns `string`.
-        """
-elif False:
-    BusinessMetadataAttributeDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class BusinessMetadataAttributeDefinitionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the attribute.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default value of this attribute.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of this attribute.
+    """
+    is_optional: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    An optional flag to control whether the attribute should be optional or required. The default value is `false`.
+    """
+    options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    (Optional Map) Block for the attribute options:
+    - `applicableEntityTypes` - (Optional String) The entity types that the attribute is applicable, it always returns `[\\"cf_entity\\"]`.
+    - `maxStrLength` - (Optional String) The maximum length of the string value, it always returns `5000`.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The type of the attribute, it always returns `string`.
+    """
 
 @pulumi.input_type
 class BusinessMetadataAttributeDefinitionArgs:
@@ -1350,18 +1315,15 @@ class BusinessMetadataAttributeDefinitionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class BusinessMetadataBindingCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    BusinessMetadataBindingCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class BusinessMetadataBindingCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class BusinessMetadataBindingCredentialsArgs:
@@ -1400,14 +1362,11 @@ class BusinessMetadataBindingCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class BusinessMetadataBindingSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    BusinessMetadataBindingSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class BusinessMetadataBindingSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class BusinessMetadataBindingSchemaRegistryClusterArgs:
@@ -1431,18 +1390,21 @@ class BusinessMetadataBindingSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class BusinessMetadataCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    BusinessMetadataCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class BusinessMetadataCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+
+    > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+    > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+    !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadata` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+    """
 
 @pulumi.input_type
 class BusinessMetadataCredentialsArgs:
@@ -1451,7 +1413,13 @@ class BusinessMetadataCredentialsArgs:
                  secret: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] key: The Schema Registry API Key.
-        :param pulumi.Input[_builtins.str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param pulumi.Input[_builtins.str] secret: The Schema Registry API Secret.
+               
+               > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadata` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -1472,7 +1440,13 @@ class BusinessMetadataCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[_builtins.str]:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Schema Registry API Secret.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_business_metadata.pii"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_business_metadata.pii" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+        !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `BusinessMetadata` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "secret")
 
@@ -1481,14 +1455,11 @@ class BusinessMetadataCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class BusinessMetadataSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    BusinessMetadataSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class BusinessMetadataSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class BusinessMetadataSchemaRegistryClusterArgs:
@@ -1512,18 +1483,15 @@ class BusinessMetadataSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ByokKeyAwsArgsDict(TypedDict):
-        key_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of an AWS KMS key.
-        """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
-        """
-elif False:
-    ByokKeyAwsArgsDict: TypeAlias = Mapping[str, Any]
+class ByokKeyAwsArgsDict(TypedDict):
+    key_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of an AWS KMS key.
+    """
+    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
+    """
 
 @pulumi.input_type
 class ByokKeyAwsArgs:
@@ -1563,26 +1531,23 @@ class ByokKeyAwsArgs:
         pulumi.set(self, "roles", value)
 
 
-if not MYPY:
-    class ByokKeyAzureArgsDict(TypedDict):
-        key_identifier: pulumi.Input[_builtins.str]
-        """
-        The unique Key Object Identifier URL of an Azure Key Vault key.
-        """
-        key_vault_id: pulumi.Input[_builtins.str]
-        """
-        Key Vault ID containing the key.
-        """
-        tenant_id: pulumi.Input[_builtins.str]
-        """
-        Tenant ID (uuid) hosting the Key Vault containing the key.
-        """
-        application_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional String) The Application ID created for this key-environment combination.
-        """
-elif False:
-    ByokKeyAzureArgsDict: TypeAlias = Mapping[str, Any]
+class ByokKeyAzureArgsDict(TypedDict):
+    key_identifier: pulumi.Input[_builtins.str]
+    """
+    The unique Key Object Identifier URL of an Azure Key Vault key.
+    """
+    key_vault_id: pulumi.Input[_builtins.str]
+    """
+    Key Vault ID containing the key.
+    """
+    tenant_id: pulumi.Input[_builtins.str]
+    """
+    Tenant ID (uuid) hosting the Key Vault containing the key.
+    """
+    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional String) The Application ID created for this key-environment combination.
+    """
 
 @pulumi.input_type
 class ByokKeyAzureArgs:
@@ -1652,18 +1617,15 @@ class ByokKeyAzureArgs:
         pulumi.set(self, "application_id", value)
 
 
-if not MYPY:
-    class ByokKeyGcpArgsDict(TypedDict):
-        key_id: pulumi.Input[_builtins.str]
-        """
-        The Google Cloud Platform key ID.
-        """
-        security_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional String) The Google security group created for this key.
-        """
-elif False:
-    ByokKeyGcpArgsDict: TypeAlias = Mapping[str, Any]
+class ByokKeyGcpArgsDict(TypedDict):
+    key_id: pulumi.Input[_builtins.str]
+    """
+    The Google Cloud Platform key ID.
+    """
+    security_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional String) The Google security group created for this key.
+    """
 
 @pulumi.input_type
 class ByokKeyGcpArgs:
@@ -1703,18 +1665,15 @@ class ByokKeyGcpArgs:
         pulumi.set(self, "security_group", value)
 
 
-if not MYPY:
-    class CatalogEntityAttributesCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    CatalogEntityAttributesCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class CatalogEntityAttributesCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class CatalogEntityAttributesCredentialsArgs:
@@ -1753,14 +1712,11 @@ class CatalogEntityAttributesCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class CatalogEntityAttributesSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    CatalogEntityAttributesSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class CatalogEntityAttributesSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class CatalogEntityAttributesSchemaRegistryClusterArgs:
@@ -1784,14 +1740,11 @@ class CatalogEntityAttributesSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class CatalogIntegrationAwsGlueArgsDict(TypedDict):
-        provider_integration_id: pulumi.Input[_builtins.str]
-        """
-        The provider integration id.
-        """
-elif False:
-    CatalogIntegrationAwsGlueArgsDict: TypeAlias = Mapping[str, Any]
+class CatalogIntegrationAwsGlueArgsDict(TypedDict):
+    provider_integration_id: pulumi.Input[_builtins.str]
+    """
+    The provider integration id.
+    """
 
 @pulumi.input_type
 class CatalogIntegrationAwsGlueArgs:
@@ -1815,18 +1768,21 @@ class CatalogIntegrationAwsGlueArgs:
         pulumi.set(self, "provider_integration_id", value)
 
 
-if not MYPY:
-    class CatalogIntegrationCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Tableflow API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    CatalogIntegrationCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class CatalogIntegrationCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Tableflow API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Tableflow API Secret.
+
+    > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
+
+    > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_catalog_integration.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_integration.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+
+    !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+    """
 
 @pulumi.input_type
 class CatalogIntegrationCredentialsArgs:
@@ -1835,7 +1791,13 @@ class CatalogIntegrationCredentialsArgs:
                  secret: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] key: The Tableflow API Key.
-        :param pulumi.Input[_builtins.str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param pulumi.Input[_builtins.str] secret: The Tableflow API Secret.
+               
+               > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_catalog_integration.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_integration.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -1856,7 +1818,13 @@ class CatalogIntegrationCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[_builtins.str]:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Tableflow API Secret.
+
+        > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_catalog_integration.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_catalog_integration.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+
+        !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "secret")
 
@@ -1865,14 +1833,11 @@ class CatalogIntegrationCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class CatalogIntegrationEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment, for example, `env-abc123`.
-        """
-elif False:
-    CatalogIntegrationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class CatalogIntegrationEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class CatalogIntegrationEnvironmentArgs:
@@ -1896,14 +1861,11 @@ class CatalogIntegrationEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class CatalogIntegrationKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Kafka cluster, for example, `lkc-abc123`.
-        """
-elif False:
-    CatalogIntegrationKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class CatalogIntegrationKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Kafka cluster, for example, `lkc-abc123`.
+    """
 
 @pulumi.input_type
 class CatalogIntegrationKafkaClusterArgs:
@@ -1927,30 +1889,27 @@ class CatalogIntegrationKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class CatalogIntegrationSnowflakeArgsDict(TypedDict):
-        allowed_scope: pulumi.Input[_builtins.str]
-        """
-        Allowed scope of the Snowflake Open Catalog.
-        """
-        client_id: pulumi.Input[_builtins.str]
-        """
-        The client ID of the catalog integration.
-        """
-        client_secret: pulumi.Input[_builtins.str]
-        """
-        The client secret of the catalog integration.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        The catalog integration connection endpoint for Snowflake Open Catalog.
-        """
-        warehouse: pulumi.Input[_builtins.str]
-        """
-        Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
-        """
-elif False:
-    CatalogIntegrationSnowflakeArgsDict: TypeAlias = Mapping[str, Any]
+class CatalogIntegrationSnowflakeArgsDict(TypedDict):
+    allowed_scope: pulumi.Input[_builtins.str]
+    """
+    Allowed scope of the Snowflake Open Catalog.
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    The client ID of the catalog integration.
+    """
+    client_secret: pulumi.Input[_builtins.str]
+    """
+    The client secret of the catalog integration.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    The catalog integration connection endpoint for Snowflake Open Catalog.
+    """
+    warehouse: pulumi.Input[_builtins.str]
+    """
+    Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
+    """
 
 @pulumi.input_type
 class CatalogIntegrationSnowflakeArgs:
@@ -2034,14 +1993,11 @@ class CatalogIntegrationSnowflakeArgs:
         pulumi.set(self, "warehouse", value)
 
 
-if not MYPY:
-    class CertificatePoolCertificateAuthorityArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
-        """
-elif False:
-    CertificatePoolCertificateAuthorityArgsDict: TypeAlias = Mapping[str, Any]
+class CertificatePoolCertificateAuthorityArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+    """
 
 @pulumi.input_type
 class CertificatePoolCertificateAuthorityArgs:
@@ -2065,26 +2021,23 @@ class CertificatePoolCertificateAuthorityArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ClusterLinkDestinationKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
-        """
-        bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-        """
-        credentials: NotRequired[pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgsDict']]
-        """
-        The Kafka API Credentials.
-        """
-        rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        """
-elif False:
-    ClusterLinkDestinationKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLinkDestinationKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+    """
+    bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+    """
+    credentials: NotRequired[pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgsDict']]
+    """
+    The Kafka API Credentials.
+    """
+    rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+    """
 
 @pulumi.input_type
 class ClusterLinkDestinationKafkaClusterArgs:
@@ -2156,18 +2109,15 @@ class ClusterLinkDestinationKafkaClusterArgs:
         pulumi.set(self, "rest_endpoint", value)
 
 
-if not MYPY:
-    class ClusterLinkDestinationKafkaClusterCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Secret.
-        """
-elif False:
-    ClusterLinkDestinationKafkaClusterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLinkDestinationKafkaClusterCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Secret.
+    """
 
 @pulumi.input_type
 class ClusterLinkDestinationKafkaClusterCredentialsArgs:
@@ -2206,26 +2156,23 @@ class ClusterLinkDestinationKafkaClusterCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class ClusterLinkLocalKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the local Kafka cluster, for example, `lkc-abc123`.
-        """
-        bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-        """
-        credentials: NotRequired[pulumi.Input['ClusterLinkLocalKafkaClusterCredentialsArgsDict']]
-        """
-        The Kafka API Credentials.
-        """
-        rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        """
-elif False:
-    ClusterLinkLocalKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLinkLocalKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the local Kafka cluster, for example, `lkc-abc123`.
+    """
+    bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+    """
+    credentials: NotRequired[pulumi.Input['ClusterLinkLocalKafkaClusterCredentialsArgsDict']]
+    """
+    The Kafka API Credentials.
+    """
+    rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+    """
 
 @pulumi.input_type
 class ClusterLinkLocalKafkaClusterArgs:
@@ -2297,18 +2244,15 @@ class ClusterLinkLocalKafkaClusterArgs:
         pulumi.set(self, "rest_endpoint", value)
 
 
-if not MYPY:
-    class ClusterLinkLocalKafkaClusterCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Secret.
-        """
-elif False:
-    ClusterLinkLocalKafkaClusterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLinkLocalKafkaClusterCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Secret.
+    """
 
 @pulumi.input_type
 class ClusterLinkLocalKafkaClusterCredentialsArgs:
@@ -2347,26 +2291,23 @@ class ClusterLinkLocalKafkaClusterCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class ClusterLinkRemoteKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the remote Kafka cluster, for example, `lkc-abc123`.
-        """
-        bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-        """
-        credentials: NotRequired[pulumi.Input['ClusterLinkRemoteKafkaClusterCredentialsArgsDict']]
-        """
-        The Kafka API Credentials.
-        """
-        rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        """
-elif False:
-    ClusterLinkRemoteKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLinkRemoteKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+    """
+    bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+    """
+    credentials: NotRequired[pulumi.Input['ClusterLinkRemoteKafkaClusterCredentialsArgsDict']]
+    """
+    The Kafka API Credentials.
+    """
+    rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+    """
 
 @pulumi.input_type
 class ClusterLinkRemoteKafkaClusterArgs:
@@ -2438,18 +2379,15 @@ class ClusterLinkRemoteKafkaClusterArgs:
         pulumi.set(self, "rest_endpoint", value)
 
 
-if not MYPY:
-    class ClusterLinkRemoteKafkaClusterCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Secret.
-        """
-elif False:
-    ClusterLinkRemoteKafkaClusterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLinkRemoteKafkaClusterCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Secret.
+    """
 
 @pulumi.input_type
 class ClusterLinkRemoteKafkaClusterCredentialsArgs:
@@ -2488,26 +2426,23 @@ class ClusterLinkRemoteKafkaClusterCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class ClusterLinkSourceKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the source Kafka cluster, for example, `lkc-abc123`.
-        """
-        bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-        """
-        credentials: NotRequired[pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgsDict']]
-        """
-        The Kafka API Credentials.
-        """
-        rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        """
-elif False:
-    ClusterLinkSourceKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLinkSourceKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the source Kafka cluster, for example, `lkc-abc123`.
+    """
+    bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+    """
+    credentials: NotRequired[pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgsDict']]
+    """
+    The Kafka API Credentials.
+    """
+    rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+    """
 
 @pulumi.input_type
 class ClusterLinkSourceKafkaClusterArgs:
@@ -2579,18 +2514,15 @@ class ClusterLinkSourceKafkaClusterArgs:
         pulumi.set(self, "rest_endpoint", value)
 
 
-if not MYPY:
-    class ClusterLinkSourceKafkaClusterCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Secret.
-        """
-elif False:
-    ClusterLinkSourceKafkaClusterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLinkSourceKafkaClusterCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Secret.
+    """
 
 @pulumi.input_type
 class ClusterLinkSourceKafkaClusterCredentialsArgs:
@@ -2629,14 +2561,11 @@ class ClusterLinkSourceKafkaClusterCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class ConnectArtifactEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Connect Artifact belongs to.
-        """
-elif False:
-    ConnectArtifactEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectArtifactEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Connect Artifact belongs to.
+    """
 
 @pulumi.input_type
 class ConnectArtifactEnvironmentArgs:
@@ -2660,14 +2589,11 @@ class ConnectArtifactEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ConnectorEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the connector belongs to, for example, `env-abc123`.
-        """
-elif False:
-    ConnectorEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the connector belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class ConnectorEnvironmentArgs:
@@ -2691,14 +2617,11 @@ class ConnectorEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ConnectorKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
-        """
-elif False:
-    ConnectorKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+    """
 
 @pulumi.input_type
 class ConnectorKafkaClusterArgs:
@@ -2722,18 +2645,15 @@ class ConnectorKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ConnectorOffsetArgsDict(TypedDict):
-        offset: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafka_offset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
-        """
-        partition: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafka_partition` and `kafka_topic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
-        """
-elif False:
-    ConnectorOffsetArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorOffsetArgsDict(TypedDict):
+    offset: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Block with offset information that supports different keys depending on the connector type. For sink connectors, use `kafka_offset`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys. Alternatively, use the [Manage custom offsets section](https://docs.confluent.io/cloud/current/connectors/cc-github-source.html#manage-custom-offsets) on the homepage of the target source connector.
+    """
+    partition: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Block with partition information that supports different keys depending on the connector type. For sink connectors, use `kafka_partition` and `kafka_topic`. For source connectors, the applicable keys differ by kind—refer to the [Source connectors page](https://docs.confluent.io/cloud/current/connectors/offsets.html#source-connectors) for the full list of supported keys.
+    """
 
 @pulumi.input_type
 class ConnectorOffsetArgs:
@@ -2772,18 +2692,15 @@ class ConnectorOffsetArgs:
         pulumi.set(self, "partition", value)
 
 
-if not MYPY:
-    class CustomConnectorPluginVersionConnectorClassArgsDict(TypedDict):
-        connector_class_name: pulumi.Input[_builtins.str]
-        """
-        The name of the connector class.
-        """
-        connector_type: pulumi.Input[_builtins.str]
-        """
-        The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
-        """
-elif False:
-    CustomConnectorPluginVersionConnectorClassArgsDict: TypeAlias = Mapping[str, Any]
+class CustomConnectorPluginVersionConnectorClassArgsDict(TypedDict):
+    connector_class_name: pulumi.Input[_builtins.str]
+    """
+    The name of the connector class.
+    """
+    connector_type: pulumi.Input[_builtins.str]
+    """
+    The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
+    """
 
 @pulumi.input_type
 class CustomConnectorPluginVersionConnectorClassArgs:
@@ -2822,14 +2739,11 @@ class CustomConnectorPluginVersionConnectorClassArgs:
         pulumi.set(self, "connector_type", value)
 
 
-if not MYPY:
-    class CustomConnectorPluginVersionEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment, for example, `env-abc123`.
-        """
-elif False:
-    CustomConnectorPluginVersionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class CustomConnectorPluginVersionEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class CustomConnectorPluginVersionEnvironmentArgs:
@@ -2853,14 +2767,11 @@ class CustomConnectorPluginVersionEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class DnsForwarderEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
-        """
-elif False:
-    DnsForwarderEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class DnsForwarderEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class DnsForwarderEnvironmentArgs:
@@ -2884,18 +2795,15 @@ class DnsForwarderEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class DnsForwarderForwardViaGcpDnsZonesArgsDict(TypedDict):
-        domain_mappings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        List of Maps which contains the domain to zone and project mapping.
+class DnsForwarderForwardViaGcpDnsZonesArgsDict(TypedDict):
+    domain_mappings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    List of Maps which contains the domain to zone and project mapping.
 
-        > **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
+    > **Note:** The `forward_via_gcp_zones` and `forward_via_ip` blocks are mutually exclusive, and one of them must be provided.
 
-        > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
-        """
-elif False:
-    DnsForwarderForwardViaGcpDnsZonesArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** The zone and project must be specified in the correct order, separated by a comma, to ensure accurate `domain_mappings`.
+    """
 
 @pulumi.input_type
 class DnsForwarderForwardViaGcpDnsZonesArgs:
@@ -2928,14 +2836,11 @@ class DnsForwarderForwardViaGcpDnsZonesArgs:
         pulumi.set(self, "domain_mappings", value)
 
 
-if not MYPY:
-    class DnsForwarderForwardViaIpArgsDict(TypedDict):
-        dns_server_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of IP addresses of the DNS server.
-        """
-elif False:
-    DnsForwarderForwardViaIpArgsDict: TypeAlias = Mapping[str, Any]
+class DnsForwarderForwardViaIpArgsDict(TypedDict):
+    dns_server_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of IP addresses of the DNS server.
+    """
 
 @pulumi.input_type
 class DnsForwarderForwardViaIpArgs:
@@ -2960,14 +2865,11 @@ class DnsForwarderForwardViaIpArgs:
         pulumi.set(self, "dns_server_ips", value)
 
 
-if not MYPY:
-    class DnsForwarderGatewayArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
-        """
-elif False:
-    DnsForwarderGatewayArgsDict: TypeAlias = Mapping[str, Any]
+class DnsForwarderGatewayArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+    """
 
 @pulumi.input_type
 class DnsForwarderGatewayArgs:
@@ -2991,14 +2893,11 @@ class DnsForwarderGatewayArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class DnsRecordEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
-        """
-elif False:
-    DnsRecordEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class DnsRecordEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class DnsRecordEnvironmentArgs:
@@ -3022,14 +2921,11 @@ class DnsRecordEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class DnsRecordGatewayArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
-        """
-elif False:
-    DnsRecordGatewayArgsDict: TypeAlias = Mapping[str, Any]
+class DnsRecordGatewayArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
+    """
 
 @pulumi.input_type
 class DnsRecordGatewayArgs:
@@ -3053,14 +2949,11 @@ class DnsRecordGatewayArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class DnsRecordPrivateLinkAccessPointArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
-        """
-elif False:
-    DnsRecordPrivateLinkAccessPointArgsDict: TypeAlias = Mapping[str, Any]
+class DnsRecordPrivateLinkAccessPointArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+    """
 
 @pulumi.input_type
 class DnsRecordPrivateLinkAccessPointArgs:
@@ -3084,14 +2977,11 @@ class DnsRecordPrivateLinkAccessPointArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class EnvironmentStreamGovernanceArgsDict(TypedDict):
-        package: pulumi.Input[_builtins.str]
-        """
-        The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
-        """
-elif False:
-    EnvironmentStreamGovernanceArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentStreamGovernanceArgsDict(TypedDict):
+    package: pulumi.Input[_builtins.str]
+    """
+    The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+    """
 
 @pulumi.input_type
 class EnvironmentStreamGovernanceArgs:
@@ -3115,14 +3005,11 @@ class EnvironmentStreamGovernanceArgs:
         pulumi.set(self, "package", value)
 
 
-if not MYPY:
-    class FlinkArtifactEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Flink Artifact Pool belongs to, for example, `env-abc123`.
-        """
-elif False:
-    FlinkArtifactEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class FlinkArtifactEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Flink Artifact Pool belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class FlinkArtifactEnvironmentArgs:
@@ -3146,14 +3033,11 @@ class FlinkArtifactEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class FlinkArtifactVersionArgsDict(TypedDict):
-        version: pulumi.Input[_builtins.str]
-        """
-        The version of this Flink Artifact.
-        """
-elif False:
-    FlinkArtifactVersionArgsDict: TypeAlias = Mapping[str, Any]
+class FlinkArtifactVersionArgsDict(TypedDict):
+    version: pulumi.Input[_builtins.str]
+    """
+    The version of this Flink Artifact.
+    """
 
 @pulumi.input_type
 class FlinkArtifactVersionArgs:
@@ -3177,14 +3061,11 @@ class FlinkArtifactVersionArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class FlinkComputePoolEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
-        """
-elif False:
-    FlinkComputePoolEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class FlinkComputePoolEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class FlinkComputePoolEnvironmentArgs:
@@ -3208,11 +3089,8 @@ class FlinkComputePoolEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class FlinkConnectionComputePoolArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-elif False:
-    FlinkConnectionComputePoolArgsDict: TypeAlias = Mapping[str, Any]
+class FlinkConnectionComputePoolArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlinkConnectionComputePoolArgs:
@@ -3230,18 +3108,15 @@ class FlinkConnectionComputePoolArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class FlinkConnectionCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Cluster API Key for your Confluent Cloud cluster.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    FlinkConnectionCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class FlinkConnectionCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Cluster API Key for your Confluent Cloud cluster.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Cluster API Secret for your Confluent Cloud cluster.
+    """
 
 @pulumi.input_type
 class FlinkConnectionCredentialsArgs:
@@ -3280,11 +3155,8 @@ class FlinkConnectionCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class FlinkConnectionEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-elif False:
-    FlinkConnectionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class FlinkConnectionEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlinkConnectionEnvironmentArgs:
@@ -3302,11 +3174,8 @@ class FlinkConnectionEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class FlinkConnectionOrganizationArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-elif False:
-    FlinkConnectionOrganizationArgsDict: TypeAlias = Mapping[str, Any]
+class FlinkConnectionOrganizationArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlinkConnectionOrganizationArgs:
@@ -3324,11 +3193,8 @@ class FlinkConnectionOrganizationArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class FlinkConnectionPrincipalArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-elif False:
-    FlinkConnectionPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class FlinkConnectionPrincipalArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlinkConnectionPrincipalArgs:
@@ -3346,14 +3212,11 @@ class FlinkConnectionPrincipalArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class FlinkStatementComputePoolArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
-        """
-elif False:
-    FlinkStatementComputePoolArgsDict: TypeAlias = Mapping[str, Any]
+class FlinkStatementComputePoolArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+    """
 
 @pulumi.input_type
 class FlinkStatementComputePoolArgs:
@@ -3377,22 +3240,19 @@ class FlinkStatementComputePoolArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class FlinkStatementCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Flink API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Flink API Secret.
+class FlinkStatementCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Flink API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Flink API Secret.
 
-        > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+    > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
 
-        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
-        """
-elif False:
-    FlinkStatementCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+    """
 
 @pulumi.input_type
 class FlinkStatementCredentialsArgs:
@@ -3439,14 +3299,11 @@ class FlinkStatementCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class FlinkStatementEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment, for example, `env-abc123`.
-        """
-elif False:
-    FlinkStatementEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class FlinkStatementEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class FlinkStatementEnvironmentArgs:
@@ -3470,14 +3327,11 @@ class FlinkStatementEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class FlinkStatementOrganizationArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
-        """
-elif False:
-    FlinkStatementOrganizationArgsDict: TypeAlias = Mapping[str, Any]
+class FlinkStatementOrganizationArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+    """
 
 @pulumi.input_type
 class FlinkStatementOrganizationArgs:
@@ -3501,14 +3355,11 @@ class FlinkStatementOrganizationArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class FlinkStatementPrincipalArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
-        """
-elif False:
-    FlinkStatementPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class FlinkStatementPrincipalArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+    """
 
 @pulumi.input_type
 class FlinkStatementPrincipalArgs:
@@ -3532,18 +3383,15 @@ class FlinkStatementPrincipalArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GatewayAwsEgressPrivateLinkGatewayArgsDict(TypedDict):
-        region: pulumi.Input[_builtins.str]
-        """
-        AWS region of the Gateway, for example, `us-east-1`.
-        """
-        principal_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
-        """
-elif False:
-    GatewayAwsEgressPrivateLinkGatewayArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayAwsEgressPrivateLinkGatewayArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+    """
+    AWS region of the Gateway, for example, `us-east-1`.
+    """
+    principal_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The principal ARN used by the AWS Egress Private Link Gateway, for example, `arn:aws:iam::123456789012:tenant-1-role`.
+    """
 
 @pulumi.input_type
 class GatewayAwsEgressPrivateLinkGatewayArgs:
@@ -3583,18 +3431,15 @@ class GatewayAwsEgressPrivateLinkGatewayArgs:
         pulumi.set(self, "principal_arn", value)
 
 
-if not MYPY:
-    class GatewayAwsIngressPrivateLinkGatewayArgsDict(TypedDict):
-        region: pulumi.Input[_builtins.str]
-        """
-        AWS region of the Ingress Private Link Gateway, for example, `us-east-1`.
-        """
-        vpc_endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
-        """
-elif False:
-    GatewayAwsIngressPrivateLinkGatewayArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayAwsIngressPrivateLinkGatewayArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+    """
+    AWS region of the Ingress Private Link Gateway, for example, `us-east-1`.
+    """
+    vpc_endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The ID of the AWS VPC Endpoint Service that can be used to establish connections for all zones, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
+    """
 
 @pulumi.input_type
 class GatewayAwsIngressPrivateLinkGatewayArgs:
@@ -3634,22 +3479,19 @@ class GatewayAwsIngressPrivateLinkGatewayArgs:
         pulumi.set(self, "vpc_endpoint_service_name", value)
 
 
-if not MYPY:
-    class GatewayAwsPrivateNetworkInterfaceGatewayArgsDict(TypedDict):
-        region: pulumi.Input[_builtins.str]
-        """
-        AWS region of the Private Network Interface Gateway.
-        """
-        zones: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        AWS availability zone ids of the Private Network Interface Gateway.
-        """
-        account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The AWS account ID associated with the Private Network Interface Gateway.
-        """
-elif False:
-    GatewayAwsPrivateNetworkInterfaceGatewayArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayAwsPrivateNetworkInterfaceGatewayArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+    """
+    AWS region of the Private Network Interface Gateway.
+    """
+    zones: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    AWS availability zone ids of the Private Network Interface Gateway.
+    """
+    account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The AWS account ID associated with the Private Network Interface Gateway.
+    """
 
 @pulumi.input_type
 class GatewayAwsPrivateNetworkInterfaceGatewayArgs:
@@ -3704,18 +3546,15 @@ class GatewayAwsPrivateNetworkInterfaceGatewayArgs:
         pulumi.set(self, "account", value)
 
 
-if not MYPY:
-    class GatewayAzureEgressPrivateLinkGatewayArgsDict(TypedDict):
-        region: pulumi.Input[_builtins.str]
-        """
-        Azure region of the Gateway, for example, `eastus`.
-        """
-        subscription: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
-        """
-elif False:
-    GatewayAzureEgressPrivateLinkGatewayArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayAzureEgressPrivateLinkGatewayArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+    """
+    Azure region of the Gateway, for example, `eastus`.
+    """
+    subscription: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The Azure Subscription ID associated with the Confluent Cloud VPC, for example, `00000000-0000-0000-0000-000000000000`.
+    """
 
 @pulumi.input_type
 class GatewayAzureEgressPrivateLinkGatewayArgs:
@@ -3755,14 +3594,11 @@ class GatewayAzureEgressPrivateLinkGatewayArgs:
         pulumi.set(self, "subscription", value)
 
 
-if not MYPY:
-    class GatewayEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
-        """
-elif False:
-    GatewayEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class GatewayEnvironmentArgs:
@@ -3786,14 +3622,11 @@ class GatewayEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class IdentityPoolIdentityProviderArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
-        """
-elif False:
-    IdentityPoolIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityPoolIdentityProviderArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+    """
 
 @pulumi.input_type
 class IdentityPoolIdentityProviderArgs:
@@ -3817,14 +3650,11 @@ class IdentityPoolIdentityProviderArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class InvitationCreatorArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The id of invitation creator.
-        """
-elif False:
-    InvitationCreatorArgsDict: TypeAlias = Mapping[str, Any]
+class InvitationCreatorArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The id of invitation creator.
+    """
 
 @pulumi.input_type
 class InvitationCreatorArgs:
@@ -3849,14 +3679,11 @@ class InvitationCreatorArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class InvitationUserArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The id of invitation creator.
-        """
-elif False:
-    InvitationUserArgsDict: TypeAlias = Mapping[str, Any]
+class InvitationUserArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The id of invitation creator.
+    """
 
 @pulumi.input_type
 class InvitationUserArgs:
@@ -3881,18 +3708,15 @@ class InvitationUserArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class KafkaAclCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Secret.
-        """
-elif False:
-    KafkaAclCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaAclCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Secret.
+    """
 
 @pulumi.input_type
 class KafkaAclCredentialsArgs:
@@ -3931,14 +3755,11 @@ class KafkaAclCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class KafkaAclKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Kafka cluster, for example, `lkc-abc123`.
-        """
-elif False:
-    KafkaAclKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaAclKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Kafka cluster, for example, `lkc-abc123`.
+    """
 
 @pulumi.input_type
 class KafkaAclKafkaClusterArgs:
@@ -3962,18 +3783,15 @@ class KafkaAclKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class KafkaClientQuotaEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+class KafkaClientQuotaEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
 
-        > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
+    > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
 
-        > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
-        """
-elif False:
-    KafkaClientQuotaEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
+    """
 
 @pulumi.input_type
 class KafkaClientQuotaEnvironmentArgs:
@@ -4005,14 +3823,11 @@ class KafkaClientQuotaEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class KafkaClientQuotaKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.
-        """
-elif False:
-    KafkaClientQuotaKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaClientQuotaKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.
+    """
 
 @pulumi.input_type
 class KafkaClientQuotaKafkaClusterArgs:
@@ -4036,18 +3851,15 @@ class KafkaClientQuotaKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class KafkaClientQuotaThroughputArgsDict(TypedDict):
-        egress_byte_rate: pulumi.Input[_builtins.str]
-        """
-        The egress throughput limit in bytes per second.
-        """
-        ingress_byte_rate: pulumi.Input[_builtins.str]
-        """
-        The ingress throughput limit in bytes per second.
-        """
-elif False:
-    KafkaClientQuotaThroughputArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaClientQuotaThroughputArgsDict(TypedDict):
+    egress_byte_rate: pulumi.Input[_builtins.str]
+    """
+    The egress throughput limit in bytes per second.
+    """
+    ingress_byte_rate: pulumi.Input[_builtins.str]
+    """
+    The ingress throughput limit in bytes per second.
+    """
 
 @pulumi.input_type
 class KafkaClientQuotaThroughputArgs:
@@ -4086,14 +3898,11 @@ class KafkaClientQuotaThroughputArgs:
         pulumi.set(self, "ingress_byte_rate", value)
 
 
-if not MYPY:
-    class KafkaClusterBasicArgsDict(TypedDict):
-        max_ecku: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
-        """
-elif False:
-    KafkaClusterBasicArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaClusterBasicArgsDict(TypedDict):
+    max_ecku: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+    """
 
 @pulumi.input_type
 class KafkaClusterBasicArgs:
@@ -4118,14 +3927,11 @@ class KafkaClusterBasicArgs:
         pulumi.set(self, "max_ecku", value)
 
 
-if not MYPY:
-    class KafkaClusterByokKeyArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
-        """
-elif False:
-    KafkaClusterByokKeyArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaClusterByokKeyArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+    """
 
 @pulumi.input_type
 class KafkaClusterByokKeyArgs:
@@ -4149,22 +3955,19 @@ class KafkaClusterByokKeyArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class KafkaClusterConfigCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Secret.
+class KafkaClusterConfigCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Secret.
 
-        > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+    > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
 
-        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_cluster_config.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_cluster_config.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
-        """
-elif False:
-    KafkaClusterConfigCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_cluster_config.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_cluster_config.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+    """
 
 @pulumi.input_type
 class KafkaClusterConfigCredentialsArgs:
@@ -4211,14 +4014,11 @@ class KafkaClusterConfigCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class KafkaClusterConfigKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
-        """
-elif False:
-    KafkaClusterConfigKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaClusterConfigKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
+    """
 
 @pulumi.input_type
 class KafkaClusterConfigKafkaClusterArgs:
@@ -4242,33 +4042,30 @@ class KafkaClusterConfigKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class KafkaClusterDedicatedArgsDict(TypedDict):
-        cku: pulumi.Input[_builtins.int]
-        """
-        The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
+class KafkaClusterDedicatedArgsDict(TypedDict):
+    cku: pulumi.Input[_builtins.int]
+    """
+    The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 
-        > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
+    > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, `enterprise` or `freight` configuration blocks must be specified.
 
-        > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
+    > **Note:** The `freight` Kafka cluster type is currently available only on AWS.
 
-        !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
+    !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 
-        > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+    > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
 
-        > **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
-        """
-        encryption_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
-        """
-        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        (Required List of String) The list of zones the cluster is in.
-        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-        """
-elif False:
-    KafkaClusterDedicatedArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Refer to [eCKU/CKU comparison](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#ecku-cku-comparison) documentation for the minimum/maximum eCKU requirements for each cluster type.
+    """
+    encryption_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+    """
+    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    (Required List of String) The list of zones the cluster is in.
+    - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+    """
 
 @pulumi.input_type
 class KafkaClusterDedicatedArgs:
@@ -4346,26 +4143,23 @@ class KafkaClusterDedicatedArgs:
         pulumi.set(self, "zones", value)
 
 
-if not MYPY:
-    class KafkaClusterEndpointArgsDict(TypedDict):
-        access_point_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
-        """
-        bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
-        """
-        connection_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
-        """
-        rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
-        """
-elif False:
-    KafkaClusterEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaClusterEndpointArgsDict(TypedDict):
+    access_point_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The ID of the Access Point that the endpoint corresponds to. Access Point IDs `PUBLIC` and `PRIVATE_LINK` are reserved.
+    """
+    bootstrap_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The bootstrap endpoint used by Kafka clients to connect to the cluster (for example, `lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:9092`).
+    """
+    connection_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The type of connection used for the endpoint (for example, `PRIVATE_NETWORK_INTERFACE`).
+    """
+    rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The REST endpoint of the Kafka cluster (for example, `https://lkc-abc123-apfoo123.eu-west-3.aws.accesspoint.glb.confluent.cloud:443`).
+    """
 
 @pulumi.input_type
 class KafkaClusterEndpointArgs:
@@ -4438,14 +4232,11 @@ class KafkaClusterEndpointArgs:
         pulumi.set(self, "rest_endpoint", value)
 
 
-if not MYPY:
-    class KafkaClusterEnterpriseArgsDict(TypedDict):
-        max_ecku: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
-        """
-elif False:
-    KafkaClusterEnterpriseArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaClusterEnterpriseArgsDict(TypedDict):
+    max_ecku: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+    """
 
 @pulumi.input_type
 class KafkaClusterEnterpriseArgs:
@@ -4470,14 +4261,11 @@ class KafkaClusterEnterpriseArgs:
         pulumi.set(self, "max_ecku", value)
 
 
-if not MYPY:
-    class KafkaClusterEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
-        """
-elif False:
-    KafkaClusterEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaClusterEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class KafkaClusterEnvironmentArgs:
@@ -4501,19 +4289,16 @@ class KafkaClusterEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class KafkaClusterFreightArgsDict(TypedDict):
-        max_ecku: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
-        """
-        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        (Required List of String) The list of zones the cluster is in.
-        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-        """
-elif False:
-    KafkaClusterFreightArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaClusterFreightArgsDict(TypedDict):
+    max_ecku: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+    """
+    zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    (Required List of String) The list of zones the cluster is in.
+    - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+    """
 
 @pulumi.input_type
 class KafkaClusterFreightArgs:
@@ -4556,14 +4341,11 @@ class KafkaClusterFreightArgs:
         pulumi.set(self, "zones", value)
 
 
-if not MYPY:
-    class KafkaClusterNetworkArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
-        """
-elif False:
-    KafkaClusterNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaClusterNetworkArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+    """
 
 @pulumi.input_type
 class KafkaClusterNetworkArgs:
@@ -4587,14 +4369,11 @@ class KafkaClusterNetworkArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class KafkaClusterStandardArgsDict(TypedDict):
-        max_ecku: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
-        """
-elif False:
-    KafkaClusterStandardArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaClusterStandardArgsDict(TypedDict):
+    max_ecku: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs.
+    """
 
 @pulumi.input_type
 class KafkaClusterStandardArgs:
@@ -4619,14 +4398,11 @@ class KafkaClusterStandardArgs:
         pulumi.set(self, "max_ecku", value)
 
 
-if not MYPY:
-    class KafkaMirrorTopicClusterLinkArgsDict(TypedDict):
-        link_name: pulumi.Input[_builtins.str]
-        """
-        The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
-        """
-elif False:
-    KafkaMirrorTopicClusterLinkArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaMirrorTopicClusterLinkArgsDict(TypedDict):
+    link_name: pulumi.Input[_builtins.str]
+    """
+    The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
+    """
 
 @pulumi.input_type
 class KafkaMirrorTopicClusterLinkArgs:
@@ -4650,22 +4426,19 @@ class KafkaMirrorTopicClusterLinkArgs:
         pulumi.set(self, "link_name", value)
 
 
-if not MYPY:
-    class KafkaMirrorTopicKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
-        """
-        credentials: NotRequired[pulumi.Input['KafkaMirrorTopicKafkaClusterCredentialsArgsDict']]
-        """
-        The Kafka API Credentials.
-        """
-        rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        """
-elif False:
-    KafkaMirrorTopicKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaMirrorTopicKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+    """
+    credentials: NotRequired[pulumi.Input['KafkaMirrorTopicKafkaClusterCredentialsArgsDict']]
+    """
+    The Kafka API Credentials.
+    """
+    rest_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+    """
 
 @pulumi.input_type
 class KafkaMirrorTopicKafkaClusterArgs:
@@ -4721,18 +4494,15 @@ class KafkaMirrorTopicKafkaClusterArgs:
         pulumi.set(self, "rest_endpoint", value)
 
 
-if not MYPY:
-    class KafkaMirrorTopicKafkaClusterCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Secret.
-        """
-elif False:
-    KafkaMirrorTopicKafkaClusterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaMirrorTopicKafkaClusterCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Secret.
+    """
 
 @pulumi.input_type
 class KafkaMirrorTopicKafkaClusterCredentialsArgs:
@@ -4771,14 +4541,11 @@ class KafkaMirrorTopicKafkaClusterCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class KafkaMirrorTopicSourceKafkaTopicArgsDict(TypedDict):
-        topic_name: pulumi.Input[_builtins.str]
-        """
-        The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
-        """
-elif False:
-    KafkaMirrorTopicSourceKafkaTopicArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaMirrorTopicSourceKafkaTopicArgsDict(TypedDict):
+    topic_name: pulumi.Input[_builtins.str]
+    """
+    The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+    """
 
 @pulumi.input_type
 class KafkaMirrorTopicSourceKafkaTopicArgs:
@@ -4802,22 +4569,19 @@ class KafkaMirrorTopicSourceKafkaTopicArgs:
         pulumi.set(self, "topic_name", value)
 
 
-if not MYPY:
-    class KafkaTopicCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Kafka API Secret.
+class KafkaTopicCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Kafka API Secret.
 
-        > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+    > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
 
-        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_topic.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_topic.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
-        """
-elif False:
-    KafkaTopicCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_topic.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_topic.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+    """
 
 @pulumi.input_type
 class KafkaTopicCredentialsArgs:
@@ -4864,14 +4628,11 @@ class KafkaTopicCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class KafkaTopicKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Kafka cluster, for example, `lkc-abc123`.
-        """
-elif False:
-    KafkaTopicKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class KafkaTopicKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Kafka cluster, for example, `lkc-abc123`.
+    """
 
 @pulumi.input_type
 class KafkaTopicKafkaClusterArgs:
@@ -4895,14 +4656,11 @@ class KafkaTopicKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class KsqlClusterCredentialIdentityArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the associated service or user account, for example, `sa-abc123`.
-        """
-elif False:
-    KsqlClusterCredentialIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class KsqlClusterCredentialIdentityArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the associated service or user account, for example, `sa-abc123`.
+    """
 
 @pulumi.input_type
 class KsqlClusterCredentialIdentityArgs:
@@ -4926,14 +4684,11 @@ class KsqlClusterCredentialIdentityArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class KsqlClusterEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the associated Environment, for example, `env-xyz456`.
-        """
-elif False:
-    KsqlClusterEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class KsqlClusterEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the associated Environment, for example, `env-xyz456`.
+    """
 
 @pulumi.input_type
 class KsqlClusterEnvironmentArgs:
@@ -4957,14 +4712,11 @@ class KsqlClusterEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class KsqlClusterKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the associated Kafka cluster, for example, `lkc-abc123`.
-        """
-elif False:
-    KsqlClusterKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class KsqlClusterKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the associated Kafka cluster, for example, `lkc-abc123`.
+    """
 
 @pulumi.input_type
 class KsqlClusterKafkaClusterArgs:
@@ -4988,22 +4740,19 @@ class KsqlClusterKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class NetworkAwArgsDict(TypedDict):
-        account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The AWS account ID associated with the Confluent Cloud VPC.
-        """
-        private_link_endpoint_service: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
-        """
-        vpc: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The Confluent Cloud VPC ID.
-        """
-elif False:
-    NetworkAwArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkAwArgsDict(TypedDict):
+    account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+    """
+    private_link_endpoint_service: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
+    """
+    vpc: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The Confluent Cloud VPC ID.
+    """
 
 @pulumi.input_type
 class NetworkAwArgs:
@@ -5060,14 +4809,11 @@ class NetworkAwArgs:
         pulumi.set(self, "vpc", value)
 
 
-if not MYPY:
-    class NetworkAzureArgsDict(TypedDict):
-        private_link_service_aliases: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.
-        """
-elif False:
-    NetworkAzureArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkAzureArgsDict(TypedDict):
+    private_link_service_aliases: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.
+    """
 
 @pulumi.input_type
 class NetworkAzureArgs:
@@ -5092,17 +4838,14 @@ class NetworkAzureArgs:
         pulumi.set(self, "private_link_service_aliases", value)
 
 
-if not MYPY:
-    class NetworkDnsConfigArgsDict(TypedDict):
-        resolution: pulumi.Input[_builtins.str]
-        """
-        Network DNS resolution.
-        When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
-        When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
-        The Confluent Cloud Console uses `resolution = PRIVATE`.
-        """
-elif False:
-    NetworkDnsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkDnsConfigArgsDict(TypedDict):
+    resolution: pulumi.Input[_builtins.str]
+    """
+    Network DNS resolution.
+    When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+    When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+    The Confluent Cloud Console uses `resolution = PRIVATE`.
+    """
 
 @pulumi.input_type
 class NetworkDnsConfigArgs:
@@ -5132,14 +4875,11 @@ class NetworkDnsConfigArgs:
         pulumi.set(self, "resolution", value)
 
 
-if not MYPY:
-    class NetworkEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Network belongs to, for example, `env-abc123`.
-        """
-elif False:
-    NetworkEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class NetworkEnvironmentArgs:
@@ -5163,14 +4903,11 @@ class NetworkEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class NetworkGatewayArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional String) The ID of the Gateway, for example, `gw-abc123`.
-        """
-elif False:
-    NetworkGatewayArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkGatewayArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional String) The ID of the Gateway, for example, `gw-abc123`.
+    """
 
 @pulumi.input_type
 class NetworkGatewayArgs:
@@ -5195,22 +4932,19 @@ class NetworkGatewayArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class NetworkGcpArgsDict(TypedDict):
-        private_service_connect_service_attachments: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
-        """
-        project: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
-        """
-        vpc_network: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The network name of the Confluent Cloud VPC.
-        """
-elif False:
-    NetworkGcpArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkGcpArgsDict(TypedDict):
+    private_service_connect_service_attachments: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+    """
+    project: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
+    """
+    vpc_network: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The network name of the Confluent Cloud VPC.
+    """
 
 @pulumi.input_type
 class NetworkGcpArgs:
@@ -5267,14 +5001,11 @@ class NetworkGcpArgs:
         pulumi.set(self, "vpc_network", value)
 
 
-if not MYPY:
-    class NetworkLinkEndpointEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
-        """
-elif False:
-    NetworkLinkEndpointEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkLinkEndpointEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+    """
 
 @pulumi.input_type
 class NetworkLinkEndpointEnvironmentArgs:
@@ -5298,14 +5029,11 @@ class NetworkLinkEndpointEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class NetworkLinkEndpointNetworkArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
-        """
-elif False:
-    NetworkLinkEndpointNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkLinkEndpointNetworkArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
+    """
 
 @pulumi.input_type
 class NetworkLinkEndpointNetworkArgs:
@@ -5329,14 +5057,11 @@ class NetworkLinkEndpointNetworkArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class NetworkLinkEndpointNetworkLinkServiceArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Network Link Service, for example, `nls-g3e1ox`.
-        """
-elif False:
-    NetworkLinkEndpointNetworkLinkServiceArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkLinkEndpointNetworkLinkServiceArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Network Link Service, for example, `nls-g3e1ox`.
+    """
 
 @pulumi.input_type
 class NetworkLinkEndpointNetworkLinkServiceArgs:
@@ -5360,18 +5085,15 @@ class NetworkLinkEndpointNetworkLinkServiceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class NetworkLinkServiceAcceptArgsDict(TypedDict):
-        environments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
-        """
-        networks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of network ids from which connections can be accepted.
-        """
-elif False:
-    NetworkLinkServiceAcceptArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkLinkServiceAcceptArgsDict(TypedDict):
+    environments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+    """
+    networks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of network ids from which connections can be accepted.
+    """
 
 @pulumi.input_type
 class NetworkLinkServiceAcceptArgs:
@@ -5412,14 +5134,11 @@ class NetworkLinkServiceAcceptArgs:
         pulumi.set(self, "networks", value)
 
 
-if not MYPY:
-    class NetworkLinkServiceEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.
-        """
-elif False:
-    NetworkLinkServiceEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkLinkServiceEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class NetworkLinkServiceEnvironmentArgs:
@@ -5443,14 +5162,11 @@ class NetworkLinkServiceEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class NetworkLinkServiceNetworkArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
-        """
-elif False:
-    NetworkLinkServiceNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkLinkServiceNetworkArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+    """
 
 @pulumi.input_type
 class NetworkLinkServiceNetworkArgs:
@@ -5474,18 +5190,15 @@ class NetworkLinkServiceNetworkArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class NetworkZoneInfoArgsDict(TypedDict):
-        cidr: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-        """
-        zone_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cloud provider zone ID.
-        """
-elif False:
-    NetworkZoneInfoArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkZoneInfoArgsDict(TypedDict):
+    cidr: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+    """
+    zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cloud provider zone ID.
+    """
 
 @pulumi.input_type
 class NetworkZoneInfoArgs:
@@ -5526,26 +5239,23 @@ class NetworkZoneInfoArgs:
         pulumi.set(self, "zone_id", value)
 
 
-if not MYPY:
-    class PeeringAwsArgsDict(TypedDict):
-        account: pulumi.Input[_builtins.str]
-        """
-        The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
-        """
-        customer_region: pulumi.Input[_builtins.str]
-        """
-        The region of the AWS peer VPC.
-        """
-        routes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs > Target VPC > Details** section of the AWS Management Console.
-        """
-        vpc: pulumi.Input[_builtins.str]
-        """
-        The AWS VPC ID of the peer VPC that you're peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.
-        """
-elif False:
-    PeeringAwsArgsDict: TypeAlias = Mapping[str, Any]
+class PeeringAwsArgsDict(TypedDict):
+    account: pulumi.Input[_builtins.str]
+    """
+    The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
+    """
+    customer_region: pulumi.Input[_builtins.str]
+    """
+    The region of the AWS peer VPC.
+    """
+    routes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs > Target VPC > Details** section of the AWS Management Console.
+    """
+    vpc: pulumi.Input[_builtins.str]
+    """
+    The AWS VPC ID of the peer VPC that you're peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.
+    """
 
 @pulumi.input_type
 class PeeringAwsArgs:
@@ -5614,22 +5324,19 @@ class PeeringAwsArgs:
         pulumi.set(self, "vpc", value)
 
 
-if not MYPY:
-    class PeeringAzureArgsDict(TypedDict):
-        customer_region: pulumi.Input[_builtins.str]
-        """
-        The region of the Azure peer VNet.
-        """
-        tenant: pulumi.Input[_builtins.str]
-        """
-        The Tenant ID that represents an organization in Azure Active Directory. You can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
-        """
-        vnet: pulumi.Input[_builtins.str]
-        """
-        The resource (composite) ID of the peer Virtual Network that you're peering with Confluent Cloud, in the format `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Network/virtualNetworks/<VNet name>`. You can find Subscription ID, Resource Group Name and your VNet name under **Virtual Networks > Target VNet > Essentials** section of your [Microsoft Azure Portal](https://portal.azure.com/).
-        """
-elif False:
-    PeeringAzureArgsDict: TypeAlias = Mapping[str, Any]
+class PeeringAzureArgsDict(TypedDict):
+    customer_region: pulumi.Input[_builtins.str]
+    """
+    The region of the Azure peer VNet.
+    """
+    tenant: pulumi.Input[_builtins.str]
+    """
+    The Tenant ID that represents an organization in Azure Active Directory. You can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
+    """
+    vnet: pulumi.Input[_builtins.str]
+    """
+    The resource (composite) ID of the peer Virtual Network that you're peering with Confluent Cloud, in the format `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Network/virtualNetworks/<VNet name>`. You can find Subscription ID, Resource Group Name and your VNet name under **Virtual Networks > Target VNet > Essentials** section of your [Microsoft Azure Portal](https://portal.azure.com/).
+    """
 
 @pulumi.input_type
 class PeeringAzureArgs:
@@ -5683,14 +5390,11 @@ class PeeringAzureArgs:
         pulumi.set(self, "vnet", value)
 
 
-if not MYPY:
-    class PeeringEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
-        """
-elif False:
-    PeeringEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class PeeringEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class PeeringEnvironmentArgs:
@@ -5714,30 +5418,27 @@ class PeeringEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PeeringGcpArgsDict(TypedDict):
-        project: pulumi.Input[_builtins.str]
-        """
-        The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
-        """
-        vpc_network: pulumi.Input[_builtins.str]
-        """
-        The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).
-        """
-        import_custom_routes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
+class PeeringGcpArgsDict(TypedDict):
+    project: pulumi.Input[_builtins.str]
+    """
+    The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+    """
+    vpc_network: pulumi.Input[_builtins.str]
+    """
+    The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).
+    """
+    import_custom_routes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
 
-        > **Note:** Exactly one from the `aws`, `azure`, and `gcp` configuration blocks must be specified.
+    > **Note:** Exactly one from the `aws`, `azure`, and `gcp` configuration blocks must be specified.
 
-        > **Note:** Learn more about VPC Peering requirements on AWS [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws).
+    > **Note:** Learn more about VPC Peering requirements on AWS [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws).
 
-        > **Note:** Learn more about VNet Peering requirements on Azure [here](https://docs.confluent.io/cloud/current/networking/peering/azure-peering.html#vnet-peering-on-az).
+    > **Note:** Learn more about VNet Peering requirements on Azure [here](https://docs.confluent.io/cloud/current/networking/peering/azure-peering.html#vnet-peering-on-az).
 
-        > **Note:** Learn more about VPC Peering requirements on Google Cloud Platform [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#vpc-peering-on-gcp).
-        """
-elif False:
-    PeeringGcpArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Learn more about VPC Peering requirements on Google Cloud Platform [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#vpc-peering-on-gcp).
+    """
 
 @pulumi.input_type
 class PeeringGcpArgs:
@@ -5808,14 +5509,11 @@ class PeeringGcpArgs:
         pulumi.set(self, "import_custom_routes", value)
 
 
-if not MYPY:
-    class PeeringNetworkArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Network that the Peering belongs to, for example, `n-abc123`.
-        """
-elif False:
-    PeeringNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class PeeringNetworkArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+    """
 
 @pulumi.input_type
 class PeeringNetworkArgs:
@@ -5839,14 +5537,11 @@ class PeeringNetworkArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PluginEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment, for example, `env-abc123`.
-        """
-elif False:
-    PluginEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class PluginEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class PluginEnvironmentArgs:
@@ -5870,14 +5565,11 @@ class PluginEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkAccessAwsArgsDict(TypedDict):
-        account: pulumi.Input[_builtins.str]
-        """
-        The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
-        """
-elif False:
-    PrivateLinkAccessAwsArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAccessAwsArgsDict(TypedDict):
+    account: pulumi.Input[_builtins.str]
+    """
+    The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
+    """
 
 @pulumi.input_type
 class PrivateLinkAccessAwsArgs:
@@ -5901,14 +5593,11 @@ class PrivateLinkAccessAwsArgs:
         pulumi.set(self, "account", value)
 
 
-if not MYPY:
-    class PrivateLinkAccessAzureArgsDict(TypedDict):
-        subscription: pulumi.Input[_builtins.str]
-        """
-        The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
-        """
-elif False:
-    PrivateLinkAccessAzureArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAccessAzureArgsDict(TypedDict):
+    subscription: pulumi.Input[_builtins.str]
+    """
+    The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+    """
 
 @pulumi.input_type
 class PrivateLinkAccessAzureArgs:
@@ -5932,14 +5621,11 @@ class PrivateLinkAccessAzureArgs:
         pulumi.set(self, "subscription", value)
 
 
-if not MYPY:
-    class PrivateLinkAccessEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
-        """
-elif False:
-    PrivateLinkAccessEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAccessEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class PrivateLinkAccessEnvironmentArgs:
@@ -5963,20 +5649,17 @@ class PrivateLinkAccessEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkAccessGcpArgsDict(TypedDict):
-        project: pulumi.Input[_builtins.str]
-        """
-        The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+class PrivateLinkAccessGcpArgsDict(TypedDict):
+    project: pulumi.Input[_builtins.str]
+    """
+    The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
 
-        > **Note:** Exactly one from the `aws`, `azure`, `gcp` configuration blocks must be specified.
+    > **Note:** Exactly one from the `aws`, `azure`, `gcp` configuration blocks must be specified.
 
-        > **Note:** Learn more about Private Link Access limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/private-links/aws-privatelink.html#limitations).
+    > **Note:** Learn more about Private Link Access limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/private-links/aws-privatelink.html#limitations).
 
-        > **Note:** Learn more about Private Link Access limitations on Azure [here](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html#limitations).
-        """
-elif False:
-    PrivateLinkAccessGcpArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Learn more about Private Link Access limitations on Azure [here](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html#limitations).
+    """
 
 @pulumi.input_type
 class PrivateLinkAccessGcpArgs:
@@ -6012,14 +5695,11 @@ class PrivateLinkAccessGcpArgs:
         pulumi.set(self, "project", value)
 
 
-if not MYPY:
-    class PrivateLinkAccessNetworkArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
-        """
-elif False:
-    PrivateLinkAccessNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAccessNetworkArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+    """
 
 @pulumi.input_type
 class PrivateLinkAccessNetworkArgs:
@@ -6043,14 +5723,11 @@ class PrivateLinkAccessNetworkArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkAttachmentAwArgsDict(TypedDict):
-        vpc_endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
-        """
-elif False:
-    PrivateLinkAttachmentAwArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAttachmentAwArgsDict(TypedDict):
+    vpc_endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+    """
 
 @pulumi.input_type
 class PrivateLinkAttachmentAwArgs:
@@ -6075,18 +5752,15 @@ class PrivateLinkAttachmentAwArgs:
         pulumi.set(self, "vpc_endpoint_service_name", value)
 
 
-if not MYPY:
-    class PrivateLinkAttachmentAzureArgsDict(TypedDict):
-        private_link_service_alias: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) Azure Private Link service alias for the availability zone.
-        """
-        private_link_service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) Azure Private Link service resource ID for the availability zone.
-        """
-elif False:
-    PrivateLinkAttachmentAzureArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAttachmentAzureArgsDict(TypedDict):
+    private_link_service_alias: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) Azure Private Link service alias for the availability zone.
+    """
+    private_link_service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) Azure Private Link service resource ID for the availability zone.
+    """
 
 @pulumi.input_type
 class PrivateLinkAttachmentAzureArgs:
@@ -6127,14 +5801,11 @@ class PrivateLinkAttachmentAzureArgs:
         pulumi.set(self, "private_link_service_resource_id", value)
 
 
-if not MYPY:
-    class PrivateLinkAttachmentConnectionAwsArgsDict(TypedDict):
-        vpc_endpoint_id: pulumi.Input[_builtins.str]
-        """
-        ID of a VPC Endpoint that is connected to the VPC Endpoint service.
-        """
-elif False:
-    PrivateLinkAttachmentConnectionAwsArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAttachmentConnectionAwsArgsDict(TypedDict):
+    vpc_endpoint_id: pulumi.Input[_builtins.str]
+    """
+    ID of a VPC Endpoint that is connected to the VPC Endpoint service.
+    """
 
 @pulumi.input_type
 class PrivateLinkAttachmentConnectionAwsArgs:
@@ -6158,14 +5829,11 @@ class PrivateLinkAttachmentConnectionAwsArgs:
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
-if not MYPY:
-    class PrivateLinkAttachmentConnectionAzureArgsDict(TypedDict):
-        private_endpoint_resource_id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of the Private Endpoint that is connected to the Private Link service.
-        """
-elif False:
-    PrivateLinkAttachmentConnectionAzureArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAttachmentConnectionAzureArgsDict(TypedDict):
+    private_endpoint_resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of the Private Endpoint that is connected to the Private Link service.
+    """
 
 @pulumi.input_type
 class PrivateLinkAttachmentConnectionAzureArgs:
@@ -6189,14 +5857,11 @@ class PrivateLinkAttachmentConnectionAzureArgs:
         pulumi.set(self, "private_endpoint_resource_id", value)
 
 
-if not MYPY:
-    class PrivateLinkAttachmentConnectionEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
-        """
-elif False:
-    PrivateLinkAttachmentConnectionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAttachmentConnectionEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+    """
 
 @pulumi.input_type
 class PrivateLinkAttachmentConnectionEnvironmentArgs:
@@ -6220,14 +5885,11 @@ class PrivateLinkAttachmentConnectionEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkAttachmentConnectionGcpArgsDict(TypedDict):
-        private_service_connect_connection_id: pulumi.Input[_builtins.str]
-        """
-        GCP Private Service Connect ID used to establish connections for all zones.
-        """
-elif False:
-    PrivateLinkAttachmentConnectionGcpArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAttachmentConnectionGcpArgsDict(TypedDict):
+    private_service_connect_connection_id: pulumi.Input[_builtins.str]
+    """
+    GCP Private Service Connect ID used to establish connections for all zones.
+    """
 
 @pulumi.input_type
 class PrivateLinkAttachmentConnectionGcpArgs:
@@ -6251,14 +5913,11 @@ class PrivateLinkAttachmentConnectionGcpArgs:
         pulumi.set(self, "private_service_connect_connection_id", value)
 
 
-if not MYPY:
-    class PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The unique identifier for the private link attachment.
-        """
-elif False:
-    PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier for the private link attachment.
+    """
 
 @pulumi.input_type
 class PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs:
@@ -6282,14 +5941,11 @@ class PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkAttachmentEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
-        """
-elif False:
-    PrivateLinkAttachmentEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAttachmentEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+    """
 
 @pulumi.input_type
 class PrivateLinkAttachmentEnvironmentArgs:
@@ -6313,14 +5969,11 @@ class PrivateLinkAttachmentEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PrivateLinkAttachmentGcpArgsDict(TypedDict):
-        private_service_connect_service_attachment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
-        """
-elif False:
-    PrivateLinkAttachmentGcpArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkAttachmentGcpArgsDict(TypedDict):
+    private_service_connect_service_attachment: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The ID of the GCP Private Service Connect Service Attachment on Confluent Cloud.
+    """
 
 @pulumi.input_type
 class PrivateLinkAttachmentGcpArgs:
@@ -6345,18 +5998,15 @@ class PrivateLinkAttachmentGcpArgs:
         pulumi.set(self, "private_service_connect_service_attachment", value)
 
 
-if not MYPY:
-    class ProviderIntegrationAuthorizationAzureArgsDict(TypedDict):
-        customer_azure_tenant_id: pulumi.Input[_builtins.str]
-        """
-        Customer's Azure Tenant ID.
-        """
-        confluent_multi_tenant_app_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
-        """
-elif False:
-    ProviderIntegrationAuthorizationAzureArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderIntegrationAuthorizationAzureArgsDict(TypedDict):
+    customer_azure_tenant_id: pulumi.Input[_builtins.str]
+    """
+    Customer's Azure Tenant ID.
+    """
+    confluent_multi_tenant_app_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Computed String) Confluent Multi-Tenant App ID used to access customer Azure resources.
+    """
 
 @pulumi.input_type
 class ProviderIntegrationAuthorizationAzureArgs:
@@ -6396,14 +6046,11 @@ class ProviderIntegrationAuthorizationAzureArgs:
         pulumi.set(self, "confluent_multi_tenant_app_id", value)
 
 
-if not MYPY:
-    class ProviderIntegrationAuthorizationEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-elif False:
-    ProviderIntegrationAuthorizationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderIntegrationAuthorizationEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class ProviderIntegrationAuthorizationEnvironmentArgs:
@@ -6427,20 +6074,17 @@ class ProviderIntegrationAuthorizationEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ProviderIntegrationAuthorizationGcpArgsDict(TypedDict):
-        customer_google_service_account: pulumi.Input[_builtins.str]
-        """
-        Customer's Google Service Account that Confluent Cloud impersonates.
+class ProviderIntegrationAuthorizationGcpArgsDict(TypedDict):
+    customer_google_service_account: pulumi.Input[_builtins.str]
+    """
+    Customer's Google Service Account that Confluent Cloud impersonates.
 
-        > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
-        """
-        google_service_account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
-        """
-elif False:
-    ProviderIntegrationAuthorizationGcpArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Exactly one of `azure` or `gcp` configuration blocks must be provided, matching the cloud provider of the associated provider integration.
+    """
+    google_service_account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Computed String) Google Service Account that Confluent Cloud uses for impersonation.
+    """
 
 @pulumi.input_type
 class ProviderIntegrationAuthorizationGcpArgs:
@@ -6484,26 +6128,23 @@ class ProviderIntegrationAuthorizationGcpArgs:
         pulumi.set(self, "google_service_account", value)
 
 
-if not MYPY:
-    class ProviderIntegrationAwsArgsDict(TypedDict):
-        customer_role_arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
+class ProviderIntegrationAwsArgsDict(TypedDict):
+    customer_role_arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name (ARN) that identifies the AWS Identity and Access Management (IAM) role that Confluent Cloud assumes when it accesses resources in your AWS account.
 
-        > **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
+    > **Note:** Currently only `aws` config is supported, more cloud service provider config will be supported in the short future.
 
-        > **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
-        """
-        iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
-        """
-elif False:
-    ProviderIntegrationAwsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** `customer_role_arn` must be unique in a given environment for creating a new Provider Integration.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) Unique external ID that Confluent Cloud uses when it assumes the IAM role in your Amazon Web Services (AWS) account.
+    """
+    iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The IAM role ARN used in Confluent Cloud internally, bundled with `customer_role_arn`.
+    """
 
 @pulumi.input_type
 class ProviderIntegrationAwsArgs:
@@ -6567,14 +6208,11 @@ class ProviderIntegrationAwsArgs:
         pulumi.set(self, "iam_role_arn", value)
 
 
-if not MYPY:
-    class ProviderIntegrationEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-elif False:
-    ProviderIntegrationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderIntegrationEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class ProviderIntegrationEnvironmentArgs:
@@ -6598,14 +6236,11 @@ class ProviderIntegrationEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ProviderIntegrationSetupEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-elif False:
-    ProviderIntegrationSetupEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderIntegrationSetupEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class ProviderIntegrationSetupEnvironmentArgs:
@@ -6629,38 +6264,35 @@ class ProviderIntegrationSetupEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ProviderOauthArgsDict(TypedDict):
-        oauth_identity_pool_id: pulumi.Input[_builtins.str]
-        """
-        OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
-        """
-        oauth_external_access_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        OAuth existing static access token already fetched from external Identity Provider.
-        """
-        oauth_external_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        OAuth token application client id from external Identity Provider.
-        """
-        oauth_external_client_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        OAuth token application client secret from external Identity Provider.
-        """
-        oauth_external_token_scope: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
-        """
-        oauth_external_token_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        OAuth token URL to fetch access token from external Identity Provider.
-        """
-        oauth_sts_token_expired_in_seconds: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        OAuth STS access token expired in second from Confluent Cloud
-        """
-elif False:
-    ProviderOauthArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderOauthArgsDict(TypedDict):
+    oauth_identity_pool_id: pulumi.Input[_builtins.str]
+    """
+    OAuth identity pool id used for processing external token and exchange STS token, registered with Confluent Cloud.
+    """
+    oauth_external_access_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth existing static access token already fetched from external Identity Provider.
+    """
+    oauth_external_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth token application client id from external Identity Provider.
+    """
+    oauth_external_client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth token application client secret from external Identity Provider.
+    """
+    oauth_external_token_scope: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth client application scope, this is a required field when using Microsoft Azure Entra ID as the identity provider.
+    """
+    oauth_external_token_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth token URL to fetch access token from external Identity Provider.
+    """
+    oauth_sts_token_expired_in_seconds: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth STS access token expired in second from Confluent Cloud
+    """
 
 @pulumi.input_type
 class ProviderOauthArgs:
@@ -6780,18 +6412,21 @@ class ProviderOauthArgs:
         pulumi.set(self, "oauth_sts_token_expired_in_seconds", value)
 
 
-if not MYPY:
-    class SchemaCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    SchemaCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+
+    > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Kafka clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Kafka cluster.
+
+    > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_schema.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+    !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `Schema` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+    """
 
 @pulumi.input_type
 class SchemaCredentialsArgs:
@@ -6800,7 +6435,13 @@ class SchemaCredentialsArgs:
                  secret: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] key: The Schema Registry API Key.
-        :param pulumi.Input[_builtins.str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param pulumi.Input[_builtins.str] secret: The Schema Registry API Secret.
+               
+               > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Kafka clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Kafka cluster.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_schema.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `Schema` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -6821,7 +6462,13 @@ class SchemaCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[_builtins.str]:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Schema Registry API Secret.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Kafka clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Kafka cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_schema.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+        !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `Schema` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "secret")
 
@@ -6830,18 +6477,15 @@ class SchemaCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class SchemaExporterCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    SchemaExporterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaExporterCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class SchemaExporterCredentialsArgs:
@@ -6880,19 +6524,16 @@ class SchemaExporterCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class SchemaExporterDestinationSchemaRegistryClusterArgsDict(TypedDict):
-        rest_endpoint: pulumi.Input[_builtins.str]
-        """
-        The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        """
-        credentials: NotRequired[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict']]
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    SchemaExporterDestinationSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaExporterDestinationSchemaRegistryClusterArgsDict(TypedDict):
+    rest_endpoint: pulumi.Input[_builtins.str]
+    """
+    The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+    """
+    credentials: NotRequired[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict']]
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the destination Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class SchemaExporterDestinationSchemaRegistryClusterArgs:
@@ -6944,18 +6585,15 @@ class SchemaExporterDestinationSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaExporterDestinationSchemaRegistryClusterCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs:
@@ -6994,14 +6632,11 @@ class SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class SchemaExporterSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    SchemaExporterSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaExporterSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class SchemaExporterSchemaRegistryClusterArgs:
@@ -7025,19 +6660,16 @@ class SchemaExporterSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SchemaMetadataArgsDict(TypedDict):
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The custom properties to set:
-        """
-        sensitives: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of metadata properties to be encrypted.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgsDict']]]]
-elif False:
-    SchemaMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaMetadataArgsDict(TypedDict):
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The custom properties to set:
+    """
+    sensitives: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of metadata properties to be encrypted.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgsDict']]]]
 
 @pulumi.input_type
 class SchemaMetadataArgs:
@@ -7090,12 +6722,9 @@ class SchemaMetadataArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class SchemaMetadataTagArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    SchemaMetadataTagArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaMetadataTagArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class SchemaMetadataTagArgs:
@@ -7126,18 +6755,23 @@ class SchemaMetadataTagArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class SchemaRegistryClusterConfigCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    SchemaRegistryClusterConfigCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaRegistryClusterConfigCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+
+    > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+    > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+    !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `SchemaRegistryClusterConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+
+    > **Note:** To configure a config at the context level, affecting all subjects created within that context, use `SubjectConfig` resource and pass in the context name as the `subject_name`. See the SubjectConfig` resource documentation for more details.
+    """
 
 @pulumi.input_type
 class SchemaRegistryClusterConfigCredentialsArgs:
@@ -7146,7 +6780,15 @@ class SchemaRegistryClusterConfigCredentialsArgs:
                  secret: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] key: The Schema Registry API Key.
-        :param pulumi.Input[_builtins.str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param pulumi.Input[_builtins.str] secret: The Schema Registry API Secret.
+               
+               > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `SchemaRegistryClusterConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+               
+               > **Note:** To configure a config at the context level, affecting all subjects created within that context, use `SubjectConfig` resource and pass in the context name as the `subject_name`. See the SubjectConfig` resource documentation for more details.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -7167,7 +6809,15 @@ class SchemaRegistryClusterConfigCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[_builtins.str]:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Schema Registry API Secret.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+        !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `SchemaRegistryClusterConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+
+        > **Note:** To configure a config at the context level, affecting all subjects created within that context, use `SubjectConfig` resource and pass in the context name as the `subject_name`. See the SubjectConfig` resource documentation for more details.
         """
         return pulumi.get(self, "secret")
 
@@ -7176,14 +6826,11 @@ class SchemaRegistryClusterConfigCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaRegistryClusterConfigSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class SchemaRegistryClusterConfigSchemaRegistryClusterArgs:
@@ -7207,18 +6854,21 @@ class SchemaRegistryClusterConfigSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SchemaRegistryClusterModeCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    SchemaRegistryClusterModeCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaRegistryClusterModeCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+
+    > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+    > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+    !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluent_kafka_cluster_mode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+    """
 
 @pulumi.input_type
 class SchemaRegistryClusterModeCredentialsArgs:
@@ -7227,7 +6877,13 @@ class SchemaRegistryClusterModeCredentialsArgs:
                  secret: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] key: The Schema Registry API Key.
-        :param pulumi.Input[_builtins.str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param pulumi.Input[_builtins.str] secret: The Schema Registry API Secret.
+               
+               > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluent_kafka_cluster_mode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -7248,7 +6904,13 @@ class SchemaRegistryClusterModeCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[_builtins.str]:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Schema Registry API Secret.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_schema_registry_cluster_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_schema_registry_cluster_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+        !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluent_kafka_cluster_mode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "secret")
 
@@ -7257,14 +6919,11 @@ class SchemaRegistryClusterModeCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class SchemaRegistryClusterModeSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    SchemaRegistryClusterModeSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaRegistryClusterModeSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class SchemaRegistryClusterModeSchemaRegistryClusterArgs:
@@ -7288,18 +6947,15 @@ class SchemaRegistryClusterModeSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SchemaRegistryDekCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    SchemaRegistryDekCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaRegistryDekCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class SchemaRegistryDekCredentialsArgs:
@@ -7338,14 +6994,11 @@ class SchemaRegistryDekCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class SchemaRegistryDekSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    SchemaRegistryDekSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaRegistryDekSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class SchemaRegistryDekSchemaRegistryClusterArgs:
@@ -7369,18 +7022,15 @@ class SchemaRegistryDekSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SchemaRegistryKekCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    SchemaRegistryKekCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaRegistryKekCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class SchemaRegistryKekCredentialsArgs:
@@ -7419,14 +7069,11 @@ class SchemaRegistryKekCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class SchemaRegistryKekSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    SchemaRegistryKekSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaRegistryKekSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class SchemaRegistryKekSchemaRegistryClusterArgs:
@@ -7450,18 +7097,15 @@ class SchemaRegistryKekSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SchemaRulesetArgsDict(TypedDict):
-        domain_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgsDict']]]]
-        """
-        supports the following:
-        """
-        migration_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgsDict']]]]
-        """
-        supports the following:
-        """
-elif False:
-    SchemaRulesetArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaRulesetArgsDict(TypedDict):
+    domain_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgsDict']]]]
+    """
+    supports the following:
+    """
+    migration_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgsDict']]]]
+    """
+    supports the following:
+    """
 
 @pulumi.input_type
 class SchemaRulesetArgs:
@@ -7502,21 +7146,18 @@ class SchemaRulesetArgs:
         pulumi.set(self, "migration_rules", value)
 
 
-if not MYPY:
-    class SchemaRulesetDomainRuleArgsDict(TypedDict):
-        kind: pulumi.Input[_builtins.str]
-        mode: pulumi.Input[_builtins.str]
-        name: pulumi.Input[_builtins.str]
-        type: pulumi.Input[_builtins.str]
-        disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        doc: NotRequired[pulumi.Input[_builtins.str]]
-        expr: NotRequired[pulumi.Input[_builtins.str]]
-        on_failure: NotRequired[pulumi.Input[_builtins.str]]
-        on_success: NotRequired[pulumi.Input[_builtins.str]]
-        params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    SchemaRulesetDomainRuleArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaRulesetDomainRuleArgsDict(TypedDict):
+    kind: pulumi.Input[_builtins.str]
+    mode: pulumi.Input[_builtins.str]
+    name: pulumi.Input[_builtins.str]
+    type: pulumi.Input[_builtins.str]
+    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    doc: NotRequired[pulumi.Input[_builtins.str]]
+    expr: NotRequired[pulumi.Input[_builtins.str]]
+    on_failure: NotRequired[pulumi.Input[_builtins.str]]
+    on_success: NotRequired[pulumi.Input[_builtins.str]]
+    params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class SchemaRulesetDomainRuleArgs:
@@ -7651,21 +7292,18 @@ class SchemaRulesetDomainRuleArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class SchemaRulesetMigrationRuleArgsDict(TypedDict):
-        kind: pulumi.Input[_builtins.str]
-        mode: pulumi.Input[_builtins.str]
-        name: pulumi.Input[_builtins.str]
-        type: pulumi.Input[_builtins.str]
-        disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        doc: NotRequired[pulumi.Input[_builtins.str]]
-        expr: NotRequired[pulumi.Input[_builtins.str]]
-        on_failure: NotRequired[pulumi.Input[_builtins.str]]
-        on_success: NotRequired[pulumi.Input[_builtins.str]]
-        params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    SchemaRulesetMigrationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaRulesetMigrationRuleArgsDict(TypedDict):
+    kind: pulumi.Input[_builtins.str]
+    mode: pulumi.Input[_builtins.str]
+    name: pulumi.Input[_builtins.str]
+    type: pulumi.Input[_builtins.str]
+    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    doc: NotRequired[pulumi.Input[_builtins.str]]
+    expr: NotRequired[pulumi.Input[_builtins.str]]
+    on_failure: NotRequired[pulumi.Input[_builtins.str]]
+    on_success: NotRequired[pulumi.Input[_builtins.str]]
+    params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class SchemaRulesetMigrationRuleArgs:
@@ -7800,22 +7438,19 @@ class SchemaRulesetMigrationRuleArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class SchemaSchemaReferenceArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Schema references (for example, "io.confluent.kafka.example.User"). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
-        """
-        subject_name: pulumi.Input[_builtins.str]
-        """
-        The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
-        """
-        version: pulumi.Input[_builtins.int]
-        """
-        (Required Integer) The version of the Schema, for example, `4`.
-        """
-elif False:
-    SchemaSchemaReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaSchemaReferenceArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Schema references (for example, "io.confluent.kafka.example.User"). For Avro, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf, it is the name of another Protobuf file.
+    """
+    subject_name: pulumi.Input[_builtins.str]
+    """
+    The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
+    """
+    version: pulumi.Input[_builtins.int]
+    """
+    (Required Integer) The version of the Schema, for example, `4`.
+    """
 
 @pulumi.input_type
 class SchemaSchemaReferenceArgs:
@@ -7869,14 +7504,11 @@ class SchemaSchemaReferenceArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class SchemaSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    SchemaSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class SchemaSchemaRegistryClusterArgs:
@@ -7900,18 +7532,21 @@ class SchemaSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SubjectConfigCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    SubjectConfigCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class SubjectConfigCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+
+    > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+    > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+    !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+    """
 
 @pulumi.input_type
 class SubjectConfigCredentialsArgs:
@@ -7920,7 +7555,13 @@ class SubjectConfigCredentialsArgs:
                  secret: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] key: The Schema Registry API Key.
-        :param pulumi.Input[_builtins.str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param pulumi.Input[_builtins.str] secret: The Schema Registry API Secret.
+               
+               > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+               
+               !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -7941,7 +7582,13 @@ class SubjectConfigCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[_builtins.str]:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Schema Registry API Secret.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_config.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_config.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+        !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectConfig` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "secret")
 
@@ -7950,14 +7597,11 @@ class SubjectConfigCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class SubjectConfigSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    SubjectConfigSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class SubjectConfigSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class SubjectConfigSchemaRegistryClusterArgs:
@@ -7981,18 +7625,21 @@ class SubjectConfigSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SubjectModeCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    SubjectModeCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class SubjectModeCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+
+    > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+    > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+    !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+    """
 
 @pulumi.input_type
 class SubjectModeCredentialsArgs:
@@ -8001,7 +7648,13 @@ class SubjectModeCredentialsArgs:
                  secret: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] key: The Schema Registry API Key.
-        :param pulumi.Input[_builtins.str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param pulumi.Input[_builtins.str] secret: The Schema Registry API Secret.
+               
+               > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+               
+               !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -8022,7 +7675,13 @@ class SubjectModeCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[_builtins.str]:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Schema Registry API Secret.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target="confluent_subject_mode.orders"`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_subject_mode.orders" -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+
+        !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "secret")
 
@@ -8031,14 +7690,11 @@ class SubjectModeCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class SubjectModeSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    SubjectModeSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class SubjectModeSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class SubjectModeSchemaRegistryClusterArgs:
@@ -8062,26 +7718,23 @@ class SubjectModeSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class TableflowTopicAzureDataLakeStorageGen2ArgsDict(TypedDict):
-        container_name: pulumi.Input[_builtins.str]
-        """
-        The container name.
-        """
-        provider_integration_id: pulumi.Input[_builtins.str]
-        """
-        The provider integration id.
-        """
-        storage_account_name: pulumi.Input[_builtins.str]
-        """
-        The storage account name.
-        """
-        storage_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The storage region.
-        """
-elif False:
-    TableflowTopicAzureDataLakeStorageGen2ArgsDict: TypeAlias = Mapping[str, Any]
+class TableflowTopicAzureDataLakeStorageGen2ArgsDict(TypedDict):
+    container_name: pulumi.Input[_builtins.str]
+    """
+    The container name.
+    """
+    provider_integration_id: pulumi.Input[_builtins.str]
+    """
+    The provider integration id.
+    """
+    storage_account_name: pulumi.Input[_builtins.str]
+    """
+    The storage account name.
+    """
+    storage_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The storage region.
+    """
 
 @pulumi.input_type
 class TableflowTopicAzureDataLakeStorageGen2Args:
@@ -8151,22 +7804,19 @@ class TableflowTopicAzureDataLakeStorageGen2Args:
         pulumi.set(self, "storage_region", value)
 
 
-if not MYPY:
-    class TableflowTopicByobAwsArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        The bucket name.
-        """
-        provider_integration_id: pulumi.Input[_builtins.str]
-        """
-        The provider integration id.
-        """
-        bucket_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The bucket region.
-        """
-elif False:
-    TableflowTopicByobAwsArgsDict: TypeAlias = Mapping[str, Any]
+class TableflowTopicByobAwsArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    The bucket name.
+    """
+    provider_integration_id: pulumi.Input[_builtins.str]
+    """
+    The provider integration id.
+    """
+    bucket_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The bucket region.
+    """
 
 @pulumi.input_type
 class TableflowTopicByobAwsArgs:
@@ -8221,18 +7871,21 @@ class TableflowTopicByobAwsArgs:
         pulumi.set(self, "bucket_region", value)
 
 
-if not MYPY:
-    class TableflowTopicCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Tableflow API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    TableflowTopicCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class TableflowTopicCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Tableflow API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Tableflow API Secret.
+
+    > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
+
+    > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_tableflow_topic.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tableflow_topic.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+
+    !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+    """
 
 @pulumi.input_type
 class TableflowTopicCredentialsArgs:
@@ -8241,7 +7894,13 @@ class TableflowTopicCredentialsArgs:
                  secret: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] key: The Tableflow API Key.
-        :param pulumi.Input[_builtins.str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param pulumi.Input[_builtins.str] secret: The Tableflow API Secret.
+               
+               > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_tableflow_topic.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tableflow_topic.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -8262,7 +7921,13 @@ class TableflowTopicCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[_builtins.str]:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Tableflow API Secret.
+
+        > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Tableflow API key, create a new Tableflow API key, update the `credentials` block in all configuration files to use the new Tableflow API key, run `pulumi up -target="confluent_tableflow_topic.example"`, and remove the old Tableflow API key. Alternatively, in case the old Tableflow API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_tableflow_topic.example" -out=rotate-tableflow-api-key` and `pulumi up rotate-tableflow-api-key` instead.
+
+        !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "secret")
 
@@ -8271,14 +7936,11 @@ class TableflowTopicCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class TableflowTopicEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment, for example, `env-abc123`.
-        """
-elif False:
-    TableflowTopicEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class TableflowTopicEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class TableflowTopicEnvironmentArgs:
@@ -8302,18 +7964,15 @@ class TableflowTopicEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class TableflowTopicErrorHandlingArgsDict(TypedDict):
-        log_target: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "error_log" if error handling mode is `LOG`, and empty otherwise.
-        """
-        mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
-        """
-elif False:
-    TableflowTopicErrorHandlingArgsDict: TypeAlias = Mapping[str, Any]
+class TableflowTopicErrorHandlingArgsDict(TypedDict):
+    log_target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The topic to which the bad records will be logged for error handling mode `LOG`. Creates the topic if it doesn't already exist. The default topic is "error_log" if error handling mode is `LOG`, and empty otherwise.
+    """
+    mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The error handling mode. For `SUSPEND`, the materialization of the topic is suspended in case of record failures. For `SKIP`, bad records are skipped and the materialization continues with the next record. For `LOG`, bad records are logged to a dead-letter queue (DLQ) topic and the materialization continues with the next record. The default mode is `SUSPEND`.
+    """
 
 @pulumi.input_type
 class TableflowTopicErrorHandlingArgs:
@@ -8354,14 +8013,11 @@ class TableflowTopicErrorHandlingArgs:
         pulumi.set(self, "mode", value)
 
 
-if not MYPY:
-    class TableflowTopicKafkaClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Kafka cluster, for example, `lkc-abc123`.
-        """
-elif False:
-    TableflowTopicKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class TableflowTopicKafkaClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Kafka cluster, for example, `lkc-abc123`.
+    """
 
 @pulumi.input_type
 class TableflowTopicKafkaClusterArgs:
@@ -8385,11 +8041,8 @@ class TableflowTopicKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class TableflowTopicManagedStorageArgsDict(TypedDict):
-        pass
-elif False:
-    TableflowTopicManagedStorageArgsDict: TypeAlias = Mapping[str, Any]
+class TableflowTopicManagedStorageArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class TableflowTopicManagedStorageArgs:
@@ -8397,18 +8050,15 @@ class TableflowTopicManagedStorageArgs:
         pass
 
 
-if not MYPY:
-    class TagBindingCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    TagBindingCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class TagBindingCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class TagBindingCredentialsArgs:
@@ -8447,14 +8097,11 @@ class TagBindingCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class TagBindingSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    TagBindingSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class TagBindingSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class TagBindingSchemaRegistryClusterArgs:
@@ -8478,18 +8125,15 @@ class TagBindingSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class TagCredentialsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Key.
-        """
-        secret: pulumi.Input[_builtins.str]
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    TagCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class TagCredentialsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Key.
+    """
+    secret: pulumi.Input[_builtins.str]
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class TagCredentialsArgs:
@@ -8528,14 +8172,11 @@ class TagCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class TagSchemaRegistryClusterArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    TagSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class TagSchemaRegistryClusterArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class TagSchemaRegistryClusterArgs:
@@ -8559,28 +8200,25 @@ class TagSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class TransitGatewayAttachmentAwsArgsDict(TypedDict):
-        ram_resource_share_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
-        """
-        routes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+class TransitGatewayAttachmentAwsArgsDict(TypedDict):
+    ram_resource_share_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+    """
+    routes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
 
-        > **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
-        """
-        transit_gateway_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
-        """
-        transit_gateway_attachment_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
-        """
-elif False:
-    TransitGatewayAttachmentAwsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
+    """
+    transit_gateway_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+    """
+    transit_gateway_attachment_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+    """
 
 @pulumi.input_type
 class TransitGatewayAttachmentAwsArgs:
@@ -8654,14 +8292,11 @@ class TransitGatewayAttachmentAwsArgs:
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
 
-if not MYPY:
-    class TransitGatewayAttachmentEnvironmentArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
-        """
-elif False:
-    TransitGatewayAttachmentEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class TransitGatewayAttachmentEnvironmentArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class TransitGatewayAttachmentEnvironmentArgs:
@@ -8685,14 +8320,11 @@ class TransitGatewayAttachmentEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class TransitGatewayAttachmentNetworkArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
-        """
-elif False:
-    TransitGatewayAttachmentNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class TransitGatewayAttachmentNetworkArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+    """
 
 @pulumi.input_type
 class TransitGatewayAttachmentNetworkArgs:
@@ -8716,14 +8348,11 @@ class TransitGatewayAttachmentNetworkArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetAccessPointEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
-        """
-elif False:
-    GetAccessPointEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetAccessPointEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+    """
 
 @pulumi.input_type
 class GetAccessPointEnvironmentArgs:
@@ -8747,26 +8376,23 @@ class GetAccessPointEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict(TypedDict):
-        private_service_connect_endpoint_connection_id: _builtins.str
-        """
-        (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
-        """
-        private_service_connect_endpoint_ip_address: _builtins.str
-        """
-        (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
-        """
-        private_service_connect_endpoint_name: _builtins.str
-        """
-        (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
-        """
-        private_service_connect_endpoint_target: _builtins.str
-        """
-        (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
-        """
-elif False:
-    GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict(TypedDict):
+    private_service_connect_endpoint_connection_id: _builtins.str
+    """
+    (Required String) Connection ID of the Private Service Connect Endpoint that is connected to the endpoint target.
+    """
+    private_service_connect_endpoint_ip_address: _builtins.str
+    """
+    (Required String) IP address of the Private Service Connect Endpoint that is connected to the endpoint target.
+    """
+    private_service_connect_endpoint_name: _builtins.str
+    """
+    (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
+    """
+    private_service_connect_endpoint_target: _builtins.str
+    """
+    (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
+    """
 
 @pulumi.input_type
 class GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs:
@@ -8835,20 +8461,17 @@ class GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs:
         pulumi.set(self, "private_service_connect_endpoint_target", value)
 
 
-if not MYPY:
-    class GetBusinessMetadataBindingCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Schema Registry API Key.
-        """
-        secret: _builtins.str
-        """
-        The Schema Registry API Secret.
+class GetBusinessMetadataBindingCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Schema Registry API Key.
+    """
+    secret: _builtins.str
+    """
+    The Schema Registry API Secret.
 
-        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
-        """
-elif False:
-    GetBusinessMetadataBindingCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+    """
 
 @pulumi.input_type
 class GetBusinessMetadataBindingCredentialsArgs:
@@ -8891,14 +8514,11 @@ class GetBusinessMetadataBindingCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetBusinessMetadataBindingSchemaRegistryClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    GetBusinessMetadataBindingSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetBusinessMetadataBindingSchemaRegistryClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class GetBusinessMetadataBindingSchemaRegistryClusterArgs:
@@ -8922,18 +8542,15 @@ class GetBusinessMetadataBindingSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetBusinessMetadataCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Schema Registry API Key.
-        """
-        secret: _builtins.str
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    GetBusinessMetadataCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetBusinessMetadataCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Schema Registry API Key.
+    """
+    secret: _builtins.str
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class GetBusinessMetadataCredentialsArgs:
@@ -8972,14 +8589,11 @@ class GetBusinessMetadataCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetBusinessMetadataSchemaRegistryClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    GetBusinessMetadataSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetBusinessMetadataSchemaRegistryClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class GetBusinessMetadataSchemaRegistryClusterArgs:
@@ -9003,18 +8617,19 @@ class GetBusinessMetadataSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetCatalogIntegrationCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Tableflow API Key.
-        """
-        secret: _builtins.str
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    GetCatalogIntegrationCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetCatalogIntegrationCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Tableflow API Key.
+    """
+    secret: _builtins.str
+    """
+    The Tableflow API Secret.
+
+    > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
+
+    !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+    """
 
 @pulumi.input_type
 class GetCatalogIntegrationCredentialsArgs:
@@ -9023,7 +8638,11 @@ class GetCatalogIntegrationCredentialsArgs:
                  secret: _builtins.str):
         """
         :param _builtins.str key: The Tableflow API Key.
-        :param _builtins.str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param _builtins.str secret: The Tableflow API Secret.
+               
+               > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -9044,7 +8663,11 @@ class GetCatalogIntegrationCredentialsArgs:
     @pulumi.getter
     def secret(self) -> _builtins.str:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Tableflow API Secret.
+
+        > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Catalog Integrations in Confluent Cloud.
+
+        !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `CatalogIntegration` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "secret")
 
@@ -9053,14 +8676,11 @@ class GetCatalogIntegrationCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetCatalogIntegrationEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment, for example, `env-abc123`.
-        """
-elif False:
-    GetCatalogIntegrationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetCatalogIntegrationEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class GetCatalogIntegrationEnvironmentArgs:
@@ -9084,14 +8704,11 @@ class GetCatalogIntegrationEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetCatalogIntegrationKafkaClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Kafka cluster, for example, `lkc-abc123`.
-        """
-elif False:
-    GetCatalogIntegrationKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetCatalogIntegrationKafkaClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Kafka cluster, for example, `lkc-abc123`.
+    """
 
 @pulumi.input_type
 class GetCatalogIntegrationKafkaClusterArgs:
@@ -9115,14 +8732,11 @@ class GetCatalogIntegrationKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetCertificatePoolCertificateAuthorityArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
-        """
-elif False:
-    GetCertificatePoolCertificateAuthorityArgsDict: TypeAlias = Mapping[str, Any]
+class GetCertificatePoolCertificateAuthorityArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
+    """
 
 @pulumi.input_type
 class GetCertificatePoolCertificateAuthorityArgs:
@@ -9146,18 +8760,19 @@ class GetCertificatePoolCertificateAuthorityArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetClusterLinkCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Kafka API Key.
-        """
-        secret: _builtins.str
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    GetClusterLinkCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetClusterLinkCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Kafka API Key.
+    """
+    secret: _builtins.str
+    """
+    The Kafka API Secret.
+
+    > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+
+    !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+    """
 
 @pulumi.input_type
 class GetClusterLinkCredentialsArgs:
@@ -9166,7 +8781,11 @@ class GetClusterLinkCredentialsArgs:
                  secret: _builtins.str):
         """
         :param _builtins.str key: The Kafka API Key.
-        :param _builtins.str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param _builtins.str secret: The Kafka API Secret.
+               
+               > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+               
+               !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -9187,7 +8806,11 @@ class GetClusterLinkCredentialsArgs:
     @pulumi.getter
     def secret(self) -> _builtins.str:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Kafka API Secret.
+
+        > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+
+        !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `ClusterLink` data-source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "secret")
 
@@ -9196,14 +8819,11 @@ class GetClusterLinkCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetClusterLinkKafkaClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
-        """
-elif False:
-    GetClusterLinkKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetClusterLinkKafkaClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Kafka cluster to query for the Cluster Link, for example, `lkc-abc123`.
+    """
 
 @pulumi.input_type
 class GetClusterLinkKafkaClusterArgs:
@@ -9227,14 +8847,11 @@ class GetClusterLinkKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetConnectArtifactEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Connect Artifact belongs to.
-        """
-elif False:
-    GetConnectArtifactEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetConnectArtifactEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Connect Artifact belongs to.
+    """
 
 @pulumi.input_type
 class GetConnectArtifactEnvironmentArgs:
@@ -9258,14 +8875,11 @@ class GetConnectArtifactEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetDnsRecordEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
-        """
-elif False:
-    GetDnsRecordEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetDnsRecordEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+    """
 
 @pulumi.input_type
 class GetDnsRecordEnvironmentArgs:
@@ -9289,34 +8903,31 @@ class GetDnsRecordEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetEndpointFilterArgsDict(TypedDict):
-        environment: 'GetEndpointFilterEnvironmentArgsDict'
-        """
-        (Computed Configuration Block) supports the following:
-        """
-        service: _builtins.str
-        """
-        The Confluent Cloud service. Accepted values are: `KAFKA`, `SCHEMA_REGISTRY`, `FLINK`.
-        """
-        cloud: NotRequired[_builtins.str]
-        """
-        The cloud service provider. Accepted values are: `AWS`, `GCP`, `AZURE`.
-        """
-        is_private: NotRequired[_builtins.bool]
-        """
-        Whether the endpoint is private (true) or public (false).
-        """
-        region: NotRequired[_builtins.str]
-        """
-        The cloud service provider region in which the resource is located, for example, `us-west-2`.
-        """
-        resource: NotRequired[_builtins.str]
-        """
-        The resource associated with the endpoint. The resource can be one of Kafka Cluster ID (example: `lkc-12345`), or Schema Registry Cluster ID (example: `lsrc-12345`). May be omitted if not associated with a resource.
-        """
-elif False:
-    GetEndpointFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetEndpointFilterArgsDict(TypedDict):
+    environment: 'GetEndpointFilterEnvironmentArgsDict'
+    """
+    (Computed Configuration Block) supports the following:
+    """
+    service: _builtins.str
+    """
+    The Confluent Cloud service. Accepted values are: `KAFKA`, `SCHEMA_REGISTRY`, `FLINK`.
+    """
+    cloud: NotRequired[_builtins.str]
+    """
+    The cloud service provider. Accepted values are: `AWS`, `GCP`, `AZURE`.
+    """
+    is_private: NotRequired[_builtins.bool]
+    """
+    Whether the endpoint is private (true) or public (false).
+    """
+    region: NotRequired[_builtins.str]
+    """
+    The cloud service provider region in which the resource is located, for example, `us-west-2`.
+    """
+    resource: NotRequired[_builtins.str]
+    """
+    The resource associated with the endpoint. The resource can be one of Kafka Cluster ID (example: `lkc-12345`), or Schema Registry Cluster ID (example: `lsrc-12345`). May be omitted if not associated with a resource.
+    """
 
 @pulumi.input_type
 class GetEndpointFilterArgs:
@@ -9419,14 +9030,11 @@ class GetEndpointFilterArgs:
         pulumi.set(self, "resource", value)
 
 
-if not MYPY:
-    class GetEndpointFilterEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Endpoint belongs to, for example, `env-123abc`.
-        """
-elif False:
-    GetEndpointFilterEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetEndpointFilterEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Endpoint belongs to, for example, `env-123abc`.
+    """
 
 @pulumi.input_type
 class GetEndpointFilterEnvironmentArgs:
@@ -9450,14 +9058,11 @@ class GetEndpointFilterEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetEnvironmentStreamGovernanceArgsDict(TypedDict):
-        package: _builtins.str
-        """
-        Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
-        """
-elif False:
-    GetEnvironmentStreamGovernanceArgsDict: TypeAlias = Mapping[str, Any]
+class GetEnvironmentStreamGovernanceArgsDict(TypedDict):
+    package: _builtins.str
+    """
+    Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+    """
 
 @pulumi.input_type
 class GetEnvironmentStreamGovernanceArgs:
@@ -9481,14 +9086,11 @@ class GetEnvironmentStreamGovernanceArgs:
         pulumi.set(self, "package", value)
 
 
-if not MYPY:
-    class GetFlinkArtifactEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Flink Artifact belongs to, for example, `env-xyz456`.
-        """
-elif False:
-    GetFlinkArtifactEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetFlinkArtifactEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Flink Artifact belongs to, for example, `env-xyz456`.
+    """
 
 @pulumi.input_type
 class GetFlinkArtifactEnvironmentArgs:
@@ -9512,16 +9114,13 @@ class GetFlinkArtifactEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetFlinkComputePoolEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
+class GetFlinkComputePoolEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
 
-        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-        """
-elif False:
-    GetFlinkComputePoolEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    """
 
 @pulumi.input_type
 class GetFlinkComputePoolEnvironmentArgs:
@@ -9549,14 +9148,11 @@ class GetFlinkComputePoolEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetFlinkConnectionComputePoolArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
-        """
-elif False:
-    GetFlinkConnectionComputePoolArgsDict: TypeAlias = Mapping[str, Any]
+class GetFlinkConnectionComputePoolArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+    """
 
 @pulumi.input_type
 class GetFlinkConnectionComputePoolArgs:
@@ -9580,22 +9176,19 @@ class GetFlinkConnectionComputePoolArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetFlinkConnectionCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Flink API Key.
-        """
-        secret: _builtins.str
-        """
-        The Flink API Secret.
+class GetFlinkConnectionCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Flink API Key.
+    """
+    secret: _builtins.str
+    """
+    The Flink API Secret.
 
-        > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+    > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
 
-        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
-        """
-elif False:
-    GetFlinkConnectionCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+    """
 
 @pulumi.input_type
 class GetFlinkConnectionCredentialsArgs:
@@ -9642,14 +9235,11 @@ class GetFlinkConnectionCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetFlinkConnectionEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment, for example, `env-abc123`.
-        """
-elif False:
-    GetFlinkConnectionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetFlinkConnectionEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class GetFlinkConnectionEnvironmentArgs:
@@ -9673,14 +9263,11 @@ class GetFlinkConnectionEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetFlinkConnectionOrganizationArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
-        """
-elif False:
-    GetFlinkConnectionOrganizationArgsDict: TypeAlias = Mapping[str, Any]
+class GetFlinkConnectionOrganizationArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+    """
 
 @pulumi.input_type
 class GetFlinkConnectionOrganizationArgs:
@@ -9704,14 +9291,11 @@ class GetFlinkConnectionOrganizationArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetFlinkConnectionPrincipalArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
-        """
-elif False:
-    GetFlinkConnectionPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class GetFlinkConnectionPrincipalArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
+    """
 
 @pulumi.input_type
 class GetFlinkConnectionPrincipalArgs:
@@ -9735,14 +9319,11 @@ class GetFlinkConnectionPrincipalArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetGatewayEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
-        """
-elif False:
-    GetGatewayEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetGatewayEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+    """
 
 @pulumi.input_type
 class GetGatewayEnvironmentArgs:
@@ -9766,14 +9347,11 @@ class GetGatewayEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetGatewaysEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Gateways belong to, for example, `env-123abc`.
-        """
-elif False:
-    GetGatewaysEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetGatewaysEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Gateways belong to, for example, `env-123abc`.
+    """
 
 @pulumi.input_type
 class GetGatewaysEnvironmentArgs:
@@ -9797,30 +9375,27 @@ class GetGatewaysEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetGatewaysFilterArgsDict(TypedDict):
-        display_names: NotRequired[Sequence[_builtins.str]]
-        """
-        Filter the results by exact match for spec.display_name. Pass multiple times to see results matching any of the values, for example, `["prod-gateway-ingress-use1", "prod-gateway-ingress-use2"]`.
-        """
-        gateway_types: NotRequired[Sequence[_builtins.str]]
-        """
-        Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
-        """
-        ids: NotRequired[Sequence[_builtins.str]]
-        """
-        Filter the results by exact match for id. Pass multiple times to see results matching any of the values, for example, `["gw-abc123", "gw-def456"]`.
-        """
-        phases: NotRequired[Sequence[_builtins.str]]
-        """
-        Filter the results by exact match for status.phase. Pass multiple times to see results matching any of the values. Valid values are: `CREATED`, `PROVISIONING`, `READY`, `FAILED`, `DEPROVISIONING`, `EXPIRED`.
-        """
-        regions: NotRequired[Sequence[_builtins.str]]
-        """
-        Filter the results by exact match for spec.config.region. Pass multiple times to see results matching any of the values, for example, `["us-east-1", "us-west-2"]`.
-        """
-elif False:
-    GetGatewaysFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetGatewaysFilterArgsDict(TypedDict):
+    display_names: NotRequired[Sequence[_builtins.str]]
+    """
+    Filter the results by exact match for spec.display_name. Pass multiple times to see results matching any of the values, for example, `["prod-gateway-ingress-use1", "prod-gateway-ingress-use2"]`.
+    """
+    gateway_types: NotRequired[Sequence[_builtins.str]]
+    """
+    Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+    """
+    ids: NotRequired[Sequence[_builtins.str]]
+    """
+    Filter the results by exact match for id. Pass multiple times to see results matching any of the values, for example, `["gw-abc123", "gw-def456"]`.
+    """
+    phases: NotRequired[Sequence[_builtins.str]]
+    """
+    Filter the results by exact match for status.phase. Pass multiple times to see results matching any of the values. Valid values are: `CREATED`, `PROVISIONING`, `READY`, `FAILED`, `DEPROVISIONING`, `EXPIRED`.
+    """
+    regions: NotRequired[Sequence[_builtins.str]]
+    """
+    Filter the results by exact match for spec.config.region. Pass multiple times to see results matching any of the values, for example, `["us-east-1", "us-west-2"]`.
+    """
 
 @pulumi.input_type
 class GetGatewaysFilterArgs:
@@ -9909,16 +9484,13 @@ class GetGatewaysFilterArgs:
         pulumi.set(self, "regions", value)
 
 
-if not MYPY:
-    class GetIdentityPoolIdentityProviderArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+class GetIdentityPoolIdentityProviderArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
 
-        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-        """
-elif False:
-    GetIdentityPoolIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    """
 
 @pulumi.input_type
 class GetIdentityPoolIdentityProviderArgs:
@@ -9946,26 +9518,23 @@ class GetIdentityPoolIdentityProviderArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetIpAddressesFilterArgsDict(TypedDict):
-        address_types: NotRequired[Sequence[_builtins.str]]
-        """
-        A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
-        """
-        clouds: NotRequired[Sequence[_builtins.str]]
-        """
-        A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
-        """
-        regions: NotRequired[Sequence[_builtins.str]]
-        """
-        A list of regions to filter by.
-        """
-        services: NotRequired[Sequence[_builtins.str]]
-        """
-        A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
-        """
-elif False:
-    GetIpAddressesFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetIpAddressesFilterArgsDict(TypedDict):
+    address_types: NotRequired[Sequence[_builtins.str]]
+    """
+    A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+    """
+    clouds: NotRequired[Sequence[_builtins.str]]
+    """
+    A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+    """
+    regions: NotRequired[Sequence[_builtins.str]]
+    """
+    A list of regions to filter by.
+    """
+    services: NotRequired[Sequence[_builtins.str]]
+    """
+    A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+    """
 
 @pulumi.input_type
 class GetIpAddressesFilterArgs:
@@ -10038,14 +9607,11 @@ class GetIpAddressesFilterArgs:
         pulumi.set(self, "services", value)
 
 
-if not MYPY:
-    class GetKafkaClusterBasicArgsDict(TypedDict):
-        max_ecku: _builtins.int
-        """
-        (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
-        """
-elif False:
-    GetKafkaClusterBasicArgsDict: TypeAlias = Mapping[str, Any]
+class GetKafkaClusterBasicArgsDict(TypedDict):
+    max_ecku: _builtins.int
+    """
+    (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+    """
 
 @pulumi.input_type
 class GetKafkaClusterBasicArgs:
@@ -10069,25 +9635,22 @@ class GetKafkaClusterBasicArgs:
         pulumi.set(self, "max_ecku", value)
 
 
-if not MYPY:
-    class GetKafkaClusterDedicatedArgsDict(TypedDict):
-        cku: _builtins.int
-        """
-        (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
-        """
-        encryption_key: _builtins.str
-        """
-        The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
-        """
-        zones: Sequence[_builtins.str]
-        """
-        (Required List of String) The list of zones the cluster is in.
-        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-        - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-        - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
-        """
-elif False:
-    GetKafkaClusterDedicatedArgsDict: TypeAlias = Mapping[str, Any]
+class GetKafkaClusterDedicatedArgsDict(TypedDict):
+    cku: _builtins.int
+    """
+    (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
+    """
+    encryption_key: _builtins.str
+    """
+    The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+    """
+    zones: Sequence[_builtins.str]
+    """
+    (Required List of String) The list of zones the cluster is in.
+    - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+    - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+    - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+    """
 
 @pulumi.input_type
 class GetKafkaClusterDedicatedArgs:
@@ -10147,14 +9710,11 @@ class GetKafkaClusterDedicatedArgs:
         pulumi.set(self, "zones", value)
 
 
-if not MYPY:
-    class GetKafkaClusterEnterpriseArgsDict(TypedDict):
-        max_ecku: _builtins.int
-        """
-        (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
-        """
-elif False:
-    GetKafkaClusterEnterpriseArgsDict: TypeAlias = Mapping[str, Any]
+class GetKafkaClusterEnterpriseArgsDict(TypedDict):
+    max_ecku: _builtins.int
+    """
+    (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+    """
 
 @pulumi.input_type
 class GetKafkaClusterEnterpriseArgs:
@@ -10178,16 +9738,13 @@ class GetKafkaClusterEnterpriseArgs:
         pulumi.set(self, "max_ecku", value)
 
 
-if not MYPY:
-    class GetKafkaClusterEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+class GetKafkaClusterEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
 
-        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-        """
-elif False:
-    GetKafkaClusterEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    """
 
 @pulumi.input_type
 class GetKafkaClusterEnvironmentArgs:
@@ -10215,21 +9772,18 @@ class GetKafkaClusterEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetKafkaClusterFreightArgsDict(TypedDict):
-        max_ecku: _builtins.int
-        """
-        (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
-        """
-        zones: Sequence[_builtins.str]
-        """
-        (Required List of String) The list of zones the cluster is in.
-        - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
-        - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
-        - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
-        """
-elif False:
-    GetKafkaClusterFreightArgsDict: TypeAlias = Mapping[str, Any]
+class GetKafkaClusterFreightArgsDict(TypedDict):
+    max_ecku: _builtins.int
+    """
+    (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+    """
+    zones: Sequence[_builtins.str]
+    """
+    (Required List of String) The list of zones the cluster is in.
+    - On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+    - On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+    - On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+    """
 
 @pulumi.input_type
 class GetKafkaClusterFreightArgs:
@@ -10274,14 +9828,11 @@ class GetKafkaClusterFreightArgs:
         pulumi.set(self, "zones", value)
 
 
-if not MYPY:
-    class GetKafkaClusterStandardArgsDict(TypedDict):
-        max_ecku: _builtins.int
-        """
-        (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
-        """
-elif False:
-    GetKafkaClusterStandardArgsDict: TypeAlias = Mapping[str, Any]
+class GetKafkaClusterStandardArgsDict(TypedDict):
+    max_ecku: _builtins.int
+    """
+    (Optional Number) The maximum number of Elastic Confluent Kafka Units (eCKUs) that Kafka clusters should auto-scale to. Kafka clusters with "HIGH" availability must have at least two eCKUs. For more details, see [Maximum eCKU requirements](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#minimum-maximum-ecku-requirements).
+    """
 
 @pulumi.input_type
 class GetKafkaClusterStandardArgs:
@@ -10305,14 +9856,11 @@ class GetKafkaClusterStandardArgs:
         pulumi.set(self, "max_ecku", value)
 
 
-if not MYPY:
-    class GetKafkaClustersEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
-        """
-elif False:
-    GetKafkaClustersEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetKafkaClustersEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Kafka clusters belongs to, for example, `env-xyz456`.
+    """
 
 @pulumi.input_type
 class GetKafkaClustersEnvironmentArgs:
@@ -10336,18 +9884,19 @@ class GetKafkaClustersEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetKafkaTopicCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Kafka API Key.
-        """
-        secret: _builtins.str
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    GetKafkaTopicCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetKafkaTopicCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Kafka API Key.
+    """
+    secret: _builtins.str
+    """
+    The Kafka API Secret.
+
+    > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+
+    !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+    """
 
 @pulumi.input_type
 class GetKafkaTopicCredentialsArgs:
@@ -10356,7 +9905,11 @@ class GetKafkaTopicCredentialsArgs:
                  secret: _builtins.str):
         """
         :param _builtins.str key: The Kafka API Key.
-        :param _builtins.str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param _builtins.str secret: The Kafka API Secret.
+               
+               > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+               
+               !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -10377,7 +9930,11 @@ class GetKafkaTopicCredentialsArgs:
     @pulumi.getter
     def secret(self) -> _builtins.str:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Kafka API Secret.
+
+        > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+
+        !> **Warning:** Terraform doesn't encrypt the sensitive `credentials` value of the `KafkaTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "secret")
 
@@ -10386,14 +9943,11 @@ class GetKafkaTopicCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetKafkaTopicKafkaClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Kafka cluster, for example, `lkc-abc123`.
-        """
-elif False:
-    GetKafkaTopicKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetKafkaTopicKafkaClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Kafka cluster, for example, `lkc-abc123`.
+    """
 
 @pulumi.input_type
 class GetKafkaTopicKafkaClusterArgs:
@@ -10417,16 +9971,13 @@ class GetKafkaTopicKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetKsqlClusterEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+class GetKsqlClusterEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
 
-        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-        """
-elif False:
-    GetKsqlClusterEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    """
 
 @pulumi.input_type
 class GetKsqlClusterEnvironmentArgs:
@@ -10454,22 +10005,19 @@ class GetKsqlClusterEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetNetworkAwArgsDict(TypedDict):
-        account: _builtins.str
-        """
-        (Required String) The AWS account ID associated with the Confluent Cloud VPC.
-        """
-        private_link_endpoint_service: _builtins.str
-        """
-        (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
-        """
-        vpc: _builtins.str
-        """
-        (Required String) The Confluent Cloud VPC ID.
-        """
-elif False:
-    GetNetworkAwArgsDict: TypeAlias = Mapping[str, Any]
+class GetNetworkAwArgsDict(TypedDict):
+    account: _builtins.str
+    """
+    (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+    """
+    private_link_endpoint_service: _builtins.str
+    """
+    (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
+    """
+    vpc: _builtins.str
+    """
+    (Required String) The Confluent Cloud VPC ID.
+    """
 
 @pulumi.input_type
 class GetNetworkAwArgs:
@@ -10523,14 +10071,11 @@ class GetNetworkAwArgs:
         pulumi.set(self, "vpc", value)
 
 
-if not MYPY:
-    class GetNetworkAzureArgsDict(TypedDict):
-        private_link_service_aliases: Mapping[str, _builtins.str]
-        """
-        (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
-        """
-elif False:
-    GetNetworkAzureArgsDict: TypeAlias = Mapping[str, Any]
+class GetNetworkAzureArgsDict(TypedDict):
+    private_link_service_aliases: Mapping[str, _builtins.str]
+    """
+    (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
+    """
 
 @pulumi.input_type
 class GetNetworkAzureArgs:
@@ -10554,16 +10099,13 @@ class GetNetworkAzureArgs:
         pulumi.set(self, "private_link_service_aliases", value)
 
 
-if not MYPY:
-    class GetNetworkDnsConfigArgsDict(TypedDict):
-        resolution: _builtins.str
-        """
-        (Required String) Network DNS resolution.
-        When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
-        When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
-        """
-elif False:
-    GetNetworkDnsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GetNetworkDnsConfigArgsDict(TypedDict):
+    resolution: _builtins.str
+    """
+    (Required String) Network DNS resolution.
+    When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+    When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+    """
 
 @pulumi.input_type
 class GetNetworkDnsConfigArgs:
@@ -10591,16 +10133,13 @@ class GetNetworkDnsConfigArgs:
         pulumi.set(self, "resolution", value)
 
 
-if not MYPY:
-    class GetNetworkEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+class GetNetworkEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
 
-        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-        """
-elif False:
-    GetNetworkEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    """
 
 @pulumi.input_type
 class GetNetworkEnvironmentArgs:
@@ -10628,22 +10167,19 @@ class GetNetworkEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetNetworkGcpArgsDict(TypedDict):
-        private_service_connect_service_attachments: Mapping[str, _builtins.str]
-        """
-        (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
-        """
-        project: _builtins.str
-        """
-        (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
-        """
-        vpc_network: _builtins.str
-        """
-        (Required String) The network name of the Confluent Cloud VPC.
-        """
-elif False:
-    GetNetworkGcpArgsDict: TypeAlias = Mapping[str, Any]
+class GetNetworkGcpArgsDict(TypedDict):
+    private_service_connect_service_attachments: Mapping[str, _builtins.str]
+    """
+    (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+    """
+    project: _builtins.str
+    """
+    (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
+    """
+    vpc_network: _builtins.str
+    """
+    (Required String) The network name of the Confluent Cloud VPC.
+    """
 
 @pulumi.input_type
 class GetNetworkGcpArgs:
@@ -10697,14 +10233,11 @@ class GetNetworkGcpArgs:
         pulumi.set(self, "vpc_network", value)
 
 
-if not MYPY:
-    class GetNetworkLinkEndpointEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
-        """
-elif False:
-    GetNetworkLinkEndpointEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetNetworkLinkEndpointEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+    """
 
 @pulumi.input_type
 class GetNetworkLinkEndpointEnvironmentArgs:
@@ -10728,18 +10261,15 @@ class GetNetworkLinkEndpointEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetNetworkLinkServiceAcceptArgsDict(TypedDict):
-        environments: Sequence[_builtins.str]
-        """
-        (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
-        """
-        networks: Sequence[_builtins.str]
-        """
-        (Optional List of Strings) List of network ids from which connections can be accepted.
-        """
-elif False:
-    GetNetworkLinkServiceAcceptArgsDict: TypeAlias = Mapping[str, Any]
+class GetNetworkLinkServiceAcceptArgsDict(TypedDict):
+    environments: Sequence[_builtins.str]
+    """
+    (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+    """
+    networks: Sequence[_builtins.str]
+    """
+    (Optional List of Strings) List of network ids from which connections can be accepted.
+    """
 
 @pulumi.input_type
 class GetNetworkLinkServiceAcceptArgs:
@@ -10778,16 +10308,13 @@ class GetNetworkLinkServiceAcceptArgs:
         pulumi.set(self, "networks", value)
 
 
-if not MYPY:
-    class GetNetworkLinkServiceEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+class GetNetworkLinkServiceEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
 
-        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-        """
-elif False:
-    GetNetworkLinkServiceEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    """
 
 @pulumi.input_type
 class GetNetworkLinkServiceEnvironmentArgs:
@@ -10815,16 +10342,13 @@ class GetNetworkLinkServiceEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetPeeringEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+class GetPeeringEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
 
-        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-        """
-elif False:
-    GetPeeringEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    """
 
 @pulumi.input_type
 class GetPeeringEnvironmentArgs:
@@ -10852,16 +10376,13 @@ class GetPeeringEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetPrivateLinkAccessEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+class GetPrivateLinkAccessEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
 
-        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-        """
-elif False:
-    GetPrivateLinkAccessEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    """
 
 @pulumi.input_type
 class GetPrivateLinkAccessEnvironmentArgs:
@@ -10889,14 +10410,11 @@ class GetPrivateLinkAccessEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetPrivateLinkAttachmentConnectionEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
-        """
-elif False:
-    GetPrivateLinkAttachmentConnectionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetPrivateLinkAttachmentConnectionEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+    """
 
 @pulumi.input_type
 class GetPrivateLinkAttachmentConnectionEnvironmentArgs:
@@ -10920,14 +10438,11 @@ class GetPrivateLinkAttachmentConnectionEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetPrivateLinkAttachmentEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
-        """
-elif False:
-    GetPrivateLinkAttachmentEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetPrivateLinkAttachmentEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+    """
 
 @pulumi.input_type
 class GetPrivateLinkAttachmentEnvironmentArgs:
@@ -10951,14 +10466,11 @@ class GetPrivateLinkAttachmentEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetProviderIntegrationAuthorizationEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-elif False:
-    GetProviderIntegrationAuthorizationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetProviderIntegrationAuthorizationEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class GetProviderIntegrationAuthorizationEnvironmentArgs:
@@ -10982,16 +10494,13 @@ class GetProviderIntegrationAuthorizationEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetProviderIntegrationEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
+class GetProviderIntegrationEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Provider Integration belongs to, for example, `env-xyz456`.
 
-        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-        """
-elif False:
-    GetProviderIntegrationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    """
 
 @pulumi.input_type
 class GetProviderIntegrationEnvironmentArgs:
@@ -11019,14 +10528,11 @@ class GetProviderIntegrationEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetProviderIntegrationSetupEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
-        """
-elif False:
-    GetProviderIntegrationSetupEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetProviderIntegrationSetupEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Provider Integration belongs to, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class GetProviderIntegrationSetupEnvironmentArgs:
@@ -11050,18 +10556,15 @@ class GetProviderIntegrationSetupEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetSchemaCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Schema Registry API Key.
-        """
-        secret: _builtins.str
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    GetSchemaCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Schema Registry API Key.
+    """
+    secret: _builtins.str
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class GetSchemaCredentialsArgs:
@@ -11100,22 +10603,19 @@ class GetSchemaCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetSchemaMetadataArgsDict(TypedDict):
-        properties: Mapping[str, _builtins.str]
-        """
-        (Optional Map) The custom properties to set:
-        """
-        sensitives: Sequence[_builtins.str]
-        """
-        (Optional List of Strings) A list of metadata properties to be encrypted.
-        """
-        tags: Sequence['GetSchemaMetadataTagArgsDict']
-        """
-        (Optional String List) The tags to which the rule applies, if any.
-        """
-elif False:
-    GetSchemaMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaMetadataArgsDict(TypedDict):
+    properties: Mapping[str, _builtins.str]
+    """
+    (Optional Map) The custom properties to set:
+    """
+    sensitives: Sequence[_builtins.str]
+    """
+    (Optional List of Strings) A list of metadata properties to be encrypted.
+    """
+    tags: Sequence['GetSchemaMetadataTagArgsDict']
+    """
+    (Optional String List) The tags to which the rule applies, if any.
+    """
 
 @pulumi.input_type
 class GetSchemaMetadataArgs:
@@ -11169,18 +10669,15 @@ class GetSchemaMetadataArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class GetSchemaMetadataTagArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        (Required String) The setting name.
-        """
-        values: Sequence[_builtins.str]
-        """
-        (Required List of Strings) The list of tags.
-        """
-elif False:
-    GetSchemaMetadataTagArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaMetadataTagArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    (Required String) The setting name.
+    """
+    values: Sequence[_builtins.str]
+    """
+    (Required List of Strings) The list of tags.
+    """
 
 @pulumi.input_type
 class GetSchemaMetadataTagArgs:
@@ -11219,18 +10716,15 @@ class GetSchemaMetadataTagArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetSchemaRegistryClusterConfigCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Schema Registry API Key.
-        """
-        secret: _builtins.str
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    GetSchemaRegistryClusterConfigCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaRegistryClusterConfigCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Schema Registry API Key.
+    """
+    secret: _builtins.str
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class GetSchemaRegistryClusterConfigCredentialsArgs:
@@ -11269,14 +10763,11 @@ class GetSchemaRegistryClusterConfigCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetSchemaRegistryClusterConfigSchemaRegistryClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    GetSchemaRegistryClusterConfigSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaRegistryClusterConfigSchemaRegistryClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs:
@@ -11300,14 +10791,11 @@ class GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetSchemaRegistryClusterEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-        """
-elif False:
-    GetSchemaRegistryClusterEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaRegistryClusterEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+    """
 
 @pulumi.input_type
 class GetSchemaRegistryClusterEnvironmentArgs:
@@ -11331,20 +10819,17 @@ class GetSchemaRegistryClusterEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetSchemaRegistryClusterModeCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Schema Registry API Key.
-        """
-        secret: _builtins.str
-        """
-        The Schema Registry API Secret.
+class GetSchemaRegistryClusterModeCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Schema Registry API Key.
+    """
+    secret: _builtins.str
+    """
+    The Schema Registry API Secret.
 
-        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
-        """
-elif False:
-    GetSchemaRegistryClusterModeCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+    """
 
 @pulumi.input_type
 class GetSchemaRegistryClusterModeCredentialsArgs:
@@ -11387,14 +10872,11 @@ class GetSchemaRegistryClusterModeCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetSchemaRegistryClusterModeSchemaRegistryClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    GetSchemaRegistryClusterModeSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaRegistryClusterModeSchemaRegistryClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class GetSchemaRegistryClusterModeSchemaRegistryClusterArgs:
@@ -11418,15 +10900,12 @@ class GetSchemaRegistryClusterModeSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetSchemaRegistryClustersEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-        - If no environment id is specified, clusters from all environments will be displayed.
-        """
-elif False:
-    GetSchemaRegistryClustersEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaRegistryClustersEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+    - If no environment id is specified, clusters from all environments will be displayed.
+    """
 
 @pulumi.input_type
 class GetSchemaRegistryClustersEnvironmentArgs:
@@ -11452,18 +10931,15 @@ class GetSchemaRegistryClustersEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetSchemaRegistryDekCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Schema Registry API Key.
-        """
-        secret: _builtins.str
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    GetSchemaRegistryDekCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaRegistryDekCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Schema Registry API Key.
+    """
+    secret: _builtins.str
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class GetSchemaRegistryDekCredentialsArgs:
@@ -11502,14 +10978,11 @@ class GetSchemaRegistryDekCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetSchemaRegistryDekSchemaRegistryClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    GetSchemaRegistryDekSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaRegistryDekSchemaRegistryClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class GetSchemaRegistryDekSchemaRegistryClusterArgs:
@@ -11533,18 +11006,15 @@ class GetSchemaRegistryDekSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetSchemaRegistryKekCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Schema Registry API Key.
-        """
-        secret: _builtins.str
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    GetSchemaRegistryKekCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaRegistryKekCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Schema Registry API Key.
+    """
+    secret: _builtins.str
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class GetSchemaRegistryKekCredentialsArgs:
@@ -11583,14 +11053,11 @@ class GetSchemaRegistryKekCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetSchemaRegistryKekSchemaRegistryClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    GetSchemaRegistryKekSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaRegistryKekSchemaRegistryClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class GetSchemaRegistryKekSchemaRegistryClusterArgs:
@@ -11614,18 +11081,15 @@ class GetSchemaRegistryKekSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetSchemaRulesetArgsDict(TypedDict):
-        domain_rules: NotRequired[Sequence['GetSchemaRulesetDomainRuleArgsDict']]
-        """
-        (Optional List of Blocks) supports the following:
-        """
-        migration_rules: NotRequired[Sequence['GetSchemaRulesetMigrationRuleArgsDict']]
-        """
-        (Optional List of Blocks) supports the following:
-        """
-elif False:
-    GetSchemaRulesetArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaRulesetArgsDict(TypedDict):
+    domain_rules: NotRequired[Sequence['GetSchemaRulesetDomainRuleArgsDict']]
+    """
+    (Optional List of Blocks) supports the following:
+    """
+    migration_rules: NotRequired[Sequence['GetSchemaRulesetMigrationRuleArgsDict']]
+    """
+    (Optional List of Blocks) supports the following:
+    """
 
 @pulumi.input_type
 class GetSchemaRulesetArgs:
@@ -11666,54 +11130,51 @@ class GetSchemaRulesetArgs:
         pulumi.set(self, "migration_rules", value)
 
 
-if not MYPY:
-    class GetSchemaRulesetDomainRuleArgsDict(TypedDict):
-        kind: _builtins.str
-        """
-        (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
-        """
-        mode: _builtins.str
-        """
-        (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-        """
-        name: _builtins.str
-        """
-        (Required String) A user-defined name that can be used to reference the rule.
-        """
-        params: Mapping[str, _builtins.str]
-        """
-        (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-        """
-        tags: Sequence[_builtins.str]
-        """
-        (Optional String List) The tags to which the rule applies, if any.
-        """
-        type: _builtins.str
-        """
-        (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
-        """
-        disabled: NotRequired[_builtins.bool]
-        """
-        (Optional Boolean) The boolean flag to control whether the rule should be disabled.
-        """
-        doc: NotRequired[_builtins.str]
-        """
-        (Optional String) An optional description of the rule.
-        """
-        expr: NotRequired[_builtins.str]
-        """
-        (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
-        """
-        on_failure: NotRequired[_builtins.str]
-        """
-        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-        """
-        on_success: NotRequired[_builtins.str]
-        """
-        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-        """
-elif False:
-    GetSchemaRulesetDomainRuleArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaRulesetDomainRuleArgsDict(TypedDict):
+    kind: _builtins.str
+    """
+    (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+    """
+    mode: _builtins.str
+    """
+    (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+    """
+    name: _builtins.str
+    """
+    (Required String) A user-defined name that can be used to reference the rule.
+    """
+    params: Mapping[str, _builtins.str]
+    """
+    (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+    """
+    tags: Sequence[_builtins.str]
+    """
+    (Optional String List) The tags to which the rule applies, if any.
+    """
+    type: _builtins.str
+    """
+    (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+    """
+    disabled: NotRequired[_builtins.bool]
+    """
+    (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+    """
+    doc: NotRequired[_builtins.str]
+    """
+    (Optional String) An optional description of the rule.
+    """
+    expr: NotRequired[_builtins.str]
+    """
+    (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+    """
+    on_failure: NotRequired[_builtins.str]
+    """
+    (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+    """
+    on_success: NotRequired[_builtins.str]
+    """
+    (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+    """
 
 @pulumi.input_type
 class GetSchemaRulesetDomainRuleArgs:
@@ -11892,54 +11353,51 @@ class GetSchemaRulesetDomainRuleArgs:
         pulumi.set(self, "on_success", value)
 
 
-if not MYPY:
-    class GetSchemaRulesetMigrationRuleArgsDict(TypedDict):
-        kind: _builtins.str
-        """
-        (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
-        """
-        mode: _builtins.str
-        """
-        (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-        """
-        name: _builtins.str
-        """
-        (Required String) A user-defined name that can be used to reference the rule.
-        """
-        params: Mapping[str, _builtins.str]
-        """
-        (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-        """
-        tags: Sequence[_builtins.str]
-        """
-        (Optional String List) The tags to which the rule applies, if any.
-        """
-        type: _builtins.str
-        """
-        (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
-        """
-        disabled: NotRequired[_builtins.bool]
-        """
-        (Optional Boolean) The boolean flag to control whether the rule should be disabled.
-        """
-        doc: NotRequired[_builtins.str]
-        """
-        (Optional String) An optional description of the rule.
-        """
-        expr: NotRequired[_builtins.str]
-        """
-        (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
-        """
-        on_failure: NotRequired[_builtins.str]
-        """
-        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-        """
-        on_success: NotRequired[_builtins.str]
-        """
-        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-        """
-elif False:
-    GetSchemaRulesetMigrationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaRulesetMigrationRuleArgsDict(TypedDict):
+    kind: _builtins.str
+    """
+    (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+    """
+    mode: _builtins.str
+    """
+    (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+    """
+    name: _builtins.str
+    """
+    (Required String) A user-defined name that can be used to reference the rule.
+    """
+    params: Mapping[str, _builtins.str]
+    """
+    (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+    """
+    tags: Sequence[_builtins.str]
+    """
+    (Optional String List) The tags to which the rule applies, if any.
+    """
+    type: _builtins.str
+    """
+    (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+    """
+    disabled: NotRequired[_builtins.bool]
+    """
+    (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+    """
+    doc: NotRequired[_builtins.str]
+    """
+    (Optional String) An optional description of the rule.
+    """
+    expr: NotRequired[_builtins.str]
+    """
+    (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+    """
+    on_failure: NotRequired[_builtins.str]
+    """
+    (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+    """
+    on_success: NotRequired[_builtins.str]
+    """
+    (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+    """
 
 @pulumi.input_type
 class GetSchemaRulesetMigrationRuleArgs:
@@ -12118,14 +11576,11 @@ class GetSchemaRulesetMigrationRuleArgs:
         pulumi.set(self, "on_success", value)
 
 
-if not MYPY:
-    class GetSchemaSchemaRegistryClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    GetSchemaSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemaSchemaRegistryClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class GetSchemaSchemaRegistryClusterArgs:
@@ -12149,18 +11604,15 @@ class GetSchemaSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetSchemasCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Schema Registry API Key.
-        """
-        secret: _builtins.str
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    GetSchemasCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemasCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Schema Registry API Key.
+    """
+    secret: _builtins.str
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class GetSchemasCredentialsArgs:
@@ -12199,22 +11651,19 @@ class GetSchemasCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetSchemasFilterArgsDict(TypedDict):
-        deleted: NotRequired[_builtins.bool]
-        """
-        The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
-        """
-        latest_only: NotRequired[_builtins.bool]
-        """
-        The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
-        """
-        subject_prefix: NotRequired[_builtins.str]
-        """
-        The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
-        """
-elif False:
-    GetSchemasFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemasFilterArgsDict(TypedDict):
+    deleted: NotRequired[_builtins.bool]
+    """
+    The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+    """
+    latest_only: NotRequired[_builtins.bool]
+    """
+    The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+    """
+    subject_prefix: NotRequired[_builtins.str]
+    """
+    The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+    """
 
 @pulumi.input_type
 class GetSchemasFilterArgs:
@@ -12271,14 +11720,11 @@ class GetSchemasFilterArgs:
         pulumi.set(self, "subject_prefix", value)
 
 
-if not MYPY:
-    class GetSchemasSchemaRegistryClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    GetSchemasSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetSchemasSchemaRegistryClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class GetSchemasSchemaRegistryClusterArgs:
@@ -12302,18 +11748,15 @@ class GetSchemasSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetSubjectConfigCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Schema Registry API Key.
-        """
-        secret: _builtins.str
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    GetSubjectConfigCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetSubjectConfigCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Schema Registry API Key.
+    """
+    secret: _builtins.str
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class GetSubjectConfigCredentialsArgs:
@@ -12352,14 +11795,11 @@ class GetSubjectConfigCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetSubjectConfigSchemaRegistryClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    GetSubjectConfigSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetSubjectConfigSchemaRegistryClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class GetSubjectConfigSchemaRegistryClusterArgs:
@@ -12383,18 +11823,15 @@ class GetSubjectConfigSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetSubjectModeCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Schema Registry API Key.
-        """
-        secret: _builtins.str
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    GetSubjectModeCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetSubjectModeCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Schema Registry API Key.
+    """
+    secret: _builtins.str
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class GetSubjectModeCredentialsArgs:
@@ -12433,14 +11870,11 @@ class GetSubjectModeCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetSubjectModeSchemaRegistryClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    GetSubjectModeSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetSubjectModeSchemaRegistryClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class GetSubjectModeSchemaRegistryClusterArgs:
@@ -12464,18 +11898,19 @@ class GetSubjectModeSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetTableflowTopicCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Tableflow API Key.
-        """
-        secret: _builtins.str
-        """
-        The Cluster API Secret for your Confluent Cloud cluster.
-        """
-elif False:
-    GetTableflowTopicCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetTableflowTopicCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Tableflow API Key.
+    """
+    secret: _builtins.str
+    """
+    The Tableflow API Secret.
+
+    > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
+
+    !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+    """
 
 @pulumi.input_type
 class GetTableflowTopicCredentialsArgs:
@@ -12484,7 +11919,11 @@ class GetTableflowTopicCredentialsArgs:
                  secret: _builtins.str):
         """
         :param _builtins.str key: The Tableflow API Key.
-        :param _builtins.str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param _builtins.str secret: The Tableflow API Secret.
+               
+               > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -12505,7 +11944,11 @@ class GetTableflowTopicCredentialsArgs:
     @pulumi.getter
     def secret(self) -> _builtins.str:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Tableflow API Secret.
+
+        > **Note:** A Tableflow API key consists of a key and a secret. Tableflow API keys are required to interact with Tableflow Topics in Confluent Cloud.
+
+        !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `TableflowTopic` data source, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
         """
         return pulumi.get(self, "secret")
 
@@ -12514,14 +11957,11 @@ class GetTableflowTopicCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetTableflowTopicEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment, for example, `env-abc123`.
-        """
-elif False:
-    GetTableflowTopicEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetTableflowTopicEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment, for example, `env-abc123`.
+    """
 
 @pulumi.input_type
 class GetTableflowTopicEnvironmentArgs:
@@ -12545,14 +11985,11 @@ class GetTableflowTopicEnvironmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetTableflowTopicKafkaClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Kafka cluster, for example, `lkc-abc123`.
-        """
-elif False:
-    GetTableflowTopicKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetTableflowTopicKafkaClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Kafka cluster, for example, `lkc-abc123`.
+    """
 
 @pulumi.input_type
 class GetTableflowTopicKafkaClusterArgs:
@@ -12576,18 +12013,15 @@ class GetTableflowTopicKafkaClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetTagBindingCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Schema Registry API Key.
-        """
-        secret: _builtins.str
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    GetTagBindingCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetTagBindingCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Schema Registry API Key.
+    """
+    secret: _builtins.str
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class GetTagBindingCredentialsArgs:
@@ -12626,14 +12060,11 @@ class GetTagBindingCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetTagBindingSchemaRegistryClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    GetTagBindingSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetTagBindingSchemaRegistryClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class GetTagBindingSchemaRegistryClusterArgs:
@@ -12657,18 +12088,15 @@ class GetTagBindingSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetTagCredentialsArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The Schema Registry API Key.
-        """
-        secret: _builtins.str
-        """
-        The Schema Registry API Secret.
-        """
-elif False:
-    GetTagCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class GetTagCredentialsArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The Schema Registry API Key.
+    """
+    secret: _builtins.str
+    """
+    The Schema Registry API Secret.
+    """
 
 @pulumi.input_type
 class GetTagCredentialsArgs:
@@ -12707,14 +12135,11 @@ class GetTagCredentialsArgs:
         pulumi.set(self, "secret", value)
 
 
-if not MYPY:
-    class GetTagSchemaRegistryClusterArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
-        """
-elif False:
-    GetTagSchemaRegistryClusterArgsDict: TypeAlias = Mapping[str, Any]
+class GetTagSchemaRegistryClusterArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+    """
 
 @pulumi.input_type
 class GetTagSchemaRegistryClusterArgs:
@@ -12738,16 +12163,13 @@ class GetTagSchemaRegistryClusterArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetTransitGatewayAttachmentEnvironmentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+class GetTransitGatewayAttachmentEnvironmentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
 
-        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-        """
-elif False:
-    GetTransitGatewayAttachmentEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+    > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    """
 
 @pulumi.input_type
 class GetTransitGatewayAttachmentEnvironmentArgs:

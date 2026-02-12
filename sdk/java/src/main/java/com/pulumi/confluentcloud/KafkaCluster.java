@@ -25,6 +25,12 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.KafkaCluster` provides a Kafka cluster resource that enables creating, editing, and deleting Kafka clusters on Confluent Cloud.
+ * 
+ * &gt; **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental cluster deletion. This setting rejects plans that would destroy or recreate the cluster, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+ * 
  * ## Example Usage
  * 
  * ### Example Kafka clusters on AWS
@@ -324,13 +330,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Kafka cluster.
+ * 
  * You can import a Kafka cluster by using Environment ID and Kafka cluster ID, in the format `&lt;Environment ID&gt;/&lt;Kafka cluster ID&gt;`, e.g.
  * 
- * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
- * 
- * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
- * 
  * ```sh
+ * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * $ pulumi import confluentcloud:index/kafkaCluster:KafkaCluster my_kafka env-abc123/lkc-abc123
  * ```
  * 

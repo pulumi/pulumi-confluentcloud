@@ -16,7 +16,13 @@ public final class SubjectModeCredentials {
      */
     private String key;
     /**
-     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * @return The Schema Registry API Secret.
+     * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+     * 
+     * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target=&#34;confluent_subject_mode.orders&#34;`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_subject_mode.orders&#34; -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+     * 
+     * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     private String secret;
@@ -30,7 +36,13 @@ public final class SubjectModeCredentials {
         return this.key;
     }
     /**
-     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * @return The Schema Registry API Secret.
+     * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+     * 
+     * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Schema Registry API key, create a new Schema Registry API key, update the `credentials` block in all configuration files to use the new Schema Registry API key, run `pulumi up -target=&#34;confluent_subject_mode.orders&#34;`, and remove the old Schema Registry API key. Alternatively, in case the old Schema Registry API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_subject_mode.orders&#34; -out=rotate-schema-registry-api-key` and `pulumi up rotate-schema-registry-api-key` instead.
+     * 
+     * !&gt; **Warning:** Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.SubjectMode` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
      * 
      */
     public String secret() {

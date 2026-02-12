@@ -215,13 +215,13 @@ class DnsRecord(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a DNS Record.
+
         You can import a DNS Record by using Environment ID and DNS Record ID, in the format `<Environment ID>/<DNS Record ID>`. The following example shows how to import a DNS Record:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/dnsRecord:DnsRecord main env-abc123/dnsrec-abc123
         ```
 
@@ -267,13 +267,13 @@ class DnsRecord(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a DNS Record.
+
         You can import a DNS Record by using Environment ID and DNS Record ID, in the format `<Environment ID>/<DNS Record ID>`. The following example shows how to import a DNS Record:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/dnsRecord:DnsRecord main env-abc123/dnsrec-abc123
         ```
 

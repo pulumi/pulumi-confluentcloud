@@ -264,6 +264,12 @@ class KafkaTopic(pulumi.CustomResource):
                  topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `KafkaTopic` provides a Kafka Topic resource that enables creating and deleting Kafka Topics on a Kafka cluster on Confluent Cloud.
+
+        > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental topic deletion. This setting rejects plans that would destroy or recreate the topic, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+
         ## Example Usage
 
         ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
@@ -324,13 +330,10 @@ class KafkaTopic(pulumi.CustomResource):
 
         Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
 
-        $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
-
-        $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
-
-        $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
-
         ```sh
+        $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
+        $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
+        $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
         $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
         ```
 
@@ -340,63 +343,38 @@ class KafkaTopic(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
         ```
 
+        > **Note:** When importing a Kafka topic that was created by using the Confluent Cloud Console, you must list all the default topic settings under the `config` block. Your Terraform configuration will look like this:
+        ```sh
         resource "confluent_kafka_topic" "orders" {
-
           kafka_cluster {
-
             id = confluent_kafka_cluster.basic-cluster.id
-
           }
-
           topic_name         = "orders"
-
           partitions_count   = 4
-
           rest_endpoint      = confluent_kafka_cluster.basic-cluster.rest_endpoint
-
-        # https://docs.confluent.io/cloud/current/client-apps/topics/manage.html#ak-topic-configurations-for-all-ccloud-cluster-types
-
+          # https://docs.confluent.io/cloud/current/client-apps/topics/manage.html#ak-topic-configurations-for-all-ccloud-cluster-types
           config = {
-
             "cleanup.policy"                      = "delete"
-            
             "delete.retention.ms"                 = "86400000"
-            
             "max.compaction.lag.ms"               = "9223372036854775807"
-            
             "max.message.bytes"                   = "2097164"
-            
             "message.timestamp.after.max.ms"      = "9223372036854775807"
-            
             "message.timestamp.before.max.ms"     = "9223372036854775807"      
-            
             "message.timestamp.difference.max.ms" = "9223372036854775807"
-            
             "message.timestamp.type"              = "CreateTime"
-            
             "min.compaction.lag.ms"               = "0"
-            
             "min.insync.replicas"                 = "2"
-            
             "retention.bytes"                     = "-1"
-            
             "retention.ms"                        = "604800000"
-            
             "segment.bytes"                       = "104857600"
-            
             "segment.ms"                          = "604800000"
-
           }
-
           credentials {
-
             key    = confluent_api_key.app-manager-kafka-api-key.id
-            
             secret = confluent_api_key.app-manager-kafka-api-key.secret
-
           }
-
         }
+        ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
@@ -415,6 +393,12 @@ class KafkaTopic(pulumi.CustomResource):
                  args: KafkaTopicArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `KafkaTopic` provides a Kafka Topic resource that enables creating and deleting Kafka Topics on a Kafka cluster on Confluent Cloud.
+
+        > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental topic deletion. This setting rejects plans that would destroy or recreate the topic, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+
         ## Example Usage
 
         ### Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
@@ -475,13 +459,10 @@ class KafkaTopic(pulumi.CustomResource):
 
         Option #1: Manage multiple Kafka clusters in the same Pulumi Stack
 
-        $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
-
-        $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
-
-        $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
-
         ```sh
+        $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
+        $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
+        $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
         $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
         ```
 
@@ -491,63 +472,38 @@ class KafkaTopic(pulumi.CustomResource):
         $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
         ```
 
+        > **Note:** When importing a Kafka topic that was created by using the Confluent Cloud Console, you must list all the default topic settings under the `config` block. Your Terraform configuration will look like this:
+        ```sh
         resource "confluent_kafka_topic" "orders" {
-
           kafka_cluster {
-
             id = confluent_kafka_cluster.basic-cluster.id
-
           }
-
           topic_name         = "orders"
-
           partitions_count   = 4
-
           rest_endpoint      = confluent_kafka_cluster.basic-cluster.rest_endpoint
-
-        # https://docs.confluent.io/cloud/current/client-apps/topics/manage.html#ak-topic-configurations-for-all-ccloud-cluster-types
-
+          # https://docs.confluent.io/cloud/current/client-apps/topics/manage.html#ak-topic-configurations-for-all-ccloud-cluster-types
           config = {
-
             "cleanup.policy"                      = "delete"
-            
             "delete.retention.ms"                 = "86400000"
-            
             "max.compaction.lag.ms"               = "9223372036854775807"
-            
             "max.message.bytes"                   = "2097164"
-            
             "message.timestamp.after.max.ms"      = "9223372036854775807"
-            
             "message.timestamp.before.max.ms"     = "9223372036854775807"      
-            
             "message.timestamp.difference.max.ms" = "9223372036854775807"
-            
             "message.timestamp.type"              = "CreateTime"
-            
             "min.compaction.lag.ms"               = "0"
-            
             "min.insync.replicas"                 = "2"
-            
             "retention.bytes"                     = "-1"
-            
             "retention.ms"                        = "604800000"
-            
             "segment.bytes"                       = "104857600"
-            
             "segment.ms"                          = "604800000"
-
           }
-
           credentials {
-
             key    = confluent_api_key.app-manager-kafka-api-key.id
-            
             secret = confluent_api_key.app-manager-kafka-api-key.secret
-
           }
-
         }
+        ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 

@@ -170,6 +170,14 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
                  environment: Optional[pulumi.Input[Union['ProviderIntegrationSetupEnvironmentArgs', 'ProviderIntegrationSetupEnvironmentArgsDict']]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `ProviderIntegrationSetup` provides a Cloud Service Provider (CSP) integration that allows Confluent Cloud to access resources in your cloud provider account. This is the second generation of provider integrations, supporting both Azure and GCP.
+
+        This resource creates the integration in DRAFT status. Use `ProviderIntegrationAuthorization` to configure and validate the integration.
+
+        > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental Provider Integration deletion. This setting rejects plans that would destroy or recreate the Provider Integration, such as attempting to change un-editable attributes. Read more about it in the Terraform docs.
+
         ## Example Usage
 
         ### Azure Provider Integration
@@ -231,13 +239,13 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Provider Integration.
+
         You can import a Provider Integration by using Environment ID and Provider Integration ID, in the format `<Environment ID>/<Provider Integration ID>`. The following example shows how to import a Provider Integration:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/providerIntegrationSetup:ProviderIntegrationSetup main env-abc123/cspi-4xg0q
         ```
 
@@ -256,6 +264,14 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
                  args: ProviderIntegrationSetupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `ProviderIntegrationSetup` provides a Cloud Service Provider (CSP) integration that allows Confluent Cloud to access resources in your cloud provider account. This is the second generation of provider integrations, supporting both Azure and GCP.
+
+        This resource creates the integration in DRAFT status. Use `ProviderIntegrationAuthorization` to configure and validate the integration.
+
+        > **Note:** It is recommended to set `lifecycle { prevent_destroy = true }` on production instances to prevent accidental Provider Integration deletion. This setting rejects plans that would destroy or recreate the Provider Integration, such as attempting to change un-editable attributes. Read more about it in the Terraform docs.
+
         ## Example Usage
 
         ### Azure Provider Integration
@@ -317,13 +333,13 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
 
         ## Import
 
+        > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Provider Integration.
+
         You can import a Provider Integration by using Environment ID and Provider Integration ID, in the format `<Environment ID>/<Provider Integration ID>`. The following example shows how to import a Provider Integration:
 
-        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-
         ```sh
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
         $ pulumi import confluentcloud:index/providerIntegrationSetup:ProviderIntegrationSetup main env-abc123/cspi-4xg0q
         ```
 

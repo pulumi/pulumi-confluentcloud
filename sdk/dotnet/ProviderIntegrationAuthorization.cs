@@ -10,15 +10,248 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    /// 
+    /// `confluentcloud.ProviderIntegrationAuthorization` configures and validates a Cloud Service Provider (CSP) integration created by `confluentcloud.ProviderIntegrationSetup`. This resource transitions the integration from DRAFT to CREATED status and validates the cloud provider setup.
+    /// 
+    /// &gt; **Note:** This resource will show persistent warnings until the cloud provider setup is complete. For Azure, you must grant admin consent and create a service principal. For GCP, you must configure IAM permissions.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Azure Provider Integration Authorization
+    /// 
+    /// You have two options to complete the Azure setup after creating the authorization resource:
+    /// 
+    /// ### Option 1: Using Azure Terraform Provider (Recommended for Infrastructure as Code)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azuread = Pulumi.Azuread;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azure = new ConfluentCloud.ProviderIntegrationSetup("azure", new()
+    ///     {
+    ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationSetupEnvironmentArgs
+    ///         {
+    ///             Id = environmentId,
+    ///         },
+    ///         DisplayName = "azure-integration",
+    ///         Cloud = "AZURE",
+    ///     });
+    /// 
+    ///     var azureProviderIntegrationAuthorization = new ConfluentCloud.ProviderIntegrationAuthorization("azure", new()
+    ///     {
+    ///         ProviderIntegrationId = azure.Id,
+    ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationAuthorizationEnvironmentArgs
+    ///         {
+    ///             Id = environmentId,
+    ///         },
+    ///         Azure = new ConfluentCloud.Inputs.ProviderIntegrationAuthorizationAzureArgs
+    ///         {
+    ///             CustomerAzureTenantId = azureTenantId,
+    ///         },
+    ///     });
+    /// 
+    ///     // Automatically create the service principal using Azure Terraform Provider
+    ///     var confluent = new Azuread.Index.ServicePrincipal("confluent", new()
+    ///     {
+    ///         ClientId = azureProviderIntegrationAuthorization.Azure?.ConfluentMultiTenantAppId,
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["azureAppId"] = azureProviderIntegrationAuthorization.Azure.Apply(azure =&gt; azure?.ConfluentMultiTenantAppId),
+    ///         ["servicePrincipalObjectId"] = confluent.ObjectId,
+    ///     };
+    /// });
+    /// ```
+    /// 
+    /// ### Option 2: Using Azure CLI Commands
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azure = new ConfluentCloud.ProviderIntegrationSetup("azure", new()
+    ///     {
+    ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationSetupEnvironmentArgs
+    ///         {
+    ///             Id = environmentId,
+    ///         },
+    ///         DisplayName = "azure-integration",
+    ///         Cloud = "AZURE",
+    ///     });
+    /// 
+    ///     var azureProviderIntegrationAuthorization = new ConfluentCloud.ProviderIntegrationAuthorization("azure", new()
+    ///     {
+    ///         ProviderIntegrationId = azure.Id,
+    ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationAuthorizationEnvironmentArgs
+    ///         {
+    ///             Id = environmentId,
+    ///         },
+    ///         Azure = new ConfluentCloud.Inputs.ProviderIntegrationAuthorizationAzureArgs
+    ///         {
+    ///             CustomerAzureTenantId = azureTenantId,
+    ///         },
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["azureSetupCommand"] = azureProviderIntegrationAuthorization.Azure.Apply(azure =&gt; $"az ad sp create --id {azure?.ConfluentMultiTenantAppId}"),
+    ///     };
+    /// });
+    /// ```
+    /// 
+    /// ### GCP Provider Integration Authorization
+    /// 
+    /// You have two options to complete the GCP setup after creating the authorization resource:
+    /// 
+    /// ### Option 1: Using Google Terraform Provider (Recommended for Infrastructure as Code)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// using Google = Pulumi.Google;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gcp = new ConfluentCloud.ProviderIntegrationSetup("gcp", new()
+    ///     {
+    ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationSetupEnvironmentArgs
+    ///         {
+    ///             Id = environmentId,
+    ///         },
+    ///         DisplayName = "gcp-integration",
+    ///         Cloud = "GCP",
+    ///     });
+    /// 
+    ///     var gcpProviderIntegrationAuthorization = new ConfluentCloud.ProviderIntegrationAuthorization("gcp", new()
+    ///     {
+    ///         ProviderIntegrationId = gcp.Id,
+    ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationAuthorizationEnvironmentArgs
+    ///         {
+    ///             Id = environmentId,
+    ///         },
+    ///         Gcp = new ConfluentCloud.Inputs.ProviderIntegrationAuthorizationGcpArgs
+    ///         {
+    ///             CustomerGoogleServiceAccount = gcpServiceAccount,
+    ///         },
+    ///     });
+    /// 
+    ///     // Grant IAM permissions using Google Terraform Provider
+    ///     var confluentTokenCreator = new Google.Index.ProjectIamMember("confluent_token_creator", new()
+    ///     {
+    ///         Project = gcpProjectId,
+    ///         Role = "roles/iam.serviceAccountTokenCreator",
+    ///         Member = $"serviceAccount:{gcpProviderIntegrationAuthorization.Gcp?.GoogleServiceAccount}",
+    ///         Condition = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "title", "Confluent Cloud Access" },
+    ///                 { "description", "Allow Confluent Cloud to impersonate the customer service account" },
+    ///                 { "expression", $"request.auth.claims.sub == '{gcpProviderIntegrationAuthorization.Gcp?.GoogleServiceAccount}'" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["confluentServiceAccount"] = gcpProviderIntegrationAuthorization.Gcp.Apply(gcp =&gt; gcp?.GoogleServiceAccount),
+    ///     };
+    /// });
+    /// ```
+    /// 
+    /// ### Option 2: Using gcloud CLI Commands
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gcp = new ConfluentCloud.ProviderIntegrationSetup("gcp", new()
+    ///     {
+    ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationSetupEnvironmentArgs
+    ///         {
+    ///             Id = environmentId,
+    ///         },
+    ///         DisplayName = "gcp-integration",
+    ///         Cloud = "GCP",
+    ///     });
+    /// 
+    ///     var gcpProviderIntegrationAuthorization = new ConfluentCloud.ProviderIntegrationAuthorization("gcp", new()
+    ///     {
+    ///         ProviderIntegrationId = gcp.Id,
+    ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationAuthorizationEnvironmentArgs
+    ///         {
+    ///             Id = environmentId,
+    ///         },
+    ///         Gcp = new ConfluentCloud.Inputs.ProviderIntegrationAuthorizationGcpArgs
+    ///         {
+    ///             CustomerGoogleServiceAccount = gcpServiceAccount,
+    ///         },
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["gcpIamCommand"] = Output.Tuple(gcpProviderIntegrationAuthorization.Gcp, gcpProviderIntegrationAuthorization.Gcp).Apply(values =&gt;
+    ///         {
+    ///             var gcpProviderIntegrationAuthorizationGcp = values.Item1;
+    ///             var gcpProviderIntegrationAuthorizationGcp1 = values.Item2;
+    ///             return $"gcloud projects add-iam-policy-binding YOUR_PROJECT_ID --member=\"serviceAccount:{gcpProviderIntegrationAuthorizationGcp?.GoogleServiceAccount}\" --role=\"roles/iam.serviceAccountTokenCreator\" --condition=\"expression=request.auth.claims.sub=='{gcpProviderIntegrationAuthorizationGcp1?.GoogleServiceAccount}'\"";
+    ///         }),
+    ///         ["confluentServiceAccount"] = gcpProviderIntegrationAuthorization.Gcp.Apply(gcp =&gt; gcp?.GoogleServiceAccount),
+    ///     };
+    /// });
+    /// ```
+    /// 
+    /// ## Azure Setup Process
+    /// 
+    /// After applying the Terraform configuration, complete the Azure setup:
+    /// 
+    /// 1. **Get the multi-tenant app ID** from the Terraform outputs
+    /// 2. **Grant admin consent** (if you have Global Admin rights):
+    /// 4. **Grant permissions** in Azure Portal → Enterprise Applications
+    /// 5. **Re-run `pulumi up`** to validate the connection
+    /// 
+    /// ## GCP Setup Process
+    /// 
+    /// After applying the Terraform configuration, complete the GCP setup:
+    /// 
+    /// 1. **Get the Confluent service account** from the Terraform outputs
+    /// 2. **Grant IAM permissions** in GCP Console:
+    ///    - Grant the Confluent service account "Service Account Token Creator" role on your service account
+    ///    - Grant your service account the necessary permissions (e.g., BigQuery Data Editor)
+    /// 3. **Re-run `pulumi up`** to validate the connection
+    /// 
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.ProviderIntegrationAuthorization` resource:
+    /// * provider-integration-azure: Complete Azure Provider Integration setup
+    /// * provider-integration-gcp: Complete GCP Provider Integration setup
+    /// 
     /// ## Import
+    /// 
+    /// &gt; **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Provider Integration Authorization.
     /// 
     /// You can import a Provider Integration Authorization by using Environment ID and Provider Integration ID, in the format `&lt;Environment ID&gt;/&lt;Provider Integration ID&gt;`. The following example shows how to import a Provider Integration Authorization:
     /// 
-    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
-    /// 
-    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
-    /// 
     /// ```sh
+    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// $ pulumi import confluentcloud:index/providerIntegrationAuthorization:ProviderIntegrationAuthorization main env-abc123/cspi-4xg0q
     /// ```
     /// 

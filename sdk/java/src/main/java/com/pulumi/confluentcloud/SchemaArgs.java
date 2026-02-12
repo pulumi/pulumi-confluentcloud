@@ -153,9 +153,17 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.schemaRegistryCluster);
     }
 
+    /**
+     * Controls whether a schema validation should be skipped during terraform plan.
+     * 
+     */
     @Import(name="skipValidationDuringPlan")
     private @Nullable Output<Boolean> skipValidationDuringPlan;
 
+    /**
+     * @return Controls whether a schema validation should be skipped during terraform plan.
+     * 
+     */
     public Optional<Output<Boolean>> skipValidationDuringPlan() {
         return Optional.ofNullable(this.skipValidationDuringPlan);
     }
@@ -398,11 +406,23 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
             return schemaRegistryCluster(Output.of(schemaRegistryCluster));
         }
 
+        /**
+         * @param skipValidationDuringPlan Controls whether a schema validation should be skipped during terraform plan.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipValidationDuringPlan(@Nullable Output<Boolean> skipValidationDuringPlan) {
             $.skipValidationDuringPlan = skipValidationDuringPlan;
             return this;
         }
 
+        /**
+         * @param skipValidationDuringPlan Controls whether a schema validation should be skipped during terraform plan.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipValidationDuringPlan(Boolean skipValidationDuringPlan) {
             return skipValidationDuringPlan(Output.of(skipValidationDuringPlan));
         }

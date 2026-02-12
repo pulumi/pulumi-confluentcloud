@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `CustomConnectorPlugin` provides a Custom Connector Plugin resource that enables creating and deleting Custom Connector Plugin Versions on Confluent Cloud.
+//
+// > **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental Custom Connector Plugin Version deletion. This setting rejects plans that would destroy or recreate the Custom Connector Plugin Version, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
+//
 // ## Example Usage
 //
 // ```go
@@ -56,13 +62,17 @@ import (
 //
 // ## Import
 //
+// > **Note:** Set `filename = ""` or use `IMPORT_CUSTOM_CONNECTOR_PLUGIN_VERSION_FILENAME` environment variables before importing a Custom Connector Plugin Version.
+//
+// > **Note:** Set `cloud = ""` or use `IMPORT_CLOUD` environment variables before importing a Custom Connector Plugin Version.
+//
+// > **Note:** `CONFLUENT_CLOUD_API_KEY` and `CONFLUENT_CLOUD_API_SECRET` environment variables must be set before importing a Custom Connector Plugin.
+//
 // You can import a Custom Connector Plugin by using a Custom Connector Plugin ID, in the format `<Environment ID>/<Plugin ID>/<Version ID>`. The following example shows how to import a Custom Connector Plugin:
 //
-// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-//
-// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
-//
 // ```sh
+// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 // $ pulumi import confluentcloud:index/customConnectorPluginVersion:CustomConnectorPluginVersion main env-123/plug-123/ccp-ver123xyz
 // ```
 //
