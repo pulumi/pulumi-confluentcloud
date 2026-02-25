@@ -137,7 +137,7 @@ func Provider() tfbridge.ProviderInfo {
 					// The user has set both httpEndpoint and restEndpoint. These are semantically
 					// the same, so it is forbidden to set both.
 					if _, ok := config[restEndpoint]; ok {
-						return config, fmt.Errorf(`cannot specify both "%s" and "%s"`+
+						return config, fmt.Errorf(`Cannot specify both "%s" and "%s"`+
 							`, please set only "%[2]s"`, httpEndpoint, restEndpoint)
 					}
 

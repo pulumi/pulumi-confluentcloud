@@ -80,7 +80,7 @@ var removeGuideText = tfbridge.DocsEdit{
 			} else {
 				// Hard error to ensure we keep this content up to date
 				return nil, fmt.Errorf("could not find text in upstream index.md, "+
-					"please verify input at removeGuideText \n*****\n%s\n*****", string(input))
+					"please verify input at removeGuideText \n*****\n%s\n*****\n", string(input))
 			}
 		}
 		return content, nil
@@ -113,7 +113,7 @@ var cleanUpExampleUsage = tfbridge.DocsEdit{
 			} else {
 				// Hard error to ensure we keep this content up to date
 				return nil, fmt.Errorf("could not find text in upstream index.md, "+
-					"please verify file content at %s\n*****\n%s\n*****", replacesDir+file+"-input.md", string(input))
+					"please verify file content at %s\n*****\n%s\n*****\n", replacesDir+file+"-input.md", string(input))
 			}
 		}
 
