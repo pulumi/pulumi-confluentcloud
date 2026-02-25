@@ -3,10 +3,11 @@ package confluentcloud
 import (
 	"bytes"
 	"fmt"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 	"os"
 	"regexp"
+
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 )
 
 func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {

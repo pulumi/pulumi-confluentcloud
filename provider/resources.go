@@ -22,13 +22,14 @@ import (
 
 	_ "embed" // embed is used to store bridge-metadata.json in the compiled binary
 
+	"github.com/confluentinc/terraform-provider-confluent/shim"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 
-	"github.com/confluentinc/terraform-provider-confluent/shim"
 	"github.com/pulumi/pulumi-confluentcloud/provider/v2/pkg/version"
 )
 
@@ -46,9 +47,6 @@ func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
 	p := shimv2.NewProvider(
 		shim.NewProvider(version.Version, fmt.Sprintf("pulumi-%s/%s", mainPkg, version.Version)),
-		shimv2.WithPlanResourceChange(func(tfResourceType string) bool {
-			return tfResourceType == "confluent_kafka_cluster"
-		}),
 	)
 
 	// Create a Pulumi provider mapping
