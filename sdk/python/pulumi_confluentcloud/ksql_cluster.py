@@ -29,6 +29,7 @@ class KsqlClusterArgs:
                  use_detailed_processing_log: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a KsqlCluster resource.
+
         :param pulumi.Input[_builtins.int] csu: The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.
         :param pulumi.Input[_builtins.str] display_name: The name of the ksqlDB cluster.
         :param pulumi.Input['KsqlClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -126,6 +127,7 @@ class _KsqlClusterState:
                  use_detailed_processing_log: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering KsqlCluster resources.
+
         :param pulumi.Input[_builtins.str] api_version: (Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.
         :param pulumi.Input[_builtins.int] csu: The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.
         :param pulumi.Input[_builtins.str] display_name: The name of the ksqlDB cluster.
@@ -335,6 +337,7 @@ class KsqlCluster(pulumi.CustomResource):
 
         !> **Warning:**  Do not forget to delete the terminal's command history afterward for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] csu: The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.
@@ -368,6 +371,7 @@ class KsqlCluster(pulumi.CustomResource):
         ```
 
         !> **Warning:**  Do not forget to delete the terminal's command history afterward for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param KsqlClusterArgs args: The arguments to use to populate this resource's properties.

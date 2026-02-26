@@ -26,6 +26,7 @@ class IpFilterArgs:
                  resource_scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IpFilter resource.
+
         :param pulumi.Input[_builtins.str] filter_name: A human-readable name for an IP Filter. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_groups: A list of IP Groups.
         :param pulumi.Input[_builtins.str] resource_group: Scope of resources covered by this IP Filter. Available resource groups include `"management"` and `"multiple"`.
@@ -111,6 +112,7 @@ class _IpFilterState:
                  resource_scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IpFilter resources.
+
         :param pulumi.Input[_builtins.str] filter_name: A human-readable name for an IP Filter. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_groups: A list of IP Groups.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operation_groups: Scope of resources covered by this IP Filter. Resource group must be set to 'multiple' in order to use this property. During update operations, note that the operation groups passed in will replace the list of existing operation groups (passing in an empty list will remove all operation groups) from the filter (in line with the behavior for `ip_groups` attribute).
@@ -243,6 +245,7 @@ class IpFilter(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] filter_name: A human-readable name for an IP Filter. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
@@ -298,6 +301,7 @@ class IpFilter(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param IpFilterArgs args: The arguments to use to populate this resource's properties.

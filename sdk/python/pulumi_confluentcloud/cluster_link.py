@@ -31,6 +31,7 @@ class ClusterLinkArgs:
                  source_kafka_cluster: Optional[pulumi.Input['ClusterLinkSourceKafkaClusterArgs']] = None):
         """
         The set of arguments for constructing a ClusterLink resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The custom cluster link settings to set:
         :param pulumi.Input[_builtins.str] connection_mode: The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
         :param pulumi.Input[_builtins.str] link: The name of the cluster link, for example, `my-cluster-link`.
@@ -152,6 +153,7 @@ class _ClusterLinkState:
                  source_kafka_cluster: Optional[pulumi.Input['ClusterLinkSourceKafkaClusterArgs']] = None):
         """
         Input properties used for looking up and filtering ClusterLink resources.
+
         :param pulumi.Input[_builtins.str] cluster_link_id: (Required String) The actual Cluster Link ID assigned from Confluent Cloud that uniquely represents a link between two Kafka clusters, for example, `qz0HDEV-Qz2B5aPFpcWQJQ`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The custom cluster link settings to set:
         :param pulumi.Input[_builtins.str] connection_mode: The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
@@ -404,6 +406,7 @@ class ClusterLink(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The custom cluster link settings to set:
@@ -531,6 +534,7 @@ class ClusterLink(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param ClusterLinkArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class IdentityPoolArgs:
                  identity_provider: pulumi.Input['IdentityPoolIdentityProviderArgs']):
         """
         The set of arguments for constructing a IdentityPool resource.
+
         :param pulumi.Input[_builtins.str] description: A description for the Identity Pool.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
@@ -111,6 +112,7 @@ class _IdentityPoolState:
                  identity_provider: Optional[pulumi.Input['IdentityPoolIdentityProviderArgs']] = None):
         """
         Input properties used for looking up and filtering IdentityPool resources.
+
         :param pulumi.Input[_builtins.str] description: A description for the Identity Pool.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Pool.
         :param pulumi.Input[_builtins.str] filter: A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
@@ -268,6 +270,7 @@ class IdentityPool(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the Identity Pool.
@@ -348,6 +351,7 @@ class IdentityPool(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param IdentityPoolArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class PrivateLinkAccessArgs:
                  gcp: Optional[pulumi.Input['PrivateLinkAccessGcpArgs']] = None):
         """
         The set of arguments for constructing a PrivateLinkAccess resource.
+
         :param pulumi.Input['PrivateLinkAccessEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['PrivateLinkAccessNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Access.
@@ -119,6 +120,7 @@ class _PrivateLinkAccessState:
                  network: Optional[pulumi.Input['PrivateLinkAccessNetworkArgs']] = None):
         """
         Input properties used for looking up and filtering PrivateLinkAccess resources.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Access.
         :param pulumi.Input['PrivateLinkAccessEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['PrivateLinkAccessNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
@@ -340,6 +342,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Access.
@@ -478,6 +481,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkAccessArgs args: The arguments to use to populate this resource's properties.

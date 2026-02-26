@@ -30,6 +30,7 @@ class TagBindingArgs:
                  schema_registry_cluster: Optional[pulumi.Input['TagBindingSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a TagBinding resource.
+
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
         :param pulumi.Input[_builtins.str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         :param pulumi.Input[_builtins.str] tag_name: The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
@@ -155,6 +156,7 @@ class _TagBindingState:
                  tag_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TagBinding resources.
+
         :param pulumi.Input['TagBindingCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Must be unset when importing. Defaults to `false`.
                
@@ -345,6 +347,7 @@ class TagBinding(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TagBindingCredentialsArgs', 'TagBindingCredentialsArgsDict']] credentials: The Cluster API Credentials.
@@ -425,6 +428,7 @@ class TagBinding(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param TagBindingArgs args: The arguments to use to populate this resource's properties.

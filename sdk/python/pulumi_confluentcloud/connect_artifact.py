@@ -29,6 +29,7 @@ class ConnectArtifactArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectArtifact resource.
+
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
         :param pulumi.Input[_builtins.str] content_format: Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Connect Artifact per cloud, environment scope.
@@ -130,6 +131,7 @@ class _ConnectArtifactState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectArtifact resources.
+
         :param pulumi.Input[_builtins.str] artifact_file: The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
         :param pulumi.Input[_builtins.str] content_format: Archive format of the Connect Artifact. Supported formats are `JAR` and `ZIP`.
@@ -291,6 +293,7 @@ class ConnectArtifact(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] artifact_file: The artifact file for Connect Artifact in `JAR` or `ZIP` format. This can be relative or absolute path
@@ -345,6 +348,7 @@ class ConnectArtifact(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param ConnectArtifactArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class PluginArgs:
                  runtime_language: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Plugin resource.
+
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Plugin.
         :param pulumi.Input['PluginEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -115,6 +116,7 @@ class _PluginState:
                  runtime_language: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Plugin resources.
+
         :param pulumi.Input[_builtins.str] api_version: (Required String) The API Version of the schema version of the plugin, for example, `ccpm/v1`.
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         :param pulumi.Input[_builtins.str] description: The description of the Plugin.
@@ -271,6 +273,7 @@ class Plugin(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
@@ -320,6 +323,7 @@ class Plugin(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param PluginArgs args: The arguments to use to populate this resource's properties.

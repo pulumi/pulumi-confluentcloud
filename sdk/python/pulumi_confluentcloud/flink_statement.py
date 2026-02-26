@@ -34,6 +34,7 @@ class FlinkStatementArgs:
                  stopped: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FlinkStatement resource.
+
         :param pulumi.Input[_builtins.str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input['FlinkStatementCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The custom topic settings to set:
@@ -223,6 +224,7 @@ class _FlinkStatementState:
                  stopped: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering FlinkStatement resources.
+
         :param pulumi.Input['FlinkStatementCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] latest_offsets: (Optional String) The last Kafka offsets that a statement has processed. Represented by a mapping from Kafka topic to a string representation of partitions mapped to offsets. For example,
                ```bash
@@ -554,6 +556,7 @@ class FlinkStatement(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FlinkStatementCredentialsArgs', 'FlinkStatementCredentialsArgsDict']] credentials: The Cluster API Credentials.
@@ -678,6 +681,7 @@ class FlinkStatement(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param FlinkStatementArgs args: The arguments to use to populate this resource's properties.

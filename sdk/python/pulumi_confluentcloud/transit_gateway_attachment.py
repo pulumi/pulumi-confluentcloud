@@ -27,6 +27,7 @@ class TransitGatewayAttachmentArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TransitGatewayAttachment resource.
+
         :param pulumi.Input['TransitGatewayAttachmentEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['TransitGatewayAttachmentNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input['TransitGatewayAttachmentAwsArgs'] aws: (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
@@ -97,6 +98,7 @@ class _TransitGatewayAttachmentState:
                  network: Optional[pulumi.Input['TransitGatewayAttachmentNetworkArgs']] = None):
         """
         Input properties used for looking up and filtering TransitGatewayAttachment resources.
+
         :param pulumi.Input['TransitGatewayAttachmentAwsArgs'] aws: (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
         :param pulumi.Input[_builtins.str] display_name: The name of the Transit Gateway Attachment.
         :param pulumi.Input['TransitGatewayAttachmentEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -236,6 +238,7 @@ class TransitGatewayAttachment(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TransitGatewayAttachmentAwsArgs', 'TransitGatewayAttachmentAwsArgsDict']] aws: (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
@@ -313,6 +316,7 @@ class TransitGatewayAttachment(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayAttachmentArgs args: The arguments to use to populate this resource's properties.

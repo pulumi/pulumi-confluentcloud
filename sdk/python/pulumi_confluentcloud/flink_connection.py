@@ -39,6 +39,7 @@ class FlinkConnectionArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlinkConnection resource.
+
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Flink Connection per organization, environment scope.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the flink connection.
         :param pulumi.Input[_builtins.str] type: The type of the flink connection.
@@ -286,6 +287,7 @@ class _FlinkConnectionState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlinkConnection resources.
+
         :param pulumi.Input[_builtins.str] api_key: API key for the type.
         :param pulumi.Input[_builtins.str] api_version: The schema version of this representation of a resource.
         :param pulumi.Input[_builtins.str] aws_access_key: Access key for the type.
@@ -687,6 +689,7 @@ class FlinkConnection(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: API key for the type.
@@ -828,6 +831,7 @@ class FlinkConnection(pulumi.CustomResource):
         > **Note:** The example above is for `type = OPENAI`, so we exported `API_KEY`. Export the required field for each type as mentioned above. The fields that can be exported are: `API_KEY`, `AWS_SECRET_ACCESS_KEY_CONNECTION`, `AWS_ACCESS_KEY_ID_CONNECTION`, `AWS_SESSION_TOKEN_CONNECTION`, `SERVICE_KEY`, `USERNAME`, `PASSWORD`.
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param FlinkConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class PrivateLinkAttachmentArgs:
                  region: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a PrivateLinkAttachment resource.
+
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that hosts the resources to access with the Private Link Attachment.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Attachment.
         :param pulumi.Input['PrivateLinkAttachmentEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -100,6 +101,7 @@ class _PrivateLinkAttachmentState:
                  resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrivateLinkAttachment resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAwArgs']]] aws: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAzureArgs']]] azures: (Optional Configuration Block) supports the following:
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that hosts the resources to access with the Private Link Attachment.
@@ -290,6 +292,7 @@ class PrivateLinkAttachment(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that hosts the resources to access with the Private Link Attachment.
@@ -343,6 +346,7 @@ class PrivateLinkAttachment(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkAttachmentArgs args: The arguments to use to populate this resource's properties.

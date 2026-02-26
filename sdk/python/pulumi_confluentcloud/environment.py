@@ -25,6 +25,7 @@ class EnvironmentArgs:
                  stream_governance: Optional[pulumi.Input['EnvironmentStreamGovernanceArgs']] = None):
         """
         The set of arguments for constructing a Environment resource.
+
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
         :param pulumi.Input['EnvironmentStreamGovernanceArgs'] stream_governance: The stream governance configuration for the Environment. The block supports the following arguments:
         """
@@ -66,6 +67,7 @@ class _EnvironmentState:
                  stream_governance: Optional[pulumi.Input['EnvironmentStreamGovernanceArgs']] = None):
         """
         Input properties used for looking up and filtering Environment resources.
+
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
         :param pulumi.Input[_builtins.str] resource_name: (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
         :param pulumi.Input['EnvironmentStreamGovernanceArgs'] stream_governance: The stream governance configuration for the Environment. The block supports the following arguments:
@@ -182,6 +184,7 @@ class Environment(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
@@ -251,6 +254,7 @@ class Environment(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

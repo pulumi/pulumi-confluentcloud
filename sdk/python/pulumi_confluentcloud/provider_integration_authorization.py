@@ -27,6 +27,7 @@ class ProviderIntegrationAuthorizationArgs:
                  gcp: Optional[pulumi.Input['ProviderIntegrationAuthorizationGcpArgs']] = None):
         """
         The set of arguments for constructing a ProviderIntegrationAuthorization resource.
+
         :param pulumi.Input['ProviderIntegrationAuthorizationEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] provider_integration_id: The ID of the provider integration to authorize.
         :param pulumi.Input['ProviderIntegrationAuthorizationAzureArgs'] azure: (Optional Configuration Block) Azure-specific configuration details. It supports the following:
@@ -97,6 +98,7 @@ class _ProviderIntegrationAuthorizationState:
                  provider_integration_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProviderIntegrationAuthorization resources.
+
         :param pulumi.Input['ProviderIntegrationAuthorizationAzureArgs'] azure: (Optional Configuration Block) Azure-specific configuration details. It supports the following:
         :param pulumi.Input['ProviderIntegrationAuthorizationEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['ProviderIntegrationAuthorizationGcpArgs'] gcp: (Optional Configuration Block) GCP-specific configuration details. It supports the following:
@@ -339,6 +341,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProviderIntegrationAuthorizationAzureArgs', 'ProviderIntegrationAuthorizationAzureArgsDict']] azure: (Optional Configuration Block) Azure-specific configuration details. It supports the following:
@@ -519,6 +522,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param ProviderIntegrationAuthorizationArgs args: The arguments to use to populate this resource's properties.

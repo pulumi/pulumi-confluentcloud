@@ -33,6 +33,7 @@ class SchemaRegistryKekArgs:
                  shared: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SchemaRegistryKek resource.
+
         :param pulumi.Input[_builtins.str] kms_key_id: The ID of the key from KMS. 
                - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
                - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
@@ -213,6 +214,7 @@ class _SchemaRegistryKekState:
                  shared: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SchemaRegistryKek resources.
+
         :param pulumi.Input['SchemaRegistryKekCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] doc: The optional description for the KEK.
         :param pulumi.Input[_builtins.bool] hard_delete: The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.
@@ -460,6 +462,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaRegistryKekCredentialsArgs', 'SchemaRegistryKekCredentialsArgsDict']] credentials: The Cluster API Credentials.
@@ -549,6 +552,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param SchemaRegistryKekArgs args: The arguments to use to populate this resource's properties.

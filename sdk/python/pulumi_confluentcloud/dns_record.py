@@ -28,6 +28,7 @@ class DnsRecordArgs:
                  private_link_access_point: Optional[pulumi.Input['DnsRecordPrivateLinkAccessPointArgs']] = None):
         """
         The set of arguments for constructing a DnsRecord resource.
+
         :param pulumi.Input[_builtins.str] domain: The fully qualified domain name of the DNS Record.
         :param pulumi.Input['DnsRecordEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] display_name: The name of the DNS Record.
@@ -105,6 +106,7 @@ class _DnsRecordState:
                  private_link_access_point: Optional[pulumi.Input['DnsRecordPrivateLinkAccessPointArgs']] = None):
         """
         Input properties used for looking up and filtering DnsRecord resources.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the DNS Record.
         :param pulumi.Input[_builtins.str] domain: The fully qualified domain name of the DNS Record.
         :param pulumi.Input['DnsRecordEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -227,6 +229,7 @@ class DnsRecord(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the DNS Record.
@@ -278,6 +281,7 @@ class DnsRecord(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param DnsRecordArgs args: The arguments to use to populate this resource's properties.

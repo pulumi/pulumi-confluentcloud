@@ -35,6 +35,7 @@ class SchemaArgs:
                  skip_validation_during_plan: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Schema resource.
+
         :param pulumi.Input[_builtins.str] format: The format of the Schema.
         :param pulumi.Input[_builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         :param pulumi.Input['SchemaCredentialsArgs'] credentials: The Cluster API Credentials.
@@ -227,6 +228,7 @@ class _SchemaState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Schema resources.
+
         :param pulumi.Input['SchemaCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] format: The format of the Schema.
         :param pulumi.Input[_builtins.bool] hard_delete: Controls whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy. Defaults to `false` (soft delete).
@@ -600,6 +602,7 @@ class Schema(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaCredentialsArgs', 'SchemaCredentialsArgsDict']] credentials: The Cluster API Credentials.
@@ -768,6 +771,7 @@ class Schema(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.

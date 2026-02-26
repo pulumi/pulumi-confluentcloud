@@ -35,6 +35,7 @@ class KafkaClusterArgs:
                  standard: Optional[pulumi.Input['KafkaClusterStandardArgs']] = None):
         """
         The set of arguments for constructing a KafkaCluster resource.
+
         :param pulumi.Input[_builtins.str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input['KafkaClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -233,6 +234,7 @@ class _KafkaClusterState:
                  standard: Optional[pulumi.Input['KafkaClusterStandardArgs']] = None):
         """
         Input properties used for looking up and filtering KafkaCluster resources.
+
         :param pulumi.Input[_builtins.str] api_version: (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
         :param pulumi.Input[_builtins.str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
         :param pulumi.Input['KafkaClusterBasicArgs'] basic: The configuration of the Basic Kafka cluster.
@@ -713,6 +715,7 @@ class KafkaCluster(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
@@ -924,6 +927,7 @@ class KafkaCluster(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param KafkaClusterArgs args: The arguments to use to populate this resource's properties.

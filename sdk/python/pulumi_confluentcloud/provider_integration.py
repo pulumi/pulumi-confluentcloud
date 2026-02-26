@@ -26,6 +26,7 @@ class ProviderIntegrationArgs:
                  aws: Optional[pulumi.Input['ProviderIntegrationAwsArgs']] = None):
         """
         The set of arguments for constructing a ProviderIntegration resource.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the Provider Integration.
         :param pulumi.Input['ProviderIntegrationEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['ProviderIntegrationAwsArgs'] aws: (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
@@ -81,6 +82,7 @@ class _ProviderIntegrationState:
                  usages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProviderIntegration resources.
+
         :param pulumi.Input['ProviderIntegrationAwsArgs'] aws: (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
         :param pulumi.Input[_builtins.str] display_name: The name of the Provider Integration.
         :param pulumi.Input['ProviderIntegrationEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -201,6 +203,7 @@ class ProviderIntegration(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProviderIntegrationAwsArgs', 'ProviderIntegrationAwsArgsDict']] aws: (Required Configuration Block) The AWS-specific Provider Integration config details. It supports the following:
@@ -259,6 +262,7 @@ class ProviderIntegration(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param ProviderIntegrationArgs args: The arguments to use to populate this resource's properties.

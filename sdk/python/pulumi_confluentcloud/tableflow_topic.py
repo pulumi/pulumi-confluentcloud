@@ -34,6 +34,7 @@ class TableflowTopicArgs:
                  table_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TableflowTopic resource.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka topic for which Tableflow is enabled.
         :param pulumi.Input['TableflowTopicEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['TableflowTopicAzureDataLakeStorageGen2Args'] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
@@ -216,6 +217,7 @@ class _TableflowTopicState:
                  write_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableflowTopic resources.
+
         :param pulumi.Input['TableflowTopicAzureDataLakeStorageGen2Args'] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
         :param pulumi.Input['TableflowTopicByobAwsArgs'] byob_aws: supports the following (See [Quick Start with Custom Storage](https://docs.confluent.io/cloud/current/topics/tableflow/get-started/quick-start-custom-storage-glue.html#cloud-tableflow-quick-start) for more details):
         :param pulumi.Input['TableflowTopicCredentialsArgs'] credentials: The Cluster API Credentials.
@@ -546,6 +548,7 @@ class TableflowTopic(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TableflowTopicAzureDataLakeStorageGen2Args', 'TableflowTopicAzureDataLakeStorageGen2ArgsDict']] azure_data_lake_storage_gen2: (Optional Configuration Block) supports the following:
@@ -636,6 +639,7 @@ class TableflowTopic(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param TableflowTopicArgs args: The arguments to use to populate this resource's properties.

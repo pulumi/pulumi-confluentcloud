@@ -28,6 +28,7 @@ class FlinkComputePoolArgs:
                  max_cfu: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a FlinkComputePool resource.
+
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Flink Compute Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Flink Compute Pool.
         :param pulumi.Input['FlinkComputePoolEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -115,6 +116,7 @@ class _FlinkComputePoolState:
                  resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlinkComputePool resources.
+
         :param pulumi.Input[_builtins.str] api_version: (Required String) The API Version of the schema version of the Flink Compute Pool, for example, `fcpm/v2`.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Flink Compute Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Flink Compute Pool.
@@ -288,6 +290,7 @@ class FlinkComputePool(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Flink Compute Pool.
@@ -339,6 +342,7 @@ class FlinkComputePool(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param FlinkComputePoolArgs args: The arguments to use to populate this resource's properties.

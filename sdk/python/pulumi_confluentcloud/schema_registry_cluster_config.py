@@ -29,6 +29,7 @@ class SchemaRegistryClusterConfigArgs:
                  schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a SchemaRegistryClusterConfig resource.
+
         :param pulumi.Input[_builtins.str] compatibility_group: The global Schema Registry compatibility group.
         :param pulumi.Input[_builtins.str] compatibility_level: The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs'] credentials: The Cluster API Credentials.
@@ -129,6 +130,7 @@ class _SchemaRegistryClusterConfigState:
                  schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']] = None):
         """
         Input properties used for looking up and filtering SchemaRegistryClusterConfig resources.
+
         :param pulumi.Input[_builtins.str] compatibility_group: The global Schema Registry compatibility group.
         :param pulumi.Input[_builtins.str] compatibility_level: The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
         :param pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs'] credentials: The Cluster API Credentials.
@@ -283,6 +285,7 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compatibility_group: The global Schema Registry compatibility group.
@@ -348,6 +351,7 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param SchemaRegistryClusterConfigArgs args: The arguments to use to populate this resource's properties.

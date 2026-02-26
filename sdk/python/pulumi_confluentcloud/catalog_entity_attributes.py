@@ -29,6 +29,7 @@ class CatalogEntityAttributesArgs:
                  schema_registry_cluster: Optional[pulumi.Input['CatalogEntityAttributesSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a CatalogEntityAttributes resource.
+
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
         :param pulumi.Input[_builtins.str] entity_type: The entity type, for example, `cf_environment`, `kafka_logical_cluster`, `kafka_topic`, `sr_schema`, etc. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to see the full list of supported values for the `entity_type` attribute.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The block of key-value pair attributes. Refer to the [add-a-topic-owner-and-email](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#add-a-topic-owner-and-email) for more details.
@@ -143,6 +144,7 @@ class _CatalogEntityAttributesState:
                  schema_registry_cluster: Optional[pulumi.Input['CatalogEntityAttributesSchemaRegistryClusterArgs']] = None):
         """
         Input properties used for looking up and filtering CatalogEntityAttributes resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The block of key-value pair attributes. Refer to the [add-a-topic-owner-and-email](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#add-a-topic-owner-and-email) for more details.
                
                > **Note:** You have to set the attribute value to an empty string if you plan to delete an attribute.
@@ -394,6 +396,7 @@ class CatalogEntityAttributes(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The block of key-value pair attributes. Refer to the [add-a-topic-owner-and-email](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#add-a-topic-owner-and-email) for more details.
@@ -548,6 +551,7 @@ class CatalogEntityAttributes(pulumi.CustomResource):
         > **Note:** Use the `<Schema Registry Cluster ID>/<Entity Type>/<Entity Name>/` format to import a Catalog Entity Attributes resource with an empty list of attributes.
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param CatalogEntityAttributesArgs args: The arguments to use to populate this resource's properties.

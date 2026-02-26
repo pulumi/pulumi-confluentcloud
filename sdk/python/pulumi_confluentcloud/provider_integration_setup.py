@@ -26,6 +26,7 @@ class ProviderIntegrationSetupArgs:
                  environment: pulumi.Input['ProviderIntegrationSetupEnvironmentArgs']):
         """
         The set of arguments for constructing a ProviderIntegrationSetup resource.
+
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider. Supported values are `AZURE` and `GCP`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Provider Integration.
         :param pulumi.Input['ProviderIntegrationSetupEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -81,6 +82,7 @@ class _ProviderIntegrationSetupState:
                  usages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProviderIntegrationSetup resources.
+
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider. Supported values are `AZURE` and `GCP`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Provider Integration.
         :param pulumi.Input['ProviderIntegrationSetupEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -251,6 +253,7 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider. Supported values are `AZURE` and `GCP`.
@@ -344,6 +347,7 @@ class ProviderIntegrationSetup(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param ProviderIntegrationSetupArgs args: The arguments to use to populate this resource's properties.

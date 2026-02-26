@@ -33,6 +33,7 @@ class FlinkArtifactArgs:
                  runtime_language: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlinkArtifact resource.
+
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Flink Artifact. Accepted values are: `AWS`, `AZURE`.
         :param pulumi.Input[_builtins.str] display_name: The unique name of the Flink Artifact per cloud, region, environment scope.
         :param pulumi.Input['FlinkArtifactEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -204,6 +205,7 @@ class _FlinkArtifactState:
                  versions: Optional[pulumi.Input[Sequence[pulumi.Input['FlinkArtifactVersionArgs']]]] = None):
         """
         Input properties used for looking up and filtering FlinkArtifact resources.
+
         :param pulumi.Input[_builtins.str] api_version: (Required String) The API Version of the schema version of the Flink Artifact Pool, for example, `fa/v2`.
         :param pulumi.Input[_builtins.str] artifact_file: The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
         :param pulumi.Input[_builtins.str] class_: Java class or alias for the Flink Artifact as provided by developer.
@@ -464,6 +466,7 @@ class FlinkArtifact(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] artifact_file: The artifact file for Flink Artifact. Can be a relative or absolute path. Must have a `.jar` or `.zip` extension. This can be relative or absolute path
@@ -523,6 +526,7 @@ class FlinkArtifact(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param FlinkArtifactArgs args: The arguments to use to populate this resource's properties.

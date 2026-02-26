@@ -33,6 +33,7 @@ class KafkaAclArgs:
                  rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KafkaAcl resource.
+
         :param pulumi.Input[_builtins.str] host: The host for the ACL. Should be set to `*` for Confluent Cloud.
                
                > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
@@ -206,6 +207,7 @@ class _KafkaAclState:
                  rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KafkaAcl resources.
+
         :param pulumi.Input['KafkaAclCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] host: The host for the ACL. Should be set to `*` for Confluent Cloud.
                
@@ -493,6 +495,7 @@ class KafkaAcl(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['KafkaAclCredentialsArgs', 'KafkaAclCredentialsArgsDict']] credentials: The Cluster API Credentials.
@@ -623,6 +626,7 @@ class KafkaAcl(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param KafkaAclArgs args: The arguments to use to populate this resource's properties.
