@@ -35,6 +35,7 @@ class SchemaExporterArgs:
                  subjects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SchemaExporter resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: Block for custom *nonsensitive* configuration properties:
         :param pulumi.Input[_builtins.str] context: Customized context of the exporter if `context_type` is set to `CUSTOM`.
         :param pulumi.Input[_builtins.str] context_type: Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
@@ -230,6 +231,7 @@ class _SchemaExporterState:
                  subjects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SchemaExporter resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: Block for custom *nonsensitive* configuration properties:
         :param pulumi.Input[_builtins.str] context: Customized context of the exporter if `context_type` is set to `CUSTOM`.
         :param pulumi.Input[_builtins.str] context_type: Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
@@ -514,6 +516,7 @@ class SchemaExporter(pulumi.CustomResource):
 
         > **Note:** When using OAuth authentication in the provider block, only `IMPORT_SCHEMA_REGISTRY_ID` and `IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT` are required to be set.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: Block for custom *nonsensitive* configuration properties:
@@ -620,6 +623,7 @@ class SchemaExporter(pulumi.CustomResource):
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         > **Note:** When using OAuth authentication in the provider block, only `IMPORT_SCHEMA_REGISTRY_ID` and `IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT` are required to be set.
+
 
         :param str resource_name: The name of the resource.
         :param SchemaExporterArgs args: The arguments to use to populate this resource's properties.

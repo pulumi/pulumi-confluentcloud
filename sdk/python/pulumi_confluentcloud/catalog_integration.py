@@ -29,6 +29,7 @@ class CatalogIntegrationArgs:
                  snowflake: Optional[pulumi.Input['CatalogIntegrationSnowflakeArgs']] = None):
         """
         The set of arguments for constructing a CatalogIntegration resource.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the catalog integration.
         :param pulumi.Input['CatalogIntegrationEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['CatalogIntegrationAwsGlueArgs'] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
@@ -127,6 +128,7 @@ class _CatalogIntegrationState:
                  suspended: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering CatalogIntegration resources.
+
         :param pulumi.Input['CatalogIntegrationAwsGlueArgs'] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
         :param pulumi.Input['CatalogIntegrationCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] display_name: The name of the catalog integration.
@@ -317,6 +319,7 @@ class CatalogIntegration(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CatalogIntegrationAwsGlueArgs', 'CatalogIntegrationAwsGlueArgsDict']] aws_glue: supports the following (see [Integrate Tableflow with the AWS Glue Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-aws-glue-catalog.html) for more details):
@@ -403,6 +406,7 @@ class CatalogIntegration(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param CatalogIntegrationArgs args: The arguments to use to populate this resource's properties.

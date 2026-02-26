@@ -29,6 +29,7 @@ class CustomConnectorPluginArgs:
                  sensitive_config_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomConnectorPlugin resource.
+
         :param pulumi.Input[_builtins.str] connector_class: The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
         :param pulumi.Input[_builtins.str] connector_type: The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Custom Connector Plugin.
@@ -161,6 +162,7 @@ class _CustomConnectorPluginState:
                  sensitive_config_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CustomConnectorPlugin resources.
+
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
         :param pulumi.Input[_builtins.str] connector_class: The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
         :param pulumi.Input[_builtins.str] connector_type: The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
@@ -339,6 +341,7 @@ class CustomConnectorPlugin(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`, `GCP`.
@@ -395,6 +398,7 @@ class CustomConnectorPlugin(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param CustomConnectorPluginArgs args: The arguments to use to populate this resource's properties.

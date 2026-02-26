@@ -28,6 +28,7 @@ class CertificatePoolArgs:
                  filter: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a CertificatePool resource.
+
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
         :param pulumi.Input[_builtins.str] external_identifier: The certificate field that will be used to represent the pool's external identity for audit logging.
@@ -107,6 +108,7 @@ class _CertificatePoolState:
                  filter: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CertificatePool resources.
+
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
         :param pulumi.Input[_builtins.str] display_name: The name of the Certificate Pool.
         :param pulumi.Input[_builtins.str] external_identifier: The certificate field that will be used to represent the pool's external identity for audit logging.
@@ -228,6 +230,7 @@ class CertificatePool(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Pool.
@@ -275,6 +278,7 @@ class CertificatePool(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param CertificatePoolArgs args: The arguments to use to populate this resource's properties.

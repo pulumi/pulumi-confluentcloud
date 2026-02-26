@@ -23,6 +23,7 @@ class ServiceAccountArgs:
                  display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceAccount resource.
+
         :param pulumi.Input[_builtins.str] description: A free-form description of the Service Account.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account.
         """
@@ -65,6 +66,7 @@ class _ServiceAccountState:
                  kind: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceAccount resources.
+
         :param pulumi.Input[_builtins.str] api_version: (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
         :param pulumi.Input[_builtins.str] description: A free-form description of the Service Account.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Service Account.
@@ -192,6 +194,7 @@ class ServiceAccount(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A free-form description of the Service Account.
@@ -257,6 +260,7 @@ class ServiceAccount(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param ServiceAccountArgs args: The arguments to use to populate this resource's properties.

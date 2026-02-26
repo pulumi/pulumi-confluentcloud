@@ -29,6 +29,7 @@ class GatewayArgs:
                  azure_egress_private_link_gateway: Optional[pulumi.Input['GatewayAzureEgressPrivateLinkGatewayArgs']] = None):
         """
         The set of arguments for constructing a Gateway resource.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the Gateway.
         :param pulumi.Input['GatewayEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['GatewayAwsEgressPrivateLinkGatewayArgs'] aws_egress_private_link_gateway: (Optional Configuration Block) supports the following:
@@ -131,6 +132,7 @@ class _GatewayState:
                  environment: Optional[pulumi.Input['GatewayEnvironmentArgs']] = None):
         """
         Input properties used for looking up and filtering Gateway resources.
+
         :param pulumi.Input['GatewayAwsEgressPrivateLinkGatewayArgs'] aws_egress_private_link_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input['GatewayAwsIngressPrivateLinkGatewayArgs'] aws_ingress_private_link_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input['GatewayAwsPrivateNetworkInterfaceGatewayArgs'] aws_private_network_interface_gateway: (Optional Configuration Block) supports the following:
@@ -279,6 +281,7 @@ class Gateway(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['GatewayAwsEgressPrivateLinkGatewayArgs', 'GatewayAwsEgressPrivateLinkGatewayArgsDict']] aws_egress_private_link_gateway: (Optional Configuration Block) supports the following:
@@ -335,6 +338,7 @@ class Gateway(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.

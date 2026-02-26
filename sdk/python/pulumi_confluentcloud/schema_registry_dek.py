@@ -32,6 +32,7 @@ class SchemaRegistryDekArgs:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SchemaRegistryDek resource.
+
         :param pulumi.Input[_builtins.str] kek_name: The name of the KEK used to encrypt this DEK.
         :param pulumi.Input[_builtins.str] subject_name: The subject for this DEK.
         :param pulumi.Input[_builtins.str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
@@ -191,6 +192,7 @@ class _SchemaRegistryDekState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SchemaRegistryDek resources.
+
         :param pulumi.Input[_builtins.str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
         :param pulumi.Input['SchemaRegistryDekCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] encrypted_key_material: The encrypted key material for the DEK.
@@ -425,6 +427,7 @@ class SchemaRegistryDek(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
@@ -504,6 +507,7 @@ class SchemaRegistryDek(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param SchemaRegistryDekArgs args: The arguments to use to populate this resource's properties.

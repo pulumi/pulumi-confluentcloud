@@ -26,6 +26,7 @@ class ByokKeyArgs:
                  gcp: Optional[pulumi.Input['ByokKeyGcpArgs']] = None):
         """
         The set of arguments for constructing a ByokKey resource.
+
         :param pulumi.Input['ByokKeyAwsArgs'] aws: (Optional Configuration Block) supports the following:
         :param pulumi.Input['ByokKeyAzureArgs'] azure: (Optional Configuration Block) supports the following:
         :param pulumi.Input['ByokKeyGcpArgs'] gcp: (Optional Configuration Block) supports the following:
@@ -82,6 +83,7 @@ class _ByokKeyState:
                  gcp: Optional[pulumi.Input['ByokKeyGcpArgs']] = None):
         """
         Input properties used for looking up and filtering ByokKey resources.
+
         :param pulumi.Input['ByokKeyAwsArgs'] aws: (Optional Configuration Block) supports the following:
         :param pulumi.Input['ByokKeyAzureArgs'] azure: (Optional Configuration Block) supports the following:
         :param pulumi.Input['ByokKeyGcpArgs'] gcp: (Optional Configuration Block) supports the following:
@@ -193,6 +195,7 @@ class ByokKey(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ByokKeyAwsArgs', 'ByokKeyAwsArgsDict']] aws: (Optional Configuration Block) supports the following:
@@ -257,6 +260,7 @@ class ByokKey(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param ByokKeyArgs args: The arguments to use to populate this resource's properties.

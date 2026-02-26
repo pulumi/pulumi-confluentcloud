@@ -29,6 +29,7 @@ class SubjectModeArgs:
                  schema_registry_cluster: Optional[pulumi.Input['SubjectModeSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a SubjectMode resource.
+
         :param pulumi.Input[_builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
         :param pulumi.Input['SubjectModeCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] force: An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
@@ -128,6 +129,7 @@ class _SubjectModeState:
                  subject_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubjectMode resources.
+
         :param pulumi.Input['SubjectModeCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] force: An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
         :param pulumi.Input[_builtins.str] mode: The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
@@ -282,6 +284,7 @@ class SubjectMode(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SubjectModeCredentialsArgs', 'SubjectModeCredentialsArgsDict']] credentials: The Cluster API Credentials.
@@ -347,6 +350,7 @@ class SubjectMode(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param SubjectModeArgs args: The arguments to use to populate this resource's properties.

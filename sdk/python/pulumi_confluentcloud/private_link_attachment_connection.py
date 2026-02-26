@@ -29,6 +29,7 @@ class PrivateLinkAttachmentConnectionArgs:
                  gcp: Optional[pulumi.Input['PrivateLinkAttachmentConnectionGcpArgs']] = None):
         """
         The set of arguments for constructing a PrivateLinkAttachmentConnection resource.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Attachment Connection.
         :param pulumi.Input['PrivateLinkAttachmentConnectionEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs'] private_link_attachment: The private_link_attachment to which this belongs.
@@ -119,6 +120,7 @@ class _PrivateLinkAttachmentConnectionState:
                  resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrivateLinkAttachmentConnection resources.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Attachment Connection.
         :param pulumi.Input['PrivateLinkAttachmentConnectionEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs'] private_link_attachment: The private_link_attachment to which this belongs.
@@ -295,6 +297,7 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the Private Link Attachment Connection.
@@ -373,6 +376,7 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkAttachmentConnectionArgs args: The arguments to use to populate this resource's properties.

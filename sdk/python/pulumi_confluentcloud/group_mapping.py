@@ -24,6 +24,7 @@ class GroupMappingArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GroupMapping resource.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the Group Mapping.
         :param pulumi.Input[_builtins.str] filter: A single group identifier or a condition based on [supported CEL operators](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html#supported-cel-operators-for-group-mapping) that defines which groups are included.
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and use of the group mapping.
@@ -78,6 +79,7 @@ class _GroupMappingState:
                  filter: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupMapping resources.
+
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and use of the group mapping.
         :param pulumi.Input[_builtins.str] display_name: The name of the Group Mapping.
         :param pulumi.Input[_builtins.str] filter: A single group identifier or a condition based on [supported CEL operators](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html#supported-cel-operators-for-group-mapping) that defines which groups are included.
@@ -173,6 +175,7 @@ class GroupMapping(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and use of the group mapping.
@@ -221,6 +224,7 @@ class GroupMapping(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param GroupMappingArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class AccessPointArgs:
                  gcp_egress_private_service_connect_endpoint: Optional[pulumi.Input['AccessPointGcpEgressPrivateServiceConnectEndpointArgs']] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
+
         :param pulumi.Input['AccessPointEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['AccessPointAwsEgressPrivateLinkEndpointArgs'] aws_egress_private_link_endpoint: (Optional Configuration Block) supports the following:
         :param pulumi.Input['AccessPointAwsIngressPrivateLinkEndpointArgs'] aws_ingress_private_link_endpoint: (Optional Configuration Block) supports the following:
@@ -161,6 +162,7 @@ class _AccessPointState:
                  gcp_egress_private_service_connect_endpoint: Optional[pulumi.Input['AccessPointGcpEgressPrivateServiceConnectEndpointArgs']] = None):
         """
         Input properties used for looking up and filtering AccessPoint resources.
+
         :param pulumi.Input['AccessPointAwsEgressPrivateLinkEndpointArgs'] aws_egress_private_link_endpoint: (Optional Configuration Block) supports the following:
         :param pulumi.Input['AccessPointAwsIngressPrivateLinkEndpointArgs'] aws_ingress_private_link_endpoint: (Optional Configuration Block) supports the following:
         :param pulumi.Input['AccessPointAwsPrivateNetworkInterfaceArgs'] aws_private_network_interface: (Optional Configuration Block) supports the following:
@@ -387,6 +389,7 @@ class AccessPoint(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccessPointAwsEgressPrivateLinkEndpointArgs', 'AccessPointAwsEgressPrivateLinkEndpointArgsDict']] aws_egress_private_link_endpoint: (Optional Configuration Block) supports the following:
@@ -494,6 +497,7 @@ class AccessPoint(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param AccessPointArgs args: The arguments to use to populate this resource's properties.

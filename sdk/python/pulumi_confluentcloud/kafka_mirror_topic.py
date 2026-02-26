@@ -28,6 +28,7 @@ class KafkaMirrorTopicArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KafkaMirrorTopic resource.
+
         :param pulumi.Input[_builtins.str] mirror_topic_name: The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
         :param pulumi.Input[_builtins.str] status: The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
                
@@ -125,6 +126,7 @@ class _KafkaMirrorTopicState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KafkaMirrorTopic resources.
+
         :param pulumi.Input[_builtins.str] mirror_topic_name: The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
         :param pulumi.Input[_builtins.str] status: The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
                
@@ -280,6 +282,7 @@ class KafkaMirrorTopic(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] mirror_topic_name: The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
@@ -355,6 +358,7 @@ class KafkaMirrorTopic(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param KafkaMirrorTopicArgs args: The arguments to use to populate this resource's properties.

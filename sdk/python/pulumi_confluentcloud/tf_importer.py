@@ -23,6 +23,7 @@ class TfImporterArgs:
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TfImporter resource.
+
         :param pulumi.Input[_builtins.str] output_path: An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
                
                These are the exportable resources:
@@ -85,6 +86,7 @@ class _TfImporterState:
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TfImporter resources.
+
         :param pulumi.Input[_builtins.str] output_path: An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
                
                These are the exportable resources:
@@ -175,6 +177,7 @@ class TfImporter(pulumi.CustomResource):
           * `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
           * `schema-registry-importer`: Export _Schema Registry_ resources (for example, Schemas)
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] output_path: An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
@@ -222,6 +225,7 @@ class TfImporter(pulumi.CustomResource):
           * `cloud-importer`: Export _Cloud_ resources (for example, Service Accounts, Environments)
           * `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
           * `schema-registry-importer`: Export _Schema Registry_ resources (for example, Schemas)
+
 
         :param str resource_name: The name of the resource.
         :param TfImporterArgs args: The arguments to use to populate this resource's properties.

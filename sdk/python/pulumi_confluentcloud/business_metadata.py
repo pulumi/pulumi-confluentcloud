@@ -29,6 +29,7 @@ class BusinessMetadataArgs:
                  schema_registry_cluster: Optional[pulumi.Input['BusinessMetadataSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a BusinessMetadata resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['BusinessMetadataAttributeDefinitionArgs']]] attribute_definitions: The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
         :param pulumi.Input['BusinessMetadataCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] description: The description of the Business Metadata.
@@ -130,6 +131,7 @@ class _BusinessMetadataState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering BusinessMetadata resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['BusinessMetadataAttributeDefinitionArgs']]] attribute_definitions: The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
         :param pulumi.Input['BusinessMetadataCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] description: The description of the Business Metadata.
@@ -319,6 +321,7 @@ class BusinessMetadata(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BusinessMetadataAttributeDefinitionArgs', 'BusinessMetadataAttributeDefinitionArgsDict']]]] attribute_definitions: The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
@@ -404,6 +407,7 @@ class BusinessMetadata(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param BusinessMetadataArgs args: The arguments to use to populate this resource's properties.

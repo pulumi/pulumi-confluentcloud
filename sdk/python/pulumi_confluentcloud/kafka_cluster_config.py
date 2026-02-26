@@ -27,6 +27,7 @@ class KafkaClusterConfigArgs:
                  rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KafkaClusterConfig resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The custom cluster settings to set:
         :param pulumi.Input['KafkaClusterConfigCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -94,6 +95,7 @@ class _KafkaClusterConfigState:
                  rest_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KafkaClusterConfig resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The custom cluster settings to set:
         :param pulumi.Input['KafkaClusterConfigCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] rest_endpoint: The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -225,6 +227,7 @@ class KafkaClusterConfig(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config: The custom cluster settings to set:
@@ -297,6 +300,7 @@ class KafkaClusterConfig(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param KafkaClusterConfigArgs args: The arguments to use to populate this resource's properties.

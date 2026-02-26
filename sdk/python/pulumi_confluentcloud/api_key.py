@@ -28,6 +28,7 @@ class ApiKeyArgs:
                  managed_resource: Optional[pulumi.Input['ApiKeyManagedResourceArgs']] = None):
         """
         The set of arguments for constructing a ApiKey resource.
+
         :param pulumi.Input['ApiKeyOwnerArgs'] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         :param pulumi.Input[_builtins.str] description: A free-form description of the API Account.
         :param pulumi.Input[_builtins.bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
@@ -116,6 +117,7 @@ class _ApiKeyState:
                  secret: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
+
         :param pulumi.Input[_builtins.str] description: A free-form description of the API Account.
         :param pulumi.Input[_builtins.bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the API Key.
@@ -416,6 +418,7 @@ class ApiKey(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A free-form description of the API Account.
@@ -624,6 +627,7 @@ class ApiKey(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.

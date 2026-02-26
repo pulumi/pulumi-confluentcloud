@@ -31,6 +31,7 @@ class SubjectConfigArgs:
                  schema_registry_cluster: Optional[pulumi.Input['SubjectConfigSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a SubjectConfig resource.
+
         :param pulumi.Input[_builtins.str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
                
                > **Note:** If you want to reference the subject that is located in a custom context, use the following naming pattern: `:.contextName:subjectName`. For example, use `subject_name = ":.context1:test-subject"` to reference the subject named `test-subject` in the `context1` context, and use `subject_name = "test-subject"` to reference the subject named `test-subject` in the `default` context.
@@ -174,6 +175,7 @@ class _SubjectConfigState:
                  subject_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SubjectConfig resources.
+
         :param pulumi.Input[_builtins.str] alias: The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
                
                > **Note:** To create an alias for a subject, create a new subject config where `subject_name` is the alias and `alias` points to the real subject. For example, to create an alias `short-name` that points to subject `very-long-subject-name`, set `subject_name = "short-name"` and `alias = "very-long-subject-name"`.
@@ -396,6 +398,7 @@ class SubjectConfig(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The subject name that this subject is an alias for. Any reference to this subject will be replaced by the alias. See [Subject Aliases](https://docs.confluent.io/platform/current/schema-registry/fundamentals/index.html#subject-aliases) for more details.
@@ -493,6 +496,7 @@ class SubjectConfig(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param SubjectConfigArgs args: The arguments to use to populate this resource's properties.

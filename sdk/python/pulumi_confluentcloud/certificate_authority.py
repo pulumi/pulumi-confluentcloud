@@ -27,6 +27,7 @@ class CertificateAuthorityArgs:
                  crl_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateAuthority resource.
+
         :param pulumi.Input[_builtins.str] certificate_chain: A PEM encoded string containing the signing certificate chain.
         :param pulumi.Input[_builtins.str] certificate_chain_filename: The name of the certificate file.
         :param pulumi.Input[_builtins.str] description: A description of the Certificate Authority.
@@ -132,6 +133,7 @@ class _CertificateAuthorityState:
                  serial_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CertificateAuthority resources.
+
         :param pulumi.Input[_builtins.str] certificate_chain: A PEM encoded string containing the signing certificate chain.
         :param pulumi.Input[_builtins.str] certificate_chain_filename: The name of the certificate file.
         :param pulumi.Input[_builtins.str] crl_chain: A PEM encoded string containing the CRL for this certificate authority.
@@ -345,6 +347,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_chain: A PEM encoded string containing the signing certificate chain.
@@ -391,6 +394,7 @@ class CertificateAuthority(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param CertificateAuthorityArgs args: The arguments to use to populate this resource's properties.

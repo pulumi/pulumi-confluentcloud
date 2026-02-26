@@ -30,6 +30,7 @@ class BusinessMetadataBindingArgs:
                  schema_registry_cluster: Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a BusinessMetadataBinding resource.
+
         :param pulumi.Input[_builtins.str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[_builtins.str] entity_name: The qualified name of the entity, for example, `${data.confluent_schema_registry_cluster.essentials.id}:.:${confluent_schema.purchase.schema_identifier}`, `${data.confluent_schema_registry_cluster.essentials.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`. Refer to the [Examples of qualified names](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#examples-of-qualified-names) to see the full list of supported values for the `entity_name` attribute.
         :param pulumi.Input[_builtins.str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
@@ -155,6 +156,7 @@ class _BusinessMetadataBindingState:
                  schema_registry_cluster: Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']] = None):
         """
         Input properties used for looking up and filtering BusinessMetadataBinding resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The block of key-value pair attributes.
                
                > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
@@ -353,6 +355,7 @@ class BusinessMetadataBinding(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: The block of key-value pair attributes.
@@ -441,6 +444,7 @@ class BusinessMetadataBinding(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param BusinessMetadataBindingArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class PeeringArgs:
                  gcp: Optional[pulumi.Input['PeeringGcpArgs']] = None):
         """
         The set of arguments for constructing a Peering resource.
+
         :param pulumi.Input['PeeringEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['PeeringNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
         :param pulumi.Input[_builtins.str] display_name: The name of the Peering.
@@ -119,6 +120,7 @@ class _PeeringState:
                  network: Optional[pulumi.Input['PeeringNetworkArgs']] = None):
         """
         Input properties used for looking up and filtering Peering resources.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the Peering.
         :param pulumi.Input['PeeringEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input['PeeringNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider accounts.
@@ -342,6 +344,7 @@ class Peering(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the Peering.
@@ -482,6 +485,7 @@ class Peering(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param PeeringArgs args: The arguments to use to populate this resource's properties.

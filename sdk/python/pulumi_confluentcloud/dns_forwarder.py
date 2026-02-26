@@ -29,6 +29,7 @@ class DnsForwarderArgs:
                  forward_via_ip: Optional[pulumi.Input['DnsForwarderForwardViaIpArgs']] = None):
         """
         The set of arguments for constructing a DnsForwarder resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: List of domains for the DNS forwarder to use.
         :param pulumi.Input['DnsForwarderEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] display_name: The name of the DNS Forwarder.
@@ -118,6 +119,7 @@ class _DnsForwarderState:
                  gateway: Optional[pulumi.Input['DnsForwarderGatewayArgs']] = None):
         """
         Input properties used for looking up and filtering DnsForwarder resources.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the DNS Forwarder.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: List of domains for the DNS forwarder to use.
         :param pulumi.Input['DnsForwarderEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -286,6 +288,7 @@ class DnsForwarder(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the DNS Forwarder.
@@ -371,6 +374,7 @@ class DnsForwarder(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param DnsForwarderArgs args: The arguments to use to populate this resource's properties.

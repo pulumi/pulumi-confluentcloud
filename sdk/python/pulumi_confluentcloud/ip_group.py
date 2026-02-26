@@ -23,6 +23,7 @@ class IpGroupArgs:
                  group_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IpGroup resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: A list of CIDRs.
         :param pulumi.Input[_builtins.str] group_name: A human-readable name for an IP Group. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
         """
@@ -61,6 +62,7 @@ class _IpGroupState:
                  group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IpGroup resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: A list of CIDRs.
         :param pulumi.Input[_builtins.str] group_name: A human-readable name for an IP Group. Can contain any unicode letter or number, the ASCII space character, or any of the following special characters: `[`, `]`, `|`, `&`, `+`, `-`, `_`, `/`, `.`, `,`.
         """
@@ -138,6 +140,7 @@ class IpGroup(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: A list of CIDRs.
@@ -183,6 +186,7 @@ class IpGroup(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param IpGroupArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class SchemaRegistryClusterModeArgs:
                  schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryClusterModeSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a SchemaRegistryClusterMode resource.
+
         :param pulumi.Input['SchemaRegistryClusterModeCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] force: An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
         :param pulumi.Input[_builtins.str] mode: The global Schema Registry mode. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
@@ -112,6 +113,7 @@ class _SchemaRegistryClusterModeState:
                  schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryClusterModeSchemaRegistryClusterArgs']] = None):
         """
         Input properties used for looking up and filtering SchemaRegistryClusterMode resources.
+
         :param pulumi.Input['SchemaRegistryClusterModeCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.bool] force: An optional flag to force a mode change even if the Schema Registry has existing schemas. This can be useful in disaster recovery (DR) scenarios using [Schema Linking](https://docs.confluent.io/cloud/current/sr/schema-linking.html). Defaults to `false`, which does not allow a mode change to `IMPORT` if Schema Registry has registered schemas. Must be unset when importing.
         :param pulumi.Input[_builtins.str] mode: The global Schema Registry mode. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
@@ -247,6 +249,7 @@ class SchemaRegistryClusterMode(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SchemaRegistryClusterModeCredentialsArgs', 'SchemaRegistryClusterModeCredentialsArgsDict']] credentials: The Cluster API Credentials.
@@ -308,6 +311,7 @@ class SchemaRegistryClusterMode(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param SchemaRegistryClusterModeArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class KafkaClientQuotaArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KafkaClientQuota resource.
+
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka Client Quota.
         :param pulumi.Input['KafkaClientQuotaEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, `"<default>"`, to represent the default quota for all users and service accounts.
@@ -124,6 +125,7 @@ class _KafkaClientQuotaState:
                  throughput: Optional[pulumi.Input['KafkaClientQuotaThroughputArgs']] = None):
         """
         Input properties used for looking up and filtering KafkaClientQuota resources.
+
         :param pulumi.Input[_builtins.str] description: The description of the Kafka Client Quota.
         :param pulumi.Input[_builtins.str] display_name: The name of the Kafka Client Quota.
         :param pulumi.Input['KafkaClientQuotaEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -274,6 +276,7 @@ class KafkaClientQuota(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Kafka Client Quota.
@@ -335,6 +338,7 @@ class KafkaClientQuota(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param KafkaClientQuotaArgs args: The arguments to use to populate this resource's properties.

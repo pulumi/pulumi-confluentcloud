@@ -26,6 +26,7 @@ class IdentityProviderArgs:
                  identity_claim: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityProvider resource.
+
         :param pulumi.Input[_builtins.str] description: A description for the Identity Provider.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Provider.
         :param pulumi.Input[_builtins.str] issuer: A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
@@ -118,6 +119,7 @@ class _IdentityProviderState:
                  jwks_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityProvider resources.
+
         :param pulumi.Input[_builtins.str] description: A description for the Identity Provider.
         :param pulumi.Input[_builtins.str] display_name: A human-readable name for the Identity Provider.
         :param pulumi.Input[_builtins.str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1). This appears in audit log records.
@@ -267,6 +269,7 @@ class IdentityProvider(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the Identity Provider.
@@ -335,6 +338,7 @@ class IdentityProvider(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderArgs args: The arguments to use to populate this resource's properties.

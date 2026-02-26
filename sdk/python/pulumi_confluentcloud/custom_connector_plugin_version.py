@@ -31,6 +31,7 @@ class CustomConnectorPluginVersionArgs:
                  sensitive_config_properties: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomConnectorPluginVersion resource.
+
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Custom Connector Plugin Version archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         :param pulumi.Input[Sequence[pulumi.Input['CustomConnectorPluginVersionConnectorClassArgs']]] connector_classes: The Java class name or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
         :param pulumi.Input['CustomConnectorPluginVersionEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -163,6 +164,7 @@ class _CustomConnectorPluginVersionState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomConnectorPluginVersion resources.
+
         :param pulumi.Input[_builtins.str] api_version: (Required String) The API Version of the schema version of the plugin version, for example, `ccpm/v1`.
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Custom Connector Plugin Version archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         :param pulumi.Input[Sequence[pulumi.Input['CustomConnectorPluginVersionConnectorClassArgs']]] connector_classes: The Java class name or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
@@ -379,6 +381,7 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: Cloud provider where the Custom Connector Plugin Version archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
@@ -443,6 +446,7 @@ class CustomConnectorPluginVersion(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param CustomConnectorPluginVersionArgs args: The arguments to use to populate this resource's properties.

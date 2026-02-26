@@ -28,6 +28,7 @@ class TagArgs:
                  schema_registry_cluster: Optional[pulumi.Input['TagSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a Tag resource.
+
         :param pulumi.Input['TagCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] description: The description of the tag.
                
@@ -126,6 +127,7 @@ class _TagState:
                  version: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
+
         :param pulumi.Input['TagCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[_builtins.str] description: The description of the tag.
                
@@ -310,6 +312,7 @@ class Tag(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TagCredentialsArgs', 'TagCredentialsArgsDict']] credentials: The Cluster API Credentials.
@@ -384,6 +387,7 @@ class Tag(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.

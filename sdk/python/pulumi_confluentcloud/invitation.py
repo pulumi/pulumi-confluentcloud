@@ -26,6 +26,7 @@ class InvitationArgs:
                  auth_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Invitation resource.
+
         :param pulumi.Input[_builtins.str] email: The user/invitee's email address.
         :param pulumi.Input[_builtins.bool] allow_deletion: Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
         :param pulumi.Input[_builtins.str] auth_type: Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
@@ -86,6 +87,7 @@ class _InvitationState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['InvitationUserArgs']]]] = None):
         """
         Input properties used for looking up and filtering Invitation resources.
+
         :param pulumi.Input[_builtins.str] accepted_at: (Optional String) The timestamp that the invitation was accepted.
         :param pulumi.Input[_builtins.bool] allow_deletion: Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
         :param pulumi.Input[_builtins.str] auth_type: Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
@@ -250,6 +252,7 @@ class Invitation(pulumi.CustomResource):
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_deletion: Boolean attribute that determines whether accepted invitations can be deleted from the Terraform state file. Defaults to `false`. See issue #263 for more context.
@@ -292,6 +295,7 @@ class Invitation(pulumi.CustomResource):
         ```
 
         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
 
         :param str resource_name: The name of the resource.
         :param InvitationArgs args: The arguments to use to populate this resource's properties.
