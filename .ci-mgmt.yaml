@@ -12,3 +12,4 @@ makeTemplate: bridged
 team: ecosystem
 pulumiConvert: 1
 registryDocs: true
+renovateCmd: "./scripts/renovate.sh"
