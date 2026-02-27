@@ -305,6 +305,11 @@ debug_tfgen:
 	dlv  --listen=:2345 --headless=true --api-version=2  exec $(WORKING_DIR)/bin/$(CODEGEN) -- schema --out provider/cmd/$(PROVIDER)
 .PHONY: debug_tfgen
 
+renovate_cmd = ./scripts/renovate.sh
+renovate:
+	$(call renovate_cmd)
+.PHONY: renovate
+
 include scripts/crossbuild.mk
 
 # Permit providers to extend the Makefile with provider-specific Make includes.
