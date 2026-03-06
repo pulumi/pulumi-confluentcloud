@@ -288,6 +288,10 @@ class RoleBinding(pulumi.CustomResource):
             principal=f"User:{test['id']}",
             role_name="DeveloperRead",
             crn_pattern=f"{example['resourceName']}/kek=kek-name")
+        flink_developer_compute_pool_example_rb = confluentcloud.RoleBinding("flink-developer-compute-pool-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="FlinkDeveloper",
+            crn_pattern=f"{stag['resourceName']}/flink-region={example_confluent_flink_compute_pool['cloud']}.{example_confluent_flink_compute_pool['region']}/compute-pool={example_confluent_flink_compute_pool['id']}")
         ```
 
         ## Getting Started
@@ -457,6 +461,10 @@ class RoleBinding(pulumi.CustomResource):
             principal=f"User:{test['id']}",
             role_name="DeveloperRead",
             crn_pattern=f"{example['resourceName']}/kek=kek-name")
+        flink_developer_compute_pool_example_rb = confluentcloud.RoleBinding("flink-developer-compute-pool-example-rb",
+            principal=f"User:{test['id']}",
+            role_name="FlinkDeveloper",
+            crn_pattern=f"{stag['resourceName']}/flink-region={example_confluent_flink_compute_pool['cloud']}.{example_confluent_flink_compute_pool['region']}/compute-pool={example_confluent_flink_compute_pool['id']}")
         ```
 
         ## Getting Started
