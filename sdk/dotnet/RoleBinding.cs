@@ -154,6 +154,13 @@ namespace Pulumi.ConfluentCloud
     ///         CrnPattern = $"{example.ResourceName}/kek=kek-name",
     ///     });
     /// 
+    ///     var flink_developer_compute_pool_example_rb = new ConfluentCloud.RoleBinding("flink-developer-compute-pool-example-rb", new()
+    ///     {
+    ///         Principal = $"User:{test.Id}",
+    ///         RoleName = "FlinkDeveloper",
+    ///         CrnPattern = $"{stag.ResourceName}/flink-region={exampleConfluentFlinkComputePool.Cloud}.{exampleConfluentFlinkComputePool.Region}/compute-pool={exampleConfluentFlinkComputePool.Id}",
+    ///     });
+    /// 
     /// });
     /// ```
     /// 

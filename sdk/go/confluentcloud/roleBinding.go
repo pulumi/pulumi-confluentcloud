@@ -175,6 +175,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "flink-developer-compute-pool-example-rb", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.Sprintf("User:%v", test.Id),
+//				RoleName:   pulumi.String("FlinkDeveloper"),
+//				CrnPattern: pulumi.Sprintf("%v/flink-region=%v.%v/compute-pool=%v", stag.ResourceName, exampleConfluentFlinkComputePool.Cloud, exampleConfluentFlinkComputePool.Region, exampleConfluentFlinkComputePool.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}

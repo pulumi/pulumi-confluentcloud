@@ -156,6 +156,12 @@ import javax.annotation.Nullable;
  *             .crnPattern(String.format("%s/kek=kek-name", example.resourceName()))
  *             .build());
  * 
+ *         var flink_developer_compute_pool_example_rb = new RoleBinding("flink-developer-compute-pool-example-rb", RoleBindingArgs.builder()
+ *             .principal(String.format("User:%s", test.id()))
+ *             .roleName("FlinkDeveloper")
+ *             .crnPattern(String.format("%s/flink-region=%s.%s/compute-pool=%s", stag.resourceName(),exampleConfluentFlinkComputePool.cloud(),exampleConfluentFlinkComputePool.region(),exampleConfluentFlinkComputePool.id()))
+ *             .build());
+ * 
  *     }
  * }
  * }

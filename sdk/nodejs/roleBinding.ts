@@ -109,6 +109,11 @@ import * as utilities from "./utilities";
  *     roleName: "DeveloperRead",
  *     crnPattern: `${example.resourceName}/kek=kek-name`,
  * });
+ * const flink_developer_compute_pool_example_rb = new confluentcloud.RoleBinding("flink-developer-compute-pool-example-rb", {
+ *     principal: `User:${test.id}`,
+ *     roleName: "FlinkDeveloper",
+ *     crnPattern: `${stag.resourceName}/flink-region=${exampleConfluentFlinkComputePool.cloud}.${exampleConfluentFlinkComputePool.region}/compute-pool=${exampleConfluentFlinkComputePool.id}`,
+ * });
  * ```
  *
  * ## Getting Started
