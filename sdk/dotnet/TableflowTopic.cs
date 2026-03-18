@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// &gt; **Note:** It is recommended to set `lifecycle { PreventDestroy = true }` on production instances to prevent accidental tableflow topic deletion. This setting rejects plans that would destroy or recreate the tableflow topic, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
     /// 
-    /// &gt; **Note:** Make sure to use `confluentcloud.CatalogIntegration` resource if you want to integrate Tableflow with AWS Glue Catalog or Snowflake Open Catalog.
+    /// &gt; **Note:** Make sure to use `confluentcloud.CatalogIntegration` resource if you want to integrate Tableflow with AWS Glue Catalog, Snowflake Open Catalog, or Unity Catalog.
     /// 
     /// ## Example Usage
     /// 

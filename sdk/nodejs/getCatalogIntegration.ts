@@ -102,6 +102,10 @@ export interface GetCatalogIntegrationResult {
      * (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
      */
     readonly suspended: boolean;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly unities: outputs.GetCatalogIntegrationUnity[];
 }
 /**
  * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

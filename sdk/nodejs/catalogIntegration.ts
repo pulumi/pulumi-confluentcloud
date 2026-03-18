@@ -134,6 +134,10 @@ export class CatalogIntegration extends pulumi.CustomResource {
      * (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
      */
     declare public /*out*/ readonly suspended: pulumi.Output<boolean>;
+    /**
+     * supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+     */
+    declare public readonly unity: pulumi.Output<outputs.CatalogIntegrationUnity | undefined>;
 
     /**
      * Create a CatalogIntegration resource with the given unique name, arguments, and options.
@@ -155,6 +159,7 @@ export class CatalogIntegration extends pulumi.CustomResource {
             resourceInputs["kafkaCluster"] = state?.kafkaCluster;
             resourceInputs["snowflake"] = state?.snowflake;
             resourceInputs["suspended"] = state?.suspended;
+            resourceInputs["unity"] = state?.unity;
         } else {
             const args = argsOrState as CatalogIntegrationArgs | undefined;
             if (args?.displayName === undefined && !opts.urn) {
@@ -172,6 +177,7 @@ export class CatalogIntegration extends pulumi.CustomResource {
             resourceInputs["environment"] = args?.environment;
             resourceInputs["kafkaCluster"] = args?.kafkaCluster;
             resourceInputs["snowflake"] = args?.snowflake;
+            resourceInputs["unity"] = args?.unity;
             resourceInputs["suspended"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -210,6 +216,10 @@ export interface CatalogIntegrationState {
      * (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
      */
     suspended?: pulumi.Input<boolean>;
+    /**
+     * supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+     */
+    unity?: pulumi.Input<inputs.CatalogIntegrationUnity>;
 }
 
 /**
@@ -237,4 +247,8 @@ export interface CatalogIntegrationArgs {
      * supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
      */
     snowflake?: pulumi.Input<inputs.CatalogIntegrationSnowflake>;
+    /**
+     * supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+     */
+    unity?: pulumi.Input<inputs.CatalogIntegrationUnity>;
 }

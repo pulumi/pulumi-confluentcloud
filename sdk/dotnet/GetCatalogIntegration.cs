@@ -298,6 +298,10 @@ namespace Pulumi.ConfluentCloud
         /// (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
         /// </summary>
         public readonly bool Suspended;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetCatalogIntegrationUnityResult> Unities;
 
         [OutputConstructor]
         private GetCatalogIntegrationResult(
@@ -315,7 +319,9 @@ namespace Pulumi.ConfluentCloud
 
             ImmutableArray<Outputs.GetCatalogIntegrationSnowflakeResult> snowflakes,
 
-            bool suspended)
+            bool suspended,
+
+            ImmutableArray<Outputs.GetCatalogIntegrationUnityResult> unities)
         {
             AwsGlues = awsGlues;
             Credentials = credentials;
@@ -325,6 +331,7 @@ namespace Pulumi.ConfluentCloud
             KafkaCluster = kafkaCluster;
             Snowflakes = snowflakes;
             Suspended = suspended;
+            Unities = unities;
         }
     }
 }

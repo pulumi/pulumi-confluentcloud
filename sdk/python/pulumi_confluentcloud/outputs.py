@@ -41,6 +41,7 @@ __all__ = [
     'CatalogIntegrationEnvironment',
     'CatalogIntegrationKafkaCluster',
     'CatalogIntegrationSnowflake',
+    'CatalogIntegrationUnity',
     'CertificatePoolCertificateAuthority',
     'ClusterLinkDestinationKafkaCluster',
     'ClusterLinkDestinationKafkaClusterCredentials',
@@ -207,6 +208,7 @@ __all__ = [
     'GetCatalogIntegrationEnvironmentResult',
     'GetCatalogIntegrationKafkaClusterResult',
     'GetCatalogIntegrationSnowflakeResult',
+    'GetCatalogIntegrationUnityResult',
     'GetCertificatePoolCertificateAuthorityResult',
     'GetClusterLinkCredentialsResult',
     'GetClusterLinkKafkaClusterResult',
@@ -1528,6 +1530,80 @@ class CatalogIntegrationSnowflake(dict):
         Warehouse name of the Snowflake Open Catalog, for example, `catalog-name`.
         """
         return pulumi.get(self, "warehouse")
+
+
+@pulumi.output_type
+class CatalogIntegrationUnity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "workspaceEndpoint":
+            suggest = "workspace_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogIntegrationUnity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogIntegrationUnity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogIntegrationUnity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog_name: _builtins.str,
+                 client_id: _builtins.str,
+                 client_secret: _builtins.str,
+                 workspace_endpoint: _builtins.str):
+        """
+        :param _builtins.str catalog_name: The name of the catalog within Unity Catalog.
+        :param _builtins.str client_id: The OAuth client ID used to authenticate with the Unity Catalog.
+        :param _builtins.str client_secret: The OAuth client secret used for authentication with the Unity Catalog.
+        :param _builtins.str workspace_endpoint: The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
+        """
+        pulumi.set(__self__, "catalog_name", catalog_name)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "workspace_endpoint", workspace_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> _builtins.str:
+        """
+        The name of the catalog within Unity Catalog.
+        """
+        return pulumi.get(self, "catalog_name")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The OAuth client ID used to authenticate with the Unity Catalog.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        """
+        The OAuth client secret used for authentication with the Unity Catalog.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceEndpoint")
+    def workspace_endpoint(self) -> _builtins.str:
+        """
+        The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
+        """
+        return pulumi.get(self, "workspace_endpoint")
 
 
 @pulumi.output_type
@@ -6936,6 +7012,35 @@ class GetCatalogIntegrationSnowflakeResult(dict):
         (Required String) Warehouse name of the Snowflake Open Catalog.
         """
         return pulumi.get(self, "warehouse")
+
+
+@pulumi.output_type
+class GetCatalogIntegrationUnityResult(dict):
+    def __init__(__self__, *,
+                 catalog_name: _builtins.str,
+                 workspace_endpoint: _builtins.str):
+        """
+        :param _builtins.str catalog_name: (Required String) The name of the catalog within Unity Catalog.
+        :param _builtins.str workspace_endpoint: (Required String) The Databricks workspace URL associated with the Unity Catalog.
+        """
+        pulumi.set(__self__, "catalog_name", catalog_name)
+        pulumi.set(__self__, "workspace_endpoint", workspace_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> _builtins.str:
+        """
+        (Required String) The name of the catalog within Unity Catalog.
+        """
+        return pulumi.get(self, "catalog_name")
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceEndpoint")
+    def workspace_endpoint(self) -> _builtins.str:
+        """
+        (Required String) The Databricks workspace URL associated with the Unity Catalog.
+        """
+        return pulumi.get(self, "workspace_endpoint")
 
 
 @pulumi.output_type

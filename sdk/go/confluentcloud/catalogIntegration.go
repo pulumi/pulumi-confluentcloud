@@ -131,6 +131,8 @@ type CatalogIntegration struct {
 	Snowflake CatalogIntegrationSnowflakePtrOutput `pulumi:"snowflake"`
 	// (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
 	Suspended pulumi.BoolOutput `pulumi:"suspended"`
+	// supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+	Unity CatalogIntegrationUnityPtrOutput `pulumi:"unity"`
 }
 
 // NewCatalogIntegration registers a new resource with the given unique name, arguments, and options.
@@ -192,6 +194,8 @@ type catalogIntegrationState struct {
 	Snowflake *CatalogIntegrationSnowflake `pulumi:"snowflake"`
 	// (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
 	Suspended *bool `pulumi:"suspended"`
+	// supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+	Unity *CatalogIntegrationUnity `pulumi:"unity"`
 }
 
 type CatalogIntegrationState struct {
@@ -208,6 +212,8 @@ type CatalogIntegrationState struct {
 	Snowflake CatalogIntegrationSnowflakePtrInput
 	// (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
 	Suspended pulumi.BoolPtrInput
+	// supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+	Unity CatalogIntegrationUnityPtrInput
 }
 
 func (CatalogIntegrationState) ElementType() reflect.Type {
@@ -226,6 +232,8 @@ type catalogIntegrationArgs struct {
 	KafkaCluster CatalogIntegrationKafkaCluster `pulumi:"kafkaCluster"`
 	// supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
 	Snowflake *CatalogIntegrationSnowflake `pulumi:"snowflake"`
+	// supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+	Unity *CatalogIntegrationUnity `pulumi:"unity"`
 }
 
 // The set of arguments for constructing a CatalogIntegration resource.
@@ -241,6 +249,8 @@ type CatalogIntegrationArgs struct {
 	KafkaCluster CatalogIntegrationKafkaClusterInput
 	// supports the following (see [Integrate Tableflow with Snowflake Open Catalog or Apache Polaris in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-snowflake-open-catalog-or-apache-polaris.html) for more details):
 	Snowflake CatalogIntegrationSnowflakePtrInput
+	// supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+	Unity CatalogIntegrationUnityPtrInput
 }
 
 func (CatalogIntegrationArgs) ElementType() reflect.Type {
@@ -362,6 +372,11 @@ func (o CatalogIntegrationOutput) Snowflake() CatalogIntegrationSnowflakePtrOutp
 // (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
 func (o CatalogIntegrationOutput) Suspended() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CatalogIntegration) pulumi.BoolOutput { return v.Suspended }).(pulumi.BoolOutput)
+}
+
+// supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+func (o CatalogIntegrationOutput) Unity() CatalogIntegrationUnityPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegration) CatalogIntegrationUnityPtrOutput { return v.Unity }).(CatalogIntegrationUnityPtrOutput)
 }
 
 type CatalogIntegrationArrayOutput struct{ *pulumi.OutputState }

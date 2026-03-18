@@ -133,6 +133,9 @@
                     },
                     "snowflake": {
                         "maxItemsOne": true
+                    },
+                    "unity": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -1102,6 +1105,9 @@
                         "maxItemsOne": true
                     },
                     "snowflake": {
+                        "maxItemsOne": false
+                    },
+                    "unity": {
                         "maxItemsOne": false
                     }
                 }

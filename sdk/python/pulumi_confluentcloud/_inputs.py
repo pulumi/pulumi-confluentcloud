@@ -65,6 +65,8 @@ __all__ = [
     'CatalogIntegrationKafkaClusterArgsDict',
     'CatalogIntegrationSnowflakeArgs',
     'CatalogIntegrationSnowflakeArgsDict',
+    'CatalogIntegrationUnityArgs',
+    'CatalogIntegrationUnityArgsDict',
     'CertificatePoolCertificateAuthorityArgs',
     'CertificatePoolCertificateAuthorityArgsDict',
     'ClusterLinkDestinationKafkaClusterArgs',
@@ -1991,6 +1993,91 @@ class CatalogIntegrationSnowflakeArgs:
     @warehouse.setter
     def warehouse(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "warehouse", value)
+
+
+class CatalogIntegrationUnityArgsDict(TypedDict):
+    catalog_name: pulumi.Input[_builtins.str]
+    """
+    The name of the catalog within Unity Catalog.
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    The OAuth client ID used to authenticate with the Unity Catalog.
+    """
+    client_secret: pulumi.Input[_builtins.str]
+    """
+    The OAuth client secret used for authentication with the Unity Catalog.
+    """
+    workspace_endpoint: pulumi.Input[_builtins.str]
+    """
+    The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
+    """
+
+@pulumi.input_type
+class CatalogIntegrationUnityArgs:
+    def __init__(__self__, *,
+                 catalog_name: pulumi.Input[_builtins.str],
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str],
+                 workspace_endpoint: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] catalog_name: The name of the catalog within Unity Catalog.
+        :param pulumi.Input[_builtins.str] client_id: The OAuth client ID used to authenticate with the Unity Catalog.
+        :param pulumi.Input[_builtins.str] client_secret: The OAuth client secret used for authentication with the Unity Catalog.
+        :param pulumi.Input[_builtins.str] workspace_endpoint: The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
+        """
+        pulumi.set(__self__, "catalog_name", catalog_name)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "workspace_endpoint", workspace_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the catalog within Unity Catalog.
+        """
+        return pulumi.get(self, "catalog_name")
+
+    @catalog_name.setter
+    def catalog_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "catalog_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The OAuth client ID used to authenticate with the Unity Catalog.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        """
+        The OAuth client secret used for authentication with the Unity Catalog.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceEndpoint")
+    def workspace_endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
+        """
+        return pulumi.get(self, "workspace_endpoint")
+
+    @workspace_endpoint.setter
+    def workspace_endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace_endpoint", value)
 
 
 class CertificatePoolCertificateAuthorityArgsDict(TypedDict):
