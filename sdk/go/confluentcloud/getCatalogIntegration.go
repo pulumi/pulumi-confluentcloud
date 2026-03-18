@@ -113,6 +113,8 @@ type LookupCatalogIntegrationResult struct {
 	Snowflakes []GetCatalogIntegrationSnowflake `pulumi:"snowflakes"`
 	// (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
 	Suspended bool `pulumi:"suspended"`
+	// (Optional Configuration Block) supports the following:
+	Unities []GetCatalogIntegrationUnity `pulumi:"unities"`
 }
 
 func LookupCatalogIntegrationOutput(ctx *pulumi.Context, args LookupCatalogIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupCatalogIntegrationResultOutput {
@@ -186,6 +188,11 @@ func (o LookupCatalogIntegrationResultOutput) Snowflakes() GetCatalogIntegration
 // (Optional Boolean) Indicates whether the Catalog Integration should be suspended.
 func (o LookupCatalogIntegrationResultOutput) Suspended() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupCatalogIntegrationResult) bool { return v.Suspended }).(pulumi.BoolOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupCatalogIntegrationResultOutput) Unities() GetCatalogIntegrationUnityArrayOutput {
+	return o.ApplyT(func(v LookupCatalogIntegrationResult) []GetCatalogIntegrationUnity { return v.Unities }).(GetCatalogIntegrationUnityArrayOutput)
 }
 
 func init() {

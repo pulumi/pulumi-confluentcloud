@@ -11,6 +11,7 @@ import com.pulumi.confluentcloud.outputs.CatalogIntegrationCredentials;
 import com.pulumi.confluentcloud.outputs.CatalogIntegrationEnvironment;
 import com.pulumi.confluentcloud.outputs.CatalogIntegrationKafkaCluster;
 import com.pulumi.confluentcloud.outputs.CatalogIntegrationSnowflake;
+import com.pulumi.confluentcloud.outputs.CatalogIntegrationUnity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -239,6 +240,20 @@ public class CatalogIntegration extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> suspended() {
         return this.suspended;
+    }
+    /**
+     * supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+     * 
+     */
+    @Export(name="unity", refs={CatalogIntegrationUnity.class}, tree="[0]")
+    private Output</* @Nullable */ CatalogIntegrationUnity> unity;
+
+    /**
+     * @return supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+     * 
+     */
+    public Output<Optional<CatalogIntegrationUnity>> unity() {
+        return Codegen.optional(this.unity);
     }
 
     /**

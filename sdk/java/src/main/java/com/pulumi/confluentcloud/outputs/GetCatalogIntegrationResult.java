@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.outputs.GetCatalogIntegrationCredentials;
 import com.pulumi.confluentcloud.outputs.GetCatalogIntegrationEnvironment;
 import com.pulumi.confluentcloud.outputs.GetCatalogIntegrationKafkaCluster;
 import com.pulumi.confluentcloud.outputs.GetCatalogIntegrationSnowflake;
+import com.pulumi.confluentcloud.outputs.GetCatalogIntegrationUnity;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -43,6 +44,11 @@ public final class GetCatalogIntegrationResult {
      * 
      */
     private Boolean suspended;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetCatalogIntegrationUnity> unities;
 
     private GetCatalogIntegrationResult() {}
     /**
@@ -85,6 +91,13 @@ public final class GetCatalogIntegrationResult {
     public Boolean suspended() {
         return this.suspended;
     }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetCatalogIntegrationUnity> unities() {
+        return this.unities;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -103,6 +116,7 @@ public final class GetCatalogIntegrationResult {
         private GetCatalogIntegrationKafkaCluster kafkaCluster;
         private List<GetCatalogIntegrationSnowflake> snowflakes;
         private Boolean suspended;
+        private List<GetCatalogIntegrationUnity> unities;
         public Builder() {}
         public Builder(GetCatalogIntegrationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -114,6 +128,7 @@ public final class GetCatalogIntegrationResult {
     	      this.kafkaCluster = defaults.kafkaCluster;
     	      this.snowflakes = defaults.snowflakes;
     	      this.suspended = defaults.suspended;
+    	      this.unities = defaults.unities;
         }
 
         @CustomType.Setter
@@ -184,6 +199,17 @@ public final class GetCatalogIntegrationResult {
             this.suspended = suspended;
             return this;
         }
+        @CustomType.Setter
+        public Builder unities(List<GetCatalogIntegrationUnity> unities) {
+            if (unities == null) {
+              throw new MissingRequiredPropertyException("GetCatalogIntegrationResult", "unities");
+            }
+            this.unities = unities;
+            return this;
+        }
+        public Builder unities(GetCatalogIntegrationUnity... unities) {
+            return unities(List.of(unities));
+        }
         public GetCatalogIntegrationResult build() {
             final var _resultValue = new GetCatalogIntegrationResult();
             _resultValue.awsGlues = awsGlues;
@@ -194,6 +220,7 @@ public final class GetCatalogIntegrationResult {
             _resultValue.kafkaCluster = kafkaCluster;
             _resultValue.snowflakes = snowflakes;
             _resultValue.suspended = suspended;
+            _resultValue.unities = unities;
             return _resultValue;
         }
     }

@@ -339,6 +339,25 @@ export interface CatalogIntegrationSnowflake {
     warehouse: pulumi.Input<string>;
 }
 
+export interface CatalogIntegrationUnity {
+    /**
+     * The name of the catalog within Unity Catalog.
+     */
+    catalogName: pulumi.Input<string>;
+    /**
+     * The OAuth client ID used to authenticate with the Unity Catalog.
+     */
+    clientId: pulumi.Input<string>;
+    /**
+     * The OAuth client secret used for authentication with the Unity Catalog.
+     */
+    clientSecret: pulumi.Input<string>;
+    /**
+     * The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
+     */
+    workspaceEndpoint: pulumi.Input<string>;
+}
+
 export interface CertificatePoolCertificateAuthority {
     /**
      * The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.

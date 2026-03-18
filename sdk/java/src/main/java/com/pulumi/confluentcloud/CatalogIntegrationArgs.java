@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.CatalogIntegrationCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.CatalogIntegrationEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.CatalogIntegrationKafkaClusterArgs;
 import com.pulumi.confluentcloud.inputs.CatalogIntegrationSnowflakeArgs;
+import com.pulumi.confluentcloud.inputs.CatalogIntegrationUnityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -103,6 +104,21 @@ public final class CatalogIntegrationArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.snowflake);
     }
 
+    /**
+     * supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+     * 
+     */
+    @Import(name="unity")
+    private @Nullable Output<CatalogIntegrationUnityArgs> unity;
+
+    /**
+     * @return supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+     * 
+     */
+    public Optional<Output<CatalogIntegrationUnityArgs>> unity() {
+        return Optional.ofNullable(this.unity);
+    }
+
     private CatalogIntegrationArgs() {}
 
     private CatalogIntegrationArgs(CatalogIntegrationArgs $) {
@@ -112,6 +128,7 @@ public final class CatalogIntegrationArgs extends com.pulumi.resources.ResourceA
         this.environment = $.environment;
         this.kafkaCluster = $.kafkaCluster;
         this.snowflake = $.snowflake;
+        this.unity = $.unity;
     }
 
     public static Builder builder() {
@@ -244,6 +261,27 @@ public final class CatalogIntegrationArgs extends com.pulumi.resources.ResourceA
          */
         public Builder snowflake(CatalogIntegrationSnowflakeArgs snowflake) {
             return snowflake(Output.of(snowflake));
+        }
+
+        /**
+         * @param unity supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unity(@Nullable Output<CatalogIntegrationUnityArgs> unity) {
+            $.unity = unity;
+            return this;
+        }
+
+        /**
+         * @param unity supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unity(CatalogIntegrationUnityArgs unity) {
+            return unity(Output.of(unity));
         }
 
         public CatalogIntegrationArgs build() {

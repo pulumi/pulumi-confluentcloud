@@ -339,6 +339,25 @@ export interface CatalogIntegrationSnowflake {
     warehouse: string;
 }
 
+export interface CatalogIntegrationUnity {
+    /**
+     * The name of the catalog within Unity Catalog.
+     */
+    catalogName: string;
+    /**
+     * The OAuth client ID used to authenticate with the Unity Catalog.
+     */
+    clientId: string;
+    /**
+     * The OAuth client secret used for authentication with the Unity Catalog.
+     */
+    clientSecret: string;
+    /**
+     * The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
+     */
+    workspaceEndpoint: string;
+}
+
 export interface CertificatePoolCertificateAuthority {
     /**
      * The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
@@ -986,6 +1005,17 @@ export interface GetCatalogIntegrationSnowflake {
      * (Required String) Warehouse name of the Snowflake Open Catalog.
      */
     warehouse: string;
+}
+
+export interface GetCatalogIntegrationUnity {
+    /**
+     * (Required String) The name of the catalog within Unity Catalog.
+     */
+    catalogName: string;
+    /**
+     * (Required String) The Databricks workspace URL associated with the Unity Catalog.
+     */
+    workspaceEndpoint: string;
 }
 
 export interface GetCertificatePoolCertificateAuthority {

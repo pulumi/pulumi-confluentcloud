@@ -4111,6 +4111,200 @@ func (o CatalogIntegrationSnowflakePtrOutput) Warehouse() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type CatalogIntegrationUnity struct {
+	// The name of the catalog within Unity Catalog.
+	CatalogName string `pulumi:"catalogName"`
+	// The OAuth client ID used to authenticate with the Unity Catalog.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth client secret used for authentication with the Unity Catalog.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
+	WorkspaceEndpoint string `pulumi:"workspaceEndpoint"`
+}
+
+// CatalogIntegrationUnityInput is an input type that accepts CatalogIntegrationUnityArgs and CatalogIntegrationUnityOutput values.
+// You can construct a concrete instance of `CatalogIntegrationUnityInput` via:
+//
+//	CatalogIntegrationUnityArgs{...}
+type CatalogIntegrationUnityInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationUnityOutput() CatalogIntegrationUnityOutput
+	ToCatalogIntegrationUnityOutputWithContext(context.Context) CatalogIntegrationUnityOutput
+}
+
+type CatalogIntegrationUnityArgs struct {
+	// The name of the catalog within Unity Catalog.
+	CatalogName pulumi.StringInput `pulumi:"catalogName"`
+	// The OAuth client ID used to authenticate with the Unity Catalog.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth client secret used for authentication with the Unity Catalog.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
+	WorkspaceEndpoint pulumi.StringInput `pulumi:"workspaceEndpoint"`
+}
+
+func (CatalogIntegrationUnityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationUnity)(nil)).Elem()
+}
+
+func (i CatalogIntegrationUnityArgs) ToCatalogIntegrationUnityOutput() CatalogIntegrationUnityOutput {
+	return i.ToCatalogIntegrationUnityOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationUnityArgs) ToCatalogIntegrationUnityOutputWithContext(ctx context.Context) CatalogIntegrationUnityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationUnityOutput)
+}
+
+func (i CatalogIntegrationUnityArgs) ToCatalogIntegrationUnityPtrOutput() CatalogIntegrationUnityPtrOutput {
+	return i.ToCatalogIntegrationUnityPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationUnityArgs) ToCatalogIntegrationUnityPtrOutputWithContext(ctx context.Context) CatalogIntegrationUnityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationUnityOutput).ToCatalogIntegrationUnityPtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationUnityPtrInput is an input type that accepts CatalogIntegrationUnityArgs, CatalogIntegrationUnityPtr and CatalogIntegrationUnityPtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationUnityPtrInput` via:
+//
+//	        CatalogIntegrationUnityArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationUnityPtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationUnityPtrOutput() CatalogIntegrationUnityPtrOutput
+	ToCatalogIntegrationUnityPtrOutputWithContext(context.Context) CatalogIntegrationUnityPtrOutput
+}
+
+type catalogIntegrationUnityPtrType CatalogIntegrationUnityArgs
+
+func CatalogIntegrationUnityPtr(v *CatalogIntegrationUnityArgs) CatalogIntegrationUnityPtrInput {
+	return (*catalogIntegrationUnityPtrType)(v)
+}
+
+func (*catalogIntegrationUnityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationUnity)(nil)).Elem()
+}
+
+func (i *catalogIntegrationUnityPtrType) ToCatalogIntegrationUnityPtrOutput() CatalogIntegrationUnityPtrOutput {
+	return i.ToCatalogIntegrationUnityPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationUnityPtrType) ToCatalogIntegrationUnityPtrOutputWithContext(ctx context.Context) CatalogIntegrationUnityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationUnityPtrOutput)
+}
+
+type CatalogIntegrationUnityOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationUnityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationUnity)(nil)).Elem()
+}
+
+func (o CatalogIntegrationUnityOutput) ToCatalogIntegrationUnityOutput() CatalogIntegrationUnityOutput {
+	return o
+}
+
+func (o CatalogIntegrationUnityOutput) ToCatalogIntegrationUnityOutputWithContext(ctx context.Context) CatalogIntegrationUnityOutput {
+	return o
+}
+
+func (o CatalogIntegrationUnityOutput) ToCatalogIntegrationUnityPtrOutput() CatalogIntegrationUnityPtrOutput {
+	return o.ToCatalogIntegrationUnityPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationUnityOutput) ToCatalogIntegrationUnityPtrOutputWithContext(ctx context.Context) CatalogIntegrationUnityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationUnity) *CatalogIntegrationUnity {
+		return &v
+	}).(CatalogIntegrationUnityPtrOutput)
+}
+
+// The name of the catalog within Unity Catalog.
+func (o CatalogIntegrationUnityOutput) CatalogName() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationUnity) string { return v.CatalogName }).(pulumi.StringOutput)
+}
+
+// The OAuth client ID used to authenticate with the Unity Catalog.
+func (o CatalogIntegrationUnityOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationUnity) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth client secret used for authentication with the Unity Catalog.
+func (o CatalogIntegrationUnityOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationUnity) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
+func (o CatalogIntegrationUnityOutput) WorkspaceEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationUnity) string { return v.WorkspaceEndpoint }).(pulumi.StringOutput)
+}
+
+type CatalogIntegrationUnityPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationUnityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationUnity)(nil)).Elem()
+}
+
+func (o CatalogIntegrationUnityPtrOutput) ToCatalogIntegrationUnityPtrOutput() CatalogIntegrationUnityPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationUnityPtrOutput) ToCatalogIntegrationUnityPtrOutputWithContext(ctx context.Context) CatalogIntegrationUnityPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationUnityPtrOutput) Elem() CatalogIntegrationUnityOutput {
+	return o.ApplyT(func(v *CatalogIntegrationUnity) CatalogIntegrationUnity {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationUnity
+		return ret
+	}).(CatalogIntegrationUnityOutput)
+}
+
+// The name of the catalog within Unity Catalog.
+func (o CatalogIntegrationUnityPtrOutput) CatalogName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationUnity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OAuth client ID used to authenticate with the Unity Catalog.
+func (o CatalogIntegrationUnityPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationUnity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OAuth client secret used for authentication with the Unity Catalog.
+func (o CatalogIntegrationUnityPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationUnity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Databricks workspace URL associated with the Unity Catalog, for example, `https://user1.cloud.databricks.com`.
+func (o CatalogIntegrationUnityPtrOutput) WorkspaceEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationUnity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkspaceEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
 type CertificatePoolCertificateAuthority struct {
 	// The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
 	Id string `pulumi:"id"`
@@ -27789,6 +27983,112 @@ func (o GetCatalogIntegrationSnowflakeArrayOutput) Index(i pulumi.IntInput) GetC
 	}).(GetCatalogIntegrationSnowflakeOutput)
 }
 
+type GetCatalogIntegrationUnity struct {
+	// (Required String) The name of the catalog within Unity Catalog.
+	CatalogName string `pulumi:"catalogName"`
+	// (Required String) The Databricks workspace URL associated with the Unity Catalog.
+	WorkspaceEndpoint string `pulumi:"workspaceEndpoint"`
+}
+
+// GetCatalogIntegrationUnityInput is an input type that accepts GetCatalogIntegrationUnityArgs and GetCatalogIntegrationUnityOutput values.
+// You can construct a concrete instance of `GetCatalogIntegrationUnityInput` via:
+//
+//	GetCatalogIntegrationUnityArgs{...}
+type GetCatalogIntegrationUnityInput interface {
+	pulumi.Input
+
+	ToGetCatalogIntegrationUnityOutput() GetCatalogIntegrationUnityOutput
+	ToGetCatalogIntegrationUnityOutputWithContext(context.Context) GetCatalogIntegrationUnityOutput
+}
+
+type GetCatalogIntegrationUnityArgs struct {
+	// (Required String) The name of the catalog within Unity Catalog.
+	CatalogName pulumi.StringInput `pulumi:"catalogName"`
+	// (Required String) The Databricks workspace URL associated with the Unity Catalog.
+	WorkspaceEndpoint pulumi.StringInput `pulumi:"workspaceEndpoint"`
+}
+
+func (GetCatalogIntegrationUnityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationUnity)(nil)).Elem()
+}
+
+func (i GetCatalogIntegrationUnityArgs) ToGetCatalogIntegrationUnityOutput() GetCatalogIntegrationUnityOutput {
+	return i.ToGetCatalogIntegrationUnityOutputWithContext(context.Background())
+}
+
+func (i GetCatalogIntegrationUnityArgs) ToGetCatalogIntegrationUnityOutputWithContext(ctx context.Context) GetCatalogIntegrationUnityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationUnityOutput)
+}
+
+// GetCatalogIntegrationUnityArrayInput is an input type that accepts GetCatalogIntegrationUnityArray and GetCatalogIntegrationUnityArrayOutput values.
+// You can construct a concrete instance of `GetCatalogIntegrationUnityArrayInput` via:
+//
+//	GetCatalogIntegrationUnityArray{ GetCatalogIntegrationUnityArgs{...} }
+type GetCatalogIntegrationUnityArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogIntegrationUnityArrayOutput() GetCatalogIntegrationUnityArrayOutput
+	ToGetCatalogIntegrationUnityArrayOutputWithContext(context.Context) GetCatalogIntegrationUnityArrayOutput
+}
+
+type GetCatalogIntegrationUnityArray []GetCatalogIntegrationUnityInput
+
+func (GetCatalogIntegrationUnityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogIntegrationUnity)(nil)).Elem()
+}
+
+func (i GetCatalogIntegrationUnityArray) ToGetCatalogIntegrationUnityArrayOutput() GetCatalogIntegrationUnityArrayOutput {
+	return i.ToGetCatalogIntegrationUnityArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogIntegrationUnityArray) ToGetCatalogIntegrationUnityArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationUnityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationUnityArrayOutput)
+}
+
+type GetCatalogIntegrationUnityOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogIntegrationUnityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogIntegrationUnity)(nil)).Elem()
+}
+
+func (o GetCatalogIntegrationUnityOutput) ToGetCatalogIntegrationUnityOutput() GetCatalogIntegrationUnityOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationUnityOutput) ToGetCatalogIntegrationUnityOutputWithContext(ctx context.Context) GetCatalogIntegrationUnityOutput {
+	return o
+}
+
+// (Required String) The name of the catalog within Unity Catalog.
+func (o GetCatalogIntegrationUnityOutput) CatalogName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationUnity) string { return v.CatalogName }).(pulumi.StringOutput)
+}
+
+// (Required String) The Databricks workspace URL associated with the Unity Catalog.
+func (o GetCatalogIntegrationUnityOutput) WorkspaceEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogIntegrationUnity) string { return v.WorkspaceEndpoint }).(pulumi.StringOutput)
+}
+
+type GetCatalogIntegrationUnityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogIntegrationUnityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogIntegrationUnity)(nil)).Elem()
+}
+
+func (o GetCatalogIntegrationUnityArrayOutput) ToGetCatalogIntegrationUnityArrayOutput() GetCatalogIntegrationUnityArrayOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationUnityArrayOutput) ToGetCatalogIntegrationUnityArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationUnityArrayOutput {
+	return o
+}
+
+func (o GetCatalogIntegrationUnityArrayOutput) Index(i pulumi.IntInput) GetCatalogIntegrationUnityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogIntegrationUnity {
+		return vs[0].([]GetCatalogIntegrationUnity)[vs[1].(int)]
+	}).(GetCatalogIntegrationUnityOutput)
+}
+
 type GetCertificatePoolCertificateAuthority struct {
 	// The ID of the Certificate Authority for this Certificate Pool, for example, `op-123abc`.
 	Id string `pulumi:"id"`
@@ -45409,6 +45709,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationKafkaClusterPtrInput)(nil)).Elem(), CatalogIntegrationKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationSnowflakeInput)(nil)).Elem(), CatalogIntegrationSnowflakeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationSnowflakePtrInput)(nil)).Elem(), CatalogIntegrationSnowflakeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationUnityInput)(nil)).Elem(), CatalogIntegrationUnityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationUnityPtrInput)(nil)).Elem(), CatalogIntegrationUnityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificatePoolCertificateAuthorityInput)(nil)).Elem(), CertificatePoolCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificatePoolCertificateAuthorityPtrInput)(nil)).Elem(), CertificatePoolCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
@@ -45740,6 +46042,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationKafkaClusterInput)(nil)).Elem(), GetCatalogIntegrationKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationSnowflakeInput)(nil)).Elem(), GetCatalogIntegrationSnowflakeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationSnowflakeArrayInput)(nil)).Elem(), GetCatalogIntegrationSnowflakeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationUnityInput)(nil)).Elem(), GetCatalogIntegrationUnityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationUnityArrayInput)(nil)).Elem(), GetCatalogIntegrationUnityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificatePoolCertificateAuthorityInput)(nil)).Elem(), GetCertificatePoolCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkCredentialsInput)(nil)).Elem(), GetClusterLinkCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLinkCredentialsPtrInput)(nil)).Elem(), GetClusterLinkCredentialsArgs{})
@@ -46074,6 +46378,8 @@ func init() {
 	pulumi.RegisterOutputType(CatalogIntegrationKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(CatalogIntegrationSnowflakeOutput{})
 	pulumi.RegisterOutputType(CatalogIntegrationSnowflakePtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationUnityOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationUnityPtrOutput{})
 	pulumi.RegisterOutputType(CertificatePoolCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(CertificatePoolCertificateAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterOutput{})
@@ -46405,6 +46711,8 @@ func init() {
 	pulumi.RegisterOutputType(GetCatalogIntegrationKafkaClusterOutput{})
 	pulumi.RegisterOutputType(GetCatalogIntegrationSnowflakeOutput{})
 	pulumi.RegisterOutputType(GetCatalogIntegrationSnowflakeArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogIntegrationUnityOutput{})
+	pulumi.RegisterOutputType(GetCatalogIntegrationUnityArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificatePoolCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(GetClusterLinkCredentialsOutput{})
 	pulumi.RegisterOutputType(GetClusterLinkCredentialsPtrOutput{})

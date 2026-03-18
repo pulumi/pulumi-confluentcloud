@@ -147,6 +147,12 @@ namespace Pulumi.ConfluentCloud
         [Output("suspended")]
         public Output<bool> Suspended { get; private set; } = null!;
 
+        /// <summary>
+        /// supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+        /// </summary>
+        [Output("unity")]
+        public Output<Outputs.CatalogIntegrationUnity?> Unity { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CatalogIntegration resource with the given unique name, arguments, and options.
@@ -240,6 +246,12 @@ namespace Pulumi.ConfluentCloud
         [Input("snowflake")]
         public Input<Inputs.CatalogIntegrationSnowflakeArgs>? Snowflake { get; set; }
 
+        /// <summary>
+        /// supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+        /// </summary>
+        [Input("unity")]
+        public Input<Inputs.CatalogIntegrationUnityArgs>? Unity { get; set; }
+
         public CatalogIntegrationArgs()
         {
         }
@@ -296,6 +308,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("suspended")]
         public Input<bool>? Suspended { get; set; }
+
+        /// <summary>
+        /// supports the following (see [Integrate Tableflow with Unity Catalog in Confluent Cloud](https://docs.confluent.io/cloud/current/topics/tableflow/how-to-guides/catalog-integration/integrate-with-unity-catalog.html) for more details):
+        /// </summary>
+        [Input("unity")]
+        public Input<Inputs.CatalogIntegrationUnityGetArgs>? Unity { get; set; }
 
         public CatalogIntegrationState()
         {

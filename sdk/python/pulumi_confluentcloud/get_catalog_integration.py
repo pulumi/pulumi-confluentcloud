@@ -28,7 +28,7 @@ class GetCatalogIntegrationResult:
     """
     A collection of values returned by getCatalogIntegration.
     """
-    def __init__(__self__, aws_glues=None, credentials=None, display_name=None, environment=None, id=None, kafka_cluster=None, snowflakes=None, suspended=None):
+    def __init__(__self__, aws_glues=None, credentials=None, display_name=None, environment=None, id=None, kafka_cluster=None, snowflakes=None, suspended=None, unities=None):
         if aws_glues and not isinstance(aws_glues, list):
             raise TypeError("Expected argument 'aws_glues' to be a list")
         pulumi.set(__self__, "aws_glues", aws_glues)
@@ -53,6 +53,9 @@ class GetCatalogIntegrationResult:
         if suspended and not isinstance(suspended, bool):
             raise TypeError("Expected argument 'suspended' to be a bool")
         pulumi.set(__self__, "suspended", suspended)
+        if unities and not isinstance(unities, list):
+            raise TypeError("Expected argument 'unities' to be a list")
+        pulumi.set(__self__, "unities", unities)
 
     @_builtins.property
     @pulumi.getter(name="awsGlues")
@@ -106,6 +109,14 @@ class GetCatalogIntegrationResult:
         """
         return pulumi.get(self, "suspended")
 
+    @_builtins.property
+    @pulumi.getter
+    def unities(self) -> Sequence['outputs.GetCatalogIntegrationUnityResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "unities")
+
 
 class AwaitableGetCatalogIntegrationResult(GetCatalogIntegrationResult):
     # pylint: disable=using-constant-test
@@ -120,7 +131,8 @@ class AwaitableGetCatalogIntegrationResult(GetCatalogIntegrationResult):
             id=self.id,
             kafka_cluster=self.kafka_cluster,
             snowflakes=self.snowflakes,
-            suspended=self.suspended)
+            suspended=self.suspended,
+            unities=self.unities)
 
 
 def get_catalog_integration(credentials: Optional[Union['GetCatalogIntegrationCredentialsArgs', 'GetCatalogIntegrationCredentialsArgsDict']] = None,
@@ -184,7 +196,8 @@ def get_catalog_integration(credentials: Optional[Union['GetCatalogIntegrationCr
         id=pulumi.get(__ret__, 'id'),
         kafka_cluster=pulumi.get(__ret__, 'kafka_cluster'),
         snowflakes=pulumi.get(__ret__, 'snowflakes'),
-        suspended=pulumi.get(__ret__, 'suspended'))
+        suspended=pulumi.get(__ret__, 'suspended'),
+        unities=pulumi.get(__ret__, 'unities'))
 def get_catalog_integration_output(credentials: Optional[pulumi.Input[Optional[Union['GetCatalogIntegrationCredentialsArgs', 'GetCatalogIntegrationCredentialsArgsDict']]]] = None,
                                    environment: Optional[pulumi.Input[Union['GetCatalogIntegrationEnvironmentArgs', 'GetCatalogIntegrationEnvironmentArgsDict']]] = None,
                                    id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -245,4 +258,5 @@ def get_catalog_integration_output(credentials: Optional[pulumi.Input[Optional[U
         id=pulumi.get(__response__, 'id'),
         kafka_cluster=pulumi.get(__response__, 'kafka_cluster'),
         snowflakes=pulumi.get(__response__, 'snowflakes'),
-        suspended=pulumi.get(__response__, 'suspended')))
+        suspended=pulumi.get(__response__, 'suspended'),
+        unities=pulumi.get(__response__, 'unities')))

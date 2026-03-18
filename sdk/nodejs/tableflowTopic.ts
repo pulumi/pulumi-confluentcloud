@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * > **Note:** It is recommended to set `lifecycle { preventDestroy = true }` on production instances to prevent accidental tableflow topic deletion. This setting rejects plans that would destroy or recreate the tableflow topic, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.
  *
- * > **Note:** Make sure to use `confluentcloud.CatalogIntegration` resource if you want to integrate Tableflow with AWS Glue Catalog or Snowflake Open Catalog.
+ * > **Note:** Make sure to use `confluentcloud.CatalogIntegration` resource if you want to integrate Tableflow with AWS Glue Catalog, Snowflake Open Catalog, or Unity Catalog.
  *
  * ## Example Usage
  *
