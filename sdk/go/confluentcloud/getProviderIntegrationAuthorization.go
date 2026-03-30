@@ -54,7 +54,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("azureAppId", azure.Azures[0].ConfluentMultiTenantAppId)
-//			ctx.Export("servicePrincipalObjectId", confluent.ObjectId)
+//			ctx.Export("servicePrincipalObjectId", pulumi.Any(confluent.ObjectId))
 //			return nil
 //		})
 //	}
