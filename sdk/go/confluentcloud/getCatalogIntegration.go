@@ -47,7 +47,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("retention-ms", example.RetentionMs)
+//			ctx.Export("retention-ms", pulumi.Any(example.RetentionMs))
 //			return nil
 //		})
 //	}
@@ -74,7 +74,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("retention-ms", example.RetentionMs)
+//			ctx.Export("retention-ms", pulumi.Any(example.RetentionMs))
 //			return nil
 //		})
 //	}

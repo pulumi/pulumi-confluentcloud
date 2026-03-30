@@ -71,7 +71,7 @@ import (
 //			ctx.Export("azureAppId", azureProviderIntegrationAuthorization.Azure.ApplyT(func(azure confluentcloud.ProviderIntegrationAuthorizationAzure) (*string, error) {
 //				return &azure.ConfluentMultiTenantAppId, nil
 //			}).(pulumi.StringPtrOutput))
-//			ctx.Export("servicePrincipalObjectId", confluent.ObjectId)
+//			ctx.Export("servicePrincipalObjectId", pulumi.Any(confluent.ObjectId))
 //			return nil
 //		})
 //	}

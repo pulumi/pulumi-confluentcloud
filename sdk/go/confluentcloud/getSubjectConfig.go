@@ -49,7 +49,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("compatibilityLevel", example.CompatibilityLevel)
+//			ctx.Export("compatibilityLevel", pulumi.Any(example.CompatibilityLevel))
 //			return nil
 //		})
 //	}
@@ -76,7 +76,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("compatibilityLevel", example.CompatibilityLevel)
+//			ctx.Export("compatibilityLevel", pulumi.Any(example.CompatibilityLevel))
 //			return nil
 //		})
 //	}
