@@ -32,14 +32,14 @@ public final class ConnectArtifactState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
+     * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
      * 
      */
     @Import(name="cloud")
     private @Nullable Output<String> cloud;
 
     /**
-     * @return Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
+     * @return Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
      * 
      */
     public Optional<Output<String>> cloud() {
@@ -173,7 +173,7 @@ public final class ConnectArtifactState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cloud Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
+         * @param cloud Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ConnectArtifactState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cloud Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
+         * @param cloud Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
          * 
          * @return builder
          * 
