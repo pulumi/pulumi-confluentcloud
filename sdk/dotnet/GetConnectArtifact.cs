@@ -130,7 +130,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetConnectArtifactArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
+        /// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         /// </summary>
         [Input("cloud", required: true)]
         public string Cloud { get; set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetConnectArtifactInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
+        /// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         /// </summary>
         [Input("cloud", required: true)]
         public Input<string> Cloud { get; set; } = null!;

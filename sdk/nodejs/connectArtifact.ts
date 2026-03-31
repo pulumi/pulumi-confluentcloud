@@ -80,7 +80,7 @@ export class ConnectArtifact extends pulumi.CustomResource {
      */
     declare public readonly artifactFile: pulumi.Output<string | undefined>;
     /**
-     * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
+     * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
     declare public readonly cloud: pulumi.Output<string>;
     /**
@@ -160,7 +160,7 @@ export interface ConnectArtifactState {
      */
     artifactFile?: pulumi.Input<string>;
     /**
-     * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
+     * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
     cloud?: pulumi.Input<string>;
     /**
@@ -194,7 +194,7 @@ export interface ConnectArtifactArgs {
      */
     artifactFile?: pulumi.Input<string>;
     /**
-     * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
+     * Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
      */
     cloud: pulumi.Input<string>;
     /**

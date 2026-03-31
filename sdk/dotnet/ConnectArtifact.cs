@@ -68,7 +68,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> ArtifactFile { get; private set; } = null!;
 
         /// <summary>
-        /// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
+        /// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         /// </summary>
         [Output("cloud")]
         public Output<string> Cloud { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? ArtifactFile { get; set; }
 
         /// <summary>
-        /// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
+        /// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         /// </summary>
         [Input("cloud", required: true)]
         public Input<string> Cloud { get; set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? ArtifactFile { get; set; }
 
         /// <summary>
-        /// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.
+        /// Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.
         /// </summary>
         [Input("cloud")]
         public Input<string>? Cloud { get; set; }

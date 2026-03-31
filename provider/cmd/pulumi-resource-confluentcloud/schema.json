@@ -8698,7 +8698,7 @@
                 },
                 "cloud": {
                     "type": "string",
-                    "description": "Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.\n"
+                    "description": "Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.\n"
                 },
                 "contentFormat": {
                     "type": "string",
@@ -8736,7 +8736,7 @@
                 },
                 "cloud": {
                     "type": "string",
-                    "description": "Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.\n",
+                    "description": "Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.\n",
                     "willReplaceOnChanges": true
                 },
                 "contentFormat": {
@@ -8776,7 +8776,7 @@
                     },
                     "cloud": {
                         "type": "string",
-                        "description": "Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.\n",
+                        "description": "Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.\n",
                         "willReplaceOnChanges": true
                     },
                     "contentFormat": {
@@ -15552,7 +15552,7 @@
                 "properties": {
                     "cloud": {
                         "type": "string",
-                        "description": "Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`.\n"
+                        "description": "Cloud provider where the Connect Artifact archive is uploaded. Accepted values are: `AWS`, `AZURE`, `GCP`.\n"
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/getConnectArtifactEnvironment:getConnectArtifactEnvironment"
