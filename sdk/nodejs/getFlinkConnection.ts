@@ -12,6 +12,49 @@ import * as utilities from "./utilities";
  * `confluentcloud.FlinkConnection` describes a Flink Connection data source.
  *
  * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getFlinkConnection({
+ *     organization: {
+ *         id: mainConfluentOrganization.id,
+ *     },
+ *     environment: {
+ *         id: staging.id,
+ *     },
+ *     computePool: {
+ *         id: example.id,
+ *     },
+ *     principal: {
+ *         id: app_manager_flink.id,
+ *     },
+ *     restEndpoint: mainConfluentFlinkRegion.restEndpoint,
+ *     credentials: {
+ *         key: env_admin_flink_api_key.id,
+ *         secret: env_admin_flink_api_key.secret,
+ *     },
+ *     displayName: "connection1",
+ *     type: "OPENAI",
+ * });
+ * export const connectionOutput = main.then(main => main.status);
+ * ```
+ *
+ * ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getFlinkConnection({
+ *     displayName: "connection1",
+ *     type: "OPENAI",
+ * });
+ * export const connectionOutput = main.then(main => main.status);
+ * ```
  */
 export function getFlinkConnection(args: GetFlinkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetFlinkConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,7 +122,6 @@ export interface GetFlinkConnectionResult {
     readonly status: string;
     /**
      * (Required String) The status details of the Flink Connection.
-     * -
      */
     readonly statusDetail: string;
     readonly type?: string;
@@ -90,6 +132,49 @@ export interface GetFlinkConnectionResult {
  * `confluentcloud.FlinkConnection` describes a Flink Connection data source.
  *
  * ## Example Usage
+ *
+ * ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getFlinkConnection({
+ *     organization: {
+ *         id: mainConfluentOrganization.id,
+ *     },
+ *     environment: {
+ *         id: staging.id,
+ *     },
+ *     computePool: {
+ *         id: example.id,
+ *     },
+ *     principal: {
+ *         id: app_manager_flink.id,
+ *     },
+ *     restEndpoint: mainConfluentFlinkRegion.restEndpoint,
+ *     credentials: {
+ *         key: env_admin_flink_api_key.id,
+ *         secret: env_admin_flink_api_key.secret,
+ *     },
+ *     displayName: "connection1",
+ *     type: "OPENAI",
+ * });
+ * export const connectionOutput = main.then(main => main.status);
+ * ```
+ *
+ * ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getFlinkConnection({
+ *     displayName: "connection1",
+ *     type: "OPENAI",
+ * });
+ * export const connectionOutput = main.then(main => main.status);
+ * ```
  */
 export function getFlinkConnectionOutput(args: GetFlinkConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlinkConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

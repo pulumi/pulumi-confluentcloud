@@ -141,7 +141,6 @@ class GetFlinkConnectionResult:
     def status_detail(self) -> _builtins.str:
         """
         (Required String) The status details of the Flink Connection.
-        -
         """
         return pulumi.get(self, "status_detail")
 
@@ -187,6 +186,45 @@ def get_flink_connection(compute_pool: Optional[Union['GetFlinkConnectionCompute
     `FlinkConnection` describes a Flink Connection data source.
 
     ## Example Usage
+
+    ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    main = confluentcloud.get_flink_connection(organization={
+            "id": main_confluent_organization["id"],
+        },
+        environment={
+            "id": staging["id"],
+        },
+        compute_pool={
+            "id": example["id"],
+        },
+        principal={
+            "id": app_manager_flink["id"],
+        },
+        rest_endpoint=main_confluent_flink_region["restEndpoint"],
+        credentials={
+            "key": env_admin_flink_api_key["id"],
+            "secret": env_admin_flink_api_key["secret"],
+        },
+        display_name="connection1",
+        type="OPENAI")
+    pulumi.export("connectionOutput", main.status)
+    ```
+
+    ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    main = confluentcloud.get_flink_connection(display_name="connection1",
+        type="OPENAI")
+    pulumi.export("connectionOutput", main.status)
+    ```
 
 
     :param _builtins.str display_name: The name of the Flink Connection.
@@ -234,6 +272,45 @@ def get_flink_connection_output(compute_pool: Optional[pulumi.Input[Optional[Uni
     `FlinkConnection` describes a Flink Connection data source.
 
     ## Example Usage
+
+    ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    main = confluentcloud.get_flink_connection(organization={
+            "id": main_confluent_organization["id"],
+        },
+        environment={
+            "id": staging["id"],
+        },
+        compute_pool={
+            "id": example["id"],
+        },
+        principal={
+            "id": app_manager_flink["id"],
+        },
+        rest_endpoint=main_confluent_flink_region["restEndpoint"],
+        credentials={
+            "key": env_admin_flink_api_key["id"],
+            "secret": env_admin_flink_api_key["secret"],
+        },
+        display_name="connection1",
+        type="OPENAI")
+    pulumi.export("connectionOutput", main.status)
+    ```
+
+    ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    main = confluentcloud.get_flink_connection(display_name="connection1",
+        type="OPENAI")
+    pulumi.export("connectionOutput", main.status)
+    ```
 
 
     :param _builtins.str display_name: The name of the Flink Connection.

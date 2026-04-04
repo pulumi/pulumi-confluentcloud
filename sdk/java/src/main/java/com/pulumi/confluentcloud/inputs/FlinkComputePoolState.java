@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.FlinkComputePoolEnvironmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -45,6 +46,21 @@ public final class FlinkComputePoolState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<String>> cloud() {
         return Optional.ofNullable(this.cloud);
+    }
+
+    /**
+     * Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+     * 
+     */
+    @Import(name="defaultPool")
+    private @Nullable Output<Boolean> defaultPool;
+
+    /**
+     * @return Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> defaultPool() {
+        return Optional.ofNullable(this.defaultPool);
     }
 
     /**
@@ -142,6 +158,7 @@ public final class FlinkComputePoolState extends com.pulumi.resources.ResourceAr
     private FlinkComputePoolState(FlinkComputePoolState $) {
         this.apiVersion = $.apiVersion;
         this.cloud = $.cloud;
+        this.defaultPool = $.defaultPool;
         this.displayName = $.displayName;
         this.environment = $.environment;
         this.kind = $.kind;
@@ -208,6 +225,27 @@ public final class FlinkComputePoolState extends com.pulumi.resources.ResourceAr
          */
         public Builder cloud(String cloud) {
             return cloud(Output.of(cloud));
+        }
+
+        /**
+         * @param defaultPool Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultPool(@Nullable Output<Boolean> defaultPool) {
+            $.defaultPool = defaultPool;
+            return this;
+        }
+
+        /**
+         * @param defaultPool Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultPool(Boolean defaultPool) {
+            return defaultPool(Output.of(defaultPool));
         }
 
         /**

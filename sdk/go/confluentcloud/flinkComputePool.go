@@ -43,6 +43,7 @@ import (
 //				Cloud:       pulumi.String("AWS"),
 //				Region:      pulumi.String("us-east-1"),
 //				MaxCfu:      pulumi.Int(5),
+//				DefaultPool: pulumi.Bool(true),
 //				Environment: &confluentcloud.FlinkComputePoolEnvironmentArgs{
 //					Id: development.ID(),
 //				},
@@ -76,6 +77,8 @@ type FlinkComputePool struct {
 	ApiVersion pulumi.StringOutput `pulumi:"apiVersion"`
 	// The cloud service provider that runs the Flink Compute Pool.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
+	// Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+	DefaultPool pulumi.BoolPtrOutput `pulumi:"defaultPool"`
 	// The name of the Flink Compute Pool.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -136,6 +139,8 @@ type flinkComputePoolState struct {
 	ApiVersion *string `pulumi:"apiVersion"`
 	// The cloud service provider that runs the Flink Compute Pool.
 	Cloud *string `pulumi:"cloud"`
+	// Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+	DefaultPool *bool `pulumi:"defaultPool"`
 	// The name of the Flink Compute Pool.
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -155,6 +160,8 @@ type FlinkComputePoolState struct {
 	ApiVersion pulumi.StringPtrInput
 	// The cloud service provider that runs the Flink Compute Pool.
 	Cloud pulumi.StringPtrInput
+	// Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+	DefaultPool pulumi.BoolPtrInput
 	// The name of the Flink Compute Pool.
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -176,6 +183,8 @@ func (FlinkComputePoolState) ElementType() reflect.Type {
 type flinkComputePoolArgs struct {
 	// The cloud service provider that runs the Flink Compute Pool.
 	Cloud string `pulumi:"cloud"`
+	// Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+	DefaultPool *bool `pulumi:"defaultPool"`
 	// The name of the Flink Compute Pool.
 	DisplayName string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -190,6 +199,8 @@ type flinkComputePoolArgs struct {
 type FlinkComputePoolArgs struct {
 	// The cloud service provider that runs the Flink Compute Pool.
 	Cloud pulumi.StringInput
+	// Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+	DefaultPool pulumi.BoolPtrInput
 	// The name of the Flink Compute Pool.
 	DisplayName pulumi.StringInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -295,6 +306,11 @@ func (o FlinkComputePoolOutput) ApiVersion() pulumi.StringOutput {
 // The cloud service provider that runs the Flink Compute Pool.
 func (o FlinkComputePoolOutput) Cloud() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlinkComputePool) pulumi.StringOutput { return v.Cloud }).(pulumi.StringOutput)
+}
+
+// Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+func (o FlinkComputePoolOutput) DefaultPool() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlinkComputePool) pulumi.BoolPtrOutput { return v.DefaultPool }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Flink Compute Pool.

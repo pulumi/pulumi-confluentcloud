@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
+ * ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
  * 
  * <pre>
  * {@code
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
+ * ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
  * 
  * <pre>
  * {@code
@@ -154,6 +154,41 @@ import javax.annotation.Nullable;
  * - `password` - (Optional String) The password  for the connection type. This is valid and required for types `MONGODB` and `COUCHBASE`.
  * 
  * !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn&#39;t encrypt the sensitive `credentials` value of the `confluentcloud.FlinkConnection` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+ * 
+ * &gt; **Note:** When using OAuth to authenticate a Flink Connection, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.RoleBinding;
+ * import com.pulumi.confluentcloud.RoleBindingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var identity_pool_assigner = new RoleBinding("identity-pool-assigner", RoleBindingArgs.builder()
+ *             .principal("User:pool-abc123")
+ *             .roleName("Assigner")
+ *             .crnPattern(String.format("%s/service-account=sa-def456", main.resourceName()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * # Attributes Reference
  * 

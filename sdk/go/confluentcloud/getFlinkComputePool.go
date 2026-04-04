@@ -80,6 +80,8 @@ type LookupFlinkComputePoolResult struct {
 	ApiVersion string `pulumi:"apiVersion"`
 	// (Required String) The cloud service provider that runs the Flink Compute Pool.
 	Cloud string `pulumi:"cloud"`
+	// (Optional Boolean) Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+	DefaultPool bool `pulumi:"defaultPool"`
 	// (Required String) The name of the Flink Compute Pool.
 	DisplayName string `pulumi:"displayName"`
 	// (Required Configuration Block) supports the following:
@@ -142,6 +144,11 @@ func (o LookupFlinkComputePoolResultOutput) ApiVersion() pulumi.StringOutput {
 // (Required String) The cloud service provider that runs the Flink Compute Pool.
 func (o LookupFlinkComputePoolResultOutput) Cloud() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlinkComputePoolResult) string { return v.Cloud }).(pulumi.StringOutput)
+}
+
+// (Optional Boolean) Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+func (o LookupFlinkComputePoolResultOutput) DefaultPool() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupFlinkComputePoolResult) bool { return v.DefaultPool }).(pulumi.BoolOutput)
 }
 
 // (Required String) The name of the Flink Compute Pool.

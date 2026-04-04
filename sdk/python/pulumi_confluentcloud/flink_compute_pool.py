@@ -25,6 +25,7 @@ class FlinkComputePoolArgs:
                  display_name: pulumi.Input[_builtins.str],
                  environment: pulumi.Input['FlinkComputePoolEnvironmentArgs'],
                  region: pulumi.Input[_builtins.str],
+                 default_pool: Optional[pulumi.Input[_builtins.bool]] = None,
                  max_cfu: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a FlinkComputePool resource.
@@ -33,12 +34,15 @@ class FlinkComputePoolArgs:
         :param pulumi.Input[_builtins.str] display_name: The name of the Flink Compute Pool.
         :param pulumi.Input['FlinkComputePoolEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] region: The cloud service provider region that hosts the Flink Compute Pool.
+        :param pulumi.Input[_builtins.bool] default_pool: Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
         :param pulumi.Input[_builtins.int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         """
         pulumi.set(__self__, "cloud", cloud)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "region", region)
+        if default_pool is not None:
+            pulumi.set(__self__, "default_pool", default_pool)
         if max_cfu is not None:
             pulumi.set(__self__, "max_cfu", max_cfu)
 
@@ -91,6 +95,18 @@ class FlinkComputePoolArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="defaultPool")
+    def default_pool(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+        """
+        return pulumi.get(self, "default_pool")
+
+    @default_pool.setter
+    def default_pool(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "default_pool", value)
+
+    @_builtins.property
     @pulumi.getter(name="maxCfu")
     def max_cfu(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -108,6 +124,7 @@ class _FlinkComputePoolState:
     def __init__(__self__, *,
                  api_version: Optional[pulumi.Input[_builtins.str]] = None,
                  cloud: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_pool: Optional[pulumi.Input[_builtins.bool]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment: Optional[pulumi.Input['FlinkComputePoolEnvironmentArgs']] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
@@ -119,6 +136,7 @@ class _FlinkComputePoolState:
 
         :param pulumi.Input[_builtins.str] api_version: (Required String) The API Version of the schema version of the Flink Compute Pool, for example, `fcpm/v2`.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Flink Compute Pool.
+        :param pulumi.Input[_builtins.bool] default_pool: Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Flink Compute Pool.
         :param pulumi.Input['FlinkComputePoolEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] kind: (Required String) The kind of the Flink Compute Pool, for example, `ComputePool`.
@@ -130,6 +148,8 @@ class _FlinkComputePoolState:
             pulumi.set(__self__, "api_version", api_version)
         if cloud is not None:
             pulumi.set(__self__, "cloud", cloud)
+        if default_pool is not None:
+            pulumi.set(__self__, "default_pool", default_pool)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if environment is not None:
@@ -166,6 +186,18 @@ class _FlinkComputePoolState:
     @cloud.setter
     def cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "cloud", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultPool")
+    def default_pool(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+        """
+        return pulumi.get(self, "default_pool")
+
+    @default_pool.setter
+    def default_pool(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "default_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -247,6 +279,7 @@ class FlinkComputePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_pool: Optional[pulumi.Input[_builtins.bool]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment: Optional[pulumi.Input[Union['FlinkComputePoolEnvironmentArgs', 'FlinkComputePoolEnvironmentArgsDict']]] = None,
                  max_cfu: Optional[pulumi.Input[_builtins.int]] = None,
@@ -271,6 +304,7 @@ class FlinkComputePool(pulumi.CustomResource):
             cloud="AWS",
             region="us-east-1",
             max_cfu=5,
+            default_pool=True,
             environment={
                 "id": development.id,
             })
@@ -294,6 +328,7 @@ class FlinkComputePool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Flink Compute Pool.
+        :param pulumi.Input[_builtins.bool] default_pool: Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Flink Compute Pool.
         :param pulumi.Input[Union['FlinkComputePoolEnvironmentArgs', 'FlinkComputePoolEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
@@ -324,6 +359,7 @@ class FlinkComputePool(pulumi.CustomResource):
             cloud="AWS",
             region="us-east-1",
             max_cfu=5,
+            default_pool=True,
             environment={
                 "id": development.id,
             })
@@ -360,6 +396,7 @@ class FlinkComputePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_pool: Optional[pulumi.Input[_builtins.bool]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment: Optional[pulumi.Input[Union['FlinkComputePoolEnvironmentArgs', 'FlinkComputePoolEnvironmentArgsDict']]] = None,
                  max_cfu: Optional[pulumi.Input[_builtins.int]] = None,
@@ -376,6 +413,7 @@ class FlinkComputePool(pulumi.CustomResource):
             if cloud is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud'")
             __props__.__dict__["cloud"] = cloud
+            __props__.__dict__["default_pool"] = default_pool
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
@@ -401,6 +439,7 @@ class FlinkComputePool(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_version: Optional[pulumi.Input[_builtins.str]] = None,
             cloud: Optional[pulumi.Input[_builtins.str]] = None,
+            default_pool: Optional[pulumi.Input[_builtins.bool]] = None,
             display_name: Optional[pulumi.Input[_builtins.str]] = None,
             environment: Optional[pulumi.Input[Union['FlinkComputePoolEnvironmentArgs', 'FlinkComputePoolEnvironmentArgsDict']]] = None,
             kind: Optional[pulumi.Input[_builtins.str]] = None,
@@ -416,6 +455,7 @@ class FlinkComputePool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_version: (Required String) The API Version of the schema version of the Flink Compute Pool, for example, `fcpm/v2`.
         :param pulumi.Input[_builtins.str] cloud: The cloud service provider that runs the Flink Compute Pool.
+        :param pulumi.Input[_builtins.bool] default_pool: Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
         :param pulumi.Input[_builtins.str] display_name: The name of the Flink Compute Pool.
         :param pulumi.Input[Union['FlinkComputePoolEnvironmentArgs', 'FlinkComputePoolEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[_builtins.str] kind: (Required String) The kind of the Flink Compute Pool, for example, `ComputePool`.
@@ -429,6 +469,7 @@ class FlinkComputePool(pulumi.CustomResource):
 
         __props__.__dict__["api_version"] = api_version
         __props__.__dict__["cloud"] = cloud
+        __props__.__dict__["default_pool"] = default_pool
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["environment"] = environment
         __props__.__dict__["kind"] = kind
@@ -452,6 +493,14 @@ class FlinkComputePool(pulumi.CustomResource):
         The cloud service provider that runs the Flink Compute Pool.
         """
         return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultPool")
+    def default_pool(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+        """
+        return pulumi.get(self, "default_pool")
 
     @_builtins.property
     @pulumi.getter(name="displayName")

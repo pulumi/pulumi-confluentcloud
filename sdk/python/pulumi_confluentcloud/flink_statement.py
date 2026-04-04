@@ -52,6 +52,18 @@ class FlinkStatementArgs:
                !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
                
                !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+               
+               > **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+               
+               ```python
+               import pulumi
+               import pulumi_confluentcloud as confluentcloud
+               
+               identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+                   principal="User:pool-abc123",
+                   role_name="Assigner",
+                   crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+               ```
         """
         pulumi.set(__self__, "statement", statement)
         if compute_pool is not None:
@@ -198,6 +210,18 @@ class FlinkStatementArgs:
         !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
 
         !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+
+        > **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+            principal="User:pool-abc123",
+            role_name="Assigner",
+            crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+        ```
         """
         return pulumi.get(self, "stopped")
 
@@ -250,6 +274,18 @@ class _FlinkStatementState:
                !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
                
                !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+               
+               > **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+               
+               ```python
+               import pulumi
+               import pulumi_confluentcloud as confluentcloud
+               
+               identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+                   principal="User:pool-abc123",
+                   role_name="Assigner",
+                   crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+               ```
         """
         if compute_pool is not None:
             pulumi.set(__self__, "compute_pool", compute_pool)
@@ -431,6 +467,18 @@ class _FlinkStatementState:
         !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
 
         !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+
+        > **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+            principal="User:pool-abc123",
+            role_name="Assigner",
+            crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+        ```
         """
         return pulumi.get(self, "stopped")
 
@@ -576,6 +624,18 @@ class FlinkStatement(pulumi.CustomResource):
                !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
                
                !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+               
+               > **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+               
+               ```python
+               import pulumi
+               import pulumi_confluentcloud as confluentcloud
+               
+               identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+                   principal="User:pool-abc123",
+                   role_name="Assigner",
+                   crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+               ```
         """
         ...
     @overload
@@ -790,6 +850,18 @@ class FlinkStatement(pulumi.CustomResource):
                !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
                
                !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+               
+               > **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+               
+               ```python
+               import pulumi
+               import pulumi_confluentcloud as confluentcloud
+               
+               identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+                   principal="User:pool-abc123",
+                   role_name="Assigner",
+                   crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+               ```
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -915,6 +987,18 @@ class FlinkStatement(pulumi.CustomResource):
         !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
 
         !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+
+        > **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+            principal="User:pool-abc123",
+            role_name="Assigner",
+            crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+        ```
         """
         return pulumi.get(self, "stopped")
 

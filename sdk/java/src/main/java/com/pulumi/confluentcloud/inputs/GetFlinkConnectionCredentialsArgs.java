@@ -36,6 +36,41 @@ public final class GetFlinkConnectionCredentialsArgs extends com.pulumi.resource
      * 
      * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target=&#34;confluent_flink_connection.example&#34;`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_flink_connection.example&#34; -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
      * 
+     * &gt; **Note:** When using OAuth to authenticate a Flink Connection, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.RoleBinding;
+     * import com.pulumi.confluentcloud.RoleBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var identity_pool_assigner = new RoleBinding("identity-pool-assigner", RoleBindingArgs.builder()
+     *             .principal("User:pool-abc123")
+     *             .roleName("Assigner")
+     *             .crnPattern(String.format("%s/service-account=sa-def456", main.resourceName()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     @Import(name="secret", required=true)
     private Output<String> secret;
@@ -46,6 +81,41 @@ public final class GetFlinkConnectionCredentialsArgs extends com.pulumi.resource
      * &gt; **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
      * 
      * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target=&#34;confluent_flink_connection.example&#34;`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_flink_connection.example&#34; -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+     * 
+     * &gt; **Note:** When using OAuth to authenticate a Flink Connection, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.RoleBinding;
+     * import com.pulumi.confluentcloud.RoleBindingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var identity_pool_assigner = new RoleBinding("identity-pool-assigner", RoleBindingArgs.builder()
+     *             .principal("User:pool-abc123")
+     *             .roleName("Assigner")
+     *             .crnPattern(String.format("%s/service-account=sa-def456", main.resourceName()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public Output<String> secret() {
@@ -105,6 +175,41 @@ public final class GetFlinkConnectionCredentialsArgs extends com.pulumi.resource
          * 
          * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target=&#34;confluent_flink_connection.example&#34;`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_flink_connection.example&#34; -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
          * 
+         * &gt; **Note:** When using OAuth to authenticate a Flink Connection, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+         * 
+         * <pre>
+         * {@code
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.confluentcloud.RoleBinding;
+         * import com.pulumi.confluentcloud.RoleBindingArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var identity_pool_assigner = new RoleBinding("identity-pool-assigner", RoleBindingArgs.builder()
+         *             .principal("User:pool-abc123")
+         *             .roleName("Assigner")
+         *             .crnPattern(String.format("%s/service-account=sa-def456", main.resourceName()))
+         *             .build());
+         * 
+         *     }
+         * }
+         * }
+         * </pre>
+         * 
          * @return builder
          * 
          */
@@ -119,6 +224,41 @@ public final class GetFlinkConnectionCredentialsArgs extends com.pulumi.resource
          * &gt; **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
          * 
          * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target=&#34;confluent_flink_connection.example&#34;`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_flink_connection.example&#34; -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+         * 
+         * &gt; **Note:** When using OAuth to authenticate a Flink Connection, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+         * 
+         * <pre>
+         * {@code
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.confluentcloud.RoleBinding;
+         * import com.pulumi.confluentcloud.RoleBindingArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var identity_pool_assigner = new RoleBinding("identity-pool-assigner", RoleBindingArgs.builder()
+         *             .principal("User:pool-abc123")
+         *             .roleName("Assigner")
+         *             .crnPattern(String.format("%s/service-account=sa-def456", main.resourceName()))
+         *             .build());
+         * 
+         *     }
+         * }
+         * }
+         * </pre>
          * 
          * @return builder
          * 

@@ -28,13 +28,16 @@ class GetFlinkComputePoolResult:
     """
     A collection of values returned by getFlinkComputePool.
     """
-    def __init__(__self__, api_version=None, cloud=None, display_name=None, environment=None, id=None, kind=None, max_cfu=None, region=None, resource_name=None):
+    def __init__(__self__, api_version=None, cloud=None, default_pool=None, display_name=None, environment=None, id=None, kind=None, max_cfu=None, region=None, resource_name=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
         if cloud and not isinstance(cloud, str):
             raise TypeError("Expected argument 'cloud' to be a str")
         pulumi.set(__self__, "cloud", cloud)
+        if default_pool and not isinstance(default_pool, bool):
+            raise TypeError("Expected argument 'default_pool' to be a bool")
+        pulumi.set(__self__, "default_pool", default_pool)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -72,6 +75,14 @@ class GetFlinkComputePoolResult:
         (Required String) The cloud service provider that runs the Flink Compute Pool.
         """
         return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultPool")
+    def default_pool(self) -> _builtins.bool:
+        """
+        (Optional Boolean) Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+        """
+        return pulumi.get(self, "default_pool")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -138,6 +149,7 @@ class AwaitableGetFlinkComputePoolResult(GetFlinkComputePoolResult):
         return GetFlinkComputePoolResult(
             api_version=self.api_version,
             cloud=self.cloud,
+            default_pool=self.default_pool,
             display_name=self.display_name,
             environment=self.environment,
             id=self.id,
@@ -189,6 +201,7 @@ def get_flink_compute_pool(display_name: Optional[_builtins.str] = None,
     return AwaitableGetFlinkComputePoolResult(
         api_version=pulumi.get(__ret__, 'api_version'),
         cloud=pulumi.get(__ret__, 'cloud'),
+        default_pool=pulumi.get(__ret__, 'default_pool'),
         display_name=pulumi.get(__ret__, 'display_name'),
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'),
@@ -237,6 +250,7 @@ def get_flink_compute_pool_output(display_name: Optional[pulumi.Input[Optional[_
     return __ret__.apply(lambda __response__: GetFlinkComputePoolResult(
         api_version=pulumi.get(__response__, 'api_version'),
         cloud=pulumi.get(__response__, 'cloud'),
+        default_pool=pulumi.get(__response__, 'default_pool'),
         display_name=pulumi.get(__response__, 'display_name'),
         environment=pulumi.get(__response__, 'environment'),
         id=pulumi.get(__response__, 'id'),

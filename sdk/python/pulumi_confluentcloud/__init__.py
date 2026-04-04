@@ -25,6 +25,7 @@ from .dns_record import *
 from .environment import *
 from .flink_artifact import *
 from .flink_compute_pool import *
+from .flink_compute_pool_config import *
 from .flink_connection import *
 from .flink_statement import *
 from .gateway import *
@@ -43,6 +44,7 @@ from .get_environment import *
 from .get_environments import *
 from .get_flink_artifact import *
 from .get_flink_compute_pool import *
+from .get_flink_compute_pool_config import *
 from .get_flink_connection import *
 from .get_flink_region import *
 from .get_gateway import *
@@ -291,6 +293,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/flinkComputePool:FlinkComputePool": "FlinkComputePool"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/flinkComputePoolConfig",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/flinkComputePoolConfig:FlinkComputePoolConfig": "FlinkComputePoolConfig"
   }
  },
  {

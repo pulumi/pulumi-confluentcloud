@@ -46,7 +46,6 @@ public final class GetFlinkConnectionResult {
     private String status;
     /**
      * @return (Required String) The status details of the Flink Connection.
-     * ---
      * 
      */
     private String statusDetail;
@@ -104,7 +103,6 @@ public final class GetFlinkConnectionResult {
     }
     /**
      * @return (Required String) The status details of the Flink Connection.
-     * ---
      * 
      */
     public String statusDetail() {

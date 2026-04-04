@@ -20,7 +20,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
+// ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
 //
 // ```go
 // package main
@@ -66,7 +66,7 @@ import (
 //
 // ```
 //
-// ### Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
+// ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
 //
 // ```go
 // package main
@@ -130,6 +130,34 @@ import (
 // - `password` - (Optional String) The password  for the connection type. This is valid and required for types `MONGODB` and `COUCHBASE`.
 //
 // !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkConnection` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+//
+// > **Note:** When using OAuth to authenticate a Flink Connection, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewRoleBinding(ctx, "identity-pool-assigner", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.String("User:pool-abc123"),
+//				RoleName:   pulumi.String("Assigner"),
+//				CrnPattern: pulumi.Sprintf("%v/service-account=sa-def456", main.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // # Attributes Reference
 //

@@ -31,6 +31,8 @@ import com.pulumi.confluentcloud.inputs.GetEnvironmentPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkArtifactArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkArtifactPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
+import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
+import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPlainArgs;
@@ -132,6 +134,7 @@ import com.pulumi.confluentcloud.outputs.GetEndpointResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentsResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkArtifactResult;
+import com.pulumi.confluentcloud.outputs.GetFlinkComputePoolConfigResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkComputePoolResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkConnectionResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkRegionResult;
@@ -5145,9 +5148,316 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
+     * `confluentcloud.FlinkComputePoolConfig` describes a Flink Compute Pool Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkComputePoolConfig(GetFlinkComputePoolConfigArgs.builder()
+     *             .id("org-123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFlinkComputePoolConfigResult> getFlinkComputePoolConfig(GetFlinkComputePoolConfigArgs args) {
+        return getFlinkComputePoolConfig(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkComputePoolConfig` describes a Flink Compute Pool Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkComputePoolConfig(GetFlinkComputePoolConfigArgs.builder()
+     *             .id("org-123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFlinkComputePoolConfigResult> getFlinkComputePoolConfigPlain(GetFlinkComputePoolConfigPlainArgs args) {
+        return getFlinkComputePoolConfigPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkComputePoolConfig` describes a Flink Compute Pool Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkComputePoolConfig(GetFlinkComputePoolConfigArgs.builder()
+     *             .id("org-123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFlinkComputePoolConfigResult> getFlinkComputePoolConfig(GetFlinkComputePoolConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getFlinkComputePoolConfig:getFlinkComputePoolConfig", TypeShape.of(GetFlinkComputePoolConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkComputePoolConfig` describes a Flink Compute Pool Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkComputePoolConfig(GetFlinkComputePoolConfigArgs.builder()
+     *             .id("org-123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFlinkComputePoolConfigResult> getFlinkComputePoolConfig(GetFlinkComputePoolConfigArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getFlinkComputePoolConfig:getFlinkComputePoolConfig", TypeShape.of(GetFlinkComputePoolConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkComputePoolConfig` describes a Flink Compute Pool Config data source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkComputePoolConfig(GetFlinkComputePoolConfigArgs.builder()
+     *             .id("org-123")
+     *             .build());
+     * 
+     *         ctx.export("example", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFlinkComputePoolConfigResult> getFlinkComputePoolConfigPlain(GetFlinkComputePoolConfigPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getFlinkComputePoolConfig:getFlinkComputePoolConfig", TypeShape.of(GetFlinkComputePoolConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
      * `confluentcloud.FlinkConnection` describes a Flink Connection data source.
      * 
      * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionOrganizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPrincipalArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
+     *             .organization(GetFlinkConnectionOrganizationArgs.builder()
+     *                 .id(mainConfluentOrganization.id())
+     *                 .build())
+     *             .environment(GetFlinkConnectionEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .computePool(GetFlinkConnectionComputePoolArgs.builder()
+     *                 .id(example.id())
+     *                 .build())
+     *             .principal(GetFlinkConnectionPrincipalArgs.builder()
+     *                 .id(app_manager_flink.id())
+     *                 .build())
+     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .credentials(GetFlinkConnectionCredentialsArgs.builder()
+     *                 .key(env_admin_flink_api_key.id())
+     *                 .secret(env_admin_flink_api_key.secret())
+     *                 .build())
+     *             .displayName("connection1")
+     *             .type("OPENAI")
+     *             .build());
+     * 
+     *         ctx.export("connectionOutput", main.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
+     *             .displayName("connection1")
+     *             .type("OPENAI")
+     *             .build());
+     * 
+     *         ctx.export("connectionOutput", main.status());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetFlinkConnectionResult> getFlinkConnection(GetFlinkConnectionArgs args) {
@@ -5160,6 +5470,98 @@ public final class ConfluentcloudFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionOrganizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPrincipalArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
+     *             .organization(GetFlinkConnectionOrganizationArgs.builder()
+     *                 .id(mainConfluentOrganization.id())
+     *                 .build())
+     *             .environment(GetFlinkConnectionEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .computePool(GetFlinkConnectionComputePoolArgs.builder()
+     *                 .id(example.id())
+     *                 .build())
+     *             .principal(GetFlinkConnectionPrincipalArgs.builder()
+     *                 .id(app_manager_flink.id())
+     *                 .build())
+     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .credentials(GetFlinkConnectionCredentialsArgs.builder()
+     *                 .key(env_admin_flink_api_key.id())
+     *                 .secret(env_admin_flink_api_key.secret())
+     *                 .build())
+     *             .displayName("connection1")
+     *             .type("OPENAI")
+     *             .build());
+     * 
+     *         ctx.export("connectionOutput", main.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
+     *             .displayName("connection1")
+     *             .type("OPENAI")
+     *             .build());
+     * 
+     *         ctx.export("connectionOutput", main.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static CompletableFuture<GetFlinkConnectionResult> getFlinkConnectionPlain(GetFlinkConnectionPlainArgs args) {
         return getFlinkConnectionPlain(args, InvokeOptions.Empty);
@@ -5170,6 +5572,98 @@ public final class ConfluentcloudFunctions {
      * `confluentcloud.FlinkConnection` describes a Flink Connection data source.
      * 
      * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionOrganizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPrincipalArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
+     *             .organization(GetFlinkConnectionOrganizationArgs.builder()
+     *                 .id(mainConfluentOrganization.id())
+     *                 .build())
+     *             .environment(GetFlinkConnectionEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .computePool(GetFlinkConnectionComputePoolArgs.builder()
+     *                 .id(example.id())
+     *                 .build())
+     *             .principal(GetFlinkConnectionPrincipalArgs.builder()
+     *                 .id(app_manager_flink.id())
+     *                 .build())
+     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .credentials(GetFlinkConnectionCredentialsArgs.builder()
+     *                 .key(env_admin_flink_api_key.id())
+     *                 .secret(env_admin_flink_api_key.secret())
+     *                 .build())
+     *             .displayName("connection1")
+     *             .type("OPENAI")
+     *             .build());
+     * 
+     *         ctx.export("connectionOutput", main.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
+     *             .displayName("connection1")
+     *             .type("OPENAI")
+     *             .build());
+     * 
+     *         ctx.export("connectionOutput", main.status());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetFlinkConnectionResult> getFlinkConnection(GetFlinkConnectionArgs args, InvokeOptions options) {
@@ -5182,6 +5676,98 @@ public final class ConfluentcloudFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionOrganizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPrincipalArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
+     *             .organization(GetFlinkConnectionOrganizationArgs.builder()
+     *                 .id(mainConfluentOrganization.id())
+     *                 .build())
+     *             .environment(GetFlinkConnectionEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .computePool(GetFlinkConnectionComputePoolArgs.builder()
+     *                 .id(example.id())
+     *                 .build())
+     *             .principal(GetFlinkConnectionPrincipalArgs.builder()
+     *                 .id(app_manager_flink.id())
+     *                 .build())
+     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .credentials(GetFlinkConnectionCredentialsArgs.builder()
+     *                 .key(env_admin_flink_api_key.id())
+     *                 .secret(env_admin_flink_api_key.secret())
+     *                 .build())
+     *             .displayName("connection1")
+     *             .type("OPENAI")
+     *             .build());
+     * 
+     *         ctx.export("connectionOutput", main.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
+     *             .displayName("connection1")
+     *             .type("OPENAI")
+     *             .build());
+     * 
+     *         ctx.export("connectionOutput", main.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetFlinkConnectionResult> getFlinkConnection(GetFlinkConnectionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getFlinkConnection:getFlinkConnection", TypeShape.of(GetFlinkConnectionResult.class), args, Utilities.withVersion(options));
@@ -5192,6 +5778,98 @@ public final class ConfluentcloudFunctions {
      * `confluentcloud.FlinkConnection` describes a Flink Connection data source.
      * 
      * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionOrganizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPrincipalArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
+     *             .organization(GetFlinkConnectionOrganizationArgs.builder()
+     *                 .id(mainConfluentOrganization.id())
+     *                 .build())
+     *             .environment(GetFlinkConnectionEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .computePool(GetFlinkConnectionComputePoolArgs.builder()
+     *                 .id(example.id())
+     *                 .build())
+     *             .principal(GetFlinkConnectionPrincipalArgs.builder()
+     *                 .id(app_manager_flink.id())
+     *                 .build())
+     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .credentials(GetFlinkConnectionCredentialsArgs.builder()
+     *                 .key(env_admin_flink_api_key.id())
+     *                 .secret(env_admin_flink_api_key.secret())
+     *                 .build())
+     *             .displayName("connection1")
+     *             .type("OPENAI")
+     *             .build());
+     * 
+     *         ctx.export("connectionOutput", main.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getFlinkConnection(GetFlinkConnectionArgs.builder()
+     *             .displayName("connection1")
+     *             .type("OPENAI")
+     *             .build());
+     * 
+     *         ctx.export("connectionOutput", main.status());
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetFlinkConnectionResult> getFlinkConnectionPlain(GetFlinkConnectionPlainArgs args, InvokeOptions options) {
