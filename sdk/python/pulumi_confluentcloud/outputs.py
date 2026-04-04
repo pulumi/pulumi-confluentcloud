@@ -7639,6 +7639,18 @@ class GetFlinkConnectionCredentialsResult(dict):
                > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
                
                > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+               
+               > **Note:** When using OAuth to authenticate a Flink Connection, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+               
+               ```python
+               import pulumi
+               import pulumi_confluentcloud as confluentcloud
+               
+               identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+                   principal="User:pool-abc123",
+                   role_name="Assigner",
+                   crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+               ```
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -7660,6 +7672,18 @@ class GetFlinkConnectionCredentialsResult(dict):
         > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Connections in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
 
         > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_connection.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_connection.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+
+        > **Note:** When using OAuth to authenticate a Flink Connection, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+            principal="User:pool-abc123",
+            role_name="Assigner",
+            crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+        ```
         """
         return pulumi.get(self, "secret")
 

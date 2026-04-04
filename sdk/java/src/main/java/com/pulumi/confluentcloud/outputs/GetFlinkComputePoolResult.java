@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetFlinkComputePoolEnvironment;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -22,6 +23,11 @@ public final class GetFlinkComputePoolResult {
      * 
      */
     private String cloud;
+    /**
+     * @return (Optional Boolean) Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+     * 
+     */
+    private Boolean defaultPool;
     /**
      * @return (Required String) The name of the Flink Compute Pool.
      * 
@@ -72,6 +78,13 @@ public final class GetFlinkComputePoolResult {
      */
     public String cloud() {
         return this.cloud;
+    }
+    /**
+     * @return (Optional Boolean) Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+     * 
+     */
+    public Boolean defaultPool() {
+        return this.defaultPool;
     }
     /**
      * @return (Required String) The name of the Flink Compute Pool.
@@ -134,6 +147,7 @@ public final class GetFlinkComputePoolResult {
     public static final class Builder {
         private String apiVersion;
         private String cloud;
+        private Boolean defaultPool;
         private String displayName;
         private GetFlinkComputePoolEnvironment environment;
         private String id;
@@ -146,6 +160,7 @@ public final class GetFlinkComputePoolResult {
     	      Objects.requireNonNull(defaults);
     	      this.apiVersion = defaults.apiVersion;
     	      this.cloud = defaults.cloud;
+    	      this.defaultPool = defaults.defaultPool;
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
     	      this.id = defaults.id;
@@ -169,6 +184,14 @@ public final class GetFlinkComputePoolResult {
               throw new MissingRequiredPropertyException("GetFlinkComputePoolResult", "cloud");
             }
             this.cloud = cloud;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultPool(Boolean defaultPool) {
+            if (defaultPool == null) {
+              throw new MissingRequiredPropertyException("GetFlinkComputePoolResult", "defaultPool");
+            }
+            this.defaultPool = defaultPool;
             return this;
         }
         @CustomType.Setter
@@ -231,6 +254,7 @@ public final class GetFlinkComputePoolResult {
             final var _resultValue = new GetFlinkComputePoolResult();
             _resultValue.apiVersion = apiVersion;
             _resultValue.cloud = cloud;
+            _resultValue.defaultPool = defaultPool;
             _resultValue.displayName = displayName;
             _resultValue.environment = environment;
             _resultValue.id = id;

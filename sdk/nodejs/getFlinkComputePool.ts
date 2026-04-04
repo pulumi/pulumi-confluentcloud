@@ -77,6 +77,10 @@ export interface GetFlinkComputePoolResult {
      */
     readonly cloud: string;
     /**
+     * (Optional Boolean) Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+     */
+    readonly defaultPool: boolean;
+    /**
      * (Required String) The name of the Flink Compute Pool.
      */
     readonly displayName: string;

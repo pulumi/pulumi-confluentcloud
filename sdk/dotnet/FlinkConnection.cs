@@ -18,7 +18,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Example Usage
     /// 
-    /// ### Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack
+    /// ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -61,7 +61,7 @@ namespace Pulumi.ConfluentCloud
     /// });
     /// ```
     /// 
-    /// ### Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack
+    /// ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -113,6 +113,26 @@ namespace Pulumi.ConfluentCloud
     /// - `Password` - (Optional String) The password  for the connection type. This is valid and required for types `MONGODB` and `COUCHBASE`.
     /// 
     /// !&gt; **Warning:** Use Option #2 to avoid exposing sensitive `Credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `Credentials` value of the `confluentcloud.FlinkConnection` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+    /// 
+    /// &gt; **Note:** When using OAuth to authenticate a Flink Connection, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var identity_pool_assigner = new ConfluentCloud.RoleBinding("identity-pool-assigner", new()
+    ///     {
+    ///         Principal = "User:pool-abc123",
+    ///         RoleName = "Assigner",
+    ///         CrnPattern = $"{main.ResourceName}/service-account=sa-def456",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// # Attributes Reference
     /// 

@@ -100,6 +100,11 @@ export type FlinkComputePool = import("./flinkComputePool").FlinkComputePool;
 export const FlinkComputePool: typeof import("./flinkComputePool").FlinkComputePool = null as any;
 utilities.lazyLoad(exports, ["FlinkComputePool"], () => require("./flinkComputePool"));
 
+export { FlinkComputePoolConfigArgs, FlinkComputePoolConfigState } from "./flinkComputePoolConfig";
+export type FlinkComputePoolConfig = import("./flinkComputePoolConfig").FlinkComputePoolConfig;
+export const FlinkComputePoolConfig: typeof import("./flinkComputePoolConfig").FlinkComputePoolConfig = null as any;
+utilities.lazyLoad(exports, ["FlinkComputePoolConfig"], () => require("./flinkComputePoolConfig"));
+
 export { FlinkConnectionArgs, FlinkConnectionState } from "./flinkConnection";
 export type FlinkConnection = import("./flinkConnection").FlinkConnection;
 export const FlinkConnection: typeof import("./flinkConnection").FlinkConnection = null as any;
@@ -189,6 +194,11 @@ export { GetFlinkComputePoolArgs, GetFlinkComputePoolResult, GetFlinkComputePool
 export const getFlinkComputePool: typeof import("./getFlinkComputePool").getFlinkComputePool = null as any;
 export const getFlinkComputePoolOutput: typeof import("./getFlinkComputePool").getFlinkComputePoolOutput = null as any;
 utilities.lazyLoad(exports, ["getFlinkComputePool","getFlinkComputePoolOutput"], () => require("./getFlinkComputePool"));
+
+export { GetFlinkComputePoolConfigArgs, GetFlinkComputePoolConfigResult, GetFlinkComputePoolConfigOutputArgs } from "./getFlinkComputePoolConfig";
+export const getFlinkComputePoolConfig: typeof import("./getFlinkComputePoolConfig").getFlinkComputePoolConfig = null as any;
+export const getFlinkComputePoolConfigOutput: typeof import("./getFlinkComputePoolConfig").getFlinkComputePoolConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getFlinkComputePoolConfig","getFlinkComputePoolConfigOutput"], () => require("./getFlinkComputePoolConfig"));
 
 export { GetFlinkConnectionArgs, GetFlinkConnectionResult, GetFlinkConnectionOutputArgs } from "./getFlinkConnection";
 export const getFlinkConnection: typeof import("./getFlinkConnection").getFlinkConnection = null as any;
@@ -665,6 +675,8 @@ const _module = {
                 return new FlinkArtifact(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkComputePool:FlinkComputePool":
                 return new FlinkComputePool(name, <any>undefined, { urn })
+            case "confluentcloud:index/flinkComputePoolConfig:FlinkComputePoolConfig":
+                return new FlinkComputePoolConfig(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkConnection:FlinkConnection":
                 return new FlinkConnection(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkStatement:FlinkStatement":
@@ -773,6 +785,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/dnsRecord", _modu
 pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkArtifact", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkComputePool", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkComputePoolConfig", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkConnection", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkStatement", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/gateway", _module)

@@ -37,6 +37,7 @@ namespace Pulumi.ConfluentCloud
     ///         Cloud = "AWS",
     ///         Region = "us-east-1",
     ///         MaxCfu = 5,
+    ///         DefaultPool = true,
     ///         Environment = new ConfluentCloud.Inputs.FlinkComputePoolEnvironmentArgs
     ///         {
     ///             Id = development.Id,
@@ -74,6 +75,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("cloud")]
         public Output<string> Cloud { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicate whether the Flink compute pool is a default compute pool or not. Default value is `False`.
+        /// </summary>
+        [Output("defaultPool")]
+        public Output<bool?> DefaultPool { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Flink Compute Pool.
@@ -164,6 +171,12 @@ namespace Pulumi.ConfluentCloud
         public Input<string> Cloud { get; set; } = null!;
 
         /// <summary>
+        /// Indicate whether the Flink compute pool is a default compute pool or not. Default value is `False`.
+        /// </summary>
+        [Input("defaultPool")]
+        public Input<bool>? DefaultPool { get; set; }
+
+        /// <summary>
         /// The name of the Flink Compute Pool.
         /// </summary>
         [Input("displayName", required: true)]
@@ -206,6 +219,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("cloud")]
         public Input<string>? Cloud { get; set; }
+
+        /// <summary>
+        /// Indicate whether the Flink compute pool is a default compute pool or not. Default value is `False`.
+        /// </summary>
+        [Input("defaultPool")]
+        public Input<bool>? DefaultPool { get; set; }
 
         /// <summary>
         /// The name of the Flink Compute Pool.

@@ -17,6 +17,74 @@ namespace Pulumi.ConfluentCloud
         /// `confluentcloud.FlinkConnection` describes a Flink Connection data source.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetFlinkConnection.Invoke(new()
+        ///     {
+        ///         Organization = new ConfluentCloud.Inputs.GetFlinkConnectionOrganizationInputArgs
+        ///         {
+        ///             Id = mainConfluentOrganization.Id,
+        ///         },
+        ///         Environment = new ConfluentCloud.Inputs.GetFlinkConnectionEnvironmentInputArgs
+        ///         {
+        ///             Id = staging.Id,
+        ///         },
+        ///         ComputePool = new ConfluentCloud.Inputs.GetFlinkConnectionComputePoolInputArgs
+        ///         {
+        ///             Id = example.Id,
+        ///         },
+        ///         Principal = new ConfluentCloud.Inputs.GetFlinkConnectionPrincipalInputArgs
+        ///         {
+        ///             Id = app_manager_flink.Id,
+        ///         },
+        ///         RestEndpoint = mainConfluentFlinkRegion.RestEndpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetFlinkConnectionCredentialsInputArgs
+        ///         {
+        ///             Key = env_admin_flink_api_key.Id,
+        ///             Secret = env_admin_flink_api_key.Secret,
+        ///         },
+        ///         DisplayName = "connection1",
+        ///         Type = "OPENAI",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["connectionOutput"] = main.Apply(getFlinkConnectionResult =&gt; getFlinkConnectionResult.Status),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetFlinkConnection.Invoke(new()
+        ///     {
+        ///         DisplayName = "connection1",
+        ///         Type = "OPENAI",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["connectionOutput"] = main.Apply(getFlinkConnectionResult =&gt; getFlinkConnectionResult.Status),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetFlinkConnectionResult> InvokeAsync(GetFlinkConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlinkConnectionResult>("confluentcloud:index/getFlinkConnection:getFlinkConnection", args ?? new GetFlinkConnectionArgs(), options.WithDefaults());
@@ -27,6 +95,74 @@ namespace Pulumi.ConfluentCloud
         /// `confluentcloud.FlinkConnection` describes a Flink Connection data source.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetFlinkConnection.Invoke(new()
+        ///     {
+        ///         Organization = new ConfluentCloud.Inputs.GetFlinkConnectionOrganizationInputArgs
+        ///         {
+        ///             Id = mainConfluentOrganization.Id,
+        ///         },
+        ///         Environment = new ConfluentCloud.Inputs.GetFlinkConnectionEnvironmentInputArgs
+        ///         {
+        ///             Id = staging.Id,
+        ///         },
+        ///         ComputePool = new ConfluentCloud.Inputs.GetFlinkConnectionComputePoolInputArgs
+        ///         {
+        ///             Id = example.Id,
+        ///         },
+        ///         Principal = new ConfluentCloud.Inputs.GetFlinkConnectionPrincipalInputArgs
+        ///         {
+        ///             Id = app_manager_flink.Id,
+        ///         },
+        ///         RestEndpoint = mainConfluentFlinkRegion.RestEndpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetFlinkConnectionCredentialsInputArgs
+        ///         {
+        ///             Key = env_admin_flink_api_key.Id,
+        ///             Secret = env_admin_flink_api_key.Secret,
+        ///         },
+        ///         DisplayName = "connection1",
+        ///         Type = "OPENAI",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["connectionOutput"] = main.Apply(getFlinkConnectionResult =&gt; getFlinkConnectionResult.Status),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetFlinkConnection.Invoke(new()
+        ///     {
+        ///         DisplayName = "connection1",
+        ///         Type = "OPENAI",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["connectionOutput"] = main.Apply(getFlinkConnectionResult =&gt; getFlinkConnectionResult.Status),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetFlinkConnectionResult> Invoke(GetFlinkConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlinkConnectionResult>("confluentcloud:index/getFlinkConnection:getFlinkConnection", args ?? new GetFlinkConnectionInvokeArgs(), options.WithDefaults());
@@ -37,6 +173,74 @@ namespace Pulumi.ConfluentCloud
         /// `confluentcloud.FlinkConnection` describes a Flink Connection data source.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetFlinkConnection.Invoke(new()
+        ///     {
+        ///         Organization = new ConfluentCloud.Inputs.GetFlinkConnectionOrganizationInputArgs
+        ///         {
+        ///             Id = mainConfluentOrganization.Id,
+        ///         },
+        ///         Environment = new ConfluentCloud.Inputs.GetFlinkConnectionEnvironmentInputArgs
+        ///         {
+        ///             Id = staging.Id,
+        ///         },
+        ///         ComputePool = new ConfluentCloud.Inputs.GetFlinkConnectionComputePoolInputArgs
+        ///         {
+        ///             Id = example.Id,
+        ///         },
+        ///         Principal = new ConfluentCloud.Inputs.GetFlinkConnectionPrincipalInputArgs
+        ///         {
+        ///             Id = app_manager_flink.Id,
+        ///         },
+        ///         RestEndpoint = mainConfluentFlinkRegion.RestEndpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetFlinkConnectionCredentialsInputArgs
+        ///         {
+        ///             Key = env_admin_flink_api_key.Id,
+        ///             Secret = env_admin_flink_api_key.Secret,
+        ///         },
+        ///         DisplayName = "connection1",
+        ///         Type = "OPENAI",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["connectionOutput"] = main.Apply(getFlinkConnectionResult =&gt; getFlinkConnectionResult.Status),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetFlinkConnection.Invoke(new()
+        ///     {
+        ///         DisplayName = "connection1",
+        ///         Type = "OPENAI",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["connectionOutput"] = main.Apply(getFlinkConnectionResult =&gt; getFlinkConnectionResult.Status),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetFlinkConnectionResult> Invoke(GetFlinkConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlinkConnectionResult>("confluentcloud:index/getFlinkConnection:getFlinkConnection", args ?? new GetFlinkConnectionInvokeArgs(), options.WithDefaults());
@@ -168,7 +372,6 @@ namespace Pulumi.ConfluentCloud
         public readonly string Status;
         /// <summary>
         /// (Required String) The status details of the Flink Connection.
-        /// -
         /// </summary>
         public readonly string StatusDetail;
         public readonly string? Type;

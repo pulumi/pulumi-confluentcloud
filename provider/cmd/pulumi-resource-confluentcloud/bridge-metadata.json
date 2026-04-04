@@ -318,6 +318,9 @@
                     }
                 }
             },
+            "confluent_flink_compute_pool_config": {
+                "current": "confluentcloud:index/flinkComputePoolConfig:FlinkComputePoolConfig"
+            },
             "confluent_flink_connection": {
                 "current": "confluentcloud:index/flinkConnection:FlinkConnection",
                 "fields": {
@@ -1235,6 +1238,9 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "confluent_flink_compute_pool_config": {
+                "current": "confluentcloud:index/getFlinkComputePoolConfig:getFlinkComputePoolConfig"
             },
             "confluent_flink_connection": {
                 "current": "confluentcloud:index/getFlinkConnection:getFlinkConnection",

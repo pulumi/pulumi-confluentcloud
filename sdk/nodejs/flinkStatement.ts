@@ -190,6 +190,19 @@ export class FlinkStatement extends pulumi.CustomResource {
      * !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
      *
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     *
+     * > **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as confluentcloud from "@pulumi/confluentcloud";
+     *
+     * const identity_pool_assigner = new confluentcloud.RoleBinding("identity-pool-assigner", {
+     *     principal: "User:pool-abc123",
+     *     roleName: "Assigner",
+     *     crnPattern: `${main.resourceName}/service-account=sa-def456`,
+     * });
+     * ```
      */
     declare public readonly stopped: pulumi.Output<boolean>;
 
@@ -303,6 +316,19 @@ export interface FlinkStatementState {
      * !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
      *
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     *
+     * > **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as confluentcloud from "@pulumi/confluentcloud";
+     *
+     * const identity_pool_assigner = new confluentcloud.RoleBinding("identity-pool-assigner", {
+     *     principal: "User:pool-abc123",
+     *     roleName: "Assigner",
+     *     crnPattern: `${main.resourceName}/service-account=sa-def456`,
+     * });
+     * ```
      */
     stopped?: pulumi.Input<boolean>;
 }
@@ -351,6 +377,19 @@ export interface FlinkStatementArgs {
      * !> **Note:** Currently, only 3 Flink statements support the resume feature, namely: `CREATE TABLE AS`, `INSERT INTO`, and `EXECUTE STATEMENT SET`.
      *
      * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.FlinkStatement` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     *
+     * > **Note:** When using OAuth to authenticate a Flink statement, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as confluentcloud from "@pulumi/confluentcloud";
+     *
+     * const identity_pool_assigner = new confluentcloud.RoleBinding("identity-pool-assigner", {
+     *     principal: "User:pool-abc123",
+     *     roleName: "Assigner",
+     *     crnPattern: `${main.resourceName}/service-account=sa-def456`,
+     * });
+     * ```
      */
     stopped?: pulumi.Input<boolean>;
 }

@@ -25,6 +25,7 @@ import * as utilities from "./utilities";
  *     cloud: "AWS",
  *     region: "us-east-1",
  *     maxCfu: 5,
+ *     defaultPool: true,
  *     environment: {
  *         id: development.id,
  *     },
@@ -82,6 +83,10 @@ export class FlinkComputePool extends pulumi.CustomResource {
      */
     declare public readonly cloud: pulumi.Output<string>;
     /**
+     * Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+     */
+    declare public readonly defaultPool: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the Flink Compute Pool.
      */
     declare public readonly displayName: pulumi.Output<string>;
@@ -121,6 +126,7 @@ export class FlinkComputePool extends pulumi.CustomResource {
             const state = argsOrState as FlinkComputePoolState | undefined;
             resourceInputs["apiVersion"] = state?.apiVersion;
             resourceInputs["cloud"] = state?.cloud;
+            resourceInputs["defaultPool"] = state?.defaultPool;
             resourceInputs["displayName"] = state?.displayName;
             resourceInputs["environment"] = state?.environment;
             resourceInputs["kind"] = state?.kind;
@@ -142,6 +148,7 @@ export class FlinkComputePool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'region'");
             }
             resourceInputs["cloud"] = args?.cloud;
+            resourceInputs["defaultPool"] = args?.defaultPool;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["environment"] = args?.environment;
             resourceInputs["maxCfu"] = args?.maxCfu;
@@ -167,6 +174,10 @@ export interface FlinkComputePoolState {
      * The cloud service provider that runs the Flink Compute Pool.
      */
     cloud?: pulumi.Input<string>;
+    /**
+     * Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+     */
+    defaultPool?: pulumi.Input<boolean>;
     /**
      * The name of the Flink Compute Pool.
      */
@@ -201,6 +212,10 @@ export interface FlinkComputePoolArgs {
      * The cloud service provider that runs the Flink Compute Pool.
      */
     cloud: pulumi.Input<string>;
+    /**
+     * Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+     */
+    defaultPool?: pulumi.Input<boolean>;
     /**
      * The name of the Flink Compute Pool.
      */

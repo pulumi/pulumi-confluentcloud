@@ -16,6 +16,79 @@ import (
 // `FlinkConnection` describes a Flink Connection data source.
 //
 // ## Example Usage
+//
+// ### Option #1: Manage multiple Flink Connections in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := confluentcloud.LookupFlinkConnection(ctx, &confluentcloud.LookupFlinkConnectionArgs{
+//				Organization: confluentcloud.GetFlinkConnectionOrganization{
+//					Id: mainConfluentOrganization.Id,
+//				},
+//				Environment: confluentcloud.GetFlinkConnectionEnvironment{
+//					Id: staging.Id,
+//				},
+//				ComputePool: confluentcloud.GetFlinkConnectionComputePool{
+//					Id: example.Id,
+//				},
+//				Principal: confluentcloud.GetFlinkConnectionPrincipal{
+//					Id: app_manager_flink.Id,
+//				},
+//				RestEndpoint: pulumi.StringRef(mainConfluentFlinkRegion.RestEndpoint),
+//				Credentials: confluentcloud.GetFlinkConnectionCredentials{
+//					Key:    env_admin_flink_api_key.Id,
+//					Secret: env_admin_flink_api_key.Secret,
+//				},
+//				DisplayName: "connection1",
+//				Type:        pulumi.StringRef("OPENAI"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("connectionOutput", main.Status)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Option #2: Manage a single Flink Connection in the same Pulumi Stack
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := confluentcloud.LookupFlinkConnection(ctx, &confluentcloud.LookupFlinkConnectionArgs{
+//				DisplayName: "connection1",
+//				Type:        pulumi.StringRef("OPENAI"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("connectionOutput", main.Status)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupFlinkConnection(ctx *pulumi.Context, args *LookupFlinkConnectionArgs, opts ...pulumi.InvokeOption) (*LookupFlinkConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFlinkConnectionResult
@@ -59,7 +132,6 @@ type LookupFlinkConnectionResult struct {
 	// (Required String) The status of the Flink Connection.
 	Status string `pulumi:"status"`
 	// (Required String) The status details of the Flink Connection.
-	// ---
 	StatusDetail string  `pulumi:"statusDetail"`
 	Type         *string `pulumi:"type"`
 }
@@ -156,7 +228,6 @@ func (o LookupFlinkConnectionResultOutput) Status() pulumi.StringOutput {
 }
 
 // (Required String) The status details of the Flink Connection.
-// ---
 func (o LookupFlinkConnectionResultOutput) StatusDetail() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFlinkConnectionResult) string { return v.StatusDetail }).(pulumi.StringOutput)
 }

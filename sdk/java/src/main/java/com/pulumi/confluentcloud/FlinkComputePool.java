@@ -11,8 +11,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -58,6 +60,7 @@ import javax.annotation.Nullable;
  *             .cloud("AWS")
  *             .region("us-east-1")
  *             .maxCfu(5)
+ *             .defaultPool(true)
  *             .environment(FlinkComputePoolEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
@@ -112,6 +115,20 @@ public class FlinkComputePool extends com.pulumi.resources.CustomResource {
      */
     public Output<String> cloud() {
         return this.cloud;
+    }
+    /**
+     * Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+     * 
+     */
+    @Export(name="defaultPool", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> defaultPool;
+
+    /**
+     * @return Indicate whether the Flink compute pool is a default compute pool or not. Default value is `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> defaultPool() {
+        return Codegen.optional(this.defaultPool);
     }
     /**
      * The name of the Flink Compute Pool.

@@ -210,6 +210,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Cloud;
         /// <summary>
+        /// (Optional Boolean) Indicate whether the Flink compute pool is a default compute pool or not. Default value is `False`.
+        /// </summary>
+        public readonly bool DefaultPool;
+        /// <summary>
         /// (Required String) The name of the Flink Compute Pool.
         /// </summary>
         public readonly string DisplayName;
@@ -244,6 +248,8 @@ namespace Pulumi.ConfluentCloud
 
             string cloud,
 
+            bool defaultPool,
+
             string displayName,
 
             Outputs.GetFlinkComputePoolEnvironmentResult environment,
@@ -260,6 +266,7 @@ namespace Pulumi.ConfluentCloud
         {
             ApiVersion = apiVersion;
             Cloud = cloud;
+            DefaultPool = defaultPool;
             DisplayName = displayName;
             Environment = environment;
             Id = id;
