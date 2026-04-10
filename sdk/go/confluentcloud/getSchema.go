@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			purchase_v1, err := confluentcloud.LookupSchema(ctx, &confluentcloud.LookupSchemaArgs{
+//			purchase_v1, err := confluentcloud.GetSchema(ctx, &confluentcloud.LookupSchemaArgs{
 //				SchemaRegistryCluster: confluentcloud.GetSchemaSchemaRegistryCluster{
 //					Id: essentials.Id,
 //				},
@@ -67,7 +67,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			purchase_v1, err := confluentcloud.LookupSchema(ctx, &confluentcloud.LookupSchemaArgs{
+//			purchase_v1, err := confluentcloud.GetSchema(ctx, &confluentcloud.LookupSchemaArgs{
 //				SubjectName:      "proto-purchase-value",
 //				SchemaIdentifier: 10001,
 //			}, nil)

@@ -38,7 +38,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetNetwork.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetNetwork.Invoke(new()
         ///     {
         ///         Id = "n-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkEnvironmentInputArgs
@@ -47,13 +47,13 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new()
+        ///     var test_sa = new ConfluentCloud.Index.ServiceAccount("test-sa", new()
         ///     {
         ///         DisplayName = "test_sa",
         ///         Description = $"test_sa for {exampleUsingId.Apply(getNetworkResult =&gt; getNetworkResult.DisplayName)}",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetNetwork.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetNetwork.Invoke(new()
         ///     {
         ///         DisplayName = "my_network",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkEnvironmentInputArgs
@@ -99,7 +99,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetNetwork.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetNetwork.Invoke(new()
         ///     {
         ///         Id = "n-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkEnvironmentInputArgs
@@ -108,13 +108,13 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new()
+        ///     var test_sa = new ConfluentCloud.Index.ServiceAccount("test-sa", new()
         ///     {
         ///         DisplayName = "test_sa",
         ///         Description = $"test_sa for {exampleUsingId.Apply(getNetworkResult =&gt; getNetworkResult.DisplayName)}",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetNetwork.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetNetwork.Invoke(new()
         ///     {
         ///         DisplayName = "my_network",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkEnvironmentInputArgs
@@ -160,7 +160,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetNetwork.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetNetwork.Invoke(new()
         ///     {
         ///         Id = "n-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkEnvironmentInputArgs
@@ -169,13 +169,13 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new()
+        ///     var test_sa = new ConfluentCloud.Index.ServiceAccount("test-sa", new()
         ///     {
         ///         DisplayName = "test_sa",
         ///         Description = $"test_sa for {exampleUsingId.Apply(getNetworkResult =&gt; getNetworkResult.DisplayName)}",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetNetwork.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetNetwork.Invoke(new()
         ///     {
         ///         DisplayName = "my_network",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkEnvironmentInputArgs

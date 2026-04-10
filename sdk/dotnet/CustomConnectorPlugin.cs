@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var source = new ConfluentCloud.CustomConnectorPlugin("source", new()
+    ///     var source = new ConfluentCloud.Index.CustomConnectorPlugin("source", new()
     ///     {
     ///         DisplayName = "Datagen Source Connector Plugin",
     ///         DocumentationLink = "https://www.confluent.io/hub/confluentinc/kafka-connect-datagen",

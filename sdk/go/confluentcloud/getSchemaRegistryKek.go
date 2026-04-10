@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.LookupSchemaRegistryKek(ctx, &confluentcloud.LookupSchemaRegistryKekArgs{
+//			_, err := confluentcloud.GetSchemaRegistryKek(ctx, &confluentcloud.LookupSchemaRegistryKekArgs{
 //				SchemaRegistryCluster: confluentcloud.GetSchemaRegistryKekSchemaRegistryCluster{
 //					Id: essentials.Id,
 //				},
@@ -65,7 +65,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.LookupSchemaRegistryKek(ctx, &confluentcloud.LookupSchemaRegistryKekArgs{
+//			_, err := confluentcloud.GetSchemaRegistryKek(ctx, &confluentcloud.LookupSchemaRegistryKekArgs{
 //				Name: "my_key",
 //			}, nil)
 //			if err != nil {

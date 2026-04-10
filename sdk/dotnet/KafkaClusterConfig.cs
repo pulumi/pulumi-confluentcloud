@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var orders = new ConfluentCloud.KafkaClusterConfig("orders", new()
+    ///     var orders = new ConfluentCloud.Index.KafkaClusterConfig("orders", new()
     ///     {
     ///         KafkaCluster = new ConfluentCloud.Inputs.KafkaClusterConfigKafkaClusterArgs
     ///         {
@@ -58,7 +58,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var orders = new ConfluentCloud.KafkaClusterConfig("orders", new()
+    ///     var orders = new ConfluentCloud.Index.KafkaClusterConfig("orders", new()
     ///     {
     ///         Config = 
     ///         {

@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetIdentityPool.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetIdentityPool.Invoke(new()
         ///     {
         ///         Id = "pool-xyz456",
         ///         IdentityProvider = new ConfluentCloud.Inputs.GetIdentityPoolIdentityProviderInputArgs
@@ -35,7 +35,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetIdentityPool.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetIdentityPool.Invoke(new()
         ///     {
         ///         DisplayName = "My Identity Pool",
         ///         IdentityProvider = new ConfluentCloud.Inputs.GetIdentityPoolIdentityProviderInputArgs
@@ -70,7 +70,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetIdentityPool.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetIdentityPool.Invoke(new()
         ///     {
         ///         Id = "pool-xyz456",
         ///         IdentityProvider = new ConfluentCloud.Inputs.GetIdentityPoolIdentityProviderInputArgs
@@ -79,7 +79,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetIdentityPool.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetIdentityPool.Invoke(new()
         ///     {
         ///         DisplayName = "My Identity Pool",
         ///         IdentityProvider = new ConfluentCloud.Inputs.GetIdentityPoolIdentityProviderInputArgs
@@ -114,7 +114,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetIdentityPool.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetIdentityPool.Invoke(new()
         ///     {
         ///         Id = "pool-xyz456",
         ///         IdentityProvider = new ConfluentCloud.Inputs.GetIdentityPoolIdentityProviderInputArgs
@@ -123,7 +123,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetIdentityPool.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetIdentityPool.Invoke(new()
         ///     {
         ///         DisplayName = "My Identity Pool",
         ///         IdentityProvider = new ConfluentCloud.Inputs.GetIdentityPoolIdentityProviderInputArgs

@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupInvitation(ctx, &confluentcloud.LookupInvitationArgs{
+//			main, err := confluentcloud.GetInvitation(ctx, &confluentcloud.LookupInvitationArgs{
 //				Id: "i-gxxn1",
 //			}, nil)
 //			if err != nil {

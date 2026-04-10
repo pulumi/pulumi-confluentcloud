@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.LookupTag(ctx, &confluentcloud.LookupTagArgs{
+//			_, err := confluentcloud.GetTag(ctx, &confluentcloud.LookupTagArgs{
 //				SchemaRegistryCluster: confluentcloud.GetTagSchemaRegistryCluster{
 //					Id: essentials.Id,
 //				},
@@ -65,7 +65,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.LookupTag(ctx, &confluentcloud.LookupTagArgs{
+//			_, err := confluentcloud.GetTag(ctx, &confluentcloud.LookupTagArgs{
 //				Name: "PII",
 //			}, nil)
 //			if err != nil {

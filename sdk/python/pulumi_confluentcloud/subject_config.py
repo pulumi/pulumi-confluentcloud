@@ -376,7 +376,7 @@ class SubjectConfig(pulumi.CustomResource):
         original = confluentcloud.Schema("original",
             subject_name="orders-long-subject-name-value",
             format="AVRO",
-            schema=std.index.file(input="./schemas/avro/orders.avsc")["result"])
+            schema=std.file(input="./schemas/avro/orders.avsc")["result"])
         # Create an alias that points to the original subject
         # Any reference to "orders-value" will now resolve to "orders-long-subject-name-value"
         orders_alias = confluentcloud.SubjectConfig("orders_alias",
@@ -475,7 +475,7 @@ class SubjectConfig(pulumi.CustomResource):
         original = confluentcloud.Schema("original",
             subject_name="orders-long-subject-name-value",
             format="AVRO",
-            schema=std.index.file(input="./schemas/avro/orders.avsc")["result"])
+            schema=std.file(input="./schemas/avro/orders.avsc")["result"])
         # Create an alias that points to the original subject
         # Any reference to "orders-value" will now resolve to "orders-long-subject-name-value"
         orders_alias = confluentcloud.SubjectConfig("orders_alias",

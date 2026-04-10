@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingId, err := confluentcloud.LookupProviderIntegration(ctx, &confluentcloud.LookupProviderIntegrationArgs{
+//			exampleUsingId, err := confluentcloud.GetProviderIntegration(ctx, &confluentcloud.LookupProviderIntegrationArgs{
 //				Id: pulumi.StringRef("cspi-4xg0q"),
 //				Environment: confluentcloud.GetProviderIntegrationEnvironment{
 //					Id: "env-xyz456",
@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingId)
-//			exampleUsingName, err := confluentcloud.LookupProviderIntegration(ctx, &confluentcloud.LookupProviderIntegrationArgs{
+//			exampleUsingName, err := confluentcloud.GetProviderIntegration(ctx, &confluentcloud.LookupProviderIntegrationArgs{
 //				DisplayName: pulumi.StringRef("provider_integration_main"),
 //				Environment: confluentcloud.GetProviderIntegrationEnvironment{
 //					Id: "env-xyz456",

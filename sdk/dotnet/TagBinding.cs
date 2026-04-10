@@ -26,12 +26,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = ConfluentCloud.GetKafkaTopic.Invoke(new()
+    ///     var main = ConfluentCloud.Index.GetKafkaTopic.Invoke(new()
     ///     {
     ///         TopicName = "orders",
     ///     });
     /// 
-    ///     var mainTagBinding = new ConfluentCloud.TagBinding("main", new()
+    ///     var mainTagBinding = new ConfluentCloud.Index.TagBinding("main", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.TagBindingSchemaRegistryClusterArgs
     ///         {
@@ -61,12 +61,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = ConfluentCloud.GetKafkaTopic.Invoke(new()
+    ///     var main = ConfluentCloud.Index.GetKafkaTopic.Invoke(new()
     ///     {
     ///         TopicName = "orders",
     ///     });
     /// 
-    ///     var topic_tagging = new ConfluentCloud.TagBinding("topic-tagging", new()
+    ///     var topic_tagging = new ConfluentCloud.Index.TagBinding("topic-tagging", new()
     ///     {
     ///         TagName = "PII",
     ///         EntityName = $"{schemaRegistryId}:{kafkaId}:{main.Apply(getKafkaTopicResult =&gt; getKafkaTopicResult.TopicName)}",

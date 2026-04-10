@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluentcloud.LookupTableflowTopic(ctx, &confluentcloud.LookupTableflowTopicArgs{
+//			example, err := confluentcloud.GetTableflowTopic(ctx, &confluentcloud.LookupTableflowTopicArgs{
 //				Environment: confluentcloud.GetTableflowTopicEnvironment{
 //					Id: staging.Id,
 //				},
@@ -68,7 +68,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluentcloud.LookupTableflowTopic(ctx, &confluentcloud.LookupTableflowTopicArgs{
+//			example, err := confluentcloud.GetTableflowTopic(ctx, &confluentcloud.LookupTableflowTopicArgs{
 //				DisplayName: "tableflow-example",
 //			}, nil)
 //			if err != nil {

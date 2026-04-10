@@ -24,12 +24,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new ConfluentCloud.Invitation("main", new()
+    ///     var main = new ConfluentCloud.Index.Invitation("main", new()
     ///     {
     ///         Email = "",
     ///     });
     /// 
-    ///     var main2 = new ConfluentCloud.Invitation("main2", new()
+    ///     var main2 = new ConfluentCloud.Index.Invitation("main2", new()
     ///     {
     ///         Email = "",
     ///         AuthType = "AUTH_TYPE_LOCAL",

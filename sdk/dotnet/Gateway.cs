@@ -24,12 +24,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var main = new ConfluentCloud.Gateway("main", new()
+    ///     var main = new ConfluentCloud.Index.Gateway("main", new()
     ///     {
     ///         DisplayName = "my_egress_gateway",
     ///         Environment = new ConfluentCloud.Inputs.GatewayEnvironmentArgs

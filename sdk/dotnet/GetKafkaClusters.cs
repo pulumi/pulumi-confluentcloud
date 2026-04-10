@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetKafkaClusters.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetKafkaClusters.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetKafkaClustersEnvironmentInputArgs
         ///         {
@@ -55,7 +55,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetKafkaClusters.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetKafkaClusters.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetKafkaClustersEnvironmentInputArgs
         ///         {
@@ -84,7 +84,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetKafkaClusters.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetKafkaClusters.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetKafkaClustersEnvironmentInputArgs
         ///         {

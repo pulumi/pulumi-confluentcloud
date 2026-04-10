@@ -28,12 +28,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var basic = new ConfluentCloud.KafkaCluster("basic", new()
+    ///     var basic = new ConfluentCloud.Index.KafkaCluster("basic", new()
     ///     {
     ///         DisplayName = "basic_kafka_cluster",
     ///         Availability = "SINGLE_ZONE",
@@ -46,7 +46,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var standard = new ConfluentCloud.KafkaCluster("standard", new()
+    ///     var standard = new ConfluentCloud.Index.KafkaCluster("standard", new()
     ///     {
     ///         DisplayName = "standard_kafka_cluster",
     ///         Availability = "SINGLE_ZONE",
@@ -59,7 +59,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var enterprise = new ConfluentCloud.KafkaCluster("enterprise", new()
+    ///     var enterprise = new ConfluentCloud.Index.KafkaCluster("enterprise", new()
     ///     {
     ///         Enterprises = new[]
     ///         {
@@ -75,7 +75,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var dedicated = new ConfluentCloud.KafkaCluster("dedicated", new()
+    ///     var dedicated = new ConfluentCloud.Index.KafkaCluster("dedicated", new()
     ///     {
     ///         DisplayName = "dedicated_kafka_cluster",
     ///         Availability = "MULTI_ZONE",
@@ -91,7 +91,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var freight = new ConfluentCloud.KafkaCluster("freight", new()
+    ///     var freight = new ConfluentCloud.Index.KafkaCluster("freight", new()
     ///     {
     ///         Freights = new[]
     ///         {
@@ -120,12 +120,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var basic = new ConfluentCloud.KafkaCluster("basic", new()
+    ///     var basic = new ConfluentCloud.Index.KafkaCluster("basic", new()
     ///     {
     ///         DisplayName = "basic_kafka_cluster",
     ///         Availability = "SINGLE_ZONE",
@@ -138,7 +138,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var standard = new ConfluentCloud.KafkaCluster("standard", new()
+    ///     var standard = new ConfluentCloud.Index.KafkaCluster("standard", new()
     ///     {
     ///         DisplayName = "standard_kafka_cluster",
     ///         Availability = "SINGLE_ZONE",
@@ -151,7 +151,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var enterprise = new ConfluentCloud.KafkaCluster("enterprise", new()
+    ///     var enterprise = new ConfluentCloud.Index.KafkaCluster("enterprise", new()
     ///     {
     ///         Enterprises = new[]
     ///         {
@@ -167,7 +167,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var dedicated = new ConfluentCloud.KafkaCluster("dedicated", new()
+    ///     var dedicated = new ConfluentCloud.Index.KafkaCluster("dedicated", new()
     ///     {
     ///         DisplayName = "dedicated_kafka_cluster",
     ///         Availability = "MULTI_ZONE",
@@ -196,12 +196,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var basic = new ConfluentCloud.KafkaCluster("basic", new()
+    ///     var basic = new ConfluentCloud.Index.KafkaCluster("basic", new()
     ///     {
     ///         DisplayName = "basic_kafka_cluster",
     ///         Availability = "SINGLE_ZONE",
@@ -214,7 +214,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var standard = new ConfluentCloud.KafkaCluster("standard", new()
+    ///     var standard = new ConfluentCloud.Index.KafkaCluster("standard", new()
     ///     {
     ///         DisplayName = "standard_kafka_cluster",
     ///         Availability = "SINGLE_ZONE",
@@ -227,7 +227,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var dedicated = new ConfluentCloud.KafkaCluster("dedicated", new()
+    ///     var dedicated = new ConfluentCloud.Index.KafkaCluster("dedicated", new()
     ///     {
     ///         DisplayName = "dedicated_kafka_cluster",
     ///         Availability = "MULTI_ZONE",

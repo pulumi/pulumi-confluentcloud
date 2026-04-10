@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var azure = new ConfluentCloud.IdentityProvider("azure", new()
+    ///     var azure = new ConfluentCloud.Index.IdentityProvider("azure", new()
     ///     {
     ///         DisplayName = "My OIDC Provider: Azure AD",
     ///         Description = "My description",
@@ -34,7 +34,7 @@ namespace Pulumi.ConfluentCloud
     ///         JwksUri = "https://login.microsoftonline.com/common/discovery/v2.0/keys",
     ///     });
     /// 
-    ///     var example = new ConfluentCloud.IdentityPool("example", new()
+    ///     var example = new ConfluentCloud.Index.IdentityPool("example", new()
     ///     {
     ///         IdentityProvider = new ConfluentCloud.Inputs.IdentityPoolIdentityProviderArgs
     ///         {
@@ -59,7 +59,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var okta = new ConfluentCloud.IdentityProvider("okta", new()
+    ///     var okta = new ConfluentCloud.Index.IdentityProvider("okta", new()
     ///     {
     ///         DisplayName = "My OIDC Provider: Okta",
     ///         Description = "My description",
@@ -67,7 +67,7 @@ namespace Pulumi.ConfluentCloud
     ///         JwksUri = "https://mycompany.okta.com/oauth2/default/v1/keys",
     ///     });
     /// 
-    ///     var example = new ConfluentCloud.IdentityPool("example", new()
+    ///     var example = new ConfluentCloud.Index.IdentityPool("example", new()
     ///     {
     ///         IdentityProvider = new ConfluentCloud.Inputs.IdentityPoolIdentityProviderArgs
     ///         {

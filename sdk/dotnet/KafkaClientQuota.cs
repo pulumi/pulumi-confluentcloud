@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.KafkaClientQuota("example", new()
+    ///     var example = new ConfluentCloud.Index.KafkaClientQuota("example", new()
     ///     {
     ///         DisplayName = "test-quota",
     ///         Description = "Test Quota",

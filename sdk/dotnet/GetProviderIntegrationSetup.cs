@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var azure = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
+        ///     var azure = ConfluentCloud.Index.GetProviderIntegrationSetup.Invoke(new()
         ///     {
         ///         Id = "cspi-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
@@ -54,7 +54,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var gcp = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
+        ///     var gcp = ConfluentCloud.Index.GetProviderIntegrationSetup.Invoke(new()
         ///     {
         ///         DisplayName = "my-gcp-integration",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
@@ -80,7 +80,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetProviderIntegrationSetup.Invoke(new()
         ///     {
         ///         Id = "cspi-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
@@ -90,7 +90,7 @@ namespace Pulumi.ConfluentCloud
         ///     });
         /// 
         ///     // Use the integration with authorization data source
-        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Id),
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -129,7 +129,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var azure = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
+        ///     var azure = ConfluentCloud.Index.GetProviderIntegrationSetup.Invoke(new()
         ///     {
         ///         Id = "cspi-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
@@ -155,7 +155,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var gcp = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
+        ///     var gcp = ConfluentCloud.Index.GetProviderIntegrationSetup.Invoke(new()
         ///     {
         ///         DisplayName = "my-gcp-integration",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
@@ -181,7 +181,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetProviderIntegrationSetup.Invoke(new()
         ///     {
         ///         Id = "cspi-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
@@ -191,7 +191,7 @@ namespace Pulumi.ConfluentCloud
         ///     });
         /// 
         ///     // Use the integration with authorization data source
-        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Id),
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -230,7 +230,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var azure = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
+        ///     var azure = ConfluentCloud.Index.GetProviderIntegrationSetup.Invoke(new()
         ///     {
         ///         Id = "cspi-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
@@ -256,7 +256,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var gcp = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
+        ///     var gcp = ConfluentCloud.Index.GetProviderIntegrationSetup.Invoke(new()
         ///     {
         ///         DisplayName = "my-gcp-integration",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
@@ -282,7 +282,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetProviderIntegrationSetup.Invoke(new()
         ///     {
         ///         Id = "cspi-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
@@ -292,7 +292,7 @@ namespace Pulumi.ConfluentCloud
         ///     });
         /// 
         ///     // Use the integration with authorization data source
-        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Id),
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs

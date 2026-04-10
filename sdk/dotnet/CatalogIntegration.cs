@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.CatalogIntegration("example", new()
+    ///     var example = new ConfluentCloud.Index.CatalogIntegration("example", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.CatalogIntegrationEnvironmentArgs
     ///         {
@@ -61,7 +61,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.CatalogIntegration("example", new()
+    ///     var example = new ConfluentCloud.Index.CatalogIntegration("example", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.CatalogIntegrationEnvironmentArgs
     ///         {

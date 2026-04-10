@@ -29,7 +29,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetIpAddresses.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetIpAddresses.Invoke(new()
         ///     {
         ///         Filter = new ConfluentCloud.Inputs.GetIpAddressesFilterInputArgs
         ///         {
@@ -81,7 +81,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetIpAddresses.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetIpAddresses.Invoke(new()
         ///     {
         ///         Filter = new ConfluentCloud.Inputs.GetIpAddressesFilterInputArgs
         ///         {
@@ -133,7 +133,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetIpAddresses.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetIpAddresses.Invoke(new()
         ///     {
         ///         Filter = new ConfluentCloud.Inputs.GetIpAddressesFilterInputArgs
         ///         {

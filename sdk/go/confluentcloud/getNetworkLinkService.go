@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			nls, err := confluentcloud.LookupNetworkLinkService(ctx, &confluentcloud.LookupNetworkLinkServiceArgs{
+//			nls, err := confluentcloud.GetNetworkLinkService(ctx, &confluentcloud.LookupNetworkLinkServiceArgs{
 //				Id: pulumi.StringRef("nls-zyw30"),
 //				Environment: confluentcloud.GetNetworkLinkServiceEnvironment{
 //					Id: "env-1234",

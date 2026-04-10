@@ -29,20 +29,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingId, err := confluentcloud.LookupEnvironment(ctx, &confluentcloud.LookupEnvironmentArgs{
+//			exampleUsingId, err := confluentcloud.GetEnvironment(ctx, &confluentcloud.LookupEnvironmentArgs{
 //				Id: pulumi.StringRef("env-abc123"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingId)
-//			exampleUsingName, err := confluentcloud.LookupEnvironment(ctx, &confluentcloud.LookupEnvironmentArgs{
+//			exampleUsingName, err := confluentcloud.GetEnvironment(ctx, &confluentcloud.LookupEnvironmentArgs{
 //				DisplayName: pulumi.StringRef("stag"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleUsingNameGetServiceAccount, err := confluentcloud.LookupServiceAccount(ctx, &confluentcloud.LookupServiceAccountArgs{
+//			exampleUsingNameGetServiceAccount, err := confluentcloud.GetServiceAccount(ctx, &confluentcloud.LookupServiceAccountArgs{
 //				DisplayName: pulumi.StringRef("test_sa"),
 //			}, nil)
 //			if err != nil {

@@ -30,7 +30,7 @@ namespace Pulumi.ConfluentCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/managed-datagen-source-connector
-    ///     var source = new ConfluentCloud.Connector("source", new()
+    ///     var source = new ConfluentCloud.Index.Connector("source", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
     ///         {
@@ -76,7 +76,7 @@ namespace Pulumi.ConfluentCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector
-    ///     var sink = new ConfluentCloud.Connector("sink", new()
+    ///     var sink = new ConfluentCloud.Index.Connector("sink", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
     ///         {
@@ -134,7 +134,7 @@ namespace Pulumi.ConfluentCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/s3-sink-connector-assume-role
-    ///     var sink = new ConfluentCloud.Connector("sink", new()
+    ///     var sink = new ConfluentCloud.Index.Connector("sink", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
     ///         {
@@ -192,7 +192,7 @@ namespace Pulumi.ConfluentCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/dynamo-db-sink-connector
-    ///     var sink = new ConfluentCloud.Connector("sink", new()
+    ///     var sink = new ConfluentCloud.Index.Connector("sink", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
     ///         {
@@ -249,7 +249,7 @@ namespace Pulumi.ConfluentCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/manage-offsets-source-sink-connector
-    ///     var sink = new ConfluentCloud.Connector("sink", new()
+    ///     var sink = new ConfluentCloud.Index.Connector("sink", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
     ///         {
@@ -348,7 +348,7 @@ namespace Pulumi.ConfluentCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations/connectors/custom-datagen-source-connector
-    ///     var source = new ConfluentCloud.Connector("source", new()
+    ///     var source = new ConfluentCloud.Index.Connector("source", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
     ///         {

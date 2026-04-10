@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupClusterLink(ctx, &confluentcloud.LookupClusterLinkArgs{
+//			main, err := confluentcloud.GetClusterLink(ctx, &confluentcloud.LookupClusterLinkArgs{
 //				LinkName:     "main-link",
 //				RestEndpoint: pulumi.StringRef(west.RestEndpoint),
 //				KafkaCluster: confluentcloud.GetClusterLinkKafkaCluster{
@@ -66,7 +66,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupClusterLink(ctx, &confluentcloud.LookupClusterLinkArgs{
+//			main, err := confluentcloud.GetClusterLink(ctx, &confluentcloud.LookupClusterLinkArgs{
 //				LinkName: "main-link",
 //			}, nil)
 //			if err != nil {
@@ -93,7 +93,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupClusterLink(ctx, &confluentcloud.LookupClusterLinkArgs{
+//			main, err := confluentcloud.GetClusterLink(ctx, &confluentcloud.LookupClusterLinkArgs{
 //				LinkName:     "main-link",
 //				RestEndpoint: pulumi.StringRef(west.RestEndpoint),
 //				KafkaCluster: confluentcloud.GetClusterLinkKafkaCluster{

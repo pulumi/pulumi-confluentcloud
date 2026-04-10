@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetCertificatePool.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetCertificatePool.Invoke(new()
         ///     {
         ///         Id = "pool-def456",
         ///         CertificateAuthority = new ConfluentCloud.Inputs.GetCertificatePoolCertificateAuthorityInputArgs
@@ -35,7 +35,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetCertificatePool.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetCertificatePool.Invoke(new()
         ///     {
         ///         DisplayName = "My Certificate Pool",
         ///         CertificateAuthority = new ConfluentCloud.Inputs.GetCertificatePoolCertificateAuthorityInputArgs
@@ -70,7 +70,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetCertificatePool.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetCertificatePool.Invoke(new()
         ///     {
         ///         Id = "pool-def456",
         ///         CertificateAuthority = new ConfluentCloud.Inputs.GetCertificatePoolCertificateAuthorityInputArgs
@@ -79,7 +79,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetCertificatePool.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetCertificatePool.Invoke(new()
         ///     {
         ///         DisplayName = "My Certificate Pool",
         ///         CertificateAuthority = new ConfluentCloud.Inputs.GetCertificatePoolCertificateAuthorityInputArgs
@@ -114,7 +114,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetCertificatePool.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetCertificatePool.Invoke(new()
         ///     {
         ///         Id = "pool-def456",
         ///         CertificateAuthority = new ConfluentCloud.Inputs.GetCertificatePoolCertificateAuthorityInputArgs
@@ -123,7 +123,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetCertificatePool.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetCertificatePool.Invoke(new()
         ///     {
         ///         DisplayName = "My Certificate Pool",
         ///         CertificateAuthority = new ConfluentCloud.Inputs.GetCertificatePoolCertificateAuthorityInputArgs

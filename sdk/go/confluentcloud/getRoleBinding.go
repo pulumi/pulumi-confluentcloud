@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluentcloud.LookupRoleBinding(ctx, &confluentcloud.LookupRoleBindingArgs{
+//			example, err := confluentcloud.GetRoleBinding(ctx, &confluentcloud.LookupRoleBindingArgs{
 //				Id: "rb-abc123",
 //			}, nil)
 //			if err != nil {

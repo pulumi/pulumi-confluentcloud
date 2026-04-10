@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var azureKey = new ConfluentCloud.ByokKey("azure_key", new()
+    ///     var azureKey = new ConfluentCloud.Index.ByokKey("azure_key", new()
     ///     {
     ///         Azure = new ConfluentCloud.Inputs.ByokKeyAzureArgs
     ///         {
@@ -49,7 +49,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var gcpKey = new ConfluentCloud.ByokKey("gcp_key", new()
+    ///     var gcpKey = new ConfluentCloud.Index.ByokKey("gcp_key", new()
     ///     {
     ///         Gcp = new ConfluentCloud.Inputs.ByokKeyGcpArgs
     ///         {

@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.TableflowTopic("example", new()
+    ///     var example = new ConfluentCloud.Index.TableflowTopic("example", new()
     ///     {
     ///         ManagedStorages = new[]
     ///         {
@@ -68,7 +68,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.TableflowTopic("example", new()
+    ///     var example = new ConfluentCloud.Index.TableflowTopic("example", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.TableflowTopicEnvironmentArgs
     ///         {

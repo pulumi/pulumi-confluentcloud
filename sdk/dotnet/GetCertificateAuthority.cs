@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetCertificateAuthority.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetCertificateAuthority.Invoke(new()
         ///     {
         ///         Id = "op-abc123",
         ///     });
@@ -56,7 +56,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetCertificateAuthority.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetCertificateAuthority.Invoke(new()
         ///     {
         ///         Id = "op-abc123",
         ///     });
@@ -86,7 +86,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetCertificateAuthority.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetCertificateAuthority.Invoke(new()
         ///     {
         ///         Id = "op-abc123",
         ///     });

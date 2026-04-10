@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetKafkaClientQuota.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetKafkaClientQuota.Invoke(new()
         ///     {
         ///         Id = "cq-abc123",
         ///     });
@@ -60,7 +60,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetKafkaClientQuota.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetKafkaClientQuota.Invoke(new()
         ///     {
         ///         Id = "cq-abc123",
         ///     });
@@ -92,7 +92,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetKafkaClientQuota.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetKafkaClientQuota.Invoke(new()
         ///     {
         ///         Id = "cq-abc123",
         ///     });

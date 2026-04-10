@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingId, err := confluentcloud.LookupIdentityPool(ctx, &confluentcloud.LookupIdentityPoolArgs{
+//			exampleUsingId, err := confluentcloud.GetIdentityPool(ctx, &confluentcloud.LookupIdentityPoolArgs{
 //				Id: pulumi.StringRef("pool-xyz456"),
 //				IdentityProvider: confluentcloud.GetIdentityPoolIdentityProvider{
 //					Id: "op-abc123",
@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingId)
-//			exampleUsingName, err := confluentcloud.LookupIdentityPool(ctx, &confluentcloud.LookupIdentityPoolArgs{
+//			exampleUsingName, err := confluentcloud.GetIdentityPool(ctx, &confluentcloud.LookupIdentityPoolArgs{
 //				DisplayName: pulumi.StringRef("My Identity Pool"),
 //				IdentityProvider: confluentcloud.GetIdentityPoolIdentityProvider{
 //					Id: "op-abc123",

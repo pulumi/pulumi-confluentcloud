@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetSchemaRegistryClusterConfig.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetSchemaRegistryClusterConfig.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterInputArgs
         ///         {
@@ -59,7 +59,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetSchemaRegistryClusterConfig.Invoke();
+        ///     var example = ConfluentCloud.Index.GetSchemaRegistryClusterConfig.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -88,7 +88,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetSchemaRegistryClusterConfig.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetSchemaRegistryClusterConfig.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterInputArgs
         ///         {
@@ -119,7 +119,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetSchemaRegistryClusterConfig.Invoke();
+        ///     var example = ConfluentCloud.Index.GetSchemaRegistryClusterConfig.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -148,7 +148,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetSchemaRegistryClusterConfig.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetSchemaRegistryClusterConfig.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaRegistryClusterConfigSchemaRegistryClusterInputArgs
         ///         {
@@ -179,7 +179,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetSchemaRegistryClusterConfig.Invoke();
+        ///     var example = ConfluentCloud.Index.GetSchemaRegistryClusterConfig.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {

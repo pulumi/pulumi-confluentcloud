@@ -28,12 +28,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var aws_peering = new ConfluentCloud.Network("aws-peering", new()
+    ///     var aws_peering = new ConfluentCloud.Index.Network("aws-peering", new()
     ///     {
     ///         DisplayName = "AWS Peering Network",
     ///         Cloud = "AWS",
@@ -49,7 +49,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var aws = new ConfluentCloud.Peering("aws", new()
+    ///     var aws = new ConfluentCloud.Index.Peering("aws", new()
     ///     {
     ///         DisplayName = "AWS Peering",
     ///         Aws = new ConfluentCloud.Inputs.PeeringAwsArgs
@@ -85,12 +85,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var azure_peering = new ConfluentCloud.Network("azure-peering", new()
+    ///     var azure_peering = new ConfluentCloud.Index.Network("azure-peering", new()
     ///     {
     ///         DisplayName = "Azure Peering Network",
     ///         Cloud = "AZURE",
@@ -106,7 +106,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var azure = new ConfluentCloud.Peering("azure", new()
+    ///     var azure = new ConfluentCloud.Index.Peering("azure", new()
     ///     {
     ///         DisplayName = "Azure Peering",
     ///         Azure = new ConfluentCloud.Inputs.PeeringAzureArgs
@@ -138,12 +138,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var gcp_peering = new ConfluentCloud.Network("gcp-peering", new()
+    ///     var gcp_peering = new ConfluentCloud.Index.Network("gcp-peering", new()
     ///     {
     ///         DisplayName = "GCP Peering Network",
     ///         Cloud = "GCP",
@@ -159,7 +159,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var gcp = new ConfluentCloud.Peering("gcp", new()
+    ///     var gcp = new ConfluentCloud.Index.Peering("gcp", new()
     ///     {
     ///         DisplayName = "GCP Peering",
     ///         Gcp = new ConfluentCloud.Inputs.PeeringGcpArgs

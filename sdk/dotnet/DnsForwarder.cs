@@ -26,12 +26,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var main = new ConfluentCloud.DnsForwarder("main", new()
+    ///     var main = new ConfluentCloud.Index.DnsForwarder("main", new()
     ///     {
     ///         DisplayName = "dns_forwarder",
     ///         Environment = new ConfluentCloud.Inputs.DnsForwarderEnvironmentArgs
@@ -70,12 +70,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var main = new ConfluentCloud.DnsForwarder("main", new()
+    ///     var main = new ConfluentCloud.Index.DnsForwarder("main", new()
     ///     {
     ///         DisplayName = "dns_forwarder",
     ///         Environment = new ConfluentCloud.Inputs.DnsForwarderEnvironmentArgs

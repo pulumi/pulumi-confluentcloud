@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.LookupTagBinding(ctx, &confluentcloud.LookupTagBindingArgs{
+//			_, err := confluentcloud.GetTagBinding(ctx, &confluentcloud.LookupTagBindingArgs{
 //				SchemaRegistryCluster: confluentcloud.GetTagBindingSchemaRegistryCluster{
 //					Id: essentials.Id,
 //				},
@@ -67,7 +67,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.LookupTagBinding(ctx, &confluentcloud.LookupTagBindingArgs{
+//			_, err := confluentcloud.GetTagBinding(ctx, &confluentcloud.LookupTagBindingArgs{
 //				TagName:    "PII",
 //				EntityName: "lsrc-8wrx70:.:100001",
 //				EntityType: "sr_schema",

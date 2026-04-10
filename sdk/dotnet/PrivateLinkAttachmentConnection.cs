@@ -24,7 +24,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var aws = new ConfluentCloud.PrivateLinkAttachmentConnection("aws", new()
+    ///     var aws = new ConfluentCloud.Index.PrivateLinkAttachmentConnection("aws", new()
     ///     {
     ///         DisplayName = "my_endpoint",
     ///         Environment = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionEnvironmentArgs
@@ -41,7 +41,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var azure = new ConfluentCloud.PrivateLinkAttachmentConnection("azure", new()
+    ///     var azure = new ConfluentCloud.Index.PrivateLinkAttachmentConnection("azure", new()
     ///     {
     ///         DisplayName = "prod-azure-central-us-az1-connection",
     ///         Environment = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionEnvironmentArgs
@@ -58,7 +58,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var gcp = new ConfluentCloud.PrivateLinkAttachmentConnection("gcp", new()
+    ///     var gcp = new ConfluentCloud.Index.PrivateLinkAttachmentConnection("gcp", new()
     ///     {
     ///         DisplayName = "prod-gcp-uscentral1-connection",
     ///         Environment = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionEnvironmentArgs

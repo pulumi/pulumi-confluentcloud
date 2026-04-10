@@ -37,7 +37,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Get the authorization data
-//			azure, err := confluentcloud.LookupProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
+//			azure, err := confluentcloud.GetProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
 //				Id: "cspi-abc123",
 //				Environment: confluentcloud.GetProviderIntegrationAuthorizationEnvironment{
 //					Id: "env-xyz456",
@@ -76,7 +76,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Get the authorization data
-//			azure, err := confluentcloud.LookupProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
+//			azure, err := confluentcloud.GetProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
 //				Id: "cspi-abc123",
 //				Environment: confluentcloud.GetProviderIntegrationAuthorizationEnvironment{
 //					Id: "env-xyz456",
@@ -114,7 +114,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Get the authorization data
-//			gcp, err := confluentcloud.LookupProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
+//			gcp, err := confluentcloud.GetProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
 //				Id: "cspi-def456",
 //				Environment: confluentcloud.GetProviderIntegrationAuthorizationEnvironment{
 //					Id: "env-xyz456",
@@ -162,7 +162,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Get the authorization data
-//			gcp, err := confluentcloud.LookupProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
+//			gcp, err := confluentcloud.GetProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
 //				Id: "cspi-def456",
 //				Environment: confluentcloud.GetProviderIntegrationAuthorizationEnvironment{
 //					Id: "env-xyz456",
@@ -195,7 +195,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupProviderIntegrationSetup(ctx, &confluentcloud.LookupProviderIntegrationSetupArgs{
+//			main, err := confluentcloud.GetProviderIntegrationSetup(ctx, &confluentcloud.LookupProviderIntegrationSetupArgs{
 //				DisplayName: pulumi.StringRef("my-integration"),
 //				Environment: confluentcloud.GetProviderIntegrationSetupEnvironment{
 //					Id: "env-xyz456",
@@ -204,7 +204,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			mainGetProviderIntegrationAuthorization, err := confluentcloud.LookupProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
+//			mainGetProviderIntegrationAuthorization, err := confluentcloud.GetProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
 //				Id: main.Id,
 //				Environment: confluentcloud.GetProviderIntegrationAuthorizationEnvironment{
 //					Id: "env-xyz456",
@@ -225,7 +225,7 @@ import (
 //					"customerSa":  mainGetProviderIntegrationAuthorization.Gcps[0].CustomerGoogleServiceAccount,
 //				}
 //			}
-//			ctx.Export("setupInfo", tmp0)
+//			ctx.Export("setupInfo", pulumi.ToMap(tmp0))
 //			return nil
 //		})
 //	}

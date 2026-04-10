@@ -28,12 +28,12 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetGroupMapping.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetGroupMapping.Invoke(new()
         ///     {
         ///         Id = "group-abc123",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetGroupMapping.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetGroupMapping.Invoke(new()
         ///     {
         ///         DisplayName = "Default",
         ///     });
@@ -65,12 +65,12 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetGroupMapping.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetGroupMapping.Invoke(new()
         ///     {
         ///         Id = "group-abc123",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetGroupMapping.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetGroupMapping.Invoke(new()
         ///     {
         ///         DisplayName = "Default",
         ///     });
@@ -102,12 +102,12 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetGroupMapping.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetGroupMapping.Invoke(new()
         ///     {
         ///         Id = "group-abc123",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetGroupMapping.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetGroupMapping.Invoke(new()
         ///     {
         ///         DisplayName = "Default",
         ///     });

@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetFlinkConnection.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetFlinkConnection.Invoke(new()
         ///     {
         ///         Organization = new ConfluentCloud.Inputs.GetFlinkConnectionOrganizationInputArgs
         ///         {
@@ -73,7 +73,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetFlinkConnection.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetFlinkConnection.Invoke(new()
         ///     {
         ///         DisplayName = "connection1",
         ///         Type = "OPENAI",
@@ -106,7 +106,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetFlinkConnection.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetFlinkConnection.Invoke(new()
         ///     {
         ///         Organization = new ConfluentCloud.Inputs.GetFlinkConnectionOrganizationInputArgs
         ///         {
@@ -151,7 +151,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetFlinkConnection.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetFlinkConnection.Invoke(new()
         ///     {
         ///         DisplayName = "connection1",
         ///         Type = "OPENAI",
@@ -184,7 +184,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetFlinkConnection.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetFlinkConnection.Invoke(new()
         ///     {
         ///         Organization = new ConfluentCloud.Inputs.GetFlinkConnectionOrganizationInputArgs
         ///         {
@@ -229,7 +229,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetFlinkConnection.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetFlinkConnection.Invoke(new()
         ///     {
         ///         DisplayName = "connection1",
         ///         Type = "OPENAI",

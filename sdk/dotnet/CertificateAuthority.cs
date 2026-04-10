@@ -24,7 +24,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new ConfluentCloud.CertificateAuthority("main", new()
+    ///     var main = new ConfluentCloud.Index.CertificateAuthority("main", new()
     ///     {
     ///         DisplayName = "my_certificate_authority",
     ///         Description = "description",

@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluentcloud.LookupCatalogIntegration(ctx, &confluentcloud.LookupCatalogIntegrationArgs{
+//			example, err := confluentcloud.GetCatalogIntegration(ctx, &confluentcloud.LookupCatalogIntegrationArgs{
 //				Environment: confluentcloud.GetCatalogIntegrationEnvironment{
 //					Id: staging.Id,
 //				},
@@ -68,7 +68,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluentcloud.LookupCatalogIntegration(ctx, &confluentcloud.LookupCatalogIntegrationArgs{
+//			example, err := confluentcloud.GetCatalogIntegration(ctx, &confluentcloud.LookupCatalogIntegrationArgs{
 //				Id: "tci-abc123",
 //			}, nil)
 //			if err != nil {

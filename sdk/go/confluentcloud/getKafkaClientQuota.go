@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluentcloud.LookupKafkaClientQuota(ctx, &confluentcloud.LookupKafkaClientQuotaArgs{
+//			example, err := confluentcloud.GetKafkaClientQuota(ctx, &confluentcloud.LookupKafkaClientQuotaArgs{
 //				Id: "cq-abc123",
 //			}, nil)
 //			if err != nil {

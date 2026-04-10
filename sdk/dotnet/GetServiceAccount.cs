@@ -26,17 +26,17 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetServiceAccount.Invoke(new()
         ///     {
         ///         Id = "sa-abc123",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetServiceAccount.Invoke(new()
         ///     {
         ///         DisplayName = "test_sa",
         ///     });
         /// 
-        ///     var test_env = new ConfluentCloud.Environment("test-env", new()
+        ///     var test_env = new ConfluentCloud.Index.Environment("test-env", new()
         ///     {
         ///         DisplayName = $"env_for_{exampleUsingId.Apply(getServiceAccountResult =&gt; getServiceAccountResult.DisplayName)}",
         ///     });
@@ -66,17 +66,17 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetServiceAccount.Invoke(new()
         ///     {
         ///         Id = "sa-abc123",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetServiceAccount.Invoke(new()
         ///     {
         ///         DisplayName = "test_sa",
         ///     });
         /// 
-        ///     var test_env = new ConfluentCloud.Environment("test-env", new()
+        ///     var test_env = new ConfluentCloud.Index.Environment("test-env", new()
         ///     {
         ///         DisplayName = $"env_for_{exampleUsingId.Apply(getServiceAccountResult =&gt; getServiceAccountResult.DisplayName)}",
         ///     });
@@ -106,17 +106,17 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetServiceAccount.Invoke(new()
         ///     {
         ///         Id = "sa-abc123",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetServiceAccount.Invoke(new()
         ///     {
         ///         DisplayName = "test_sa",
         ///     });
         /// 
-        ///     var test_env = new ConfluentCloud.Environment("test-env", new()
+        ///     var test_env = new ConfluentCloud.Index.Environment("test-env", new()
         ///     {
         ///         DisplayName = $"env_for_{exampleUsingId.Apply(getServiceAccountResult =&gt; getServiceAccountResult.DisplayName)}",
         ///     });

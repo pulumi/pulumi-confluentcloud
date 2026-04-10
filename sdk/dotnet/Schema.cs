@@ -31,7 +31,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var avro_purchase = new ConfluentCloud.Schema("avro-purchase", new()
+    ///     var avro_purchase = new ConfluentCloud.Index.Schema("avro-purchase", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.SchemaSchemaRegistryClusterArgs
     ///         {
@@ -65,7 +65,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var avro_purchase = new ConfluentCloud.Schema("avro-purchase", new()
+    ///     var avro_purchase = new ConfluentCloud.Index.Schema("avro-purchase", new()
     ///     {
     ///         SubjectName = "avro-purchase-value",
     ///         Format = "AVRO",
@@ -102,7 +102,7 @@ namespace Pulumi.ConfluentCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // confluent_schema.avro-purchase points to v1.
-    ///     var avro_purchase = new ConfluentCloud.Schema("avro-purchase", new()
+    ///     var avro_purchase = new ConfluentCloud.Index.Schema("avro-purchase", new()
     ///     {
     ///         SubjectName = "avro-purchase-value",
     ///         Format = "AVRO",

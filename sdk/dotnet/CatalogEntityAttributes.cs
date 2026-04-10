@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var environment = new ConfluentCloud.CatalogEntityAttributes("environment", new()
+    ///     var environment = new ConfluentCloud.Index.CatalogEntityAttributes("environment", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.CatalogEntityAttributesSchemaRegistryClusterArgs
     ///         {
@@ -48,7 +48,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var kafka_cluster = new ConfluentCloud.CatalogEntityAttributes("kafka-cluster", new()
+    ///     var kafka_cluster = new ConfluentCloud.Index.CatalogEntityAttributes("kafka-cluster", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.CatalogEntityAttributesSchemaRegistryClusterArgs
     ///         {
@@ -68,7 +68,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var topic = new ConfluentCloud.CatalogEntityAttributes("topic", new()
+    ///     var topic = new ConfluentCloud.Index.CatalogEntityAttributes("topic", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.CatalogEntityAttributesSchemaRegistryClusterArgs
     ///         {
@@ -90,7 +90,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var schema = new ConfluentCloud.CatalogEntityAttributes("schema", new()
+    ///     var schema = new ConfluentCloud.Index.CatalogEntityAttributes("schema", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.CatalogEntityAttributesSchemaRegistryClusterArgs
     ///         {
@@ -123,7 +123,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var environment = new ConfluentCloud.CatalogEntityAttributes("environment", new()
+    ///     var environment = new ConfluentCloud.Index.CatalogEntityAttributes("environment", new()
     ///     {
     ///         EntityName = environmentId,
     ///         EntityType = "cf_environment",
@@ -133,7 +133,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var kafka_cluster = new ConfluentCloud.CatalogEntityAttributes("kafka-cluster", new()
+    ///     var kafka_cluster = new ConfluentCloud.Index.CatalogEntityAttributes("kafka-cluster", new()
     ///     {
     ///         EntityName = kafkaClusterId,
     ///         EntityType = "kafka_logical_cluster",
@@ -143,7 +143,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var topic = new ConfluentCloud.CatalogEntityAttributes("topic", new()
+    ///     var topic = new ConfluentCloud.Index.CatalogEntityAttributes("topic", new()
     ///     {
     ///         EntityName = $"{kafkaClusterId}:{kafkaTopicName}",
     ///         EntityType = "kafka_topic",
@@ -155,7 +155,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var schema = new ConfluentCloud.CatalogEntityAttributes("schema", new()
+    ///     var schema = new ConfluentCloud.Index.CatalogEntityAttributes("schema", new()
     ///     {
     ///         EntityName = $"{schemaRegistryClusterId}:.:{purchase.SchemaIdentifier}",
     ///         EntityType = "sr_schema",

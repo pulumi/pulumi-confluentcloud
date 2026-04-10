@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetCatalogIntegration.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetCatalogIntegration.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetCatalogIntegrationEnvironmentInputArgs
         ///         {
@@ -63,7 +63,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetCatalogIntegration.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetCatalogIntegration.Invoke(new()
         ///     {
         ///         Id = "tci-abc123",
         ///     });
@@ -95,7 +95,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetCatalogIntegration.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetCatalogIntegration.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetCatalogIntegrationEnvironmentInputArgs
         ///         {
@@ -130,7 +130,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetCatalogIntegration.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetCatalogIntegration.Invoke(new()
         ///     {
         ///         Id = "tci-abc123",
         ///     });
@@ -162,7 +162,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetCatalogIntegration.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetCatalogIntegration.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetCatalogIntegrationEnvironmentInputArgs
         ///         {
@@ -197,7 +197,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetCatalogIntegration.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetCatalogIntegration.Invoke(new()
         ///     {
         ///         Id = "tci-abc123",
         ///     });

@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var pii = ConfluentCloud.GetTag.Invoke(new()
+        ///     var pii = ConfluentCloud.Index.GetTag.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetTagSchemaRegistryClusterInputArgs
         ///         {
@@ -56,7 +56,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var pii = ConfluentCloud.GetTag.Invoke(new()
+        ///     var pii = ConfluentCloud.Index.GetTag.Invoke(new()
         ///     {
         ///         Name = "PII",
         ///     });
@@ -85,7 +85,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var pii = ConfluentCloud.GetTag.Invoke(new()
+        ///     var pii = ConfluentCloud.Index.GetTag.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetTagSchemaRegistryClusterInputArgs
         ///         {
@@ -113,7 +113,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var pii = ConfluentCloud.GetTag.Invoke(new()
+        ///     var pii = ConfluentCloud.Index.GetTag.Invoke(new()
         ///     {
         ///         Name = "PII",
         ///     });
@@ -142,7 +142,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var pii = ConfluentCloud.GetTag.Invoke(new()
+        ///     var pii = ConfluentCloud.Index.GetTag.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetTagSchemaRegistryClusterInputArgs
         ///         {
@@ -170,7 +170,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var pii = ConfluentCloud.GetTag.Invoke(new()
+        ///     var pii = ConfluentCloud.Index.GetTag.Invoke(new()
         ///     {
         ///         Name = "PII",
         ///     });

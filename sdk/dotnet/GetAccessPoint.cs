@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetAccessPoint.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetAccessPoint.Invoke(new()
         ///     {
         ///         Id = "ap-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetAccessPointEnvironmentInputArgs
@@ -60,7 +60,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetAccessPoint.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetAccessPoint.Invoke(new()
         ///     {
         ///         Id = "ap-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetAccessPointEnvironmentInputArgs
@@ -94,7 +94,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetAccessPoint.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetAccessPoint.Invoke(new()
         ///     {
         ///         Id = "ap-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetAccessPointEnvironmentInputArgs

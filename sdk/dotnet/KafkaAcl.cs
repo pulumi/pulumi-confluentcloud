@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var describe_basic_cluster = new ConfluentCloud.KafkaAcl("describe-basic-cluster", new()
+    ///     var describe_basic_cluster = new ConfluentCloud.Index.KafkaAcl("describe-basic-cluster", new()
     ///     {
     ///         KafkaCluster = new ConfluentCloud.Inputs.KafkaAclKafkaClusterArgs
     ///         {
@@ -60,7 +60,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var describe_basic_cluster = new ConfluentCloud.KafkaAcl("describe-basic-cluster", new()
+    ///     var describe_basic_cluster = new ConfluentCloud.Index.KafkaAcl("describe-basic-cluster", new()
     ///     {
     ///         ResourceType = "CLUSTER",
     ///         ResourceName = "kafka-cluster",
@@ -103,7 +103,7 @@ namespace Pulumi.ConfluentCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // https://github.com/confluentinc/terraform-provider-confluent/issues/241
-    ///     var app_producer_write_on_topic = new ConfluentCloud.KafkaAcl("app-producer-write-on-topic", new()
+    ///     var app_producer_write_on_topic = new ConfluentCloud.Index.KafkaAcl("app-producer-write-on-topic", new()
     ///     {
     ///         ResourceType = "TOPIC",
     ///         ResourceName = orders.TopicName,

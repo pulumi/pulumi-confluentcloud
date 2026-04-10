@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDek = new ConfluentCloud.SchemaRegistryDek("my_dek", new()
+    ///     var myDek = new ConfluentCloud.Index.SchemaRegistryDek("my_dek", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.SchemaRegistryDekSchemaRegistryClusterArgs
     ///         {
@@ -56,7 +56,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDek = new ConfluentCloud.SchemaRegistryDek("my_dek", new()
+    ///     var myDek = new ConfluentCloud.Index.SchemaRegistryDek("my_dek", new()
     ///     {
     ///         KekName = "my_kek",
     ///         SubjectName = "my_subject",

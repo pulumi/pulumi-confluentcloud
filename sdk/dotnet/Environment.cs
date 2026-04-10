@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var prod = new ConfluentCloud.Environment("prod", new()
+    ///     var prod = new ConfluentCloud.Index.Environment("prod", new()
     ///     {
     ///         DisplayName = "Production",
     ///         StreamGovernance = new ConfluentCloud.Inputs.EnvironmentStreamGovernanceArgs

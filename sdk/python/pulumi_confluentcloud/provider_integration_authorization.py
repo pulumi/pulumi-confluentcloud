@@ -208,7 +208,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
                 "customer_azure_tenant_id": azure_tenant_id,
             })
         # Automatically create the service principal using Azure Terraform Provider
-        confluent = azuread.index.ServicePrincipal("confluent", client_id=azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
+        confluent = azuread.ServicePrincipal("confluent", client_id=azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
         pulumi.export("azureAppId", azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
         pulumi.export("servicePrincipalObjectId", confluent["objectId"])
         ```
@@ -262,7 +262,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
                 "customer_google_service_account": gcp_service_account,
             })
         # Grant IAM permissions using Google Terraform Provider
-        confluent_token_creator = google.index.ProjectIamMember("confluent_token_creator",
+        confluent_token_creator = google.ProjectIamMember("confluent_token_creator",
             project=gcp_project_id,
             role=roles/iam.serviceAccountTokenCreator,
             member=fserviceAccount:{gcp_provider_integration_authorization.gcp.google_service_account},
@@ -390,7 +390,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
                 "customer_azure_tenant_id": azure_tenant_id,
             })
         # Automatically create the service principal using Azure Terraform Provider
-        confluent = azuread.index.ServicePrincipal("confluent", client_id=azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
+        confluent = azuread.ServicePrincipal("confluent", client_id=azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
         pulumi.export("azureAppId", azure_provider_integration_authorization.azure.confluent_multi_tenant_app_id)
         pulumi.export("servicePrincipalObjectId", confluent["objectId"])
         ```
@@ -444,7 +444,7 @@ class ProviderIntegrationAuthorization(pulumi.CustomResource):
                 "customer_google_service_account": gcp_service_account,
             })
         # Grant IAM permissions using Google Terraform Provider
-        confluent_token_creator = google.index.ProjectIamMember("confluent_token_creator",
+        confluent_token_creator = google.ProjectIamMember("confluent_token_creator",
             project=gcp_project_id,
             role=roles/iam.serviceAccountTokenCreator,
             member=fserviceAccount:{gcp_provider_integration_authorization.gcp.google_service_account},

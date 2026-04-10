@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetTableflowTopic.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetTableflowTopic.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetTableflowTopicEnvironmentInputArgs
         ///         {
@@ -63,7 +63,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetTableflowTopic.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetTableflowTopic.Invoke(new()
         ///     {
         ///         DisplayName = "tableflow-example",
         ///     });
@@ -95,7 +95,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetTableflowTopic.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetTableflowTopic.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetTableflowTopicEnvironmentInputArgs
         ///         {
@@ -130,7 +130,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetTableflowTopic.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetTableflowTopic.Invoke(new()
         ///     {
         ///         DisplayName = "tableflow-example",
         ///     });
@@ -162,7 +162,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetTableflowTopic.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetTableflowTopic.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetTableflowTopicEnvironmentInputArgs
         ///         {
@@ -197,7 +197,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetTableflowTopic.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetTableflowTopic.Invoke(new()
         ///     {
         ///         DisplayName = "tableflow-example",
         ///     });

@@ -478,7 +478,7 @@ class Schema(pulumi.CustomResource):
             rest_endpoint=essentials["restEndpoint"],
             subject_name="avro-purchase-value",
             format="AVRO",
-            schema=std.index.file(input="./schemas/avro/purchase.avsc")["result"],
+            schema=std.file(input="./schemas/avro/purchase.avsc")["result"],
             credentials={
                 "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
                 "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
@@ -495,7 +495,7 @@ class Schema(pulumi.CustomResource):
         avro_purchase = confluentcloud.Schema("avro-purchase",
             subject_name="avro-purchase-value",
             format="AVRO",
-            schema=std.index.file(input="./schemas/avro/purchase.avsc")["result"])
+            schema=std.file(input="./schemas/avro/purchase.avsc")["result"])
         ```
 
         ## Getting Started
@@ -521,7 +521,7 @@ class Schema(pulumi.CustomResource):
         avro_purchase = confluentcloud.Schema("avro-purchase",
             subject_name="avro-purchase-value",
             format="AVRO",
-            schema=std.index.file(input="./schemas/avro/purchase.avsc")["result"],
+            schema=std.file(input="./schemas/avro/purchase.avsc")["result"],
             metadata={
                 "properties": {
                     "owner": "Bob Jones",
@@ -648,7 +648,7 @@ class Schema(pulumi.CustomResource):
             rest_endpoint=essentials["restEndpoint"],
             subject_name="avro-purchase-value",
             format="AVRO",
-            schema=std.index.file(input="./schemas/avro/purchase.avsc")["result"],
+            schema=std.file(input="./schemas/avro/purchase.avsc")["result"],
             credentials={
                 "key": "<Schema Registry API Key for data.confluent_schema_registry_cluster.essentials>",
                 "secret": "<Schema Registry API Secret for data.confluent_schema_registry_cluster.essentials>",
@@ -665,7 +665,7 @@ class Schema(pulumi.CustomResource):
         avro_purchase = confluentcloud.Schema("avro-purchase",
             subject_name="avro-purchase-value",
             format="AVRO",
-            schema=std.index.file(input="./schemas/avro/purchase.avsc")["result"])
+            schema=std.file(input="./schemas/avro/purchase.avsc")["result"])
         ```
 
         ## Getting Started
@@ -691,7 +691,7 @@ class Schema(pulumi.CustomResource):
         avro_purchase = confluentcloud.Schema("avro-purchase",
             subject_name="avro-purchase-value",
             format="AVRO",
-            schema=std.index.file(input="./schemas/avro/purchase.avsc")["result"],
+            schema=std.file(input="./schemas/avro/purchase.avsc")["result"],
             metadata={
                 "properties": {
                     "owner": "Bob Jones",

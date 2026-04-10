@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			azure, err := confluentcloud.LookupProviderIntegrationSetup(ctx, &confluentcloud.LookupProviderIntegrationSetupArgs{
+//			azure, err := confluentcloud.GetProviderIntegrationSetup(ctx, &confluentcloud.LookupProviderIntegrationSetupArgs{
 //				Id: pulumi.StringRef("cspi-abc123"),
 //				Environment: confluentcloud.GetProviderIntegrationSetupEnvironment{
 //					Id: "env-xyz456",
@@ -61,7 +61,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			gcp, err := confluentcloud.LookupProviderIntegrationSetup(ctx, &confluentcloud.LookupProviderIntegrationSetupArgs{
+//			gcp, err := confluentcloud.GetProviderIntegrationSetup(ctx, &confluentcloud.LookupProviderIntegrationSetupArgs{
 //				DisplayName: pulumi.StringRef("my-gcp-integration"),
 //				Environment: confluentcloud.GetProviderIntegrationSetupEnvironment{
 //					Id: "env-xyz456",
@@ -91,7 +91,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupProviderIntegrationSetup(ctx, &confluentcloud.LookupProviderIntegrationSetupArgs{
+//			main, err := confluentcloud.GetProviderIntegrationSetup(ctx, &confluentcloud.LookupProviderIntegrationSetupArgs{
 //				Id: pulumi.StringRef("cspi-abc123"),
 //				Environment: confluentcloud.GetProviderIntegrationSetupEnvironment{
 //					Id: "env-xyz456",
@@ -101,7 +101,7 @@ import (
 //				return err
 //			}
 //			// Use the integration with authorization data source
-//			_, err = confluentcloud.LookupProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
+//			_, err = confluentcloud.GetProviderIntegrationAuthorization(ctx, &confluentcloud.LookupProviderIntegrationAuthorizationArgs{
 //				Id: main.Id,
 //				Environment: confluentcloud.GetProviderIntegrationAuthorizationEnvironment{
 //					Id: "env-xyz456",

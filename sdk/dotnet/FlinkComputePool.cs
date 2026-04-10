@@ -26,12 +26,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var main = new ConfluentCloud.FlinkComputePool("main", new()
+    ///     var main = new ConfluentCloud.Index.FlinkComputePool("main", new()
     ///     {
     ///         DisplayName = "standard_compute_pool",
     ///         Cloud = "AWS",

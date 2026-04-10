@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetSchemas.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetSchemas.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemasSchemaRegistryClusterInputArgs
         ///         {
@@ -65,7 +65,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetSchemas.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetSchemas.Invoke(new()
         ///     {
         ///         Filter = new ConfluentCloud.Inputs.GetSchemasFilterInputArgs
         ///         {
@@ -102,7 +102,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetSchemas.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetSchemas.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemasSchemaRegistryClusterInputArgs
         ///         {
@@ -139,7 +139,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetSchemas.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetSchemas.Invoke(new()
         ///     {
         ///         Filter = new ConfluentCloud.Inputs.GetSchemasFilterInputArgs
         ///         {
@@ -176,7 +176,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetSchemas.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetSchemas.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemasSchemaRegistryClusterInputArgs
         ///         {
@@ -213,7 +213,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetSchemas.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetSchemas.Invoke(new()
         ///     {
         ///         Filter = new ConfluentCloud.Inputs.GetSchemasFilterInputArgs
         ///         {

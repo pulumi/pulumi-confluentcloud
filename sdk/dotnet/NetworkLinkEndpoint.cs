@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var nle = new ConfluentCloud.NetworkLinkEndpoint("nle", new()
+    ///     var nle = new ConfluentCloud.Index.NetworkLinkEndpoint("nle", new()
     ///     {
     ///         DisplayName = "nle1",
     ///         Description = "TEST-NLE1",

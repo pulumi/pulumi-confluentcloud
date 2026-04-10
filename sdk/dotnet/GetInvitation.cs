@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetInvitation.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetInvitation.Invoke(new()
         ///     {
         ///         Id = "i-gxxn1",
         ///     });
@@ -56,7 +56,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetInvitation.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetInvitation.Invoke(new()
         ///     {
         ///         Id = "i-gxxn1",
         ///     });
@@ -86,7 +86,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetInvitation.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetInvitation.Invoke(new()
         ///     {
         ///         Id = "i-gxxn1",
         ///     });

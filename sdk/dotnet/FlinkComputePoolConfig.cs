@@ -24,7 +24,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new ConfluentCloud.FlinkComputePoolConfig("main", new()
+    ///     var main = new ConfluentCloud.Index.FlinkComputePoolConfig("main", new()
     ///     {
     ///         DefaultComputePoolEnabled = true,
     ///         DefaultMaxCfu = 10,

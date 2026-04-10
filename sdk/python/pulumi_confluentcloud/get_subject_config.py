@@ -153,7 +153,7 @@ def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsA
     import pulumi
     import pulumi_confluent as confluent
 
-    example = confluent.index.subject_compatibility_level(schema_registry_cluster=[{
+    example = confluent.subject_compatibility_level(schema_registry_cluster=[{
             "id": essentials["id"],
         }],
         rest_endpoint=essentials["restEndpoint"],
@@ -171,7 +171,7 @@ def get_subject_config(credentials: Optional[Union['GetSubjectConfigCredentialsA
     import pulumi
     import pulumi_confluent as confluent
 
-    example = confluent.index.subject_compatibility_level(subject_name="proto-purchase-value")
+    example = confluent.subject_compatibility_level(subject_name="proto-purchase-value")
     pulumi.export("compatibilityLevel", example["compatibilityLevel"])
     ```
 
@@ -215,7 +215,7 @@ def get_subject_config_output(credentials: Optional[pulumi.Input[Optional[Union[
     import pulumi
     import pulumi_confluent as confluent
 
-    example = confluent.index.subject_compatibility_level(schema_registry_cluster=[{
+    example = confluent.subject_compatibility_level(schema_registry_cluster=[{
             "id": essentials["id"],
         }],
         rest_endpoint=essentials["restEndpoint"],
@@ -233,7 +233,7 @@ def get_subject_config_output(credentials: Optional[pulumi.Input[Optional[Union[
     import pulumi
     import pulumi_confluent as confluent
 
-    example = confluent.index.subject_compatibility_level(subject_name="proto-purchase-value")
+    example = confluent.subject_compatibility_level(subject_name="proto-purchase-value")
     pulumi.export("compatibilityLevel", example["compatibilityLevel"])
     ```
 

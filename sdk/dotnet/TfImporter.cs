@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.TfImporter("example", new()
+    ///     var example = new ConfluentCloud.Index.TfImporter("example", new()
     ///     {
     ///         Resources = new[]
     ///         {

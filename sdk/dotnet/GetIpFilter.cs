@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetIpFilter.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetIpFilter.Invoke(new()
         ///     {
         ///         Id = "ipf-abc123",
         ///     });
@@ -60,7 +60,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetIpFilter.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetIpFilter.Invoke(new()
         ///     {
         ///         Id = "ipf-abc123",
         ///     });
@@ -92,7 +92,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetIpFilter.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetIpFilter.Invoke(new()
         ///     {
         ///         Id = "ipf-abc123",
         ///     });

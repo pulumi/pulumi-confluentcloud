@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var randomIntTable = new ConfluentCloud.FlinkStatement("random_int_table", new()
+    ///     var randomIntTable = new ConfluentCloud.Index.FlinkStatement("random_int_table", new()
     ///     {
     ///         Organization = new ConfluentCloud.Inputs.FlinkStatementOrganizationArgs
     ///         {
@@ -71,7 +71,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.FlinkStatement("example", new()
+    ///     var example = new ConfluentCloud.Index.FlinkStatement("example", new()
     ///     {
     ///         Statement = "CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);",
     ///         Properties = 
@@ -93,7 +93,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.FlinkStatement("example", new()
+    ///     var example = new ConfluentCloud.Index.FlinkStatement("example", new()
     ///     {
     ///         Statement = "CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY&lt;FLOAT&gt;) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');",
     ///         Properties = 
@@ -233,7 +233,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var identity_pool_assigner = new ConfluentCloud.RoleBinding("identity-pool-assigner", new()
+        ///     var identity_pool_assigner = new ConfluentCloud.Index.RoleBinding("identity-pool-assigner", new()
         ///     {
         ///         Principal = "User:pool-abc123",
         ///         RoleName = "Assigner",
@@ -394,7 +394,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var identity_pool_assigner = new ConfluentCloud.RoleBinding("identity-pool-assigner", new()
+        ///     var identity_pool_assigner = new ConfluentCloud.Index.RoleBinding("identity-pool-assigner", new()
         ///     {
         ///         Principal = "User:pool-abc123",
         ///         RoleName = "Assigner",
@@ -536,7 +536,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var identity_pool_assigner = new ConfluentCloud.RoleBinding("identity-pool-assigner", new()
+        ///     var identity_pool_assigner = new ConfluentCloud.Index.RoleBinding("identity-pool-assigner", new()
         ///     {
         ///         Principal = "User:pool-abc123",
         ///         RoleName = "Assigner",

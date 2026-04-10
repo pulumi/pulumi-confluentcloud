@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.SchemaRegistryClusterConfig("example", new()
+    ///     var example = new ConfluentCloud.Index.SchemaRegistryClusterConfig("example", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.SchemaRegistryClusterConfigSchemaRegistryClusterArgs
     ///         {
@@ -56,7 +56,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.SchemaRegistryClusterConfig("example", new()
+    ///     var example = new ConfluentCloud.Index.SchemaRegistryClusterConfig("example", new()
     ///     {
     ///         CompatibilityLevel = "FULL",
     ///         CompatibilityGroup = "abc.cg.version",

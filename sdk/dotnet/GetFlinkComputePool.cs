@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetFlinkComputePool.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetFlinkComputePool.Invoke(new()
         ///     {
         ///         Id = "lfcp-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetFlinkComputePoolEnvironmentInputArgs
@@ -35,7 +35,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetFlinkComputePool.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetFlinkComputePool.Invoke(new()
         ///     {
         ///         DisplayName = "my_compute_pool",
         ///         Environment = new ConfluentCloud.Inputs.GetFlinkComputePoolEnvironmentInputArgs
@@ -70,7 +70,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetFlinkComputePool.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetFlinkComputePool.Invoke(new()
         ///     {
         ///         Id = "lfcp-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetFlinkComputePoolEnvironmentInputArgs
@@ -79,7 +79,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetFlinkComputePool.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetFlinkComputePool.Invoke(new()
         ///     {
         ///         DisplayName = "my_compute_pool",
         ///         Environment = new ConfluentCloud.Inputs.GetFlinkComputePoolEnvironmentInputArgs
@@ -114,7 +114,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetFlinkComputePool.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetFlinkComputePool.Invoke(new()
         ///     {
         ///         Id = "lfcp-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetFlinkComputePoolEnvironmentInputArgs
@@ -123,7 +123,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetFlinkComputePool.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetFlinkComputePool.Invoke(new()
         ///     {
         ///         DisplayName = "my_compute_pool",
         ///         Environment = new ConfluentCloud.Inputs.GetFlinkComputePoolEnvironmentInputArgs

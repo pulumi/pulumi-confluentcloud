@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetEndpoint.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetEndpoint.Invoke(new()
         ///     {
         ///         Filter = new ConfluentCloud.Inputs.GetEndpointFilterInputArgs
         ///         {
@@ -70,7 +70,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetEndpoint.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetEndpoint.Invoke(new()
         ///     {
         ///         Filter = new ConfluentCloud.Inputs.GetEndpointFilterInputArgs
         ///         {
@@ -112,7 +112,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetEndpoint.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetEndpoint.Invoke(new()
         ///     {
         ///         Filter = new ConfluentCloud.Inputs.GetEndpointFilterInputArgs
         ///         {

@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pii = new ConfluentCloud.Tag("pii", new()
+    ///     var pii = new ConfluentCloud.Index.Tag("pii", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.TagSchemaRegistryClusterArgs
     ///         {
@@ -55,7 +55,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pii = new ConfluentCloud.Tag("pii", new()
+    ///     var pii = new ConfluentCloud.Index.Tag("pii", new()
     ///     {
     ///         Name = "PII",
     ///         Description = "PII tag",

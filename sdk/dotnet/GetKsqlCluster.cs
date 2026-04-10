@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetKsqlCluster.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetKsqlCluster.Invoke(new()
         ///     {
         ///         Id = "lksqlc-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetKsqlClusterEnvironmentInputArgs
@@ -37,7 +37,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetKsqlCluster.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetKsqlCluster.Invoke(new()
         ///     {
         ///         DisplayName = "ksqldb_cluster",
         ///         Environment = new ConfluentCloud.Inputs.GetKsqlClusterEnvironmentInputArgs
@@ -74,7 +74,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetKsqlCluster.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetKsqlCluster.Invoke(new()
         ///     {
         ///         Id = "lksqlc-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetKsqlClusterEnvironmentInputArgs
@@ -83,7 +83,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetKsqlCluster.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetKsqlCluster.Invoke(new()
         ///     {
         ///         DisplayName = "ksqldb_cluster",
         ///         Environment = new ConfluentCloud.Inputs.GetKsqlClusterEnvironmentInputArgs
@@ -120,7 +120,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetKsqlCluster.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetKsqlCluster.Invoke(new()
         ///     {
         ///         Id = "lksqlc-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetKsqlClusterEnvironmentInputArgs
@@ -129,7 +129,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetKsqlCluster.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetKsqlCluster.Invoke(new()
         ///     {
         ///         DisplayName = "ksqldb_cluster",
         ///         Environment = new ConfluentCloud.Inputs.GetKsqlClusterEnvironmentInputArgs

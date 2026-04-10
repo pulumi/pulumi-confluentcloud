@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var management_filter = new ConfluentCloud.IpFilter("management-filter", new()
+    ///     var management_filter = new ConfluentCloud.Index.IpFilter("management-filter", new()
     ///     {
     ///         FilterName = "Management API Rules",
     ///         ResourceGroup = "management",
@@ -36,7 +36,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var multiple_filter = new ConfluentCloud.IpFilter("multiple-filter", new()
+    ///     var multiple_filter = new ConfluentCloud.Index.IpFilter("multiple-filter", new()
     ///     {
     ///         FilterName = "Management, Schema, Flink API Rules",
     ///         ResourceGroup = "multiple",

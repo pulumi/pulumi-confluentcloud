@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetTagBinding.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetTagBinding.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetTagBindingSchemaRegistryClusterInputArgs
         ///         {
@@ -58,7 +58,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetTagBinding.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetTagBinding.Invoke(new()
         ///     {
         ///         TagName = "PII",
         ///         EntityName = "lsrc-8wrx70:.:100001",
@@ -89,7 +89,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetTagBinding.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetTagBinding.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetTagBindingSchemaRegistryClusterInputArgs
         ///         {
@@ -119,7 +119,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetTagBinding.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetTagBinding.Invoke(new()
         ///     {
         ///         TagName = "PII",
         ///         EntityName = "lsrc-8wrx70:.:100001",
@@ -150,7 +150,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetTagBinding.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetTagBinding.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetTagBindingSchemaRegistryClusterInputArgs
         ///         {
@@ -180,7 +180,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetTagBinding.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetTagBinding.Invoke(new()
         ///     {
         ///         TagName = "PII",
         ///         EntityName = "lsrc-8wrx70:.:100001",

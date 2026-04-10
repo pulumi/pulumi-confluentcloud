@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.LookupBusinessMetadataBinding(ctx, &confluentcloud.LookupBusinessMetadataBindingArgs{
+//			_, err := confluentcloud.GetBusinessMetadataBinding(ctx, &confluentcloud.LookupBusinessMetadataBindingArgs{
 //				SchemaRegistryCluster: confluentcloud.GetBusinessMetadataBindingSchemaRegistryCluster{
 //					Id: essentials.Id,
 //				},
@@ -71,7 +71,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.LookupBusinessMetadataBinding(ctx, &confluentcloud.LookupBusinessMetadataBindingArgs{
+//			_, err := confluentcloud.GetBusinessMetadataBinding(ctx, &confluentcloud.LookupBusinessMetadataBindingArgs{
 //				BusinessMetadataName: pii.Name,
 //				EntityName:           fmt.Sprintf("%v:%v:%v", schemaRegistryId, kafkaId, mainConfluentKafkaTopic.TopicName),
 //				EntityType:           "kafka_topic",
