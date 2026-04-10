@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetUsers.Invoke();
+        ///     var main = ConfluentCloud.Index.GetUsers.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -53,7 +53,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetUsers.Invoke();
+        ///     var main = ConfluentCloud.Index.GetUsers.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -80,7 +80,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetUsers.Invoke();
+        ///     var main = ConfluentCloud.Index.GetUsers.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {

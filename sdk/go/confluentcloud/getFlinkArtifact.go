@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingId, err := confluentcloud.LookupFlinkArtifact(ctx, &confluentcloud.LookupFlinkArtifactArgs{
+//			exampleUsingId, err := confluentcloud.GetFlinkArtifact(ctx, &confluentcloud.LookupFlinkArtifactArgs{
 //				Id: pulumi.StringRef("lfa-abc123"),
 //				Environment: confluentcloud.GetFlinkArtifactEnvironment{
 //					Id: "env-xyz456",
@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingId)
-//			exampleUsingName, err := confluentcloud.LookupFlinkArtifact(ctx, &confluentcloud.LookupFlinkArtifactArgs{
+//			exampleUsingName, err := confluentcloud.GetFlinkArtifact(ctx, &confluentcloud.LookupFlinkArtifactArgs{
 //				DisplayName: pulumi.StringRef("my_artifact"),
 //				Environment: confluentcloud.GetFlinkArtifactEnvironment{
 //					Id: "env-xyz456",

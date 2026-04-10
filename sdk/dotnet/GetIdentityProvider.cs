@@ -26,12 +26,12 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetIdentityProvider.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetIdentityProvider.Invoke(new()
         ///     {
         ///         Id = "op-abc123",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetIdentityProvider.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetIdentityProvider.Invoke(new()
         ///     {
         ///         DisplayName = "My OIDC Provider: Azure AD",
         ///     });
@@ -62,12 +62,12 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetIdentityProvider.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetIdentityProvider.Invoke(new()
         ///     {
         ///         Id = "op-abc123",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetIdentityProvider.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetIdentityProvider.Invoke(new()
         ///     {
         ///         DisplayName = "My OIDC Provider: Azure AD",
         ///     });
@@ -98,12 +98,12 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetIdentityProvider.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetIdentityProvider.Invoke(new()
         ///     {
         ///         Id = "op-abc123",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetIdentityProvider.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetIdentityProvider.Invoke(new()
         ///     {
         ///         DisplayName = "My OIDC Provider: Azure AD",
         ///     });

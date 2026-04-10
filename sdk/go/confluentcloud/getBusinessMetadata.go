@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.LookupBusinessMetadata(ctx, &confluentcloud.LookupBusinessMetadataArgs{
+//			_, err := confluentcloud.GetBusinessMetadata(ctx, &confluentcloud.LookupBusinessMetadataArgs{
 //				SchemaRegistryCluster: confluentcloud.GetBusinessMetadataSchemaRegistryCluster{
 //					Id: essentials.Id,
 //				},
@@ -65,7 +65,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.LookupBusinessMetadata(ctx, &confluentcloud.LookupBusinessMetadataArgs{
+//			_, err := confluentcloud.GetBusinessMetadata(ctx, &confluentcloud.LookupBusinessMetadataArgs{
 //				Name: "PII",
 //			}, nil)
 //			if err != nil {

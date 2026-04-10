@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var purchase_v1 = ConfluentCloud.GetSchema.Invoke(new()
+        ///     var purchase_v1 = ConfluentCloud.Index.GetSchema.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaSchemaRegistryClusterInputArgs
         ///         {
@@ -61,7 +61,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var purchase_v1 = ConfluentCloud.GetSchema.Invoke(new()
+        ///     var purchase_v1 = ConfluentCloud.Index.GetSchema.Invoke(new()
         ///     {
         ///         SubjectName = "proto-purchase-value",
         ///         SchemaIdentifier = 10001,
@@ -94,7 +94,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var purchase_v1 = ConfluentCloud.GetSchema.Invoke(new()
+        ///     var purchase_v1 = ConfluentCloud.Index.GetSchema.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaSchemaRegistryClusterInputArgs
         ///         {
@@ -127,7 +127,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var purchase_v1 = ConfluentCloud.GetSchema.Invoke(new()
+        ///     var purchase_v1 = ConfluentCloud.Index.GetSchema.Invoke(new()
         ///     {
         ///         SubjectName = "proto-purchase-value",
         ///         SchemaIdentifier = 10001,
@@ -160,7 +160,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var purchase_v1 = ConfluentCloud.GetSchema.Invoke(new()
+        ///     var purchase_v1 = ConfluentCloud.Index.GetSchema.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaSchemaRegistryClusterInputArgs
         ///         {
@@ -193,7 +193,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var purchase_v1 = ConfluentCloud.GetSchema.Invoke(new()
+        ///     var purchase_v1 = ConfluentCloud.Index.GetSchema.Invoke(new()
         ///     {
         ///         SubjectName = "proto-purchase-value",
         ///         SchemaIdentifier = 10001,

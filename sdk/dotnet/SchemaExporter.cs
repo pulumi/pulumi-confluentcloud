@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new ConfluentCloud.SchemaExporter("main", new()
+    ///     var main = new ConfluentCloud.Index.SchemaExporter("main", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.SchemaExporterSchemaRegistryClusterArgs
     ///         {
@@ -67,7 +67,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new ConfluentCloud.SchemaExporter("main", new()
+    ///     var main = new ConfluentCloud.Index.SchemaExporter("main", new()
     ///     {
     ///         Name = "test-exporter",
     ///         Subjects = new[]
@@ -98,7 +98,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new ConfluentCloud.SchemaExporter("main", new()
+    ///     var main = new ConfluentCloud.Index.SchemaExporter("main", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.SchemaExporterSchemaRegistryClusterArgs
     ///         {

@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var source = new ConfluentCloud.Plugin("source", new()
+    ///     var source = new ConfluentCloud.Index.Plugin("source", new()
     ///     {
     ///         DisplayName = "Plugin-1",
     ///         Description = "Custom connect plugin for versioning.",

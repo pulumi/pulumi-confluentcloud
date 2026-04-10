@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var nls = ConfluentCloud.GetNetworkLinkService.Invoke(new()
+        ///     var nls = ConfluentCloud.Index.GetNetworkLinkService.Invoke(new()
         ///     {
         ///         Id = "nls-zyw30",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkLinkServiceEnvironmentInputArgs
@@ -60,7 +60,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var nls = ConfluentCloud.GetNetworkLinkService.Invoke(new()
+        ///     var nls = ConfluentCloud.Index.GetNetworkLinkService.Invoke(new()
         ///     {
         ///         Id = "nls-zyw30",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkLinkServiceEnvironmentInputArgs
@@ -94,7 +94,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var nls = ConfluentCloud.GetNetworkLinkService.Invoke(new()
+        ///     var nls = ConfluentCloud.Index.GetNetworkLinkService.Invoke(new()
         ///     {
         ///         Id = "nls-zyw30",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkLinkServiceEnvironmentInputArgs

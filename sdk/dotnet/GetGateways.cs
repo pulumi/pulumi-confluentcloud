@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = ConfluentCloud.GetGateways.Invoke(new()
+        ///     var all = ConfluentCloud.Index.GetGateways.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetGatewaysEnvironmentInputArgs
         ///         {
@@ -34,7 +34,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var readyIngress = ConfluentCloud.GetGateways.Invoke(new()
+        ///     var readyIngress = ConfluentCloud.Index.GetGateways.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetGatewaysEnvironmentInputArgs
         ///         {
@@ -53,7 +53,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var usEast = ConfluentCloud.GetGateways.Invoke(new()
+        ///     var usEast = ConfluentCloud.Index.GetGateways.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetGatewaysEnvironmentInputArgs
         ///         {
@@ -98,7 +98,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = ConfluentCloud.GetGateways.Invoke(new()
+        ///     var all = ConfluentCloud.Index.GetGateways.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetGatewaysEnvironmentInputArgs
         ///         {
@@ -106,7 +106,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var readyIngress = ConfluentCloud.GetGateways.Invoke(new()
+        ///     var readyIngress = ConfluentCloud.Index.GetGateways.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetGatewaysEnvironmentInputArgs
         ///         {
@@ -125,7 +125,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var usEast = ConfluentCloud.GetGateways.Invoke(new()
+        ///     var usEast = ConfluentCloud.Index.GetGateways.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetGatewaysEnvironmentInputArgs
         ///         {
@@ -170,7 +170,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var all = ConfluentCloud.GetGateways.Invoke(new()
+        ///     var all = ConfluentCloud.Index.GetGateways.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetGatewaysEnvironmentInputArgs
         ///         {
@@ -178,7 +178,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var readyIngress = ConfluentCloud.GetGateways.Invoke(new()
+        ///     var readyIngress = ConfluentCloud.Index.GetGateways.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetGatewaysEnvironmentInputArgs
         ///         {
@@ -197,7 +197,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var usEast = ConfluentCloud.GetGateways.Invoke(new()
+        ///     var usEast = ConfluentCloud.Index.GetGateways.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetGatewaysEnvironmentInputArgs
         ///         {

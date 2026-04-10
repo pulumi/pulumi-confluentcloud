@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var nle = ConfluentCloud.GetNetworkLinkEndpoint.Invoke(new()
+        ///     var nle = ConfluentCloud.Index.GetNetworkLinkEndpoint.Invoke(new()
         ///     {
         ///         Id = "nle-1357",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkLinkEndpointEnvironmentInputArgs
@@ -60,7 +60,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var nle = ConfluentCloud.GetNetworkLinkEndpoint.Invoke(new()
+        ///     var nle = ConfluentCloud.Index.GetNetworkLinkEndpoint.Invoke(new()
         ///     {
         ///         Id = "nle-1357",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkLinkEndpointEnvironmentInputArgs
@@ -94,7 +94,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var nle = ConfluentCloud.GetNetworkLinkEndpoint.Invoke(new()
+        ///     var nle = ConfluentCloud.Index.GetNetworkLinkEndpoint.Invoke(new()
         ///     {
         ///         Id = "nle-1357",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkLinkEndpointEnvironmentInputArgs

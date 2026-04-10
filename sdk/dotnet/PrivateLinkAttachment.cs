@@ -24,7 +24,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new ConfluentCloud.PrivateLinkAttachment("main", new()
+    ///     var main = new ConfluentCloud.Index.PrivateLinkAttachment("main", new()
     ///     {
     ///         Cloud = "AWS",
     ///         Region = "us-west-2",

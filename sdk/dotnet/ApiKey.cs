@@ -27,7 +27,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var app_manager_kafka_api_key = new ConfluentCloud.ApiKey("app-manager-kafka-api-key", new()
+    ///     var app_manager_kafka_api_key = new ConfluentCloud.Index.ApiKey("app-manager-kafka-api-key", new()
     ///     {
     ///         DisplayName = "app-manager-kafka-api-key",
     ///         Description = "Kafka API Key that is owned by 'app-manager' service account",
@@ -64,7 +64,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ksqldb_api_key = new ConfluentCloud.ApiKey("ksqldb-api-key", new()
+    ///     var ksqldb_api_key = new ConfluentCloud.Index.ApiKey("ksqldb-api-key", new()
     ///     {
     ///         DisplayName = "ksqldb-api-key",
     ///         Description = "KsqlDB API Key that is owned by 'app-manager' service account",
@@ -101,7 +101,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var env_manager_schema_registry_api_key = new ConfluentCloud.ApiKey("env-manager-schema-registry-api-key", new()
+    ///     var env_manager_schema_registry_api_key = new ConfluentCloud.Index.ApiKey("env-manager-schema-registry-api-key", new()
     ///     {
     ///         DisplayName = "env-manager-schema-registry-api-key",
     ///         Description = "Schema Registry API Key that is owned by 'env-manager' service account",
@@ -138,7 +138,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var env_manager_flink_api_key = new ConfluentCloud.ApiKey("env-manager-flink-api-key", new()
+    ///     var env_manager_flink_api_key = new ConfluentCloud.Index.ApiKey("env-manager-flink-api-key", new()
     ///     {
     ///         DisplayName = "env-manager-flink-api-key",
     ///         Description = "Flink API Key that is owned by 'env-manager' service account",
@@ -175,7 +175,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var env_manager_tableflow_api_key = new ConfluentCloud.ApiKey("env-manager-tableflow-api-key", new()
+    ///     var env_manager_tableflow_api_key = new ConfluentCloud.Index.ApiKey("env-manager-tableflow-api-key", new()
     ///     {
     ///         DisplayName = "env-manager-tableflow-api-key",
     ///         Description = "Tableflow API Key that is owned by 'env-manager' service account",
@@ -205,7 +205,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var env_manager_cloud_api_key = new ConfluentCloud.ApiKey("env-manager-cloud-api-key", new()
+    ///     var env_manager_cloud_api_key = new ConfluentCloud.Index.ApiKey("env-manager-cloud-api-key", new()
     ///     {
     ///         DisplayName = "env-manager-cloud-api-key",
     ///         Description = "Cloud API Key that is owned by 'env-manager' service account",

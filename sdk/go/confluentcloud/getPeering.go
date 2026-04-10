@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingId, err := confluentcloud.LookupPeering(ctx, &confluentcloud.LookupPeeringArgs{
+//			exampleUsingId, err := confluentcloud.GetPeering(ctx, &confluentcloud.LookupPeeringArgs{
 //				Id: pulumi.StringRef("peer-abc123"),
 //				Environment: confluentcloud.GetPeeringEnvironment{
 //					Id: "env-xyz456",
@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingId)
-//			exampleUsingName, err := confluentcloud.LookupPeering(ctx, &confluentcloud.LookupPeeringArgs{
+//			exampleUsingName, err := confluentcloud.GetPeering(ctx, &confluentcloud.LookupPeeringArgs{
 //				DisplayName: pulumi.StringRef("my_peering"),
 //				Environment: confluentcloud.GetPeeringEnvironment{
 //					Id: "env-xyz456",

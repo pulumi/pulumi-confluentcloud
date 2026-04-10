@@ -24,7 +24,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example_sa = new ConfluentCloud.ServiceAccount("example-sa", new()
+    ///     var example_sa = new ConfluentCloud.Index.ServiceAccount("example-sa", new()
     ///     {
     ///         DisplayName = "orders-app-sa",
     ///         Description = "Service Account for orders app",

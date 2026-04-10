@@ -79,7 +79,7 @@ import * as utilities from "./utilities";
  *     roleName: "DeveloperRead",
  *     crnPattern: `${basic.rbacCrn}/kafka=${standard.id}/transactional-id=my_transaction`,
  * });
- * const connectorName = std.index.lookup({
+ * const connectorName = std.lookup({
  *     map: testConfluentConnector.configNonsensitive,
  *     key: "name",
  *     "default": "\"name\" attribute is missing",

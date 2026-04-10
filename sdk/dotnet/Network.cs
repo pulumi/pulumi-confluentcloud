@@ -27,12 +27,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var aws_private_link = new ConfluentCloud.Network("aws-private-link", new()
+    ///     var aws_private_link = new ConfluentCloud.Index.Network("aws-private-link", new()
     ///     {
     ///         DisplayName = "AWS Private Link Network",
     ///         Cloud = "AWS",
@@ -65,12 +65,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var azure_peering = new ConfluentCloud.Network("azure-peering", new()
+    ///     var azure_peering = new ConfluentCloud.Index.Network("azure-peering", new()
     ///     {
     ///         DisplayName = "Azure Peering Network",
     ///         Cloud = "AZURE",
@@ -98,12 +98,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var gcp_private_service_connect = new ConfluentCloud.Network("gcp-private-service-connect", new()
+    ///     var gcp_private_service_connect = new ConfluentCloud.Index.Network("gcp-private-service-connect", new()
     ///     {
     ///         DisplayName = "GCP Private Service Connect Network",
     ///         Cloud = "GCP",
@@ -140,12 +140,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var aws_transit_gateway_attachment = new ConfluentCloud.Network("aws-transit-gateway-attachment", new()
+    ///     var aws_transit_gateway_attachment = new ConfluentCloud.Index.Network("aws-transit-gateway-attachment", new()
     ///     {
     ///         DisplayName = "AWS Transit Gateway Attachment Network",
     ///         Cloud = "AWS",

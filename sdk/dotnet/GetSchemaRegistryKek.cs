@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var myKey = ConfluentCloud.GetSchemaRegistryKek.Invoke(new()
+        ///     var myKey = ConfluentCloud.Index.GetSchemaRegistryKek.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaRegistryKekSchemaRegistryClusterInputArgs
         ///         {
@@ -56,7 +56,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var myKey = ConfluentCloud.GetSchemaRegistryKek.Invoke(new()
+        ///     var myKey = ConfluentCloud.Index.GetSchemaRegistryKek.Invoke(new()
         ///     {
         ///         Name = "my_key",
         ///     });
@@ -84,7 +84,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var myKey = ConfluentCloud.GetSchemaRegistryKek.Invoke(new()
+        ///     var myKey = ConfluentCloud.Index.GetSchemaRegistryKek.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaRegistryKekSchemaRegistryClusterInputArgs
         ///         {
@@ -112,7 +112,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var myKey = ConfluentCloud.GetSchemaRegistryKek.Invoke(new()
+        ///     var myKey = ConfluentCloud.Index.GetSchemaRegistryKek.Invoke(new()
         ///     {
         ///         Name = "my_key",
         ///     });
@@ -140,7 +140,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var myKey = ConfluentCloud.GetSchemaRegistryKek.Invoke(new()
+        ///     var myKey = ConfluentCloud.Index.GetSchemaRegistryKek.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetSchemaRegistryKekSchemaRegistryClusterInputArgs
         ///         {
@@ -168,7 +168,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var myKey = ConfluentCloud.GetSchemaRegistryKek.Invoke(new()
+        ///     var myKey = ConfluentCloud.Index.GetSchemaRegistryKek.Invoke(new()
         ///     {
         ///         Name = "my_key",
         ///     });

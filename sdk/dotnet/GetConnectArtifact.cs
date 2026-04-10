@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetConnectArtifact.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetConnectArtifact.Invoke(new()
         ///     {
         ///         Id = "ca-123456",
         ///         Environment = new ConfluentCloud.Inputs.GetConnectArtifactEnvironmentInputArgs
@@ -64,7 +64,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetConnectArtifact.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetConnectArtifact.Invoke(new()
         ///     {
         ///         Id = "ca-123456",
         ///         Environment = new ConfluentCloud.Inputs.GetConnectArtifactEnvironmentInputArgs
@@ -102,7 +102,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetConnectArtifact.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetConnectArtifact.Invoke(new()
         ///     {
         ///         Id = "ca-123456",
         ///         Environment = new ConfluentCloud.Inputs.GetConnectArtifactEnvironmentInputArgs

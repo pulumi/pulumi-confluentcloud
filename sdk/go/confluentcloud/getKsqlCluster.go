@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingId, err := confluentcloud.LookupKsqlCluster(ctx, &confluentcloud.LookupKsqlClusterArgs{
+//			exampleUsingId, err := confluentcloud.GetKsqlCluster(ctx, &confluentcloud.LookupKsqlClusterArgs{
 //				Id: pulumi.StringRef("lksqlc-abc123"),
 //				Environment: confluentcloud.GetKsqlClusterEnvironment{
 //					Id: "env-xyz456",
@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingId)
-//			exampleUsingName, err := confluentcloud.LookupKsqlCluster(ctx, &confluentcloud.LookupKsqlClusterArgs{
+//			exampleUsingName, err := confluentcloud.GetKsqlCluster(ctx, &confluentcloud.LookupKsqlClusterArgs{
 //				DisplayName: pulumi.StringRef("ksqldb_cluster"),
 //				Environment: confluentcloud.GetKsqlClusterEnvironment{
 //					Id: "env-xyz456",

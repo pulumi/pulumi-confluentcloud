@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var connection1 = new ConfluentCloud.FlinkConnection("connection1", new()
+    ///     var connection1 = new ConfluentCloud.Index.FlinkConnection("connection1", new()
     ///     {
     ///         Organization = new ConfluentCloud.Inputs.FlinkConnectionOrganizationArgs
     ///         {
@@ -71,7 +71,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.FlinkConnection("example", new()
+    ///     var example = new ConfluentCloud.Index.FlinkConnection("example", new()
     ///     {
     ///         DisplayName = "connection1",
     ///         Type = "OPENAI",
@@ -124,7 +124,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var identity_pool_assigner = new ConfluentCloud.RoleBinding("identity-pool-assigner", new()
+    ///     var identity_pool_assigner = new ConfluentCloud.Index.RoleBinding("identity-pool-assigner", new()
     ///     {
     ///         Principal = "User:pool-abc123",
     ///         RoleName = "Assigner",

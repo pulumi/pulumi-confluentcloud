@@ -27,21 +27,21 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var org_example_rb = new ConfluentCloud.RoleBinding("org-example-rb", new()
+    ///     var org_example_rb = new ConfluentCloud.Index.RoleBinding("org-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "MetricsViewer",
     ///         CrnPattern = demo.ResourceName,
     ///     });
     /// 
-    ///     var environment_example_rb = new ConfluentCloud.RoleBinding("environment-example-rb", new()
+    ///     var environment_example_rb = new ConfluentCloud.Index.RoleBinding("environment-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "EnvironmentAdmin",
     ///         CrnPattern = stag.ResourceName,
     ///     });
     /// 
-    ///     var environment_example_rb_skip_sync = new ConfluentCloud.RoleBinding("environment-example-rb-skip-sync", new()
+    ///     var environment_example_rb_skip_sync = new ConfluentCloud.Index.RoleBinding("environment-example-rb-skip-sync", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "EnvironmentAdmin",
@@ -49,63 +49,63 @@ namespace Pulumi.ConfluentCloud
     ///         DisableWaitForReady = true,
     ///     });
     /// 
-    ///     var environment_example_rb_2 = new ConfluentCloud.RoleBinding("environment-example-rb-2", new()
+    ///     var environment_example_rb_2 = new ConfluentCloud.Index.RoleBinding("environment-example-rb-2", new()
     ///     {
     ///         Principal = $"User:{testConfluentIdentityPool.Id}",
     ///         RoleName = "EnvironmentAdmin",
     ///         CrnPattern = stag.ResourceName,
     ///     });
     /// 
-    ///     var data_discovery_example_rb = new ConfluentCloud.RoleBinding("data-discovery-example-rb", new()
+    ///     var data_discovery_example_rb = new ConfluentCloud.Index.RoleBinding("data-discovery-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "DataDiscovery",
     ///         CrnPattern = stag.ResourceName,
     ///     });
     /// 
-    ///     var network_example_rb = new ConfluentCloud.RoleBinding("network-example-rb", new()
+    ///     var network_example_rb = new ConfluentCloud.Index.RoleBinding("network-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "NetworkAdmin",
     ///         CrnPattern = demo.ResourceName,
     ///     });
     /// 
-    ///     var cluster_example_rb = new ConfluentCloud.RoleBinding("cluster-example-rb", new()
+    ///     var cluster_example_rb = new ConfluentCloud.Index.RoleBinding("cluster-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "CloudClusterAdmin",
     ///         CrnPattern = basic.RbacCrn,
     ///     });
     /// 
-    ///     var topic_example_rb = new ConfluentCloud.RoleBinding("topic-example-rb", new()
+    ///     var topic_example_rb = new ConfluentCloud.Index.RoleBinding("topic-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "DeveloperWrite",
     ///         CrnPattern = $"{standard.RbacCrn}/kafka={standard.Id}/topic={orders.TopicName}",
     ///     });
     /// 
-    ///     var topic_example_rb_2 = new ConfluentCloud.RoleBinding("topic-example-rb-2", new()
+    ///     var topic_example_rb_2 = new ConfluentCloud.Index.RoleBinding("topic-example-rb-2", new()
     ///     {
     ///         Principal = $"User:{testConfluentIdentityPool.Id}",
     ///         RoleName = "DeveloperWrite",
     ///         CrnPattern = $"{standard.RbacCrn}/kafka={standard.Id}/topic={orders.TopicName}",
     ///     });
     /// 
-    ///     var group_example_rb = new ConfluentCloud.RoleBinding("group-example-rb", new()
+    ///     var group_example_rb = new ConfluentCloud.Index.RoleBinding("group-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "DeveloperRead",
     ///         CrnPattern = $"{basic.RbacCrn}/kafka={standard.Id}/group=confluent_cli_consumer_*",
     ///     });
     /// 
-    ///     var group_mapping_example_rb = new ConfluentCloud.RoleBinding("group-mapping-example-rb", new()
+    ///     var group_mapping_example_rb = new ConfluentCloud.Index.RoleBinding("group-mapping-example-rb", new()
     ///     {
     ///         Principal = $"User:{application_developers.Id}",
     ///         RoleName = "EnvironmentAdmin",
     ///         CrnPattern = stag.ResourceName,
     ///     });
     /// 
-    ///     var transaction_example_rb = new ConfluentCloud.RoleBinding("transaction-example-rb", new()
+    ///     var transaction_example_rb = new ConfluentCloud.Index.RoleBinding("transaction-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "DeveloperRead",
@@ -119,42 +119,42 @@ namespace Pulumi.ConfluentCloud
     ///         Default = "\"name\" attribute is missing",
     ///     }).Result;
     /// 
-    ///     var connector_example_rb = new ConfluentCloud.RoleBinding("connector-example-rb", new()
+    ///     var connector_example_rb = new ConfluentCloud.Index.RoleBinding("connector-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "DeveloperRead",
     ///         CrnPattern = $"{standard.RbacCrn}/connector={connectorName}",
     ///     });
     /// 
-    ///     var all_subjects_example_rb = new ConfluentCloud.RoleBinding("all-subjects-example-rb", new()
+    ///     var all_subjects_example_rb = new ConfluentCloud.Index.RoleBinding("all-subjects-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "DeveloperRead",
     ///         CrnPattern = $"{example.ResourceName}/subject=*",
     ///     });
     /// 
-    ///     var subject_foo_example_rb = new ConfluentCloud.RoleBinding("subject-foo-example-rb", new()
+    ///     var subject_foo_example_rb = new ConfluentCloud.Index.RoleBinding("subject-foo-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "DeveloperRead",
     ///         CrnPattern = $"{example.ResourceName}/subject=foo",
     ///     });
     /// 
-    ///     var subject_with_abc_prefix_example_rb = new ConfluentCloud.RoleBinding("subject-with-abc-prefix-example-rb", new()
+    ///     var subject_with_abc_prefix_example_rb = new ConfluentCloud.Index.RoleBinding("subject-with-abc-prefix-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "DeveloperRead",
     ///         CrnPattern = $"{example.ResourceName}/subject=abc*",
     ///     });
     /// 
-    ///     var kek_example_rb = new ConfluentCloud.RoleBinding("kek-example-rb", new()
+    ///     var kek_example_rb = new ConfluentCloud.Index.RoleBinding("kek-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "DeveloperRead",
     ///         CrnPattern = $"{example.ResourceName}/kek=kek-name",
     ///     });
     /// 
-    ///     var flink_developer_compute_pool_example_rb = new ConfluentCloud.RoleBinding("flink-developer-compute-pool-example-rb", new()
+    ///     var flink_developer_compute_pool_example_rb = new ConfluentCloud.Index.RoleBinding("flink-developer-compute-pool-example-rb", new()
     ///     {
     ///         Principal = $"User:{test.Id}",
     ///         RoleName = "FlinkDeveloper",
@@ -193,7 +193,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var app_manager_kafka_cluster_admin_skip_sync = new ConfluentCloud.RoleBinding("app-manager-kafka-cluster-admin-skip-sync", new()
+    ///     var app_manager_kafka_cluster_admin_skip_sync = new ConfluentCloud.Index.RoleBinding("app-manager-kafka-cluster-admin-skip-sync", new()
     ///     {
     ///         Principal = $"User:{app_manager.Id}",
     ///         RoleName = "CloudClusterAdmin",
@@ -212,7 +212,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var orders = new ConfluentCloud.KafkaTopic("orders", new()
+    ///     var orders = new ConfluentCloud.Index.KafkaTopic("orders", new()
     ///     {
     ///         KafkaCluster = new ConfluentCloud.Inputs.KafkaTopicKafkaClusterArgs
     ///         {

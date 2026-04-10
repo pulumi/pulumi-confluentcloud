@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetPeering.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetPeering.Invoke(new()
         ///     {
         ///         Id = "peer-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentInputArgs
@@ -35,7 +35,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetPeering.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetPeering.Invoke(new()
         ///     {
         ///         DisplayName = "my_peering",
         ///         Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentInputArgs
@@ -70,7 +70,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetPeering.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetPeering.Invoke(new()
         ///     {
         ///         Id = "peer-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentInputArgs
@@ -79,7 +79,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetPeering.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetPeering.Invoke(new()
         ///     {
         ///         DisplayName = "my_peering",
         ///         Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentInputArgs
@@ -114,7 +114,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetPeering.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetPeering.Invoke(new()
         ///     {
         ///         Id = "peer-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentInputArgs
@@ -123,7 +123,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetPeering.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetPeering.Invoke(new()
         ///     {
         ///         DisplayName = "my_peering",
         ///         Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentInputArgs

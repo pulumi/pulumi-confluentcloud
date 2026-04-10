@@ -44,7 +44,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var identity_pool_assigner = new ConfluentCloud.RoleBinding("identity-pool-assigner", new()
+        ///     var identity_pool_assigner = new ConfluentCloud.Index.RoleBinding("identity-pool-assigner", new()
         ///     {
         ///         Principal = "User:pool-abc123",
         ///         RoleName = "Assigner",

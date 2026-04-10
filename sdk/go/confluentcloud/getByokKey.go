@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			azureKey, err := confluentcloud.LookupByokKey(ctx, &confluentcloud.LookupByokKeyArgs{
+//			azureKey, err := confluentcloud.GetByokKey(ctx, &confluentcloud.LookupByokKeyArgs{
 //				Id: "cck-abcde",
 //			}, nil)
 //			if err != nil {

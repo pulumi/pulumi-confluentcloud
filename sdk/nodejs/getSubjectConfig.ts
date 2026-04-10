@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluent from "@pulumi/confluent";
  *
- * const example = confluent.index.SubjectCompatibilityLevel({
+ * const example = confluent.SubjectCompatibilityLevel({
  *     schemaRegistryCluster: [{
  *         id: essentials.id,
  *     }],
@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluent from "@pulumi/confluent";
  *
- * const example = confluent.index.SubjectCompatibilityLevel({
+ * const example = confluent.SubjectCompatibilityLevel({
  *     subjectName: "proto-purchase-value",
  * });
  * export const compatibilityLevel = example.compatibilityLevel;
@@ -113,7 +113,7 @@ export interface GetSubjectConfigResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluent from "@pulumi/confluent";
  *
- * const example = confluent.index.SubjectCompatibilityLevel({
+ * const example = confluent.SubjectCompatibilityLevel({
  *     schemaRegistryCluster: [{
  *         id: essentials.id,
  *     }],
@@ -133,7 +133,7 @@ export interface GetSubjectConfigResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluent from "@pulumi/confluent";
  *
- * const example = confluent.index.SubjectCompatibilityLevel({
+ * const example = confluent.SubjectCompatibilityLevel({
  *     subjectName: "proto-purchase-value",
  * });
  * export const compatibilityLevel = example.compatibilityLevel;

@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingId, err := confluentcloud.LookupTransitGatewayAttachment(ctx, &confluentcloud.LookupTransitGatewayAttachmentArgs{
+//			exampleUsingId, err := confluentcloud.GetTransitGatewayAttachment(ctx, &confluentcloud.LookupTransitGatewayAttachmentArgs{
 //				Id: pulumi.StringRef("tgwa-abc123"),
 //				Environment: confluentcloud.GetTransitGatewayAttachmentEnvironment{
 //					Id: "env-xyz456",
@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingId)
-//			exampleUsingName, err := confluentcloud.LookupTransitGatewayAttachment(ctx, &confluentcloud.LookupTransitGatewayAttachmentArgs{
+//			exampleUsingName, err := confluentcloud.GetTransitGatewayAttachment(ctx, &confluentcloud.LookupTransitGatewayAttachmentArgs{
 //				DisplayName: pulumi.StringRef("my_tgwa"),
 //				Environment: confluentcloud.GetTransitGatewayAttachmentEnvironment{
 //					Id: "env-xyz456",

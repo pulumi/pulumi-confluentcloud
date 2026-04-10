@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetBusinessMetadataBinding.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetBusinessMetadataBinding.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetBusinessMetadataBindingSchemaRegistryClusterInputArgs
         ///         {
@@ -58,7 +58,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetBusinessMetadataBinding.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetBusinessMetadataBinding.Invoke(new()
         ///     {
         ///         BusinessMetadataName = pii.Name,
         ///         EntityName = $"{schemaRegistryId}:{kafkaId}:{mainConfluentKafkaTopic.TopicName}",
@@ -89,7 +89,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetBusinessMetadataBinding.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetBusinessMetadataBinding.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetBusinessMetadataBindingSchemaRegistryClusterInputArgs
         ///         {
@@ -119,7 +119,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetBusinessMetadataBinding.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetBusinessMetadataBinding.Invoke(new()
         ///     {
         ///         BusinessMetadataName = pii.Name,
         ///         EntityName = $"{schemaRegistryId}:{kafkaId}:{mainConfluentKafkaTopic.TopicName}",
@@ -150,7 +150,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetBusinessMetadataBinding.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetBusinessMetadataBinding.Invoke(new()
         ///     {
         ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.GetBusinessMetadataBindingSchemaRegistryClusterInputArgs
         ///         {
@@ -180,7 +180,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetBusinessMetadataBinding.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetBusinessMetadataBinding.Invoke(new()
         ///     {
         ///         BusinessMetadataName = pii.Name,
         ///         EntityName = $"{schemaRegistryId}:{kafkaId}:{mainConfluentKafkaTopic.TopicName}",

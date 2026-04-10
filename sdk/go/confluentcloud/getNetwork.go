@@ -41,7 +41,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingId, err := confluentcloud.LookupNetwork(ctx, &confluentcloud.LookupNetworkArgs{
+//			exampleUsingId, err := confluentcloud.GetNetwork(ctx, &confluentcloud.LookupNetworkArgs{
 //				Id: pulumi.StringRef("n-abc123"),
 //				Environment: confluentcloud.GetNetworkEnvironment{
 //					Id: "env-xyz456",
@@ -57,7 +57,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUsingName, err := confluentcloud.LookupNetwork(ctx, &confluentcloud.LookupNetworkArgs{
+//			exampleUsingName, err := confluentcloud.GetNetwork(ctx, &confluentcloud.LookupNetworkArgs{
 //				DisplayName: pulumi.StringRef("my_network"),
 //				Environment: confluentcloud.GetNetworkEnvironment{
 //					Id: "env-xyz456",

@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetPrivateLinkAccess.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetPrivateLinkAccess.Invoke(new()
         ///     {
         ///         Id = "pla-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetPrivateLinkAccessEnvironmentInputArgs
@@ -35,7 +35,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetPrivateLinkAccess.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetPrivateLinkAccess.Invoke(new()
         ///     {
         ///         DisplayName = "my_pla",
         ///         Environment = new ConfluentCloud.Inputs.GetPrivateLinkAccessEnvironmentInputArgs
@@ -70,7 +70,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetPrivateLinkAccess.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetPrivateLinkAccess.Invoke(new()
         ///     {
         ///         Id = "pla-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetPrivateLinkAccessEnvironmentInputArgs
@@ -79,7 +79,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetPrivateLinkAccess.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetPrivateLinkAccess.Invoke(new()
         ///     {
         ///         DisplayName = "my_pla",
         ///         Environment = new ConfluentCloud.Inputs.GetPrivateLinkAccessEnvironmentInputArgs
@@ -114,7 +114,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetPrivateLinkAccess.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetPrivateLinkAccess.Invoke(new()
         ///     {
         ///         Id = "pla-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetPrivateLinkAccessEnvironmentInputArgs
@@ -123,7 +123,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetPrivateLinkAccess.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetPrivateLinkAccess.Invoke(new()
         ///     {
         ///         DisplayName = "my_pla",
         ///         Environment = new ConfluentCloud.Inputs.GetPrivateLinkAccessEnvironmentInputArgs

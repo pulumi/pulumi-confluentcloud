@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.SubjectMode("example", new()
+    ///     var example = new ConfluentCloud.Index.SubjectMode("example", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.SubjectModeSchemaRegistryClusterArgs
     ///         {
@@ -57,7 +57,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.SubjectMode("example", new()
+    ///     var example = new ConfluentCloud.Index.SubjectMode("example", new()
     ///     {
     ///         SubjectName = "proto-purchase-value",
     ///         Mode = "READONLY",

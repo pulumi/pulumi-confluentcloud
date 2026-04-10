@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			purchase_v1, err := confluentcloud.LookupSubjectMode(ctx, &confluentcloud.LookupSubjectModeArgs{
+//			purchase_v1, err := confluentcloud.GetSubjectMode(ctx, &confluentcloud.LookupSubjectModeArgs{
 //				SchemaRegistryCluster: confluentcloud.GetSubjectModeSchemaRegistryCluster{
 //					Id: essentials.Id,
 //				},
@@ -66,7 +66,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			purchase_v1, err := confluentcloud.LookupSubjectMode(ctx, &confluentcloud.LookupSubjectModeArgs{
+//			purchase_v1, err := confluentcloud.GetSubjectMode(ctx, &confluentcloud.LookupSubjectModeArgs{
 //				SubjectName: "proto-purchase-value",
 //			}, nil)
 //			if err != nil {

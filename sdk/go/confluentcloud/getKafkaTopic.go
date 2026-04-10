@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			orders, err := confluentcloud.LookupKafkaTopic(ctx, &confluentcloud.LookupKafkaTopicArgs{
+//			orders, err := confluentcloud.GetKafkaTopic(ctx, &confluentcloud.LookupKafkaTopicArgs{
 //				KafkaCluster: confluentcloud.GetKafkaTopicKafkaCluster{
 //					Id: basic_cluster.Id,
 //				},
@@ -66,7 +66,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			orders, err := confluentcloud.LookupKafkaTopic(ctx, &confluentcloud.LookupKafkaTopicArgs{
+//			orders, err := confluentcloud.GetKafkaTopic(ctx, &confluentcloud.LookupKafkaTopicArgs{
 //				TopicName: "orders",
 //			}, nil)
 //			if err != nil {

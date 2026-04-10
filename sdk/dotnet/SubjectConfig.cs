@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.SubjectConfig("example", new()
+    ///     var example = new ConfluentCloud.Index.SubjectConfig("example", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.SubjectConfigSchemaRegistryClusterArgs
     ///         {
@@ -59,7 +59,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.SubjectConfig("example", new()
+    ///     var example = new ConfluentCloud.Index.SubjectConfig("example", new()
     ///     {
     ///         SubjectName = "proto-purchase-value",
     ///         CompatibilityLevel = "BACKWARD",
@@ -82,7 +82,7 @@ namespace Pulumi.ConfluentCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // First, ensure the original subject exists with a schema
-    ///     var original = new ConfluentCloud.Schema("original", new()
+    ///     var original = new ConfluentCloud.Index.Schema("original", new()
     ///     {
     ///         SubjectName = "orders-long-subject-name-value",
     ///         Format = "AVRO",
@@ -94,7 +94,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     // Create an alias that points to the original subject
     ///     // Any reference to "orders-value" will now resolve to "orders-long-subject-name-value"
-    ///     var ordersAlias = new ConfluentCloud.SubjectConfig("orders_alias", new()
+    ///     var ordersAlias = new ConfluentCloud.Index.SubjectConfig("orders_alias", new()
     ///     {
     ///         SubjectName = "orders-value",
     ///         Alias = "orders-long-subject-name-value",

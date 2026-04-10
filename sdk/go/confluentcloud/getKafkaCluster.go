@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingId, err := confluentcloud.LookupKafkaCluster(ctx, &confluentcloud.LookupKafkaClusterArgs{
+//			exampleUsingId, err := confluentcloud.GetKafkaCluster(ctx, &confluentcloud.LookupKafkaClusterArgs{
 //				Id: pulumi.StringRef("lkc-abc123"),
 //				Environment: confluentcloud.GetKafkaClusterEnvironment{
 //					Id: "env-xyz456",
@@ -45,7 +45,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUsingName, err := confluentcloud.LookupKafkaCluster(ctx, &confluentcloud.LookupKafkaClusterArgs{
+//			exampleUsingName, err := confluentcloud.GetKafkaCluster(ctx, &confluentcloud.LookupKafkaClusterArgs{
 //				DisplayName: pulumi.StringRef("basic_kafka_cluster"),
 //				Environment: confluentcloud.GetKafkaClusterEnvironment{
 //					Id: "env-xyz456",

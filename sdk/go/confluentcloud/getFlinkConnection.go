@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupFlinkConnection(ctx, &confluentcloud.LookupFlinkConnectionArgs{
+//			main, err := confluentcloud.GetFlinkConnection(ctx, &confluentcloud.LookupFlinkConnectionArgs{
 //				Organization: confluentcloud.GetFlinkConnectionOrganization{
 //					Id: mainConfluentOrganization.Id,
 //				},
@@ -76,7 +76,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupFlinkConnection(ctx, &confluentcloud.LookupFlinkConnectionArgs{
+//			main, err := confluentcloud.GetFlinkConnection(ctx, &confluentcloud.LookupFlinkConnectionArgs{
 //				DisplayName: "connection1",
 //				Type:        pulumi.StringRef("OPENAI"),
 //			}, nil)

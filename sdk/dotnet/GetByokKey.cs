@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var azureKey = ConfluentCloud.GetByokKey.Invoke(new()
+        ///     var azureKey = ConfluentCloud.Index.GetByokKey.Invoke(new()
         ///     {
         ///         Id = "cck-abcde",
         ///     });
@@ -56,7 +56,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var azureKey = ConfluentCloud.GetByokKey.Invoke(new()
+        ///     var azureKey = ConfluentCloud.Index.GetByokKey.Invoke(new()
         ///     {
         ///         Id = "cck-abcde",
         ///     });
@@ -86,7 +86,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var azureKey = ConfluentCloud.GetByokKey.Invoke(new()
+        ///     var azureKey = ConfluentCloud.Index.GetByokKey.Invoke(new()
         ///     {
         ///         Id = "cck-abcde",
         ///     });

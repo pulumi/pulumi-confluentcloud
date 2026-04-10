@@ -126,7 +126,7 @@ def get_provider_integration_authorization(environment: Optional[Union['GetProvi
             "id": "env-xyz456",
         })
     # Create the service principal using Azure Terraform Provider
-    confluent = azuread.index.ServicePrincipal("confluent", client_id=azure.azures[0].confluent_multi_tenant_app_id)
+    confluent = azuread.ServicePrincipal("confluent", client_id=azure.azures[0].confluent_multi_tenant_app_id)
     pulumi.export("azureAppId", azure.azures[0].confluent_multi_tenant_app_id)
     pulumi.export("servicePrincipalObjectId", confluent["objectId"])
     ```
@@ -162,7 +162,7 @@ def get_provider_integration_authorization(environment: Optional[Union['GetProvi
             "id": "env-xyz456",
         })
     # Grant IAM permissions using Google Terraform Provider
-    confluent_token_creator = google.index.ProjectIamMember("confluent_token_creator",
+    confluent_token_creator = google.ProjectIamMember("confluent_token_creator",
         project=gcp_project_id,
         role=roles/iam.serviceAccountTokenCreator,
         member=fserviceAccount:{gcp.gcps[0].google_service_account},
@@ -262,7 +262,7 @@ def get_provider_integration_authorization_output(environment: Optional[pulumi.I
             "id": "env-xyz456",
         })
     # Create the service principal using Azure Terraform Provider
-    confluent = azuread.index.ServicePrincipal("confluent", client_id=azure.azures[0].confluent_multi_tenant_app_id)
+    confluent = azuread.ServicePrincipal("confluent", client_id=azure.azures[0].confluent_multi_tenant_app_id)
     pulumi.export("azureAppId", azure.azures[0].confluent_multi_tenant_app_id)
     pulumi.export("servicePrincipalObjectId", confluent["objectId"])
     ```
@@ -298,7 +298,7 @@ def get_provider_integration_authorization_output(environment: Optional[pulumi.I
             "id": "env-xyz456",
         })
     # Grant IAM permissions using Google Terraform Provider
-    confluent_token_creator = google.index.ProjectIamMember("confluent_token_creator",
+    confluent_token_creator = google.ProjectIamMember("confluent_token_creator",
         project=gcp_project_id,
         role=roles/iam.serviceAccountTokenCreator,
         member=fserviceAccount:{gcp.gcps[0].google_service_account},

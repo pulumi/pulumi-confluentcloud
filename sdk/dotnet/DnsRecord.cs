@@ -24,12 +24,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var main = new ConfluentCloud.DnsRecord("main", new()
+    ///     var main = new ConfluentCloud.Index.DnsRecord("main", new()
     ///     {
     ///         DisplayName = "dns_record",
     ///         Environment = new ConfluentCloud.Inputs.DnsRecordEnvironmentArgs

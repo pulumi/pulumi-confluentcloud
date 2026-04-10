@@ -62,7 +62,7 @@ import * as utilities from "./utilities";
  * const original = new confluentcloud.Schema("original", {
  *     subjectName: "orders-long-subject-name-value",
  *     format: "AVRO",
- *     schema: std.index.file({
+ *     schema: std.file({
  *         input: "./schemas/avro/orders.avsc",
  *     }).result,
  * });

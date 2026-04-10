@@ -24,12 +24,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var aws = new ConfluentCloud.AccessPoint("aws", new()
+    ///     var aws = new ConfluentCloud.Index.AccessPoint("aws", new()
     ///     {
     ///         DisplayName = "access_point_egress",
     ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
@@ -46,7 +46,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var azure = new ConfluentCloud.AccessPoint("azure", new()
+    ///     var azure = new ConfluentCloud.Index.AccessPoint("azure", new()
     ///     {
     ///         DisplayName = "access_point_egress",
     ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
@@ -64,7 +64,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var gcp = new ConfluentCloud.AccessPoint("gcp", new()
+    ///     var gcp = new ConfluentCloud.Index.AccessPoint("gcp", new()
     ///     {
     ///         DisplayName = "access_point",
     ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
@@ -81,7 +81,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var pni = new ConfluentCloud.AccessPoint("pni", new()
+    ///     var pni = new ConfluentCloud.Index.AccessPoint("pni", new()
     ///     {
     ///         DisplayName = "access_point_egress",
     ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
@@ -105,7 +105,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var awsIngress = new ConfluentCloud.AccessPoint("aws_ingress", new()
+    ///     var awsIngress = new ConfluentCloud.Index.AccessPoint("aws_ingress", new()
     ///     {
     ///         DisplayName = "access_point_ingress",
     ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs

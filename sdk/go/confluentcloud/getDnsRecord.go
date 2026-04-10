@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupDnsRecord(ctx, &confluentcloud.LookupDnsRecordArgs{
+//			main, err := confluentcloud.GetDnsRecord(ctx, &confluentcloud.LookupDnsRecordArgs{
 //				Id: "dnsrec-abc123",
 //				Environment: confluentcloud.GetDnsRecordEnvironment{
 //					Id: "env-123abc",

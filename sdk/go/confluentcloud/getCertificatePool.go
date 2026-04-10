@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupCertificatePool(ctx, &confluentcloud.LookupCertificatePoolArgs{
+//			main, err := confluentcloud.GetCertificatePool(ctx, &confluentcloud.LookupCertificatePoolArgs{
 //				Id: pulumi.StringRef("pool-def456"),
 //				CertificateAuthority: confluentcloud.GetCertificatePoolCertificateAuthority{
 //					Id: "op-abc123",
@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("certificatePool", main)
-//			exampleUsingName, err := confluentcloud.LookupCertificatePool(ctx, &confluentcloud.LookupCertificatePoolArgs{
+//			exampleUsingName, err := confluentcloud.GetCertificatePool(ctx, &confluentcloud.LookupCertificatePoolArgs{
 //				DisplayName: pulumi.StringRef("My Certificate Pool"),
 //				CertificateAuthority: confluentcloud.GetCertificatePoolCertificateAuthority{
 //					Id: "op-abc123",

@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetFlinkArtifact.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetFlinkArtifact.Invoke(new()
         ///     {
         ///         Id = "lfa-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetFlinkArtifactEnvironmentInputArgs
@@ -35,7 +35,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetFlinkArtifact.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetFlinkArtifact.Invoke(new()
         ///     {
         ///         DisplayName = "my_artifact",
         ///         Environment = new ConfluentCloud.Inputs.GetFlinkArtifactEnvironmentInputArgs
@@ -70,7 +70,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetFlinkArtifact.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetFlinkArtifact.Invoke(new()
         ///     {
         ///         Id = "lfa-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetFlinkArtifactEnvironmentInputArgs
@@ -79,7 +79,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetFlinkArtifact.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetFlinkArtifact.Invoke(new()
         ///     {
         ///         DisplayName = "my_artifact",
         ///         Environment = new ConfluentCloud.Inputs.GetFlinkArtifactEnvironmentInputArgs
@@ -114,7 +114,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetFlinkArtifact.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetFlinkArtifact.Invoke(new()
         ///     {
         ///         Id = "lfa-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetFlinkArtifactEnvironmentInputArgs
@@ -123,7 +123,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetFlinkArtifact.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetFlinkArtifact.Invoke(new()
         ///     {
         ///         DisplayName = "my_artifact",
         ///         Environment = new ConfluentCloud.Inputs.GetFlinkArtifactEnvironmentInputArgs

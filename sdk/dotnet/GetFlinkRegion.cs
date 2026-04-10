@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetFlinkRegion.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetFlinkRegion.Invoke(new()
         ///     {
         ///         Cloud = "AWS",
         ///         Region = "us-east-1",
@@ -57,7 +57,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetFlinkRegion.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetFlinkRegion.Invoke(new()
         ///     {
         ///         Cloud = "AWS",
         ///         Region = "us-east-1",
@@ -88,7 +88,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetFlinkRegion.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetFlinkRegion.Invoke(new()
         ///     {
         ///         Cloud = "AWS",
         ///         Region = "us-east-1",

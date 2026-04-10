@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupAccessPoint(ctx, &confluentcloud.LookupAccessPointArgs{
+//			main, err := confluentcloud.GetAccessPoint(ctx, &confluentcloud.LookupAccessPointArgs{
 //				Id: "ap-abc123",
 //				Environment: confluentcloud.GetAccessPointEnvironment{
 //					Id: "env-123abc",

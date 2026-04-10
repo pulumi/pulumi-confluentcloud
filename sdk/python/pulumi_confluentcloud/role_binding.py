@@ -265,7 +265,7 @@ class RoleBinding(pulumi.CustomResource):
             principal=f"User:{test['id']}",
             role_name="DeveloperRead",
             crn_pattern=f"{basic['rbacCrn']}/kafka={standard['id']}/transactional-id=my_transaction")
-        connector_name = std.index.lookup(map=test_confluent_connector["configNonsensitive"],
+        connector_name = std.lookup(map=test_confluent_connector["configNonsensitive"],
             key="name",
             default="\\"name\\" attribute is missing")["result"]
         connector_example_rb = confluentcloud.RoleBinding("connector-example-rb",
@@ -324,7 +324,7 @@ class RoleBinding(pulumi.CustomResource):
             role_name="CloudClusterAdmin",
             crn_pattern=standard["rbacCrn"],
             disable_wait_for_ready=True)
-        wait360_seconds_after_role_binding = time.index.Sleep("wait_360_seconds_after_role_binding", create_duration=360s,
+        wait360_seconds_after_role_binding = time.Sleep("wait_360_seconds_after_role_binding", create_duration=360s,
         opts = pulumi.ResourceOptions(depends_on=[app_manager_kafka_cluster_admin_skip_sync]))
         orders = confluentcloud.KafkaTopic("orders",
             kafka_cluster={
@@ -438,7 +438,7 @@ class RoleBinding(pulumi.CustomResource):
             principal=f"User:{test['id']}",
             role_name="DeveloperRead",
             crn_pattern=f"{basic['rbacCrn']}/kafka={standard['id']}/transactional-id=my_transaction")
-        connector_name = std.index.lookup(map=test_confluent_connector["configNonsensitive"],
+        connector_name = std.lookup(map=test_confluent_connector["configNonsensitive"],
             key="name",
             default="\\"name\\" attribute is missing")["result"]
         connector_example_rb = confluentcloud.RoleBinding("connector-example-rb",
@@ -497,7 +497,7 @@ class RoleBinding(pulumi.CustomResource):
             role_name="CloudClusterAdmin",
             crn_pattern=standard["rbacCrn"],
             disable_wait_for_ready=True)
-        wait360_seconds_after_role_binding = time.index.Sleep("wait_360_seconds_after_role_binding", create_duration=360s,
+        wait360_seconds_after_role_binding = time.Sleep("wait_360_seconds_after_role_binding", create_duration=360s,
         opts = pulumi.ResourceOptions(depends_on=[app_manager_kafka_cluster_admin_skip_sync]))
         orders = confluentcloud.KafkaTopic("orders",
             kafka_cluster={

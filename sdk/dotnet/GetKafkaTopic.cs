@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
+        ///     var orders = ConfluentCloud.Index.GetKafkaTopic.Invoke(new()
         ///     {
         ///         KafkaCluster = new ConfluentCloud.Inputs.GetKafkaTopicKafkaClusterInputArgs
         ///         {
@@ -60,7 +60,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
+        ///     var orders = ConfluentCloud.Index.GetKafkaTopic.Invoke(new()
         ///     {
         ///         TopicName = "orders",
         ///     });
@@ -92,7 +92,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
+        ///     var orders = ConfluentCloud.Index.GetKafkaTopic.Invoke(new()
         ///     {
         ///         KafkaCluster = new ConfluentCloud.Inputs.GetKafkaTopicKafkaClusterInputArgs
         ///         {
@@ -124,7 +124,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
+        ///     var orders = ConfluentCloud.Index.GetKafkaTopic.Invoke(new()
         ///     {
         ///         TopicName = "orders",
         ///     });
@@ -156,7 +156,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
+        ///     var orders = ConfluentCloud.Index.GetKafkaTopic.Invoke(new()
         ///     {
         ///         KafkaCluster = new ConfluentCloud.Inputs.GetKafkaTopicKafkaClusterInputArgs
         ///         {
@@ -188,7 +188,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
+        ///     var orders = ConfluentCloud.Index.GetKafkaTopic.Invoke(new()
         ///     {
         ///         TopicName = "orders",
         ///     });

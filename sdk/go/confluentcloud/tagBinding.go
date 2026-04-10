@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupKafkaTopic(ctx, &confluentcloud.LookupKafkaTopicArgs{
+//			main, err := confluentcloud.GetKafkaTopic(ctx, &confluentcloud.LookupKafkaTopicArgs{
 //				TopicName: "orders",
 //			}, nil)
 //			if err != nil {
@@ -74,7 +74,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupKafkaTopic(ctx, &confluentcloud.LookupKafkaTopicArgs{
+//			main, err := confluentcloud.GetKafkaTopic(ctx, &confluentcloud.LookupKafkaTopicArgs{
 //				TopicName: "orders",
 //			}, nil)
 //			if err != nil {

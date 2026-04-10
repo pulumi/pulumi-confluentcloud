@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.LookupPrivateLinkAttachment(ctx, &confluentcloud.LookupPrivateLinkAttachmentArgs{
+//			main, err := confluentcloud.GetPrivateLinkAttachment(ctx, &confluentcloud.LookupPrivateLinkAttachmentArgs{
 //				Id: "platt-abcde",
 //				Environment: confluentcloud.GetPrivateLinkAttachmentEnvironment{
 //					Id: "env-1234",

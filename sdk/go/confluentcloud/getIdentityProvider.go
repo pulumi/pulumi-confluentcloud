@@ -29,14 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingId, err := confluentcloud.LookupIdentityProvider(ctx, &confluentcloud.LookupIdentityProviderArgs{
+//			exampleUsingId, err := confluentcloud.GetIdentityProvider(ctx, &confluentcloud.LookupIdentityProviderArgs{
 //				Id: pulumi.StringRef("op-abc123"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingId)
-//			exampleUsingName, err := confluentcloud.LookupIdentityProvider(ctx, &confluentcloud.LookupIdentityProviderArgs{
+//			exampleUsingName, err := confluentcloud.GetIdentityProvider(ctx, &confluentcloud.LookupIdentityProviderArgs{
 //				DisplayName: pulumi.StringRef("My OIDC Provider: Azure AD"),
 //			}, nil)
 //			if err != nil {

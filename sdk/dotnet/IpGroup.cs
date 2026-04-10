@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.IpGroup("example", new()
+    ///     var example = new ConfluentCloud.Index.IpGroup("example", new()
     ///     {
     ///         GroupName = "CorpNet",
     ///         CidrBlocks = new[]

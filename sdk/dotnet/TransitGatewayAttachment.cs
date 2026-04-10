@@ -28,12 +28,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var aws_transit_gateway_attachment = new ConfluentCloud.Network("aws-transit-gateway-attachment", new()
+    ///     var aws_transit_gateway_attachment = new ConfluentCloud.Index.Network("aws-transit-gateway-attachment", new()
     ///     {
     ///         DisplayName = "AWS Transit Gateway Attachment Network",
     ///         Cloud = "AWS",
@@ -49,7 +49,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var aws = new ConfluentCloud.TransitGatewayAttachment("aws", new()
+    ///     var aws = new ConfluentCloud.Index.TransitGatewayAttachment("aws", new()
     ///     {
     ///         DisplayName = "AWS Transit Gateway Attachment",
     ///         Aws = new ConfluentCloud.Inputs.TransitGatewayAttachmentAwsArgs

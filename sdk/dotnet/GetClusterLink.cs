@@ -28,7 +28,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetClusterLink.Invoke(new()
         ///     {
         ///         LinkName = "main-link",
         ///         RestEndpoint = west.RestEndpoint,
@@ -60,7 +60,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetClusterLink.Invoke(new()
         ///     {
         ///         LinkName = "main-link",
         ///     });
@@ -82,7 +82,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetClusterLink.Invoke(new()
         ///     {
         ///         LinkName = "main-link",
         ///         RestEndpoint = west.RestEndpoint,
@@ -119,7 +119,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetClusterLink.Invoke(new()
         ///     {
         ///         LinkName = "main-link",
         ///         RestEndpoint = west.RestEndpoint,
@@ -151,7 +151,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetClusterLink.Invoke(new()
         ///     {
         ///         LinkName = "main-link",
         ///     });
@@ -173,7 +173,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetClusterLink.Invoke(new()
         ///     {
         ///         LinkName = "main-link",
         ///         RestEndpoint = west.RestEndpoint,
@@ -210,7 +210,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetClusterLink.Invoke(new()
         ///     {
         ///         LinkName = "main-link",
         ///         RestEndpoint = west.RestEndpoint,
@@ -242,7 +242,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetClusterLink.Invoke(new()
         ///     {
         ///         LinkName = "main-link",
         ///     });
@@ -264,7 +264,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetClusterLink.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetClusterLink.Invoke(new()
         ///     {
         ///         LinkName = "main-link",
         ///         RestEndpoint = west.RestEndpoint,

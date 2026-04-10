@@ -26,22 +26,22 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetEnvironment.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetEnvironment.Invoke(new()
         ///     {
         ///         Id = "env-abc123",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetEnvironment.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetEnvironment.Invoke(new()
         ///     {
         ///         DisplayName = "stag",
         ///     });
         /// 
-        ///     var exampleUsingNameGetServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingNameGetServiceAccount = ConfluentCloud.Index.GetServiceAccount.Invoke(new()
         ///     {
         ///         DisplayName = "test_sa",
         ///     });
         /// 
-        ///     var test_role_binding = new ConfluentCloud.RoleBinding("test-role-binding", new()
+        ///     var test_role_binding = new ConfluentCloud.Index.RoleBinding("test-role-binding", new()
         ///     {
         ///         Principal = $"User:{exampleUsingNameGetServiceAccount.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Id)}",
         ///         RoleName = "EnvironmentAdmin",
@@ -73,22 +73,22 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetEnvironment.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetEnvironment.Invoke(new()
         ///     {
         ///         Id = "env-abc123",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetEnvironment.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetEnvironment.Invoke(new()
         ///     {
         ///         DisplayName = "stag",
         ///     });
         /// 
-        ///     var exampleUsingNameGetServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingNameGetServiceAccount = ConfluentCloud.Index.GetServiceAccount.Invoke(new()
         ///     {
         ///         DisplayName = "test_sa",
         ///     });
         /// 
-        ///     var test_role_binding = new ConfluentCloud.RoleBinding("test-role-binding", new()
+        ///     var test_role_binding = new ConfluentCloud.Index.RoleBinding("test-role-binding", new()
         ///     {
         ///         Principal = $"User:{exampleUsingNameGetServiceAccount.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Id)}",
         ///         RoleName = "EnvironmentAdmin",
@@ -120,22 +120,22 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetEnvironment.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetEnvironment.Invoke(new()
         ///     {
         ///         Id = "env-abc123",
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetEnvironment.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetEnvironment.Invoke(new()
         ///     {
         ///         DisplayName = "stag",
         ///     });
         /// 
-        ///     var exampleUsingNameGetServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingNameGetServiceAccount = ConfluentCloud.Index.GetServiceAccount.Invoke(new()
         ///     {
         ///         DisplayName = "test_sa",
         ///     });
         /// 
-        ///     var test_role_binding = new ConfluentCloud.RoleBinding("test-role-binding", new()
+        ///     var test_role_binding = new ConfluentCloud.Index.RoleBinding("test-role-binding", new()
         ///     {
         ///         Principal = $"User:{exampleUsingNameGetServiceAccount.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Id)}",
         ///         RoleName = "EnvironmentAdmin",

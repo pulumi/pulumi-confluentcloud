@@ -28,12 +28,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var aws_private_link = new ConfluentCloud.Network("aws-private-link", new()
+    ///     var aws_private_link = new ConfluentCloud.Index.Network("aws-private-link", new()
     ///     {
     ///         DisplayName = "AWS Private Link Network",
     ///         Cloud = "AWS",
@@ -54,7 +54,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var aws = new ConfluentCloud.PrivateLinkAccess("aws", new()
+    ///     var aws = new ConfluentCloud.Index.PrivateLinkAccess("aws", new()
     ///     {
     ///         DisplayName = "AWS Private Link Access",
     ///         Aws = new ConfluentCloud.Inputs.PrivateLinkAccessAwsArgs
@@ -84,12 +84,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var azure_private_link = new ConfluentCloud.Network("azure-private-link", new()
+    ///     var azure_private_link = new ConfluentCloud.Index.Network("azure-private-link", new()
     ///     {
     ///         DisplayName = "Azure Private Link Network",
     ///         Cloud = "AZURE",
@@ -104,7 +104,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var azure = new ConfluentCloud.PrivateLinkAccess("azure", new()
+    ///     var azure = new ConfluentCloud.Index.PrivateLinkAccess("azure", new()
     ///     {
     ///         DisplayName = "Azure Private Link Access",
     ///         Azure = new ConfluentCloud.Inputs.PrivateLinkAccessAzureArgs
@@ -134,12 +134,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var gcp_private_service_connect = new ConfluentCloud.Network("gcp-private-service-connect", new()
+    ///     var gcp_private_service_connect = new ConfluentCloud.Index.Network("gcp-private-service-connect", new()
     ///     {
     ///         DisplayName = "GCP Private Service Connect Network",
     ///         Cloud = "GCP",
@@ -160,7 +160,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var gcp = new ConfluentCloud.PrivateLinkAccess("gcp", new()
+    ///     var gcp = new ConfluentCloud.Index.PrivateLinkAccess("gcp", new()
     ///     {
     ///         DisplayName = "GCP Private Service Connect",
     ///         Gcp = new ConfluentCloud.Inputs.PrivateLinkAccessGcpArgs

@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetSchemaRegistryClusters.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetSchemaRegistryClusters.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClustersEnvironmentInputArgs
         ///         {
@@ -55,7 +55,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetSchemaRegistryClusters.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetSchemaRegistryClusters.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClustersEnvironmentInputArgs
         ///         {
@@ -84,7 +84,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetSchemaRegistryClusters.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetSchemaRegistryClusters.Invoke(new()
         ///     {
         ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClustersEnvironmentInputArgs
         ///         {

@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsKey = new ConfluentCloud.SchemaRegistryKek("aws_key", new()
+    ///     var awsKey = new ConfluentCloud.Index.SchemaRegistryKek("aws_key", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.SchemaRegistryKekSchemaRegistryClusterArgs
     ///         {
@@ -59,7 +59,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pii = new ConfluentCloud.SchemaRegistryKek("pii", new()
+    ///     var pii = new ConfluentCloud.Index.SchemaRegistryKek("pii", new()
     ///     {
     ///         Name = "my_key",
     ///         KmsType = "aws-kms",

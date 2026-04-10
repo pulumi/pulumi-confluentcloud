@@ -28,12 +28,12 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     var development = new ConfluentCloud.Index.Environment("development", new()
     ///     {
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var aws_private_link = new ConfluentCloud.Network("aws-private-link", new()
+    ///     var aws_private_link = new ConfluentCloud.Index.Network("aws-private-link", new()
     ///     {
     ///         DisplayName = "AWS Private Link Network",
     ///         Cloud = "AWS",
@@ -54,7 +54,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var awsNls = new ConfluentCloud.NetworkLinkService("aws_nls", new()
+    ///     var awsNls = new ConfluentCloud.Index.NetworkLinkService("aws_nls", new()
     ///     {
     ///         DisplayName = "AWS Private Link network link service",
     ///         Environment = new ConfluentCloud.Inputs.NetworkLinkServiceEnvironmentArgs

@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluentcloud.LookupFlinkComputePoolConfig(ctx, &confluentcloud.LookupFlinkComputePoolConfigArgs{
+//			example, err := confluentcloud.GetFlinkComputePoolConfig(ctx, &confluentcloud.LookupFlinkComputePoolConfigArgs{
 //				Id: "org-123",
 //			}, nil)
 //			if err != nil {

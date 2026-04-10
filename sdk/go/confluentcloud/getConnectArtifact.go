@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluentcloud.LookupConnectArtifact(ctx, &confluentcloud.LookupConnectArtifactArgs{
+//			example, err := confluentcloud.GetConnectArtifact(ctx, &confluentcloud.LookupConnectArtifactArgs{
 //				Id: "ca-123456",
 //				Environment: confluentcloud.GetConnectArtifactEnvironment{
 //					Id: "env-123456",

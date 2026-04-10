@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetDnsRecord.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetDnsRecord.Invoke(new()
         ///     {
         ///         Id = "dnsrec-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetDnsRecordEnvironmentInputArgs
@@ -60,7 +60,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetDnsRecord.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetDnsRecord.Invoke(new()
         ///     {
         ///         Id = "dnsrec-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetDnsRecordEnvironmentInputArgs
@@ -94,7 +94,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetDnsRecord.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetDnsRecord.Invoke(new()
         ///     {
         ///         Id = "dnsrec-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetDnsRecordEnvironmentInputArgs

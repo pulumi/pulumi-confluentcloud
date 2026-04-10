@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var source = new ConfluentCloud.CustomConnectorPluginVersion("source", new()
+    ///     var source = new ConfluentCloud.Index.CustomConnectorPluginVersion("source", new()
     ///     {
     ///         Version = "v1.2.4",
     ///         Cloud = "AWS",

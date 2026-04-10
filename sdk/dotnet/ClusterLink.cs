@@ -27,7 +27,7 @@ namespace Pulumi.ConfluentCloud
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode
-    ///     var east_to_west = new ConfluentCloud.ClusterLink("east-to-west", new()
+    ///     var east_to_west = new ConfluentCloud.Index.ClusterLink("east-to-west", new()
     ///     {
     ///         Link = "bidirectional-link",
     ///         LinkMode = "BIDIRECTIONAL",
@@ -53,7 +53,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var west_to_east = new ConfluentCloud.ClusterLink("west-to-east", new()
+    ///     var west_to_east = new ConfluentCloud.Index.ClusterLink("west-to-east", new()
     ///     {
     ///         Link = "bidirectional-link",
     ///         LinkMode = "BIDIRECTIONAL",

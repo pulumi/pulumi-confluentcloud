@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetTransitGatewayAttachment.Invoke(new()
         ///     {
         ///         Id = "tgwa-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetTransitGatewayAttachmentEnvironmentInputArgs
@@ -35,7 +35,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetTransitGatewayAttachment.Invoke(new()
         ///     {
         ///         DisplayName = "my_tgwa",
         ///         Environment = new ConfluentCloud.Inputs.GetTransitGatewayAttachmentEnvironmentInputArgs
@@ -70,7 +70,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetTransitGatewayAttachment.Invoke(new()
         ///     {
         ///         Id = "tgwa-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetTransitGatewayAttachmentEnvironmentInputArgs
@@ -79,7 +79,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetTransitGatewayAttachment.Invoke(new()
         ///     {
         ///         DisplayName = "my_tgwa",
         ///         Environment = new ConfluentCloud.Inputs.GetTransitGatewayAttachmentEnvironmentInputArgs
@@ -114,7 +114,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetTransitGatewayAttachment.Invoke(new()
         ///     {
         ///         Id = "tgwa-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetTransitGatewayAttachmentEnvironmentInputArgs
@@ -123,7 +123,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetTransitGatewayAttachment.Invoke(new()
         ///     {
         ///         DisplayName = "my_tgwa",
         ///         Environment = new ConfluentCloud.Inputs.GetTransitGatewayAttachmentEnvironmentInputArgs

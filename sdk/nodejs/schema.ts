@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *     restEndpoint: essentials.restEndpoint,
  *     subjectName: "avro-purchase-value",
  *     format: "AVRO",
- *     schema: std.index.file({
+ *     schema: std.file({
  *         input: "./schemas/avro/purchase.avsc",
  *     }).result,
  *     credentials: {
@@ -51,7 +51,7 @@ import * as utilities from "./utilities";
  * const avro_purchase = new confluentcloud.Schema("avro-purchase", {
  *     subjectName: "avro-purchase-value",
  *     format: "AVRO",
- *     schema: std.index.file({
+ *     schema: std.file({
  *         input: "./schemas/avro/purchase.avsc",
  *     }).result,
  * });
@@ -80,7 +80,7 @@ import * as utilities from "./utilities";
  * const avro_purchase = new confluentcloud.Schema("avro-purchase", {
  *     subjectName: "avro-purchase-value",
  *     format: "AVRO",
- *     schema: std.index.file({
+ *     schema: std.file({
  *         input: "./schemas/avro/purchase.avsc",
  *     }).result,
  *     metadata: {

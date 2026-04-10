@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pii = new ConfluentCloud.BusinessMetadata("pii", new()
+    ///     var pii = new ConfluentCloud.Index.BusinessMetadata("pii", new()
     ///     {
     ///         SchemaRegistryCluster = new ConfluentCloud.Inputs.BusinessMetadataSchemaRegistryClusterArgs
     ///         {
@@ -66,7 +66,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pii = new ConfluentCloud.BusinessMetadata("pii", new()
+    ///     var pii = new ConfluentCloud.Index.BusinessMetadata("pii", new()
     ///     {
     ///         Name = "PII",
     ///         Description = "PII metadata",

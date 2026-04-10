@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := confluentcloud.LookupIpGroup(ctx, &confluentcloud.LookupIpGroupArgs{
+//			example, err := confluentcloud.GetIpGroup(ctx, &confluentcloud.LookupIpGroupArgs{
 //				Id: "ipg-abc123",
 //			}, nil)
 //			if err != nil {

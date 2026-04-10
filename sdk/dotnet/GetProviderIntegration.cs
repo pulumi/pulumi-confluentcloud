@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetProviderIntegration.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetProviderIntegration.Invoke(new()
         ///     {
         ///         Id = "cspi-4xg0q",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationEnvironmentInputArgs
@@ -35,7 +35,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetProviderIntegration.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetProviderIntegration.Invoke(new()
         ///     {
         ///         DisplayName = "provider_integration_main",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationEnvironmentInputArgs
@@ -76,7 +76,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetProviderIntegration.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetProviderIntegration.Invoke(new()
         ///     {
         ///         Id = "cspi-4xg0q",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationEnvironmentInputArgs
@@ -85,7 +85,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetProviderIntegration.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetProviderIntegration.Invoke(new()
         ///     {
         ///         DisplayName = "provider_integration_main",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationEnvironmentInputArgs
@@ -126,7 +126,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingId = ConfluentCloud.GetProviderIntegration.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.Index.GetProviderIntegration.Invoke(new()
         ///     {
         ///         Id = "cspi-4xg0q",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationEnvironmentInputArgs
@@ -135,7 +135,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingName = ConfluentCloud.GetProviderIntegration.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.Index.GetProviderIntegration.Invoke(new()
         ///     {
         ///         DisplayName = "provider_integration_main",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationEnvironmentInputArgs

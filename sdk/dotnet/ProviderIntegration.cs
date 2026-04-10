@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var staging = new ConfluentCloud.Environment("staging", new()
+    ///     var staging = new ConfluentCloud.Index.Environment("staging", new()
     ///     {
     ///         DisplayName = "Staging",
     ///         StreamGovernance = new ConfluentCloud.Inputs.EnvironmentStreamGovernanceArgs
@@ -35,7 +35,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
-    ///     var main = new ConfluentCloud.ProviderIntegration("main", new()
+    ///     var main = new ConfluentCloud.Index.ProviderIntegration("main", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationEnvironmentArgs
     ///         {

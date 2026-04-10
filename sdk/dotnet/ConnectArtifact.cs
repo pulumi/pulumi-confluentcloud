@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.ConnectArtifact("example", new()
+    ///     var example = new ConfluentCloud.Index.ConnectArtifact("example", new()
     ///     {
     ///         DisplayName = "example-connect-artifact",
     ///         Cloud = "AWS",

@@ -33,7 +33,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var azure = new ConfluentCloud.ProviderIntegrationSetup("azure", new()
+    ///     var azure = new ConfluentCloud.Index.ProviderIntegrationSetup("azure", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationSetupEnvironmentArgs
     ///         {
@@ -43,7 +43,7 @@ namespace Pulumi.ConfluentCloud
     ///         Cloud = "AZURE",
     ///     });
     /// 
-    ///     var azureProviderIntegrationAuthorization = new ConfluentCloud.ProviderIntegrationAuthorization("azure", new()
+    ///     var azureProviderIntegrationAuthorization = new ConfluentCloud.Index.ProviderIntegrationAuthorization("azure", new()
     ///     {
     ///         ProviderIntegrationId = azure.Id,
     ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationAuthorizationEnvironmentArgs
@@ -80,7 +80,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var azure = new ConfluentCloud.ProviderIntegrationSetup("azure", new()
+    ///     var azure = new ConfluentCloud.Index.ProviderIntegrationSetup("azure", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationSetupEnvironmentArgs
     ///         {
@@ -90,7 +90,7 @@ namespace Pulumi.ConfluentCloud
     ///         Cloud = "AZURE",
     ///     });
     /// 
-    ///     var azureProviderIntegrationAuthorization = new ConfluentCloud.ProviderIntegrationAuthorization("azure", new()
+    ///     var azureProviderIntegrationAuthorization = new ConfluentCloud.Index.ProviderIntegrationAuthorization("azure", new()
     ///     {
     ///         ProviderIntegrationId = azure.Id,
     ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationAuthorizationEnvironmentArgs
@@ -125,7 +125,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var gcp = new ConfluentCloud.ProviderIntegrationSetup("gcp", new()
+    ///     var gcp = new ConfluentCloud.Index.ProviderIntegrationSetup("gcp", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationSetupEnvironmentArgs
     ///         {
@@ -135,7 +135,7 @@ namespace Pulumi.ConfluentCloud
     ///         Cloud = "GCP",
     ///     });
     /// 
-    ///     var gcpProviderIntegrationAuthorization = new ConfluentCloud.ProviderIntegrationAuthorization("gcp", new()
+    ///     var gcpProviderIntegrationAuthorization = new ConfluentCloud.Index.ProviderIntegrationAuthorization("gcp", new()
     ///     {
     ///         ProviderIntegrationId = gcp.Id,
     ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationAuthorizationEnvironmentArgs
@@ -182,7 +182,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var gcp = new ConfluentCloud.ProviderIntegrationSetup("gcp", new()
+    ///     var gcp = new ConfluentCloud.Index.ProviderIntegrationSetup("gcp", new()
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationSetupEnvironmentArgs
     ///         {
@@ -192,7 +192,7 @@ namespace Pulumi.ConfluentCloud
     ///         Cloud = "GCP",
     ///     });
     /// 
-    ///     var gcpProviderIntegrationAuthorization = new ConfluentCloud.ProviderIntegrationAuthorization("gcp", new()
+    ///     var gcpProviderIntegrationAuthorization = new ConfluentCloud.Index.ProviderIntegrationAuthorization("gcp", new()
     ///     {
     ///         ProviderIntegrationId = gcp.Id,
     ///         Environment = new ConfluentCloud.Inputs.ProviderIntegrationAuthorizationEnvironmentArgs

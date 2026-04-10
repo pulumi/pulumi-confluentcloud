@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetPrivateLinkAttachmentConnection.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetPrivateLinkAttachmentConnection.Invoke(new()
         ///     {
         ///         Id = "plattc-p5j3ov",
         ///         Environment = new ConfluentCloud.Inputs.GetPrivateLinkAttachmentConnectionEnvironmentInputArgs
@@ -67,7 +67,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetPrivateLinkAttachmentConnection.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetPrivateLinkAttachmentConnection.Invoke(new()
         ///     {
         ///         Id = "plattc-p5j3ov",
         ///         Environment = new ConfluentCloud.Inputs.GetPrivateLinkAttachmentConnectionEnvironmentInputArgs
@@ -108,7 +108,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.GetPrivateLinkAttachmentConnection.Invoke(new()
+        ///     var main = ConfluentCloud.Index.GetPrivateLinkAttachmentConnection.Invoke(new()
         ///     {
         ///         Id = "plattc-p5j3ov",
         ///         Environment = new ConfluentCloud.Inputs.GetPrivateLinkAttachmentConnectionEnvironmentInputArgs

@@ -26,14 +26,14 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var application_developers = new ConfluentCloud.GroupMapping("application-developers", new()
+    ///     var application_developers = new ConfluentCloud.Index.GroupMapping("application-developers", new()
     ///     {
     ///         DisplayName = "Application Developers",
     ///         Description = "Admin access to production environment for Engineering",
     ///         Filter = "\"engineering\" in groups",
     ///     });
     /// 
-    ///     var envadmin = new ConfluentCloud.RoleBinding("envadmin", new()
+    ///     var envadmin = new ConfluentCloud.Index.RoleBinding("envadmin", new()
     ///     {
     ///         Principal = application_developers.Id.Apply(id =&gt; $"User:{id}"),
     ///         RoleName = "EnvironmentAdmin",

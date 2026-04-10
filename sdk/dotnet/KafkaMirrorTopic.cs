@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new ConfluentCloud.KafkaMirrorTopic("example", new()
+    ///     var example = new ConfluentCloud.Index.KafkaMirrorTopic("example", new()
     ///     {
     ///         SourceKafkaTopic = new ConfluentCloud.Inputs.KafkaMirrorTopicSourceKafkaTopicArgs
     ///         {

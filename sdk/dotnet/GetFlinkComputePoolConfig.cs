@@ -26,7 +26,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetFlinkComputePoolConfig.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetFlinkComputePoolConfig.Invoke(new()
         ///     {
         ///         Id = "org-123",
         ///     });
@@ -56,7 +56,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetFlinkComputePoolConfig.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetFlinkComputePoolConfig.Invoke(new()
         ///     {
         ///         Id = "org-123",
         ///     });
@@ -86,7 +86,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = ConfluentCloud.GetFlinkComputePoolConfig.Invoke(new()
+        ///     var example = ConfluentCloud.Index.GetFlinkComputePoolConfig.Invoke(new()
         ///     {
         ///         Id = "org-123",
         ///     });
