@@ -96,6 +96,11 @@ namespace Pulumi.ConfluentCloud
     ///         {
     ///             NetworkInterfaces = mainAwsNetworkInterface.Select(__item =&gt; __item.Id).ToList(),
     ///             Account = awsAccountId,
+    ///             Routes = new[]
+    ///             {
+    ///                 "172.31.0.0/16",
+    ///                 "10.108.16.0/21",
+    ///             },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

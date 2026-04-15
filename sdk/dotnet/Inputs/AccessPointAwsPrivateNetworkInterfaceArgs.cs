@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class AccessPointAwsPrivateNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+        /// The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
         /// </summary>
         [Input("account", required: true)]
         public Input<string> Account { get; set; } = null!;
@@ -22,12 +22,24 @@ namespace Pulumi.ConfluentCloud.Inputs
         private InputList<string>? _networkInterfaces;
 
         /// <summary>
-        /// (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+        /// List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
         /// </summary>
         public InputList<string> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<string>());
             set => _networkInterfaces = value;
+        }
+
+        [Input("routes")]
+        private InputList<string>? _routes;
+
+        /// <summary>
+        /// List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
+        /// </summary>
+        public InputList<string> Routes
+        {
+            get => _routes ?? (_routes = new InputList<string>());
+            set => _routes = value;
         }
 
         public AccessPointAwsPrivateNetworkInterfaceArgs()

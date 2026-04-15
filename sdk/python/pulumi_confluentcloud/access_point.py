@@ -354,6 +354,10 @@ class AccessPoint(pulumi.CustomResource):
             aws_private_network_interface={
                 "network_interfaces": [__item["id"] for __item in main_aws_network_interface],
                 "account": aws_account_id,
+                "routes": [
+                    "172.31.0.0/16",
+                    "10.108.16.0/21",
+                ],
             },
             opts = pulumi.ResourceOptions(depends_on=[main_aws_network_interface_permission]))
         aws_ingress = confluentcloud.AccessPoint("aws_ingress",
@@ -463,6 +467,10 @@ class AccessPoint(pulumi.CustomResource):
             aws_private_network_interface={
                 "network_interfaces": [__item["id"] for __item in main_aws_network_interface],
                 "account": aws_account_id,
+                "routes": [
+                    "172.31.0.0/16",
+                    "10.108.16.0/21",
+                ],
             },
             opts = pulumi.ResourceOptions(depends_on=[main_aws_network_interface_permission]))
         aws_ingress = confluentcloud.AccessPoint("aws_ingress",

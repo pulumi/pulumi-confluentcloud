@@ -383,10 +383,12 @@ func (o AccessPointAwsIngressPrivateLinkEndpointPtrOutput) VpcEndpointServiceNam
 }
 
 type AccessPointAwsPrivateNetworkInterface struct {
-	// (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+	// The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
 	Account string `pulumi:"account"`
-	// (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+	// List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
 	NetworkInterfaces []string `pulumi:"networkInterfaces"`
+	// List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
+	Routes []string `pulumi:"routes"`
 }
 
 // AccessPointAwsPrivateNetworkInterfaceInput is an input type that accepts AccessPointAwsPrivateNetworkInterfaceArgs and AccessPointAwsPrivateNetworkInterfaceOutput values.
@@ -401,10 +403,12 @@ type AccessPointAwsPrivateNetworkInterfaceInput interface {
 }
 
 type AccessPointAwsPrivateNetworkInterfaceArgs struct {
-	// (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+	// The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
 	Account pulumi.StringInput `pulumi:"account"`
-	// (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+	// List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
 	NetworkInterfaces pulumi.StringArrayInput `pulumi:"networkInterfaces"`
+	// List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
+	Routes pulumi.StringArrayInput `pulumi:"routes"`
 }
 
 func (AccessPointAwsPrivateNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -484,14 +488,19 @@ func (o AccessPointAwsPrivateNetworkInterfaceOutput) ToAccessPointAwsPrivateNetw
 	}).(AccessPointAwsPrivateNetworkInterfacePtrOutput)
 }
 
-// (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+// The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
 func (o AccessPointAwsPrivateNetworkInterfaceOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointAwsPrivateNetworkInterface) string { return v.Account }).(pulumi.StringOutput)
 }
 
-// (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+// List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
 func (o AccessPointAwsPrivateNetworkInterfaceOutput) NetworkInterfaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccessPointAwsPrivateNetworkInterface) []string { return v.NetworkInterfaces }).(pulumi.StringArrayOutput)
+}
+
+// List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
+func (o AccessPointAwsPrivateNetworkInterfaceOutput) Routes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessPointAwsPrivateNetworkInterface) []string { return v.Routes }).(pulumi.StringArrayOutput)
 }
 
 type AccessPointAwsPrivateNetworkInterfacePtrOutput struct{ *pulumi.OutputState }
@@ -518,7 +527,7 @@ func (o AccessPointAwsPrivateNetworkInterfacePtrOutput) Elem() AccessPointAwsPri
 	}).(AccessPointAwsPrivateNetworkInterfaceOutput)
 }
 
-// (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+// The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
 func (o AccessPointAwsPrivateNetworkInterfacePtrOutput) Account() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointAwsPrivateNetworkInterface) *string {
 		if v == nil {
@@ -528,13 +537,23 @@ func (o AccessPointAwsPrivateNetworkInterfacePtrOutput) Account() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+// List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
 func (o AccessPointAwsPrivateNetworkInterfacePtrOutput) NetworkInterfaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccessPointAwsPrivateNetworkInterface) []string {
 		if v == nil {
 			return nil
 		}
 		return v.NetworkInterfaces
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
+func (o AccessPointAwsPrivateNetworkInterfacePtrOutput) Routes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccessPointAwsPrivateNetworkInterface) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Routes
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -25885,6 +25904,8 @@ type GetAccessPointAwsPrivateNetworkInterface struct {
 	Account string `pulumi:"account"`
 	// (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
 	NetworkInterfaces []string `pulumi:"networkInterfaces"`
+	// (Optional List of Strings) List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
+	Routes []string `pulumi:"routes"`
 }
 
 // GetAccessPointAwsPrivateNetworkInterfaceInput is an input type that accepts GetAccessPointAwsPrivateNetworkInterfaceArgs and GetAccessPointAwsPrivateNetworkInterfaceOutput values.
@@ -25903,6 +25924,8 @@ type GetAccessPointAwsPrivateNetworkInterfaceArgs struct {
 	Account pulumi.StringInput `pulumi:"account"`
 	// (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
 	NetworkInterfaces pulumi.StringArrayInput `pulumi:"networkInterfaces"`
+	// (Optional List of Strings) List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
+	Routes pulumi.StringArrayInput `pulumi:"routes"`
 }
 
 func (GetAccessPointAwsPrivateNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -25964,6 +25987,11 @@ func (o GetAccessPointAwsPrivateNetworkInterfaceOutput) Account() pulumi.StringO
 // (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
 func (o GetAccessPointAwsPrivateNetworkInterfaceOutput) NetworkInterfaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAccessPointAwsPrivateNetworkInterface) []string { return v.NetworkInterfaces }).(pulumi.StringArrayOutput)
+}
+
+// (Optional List of Strings) List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
+func (o GetAccessPointAwsPrivateNetworkInterfaceOutput) Routes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAccessPointAwsPrivateNetworkInterface) []string { return v.Routes }).(pulumi.StringArrayOutput)
 }
 
 type GetAccessPointAwsPrivateNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }

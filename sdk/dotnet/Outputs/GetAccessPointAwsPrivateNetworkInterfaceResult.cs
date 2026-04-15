@@ -21,15 +21,22 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
         /// </summary>
         public readonly ImmutableArray<string> NetworkInterfaces;
+        /// <summary>
+        /// (Optional List of Strings) List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
+        /// </summary>
+        public readonly ImmutableArray<string> Routes;
 
         [OutputConstructor]
         private GetAccessPointAwsPrivateNetworkInterfaceResult(
             string account,
 
-            ImmutableArray<string> networkInterfaces)
+            ImmutableArray<string> networkInterfaces,
+
+            ImmutableArray<string> routes)
         {
             Account = account;
             NetworkInterfaces = networkInterfaces;
+            Routes = routes;
         }
     }
 }

@@ -21,6 +21,11 @@ public final class GetAccessPointAwsPrivateNetworkInterface {
      * 
      */
     private List<String> networkInterfaces;
+    /**
+     * @return (Optional List of Strings) List of egress CIDR routes for the Confluent Private Network Interface, for example: `[&#34;172.31.0.0/16&#34;, &#34;10.108.16.0/21&#34;]`.
+     * 
+     */
+    private List<String> routes;
 
     private GetAccessPointAwsPrivateNetworkInterface() {}
     /**
@@ -37,6 +42,13 @@ public final class GetAccessPointAwsPrivateNetworkInterface {
     public List<String> networkInterfaces() {
         return this.networkInterfaces;
     }
+    /**
+     * @return (Optional List of Strings) List of egress CIDR routes for the Confluent Private Network Interface, for example: `[&#34;172.31.0.0/16&#34;, &#34;10.108.16.0/21&#34;]`.
+     * 
+     */
+    public List<String> routes() {
+        return this.routes;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +61,13 @@ public final class GetAccessPointAwsPrivateNetworkInterface {
     public static final class Builder {
         private String account;
         private List<String> networkInterfaces;
+        private List<String> routes;
         public Builder() {}
         public Builder(GetAccessPointAwsPrivateNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.account = defaults.account;
     	      this.networkInterfaces = defaults.networkInterfaces;
+    	      this.routes = defaults.routes;
         }
 
         @CustomType.Setter
@@ -75,10 +89,22 @@ public final class GetAccessPointAwsPrivateNetworkInterface {
         public Builder networkInterfaces(String... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
+        @CustomType.Setter
+        public Builder routes(List<String> routes) {
+            if (routes == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointAwsPrivateNetworkInterface", "routes");
+            }
+            this.routes = routes;
+            return this;
+        }
+        public Builder routes(String... routes) {
+            return routes(List.of(routes));
+        }
         public GetAccessPointAwsPrivateNetworkInterface build() {
             final var _resultValue = new GetAccessPointAwsPrivateNetworkInterface();
             _resultValue.account = account;
             _resultValue.networkInterfaces = networkInterfaces;
+            _resultValue.routes = routes;
             return _resultValue;
         }
     }

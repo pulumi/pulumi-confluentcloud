@@ -8,34 +8,47 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AccessPointAwsPrivateNetworkInterface {
     /**
-     * @return (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+     * @return The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
      * 
      */
     private String account;
     /**
-     * @return (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `[&#34;eni-00000000000000000&#34;, &#34;eni-00000000000000001&#34;, &#34;eni-00000000000000002&#34;, &#34;eni-00000000000000003&#34;, &#34;eni-00000000000000004&#34;, &#34;eni-00000000000000005&#34;]`
+     * @return List of the IDs of the Elastic Network Interfaces, for example: `[&#34;eni-00000000000000000&#34;, &#34;eni-00000000000000001&#34;, &#34;eni-00000000000000002&#34;, &#34;eni-00000000000000003&#34;, &#34;eni-00000000000000004&#34;, &#34;eni-00000000000000005&#34;]`
      * 
      */
     private List<String> networkInterfaces;
+    /**
+     * @return List of egress CIDR routes for the Confluent Private Network Interface, for example: `[&#34;172.31.0.0/16&#34;, &#34;10.108.16.0/21&#34;]`.
+     * 
+     */
+    private @Nullable List<String> routes;
 
     private AccessPointAwsPrivateNetworkInterface() {}
     /**
-     * @return (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+     * @return The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
      * 
      */
     public String account() {
         return this.account;
     }
     /**
-     * @return (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `[&#34;eni-00000000000000000&#34;, &#34;eni-00000000000000001&#34;, &#34;eni-00000000000000002&#34;, &#34;eni-00000000000000003&#34;, &#34;eni-00000000000000004&#34;, &#34;eni-00000000000000005&#34;]`
+     * @return List of the IDs of the Elastic Network Interfaces, for example: `[&#34;eni-00000000000000000&#34;, &#34;eni-00000000000000001&#34;, &#34;eni-00000000000000002&#34;, &#34;eni-00000000000000003&#34;, &#34;eni-00000000000000004&#34;, &#34;eni-00000000000000005&#34;]`
      * 
      */
     public List<String> networkInterfaces() {
         return this.networkInterfaces;
+    }
+    /**
+     * @return List of egress CIDR routes for the Confluent Private Network Interface, for example: `[&#34;172.31.0.0/16&#34;, &#34;10.108.16.0/21&#34;]`.
+     * 
+     */
+    public List<String> routes() {
+        return this.routes == null ? List.of() : this.routes;
     }
 
     public static Builder builder() {
@@ -49,11 +62,13 @@ public final class AccessPointAwsPrivateNetworkInterface {
     public static final class Builder {
         private String account;
         private List<String> networkInterfaces;
+        private @Nullable List<String> routes;
         public Builder() {}
         public Builder(AccessPointAwsPrivateNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.account = defaults.account;
     	      this.networkInterfaces = defaults.networkInterfaces;
+    	      this.routes = defaults.routes;
         }
 
         @CustomType.Setter
@@ -75,10 +90,20 @@ public final class AccessPointAwsPrivateNetworkInterface {
         public Builder networkInterfaces(String... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
+        @CustomType.Setter
+        public Builder routes(@Nullable List<String> routes) {
+
+            this.routes = routes;
+            return this;
+        }
+        public Builder routes(String... routes) {
+            return routes(List.of(routes));
+        }
         public AccessPointAwsPrivateNetworkInterface build() {
             final var _resultValue = new AccessPointAwsPrivateNetworkInterface();
             _resultValue.account = account;
             _resultValue.networkInterfaces = networkInterfaces;
+            _resultValue.routes = routes;
             return _resultValue;
         }
     }
