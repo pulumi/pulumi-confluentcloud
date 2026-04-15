@@ -16,6 +16,9 @@
                             "fields": {
                                 "network_interfaces": {
                                     "maxItemsOne": false
+                                },
+                                "routes": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
@@ -1020,6 +1023,9 @@
                         "elem": {
                             "fields": {
                                 "network_interfaces": {
+                                    "maxItemsOne": false
+                                },
+                                "routes": {
                                     "maxItemsOne": false
                                 }
                             }
