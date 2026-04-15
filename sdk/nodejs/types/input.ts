@@ -41,13 +41,17 @@ export interface AccessPointAwsIngressPrivateLinkEndpoint {
 
 export interface AccessPointAwsPrivateNetworkInterface {
     /**
-     * (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+     * The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
      */
     account: pulumi.Input<string>;
     /**
-     * (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+     * List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
      */
     networkInterfaces: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
+     */
+    routes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface AccessPointAzureEgressPrivateLinkEndpoint {

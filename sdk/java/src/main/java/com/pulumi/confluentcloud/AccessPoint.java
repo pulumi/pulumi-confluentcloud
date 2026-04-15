@@ -115,6 +115,9 @@ import javax.annotation.Nullable;
  *             .awsPrivateNetworkInterface(AccessPointAwsPrivateNetworkInterfaceArgs.builder()
  *                 .networkInterfaces(mainAwsNetworkInterface.stream().map(element -> element.id()).collect(toList()))
  *                 .account(awsAccountId)
+ *                 .routes(                
+ *                     "172.31.0.0/16",
+ *                     "10.108.16.0/21")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(mainAwsNetworkInterfacePermission)

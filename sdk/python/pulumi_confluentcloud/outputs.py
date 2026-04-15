@@ -529,19 +529,23 @@ class AccessPointAwsPrivateNetworkInterface(dict):
 
     def __init__(__self__, *,
                  account: _builtins.str,
-                 network_interfaces: Sequence[_builtins.str]):
+                 network_interfaces: Sequence[_builtins.str],
+                 routes: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str account: (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
-        :param Sequence[_builtins.str] network_interfaces: (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+        :param _builtins.str account: The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+        :param Sequence[_builtins.str] network_interfaces: List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+        :param Sequence[_builtins.str] routes: List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
         """
         pulumi.set(__self__, "account", account)
         pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
 
     @_builtins.property
     @pulumi.getter
     def account(self) -> _builtins.str:
         """
-        (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
+        The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
         """
         return pulumi.get(self, "account")
 
@@ -549,9 +553,17 @@ class AccessPointAwsPrivateNetworkInterface(dict):
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Sequence[_builtins.str]:
         """
-        (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+        List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
         """
         return pulumi.get(self, "network_interfaces")
+
+    @_builtins.property
+    @pulumi.getter
+    def routes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
+        """
+        return pulumi.get(self, "routes")
 
 
 @pulumi.output_type
@@ -6410,13 +6422,16 @@ class GetAccessPointAwsIngressPrivateLinkEndpointResult(dict):
 class GetAccessPointAwsPrivateNetworkInterfaceResult(dict):
     def __init__(__self__, *,
                  account: _builtins.str,
-                 network_interfaces: Sequence[_builtins.str]):
+                 network_interfaces: Sequence[_builtins.str],
+                 routes: Sequence[_builtins.str]):
         """
         :param _builtins.str account: (Required String) The AWS account ID associated with the ENIs you are using for the Confluent Private Network Interface, for example: `000000000000`.
         :param Sequence[_builtins.str] network_interfaces: (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
+        :param Sequence[_builtins.str] routes: (Optional List of Strings) List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
         """
         pulumi.set(__self__, "account", account)
         pulumi.set(__self__, "network_interfaces", network_interfaces)
+        pulumi.set(__self__, "routes", routes)
 
     @_builtins.property
     @pulumi.getter
@@ -6433,6 +6448,14 @@ class GetAccessPointAwsPrivateNetworkInterfaceResult(dict):
         (Required List of Strings) List of the IDs of the Elastic Network Interfaces, for example: `["eni-00000000000000000", "eni-00000000000000001", "eni-00000000000000002", "eni-00000000000000003", "eni-00000000000000004", "eni-00000000000000005"]`
         """
         return pulumi.get(self, "network_interfaces")
+
+    @_builtins.property
+    @pulumi.getter
+    def routes(self) -> Sequence[_builtins.str]:
+        """
+        (Optional List of Strings) List of egress CIDR routes for the Confluent Private Network Interface, for example: `["172.31.0.0/16", "10.108.16.0/21"]`.
+        """
+        return pulumi.get(self, "routes")
 
 
 @pulumi.output_type

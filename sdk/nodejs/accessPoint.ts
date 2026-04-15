@@ -66,6 +66,10 @@ import * as utilities from "./utilities";
  *     awsPrivateNetworkInterface: {
  *         networkInterfaces: mainAwsNetworkInterface.map(__item => __item.id),
  *         account: awsAccountId,
+ *         routes: [
+ *             "172.31.0.0/16",
+ *             "10.108.16.0/21",
+ *         ],
  *     },
  * }, {
  *     dependsOn: [mainAwsNetworkInterfacePermission],
