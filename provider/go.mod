@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-confluentcloud/provider/v2
 
-go 1.25.8
+go 1.25.9
 
 replace (
 	github.com/confluentinc/terraform-provider-confluent => ../upstream
@@ -69,7 +69,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/cmk v0.25.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/connect v0.7.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/connect-custom-plugin v0.0.2 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/data-catalog v0.2.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/data-catalog v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/endpoint v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/flink v0.11.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/flink-artifact v0.4.0 // indirect
