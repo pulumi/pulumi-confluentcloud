@@ -344,6 +344,68 @@
                     }
                 }
             },
+            "confluent_flink_materialized_table": {
+                "current": "confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable",
+                "fields": {
+                    "columns": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "columns_computed": {
+                                    "maxItemsOne": false
+                                },
+                                "columns_metadata": {
+                                    "maxItemsOne": false
+                                },
+                                "columns_physical": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "compute_pool": {
+                        "maxItemsOne": true
+                    },
+                    "constraints": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "columns": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "distribution": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "keys": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "kafka_cluster": {
+                        "maxItemsOne": true
+                    },
+                    "organization": {
+                        "maxItemsOne": true
+                    },
+                    "principal": {
+                        "maxItemsOne": true
+                    },
+                    "watermark": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_flink_statement": {
                 "current": "confluentcloud:index/flinkStatement:FlinkStatement",
                 "fields": {
@@ -810,6 +872,16 @@
                                         }
                                     }
                                 },
+                                "encoding_rules": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "tags": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
                                 "migration_rules": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -1265,6 +1337,68 @@
                     },
                     "principal": {
                         "maxItemsOne": true
+                    }
+                }
+            },
+            "confluent_flink_materialized_table": {
+                "current": "confluentcloud:index/getFlinkMaterializedTable:getFlinkMaterializedTable",
+                "fields": {
+                    "columns": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "columns_computed": {
+                                    "maxItemsOne": false
+                                },
+                                "columns_metadata": {
+                                    "maxItemsOne": false
+                                },
+                                "columns_physical": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "compute_pool": {
+                        "maxItemsOne": true
+                    },
+                    "constraints": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "columns": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "distribution": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "keys": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "kafka_cluster": {
+                        "maxItemsOne": false
+                    },
+                    "organization": {
+                        "maxItemsOne": true
+                    },
+                    "principal": {
+                        "maxItemsOne": true
+                    },
+                    "watermark": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -1830,6 +1964,16 @@
                         "elem": {
                             "fields": {
                                 "domain_rules": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "tags": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "encoding_rules": {
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
