@@ -63,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FlinkComputePoolConfig{}
 	case "confluentcloud:index/flinkConnection:FlinkConnection":
 		r = &FlinkConnection{}
+	case "confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable":
+		r = &FlinkMaterializedTable{}
 	case "confluentcloud:index/flinkStatement:FlinkStatement":
 		r = &FlinkStatement{}
 	case "confluentcloud:index/gateway:Gateway":
@@ -279,6 +281,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/flinkConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/flinkMaterializedTable",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

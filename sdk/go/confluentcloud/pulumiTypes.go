@@ -8794,6 +8794,1908 @@ func (o FlinkConnectionPrincipalPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlinkMaterializedTableColumn struct {
+	// Computed column definitions. Each block supports:
+	ColumnsComputeds []FlinkMaterializedTableColumnColumnsComputed `pulumi:"columnsComputeds"`
+	// Metadata column definitions. Each block supports:
+	ColumnsMetadatas []FlinkMaterializedTableColumnColumnsMetadata `pulumi:"columnsMetadatas"`
+	// Physical column definitions. Each block supports:
+	ColumnsPhysicals []FlinkMaterializedTableColumnColumnsPhysical `pulumi:"columnsPhysicals"`
+}
+
+// FlinkMaterializedTableColumnInput is an input type that accepts FlinkMaterializedTableColumnArgs and FlinkMaterializedTableColumnOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableColumnInput` via:
+//
+//	FlinkMaterializedTableColumnArgs{...}
+type FlinkMaterializedTableColumnInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableColumnOutput() FlinkMaterializedTableColumnOutput
+	ToFlinkMaterializedTableColumnOutputWithContext(context.Context) FlinkMaterializedTableColumnOutput
+}
+
+type FlinkMaterializedTableColumnArgs struct {
+	// Computed column definitions. Each block supports:
+	ColumnsComputeds FlinkMaterializedTableColumnColumnsComputedArrayInput `pulumi:"columnsComputeds"`
+	// Metadata column definitions. Each block supports:
+	ColumnsMetadatas FlinkMaterializedTableColumnColumnsMetadataArrayInput `pulumi:"columnsMetadatas"`
+	// Physical column definitions. Each block supports:
+	ColumnsPhysicals FlinkMaterializedTableColumnColumnsPhysicalArrayInput `pulumi:"columnsPhysicals"`
+}
+
+func (FlinkMaterializedTableColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableColumn)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableColumnArgs) ToFlinkMaterializedTableColumnOutput() FlinkMaterializedTableColumnOutput {
+	return i.ToFlinkMaterializedTableColumnOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableColumnArgs) ToFlinkMaterializedTableColumnOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableColumnOutput)
+}
+
+// FlinkMaterializedTableColumnArrayInput is an input type that accepts FlinkMaterializedTableColumnArray and FlinkMaterializedTableColumnArrayOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableColumnArrayInput` via:
+//
+//	FlinkMaterializedTableColumnArray{ FlinkMaterializedTableColumnArgs{...} }
+type FlinkMaterializedTableColumnArrayInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableColumnArrayOutput() FlinkMaterializedTableColumnArrayOutput
+	ToFlinkMaterializedTableColumnArrayOutputWithContext(context.Context) FlinkMaterializedTableColumnArrayOutput
+}
+
+type FlinkMaterializedTableColumnArray []FlinkMaterializedTableColumnInput
+
+func (FlinkMaterializedTableColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlinkMaterializedTableColumn)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableColumnArray) ToFlinkMaterializedTableColumnArrayOutput() FlinkMaterializedTableColumnArrayOutput {
+	return i.ToFlinkMaterializedTableColumnArrayOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableColumnArray) ToFlinkMaterializedTableColumnArrayOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableColumnArrayOutput)
+}
+
+type FlinkMaterializedTableColumnOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableColumn)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableColumnOutput) ToFlinkMaterializedTableColumnOutput() FlinkMaterializedTableColumnOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableColumnOutput) ToFlinkMaterializedTableColumnOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnOutput {
+	return o
+}
+
+// Computed column definitions. Each block supports:
+func (o FlinkMaterializedTableColumnOutput) ColumnsComputeds() FlinkMaterializedTableColumnColumnsComputedArrayOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumn) []FlinkMaterializedTableColumnColumnsComputed {
+		return v.ColumnsComputeds
+	}).(FlinkMaterializedTableColumnColumnsComputedArrayOutput)
+}
+
+// Metadata column definitions. Each block supports:
+func (o FlinkMaterializedTableColumnOutput) ColumnsMetadatas() FlinkMaterializedTableColumnColumnsMetadataArrayOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumn) []FlinkMaterializedTableColumnColumnsMetadata {
+		return v.ColumnsMetadatas
+	}).(FlinkMaterializedTableColumnColumnsMetadataArrayOutput)
+}
+
+// Physical column definitions. Each block supports:
+func (o FlinkMaterializedTableColumnOutput) ColumnsPhysicals() FlinkMaterializedTableColumnColumnsPhysicalArrayOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumn) []FlinkMaterializedTableColumnColumnsPhysical {
+		return v.ColumnsPhysicals
+	}).(FlinkMaterializedTableColumnColumnsPhysicalArrayOutput)
+}
+
+type FlinkMaterializedTableColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlinkMaterializedTableColumn)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableColumnArrayOutput) ToFlinkMaterializedTableColumnArrayOutput() FlinkMaterializedTableColumnArrayOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableColumnArrayOutput) ToFlinkMaterializedTableColumnArrayOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnArrayOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableColumnArrayOutput) Index(i pulumi.IntInput) FlinkMaterializedTableColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlinkMaterializedTableColumn {
+		return vs[0].([]FlinkMaterializedTableColumn)[vs[1].(int)]
+	}).(FlinkMaterializedTableColumnOutput)
+}
+
+type FlinkMaterializedTableColumnColumnsComputed struct {
+	// Comment for the computed column.
+	ColumnComputedComment *string `pulumi:"columnComputedComment"`
+	// Expression of the computed column.
+	ColumnComputedExpression *string `pulumi:"columnComputedExpression"`
+	// Kind of the computed column.
+	ColumnComputedKind *string `pulumi:"columnComputedKind"`
+	// Name of the computed column.
+	ColumnComputedName *string `pulumi:"columnComputedName"`
+	// Type of the computed column.
+	ColumnComputedType *string `pulumi:"columnComputedType"`
+	// Whether the computed column is virtual. Defaults to `false`.
+	ColumnComputedVirtual *bool `pulumi:"columnComputedVirtual"`
+}
+
+// FlinkMaterializedTableColumnColumnsComputedInput is an input type that accepts FlinkMaterializedTableColumnColumnsComputedArgs and FlinkMaterializedTableColumnColumnsComputedOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableColumnColumnsComputedInput` via:
+//
+//	FlinkMaterializedTableColumnColumnsComputedArgs{...}
+type FlinkMaterializedTableColumnColumnsComputedInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableColumnColumnsComputedOutput() FlinkMaterializedTableColumnColumnsComputedOutput
+	ToFlinkMaterializedTableColumnColumnsComputedOutputWithContext(context.Context) FlinkMaterializedTableColumnColumnsComputedOutput
+}
+
+type FlinkMaterializedTableColumnColumnsComputedArgs struct {
+	// Comment for the computed column.
+	ColumnComputedComment pulumi.StringPtrInput `pulumi:"columnComputedComment"`
+	// Expression of the computed column.
+	ColumnComputedExpression pulumi.StringPtrInput `pulumi:"columnComputedExpression"`
+	// Kind of the computed column.
+	ColumnComputedKind pulumi.StringPtrInput `pulumi:"columnComputedKind"`
+	// Name of the computed column.
+	ColumnComputedName pulumi.StringPtrInput `pulumi:"columnComputedName"`
+	// Type of the computed column.
+	ColumnComputedType pulumi.StringPtrInput `pulumi:"columnComputedType"`
+	// Whether the computed column is virtual. Defaults to `false`.
+	ColumnComputedVirtual pulumi.BoolPtrInput `pulumi:"columnComputedVirtual"`
+}
+
+func (FlinkMaterializedTableColumnColumnsComputedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableColumnColumnsComputed)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableColumnColumnsComputedArgs) ToFlinkMaterializedTableColumnColumnsComputedOutput() FlinkMaterializedTableColumnColumnsComputedOutput {
+	return i.ToFlinkMaterializedTableColumnColumnsComputedOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableColumnColumnsComputedArgs) ToFlinkMaterializedTableColumnColumnsComputedOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnColumnsComputedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableColumnColumnsComputedOutput)
+}
+
+// FlinkMaterializedTableColumnColumnsComputedArrayInput is an input type that accepts FlinkMaterializedTableColumnColumnsComputedArray and FlinkMaterializedTableColumnColumnsComputedArrayOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableColumnColumnsComputedArrayInput` via:
+//
+//	FlinkMaterializedTableColumnColumnsComputedArray{ FlinkMaterializedTableColumnColumnsComputedArgs{...} }
+type FlinkMaterializedTableColumnColumnsComputedArrayInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableColumnColumnsComputedArrayOutput() FlinkMaterializedTableColumnColumnsComputedArrayOutput
+	ToFlinkMaterializedTableColumnColumnsComputedArrayOutputWithContext(context.Context) FlinkMaterializedTableColumnColumnsComputedArrayOutput
+}
+
+type FlinkMaterializedTableColumnColumnsComputedArray []FlinkMaterializedTableColumnColumnsComputedInput
+
+func (FlinkMaterializedTableColumnColumnsComputedArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlinkMaterializedTableColumnColumnsComputed)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableColumnColumnsComputedArray) ToFlinkMaterializedTableColumnColumnsComputedArrayOutput() FlinkMaterializedTableColumnColumnsComputedArrayOutput {
+	return i.ToFlinkMaterializedTableColumnColumnsComputedArrayOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableColumnColumnsComputedArray) ToFlinkMaterializedTableColumnColumnsComputedArrayOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnColumnsComputedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableColumnColumnsComputedArrayOutput)
+}
+
+type FlinkMaterializedTableColumnColumnsComputedOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableColumnColumnsComputedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableColumnColumnsComputed)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableColumnColumnsComputedOutput) ToFlinkMaterializedTableColumnColumnsComputedOutput() FlinkMaterializedTableColumnColumnsComputedOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableColumnColumnsComputedOutput) ToFlinkMaterializedTableColumnColumnsComputedOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnColumnsComputedOutput {
+	return o
+}
+
+// Comment for the computed column.
+func (o FlinkMaterializedTableColumnColumnsComputedOutput) ColumnComputedComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsComputed) *string { return v.ColumnComputedComment }).(pulumi.StringPtrOutput)
+}
+
+// Expression of the computed column.
+func (o FlinkMaterializedTableColumnColumnsComputedOutput) ColumnComputedExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsComputed) *string { return v.ColumnComputedExpression }).(pulumi.StringPtrOutput)
+}
+
+// Kind of the computed column.
+func (o FlinkMaterializedTableColumnColumnsComputedOutput) ColumnComputedKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsComputed) *string { return v.ColumnComputedKind }).(pulumi.StringPtrOutput)
+}
+
+// Name of the computed column.
+func (o FlinkMaterializedTableColumnColumnsComputedOutput) ColumnComputedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsComputed) *string { return v.ColumnComputedName }).(pulumi.StringPtrOutput)
+}
+
+// Type of the computed column.
+func (o FlinkMaterializedTableColumnColumnsComputedOutput) ColumnComputedType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsComputed) *string { return v.ColumnComputedType }).(pulumi.StringPtrOutput)
+}
+
+// Whether the computed column is virtual. Defaults to `false`.
+func (o FlinkMaterializedTableColumnColumnsComputedOutput) ColumnComputedVirtual() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsComputed) *bool { return v.ColumnComputedVirtual }).(pulumi.BoolPtrOutput)
+}
+
+type FlinkMaterializedTableColumnColumnsComputedArrayOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableColumnColumnsComputedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlinkMaterializedTableColumnColumnsComputed)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableColumnColumnsComputedArrayOutput) ToFlinkMaterializedTableColumnColumnsComputedArrayOutput() FlinkMaterializedTableColumnColumnsComputedArrayOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableColumnColumnsComputedArrayOutput) ToFlinkMaterializedTableColumnColumnsComputedArrayOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnColumnsComputedArrayOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableColumnColumnsComputedArrayOutput) Index(i pulumi.IntInput) FlinkMaterializedTableColumnColumnsComputedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlinkMaterializedTableColumnColumnsComputed {
+		return vs[0].([]FlinkMaterializedTableColumnColumnsComputed)[vs[1].(int)]
+	}).(FlinkMaterializedTableColumnColumnsComputedOutput)
+}
+
+type FlinkMaterializedTableColumnColumnsMetadata struct {
+	// Comment for the metadata column.
+	ColumnMetadataComment *string `pulumi:"columnMetadataComment"`
+	// Metadata key of the metadata column.
+	ColumnMetadataKey *string `pulumi:"columnMetadataKey"`
+	// Kind of the metadata column.
+	ColumnMetadataKind *string `pulumi:"columnMetadataKind"`
+	// Name of the metadata column.
+	ColumnMetadataName *string `pulumi:"columnMetadataName"`
+	// Type of the metadata column.
+	ColumnMetadataType *string `pulumi:"columnMetadataType"`
+	// Whether the metadata column is virtual. Defaults to `false`.
+	//
+	// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+	//
+	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	//
+	// > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := confluentcloud.NewRoleBinding(ctx, "identity-pool-assigner", &confluentcloud.RoleBindingArgs{
+	// 			Principal:  pulumi.String("User:pool-abc123"),
+	// 			RoleName:   pulumi.String("Assigner"),
+	// 			CrnPattern: pulumi.Sprintf("%v/service-account=sa-def456", main.ResourceName),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	ColumnMetadataVirtual *bool `pulumi:"columnMetadataVirtual"`
+}
+
+// FlinkMaterializedTableColumnColumnsMetadataInput is an input type that accepts FlinkMaterializedTableColumnColumnsMetadataArgs and FlinkMaterializedTableColumnColumnsMetadataOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableColumnColumnsMetadataInput` via:
+//
+//	FlinkMaterializedTableColumnColumnsMetadataArgs{...}
+type FlinkMaterializedTableColumnColumnsMetadataInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableColumnColumnsMetadataOutput() FlinkMaterializedTableColumnColumnsMetadataOutput
+	ToFlinkMaterializedTableColumnColumnsMetadataOutputWithContext(context.Context) FlinkMaterializedTableColumnColumnsMetadataOutput
+}
+
+type FlinkMaterializedTableColumnColumnsMetadataArgs struct {
+	// Comment for the metadata column.
+	ColumnMetadataComment pulumi.StringPtrInput `pulumi:"columnMetadataComment"`
+	// Metadata key of the metadata column.
+	ColumnMetadataKey pulumi.StringPtrInput `pulumi:"columnMetadataKey"`
+	// Kind of the metadata column.
+	ColumnMetadataKind pulumi.StringPtrInput `pulumi:"columnMetadataKind"`
+	// Name of the metadata column.
+	ColumnMetadataName pulumi.StringPtrInput `pulumi:"columnMetadataName"`
+	// Type of the metadata column.
+	ColumnMetadataType pulumi.StringPtrInput `pulumi:"columnMetadataType"`
+	// Whether the metadata column is virtual. Defaults to `false`.
+	//
+	// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+	//
+	// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+	//
+	// > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := confluentcloud.NewRoleBinding(ctx, "identity-pool-assigner", &confluentcloud.RoleBindingArgs{
+	// 			Principal:  pulumi.String("User:pool-abc123"),
+	// 			RoleName:   pulumi.String("Assigner"),
+	// 			CrnPattern: pulumi.Sprintf("%v/service-account=sa-def456", main.ResourceName),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	ColumnMetadataVirtual pulumi.BoolPtrInput `pulumi:"columnMetadataVirtual"`
+}
+
+func (FlinkMaterializedTableColumnColumnsMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableColumnColumnsMetadata)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableColumnColumnsMetadataArgs) ToFlinkMaterializedTableColumnColumnsMetadataOutput() FlinkMaterializedTableColumnColumnsMetadataOutput {
+	return i.ToFlinkMaterializedTableColumnColumnsMetadataOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableColumnColumnsMetadataArgs) ToFlinkMaterializedTableColumnColumnsMetadataOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnColumnsMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableColumnColumnsMetadataOutput)
+}
+
+// FlinkMaterializedTableColumnColumnsMetadataArrayInput is an input type that accepts FlinkMaterializedTableColumnColumnsMetadataArray and FlinkMaterializedTableColumnColumnsMetadataArrayOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableColumnColumnsMetadataArrayInput` via:
+//
+//	FlinkMaterializedTableColumnColumnsMetadataArray{ FlinkMaterializedTableColumnColumnsMetadataArgs{...} }
+type FlinkMaterializedTableColumnColumnsMetadataArrayInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableColumnColumnsMetadataArrayOutput() FlinkMaterializedTableColumnColumnsMetadataArrayOutput
+	ToFlinkMaterializedTableColumnColumnsMetadataArrayOutputWithContext(context.Context) FlinkMaterializedTableColumnColumnsMetadataArrayOutput
+}
+
+type FlinkMaterializedTableColumnColumnsMetadataArray []FlinkMaterializedTableColumnColumnsMetadataInput
+
+func (FlinkMaterializedTableColumnColumnsMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlinkMaterializedTableColumnColumnsMetadata)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableColumnColumnsMetadataArray) ToFlinkMaterializedTableColumnColumnsMetadataArrayOutput() FlinkMaterializedTableColumnColumnsMetadataArrayOutput {
+	return i.ToFlinkMaterializedTableColumnColumnsMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableColumnColumnsMetadataArray) ToFlinkMaterializedTableColumnColumnsMetadataArrayOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnColumnsMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableColumnColumnsMetadataArrayOutput)
+}
+
+type FlinkMaterializedTableColumnColumnsMetadataOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableColumnColumnsMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableColumnColumnsMetadata)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableColumnColumnsMetadataOutput) ToFlinkMaterializedTableColumnColumnsMetadataOutput() FlinkMaterializedTableColumnColumnsMetadataOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableColumnColumnsMetadataOutput) ToFlinkMaterializedTableColumnColumnsMetadataOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnColumnsMetadataOutput {
+	return o
+}
+
+// Comment for the metadata column.
+func (o FlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsMetadata) *string { return v.ColumnMetadataComment }).(pulumi.StringPtrOutput)
+}
+
+// Metadata key of the metadata column.
+func (o FlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsMetadata) *string { return v.ColumnMetadataKey }).(pulumi.StringPtrOutput)
+}
+
+// Kind of the metadata column.
+func (o FlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsMetadata) *string { return v.ColumnMetadataKind }).(pulumi.StringPtrOutput)
+}
+
+// Name of the metadata column.
+func (o FlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsMetadata) *string { return v.ColumnMetadataName }).(pulumi.StringPtrOutput)
+}
+
+// Type of the metadata column.
+func (o FlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsMetadata) *string { return v.ColumnMetadataType }).(pulumi.StringPtrOutput)
+}
+
+// Whether the metadata column is virtual. Defaults to `false`.
+//
+// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+//
+// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+//
+// !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+//
+// > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewRoleBinding(ctx, "identity-pool-assigner", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.String("User:pool-abc123"),
+//				RoleName:   pulumi.String("Assigner"),
+//				CrnPattern: pulumi.Sprintf("%v/service-account=sa-def456", main.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+func (o FlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataVirtual() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsMetadata) *bool { return v.ColumnMetadataVirtual }).(pulumi.BoolPtrOutput)
+}
+
+type FlinkMaterializedTableColumnColumnsMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableColumnColumnsMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlinkMaterializedTableColumnColumnsMetadata)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableColumnColumnsMetadataArrayOutput) ToFlinkMaterializedTableColumnColumnsMetadataArrayOutput() FlinkMaterializedTableColumnColumnsMetadataArrayOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableColumnColumnsMetadataArrayOutput) ToFlinkMaterializedTableColumnColumnsMetadataArrayOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnColumnsMetadataArrayOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableColumnColumnsMetadataArrayOutput) Index(i pulumi.IntInput) FlinkMaterializedTableColumnColumnsMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlinkMaterializedTableColumnColumnsMetadata {
+		return vs[0].([]FlinkMaterializedTableColumnColumnsMetadata)[vs[1].(int)]
+	}).(FlinkMaterializedTableColumnColumnsMetadataOutput)
+}
+
+type FlinkMaterializedTableColumnColumnsPhysical struct {
+	// Comment for the physical column.
+	ColumnPhysicalComment *string `pulumi:"columnPhysicalComment"`
+	// Kind of the physical column.
+	ColumnPhysicalKind *string `pulumi:"columnPhysicalKind"`
+	// Name of the physical column.
+	ColumnPhysicalName *string `pulumi:"columnPhysicalName"`
+	// Type of the physical column.
+	ColumnPhysicalType *string `pulumi:"columnPhysicalType"`
+}
+
+// FlinkMaterializedTableColumnColumnsPhysicalInput is an input type that accepts FlinkMaterializedTableColumnColumnsPhysicalArgs and FlinkMaterializedTableColumnColumnsPhysicalOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableColumnColumnsPhysicalInput` via:
+//
+//	FlinkMaterializedTableColumnColumnsPhysicalArgs{...}
+type FlinkMaterializedTableColumnColumnsPhysicalInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableColumnColumnsPhysicalOutput() FlinkMaterializedTableColumnColumnsPhysicalOutput
+	ToFlinkMaterializedTableColumnColumnsPhysicalOutputWithContext(context.Context) FlinkMaterializedTableColumnColumnsPhysicalOutput
+}
+
+type FlinkMaterializedTableColumnColumnsPhysicalArgs struct {
+	// Comment for the physical column.
+	ColumnPhysicalComment pulumi.StringPtrInput `pulumi:"columnPhysicalComment"`
+	// Kind of the physical column.
+	ColumnPhysicalKind pulumi.StringPtrInput `pulumi:"columnPhysicalKind"`
+	// Name of the physical column.
+	ColumnPhysicalName pulumi.StringPtrInput `pulumi:"columnPhysicalName"`
+	// Type of the physical column.
+	ColumnPhysicalType pulumi.StringPtrInput `pulumi:"columnPhysicalType"`
+}
+
+func (FlinkMaterializedTableColumnColumnsPhysicalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableColumnColumnsPhysical)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableColumnColumnsPhysicalArgs) ToFlinkMaterializedTableColumnColumnsPhysicalOutput() FlinkMaterializedTableColumnColumnsPhysicalOutput {
+	return i.ToFlinkMaterializedTableColumnColumnsPhysicalOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableColumnColumnsPhysicalArgs) ToFlinkMaterializedTableColumnColumnsPhysicalOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnColumnsPhysicalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableColumnColumnsPhysicalOutput)
+}
+
+// FlinkMaterializedTableColumnColumnsPhysicalArrayInput is an input type that accepts FlinkMaterializedTableColumnColumnsPhysicalArray and FlinkMaterializedTableColumnColumnsPhysicalArrayOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableColumnColumnsPhysicalArrayInput` via:
+//
+//	FlinkMaterializedTableColumnColumnsPhysicalArray{ FlinkMaterializedTableColumnColumnsPhysicalArgs{...} }
+type FlinkMaterializedTableColumnColumnsPhysicalArrayInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableColumnColumnsPhysicalArrayOutput() FlinkMaterializedTableColumnColumnsPhysicalArrayOutput
+	ToFlinkMaterializedTableColumnColumnsPhysicalArrayOutputWithContext(context.Context) FlinkMaterializedTableColumnColumnsPhysicalArrayOutput
+}
+
+type FlinkMaterializedTableColumnColumnsPhysicalArray []FlinkMaterializedTableColumnColumnsPhysicalInput
+
+func (FlinkMaterializedTableColumnColumnsPhysicalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlinkMaterializedTableColumnColumnsPhysical)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableColumnColumnsPhysicalArray) ToFlinkMaterializedTableColumnColumnsPhysicalArrayOutput() FlinkMaterializedTableColumnColumnsPhysicalArrayOutput {
+	return i.ToFlinkMaterializedTableColumnColumnsPhysicalArrayOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableColumnColumnsPhysicalArray) ToFlinkMaterializedTableColumnColumnsPhysicalArrayOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnColumnsPhysicalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableColumnColumnsPhysicalArrayOutput)
+}
+
+type FlinkMaterializedTableColumnColumnsPhysicalOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableColumnColumnsPhysicalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableColumnColumnsPhysical)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableColumnColumnsPhysicalOutput) ToFlinkMaterializedTableColumnColumnsPhysicalOutput() FlinkMaterializedTableColumnColumnsPhysicalOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableColumnColumnsPhysicalOutput) ToFlinkMaterializedTableColumnColumnsPhysicalOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnColumnsPhysicalOutput {
+	return o
+}
+
+// Comment for the physical column.
+func (o FlinkMaterializedTableColumnColumnsPhysicalOutput) ColumnPhysicalComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsPhysical) *string { return v.ColumnPhysicalComment }).(pulumi.StringPtrOutput)
+}
+
+// Kind of the physical column.
+func (o FlinkMaterializedTableColumnColumnsPhysicalOutput) ColumnPhysicalKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsPhysical) *string { return v.ColumnPhysicalKind }).(pulumi.StringPtrOutput)
+}
+
+// Name of the physical column.
+func (o FlinkMaterializedTableColumnColumnsPhysicalOutput) ColumnPhysicalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsPhysical) *string { return v.ColumnPhysicalName }).(pulumi.StringPtrOutput)
+}
+
+// Type of the physical column.
+func (o FlinkMaterializedTableColumnColumnsPhysicalOutput) ColumnPhysicalType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableColumnColumnsPhysical) *string { return v.ColumnPhysicalType }).(pulumi.StringPtrOutput)
+}
+
+type FlinkMaterializedTableColumnColumnsPhysicalArrayOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableColumnColumnsPhysicalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlinkMaterializedTableColumnColumnsPhysical)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableColumnColumnsPhysicalArrayOutput) ToFlinkMaterializedTableColumnColumnsPhysicalArrayOutput() FlinkMaterializedTableColumnColumnsPhysicalArrayOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableColumnColumnsPhysicalArrayOutput) ToFlinkMaterializedTableColumnColumnsPhysicalArrayOutputWithContext(ctx context.Context) FlinkMaterializedTableColumnColumnsPhysicalArrayOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableColumnColumnsPhysicalArrayOutput) Index(i pulumi.IntInput) FlinkMaterializedTableColumnColumnsPhysicalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlinkMaterializedTableColumnColumnsPhysical {
+		return vs[0].([]FlinkMaterializedTableColumnColumnsPhysical)[vs[1].(int)]
+	}).(FlinkMaterializedTableColumnColumnsPhysicalOutput)
+}
+
+type FlinkMaterializedTableComputePool struct {
+	// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// FlinkMaterializedTableComputePoolInput is an input type that accepts FlinkMaterializedTableComputePoolArgs and FlinkMaterializedTableComputePoolOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableComputePoolInput` via:
+//
+//	FlinkMaterializedTableComputePoolArgs{...}
+type FlinkMaterializedTableComputePoolInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableComputePoolOutput() FlinkMaterializedTableComputePoolOutput
+	ToFlinkMaterializedTableComputePoolOutputWithContext(context.Context) FlinkMaterializedTableComputePoolOutput
+}
+
+type FlinkMaterializedTableComputePoolArgs struct {
+	// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkMaterializedTableComputePoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableComputePool)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableComputePoolArgs) ToFlinkMaterializedTableComputePoolOutput() FlinkMaterializedTableComputePoolOutput {
+	return i.ToFlinkMaterializedTableComputePoolOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableComputePoolArgs) ToFlinkMaterializedTableComputePoolOutputWithContext(ctx context.Context) FlinkMaterializedTableComputePoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableComputePoolOutput)
+}
+
+func (i FlinkMaterializedTableComputePoolArgs) ToFlinkMaterializedTableComputePoolPtrOutput() FlinkMaterializedTableComputePoolPtrOutput {
+	return i.ToFlinkMaterializedTableComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableComputePoolArgs) ToFlinkMaterializedTableComputePoolPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableComputePoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableComputePoolOutput).ToFlinkMaterializedTableComputePoolPtrOutputWithContext(ctx)
+}
+
+// FlinkMaterializedTableComputePoolPtrInput is an input type that accepts FlinkMaterializedTableComputePoolArgs, FlinkMaterializedTableComputePoolPtr and FlinkMaterializedTableComputePoolPtrOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableComputePoolPtrInput` via:
+//
+//	        FlinkMaterializedTableComputePoolArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkMaterializedTableComputePoolPtrInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableComputePoolPtrOutput() FlinkMaterializedTableComputePoolPtrOutput
+	ToFlinkMaterializedTableComputePoolPtrOutputWithContext(context.Context) FlinkMaterializedTableComputePoolPtrOutput
+}
+
+type flinkMaterializedTableComputePoolPtrType FlinkMaterializedTableComputePoolArgs
+
+func FlinkMaterializedTableComputePoolPtr(v *FlinkMaterializedTableComputePoolArgs) FlinkMaterializedTableComputePoolPtrInput {
+	return (*flinkMaterializedTableComputePoolPtrType)(v)
+}
+
+func (*flinkMaterializedTableComputePoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableComputePool)(nil)).Elem()
+}
+
+func (i *flinkMaterializedTableComputePoolPtrType) ToFlinkMaterializedTableComputePoolPtrOutput() FlinkMaterializedTableComputePoolPtrOutput {
+	return i.ToFlinkMaterializedTableComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkMaterializedTableComputePoolPtrType) ToFlinkMaterializedTableComputePoolPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableComputePoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableComputePoolPtrOutput)
+}
+
+type FlinkMaterializedTableComputePoolOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableComputePoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableComputePool)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableComputePoolOutput) ToFlinkMaterializedTableComputePoolOutput() FlinkMaterializedTableComputePoolOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableComputePoolOutput) ToFlinkMaterializedTableComputePoolOutputWithContext(ctx context.Context) FlinkMaterializedTableComputePoolOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableComputePoolOutput) ToFlinkMaterializedTableComputePoolPtrOutput() FlinkMaterializedTableComputePoolPtrOutput {
+	return o.ToFlinkMaterializedTableComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkMaterializedTableComputePoolOutput) ToFlinkMaterializedTableComputePoolPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableComputePoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkMaterializedTableComputePool) *FlinkMaterializedTableComputePool {
+		return &v
+	}).(FlinkMaterializedTableComputePoolPtrOutput)
+}
+
+// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+func (o FlinkMaterializedTableComputePoolOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableComputePool) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkMaterializedTableComputePoolPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableComputePoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableComputePool)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableComputePoolPtrOutput) ToFlinkMaterializedTableComputePoolPtrOutput() FlinkMaterializedTableComputePoolPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableComputePoolPtrOutput) ToFlinkMaterializedTableComputePoolPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableComputePoolPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableComputePoolPtrOutput) Elem() FlinkMaterializedTableComputePoolOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableComputePool) FlinkMaterializedTableComputePool {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkMaterializedTableComputePool
+		return ret
+	}).(FlinkMaterializedTableComputePoolOutput)
+}
+
+// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+func (o FlinkMaterializedTableComputePoolPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableComputePool) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkMaterializedTableConstraint struct {
+	// The column names of the constraint.
+	Columns []string `pulumi:"columns"`
+	// Whether the constraint is enforced. Defaults to `false`.
+	Enforced *bool `pulumi:"enforced"`
+	// The name of the constraint, for example, `pkOrders`.
+	Name *string `pulumi:"name"`
+	// The type of the constraint, for example, `PRIMARY_KEY`.
+	Type *string `pulumi:"type"`
+}
+
+// FlinkMaterializedTableConstraintInput is an input type that accepts FlinkMaterializedTableConstraintArgs and FlinkMaterializedTableConstraintOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableConstraintInput` via:
+//
+//	FlinkMaterializedTableConstraintArgs{...}
+type FlinkMaterializedTableConstraintInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableConstraintOutput() FlinkMaterializedTableConstraintOutput
+	ToFlinkMaterializedTableConstraintOutputWithContext(context.Context) FlinkMaterializedTableConstraintOutput
+}
+
+type FlinkMaterializedTableConstraintArgs struct {
+	// The column names of the constraint.
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// Whether the constraint is enforced. Defaults to `false`.
+	Enforced pulumi.BoolPtrInput `pulumi:"enforced"`
+	// The name of the constraint, for example, `pkOrders`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the constraint, for example, `PRIMARY_KEY`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (FlinkMaterializedTableConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableConstraint)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableConstraintArgs) ToFlinkMaterializedTableConstraintOutput() FlinkMaterializedTableConstraintOutput {
+	return i.ToFlinkMaterializedTableConstraintOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableConstraintArgs) ToFlinkMaterializedTableConstraintOutputWithContext(ctx context.Context) FlinkMaterializedTableConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableConstraintOutput)
+}
+
+// FlinkMaterializedTableConstraintArrayInput is an input type that accepts FlinkMaterializedTableConstraintArray and FlinkMaterializedTableConstraintArrayOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableConstraintArrayInput` via:
+//
+//	FlinkMaterializedTableConstraintArray{ FlinkMaterializedTableConstraintArgs{...} }
+type FlinkMaterializedTableConstraintArrayInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableConstraintArrayOutput() FlinkMaterializedTableConstraintArrayOutput
+	ToFlinkMaterializedTableConstraintArrayOutputWithContext(context.Context) FlinkMaterializedTableConstraintArrayOutput
+}
+
+type FlinkMaterializedTableConstraintArray []FlinkMaterializedTableConstraintInput
+
+func (FlinkMaterializedTableConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlinkMaterializedTableConstraint)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableConstraintArray) ToFlinkMaterializedTableConstraintArrayOutput() FlinkMaterializedTableConstraintArrayOutput {
+	return i.ToFlinkMaterializedTableConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableConstraintArray) ToFlinkMaterializedTableConstraintArrayOutputWithContext(ctx context.Context) FlinkMaterializedTableConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableConstraintArrayOutput)
+}
+
+type FlinkMaterializedTableConstraintOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableConstraint)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableConstraintOutput) ToFlinkMaterializedTableConstraintOutput() FlinkMaterializedTableConstraintOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableConstraintOutput) ToFlinkMaterializedTableConstraintOutputWithContext(ctx context.Context) FlinkMaterializedTableConstraintOutput {
+	return o
+}
+
+// The column names of the constraint.
+func (o FlinkMaterializedTableConstraintOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableConstraint) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+// Whether the constraint is enforced. Defaults to `false`.
+func (o FlinkMaterializedTableConstraintOutput) Enforced() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableConstraint) *bool { return v.Enforced }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the constraint, for example, `pkOrders`.
+func (o FlinkMaterializedTableConstraintOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableConstraint) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the constraint, for example, `PRIMARY_KEY`.
+func (o FlinkMaterializedTableConstraintOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableConstraint) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type FlinkMaterializedTableConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlinkMaterializedTableConstraint)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableConstraintArrayOutput) ToFlinkMaterializedTableConstraintArrayOutput() FlinkMaterializedTableConstraintArrayOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableConstraintArrayOutput) ToFlinkMaterializedTableConstraintArrayOutputWithContext(ctx context.Context) FlinkMaterializedTableConstraintArrayOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableConstraintArrayOutput) Index(i pulumi.IntInput) FlinkMaterializedTableConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlinkMaterializedTableConstraint {
+		return vs[0].([]FlinkMaterializedTableConstraint)[vs[1].(int)]
+	}).(FlinkMaterializedTableConstraintOutput)
+}
+
+type FlinkMaterializedTableCredentials struct {
+	// The Flink API Key.
+	Key string `pulumi:"key"`
+	// The Flink API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// FlinkMaterializedTableCredentialsInput is an input type that accepts FlinkMaterializedTableCredentialsArgs and FlinkMaterializedTableCredentialsOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableCredentialsInput` via:
+//
+//	FlinkMaterializedTableCredentialsArgs{...}
+type FlinkMaterializedTableCredentialsInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableCredentialsOutput() FlinkMaterializedTableCredentialsOutput
+	ToFlinkMaterializedTableCredentialsOutputWithContext(context.Context) FlinkMaterializedTableCredentialsOutput
+}
+
+type FlinkMaterializedTableCredentialsArgs struct {
+	// The Flink API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Flink API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (FlinkMaterializedTableCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableCredentials)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableCredentialsArgs) ToFlinkMaterializedTableCredentialsOutput() FlinkMaterializedTableCredentialsOutput {
+	return i.ToFlinkMaterializedTableCredentialsOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableCredentialsArgs) ToFlinkMaterializedTableCredentialsOutputWithContext(ctx context.Context) FlinkMaterializedTableCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableCredentialsOutput)
+}
+
+func (i FlinkMaterializedTableCredentialsArgs) ToFlinkMaterializedTableCredentialsPtrOutput() FlinkMaterializedTableCredentialsPtrOutput {
+	return i.ToFlinkMaterializedTableCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableCredentialsArgs) ToFlinkMaterializedTableCredentialsPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableCredentialsOutput).ToFlinkMaterializedTableCredentialsPtrOutputWithContext(ctx)
+}
+
+// FlinkMaterializedTableCredentialsPtrInput is an input type that accepts FlinkMaterializedTableCredentialsArgs, FlinkMaterializedTableCredentialsPtr and FlinkMaterializedTableCredentialsPtrOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableCredentialsPtrInput` via:
+//
+//	        FlinkMaterializedTableCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkMaterializedTableCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableCredentialsPtrOutput() FlinkMaterializedTableCredentialsPtrOutput
+	ToFlinkMaterializedTableCredentialsPtrOutputWithContext(context.Context) FlinkMaterializedTableCredentialsPtrOutput
+}
+
+type flinkMaterializedTableCredentialsPtrType FlinkMaterializedTableCredentialsArgs
+
+func FlinkMaterializedTableCredentialsPtr(v *FlinkMaterializedTableCredentialsArgs) FlinkMaterializedTableCredentialsPtrInput {
+	return (*flinkMaterializedTableCredentialsPtrType)(v)
+}
+
+func (*flinkMaterializedTableCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableCredentials)(nil)).Elem()
+}
+
+func (i *flinkMaterializedTableCredentialsPtrType) ToFlinkMaterializedTableCredentialsPtrOutput() FlinkMaterializedTableCredentialsPtrOutput {
+	return i.ToFlinkMaterializedTableCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkMaterializedTableCredentialsPtrType) ToFlinkMaterializedTableCredentialsPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableCredentialsPtrOutput)
+}
+
+type FlinkMaterializedTableCredentialsOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableCredentials)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableCredentialsOutput) ToFlinkMaterializedTableCredentialsOutput() FlinkMaterializedTableCredentialsOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableCredentialsOutput) ToFlinkMaterializedTableCredentialsOutputWithContext(ctx context.Context) FlinkMaterializedTableCredentialsOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableCredentialsOutput) ToFlinkMaterializedTableCredentialsPtrOutput() FlinkMaterializedTableCredentialsPtrOutput {
+	return o.ToFlinkMaterializedTableCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkMaterializedTableCredentialsOutput) ToFlinkMaterializedTableCredentialsPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkMaterializedTableCredentials) *FlinkMaterializedTableCredentials {
+		return &v
+	}).(FlinkMaterializedTableCredentialsPtrOutput)
+}
+
+// The Flink API Key.
+func (o FlinkMaterializedTableCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Flink API Secret.
+func (o FlinkMaterializedTableCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type FlinkMaterializedTableCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableCredentials)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableCredentialsPtrOutput) ToFlinkMaterializedTableCredentialsPtrOutput() FlinkMaterializedTableCredentialsPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableCredentialsPtrOutput) ToFlinkMaterializedTableCredentialsPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableCredentialsPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableCredentialsPtrOutput) Elem() FlinkMaterializedTableCredentialsOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableCredentials) FlinkMaterializedTableCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkMaterializedTableCredentials
+		return ret
+	}).(FlinkMaterializedTableCredentialsOutput)
+}
+
+// The Flink API Key.
+func (o FlinkMaterializedTableCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Flink API Secret.
+func (o FlinkMaterializedTableCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkMaterializedTableDistribution struct {
+	// The number of buckets the table is distributed by.
+	BucketCount *int `pulumi:"bucketCount"`
+	// The names of the columns the table is distributed by.
+	Keys []string `pulumi:"keys"`
+}
+
+// FlinkMaterializedTableDistributionInput is an input type that accepts FlinkMaterializedTableDistributionArgs and FlinkMaterializedTableDistributionOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableDistributionInput` via:
+//
+//	FlinkMaterializedTableDistributionArgs{...}
+type FlinkMaterializedTableDistributionInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableDistributionOutput() FlinkMaterializedTableDistributionOutput
+	ToFlinkMaterializedTableDistributionOutputWithContext(context.Context) FlinkMaterializedTableDistributionOutput
+}
+
+type FlinkMaterializedTableDistributionArgs struct {
+	// The number of buckets the table is distributed by.
+	BucketCount pulumi.IntPtrInput `pulumi:"bucketCount"`
+	// The names of the columns the table is distributed by.
+	Keys pulumi.StringArrayInput `pulumi:"keys"`
+}
+
+func (FlinkMaterializedTableDistributionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableDistribution)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableDistributionArgs) ToFlinkMaterializedTableDistributionOutput() FlinkMaterializedTableDistributionOutput {
+	return i.ToFlinkMaterializedTableDistributionOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableDistributionArgs) ToFlinkMaterializedTableDistributionOutputWithContext(ctx context.Context) FlinkMaterializedTableDistributionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableDistributionOutput)
+}
+
+func (i FlinkMaterializedTableDistributionArgs) ToFlinkMaterializedTableDistributionPtrOutput() FlinkMaterializedTableDistributionPtrOutput {
+	return i.ToFlinkMaterializedTableDistributionPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableDistributionArgs) ToFlinkMaterializedTableDistributionPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableDistributionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableDistributionOutput).ToFlinkMaterializedTableDistributionPtrOutputWithContext(ctx)
+}
+
+// FlinkMaterializedTableDistributionPtrInput is an input type that accepts FlinkMaterializedTableDistributionArgs, FlinkMaterializedTableDistributionPtr and FlinkMaterializedTableDistributionPtrOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableDistributionPtrInput` via:
+//
+//	        FlinkMaterializedTableDistributionArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkMaterializedTableDistributionPtrInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableDistributionPtrOutput() FlinkMaterializedTableDistributionPtrOutput
+	ToFlinkMaterializedTableDistributionPtrOutputWithContext(context.Context) FlinkMaterializedTableDistributionPtrOutput
+}
+
+type flinkMaterializedTableDistributionPtrType FlinkMaterializedTableDistributionArgs
+
+func FlinkMaterializedTableDistributionPtr(v *FlinkMaterializedTableDistributionArgs) FlinkMaterializedTableDistributionPtrInput {
+	return (*flinkMaterializedTableDistributionPtrType)(v)
+}
+
+func (*flinkMaterializedTableDistributionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableDistribution)(nil)).Elem()
+}
+
+func (i *flinkMaterializedTableDistributionPtrType) ToFlinkMaterializedTableDistributionPtrOutput() FlinkMaterializedTableDistributionPtrOutput {
+	return i.ToFlinkMaterializedTableDistributionPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkMaterializedTableDistributionPtrType) ToFlinkMaterializedTableDistributionPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableDistributionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableDistributionPtrOutput)
+}
+
+type FlinkMaterializedTableDistributionOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableDistributionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableDistribution)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableDistributionOutput) ToFlinkMaterializedTableDistributionOutput() FlinkMaterializedTableDistributionOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableDistributionOutput) ToFlinkMaterializedTableDistributionOutputWithContext(ctx context.Context) FlinkMaterializedTableDistributionOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableDistributionOutput) ToFlinkMaterializedTableDistributionPtrOutput() FlinkMaterializedTableDistributionPtrOutput {
+	return o.ToFlinkMaterializedTableDistributionPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkMaterializedTableDistributionOutput) ToFlinkMaterializedTableDistributionPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableDistributionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkMaterializedTableDistribution) *FlinkMaterializedTableDistribution {
+		return &v
+	}).(FlinkMaterializedTableDistributionPtrOutput)
+}
+
+// The number of buckets the table is distributed by.
+func (o FlinkMaterializedTableDistributionOutput) BucketCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableDistribution) *int { return v.BucketCount }).(pulumi.IntPtrOutput)
+}
+
+// The names of the columns the table is distributed by.
+func (o FlinkMaterializedTableDistributionOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableDistribution) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+type FlinkMaterializedTableDistributionPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableDistributionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableDistribution)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableDistributionPtrOutput) ToFlinkMaterializedTableDistributionPtrOutput() FlinkMaterializedTableDistributionPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableDistributionPtrOutput) ToFlinkMaterializedTableDistributionPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableDistributionPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableDistributionPtrOutput) Elem() FlinkMaterializedTableDistributionOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableDistribution) FlinkMaterializedTableDistribution {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkMaterializedTableDistribution
+		return ret
+	}).(FlinkMaterializedTableDistributionOutput)
+}
+
+// The number of buckets the table is distributed by.
+func (o FlinkMaterializedTableDistributionPtrOutput) BucketCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableDistribution) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BucketCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The names of the columns the table is distributed by.
+func (o FlinkMaterializedTableDistributionPtrOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableDistribution) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Keys
+	}).(pulumi.StringArrayOutput)
+}
+
+type FlinkMaterializedTableEnvironment struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// FlinkMaterializedTableEnvironmentInput is an input type that accepts FlinkMaterializedTableEnvironmentArgs and FlinkMaterializedTableEnvironmentOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableEnvironmentInput` via:
+//
+//	FlinkMaterializedTableEnvironmentArgs{...}
+type FlinkMaterializedTableEnvironmentInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableEnvironmentOutput() FlinkMaterializedTableEnvironmentOutput
+	ToFlinkMaterializedTableEnvironmentOutputWithContext(context.Context) FlinkMaterializedTableEnvironmentOutput
+}
+
+type FlinkMaterializedTableEnvironmentArgs struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkMaterializedTableEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableEnvironment)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableEnvironmentArgs) ToFlinkMaterializedTableEnvironmentOutput() FlinkMaterializedTableEnvironmentOutput {
+	return i.ToFlinkMaterializedTableEnvironmentOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableEnvironmentArgs) ToFlinkMaterializedTableEnvironmentOutputWithContext(ctx context.Context) FlinkMaterializedTableEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableEnvironmentOutput)
+}
+
+func (i FlinkMaterializedTableEnvironmentArgs) ToFlinkMaterializedTableEnvironmentPtrOutput() FlinkMaterializedTableEnvironmentPtrOutput {
+	return i.ToFlinkMaterializedTableEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableEnvironmentArgs) ToFlinkMaterializedTableEnvironmentPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableEnvironmentOutput).ToFlinkMaterializedTableEnvironmentPtrOutputWithContext(ctx)
+}
+
+// FlinkMaterializedTableEnvironmentPtrInput is an input type that accepts FlinkMaterializedTableEnvironmentArgs, FlinkMaterializedTableEnvironmentPtr and FlinkMaterializedTableEnvironmentPtrOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableEnvironmentPtrInput` via:
+//
+//	        FlinkMaterializedTableEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkMaterializedTableEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableEnvironmentPtrOutput() FlinkMaterializedTableEnvironmentPtrOutput
+	ToFlinkMaterializedTableEnvironmentPtrOutputWithContext(context.Context) FlinkMaterializedTableEnvironmentPtrOutput
+}
+
+type flinkMaterializedTableEnvironmentPtrType FlinkMaterializedTableEnvironmentArgs
+
+func FlinkMaterializedTableEnvironmentPtr(v *FlinkMaterializedTableEnvironmentArgs) FlinkMaterializedTableEnvironmentPtrInput {
+	return (*flinkMaterializedTableEnvironmentPtrType)(v)
+}
+
+func (*flinkMaterializedTableEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableEnvironment)(nil)).Elem()
+}
+
+func (i *flinkMaterializedTableEnvironmentPtrType) ToFlinkMaterializedTableEnvironmentPtrOutput() FlinkMaterializedTableEnvironmentPtrOutput {
+	return i.ToFlinkMaterializedTableEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkMaterializedTableEnvironmentPtrType) ToFlinkMaterializedTableEnvironmentPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableEnvironmentPtrOutput)
+}
+
+type FlinkMaterializedTableEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableEnvironment)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableEnvironmentOutput) ToFlinkMaterializedTableEnvironmentOutput() FlinkMaterializedTableEnvironmentOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableEnvironmentOutput) ToFlinkMaterializedTableEnvironmentOutputWithContext(ctx context.Context) FlinkMaterializedTableEnvironmentOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableEnvironmentOutput) ToFlinkMaterializedTableEnvironmentPtrOutput() FlinkMaterializedTableEnvironmentPtrOutput {
+	return o.ToFlinkMaterializedTableEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkMaterializedTableEnvironmentOutput) ToFlinkMaterializedTableEnvironmentPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkMaterializedTableEnvironment) *FlinkMaterializedTableEnvironment {
+		return &v
+	}).(FlinkMaterializedTableEnvironmentPtrOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o FlinkMaterializedTableEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkMaterializedTableEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableEnvironment)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableEnvironmentPtrOutput) ToFlinkMaterializedTableEnvironmentPtrOutput() FlinkMaterializedTableEnvironmentPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableEnvironmentPtrOutput) ToFlinkMaterializedTableEnvironmentPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableEnvironmentPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableEnvironmentPtrOutput) Elem() FlinkMaterializedTableEnvironmentOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableEnvironment) FlinkMaterializedTableEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkMaterializedTableEnvironment
+		return ret
+	}).(FlinkMaterializedTableEnvironmentOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o FlinkMaterializedTableEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkMaterializedTableKafkaCluster struct {
+	// The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// FlinkMaterializedTableKafkaClusterInput is an input type that accepts FlinkMaterializedTableKafkaClusterArgs and FlinkMaterializedTableKafkaClusterOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableKafkaClusterInput` via:
+//
+//	FlinkMaterializedTableKafkaClusterArgs{...}
+type FlinkMaterializedTableKafkaClusterInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableKafkaClusterOutput() FlinkMaterializedTableKafkaClusterOutput
+	ToFlinkMaterializedTableKafkaClusterOutputWithContext(context.Context) FlinkMaterializedTableKafkaClusterOutput
+}
+
+type FlinkMaterializedTableKafkaClusterArgs struct {
+	// The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkMaterializedTableKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableKafkaCluster)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableKafkaClusterArgs) ToFlinkMaterializedTableKafkaClusterOutput() FlinkMaterializedTableKafkaClusterOutput {
+	return i.ToFlinkMaterializedTableKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableKafkaClusterArgs) ToFlinkMaterializedTableKafkaClusterOutputWithContext(ctx context.Context) FlinkMaterializedTableKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableKafkaClusterOutput)
+}
+
+func (i FlinkMaterializedTableKafkaClusterArgs) ToFlinkMaterializedTableKafkaClusterPtrOutput() FlinkMaterializedTableKafkaClusterPtrOutput {
+	return i.ToFlinkMaterializedTableKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableKafkaClusterArgs) ToFlinkMaterializedTableKafkaClusterPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableKafkaClusterOutput).ToFlinkMaterializedTableKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// FlinkMaterializedTableKafkaClusterPtrInput is an input type that accepts FlinkMaterializedTableKafkaClusterArgs, FlinkMaterializedTableKafkaClusterPtr and FlinkMaterializedTableKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableKafkaClusterPtrInput` via:
+//
+//	        FlinkMaterializedTableKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkMaterializedTableKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableKafkaClusterPtrOutput() FlinkMaterializedTableKafkaClusterPtrOutput
+	ToFlinkMaterializedTableKafkaClusterPtrOutputWithContext(context.Context) FlinkMaterializedTableKafkaClusterPtrOutput
+}
+
+type flinkMaterializedTableKafkaClusterPtrType FlinkMaterializedTableKafkaClusterArgs
+
+func FlinkMaterializedTableKafkaClusterPtr(v *FlinkMaterializedTableKafkaClusterArgs) FlinkMaterializedTableKafkaClusterPtrInput {
+	return (*flinkMaterializedTableKafkaClusterPtrType)(v)
+}
+
+func (*flinkMaterializedTableKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableKafkaCluster)(nil)).Elem()
+}
+
+func (i *flinkMaterializedTableKafkaClusterPtrType) ToFlinkMaterializedTableKafkaClusterPtrOutput() FlinkMaterializedTableKafkaClusterPtrOutput {
+	return i.ToFlinkMaterializedTableKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkMaterializedTableKafkaClusterPtrType) ToFlinkMaterializedTableKafkaClusterPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableKafkaClusterPtrOutput)
+}
+
+type FlinkMaterializedTableKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableKafkaCluster)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableKafkaClusterOutput) ToFlinkMaterializedTableKafkaClusterOutput() FlinkMaterializedTableKafkaClusterOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableKafkaClusterOutput) ToFlinkMaterializedTableKafkaClusterOutputWithContext(ctx context.Context) FlinkMaterializedTableKafkaClusterOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableKafkaClusterOutput) ToFlinkMaterializedTableKafkaClusterPtrOutput() FlinkMaterializedTableKafkaClusterPtrOutput {
+	return o.ToFlinkMaterializedTableKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkMaterializedTableKafkaClusterOutput) ToFlinkMaterializedTableKafkaClusterPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkMaterializedTableKafkaCluster) *FlinkMaterializedTableKafkaCluster {
+		return &v
+	}).(FlinkMaterializedTableKafkaClusterPtrOutput)
+}
+
+// The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+func (o FlinkMaterializedTableKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkMaterializedTableKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableKafkaCluster)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableKafkaClusterPtrOutput) ToFlinkMaterializedTableKafkaClusterPtrOutput() FlinkMaterializedTableKafkaClusterPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableKafkaClusterPtrOutput) ToFlinkMaterializedTableKafkaClusterPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableKafkaClusterPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableKafkaClusterPtrOutput) Elem() FlinkMaterializedTableKafkaClusterOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableKafkaCluster) FlinkMaterializedTableKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkMaterializedTableKafkaCluster
+		return ret
+	}).(FlinkMaterializedTableKafkaClusterOutput)
+}
+
+// The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+func (o FlinkMaterializedTableKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkMaterializedTableOrganization struct {
+	// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+	Id string `pulumi:"id"`
+}
+
+// FlinkMaterializedTableOrganizationInput is an input type that accepts FlinkMaterializedTableOrganizationArgs and FlinkMaterializedTableOrganizationOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableOrganizationInput` via:
+//
+//	FlinkMaterializedTableOrganizationArgs{...}
+type FlinkMaterializedTableOrganizationInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableOrganizationOutput() FlinkMaterializedTableOrganizationOutput
+	ToFlinkMaterializedTableOrganizationOutputWithContext(context.Context) FlinkMaterializedTableOrganizationOutput
+}
+
+type FlinkMaterializedTableOrganizationArgs struct {
+	// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkMaterializedTableOrganizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableOrganization)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableOrganizationArgs) ToFlinkMaterializedTableOrganizationOutput() FlinkMaterializedTableOrganizationOutput {
+	return i.ToFlinkMaterializedTableOrganizationOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableOrganizationArgs) ToFlinkMaterializedTableOrganizationOutputWithContext(ctx context.Context) FlinkMaterializedTableOrganizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableOrganizationOutput)
+}
+
+func (i FlinkMaterializedTableOrganizationArgs) ToFlinkMaterializedTableOrganizationPtrOutput() FlinkMaterializedTableOrganizationPtrOutput {
+	return i.ToFlinkMaterializedTableOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableOrganizationArgs) ToFlinkMaterializedTableOrganizationPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableOrganizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableOrganizationOutput).ToFlinkMaterializedTableOrganizationPtrOutputWithContext(ctx)
+}
+
+// FlinkMaterializedTableOrganizationPtrInput is an input type that accepts FlinkMaterializedTableOrganizationArgs, FlinkMaterializedTableOrganizationPtr and FlinkMaterializedTableOrganizationPtrOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableOrganizationPtrInput` via:
+//
+//	        FlinkMaterializedTableOrganizationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkMaterializedTableOrganizationPtrInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableOrganizationPtrOutput() FlinkMaterializedTableOrganizationPtrOutput
+	ToFlinkMaterializedTableOrganizationPtrOutputWithContext(context.Context) FlinkMaterializedTableOrganizationPtrOutput
+}
+
+type flinkMaterializedTableOrganizationPtrType FlinkMaterializedTableOrganizationArgs
+
+func FlinkMaterializedTableOrganizationPtr(v *FlinkMaterializedTableOrganizationArgs) FlinkMaterializedTableOrganizationPtrInput {
+	return (*flinkMaterializedTableOrganizationPtrType)(v)
+}
+
+func (*flinkMaterializedTableOrganizationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableOrganization)(nil)).Elem()
+}
+
+func (i *flinkMaterializedTableOrganizationPtrType) ToFlinkMaterializedTableOrganizationPtrOutput() FlinkMaterializedTableOrganizationPtrOutput {
+	return i.ToFlinkMaterializedTableOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkMaterializedTableOrganizationPtrType) ToFlinkMaterializedTableOrganizationPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableOrganizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableOrganizationPtrOutput)
+}
+
+type FlinkMaterializedTableOrganizationOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableOrganizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableOrganization)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableOrganizationOutput) ToFlinkMaterializedTableOrganizationOutput() FlinkMaterializedTableOrganizationOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableOrganizationOutput) ToFlinkMaterializedTableOrganizationOutputWithContext(ctx context.Context) FlinkMaterializedTableOrganizationOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableOrganizationOutput) ToFlinkMaterializedTableOrganizationPtrOutput() FlinkMaterializedTableOrganizationPtrOutput {
+	return o.ToFlinkMaterializedTableOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkMaterializedTableOrganizationOutput) ToFlinkMaterializedTableOrganizationPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableOrganizationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkMaterializedTableOrganization) *FlinkMaterializedTableOrganization {
+		return &v
+	}).(FlinkMaterializedTableOrganizationPtrOutput)
+}
+
+// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+func (o FlinkMaterializedTableOrganizationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableOrganization) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkMaterializedTableOrganizationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableOrganizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableOrganization)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableOrganizationPtrOutput) ToFlinkMaterializedTableOrganizationPtrOutput() FlinkMaterializedTableOrganizationPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableOrganizationPtrOutput) ToFlinkMaterializedTableOrganizationPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableOrganizationPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableOrganizationPtrOutput) Elem() FlinkMaterializedTableOrganizationOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableOrganization) FlinkMaterializedTableOrganization {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkMaterializedTableOrganization
+		return ret
+	}).(FlinkMaterializedTableOrganizationOutput)
+}
+
+// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+func (o FlinkMaterializedTableOrganizationPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableOrganization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkMaterializedTablePrincipal struct {
+	// The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// FlinkMaterializedTablePrincipalInput is an input type that accepts FlinkMaterializedTablePrincipalArgs and FlinkMaterializedTablePrincipalOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTablePrincipalInput` via:
+//
+//	FlinkMaterializedTablePrincipalArgs{...}
+type FlinkMaterializedTablePrincipalInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTablePrincipalOutput() FlinkMaterializedTablePrincipalOutput
+	ToFlinkMaterializedTablePrincipalOutputWithContext(context.Context) FlinkMaterializedTablePrincipalOutput
+}
+
+type FlinkMaterializedTablePrincipalArgs struct {
+	// The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkMaterializedTablePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTablePrincipal)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTablePrincipalArgs) ToFlinkMaterializedTablePrincipalOutput() FlinkMaterializedTablePrincipalOutput {
+	return i.ToFlinkMaterializedTablePrincipalOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTablePrincipalArgs) ToFlinkMaterializedTablePrincipalOutputWithContext(ctx context.Context) FlinkMaterializedTablePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTablePrincipalOutput)
+}
+
+func (i FlinkMaterializedTablePrincipalArgs) ToFlinkMaterializedTablePrincipalPtrOutput() FlinkMaterializedTablePrincipalPtrOutput {
+	return i.ToFlinkMaterializedTablePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTablePrincipalArgs) ToFlinkMaterializedTablePrincipalPtrOutputWithContext(ctx context.Context) FlinkMaterializedTablePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTablePrincipalOutput).ToFlinkMaterializedTablePrincipalPtrOutputWithContext(ctx)
+}
+
+// FlinkMaterializedTablePrincipalPtrInput is an input type that accepts FlinkMaterializedTablePrincipalArgs, FlinkMaterializedTablePrincipalPtr and FlinkMaterializedTablePrincipalPtrOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTablePrincipalPtrInput` via:
+//
+//	        FlinkMaterializedTablePrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkMaterializedTablePrincipalPtrInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTablePrincipalPtrOutput() FlinkMaterializedTablePrincipalPtrOutput
+	ToFlinkMaterializedTablePrincipalPtrOutputWithContext(context.Context) FlinkMaterializedTablePrincipalPtrOutput
+}
+
+type flinkMaterializedTablePrincipalPtrType FlinkMaterializedTablePrincipalArgs
+
+func FlinkMaterializedTablePrincipalPtr(v *FlinkMaterializedTablePrincipalArgs) FlinkMaterializedTablePrincipalPtrInput {
+	return (*flinkMaterializedTablePrincipalPtrType)(v)
+}
+
+func (*flinkMaterializedTablePrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTablePrincipal)(nil)).Elem()
+}
+
+func (i *flinkMaterializedTablePrincipalPtrType) ToFlinkMaterializedTablePrincipalPtrOutput() FlinkMaterializedTablePrincipalPtrOutput {
+	return i.ToFlinkMaterializedTablePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkMaterializedTablePrincipalPtrType) ToFlinkMaterializedTablePrincipalPtrOutputWithContext(ctx context.Context) FlinkMaterializedTablePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTablePrincipalPtrOutput)
+}
+
+type FlinkMaterializedTablePrincipalOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTablePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTablePrincipal)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTablePrincipalOutput) ToFlinkMaterializedTablePrincipalOutput() FlinkMaterializedTablePrincipalOutput {
+	return o
+}
+
+func (o FlinkMaterializedTablePrincipalOutput) ToFlinkMaterializedTablePrincipalOutputWithContext(ctx context.Context) FlinkMaterializedTablePrincipalOutput {
+	return o
+}
+
+func (o FlinkMaterializedTablePrincipalOutput) ToFlinkMaterializedTablePrincipalPtrOutput() FlinkMaterializedTablePrincipalPtrOutput {
+	return o.ToFlinkMaterializedTablePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkMaterializedTablePrincipalOutput) ToFlinkMaterializedTablePrincipalPtrOutputWithContext(ctx context.Context) FlinkMaterializedTablePrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkMaterializedTablePrincipal) *FlinkMaterializedTablePrincipal {
+		return &v
+	}).(FlinkMaterializedTablePrincipalPtrOutput)
+}
+
+// The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+func (o FlinkMaterializedTablePrincipalOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkMaterializedTablePrincipal) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkMaterializedTablePrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTablePrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTablePrincipal)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTablePrincipalPtrOutput) ToFlinkMaterializedTablePrincipalPtrOutput() FlinkMaterializedTablePrincipalPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTablePrincipalPtrOutput) ToFlinkMaterializedTablePrincipalPtrOutputWithContext(ctx context.Context) FlinkMaterializedTablePrincipalPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTablePrincipalPtrOutput) Elem() FlinkMaterializedTablePrincipalOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTablePrincipal) FlinkMaterializedTablePrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkMaterializedTablePrincipal
+		return ret
+	}).(FlinkMaterializedTablePrincipalOutput)
+}
+
+// The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+func (o FlinkMaterializedTablePrincipalPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTablePrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkMaterializedTableWatermark struct {
+	// The name of the watermark column.
+	Column *string `pulumi:"column"`
+	// The watermark expression, for example, `eventTime - INTERVAL '5' SECOND`.
+	Expression *string `pulumi:"expression"`
+}
+
+// FlinkMaterializedTableWatermarkInput is an input type that accepts FlinkMaterializedTableWatermarkArgs and FlinkMaterializedTableWatermarkOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableWatermarkInput` via:
+//
+//	FlinkMaterializedTableWatermarkArgs{...}
+type FlinkMaterializedTableWatermarkInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableWatermarkOutput() FlinkMaterializedTableWatermarkOutput
+	ToFlinkMaterializedTableWatermarkOutputWithContext(context.Context) FlinkMaterializedTableWatermarkOutput
+}
+
+type FlinkMaterializedTableWatermarkArgs struct {
+	// The name of the watermark column.
+	Column pulumi.StringPtrInput `pulumi:"column"`
+	// The watermark expression, for example, `eventTime - INTERVAL '5' SECOND`.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+}
+
+func (FlinkMaterializedTableWatermarkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableWatermark)(nil)).Elem()
+}
+
+func (i FlinkMaterializedTableWatermarkArgs) ToFlinkMaterializedTableWatermarkOutput() FlinkMaterializedTableWatermarkOutput {
+	return i.ToFlinkMaterializedTableWatermarkOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableWatermarkArgs) ToFlinkMaterializedTableWatermarkOutputWithContext(ctx context.Context) FlinkMaterializedTableWatermarkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableWatermarkOutput)
+}
+
+func (i FlinkMaterializedTableWatermarkArgs) ToFlinkMaterializedTableWatermarkPtrOutput() FlinkMaterializedTableWatermarkPtrOutput {
+	return i.ToFlinkMaterializedTableWatermarkPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkMaterializedTableWatermarkArgs) ToFlinkMaterializedTableWatermarkPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableWatermarkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableWatermarkOutput).ToFlinkMaterializedTableWatermarkPtrOutputWithContext(ctx)
+}
+
+// FlinkMaterializedTableWatermarkPtrInput is an input type that accepts FlinkMaterializedTableWatermarkArgs, FlinkMaterializedTableWatermarkPtr and FlinkMaterializedTableWatermarkPtrOutput values.
+// You can construct a concrete instance of `FlinkMaterializedTableWatermarkPtrInput` via:
+//
+//	        FlinkMaterializedTableWatermarkArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkMaterializedTableWatermarkPtrInput interface {
+	pulumi.Input
+
+	ToFlinkMaterializedTableWatermarkPtrOutput() FlinkMaterializedTableWatermarkPtrOutput
+	ToFlinkMaterializedTableWatermarkPtrOutputWithContext(context.Context) FlinkMaterializedTableWatermarkPtrOutput
+}
+
+type flinkMaterializedTableWatermarkPtrType FlinkMaterializedTableWatermarkArgs
+
+func FlinkMaterializedTableWatermarkPtr(v *FlinkMaterializedTableWatermarkArgs) FlinkMaterializedTableWatermarkPtrInput {
+	return (*flinkMaterializedTableWatermarkPtrType)(v)
+}
+
+func (*flinkMaterializedTableWatermarkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableWatermark)(nil)).Elem()
+}
+
+func (i *flinkMaterializedTableWatermarkPtrType) ToFlinkMaterializedTableWatermarkPtrOutput() FlinkMaterializedTableWatermarkPtrOutput {
+	return i.ToFlinkMaterializedTableWatermarkPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkMaterializedTableWatermarkPtrType) ToFlinkMaterializedTableWatermarkPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableWatermarkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkMaterializedTableWatermarkPtrOutput)
+}
+
+type FlinkMaterializedTableWatermarkOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableWatermarkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkMaterializedTableWatermark)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableWatermarkOutput) ToFlinkMaterializedTableWatermarkOutput() FlinkMaterializedTableWatermarkOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableWatermarkOutput) ToFlinkMaterializedTableWatermarkOutputWithContext(ctx context.Context) FlinkMaterializedTableWatermarkOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableWatermarkOutput) ToFlinkMaterializedTableWatermarkPtrOutput() FlinkMaterializedTableWatermarkPtrOutput {
+	return o.ToFlinkMaterializedTableWatermarkPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkMaterializedTableWatermarkOutput) ToFlinkMaterializedTableWatermarkPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableWatermarkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkMaterializedTableWatermark) *FlinkMaterializedTableWatermark {
+		return &v
+	}).(FlinkMaterializedTableWatermarkPtrOutput)
+}
+
+// The name of the watermark column.
+func (o FlinkMaterializedTableWatermarkOutput) Column() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableWatermark) *string { return v.Column }).(pulumi.StringPtrOutput)
+}
+
+// The watermark expression, for example, `eventTime - INTERVAL '5' SECOND`.
+func (o FlinkMaterializedTableWatermarkOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlinkMaterializedTableWatermark) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+type FlinkMaterializedTableWatermarkPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkMaterializedTableWatermarkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkMaterializedTableWatermark)(nil)).Elem()
+}
+
+func (o FlinkMaterializedTableWatermarkPtrOutput) ToFlinkMaterializedTableWatermarkPtrOutput() FlinkMaterializedTableWatermarkPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableWatermarkPtrOutput) ToFlinkMaterializedTableWatermarkPtrOutputWithContext(ctx context.Context) FlinkMaterializedTableWatermarkPtrOutput {
+	return o
+}
+
+func (o FlinkMaterializedTableWatermarkPtrOutput) Elem() FlinkMaterializedTableWatermarkOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableWatermark) FlinkMaterializedTableWatermark {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkMaterializedTableWatermark
+		return ret
+	}).(FlinkMaterializedTableWatermarkOutput)
+}
+
+// The name of the watermark column.
+func (o FlinkMaterializedTableWatermarkPtrOutput) Column() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableWatermark) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Column
+	}).(pulumi.StringPtrOutput)
+}
+
+// The watermark expression, for example, `eventTime - INTERVAL '5' SECOND`.
+func (o FlinkMaterializedTableWatermarkPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkMaterializedTableWatermark) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
 type FlinkStatementComputePool struct {
 	// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
 	Id string `pulumi:"id"`
@@ -22185,6 +24087,8 @@ type SchemaRuleset struct {
 	// supports the following:
 	DomainRules []SchemaRulesetDomainRule `pulumi:"domainRules"`
 	// supports the following:
+	EncodingRules []SchemaRulesetEncodingRule `pulumi:"encodingRules"`
+	// supports the following:
 	MigrationRules []SchemaRulesetMigrationRule `pulumi:"migrationRules"`
 }
 
@@ -22202,6 +24106,8 @@ type SchemaRulesetInput interface {
 type SchemaRulesetArgs struct {
 	// supports the following:
 	DomainRules SchemaRulesetDomainRuleArrayInput `pulumi:"domainRules"`
+	// supports the following:
+	EncodingRules SchemaRulesetEncodingRuleArrayInput `pulumi:"encodingRules"`
 	// supports the following:
 	MigrationRules SchemaRulesetMigrationRuleArrayInput `pulumi:"migrationRules"`
 }
@@ -22289,6 +24195,11 @@ func (o SchemaRulesetOutput) DomainRules() SchemaRulesetDomainRuleArrayOutput {
 }
 
 // supports the following:
+func (o SchemaRulesetOutput) EncodingRules() SchemaRulesetEncodingRuleArrayOutput {
+	return o.ApplyT(func(v SchemaRuleset) []SchemaRulesetEncodingRule { return v.EncodingRules }).(SchemaRulesetEncodingRuleArrayOutput)
+}
+
+// supports the following:
 func (o SchemaRulesetOutput) MigrationRules() SchemaRulesetMigrationRuleArrayOutput {
 	return o.ApplyT(func(v SchemaRuleset) []SchemaRulesetMigrationRule { return v.MigrationRules }).(SchemaRulesetMigrationRuleArrayOutput)
 }
@@ -22325,6 +24236,16 @@ func (o SchemaRulesetPtrOutput) DomainRules() SchemaRulesetDomainRuleArrayOutput
 		}
 		return v.DomainRules
 	}).(SchemaRulesetDomainRuleArrayOutput)
+}
+
+// supports the following:
+func (o SchemaRulesetPtrOutput) EncodingRules() SchemaRulesetEncodingRuleArrayOutput {
+	return o.ApplyT(func(v *SchemaRuleset) []SchemaRulesetEncodingRule {
+		if v == nil {
+			return nil
+		}
+		return v.EncodingRules
+	}).(SchemaRulesetEncodingRuleArrayOutput)
 }
 
 // supports the following:
@@ -22489,6 +24410,160 @@ func (o SchemaRulesetDomainRuleArrayOutput) Index(i pulumi.IntInput) SchemaRules
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaRulesetDomainRule {
 		return vs[0].([]SchemaRulesetDomainRule)[vs[1].(int)]
 	}).(SchemaRulesetDomainRuleOutput)
+}
+
+type SchemaRulesetEncodingRule struct {
+	Disabled  *bool             `pulumi:"disabled"`
+	Doc       *string           `pulumi:"doc"`
+	Expr      *string           `pulumi:"expr"`
+	Kind      string            `pulumi:"kind"`
+	Mode      string            `pulumi:"mode"`
+	Name      string            `pulumi:"name"`
+	OnFailure *string           `pulumi:"onFailure"`
+	OnSuccess *string           `pulumi:"onSuccess"`
+	Params    map[string]string `pulumi:"params"`
+	Tags      []string          `pulumi:"tags"`
+	Type      string            `pulumi:"type"`
+}
+
+// SchemaRulesetEncodingRuleInput is an input type that accepts SchemaRulesetEncodingRuleArgs and SchemaRulesetEncodingRuleOutput values.
+// You can construct a concrete instance of `SchemaRulesetEncodingRuleInput` via:
+//
+//	SchemaRulesetEncodingRuleArgs{...}
+type SchemaRulesetEncodingRuleInput interface {
+	pulumi.Input
+
+	ToSchemaRulesetEncodingRuleOutput() SchemaRulesetEncodingRuleOutput
+	ToSchemaRulesetEncodingRuleOutputWithContext(context.Context) SchemaRulesetEncodingRuleOutput
+}
+
+type SchemaRulesetEncodingRuleArgs struct {
+	Disabled  pulumi.BoolPtrInput     `pulumi:"disabled"`
+	Doc       pulumi.StringPtrInput   `pulumi:"doc"`
+	Expr      pulumi.StringPtrInput   `pulumi:"expr"`
+	Kind      pulumi.StringInput      `pulumi:"kind"`
+	Mode      pulumi.StringInput      `pulumi:"mode"`
+	Name      pulumi.StringInput      `pulumi:"name"`
+	OnFailure pulumi.StringPtrInput   `pulumi:"onFailure"`
+	OnSuccess pulumi.StringPtrInput   `pulumi:"onSuccess"`
+	Params    pulumi.StringMapInput   `pulumi:"params"`
+	Tags      pulumi.StringArrayInput `pulumi:"tags"`
+	Type      pulumi.StringInput      `pulumi:"type"`
+}
+
+func (SchemaRulesetEncodingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRulesetEncodingRule)(nil)).Elem()
+}
+
+func (i SchemaRulesetEncodingRuleArgs) ToSchemaRulesetEncodingRuleOutput() SchemaRulesetEncodingRuleOutput {
+	return i.ToSchemaRulesetEncodingRuleOutputWithContext(context.Background())
+}
+
+func (i SchemaRulesetEncodingRuleArgs) ToSchemaRulesetEncodingRuleOutputWithContext(ctx context.Context) SchemaRulesetEncodingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRulesetEncodingRuleOutput)
+}
+
+// SchemaRulesetEncodingRuleArrayInput is an input type that accepts SchemaRulesetEncodingRuleArray and SchemaRulesetEncodingRuleArrayOutput values.
+// You can construct a concrete instance of `SchemaRulesetEncodingRuleArrayInput` via:
+//
+//	SchemaRulesetEncodingRuleArray{ SchemaRulesetEncodingRuleArgs{...} }
+type SchemaRulesetEncodingRuleArrayInput interface {
+	pulumi.Input
+
+	ToSchemaRulesetEncodingRuleArrayOutput() SchemaRulesetEncodingRuleArrayOutput
+	ToSchemaRulesetEncodingRuleArrayOutputWithContext(context.Context) SchemaRulesetEncodingRuleArrayOutput
+}
+
+type SchemaRulesetEncodingRuleArray []SchemaRulesetEncodingRuleInput
+
+func (SchemaRulesetEncodingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaRulesetEncodingRule)(nil)).Elem()
+}
+
+func (i SchemaRulesetEncodingRuleArray) ToSchemaRulesetEncodingRuleArrayOutput() SchemaRulesetEncodingRuleArrayOutput {
+	return i.ToSchemaRulesetEncodingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SchemaRulesetEncodingRuleArray) ToSchemaRulesetEncodingRuleArrayOutputWithContext(ctx context.Context) SchemaRulesetEncodingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRulesetEncodingRuleArrayOutput)
+}
+
+type SchemaRulesetEncodingRuleOutput struct{ *pulumi.OutputState }
+
+func (SchemaRulesetEncodingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRulesetEncodingRule)(nil)).Elem()
+}
+
+func (o SchemaRulesetEncodingRuleOutput) ToSchemaRulesetEncodingRuleOutput() SchemaRulesetEncodingRuleOutput {
+	return o
+}
+
+func (o SchemaRulesetEncodingRuleOutput) ToSchemaRulesetEncodingRuleOutputWithContext(ctx context.Context) SchemaRulesetEncodingRuleOutput {
+	return o
+}
+
+func (o SchemaRulesetEncodingRuleOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetEncodingRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o SchemaRulesetEncodingRuleOutput) Doc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetEncodingRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaRulesetEncodingRuleOutput) Expr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetEncodingRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaRulesetEncodingRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRulesetEncodingRule) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+func (o SchemaRulesetEncodingRuleOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRulesetEncodingRule) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o SchemaRulesetEncodingRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRulesetEncodingRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SchemaRulesetEncodingRuleOutput) OnFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetEncodingRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaRulesetEncodingRuleOutput) OnSuccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetEncodingRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaRulesetEncodingRuleOutput) Params() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SchemaRulesetEncodingRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
+}
+
+func (o SchemaRulesetEncodingRuleOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SchemaRulesetEncodingRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+func (o SchemaRulesetEncodingRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRulesetEncodingRule) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SchemaRulesetEncodingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SchemaRulesetEncodingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaRulesetEncodingRule)(nil)).Elem()
+}
+
+func (o SchemaRulesetEncodingRuleArrayOutput) ToSchemaRulesetEncodingRuleArrayOutput() SchemaRulesetEncodingRuleArrayOutput {
+	return o
+}
+
+func (o SchemaRulesetEncodingRuleArrayOutput) ToSchemaRulesetEncodingRuleArrayOutputWithContext(ctx context.Context) SchemaRulesetEncodingRuleArrayOutput {
+	return o
+}
+
+func (o SchemaRulesetEncodingRuleArrayOutput) Index(i pulumi.IntInput) SchemaRulesetEncodingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaRulesetEncodingRule {
+		return vs[0].([]SchemaRulesetEncodingRule)[vs[1].(int)]
+	}).(SchemaRulesetEncodingRuleOutput)
 }
 
 type SchemaRulesetMigrationRule struct {
@@ -30668,6 +32743,1785 @@ func (o GetFlinkConnectionPrincipalPtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+type GetFlinkMaterializedTableColumn struct {
+	ColumnsComputeds []GetFlinkMaterializedTableColumnColumnsComputed `pulumi:"columnsComputeds"`
+	ColumnsMetadatas []GetFlinkMaterializedTableColumnColumnsMetadata `pulumi:"columnsMetadatas"`
+	ColumnsPhysicals []GetFlinkMaterializedTableColumnColumnsPhysical `pulumi:"columnsPhysicals"`
+}
+
+// GetFlinkMaterializedTableColumnInput is an input type that accepts GetFlinkMaterializedTableColumnArgs and GetFlinkMaterializedTableColumnOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableColumnInput` via:
+//
+//	GetFlinkMaterializedTableColumnArgs{...}
+type GetFlinkMaterializedTableColumnInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableColumnOutput() GetFlinkMaterializedTableColumnOutput
+	ToGetFlinkMaterializedTableColumnOutputWithContext(context.Context) GetFlinkMaterializedTableColumnOutput
+}
+
+type GetFlinkMaterializedTableColumnArgs struct {
+	ColumnsComputeds GetFlinkMaterializedTableColumnColumnsComputedArrayInput `pulumi:"columnsComputeds"`
+	ColumnsMetadatas GetFlinkMaterializedTableColumnColumnsMetadataArrayInput `pulumi:"columnsMetadatas"`
+	ColumnsPhysicals GetFlinkMaterializedTableColumnColumnsPhysicalArrayInput `pulumi:"columnsPhysicals"`
+}
+
+func (GetFlinkMaterializedTableColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableColumn)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableColumnArgs) ToGetFlinkMaterializedTableColumnOutput() GetFlinkMaterializedTableColumnOutput {
+	return i.ToGetFlinkMaterializedTableColumnOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableColumnArgs) ToGetFlinkMaterializedTableColumnOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableColumnOutput)
+}
+
+// GetFlinkMaterializedTableColumnArrayInput is an input type that accepts GetFlinkMaterializedTableColumnArray and GetFlinkMaterializedTableColumnArrayOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableColumnArrayInput` via:
+//
+//	GetFlinkMaterializedTableColumnArray{ GetFlinkMaterializedTableColumnArgs{...} }
+type GetFlinkMaterializedTableColumnArrayInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableColumnArrayOutput() GetFlinkMaterializedTableColumnArrayOutput
+	ToGetFlinkMaterializedTableColumnArrayOutputWithContext(context.Context) GetFlinkMaterializedTableColumnArrayOutput
+}
+
+type GetFlinkMaterializedTableColumnArray []GetFlinkMaterializedTableColumnInput
+
+func (GetFlinkMaterializedTableColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableColumn)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableColumnArray) ToGetFlinkMaterializedTableColumnArrayOutput() GetFlinkMaterializedTableColumnArrayOutput {
+	return i.ToGetFlinkMaterializedTableColumnArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableColumnArray) ToGetFlinkMaterializedTableColumnArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableColumnArrayOutput)
+}
+
+type GetFlinkMaterializedTableColumnOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableColumn)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableColumnOutput) ToGetFlinkMaterializedTableColumnOutput() GetFlinkMaterializedTableColumnOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnOutput) ToGetFlinkMaterializedTableColumnOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnOutput) ColumnsComputeds() GetFlinkMaterializedTableColumnColumnsComputedArrayOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumn) []GetFlinkMaterializedTableColumnColumnsComputed {
+		return v.ColumnsComputeds
+	}).(GetFlinkMaterializedTableColumnColumnsComputedArrayOutput)
+}
+
+func (o GetFlinkMaterializedTableColumnOutput) ColumnsMetadatas() GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumn) []GetFlinkMaterializedTableColumnColumnsMetadata {
+		return v.ColumnsMetadatas
+	}).(GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput)
+}
+
+func (o GetFlinkMaterializedTableColumnOutput) ColumnsPhysicals() GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumn) []GetFlinkMaterializedTableColumnColumnsPhysical {
+		return v.ColumnsPhysicals
+	}).(GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput)
+}
+
+type GetFlinkMaterializedTableColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableColumn)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableColumnArrayOutput) ToGetFlinkMaterializedTableColumnArrayOutput() GetFlinkMaterializedTableColumnArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnArrayOutput) ToGetFlinkMaterializedTableColumnArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnArrayOutput) Index(i pulumi.IntInput) GetFlinkMaterializedTableColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlinkMaterializedTableColumn {
+		return vs[0].([]GetFlinkMaterializedTableColumn)[vs[1].(int)]
+	}).(GetFlinkMaterializedTableColumnOutput)
+}
+
+type GetFlinkMaterializedTableColumnColumnsComputed struct {
+	// Comment for the computed column.
+	ColumnComputedComment string `pulumi:"columnComputedComment"`
+	// Expression of the computed column.
+	ColumnComputedExpression string `pulumi:"columnComputedExpression"`
+	// Kind of the computed column.
+	ColumnComputedKind string `pulumi:"columnComputedKind"`
+	// Name of the computed column.
+	ColumnComputedName string `pulumi:"columnComputedName"`
+	// Type of the computed column.
+	ColumnComputedType string `pulumi:"columnComputedType"`
+	// Whether computed column is virtual.
+	ColumnComputedVirtual bool `pulumi:"columnComputedVirtual"`
+}
+
+// GetFlinkMaterializedTableColumnColumnsComputedInput is an input type that accepts GetFlinkMaterializedTableColumnColumnsComputedArgs and GetFlinkMaterializedTableColumnColumnsComputedOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableColumnColumnsComputedInput` via:
+//
+//	GetFlinkMaterializedTableColumnColumnsComputedArgs{...}
+type GetFlinkMaterializedTableColumnColumnsComputedInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableColumnColumnsComputedOutput() GetFlinkMaterializedTableColumnColumnsComputedOutput
+	ToGetFlinkMaterializedTableColumnColumnsComputedOutputWithContext(context.Context) GetFlinkMaterializedTableColumnColumnsComputedOutput
+}
+
+type GetFlinkMaterializedTableColumnColumnsComputedArgs struct {
+	// Comment for the computed column.
+	ColumnComputedComment pulumi.StringInput `pulumi:"columnComputedComment"`
+	// Expression of the computed column.
+	ColumnComputedExpression pulumi.StringInput `pulumi:"columnComputedExpression"`
+	// Kind of the computed column.
+	ColumnComputedKind pulumi.StringInput `pulumi:"columnComputedKind"`
+	// Name of the computed column.
+	ColumnComputedName pulumi.StringInput `pulumi:"columnComputedName"`
+	// Type of the computed column.
+	ColumnComputedType pulumi.StringInput `pulumi:"columnComputedType"`
+	// Whether computed column is virtual.
+	ColumnComputedVirtual pulumi.BoolInput `pulumi:"columnComputedVirtual"`
+}
+
+func (GetFlinkMaterializedTableColumnColumnsComputedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableColumnColumnsComputed)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableColumnColumnsComputedArgs) ToGetFlinkMaterializedTableColumnColumnsComputedOutput() GetFlinkMaterializedTableColumnColumnsComputedOutput {
+	return i.ToGetFlinkMaterializedTableColumnColumnsComputedOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableColumnColumnsComputedArgs) ToGetFlinkMaterializedTableColumnColumnsComputedOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnColumnsComputedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableColumnColumnsComputedOutput)
+}
+
+// GetFlinkMaterializedTableColumnColumnsComputedArrayInput is an input type that accepts GetFlinkMaterializedTableColumnColumnsComputedArray and GetFlinkMaterializedTableColumnColumnsComputedArrayOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableColumnColumnsComputedArrayInput` via:
+//
+//	GetFlinkMaterializedTableColumnColumnsComputedArray{ GetFlinkMaterializedTableColumnColumnsComputedArgs{...} }
+type GetFlinkMaterializedTableColumnColumnsComputedArrayInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableColumnColumnsComputedArrayOutput() GetFlinkMaterializedTableColumnColumnsComputedArrayOutput
+	ToGetFlinkMaterializedTableColumnColumnsComputedArrayOutputWithContext(context.Context) GetFlinkMaterializedTableColumnColumnsComputedArrayOutput
+}
+
+type GetFlinkMaterializedTableColumnColumnsComputedArray []GetFlinkMaterializedTableColumnColumnsComputedInput
+
+func (GetFlinkMaterializedTableColumnColumnsComputedArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableColumnColumnsComputed)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableColumnColumnsComputedArray) ToGetFlinkMaterializedTableColumnColumnsComputedArrayOutput() GetFlinkMaterializedTableColumnColumnsComputedArrayOutput {
+	return i.ToGetFlinkMaterializedTableColumnColumnsComputedArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableColumnColumnsComputedArray) ToGetFlinkMaterializedTableColumnColumnsComputedArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnColumnsComputedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableColumnColumnsComputedArrayOutput)
+}
+
+type GetFlinkMaterializedTableColumnColumnsComputedOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableColumnColumnsComputedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableColumnColumnsComputed)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsComputedOutput) ToGetFlinkMaterializedTableColumnColumnsComputedOutput() GetFlinkMaterializedTableColumnColumnsComputedOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsComputedOutput) ToGetFlinkMaterializedTableColumnColumnsComputedOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnColumnsComputedOutput {
+	return o
+}
+
+// Comment for the computed column.
+func (o GetFlinkMaterializedTableColumnColumnsComputedOutput) ColumnComputedComment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsComputed) string { return v.ColumnComputedComment }).(pulumi.StringOutput)
+}
+
+// Expression of the computed column.
+func (o GetFlinkMaterializedTableColumnColumnsComputedOutput) ColumnComputedExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsComputed) string { return v.ColumnComputedExpression }).(pulumi.StringOutput)
+}
+
+// Kind of the computed column.
+func (o GetFlinkMaterializedTableColumnColumnsComputedOutput) ColumnComputedKind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsComputed) string { return v.ColumnComputedKind }).(pulumi.StringOutput)
+}
+
+// Name of the computed column.
+func (o GetFlinkMaterializedTableColumnColumnsComputedOutput) ColumnComputedName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsComputed) string { return v.ColumnComputedName }).(pulumi.StringOutput)
+}
+
+// Type of the computed column.
+func (o GetFlinkMaterializedTableColumnColumnsComputedOutput) ColumnComputedType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsComputed) string { return v.ColumnComputedType }).(pulumi.StringOutput)
+}
+
+// Whether computed column is virtual.
+func (o GetFlinkMaterializedTableColumnColumnsComputedOutput) ColumnComputedVirtual() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsComputed) bool { return v.ColumnComputedVirtual }).(pulumi.BoolOutput)
+}
+
+type GetFlinkMaterializedTableColumnColumnsComputedArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableColumnColumnsComputedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableColumnColumnsComputed)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsComputedArrayOutput) ToGetFlinkMaterializedTableColumnColumnsComputedArrayOutput() GetFlinkMaterializedTableColumnColumnsComputedArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsComputedArrayOutput) ToGetFlinkMaterializedTableColumnColumnsComputedArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnColumnsComputedArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsComputedArrayOutput) Index(i pulumi.IntInput) GetFlinkMaterializedTableColumnColumnsComputedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlinkMaterializedTableColumnColumnsComputed {
+		return vs[0].([]GetFlinkMaterializedTableColumnColumnsComputed)[vs[1].(int)]
+	}).(GetFlinkMaterializedTableColumnColumnsComputedOutput)
+}
+
+type GetFlinkMaterializedTableColumnColumnsMetadata struct {
+	// Comment for the metadata column.
+	ColumnMetadataComment string `pulumi:"columnMetadataComment"`
+	// Metadata key of the metadata column.
+	ColumnMetadataKey string `pulumi:"columnMetadataKey"`
+	// Kind of the metadata column.
+	ColumnMetadataKind string `pulumi:"columnMetadataKind"`
+	// Name of the metadata column.
+	ColumnMetadataName string `pulumi:"columnMetadataName"`
+	// Type of the metadata column.
+	ColumnMetadataType string `pulumi:"columnMetadataType"`
+	// Whether metadata column is virtual.
+	ColumnMetadataVirtual bool `pulumi:"columnMetadataVirtual"`
+}
+
+// GetFlinkMaterializedTableColumnColumnsMetadataInput is an input type that accepts GetFlinkMaterializedTableColumnColumnsMetadataArgs and GetFlinkMaterializedTableColumnColumnsMetadataOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableColumnColumnsMetadataInput` via:
+//
+//	GetFlinkMaterializedTableColumnColumnsMetadataArgs{...}
+type GetFlinkMaterializedTableColumnColumnsMetadataInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableColumnColumnsMetadataOutput() GetFlinkMaterializedTableColumnColumnsMetadataOutput
+	ToGetFlinkMaterializedTableColumnColumnsMetadataOutputWithContext(context.Context) GetFlinkMaterializedTableColumnColumnsMetadataOutput
+}
+
+type GetFlinkMaterializedTableColumnColumnsMetadataArgs struct {
+	// Comment for the metadata column.
+	ColumnMetadataComment pulumi.StringInput `pulumi:"columnMetadataComment"`
+	// Metadata key of the metadata column.
+	ColumnMetadataKey pulumi.StringInput `pulumi:"columnMetadataKey"`
+	// Kind of the metadata column.
+	ColumnMetadataKind pulumi.StringInput `pulumi:"columnMetadataKind"`
+	// Name of the metadata column.
+	ColumnMetadataName pulumi.StringInput `pulumi:"columnMetadataName"`
+	// Type of the metadata column.
+	ColumnMetadataType pulumi.StringInput `pulumi:"columnMetadataType"`
+	// Whether metadata column is virtual.
+	ColumnMetadataVirtual pulumi.BoolInput `pulumi:"columnMetadataVirtual"`
+}
+
+func (GetFlinkMaterializedTableColumnColumnsMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableColumnColumnsMetadata)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableColumnColumnsMetadataArgs) ToGetFlinkMaterializedTableColumnColumnsMetadataOutput() GetFlinkMaterializedTableColumnColumnsMetadataOutput {
+	return i.ToGetFlinkMaterializedTableColumnColumnsMetadataOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableColumnColumnsMetadataArgs) ToGetFlinkMaterializedTableColumnColumnsMetadataOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnColumnsMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableColumnColumnsMetadataOutput)
+}
+
+// GetFlinkMaterializedTableColumnColumnsMetadataArrayInput is an input type that accepts GetFlinkMaterializedTableColumnColumnsMetadataArray and GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableColumnColumnsMetadataArrayInput` via:
+//
+//	GetFlinkMaterializedTableColumnColumnsMetadataArray{ GetFlinkMaterializedTableColumnColumnsMetadataArgs{...} }
+type GetFlinkMaterializedTableColumnColumnsMetadataArrayInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableColumnColumnsMetadataArrayOutput() GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput
+	ToGetFlinkMaterializedTableColumnColumnsMetadataArrayOutputWithContext(context.Context) GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput
+}
+
+type GetFlinkMaterializedTableColumnColumnsMetadataArray []GetFlinkMaterializedTableColumnColumnsMetadataInput
+
+func (GetFlinkMaterializedTableColumnColumnsMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableColumnColumnsMetadata)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableColumnColumnsMetadataArray) ToGetFlinkMaterializedTableColumnColumnsMetadataArrayOutput() GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput {
+	return i.ToGetFlinkMaterializedTableColumnColumnsMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableColumnColumnsMetadataArray) ToGetFlinkMaterializedTableColumnColumnsMetadataArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput)
+}
+
+type GetFlinkMaterializedTableColumnColumnsMetadataOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableColumnColumnsMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableColumnColumnsMetadata)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsMetadataOutput) ToGetFlinkMaterializedTableColumnColumnsMetadataOutput() GetFlinkMaterializedTableColumnColumnsMetadataOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsMetadataOutput) ToGetFlinkMaterializedTableColumnColumnsMetadataOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnColumnsMetadataOutput {
+	return o
+}
+
+// Comment for the metadata column.
+func (o GetFlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataComment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsMetadata) string { return v.ColumnMetadataComment }).(pulumi.StringOutput)
+}
+
+// Metadata key of the metadata column.
+func (o GetFlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsMetadata) string { return v.ColumnMetadataKey }).(pulumi.StringOutput)
+}
+
+// Kind of the metadata column.
+func (o GetFlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataKind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsMetadata) string { return v.ColumnMetadataKind }).(pulumi.StringOutput)
+}
+
+// Name of the metadata column.
+func (o GetFlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsMetadata) string { return v.ColumnMetadataName }).(pulumi.StringOutput)
+}
+
+// Type of the metadata column.
+func (o GetFlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsMetadata) string { return v.ColumnMetadataType }).(pulumi.StringOutput)
+}
+
+// Whether metadata column is virtual.
+func (o GetFlinkMaterializedTableColumnColumnsMetadataOutput) ColumnMetadataVirtual() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsMetadata) bool { return v.ColumnMetadataVirtual }).(pulumi.BoolOutput)
+}
+
+type GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableColumnColumnsMetadata)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput) ToGetFlinkMaterializedTableColumnColumnsMetadataArrayOutput() GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput) ToGetFlinkMaterializedTableColumnColumnsMetadataArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput) Index(i pulumi.IntInput) GetFlinkMaterializedTableColumnColumnsMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlinkMaterializedTableColumnColumnsMetadata {
+		return vs[0].([]GetFlinkMaterializedTableColumnColumnsMetadata)[vs[1].(int)]
+	}).(GetFlinkMaterializedTableColumnColumnsMetadataOutput)
+}
+
+type GetFlinkMaterializedTableColumnColumnsPhysical struct {
+	// Comment for the physical column.
+	ColumnPhysicalComment string `pulumi:"columnPhysicalComment"`
+	// Kind of the physical column.
+	ColumnPhysicalKind string `pulumi:"columnPhysicalKind"`
+	// Name of the physical column.
+	ColumnPhysicalName string `pulumi:"columnPhysicalName"`
+	// Type of the physical column.
+	ColumnPhysicalType string `pulumi:"columnPhysicalType"`
+}
+
+// GetFlinkMaterializedTableColumnColumnsPhysicalInput is an input type that accepts GetFlinkMaterializedTableColumnColumnsPhysicalArgs and GetFlinkMaterializedTableColumnColumnsPhysicalOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableColumnColumnsPhysicalInput` via:
+//
+//	GetFlinkMaterializedTableColumnColumnsPhysicalArgs{...}
+type GetFlinkMaterializedTableColumnColumnsPhysicalInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableColumnColumnsPhysicalOutput() GetFlinkMaterializedTableColumnColumnsPhysicalOutput
+	ToGetFlinkMaterializedTableColumnColumnsPhysicalOutputWithContext(context.Context) GetFlinkMaterializedTableColumnColumnsPhysicalOutput
+}
+
+type GetFlinkMaterializedTableColumnColumnsPhysicalArgs struct {
+	// Comment for the physical column.
+	ColumnPhysicalComment pulumi.StringInput `pulumi:"columnPhysicalComment"`
+	// Kind of the physical column.
+	ColumnPhysicalKind pulumi.StringInput `pulumi:"columnPhysicalKind"`
+	// Name of the physical column.
+	ColumnPhysicalName pulumi.StringInput `pulumi:"columnPhysicalName"`
+	// Type of the physical column.
+	ColumnPhysicalType pulumi.StringInput `pulumi:"columnPhysicalType"`
+}
+
+func (GetFlinkMaterializedTableColumnColumnsPhysicalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableColumnColumnsPhysical)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableColumnColumnsPhysicalArgs) ToGetFlinkMaterializedTableColumnColumnsPhysicalOutput() GetFlinkMaterializedTableColumnColumnsPhysicalOutput {
+	return i.ToGetFlinkMaterializedTableColumnColumnsPhysicalOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableColumnColumnsPhysicalArgs) ToGetFlinkMaterializedTableColumnColumnsPhysicalOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnColumnsPhysicalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableColumnColumnsPhysicalOutput)
+}
+
+// GetFlinkMaterializedTableColumnColumnsPhysicalArrayInput is an input type that accepts GetFlinkMaterializedTableColumnColumnsPhysicalArray and GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableColumnColumnsPhysicalArrayInput` via:
+//
+//	GetFlinkMaterializedTableColumnColumnsPhysicalArray{ GetFlinkMaterializedTableColumnColumnsPhysicalArgs{...} }
+type GetFlinkMaterializedTableColumnColumnsPhysicalArrayInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput() GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput
+	ToGetFlinkMaterializedTableColumnColumnsPhysicalArrayOutputWithContext(context.Context) GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput
+}
+
+type GetFlinkMaterializedTableColumnColumnsPhysicalArray []GetFlinkMaterializedTableColumnColumnsPhysicalInput
+
+func (GetFlinkMaterializedTableColumnColumnsPhysicalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableColumnColumnsPhysical)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableColumnColumnsPhysicalArray) ToGetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput() GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput {
+	return i.ToGetFlinkMaterializedTableColumnColumnsPhysicalArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableColumnColumnsPhysicalArray) ToGetFlinkMaterializedTableColumnColumnsPhysicalArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput)
+}
+
+type GetFlinkMaterializedTableColumnColumnsPhysicalOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableColumnColumnsPhysicalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableColumnColumnsPhysical)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsPhysicalOutput) ToGetFlinkMaterializedTableColumnColumnsPhysicalOutput() GetFlinkMaterializedTableColumnColumnsPhysicalOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsPhysicalOutput) ToGetFlinkMaterializedTableColumnColumnsPhysicalOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnColumnsPhysicalOutput {
+	return o
+}
+
+// Comment for the physical column.
+func (o GetFlinkMaterializedTableColumnColumnsPhysicalOutput) ColumnPhysicalComment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsPhysical) string { return v.ColumnPhysicalComment }).(pulumi.StringOutput)
+}
+
+// Kind of the physical column.
+func (o GetFlinkMaterializedTableColumnColumnsPhysicalOutput) ColumnPhysicalKind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsPhysical) string { return v.ColumnPhysicalKind }).(pulumi.StringOutput)
+}
+
+// Name of the physical column.
+func (o GetFlinkMaterializedTableColumnColumnsPhysicalOutput) ColumnPhysicalName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsPhysical) string { return v.ColumnPhysicalName }).(pulumi.StringOutput)
+}
+
+// Type of the physical column.
+func (o GetFlinkMaterializedTableColumnColumnsPhysicalOutput) ColumnPhysicalType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableColumnColumnsPhysical) string { return v.ColumnPhysicalType }).(pulumi.StringOutput)
+}
+
+type GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableColumnColumnsPhysical)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput) ToGetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput() GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput) ToGetFlinkMaterializedTableColumnColumnsPhysicalArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput) Index(i pulumi.IntInput) GetFlinkMaterializedTableColumnColumnsPhysicalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlinkMaterializedTableColumnColumnsPhysical {
+		return vs[0].([]GetFlinkMaterializedTableColumnColumnsPhysical)[vs[1].(int)]
+	}).(GetFlinkMaterializedTableColumnColumnsPhysicalOutput)
+}
+
+type GetFlinkMaterializedTableComputePool struct {
+	// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetFlinkMaterializedTableComputePoolInput is an input type that accepts GetFlinkMaterializedTableComputePoolArgs and GetFlinkMaterializedTableComputePoolOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableComputePoolInput` via:
+//
+//	GetFlinkMaterializedTableComputePoolArgs{...}
+type GetFlinkMaterializedTableComputePoolInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableComputePoolOutput() GetFlinkMaterializedTableComputePoolOutput
+	ToGetFlinkMaterializedTableComputePoolOutputWithContext(context.Context) GetFlinkMaterializedTableComputePoolOutput
+}
+
+type GetFlinkMaterializedTableComputePoolArgs struct {
+	// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetFlinkMaterializedTableComputePoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableComputePool)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableComputePoolArgs) ToGetFlinkMaterializedTableComputePoolOutput() GetFlinkMaterializedTableComputePoolOutput {
+	return i.ToGetFlinkMaterializedTableComputePoolOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableComputePoolArgs) ToGetFlinkMaterializedTableComputePoolOutputWithContext(ctx context.Context) GetFlinkMaterializedTableComputePoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableComputePoolOutput)
+}
+
+func (i GetFlinkMaterializedTableComputePoolArgs) ToGetFlinkMaterializedTableComputePoolPtrOutput() GetFlinkMaterializedTableComputePoolPtrOutput {
+	return i.ToGetFlinkMaterializedTableComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableComputePoolArgs) ToGetFlinkMaterializedTableComputePoolPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableComputePoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableComputePoolOutput).ToGetFlinkMaterializedTableComputePoolPtrOutputWithContext(ctx)
+}
+
+// GetFlinkMaterializedTableComputePoolPtrInput is an input type that accepts GetFlinkMaterializedTableComputePoolArgs, GetFlinkMaterializedTableComputePoolPtr and GetFlinkMaterializedTableComputePoolPtrOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableComputePoolPtrInput` via:
+//
+//	        GetFlinkMaterializedTableComputePoolArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFlinkMaterializedTableComputePoolPtrInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableComputePoolPtrOutput() GetFlinkMaterializedTableComputePoolPtrOutput
+	ToGetFlinkMaterializedTableComputePoolPtrOutputWithContext(context.Context) GetFlinkMaterializedTableComputePoolPtrOutput
+}
+
+type getFlinkMaterializedTableComputePoolPtrType GetFlinkMaterializedTableComputePoolArgs
+
+func GetFlinkMaterializedTableComputePoolPtr(v *GetFlinkMaterializedTableComputePoolArgs) GetFlinkMaterializedTableComputePoolPtrInput {
+	return (*getFlinkMaterializedTableComputePoolPtrType)(v)
+}
+
+func (*getFlinkMaterializedTableComputePoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkMaterializedTableComputePool)(nil)).Elem()
+}
+
+func (i *getFlinkMaterializedTableComputePoolPtrType) ToGetFlinkMaterializedTableComputePoolPtrOutput() GetFlinkMaterializedTableComputePoolPtrOutput {
+	return i.ToGetFlinkMaterializedTableComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (i *getFlinkMaterializedTableComputePoolPtrType) ToGetFlinkMaterializedTableComputePoolPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableComputePoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableComputePoolPtrOutput)
+}
+
+type GetFlinkMaterializedTableComputePoolOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableComputePoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableComputePool)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableComputePoolOutput) ToGetFlinkMaterializedTableComputePoolOutput() GetFlinkMaterializedTableComputePoolOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableComputePoolOutput) ToGetFlinkMaterializedTableComputePoolOutputWithContext(ctx context.Context) GetFlinkMaterializedTableComputePoolOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableComputePoolOutput) ToGetFlinkMaterializedTableComputePoolPtrOutput() GetFlinkMaterializedTableComputePoolPtrOutput {
+	return o.ToGetFlinkMaterializedTableComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (o GetFlinkMaterializedTableComputePoolOutput) ToGetFlinkMaterializedTableComputePoolPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableComputePoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFlinkMaterializedTableComputePool) *GetFlinkMaterializedTableComputePool {
+		return &v
+	}).(GetFlinkMaterializedTableComputePoolPtrOutput)
+}
+
+// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+func (o GetFlinkMaterializedTableComputePoolOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableComputePool) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetFlinkMaterializedTableComputePoolPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableComputePoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkMaterializedTableComputePool)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableComputePoolPtrOutput) ToGetFlinkMaterializedTableComputePoolPtrOutput() GetFlinkMaterializedTableComputePoolPtrOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableComputePoolPtrOutput) ToGetFlinkMaterializedTableComputePoolPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableComputePoolPtrOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableComputePoolPtrOutput) Elem() GetFlinkMaterializedTableComputePoolOutput {
+	return o.ApplyT(func(v *GetFlinkMaterializedTableComputePool) GetFlinkMaterializedTableComputePool {
+		if v != nil {
+			return *v
+		}
+		var ret GetFlinkMaterializedTableComputePool
+		return ret
+	}).(GetFlinkMaterializedTableComputePoolOutput)
+}
+
+// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+func (o GetFlinkMaterializedTableComputePoolPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFlinkMaterializedTableComputePool) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFlinkMaterializedTableConstraint struct {
+	// (Set of Strings) The column names of the constraint.
+	Columns []string `pulumi:"columns"`
+	// (Boolean) Whether the constraint is enforced.
+	Enforced bool `pulumi:"enforced"`
+	// (String) The name of the constraint, for example, `pkOrders`.
+	Name string `pulumi:"name"`
+	// (String) The type of the constraint, for example, `PRIMARY_KEY`.
+	Type string `pulumi:"type"`
+}
+
+// GetFlinkMaterializedTableConstraintInput is an input type that accepts GetFlinkMaterializedTableConstraintArgs and GetFlinkMaterializedTableConstraintOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableConstraintInput` via:
+//
+//	GetFlinkMaterializedTableConstraintArgs{...}
+type GetFlinkMaterializedTableConstraintInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableConstraintOutput() GetFlinkMaterializedTableConstraintOutput
+	ToGetFlinkMaterializedTableConstraintOutputWithContext(context.Context) GetFlinkMaterializedTableConstraintOutput
+}
+
+type GetFlinkMaterializedTableConstraintArgs struct {
+	// (Set of Strings) The column names of the constraint.
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// (Boolean) Whether the constraint is enforced.
+	Enforced pulumi.BoolInput `pulumi:"enforced"`
+	// (String) The name of the constraint, for example, `pkOrders`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (String) The type of the constraint, for example, `PRIMARY_KEY`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetFlinkMaterializedTableConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableConstraint)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableConstraintArgs) ToGetFlinkMaterializedTableConstraintOutput() GetFlinkMaterializedTableConstraintOutput {
+	return i.ToGetFlinkMaterializedTableConstraintOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableConstraintArgs) ToGetFlinkMaterializedTableConstraintOutputWithContext(ctx context.Context) GetFlinkMaterializedTableConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableConstraintOutput)
+}
+
+// GetFlinkMaterializedTableConstraintArrayInput is an input type that accepts GetFlinkMaterializedTableConstraintArray and GetFlinkMaterializedTableConstraintArrayOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableConstraintArrayInput` via:
+//
+//	GetFlinkMaterializedTableConstraintArray{ GetFlinkMaterializedTableConstraintArgs{...} }
+type GetFlinkMaterializedTableConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableConstraintArrayOutput() GetFlinkMaterializedTableConstraintArrayOutput
+	ToGetFlinkMaterializedTableConstraintArrayOutputWithContext(context.Context) GetFlinkMaterializedTableConstraintArrayOutput
+}
+
+type GetFlinkMaterializedTableConstraintArray []GetFlinkMaterializedTableConstraintInput
+
+func (GetFlinkMaterializedTableConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableConstraint)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableConstraintArray) ToGetFlinkMaterializedTableConstraintArrayOutput() GetFlinkMaterializedTableConstraintArrayOutput {
+	return i.ToGetFlinkMaterializedTableConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableConstraintArray) ToGetFlinkMaterializedTableConstraintArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableConstraintArrayOutput)
+}
+
+type GetFlinkMaterializedTableConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableConstraint)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableConstraintOutput) ToGetFlinkMaterializedTableConstraintOutput() GetFlinkMaterializedTableConstraintOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableConstraintOutput) ToGetFlinkMaterializedTableConstraintOutputWithContext(ctx context.Context) GetFlinkMaterializedTableConstraintOutput {
+	return o
+}
+
+// (Set of Strings) The column names of the constraint.
+func (o GetFlinkMaterializedTableConstraintOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableConstraint) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+// (Boolean) Whether the constraint is enforced.
+func (o GetFlinkMaterializedTableConstraintOutput) Enforced() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableConstraint) bool { return v.Enforced }).(pulumi.BoolOutput)
+}
+
+// (String) The name of the constraint, for example, `pkOrders`.
+func (o GetFlinkMaterializedTableConstraintOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableConstraint) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (String) The type of the constraint, for example, `PRIMARY_KEY`.
+func (o GetFlinkMaterializedTableConstraintOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableConstraint) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetFlinkMaterializedTableConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableConstraint)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableConstraintArrayOutput) ToGetFlinkMaterializedTableConstraintArrayOutput() GetFlinkMaterializedTableConstraintArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableConstraintArrayOutput) ToGetFlinkMaterializedTableConstraintArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableConstraintArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableConstraintArrayOutput) Index(i pulumi.IntInput) GetFlinkMaterializedTableConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlinkMaterializedTableConstraint {
+		return vs[0].([]GetFlinkMaterializedTableConstraint)[vs[1].(int)]
+	}).(GetFlinkMaterializedTableConstraintOutput)
+}
+
+type GetFlinkMaterializedTableCredentials struct {
+	// The Flink API Key.
+	Key string `pulumi:"key"`
+	// The Flink API Secret.
+	//
+	// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+	//
+	// > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := confluentcloud.NewRoleBinding(ctx, "identity-pool-assigner", &confluentcloud.RoleBindingArgs{
+	// 			Principal:  pulumi.String("User:pool-abc123"),
+	// 			RoleName:   pulumi.String("Assigner"),
+	// 			CrnPattern: pulumi.Sprintf("%v/service-account=sa-def456", main.ResourceName),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	Secret string `pulumi:"secret"`
+}
+
+// GetFlinkMaterializedTableCredentialsInput is an input type that accepts GetFlinkMaterializedTableCredentialsArgs and GetFlinkMaterializedTableCredentialsOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableCredentialsInput` via:
+//
+//	GetFlinkMaterializedTableCredentialsArgs{...}
+type GetFlinkMaterializedTableCredentialsInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableCredentialsOutput() GetFlinkMaterializedTableCredentialsOutput
+	ToGetFlinkMaterializedTableCredentialsOutputWithContext(context.Context) GetFlinkMaterializedTableCredentialsOutput
+}
+
+type GetFlinkMaterializedTableCredentialsArgs struct {
+	// The Flink API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Flink API Secret.
+	//
+	// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+	//
+	// > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := confluentcloud.NewRoleBinding(ctx, "identity-pool-assigner", &confluentcloud.RoleBindingArgs{
+	// 			Principal:  pulumi.String("User:pool-abc123"),
+	// 			RoleName:   pulumi.String("Assigner"),
+	// 			CrnPattern: pulumi.Sprintf("%v/service-account=sa-def456", main.ResourceName),
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetFlinkMaterializedTableCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableCredentials)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableCredentialsArgs) ToGetFlinkMaterializedTableCredentialsOutput() GetFlinkMaterializedTableCredentialsOutput {
+	return i.ToGetFlinkMaterializedTableCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableCredentialsArgs) ToGetFlinkMaterializedTableCredentialsOutputWithContext(ctx context.Context) GetFlinkMaterializedTableCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableCredentialsOutput)
+}
+
+func (i GetFlinkMaterializedTableCredentialsArgs) ToGetFlinkMaterializedTableCredentialsPtrOutput() GetFlinkMaterializedTableCredentialsPtrOutput {
+	return i.ToGetFlinkMaterializedTableCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableCredentialsArgs) ToGetFlinkMaterializedTableCredentialsPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableCredentialsOutput).ToGetFlinkMaterializedTableCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetFlinkMaterializedTableCredentialsPtrInput is an input type that accepts GetFlinkMaterializedTableCredentialsArgs, GetFlinkMaterializedTableCredentialsPtr and GetFlinkMaterializedTableCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableCredentialsPtrInput` via:
+//
+//	        GetFlinkMaterializedTableCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFlinkMaterializedTableCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableCredentialsPtrOutput() GetFlinkMaterializedTableCredentialsPtrOutput
+	ToGetFlinkMaterializedTableCredentialsPtrOutputWithContext(context.Context) GetFlinkMaterializedTableCredentialsPtrOutput
+}
+
+type getFlinkMaterializedTableCredentialsPtrType GetFlinkMaterializedTableCredentialsArgs
+
+func GetFlinkMaterializedTableCredentialsPtr(v *GetFlinkMaterializedTableCredentialsArgs) GetFlinkMaterializedTableCredentialsPtrInput {
+	return (*getFlinkMaterializedTableCredentialsPtrType)(v)
+}
+
+func (*getFlinkMaterializedTableCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkMaterializedTableCredentials)(nil)).Elem()
+}
+
+func (i *getFlinkMaterializedTableCredentialsPtrType) ToGetFlinkMaterializedTableCredentialsPtrOutput() GetFlinkMaterializedTableCredentialsPtrOutput {
+	return i.ToGetFlinkMaterializedTableCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getFlinkMaterializedTableCredentialsPtrType) ToGetFlinkMaterializedTableCredentialsPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableCredentialsPtrOutput)
+}
+
+type GetFlinkMaterializedTableCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableCredentials)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableCredentialsOutput) ToGetFlinkMaterializedTableCredentialsOutput() GetFlinkMaterializedTableCredentialsOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableCredentialsOutput) ToGetFlinkMaterializedTableCredentialsOutputWithContext(ctx context.Context) GetFlinkMaterializedTableCredentialsOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableCredentialsOutput) ToGetFlinkMaterializedTableCredentialsPtrOutput() GetFlinkMaterializedTableCredentialsPtrOutput {
+	return o.ToGetFlinkMaterializedTableCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetFlinkMaterializedTableCredentialsOutput) ToGetFlinkMaterializedTableCredentialsPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFlinkMaterializedTableCredentials) *GetFlinkMaterializedTableCredentials {
+		return &v
+	}).(GetFlinkMaterializedTableCredentialsPtrOutput)
+}
+
+// The Flink API Key.
+func (o GetFlinkMaterializedTableCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Flink API Secret.
+//
+// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+//
+// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+//
+// > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewRoleBinding(ctx, "identity-pool-assigner", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.String("User:pool-abc123"),
+//				RoleName:   pulumi.String("Assigner"),
+//				CrnPattern: pulumi.Sprintf("%v/service-account=sa-def456", main.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+func (o GetFlinkMaterializedTableCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetFlinkMaterializedTableCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkMaterializedTableCredentials)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableCredentialsPtrOutput) ToGetFlinkMaterializedTableCredentialsPtrOutput() GetFlinkMaterializedTableCredentialsPtrOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableCredentialsPtrOutput) ToGetFlinkMaterializedTableCredentialsPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableCredentialsPtrOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableCredentialsPtrOutput) Elem() GetFlinkMaterializedTableCredentialsOutput {
+	return o.ApplyT(func(v *GetFlinkMaterializedTableCredentials) GetFlinkMaterializedTableCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetFlinkMaterializedTableCredentials
+		return ret
+	}).(GetFlinkMaterializedTableCredentialsOutput)
+}
+
+// The Flink API Key.
+func (o GetFlinkMaterializedTableCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFlinkMaterializedTableCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Flink API Secret.
+//
+// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+//
+// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+//
+// > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewRoleBinding(ctx, "identity-pool-assigner", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.String("User:pool-abc123"),
+//				RoleName:   pulumi.String("Assigner"),
+//				CrnPattern: pulumi.Sprintf("%v/service-account=sa-def456", main.ResourceName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+func (o GetFlinkMaterializedTableCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFlinkMaterializedTableCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFlinkMaterializedTableDistribution struct {
+	// (Integer) The number of buckets the table is distributed by.
+	BucketCount int `pulumi:"bucketCount"`
+	// (Set of Strings) The names of the columns the table is distributed by.
+	Keys []string `pulumi:"keys"`
+}
+
+// GetFlinkMaterializedTableDistributionInput is an input type that accepts GetFlinkMaterializedTableDistributionArgs and GetFlinkMaterializedTableDistributionOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableDistributionInput` via:
+//
+//	GetFlinkMaterializedTableDistributionArgs{...}
+type GetFlinkMaterializedTableDistributionInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableDistributionOutput() GetFlinkMaterializedTableDistributionOutput
+	ToGetFlinkMaterializedTableDistributionOutputWithContext(context.Context) GetFlinkMaterializedTableDistributionOutput
+}
+
+type GetFlinkMaterializedTableDistributionArgs struct {
+	// (Integer) The number of buckets the table is distributed by.
+	BucketCount pulumi.IntInput `pulumi:"bucketCount"`
+	// (Set of Strings) The names of the columns the table is distributed by.
+	Keys pulumi.StringArrayInput `pulumi:"keys"`
+}
+
+func (GetFlinkMaterializedTableDistributionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableDistribution)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableDistributionArgs) ToGetFlinkMaterializedTableDistributionOutput() GetFlinkMaterializedTableDistributionOutput {
+	return i.ToGetFlinkMaterializedTableDistributionOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableDistributionArgs) ToGetFlinkMaterializedTableDistributionOutputWithContext(ctx context.Context) GetFlinkMaterializedTableDistributionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableDistributionOutput)
+}
+
+// GetFlinkMaterializedTableDistributionArrayInput is an input type that accepts GetFlinkMaterializedTableDistributionArray and GetFlinkMaterializedTableDistributionArrayOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableDistributionArrayInput` via:
+//
+//	GetFlinkMaterializedTableDistributionArray{ GetFlinkMaterializedTableDistributionArgs{...} }
+type GetFlinkMaterializedTableDistributionArrayInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableDistributionArrayOutput() GetFlinkMaterializedTableDistributionArrayOutput
+	ToGetFlinkMaterializedTableDistributionArrayOutputWithContext(context.Context) GetFlinkMaterializedTableDistributionArrayOutput
+}
+
+type GetFlinkMaterializedTableDistributionArray []GetFlinkMaterializedTableDistributionInput
+
+func (GetFlinkMaterializedTableDistributionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableDistribution)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableDistributionArray) ToGetFlinkMaterializedTableDistributionArrayOutput() GetFlinkMaterializedTableDistributionArrayOutput {
+	return i.ToGetFlinkMaterializedTableDistributionArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableDistributionArray) ToGetFlinkMaterializedTableDistributionArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableDistributionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableDistributionArrayOutput)
+}
+
+type GetFlinkMaterializedTableDistributionOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableDistributionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableDistribution)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableDistributionOutput) ToGetFlinkMaterializedTableDistributionOutput() GetFlinkMaterializedTableDistributionOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableDistributionOutput) ToGetFlinkMaterializedTableDistributionOutputWithContext(ctx context.Context) GetFlinkMaterializedTableDistributionOutput {
+	return o
+}
+
+// (Integer) The number of buckets the table is distributed by.
+func (o GetFlinkMaterializedTableDistributionOutput) BucketCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableDistribution) int { return v.BucketCount }).(pulumi.IntOutput)
+}
+
+// (Set of Strings) The names of the columns the table is distributed by.
+func (o GetFlinkMaterializedTableDistributionOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableDistribution) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+type GetFlinkMaterializedTableDistributionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableDistributionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableDistribution)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableDistributionArrayOutput) ToGetFlinkMaterializedTableDistributionArrayOutput() GetFlinkMaterializedTableDistributionArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableDistributionArrayOutput) ToGetFlinkMaterializedTableDistributionArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableDistributionArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableDistributionArrayOutput) Index(i pulumi.IntInput) GetFlinkMaterializedTableDistributionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlinkMaterializedTableDistribution {
+		return vs[0].([]GetFlinkMaterializedTableDistribution)[vs[1].(int)]
+	}).(GetFlinkMaterializedTableDistributionOutput)
+}
+
+type GetFlinkMaterializedTableEnvironment struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetFlinkMaterializedTableEnvironmentInput is an input type that accepts GetFlinkMaterializedTableEnvironmentArgs and GetFlinkMaterializedTableEnvironmentOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableEnvironmentInput` via:
+//
+//	GetFlinkMaterializedTableEnvironmentArgs{...}
+type GetFlinkMaterializedTableEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableEnvironmentOutput() GetFlinkMaterializedTableEnvironmentOutput
+	ToGetFlinkMaterializedTableEnvironmentOutputWithContext(context.Context) GetFlinkMaterializedTableEnvironmentOutput
+}
+
+type GetFlinkMaterializedTableEnvironmentArgs struct {
+	// The ID of the Environment, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetFlinkMaterializedTableEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableEnvironment)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableEnvironmentArgs) ToGetFlinkMaterializedTableEnvironmentOutput() GetFlinkMaterializedTableEnvironmentOutput {
+	return i.ToGetFlinkMaterializedTableEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableEnvironmentArgs) ToGetFlinkMaterializedTableEnvironmentOutputWithContext(ctx context.Context) GetFlinkMaterializedTableEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableEnvironmentOutput)
+}
+
+func (i GetFlinkMaterializedTableEnvironmentArgs) ToGetFlinkMaterializedTableEnvironmentPtrOutput() GetFlinkMaterializedTableEnvironmentPtrOutput {
+	return i.ToGetFlinkMaterializedTableEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableEnvironmentArgs) ToGetFlinkMaterializedTableEnvironmentPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableEnvironmentOutput).ToGetFlinkMaterializedTableEnvironmentPtrOutputWithContext(ctx)
+}
+
+// GetFlinkMaterializedTableEnvironmentPtrInput is an input type that accepts GetFlinkMaterializedTableEnvironmentArgs, GetFlinkMaterializedTableEnvironmentPtr and GetFlinkMaterializedTableEnvironmentPtrOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableEnvironmentPtrInput` via:
+//
+//	        GetFlinkMaterializedTableEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFlinkMaterializedTableEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableEnvironmentPtrOutput() GetFlinkMaterializedTableEnvironmentPtrOutput
+	ToGetFlinkMaterializedTableEnvironmentPtrOutputWithContext(context.Context) GetFlinkMaterializedTableEnvironmentPtrOutput
+}
+
+type getFlinkMaterializedTableEnvironmentPtrType GetFlinkMaterializedTableEnvironmentArgs
+
+func GetFlinkMaterializedTableEnvironmentPtr(v *GetFlinkMaterializedTableEnvironmentArgs) GetFlinkMaterializedTableEnvironmentPtrInput {
+	return (*getFlinkMaterializedTableEnvironmentPtrType)(v)
+}
+
+func (*getFlinkMaterializedTableEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkMaterializedTableEnvironment)(nil)).Elem()
+}
+
+func (i *getFlinkMaterializedTableEnvironmentPtrType) ToGetFlinkMaterializedTableEnvironmentPtrOutput() GetFlinkMaterializedTableEnvironmentPtrOutput {
+	return i.ToGetFlinkMaterializedTableEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *getFlinkMaterializedTableEnvironmentPtrType) ToGetFlinkMaterializedTableEnvironmentPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableEnvironmentPtrOutput)
+}
+
+type GetFlinkMaterializedTableEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableEnvironment)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableEnvironmentOutput) ToGetFlinkMaterializedTableEnvironmentOutput() GetFlinkMaterializedTableEnvironmentOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableEnvironmentOutput) ToGetFlinkMaterializedTableEnvironmentOutputWithContext(ctx context.Context) GetFlinkMaterializedTableEnvironmentOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableEnvironmentOutput) ToGetFlinkMaterializedTableEnvironmentPtrOutput() GetFlinkMaterializedTableEnvironmentPtrOutput {
+	return o.ToGetFlinkMaterializedTableEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o GetFlinkMaterializedTableEnvironmentOutput) ToGetFlinkMaterializedTableEnvironmentPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFlinkMaterializedTableEnvironment) *GetFlinkMaterializedTableEnvironment {
+		return &v
+	}).(GetFlinkMaterializedTableEnvironmentPtrOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o GetFlinkMaterializedTableEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetFlinkMaterializedTableEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkMaterializedTableEnvironment)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableEnvironmentPtrOutput) ToGetFlinkMaterializedTableEnvironmentPtrOutput() GetFlinkMaterializedTableEnvironmentPtrOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableEnvironmentPtrOutput) ToGetFlinkMaterializedTableEnvironmentPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableEnvironmentPtrOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableEnvironmentPtrOutput) Elem() GetFlinkMaterializedTableEnvironmentOutput {
+	return o.ApplyT(func(v *GetFlinkMaterializedTableEnvironment) GetFlinkMaterializedTableEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret GetFlinkMaterializedTableEnvironment
+		return ret
+	}).(GetFlinkMaterializedTableEnvironmentOutput)
+}
+
+// The ID of the Environment, for example, `env-abc123`.
+func (o GetFlinkMaterializedTableEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFlinkMaterializedTableEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFlinkMaterializedTableKafkaCluster struct {
+	// (String) The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetFlinkMaterializedTableKafkaClusterInput is an input type that accepts GetFlinkMaterializedTableKafkaClusterArgs and GetFlinkMaterializedTableKafkaClusterOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableKafkaClusterInput` via:
+//
+//	GetFlinkMaterializedTableKafkaClusterArgs{...}
+type GetFlinkMaterializedTableKafkaClusterInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableKafkaClusterOutput() GetFlinkMaterializedTableKafkaClusterOutput
+	ToGetFlinkMaterializedTableKafkaClusterOutputWithContext(context.Context) GetFlinkMaterializedTableKafkaClusterOutput
+}
+
+type GetFlinkMaterializedTableKafkaClusterArgs struct {
+	// (String) The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetFlinkMaterializedTableKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableKafkaCluster)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableKafkaClusterArgs) ToGetFlinkMaterializedTableKafkaClusterOutput() GetFlinkMaterializedTableKafkaClusterOutput {
+	return i.ToGetFlinkMaterializedTableKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableKafkaClusterArgs) ToGetFlinkMaterializedTableKafkaClusterOutputWithContext(ctx context.Context) GetFlinkMaterializedTableKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableKafkaClusterOutput)
+}
+
+// GetFlinkMaterializedTableKafkaClusterArrayInput is an input type that accepts GetFlinkMaterializedTableKafkaClusterArray and GetFlinkMaterializedTableKafkaClusterArrayOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableKafkaClusterArrayInput` via:
+//
+//	GetFlinkMaterializedTableKafkaClusterArray{ GetFlinkMaterializedTableKafkaClusterArgs{...} }
+type GetFlinkMaterializedTableKafkaClusterArrayInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableKafkaClusterArrayOutput() GetFlinkMaterializedTableKafkaClusterArrayOutput
+	ToGetFlinkMaterializedTableKafkaClusterArrayOutputWithContext(context.Context) GetFlinkMaterializedTableKafkaClusterArrayOutput
+}
+
+type GetFlinkMaterializedTableKafkaClusterArray []GetFlinkMaterializedTableKafkaClusterInput
+
+func (GetFlinkMaterializedTableKafkaClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableKafkaCluster)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableKafkaClusterArray) ToGetFlinkMaterializedTableKafkaClusterArrayOutput() GetFlinkMaterializedTableKafkaClusterArrayOutput {
+	return i.ToGetFlinkMaterializedTableKafkaClusterArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableKafkaClusterArray) ToGetFlinkMaterializedTableKafkaClusterArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableKafkaClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableKafkaClusterArrayOutput)
+}
+
+type GetFlinkMaterializedTableKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableKafkaCluster)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableKafkaClusterOutput) ToGetFlinkMaterializedTableKafkaClusterOutput() GetFlinkMaterializedTableKafkaClusterOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableKafkaClusterOutput) ToGetFlinkMaterializedTableKafkaClusterOutputWithContext(ctx context.Context) GetFlinkMaterializedTableKafkaClusterOutput {
+	return o
+}
+
+// (String) The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+func (o GetFlinkMaterializedTableKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetFlinkMaterializedTableKafkaClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableKafkaClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableKafkaCluster)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableKafkaClusterArrayOutput) ToGetFlinkMaterializedTableKafkaClusterArrayOutput() GetFlinkMaterializedTableKafkaClusterArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableKafkaClusterArrayOutput) ToGetFlinkMaterializedTableKafkaClusterArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableKafkaClusterArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableKafkaClusterArrayOutput) Index(i pulumi.IntInput) GetFlinkMaterializedTableKafkaClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlinkMaterializedTableKafkaCluster {
+		return vs[0].([]GetFlinkMaterializedTableKafkaCluster)[vs[1].(int)]
+	}).(GetFlinkMaterializedTableKafkaClusterOutput)
+}
+
+type GetFlinkMaterializedTableOrganization struct {
+	// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+	Id string `pulumi:"id"`
+}
+
+// GetFlinkMaterializedTableOrganizationInput is an input type that accepts GetFlinkMaterializedTableOrganizationArgs and GetFlinkMaterializedTableOrganizationOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableOrganizationInput` via:
+//
+//	GetFlinkMaterializedTableOrganizationArgs{...}
+type GetFlinkMaterializedTableOrganizationInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableOrganizationOutput() GetFlinkMaterializedTableOrganizationOutput
+	ToGetFlinkMaterializedTableOrganizationOutputWithContext(context.Context) GetFlinkMaterializedTableOrganizationOutput
+}
+
+type GetFlinkMaterializedTableOrganizationArgs struct {
+	// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetFlinkMaterializedTableOrganizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableOrganization)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableOrganizationArgs) ToGetFlinkMaterializedTableOrganizationOutput() GetFlinkMaterializedTableOrganizationOutput {
+	return i.ToGetFlinkMaterializedTableOrganizationOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableOrganizationArgs) ToGetFlinkMaterializedTableOrganizationOutputWithContext(ctx context.Context) GetFlinkMaterializedTableOrganizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableOrganizationOutput)
+}
+
+func (i GetFlinkMaterializedTableOrganizationArgs) ToGetFlinkMaterializedTableOrganizationPtrOutput() GetFlinkMaterializedTableOrganizationPtrOutput {
+	return i.ToGetFlinkMaterializedTableOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableOrganizationArgs) ToGetFlinkMaterializedTableOrganizationPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableOrganizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableOrganizationOutput).ToGetFlinkMaterializedTableOrganizationPtrOutputWithContext(ctx)
+}
+
+// GetFlinkMaterializedTableOrganizationPtrInput is an input type that accepts GetFlinkMaterializedTableOrganizationArgs, GetFlinkMaterializedTableOrganizationPtr and GetFlinkMaterializedTableOrganizationPtrOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableOrganizationPtrInput` via:
+//
+//	        GetFlinkMaterializedTableOrganizationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFlinkMaterializedTableOrganizationPtrInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableOrganizationPtrOutput() GetFlinkMaterializedTableOrganizationPtrOutput
+	ToGetFlinkMaterializedTableOrganizationPtrOutputWithContext(context.Context) GetFlinkMaterializedTableOrganizationPtrOutput
+}
+
+type getFlinkMaterializedTableOrganizationPtrType GetFlinkMaterializedTableOrganizationArgs
+
+func GetFlinkMaterializedTableOrganizationPtr(v *GetFlinkMaterializedTableOrganizationArgs) GetFlinkMaterializedTableOrganizationPtrInput {
+	return (*getFlinkMaterializedTableOrganizationPtrType)(v)
+}
+
+func (*getFlinkMaterializedTableOrganizationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkMaterializedTableOrganization)(nil)).Elem()
+}
+
+func (i *getFlinkMaterializedTableOrganizationPtrType) ToGetFlinkMaterializedTableOrganizationPtrOutput() GetFlinkMaterializedTableOrganizationPtrOutput {
+	return i.ToGetFlinkMaterializedTableOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (i *getFlinkMaterializedTableOrganizationPtrType) ToGetFlinkMaterializedTableOrganizationPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableOrganizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableOrganizationPtrOutput)
+}
+
+type GetFlinkMaterializedTableOrganizationOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableOrganizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableOrganization)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableOrganizationOutput) ToGetFlinkMaterializedTableOrganizationOutput() GetFlinkMaterializedTableOrganizationOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableOrganizationOutput) ToGetFlinkMaterializedTableOrganizationOutputWithContext(ctx context.Context) GetFlinkMaterializedTableOrganizationOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableOrganizationOutput) ToGetFlinkMaterializedTableOrganizationPtrOutput() GetFlinkMaterializedTableOrganizationPtrOutput {
+	return o.ToGetFlinkMaterializedTableOrganizationPtrOutputWithContext(context.Background())
+}
+
+func (o GetFlinkMaterializedTableOrganizationOutput) ToGetFlinkMaterializedTableOrganizationPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableOrganizationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFlinkMaterializedTableOrganization) *GetFlinkMaterializedTableOrganization {
+		return &v
+	}).(GetFlinkMaterializedTableOrganizationPtrOutput)
+}
+
+// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+func (o GetFlinkMaterializedTableOrganizationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableOrganization) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetFlinkMaterializedTableOrganizationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableOrganizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkMaterializedTableOrganization)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableOrganizationPtrOutput) ToGetFlinkMaterializedTableOrganizationPtrOutput() GetFlinkMaterializedTableOrganizationPtrOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableOrganizationPtrOutput) ToGetFlinkMaterializedTableOrganizationPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTableOrganizationPtrOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableOrganizationPtrOutput) Elem() GetFlinkMaterializedTableOrganizationOutput {
+	return o.ApplyT(func(v *GetFlinkMaterializedTableOrganization) GetFlinkMaterializedTableOrganization {
+		if v != nil {
+			return *v
+		}
+		var ret GetFlinkMaterializedTableOrganization
+		return ret
+	}).(GetFlinkMaterializedTableOrganizationOutput)
+}
+
+// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+func (o GetFlinkMaterializedTableOrganizationPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFlinkMaterializedTableOrganization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFlinkMaterializedTablePrincipal struct {
+	// The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetFlinkMaterializedTablePrincipalInput is an input type that accepts GetFlinkMaterializedTablePrincipalArgs and GetFlinkMaterializedTablePrincipalOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTablePrincipalInput` via:
+//
+//	GetFlinkMaterializedTablePrincipalArgs{...}
+type GetFlinkMaterializedTablePrincipalInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTablePrincipalOutput() GetFlinkMaterializedTablePrincipalOutput
+	ToGetFlinkMaterializedTablePrincipalOutputWithContext(context.Context) GetFlinkMaterializedTablePrincipalOutput
+}
+
+type GetFlinkMaterializedTablePrincipalArgs struct {
+	// The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetFlinkMaterializedTablePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTablePrincipal)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTablePrincipalArgs) ToGetFlinkMaterializedTablePrincipalOutput() GetFlinkMaterializedTablePrincipalOutput {
+	return i.ToGetFlinkMaterializedTablePrincipalOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTablePrincipalArgs) ToGetFlinkMaterializedTablePrincipalOutputWithContext(ctx context.Context) GetFlinkMaterializedTablePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTablePrincipalOutput)
+}
+
+func (i GetFlinkMaterializedTablePrincipalArgs) ToGetFlinkMaterializedTablePrincipalPtrOutput() GetFlinkMaterializedTablePrincipalPtrOutput {
+	return i.ToGetFlinkMaterializedTablePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTablePrincipalArgs) ToGetFlinkMaterializedTablePrincipalPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTablePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTablePrincipalOutput).ToGetFlinkMaterializedTablePrincipalPtrOutputWithContext(ctx)
+}
+
+// GetFlinkMaterializedTablePrincipalPtrInput is an input type that accepts GetFlinkMaterializedTablePrincipalArgs, GetFlinkMaterializedTablePrincipalPtr and GetFlinkMaterializedTablePrincipalPtrOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTablePrincipalPtrInput` via:
+//
+//	        GetFlinkMaterializedTablePrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFlinkMaterializedTablePrincipalPtrInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTablePrincipalPtrOutput() GetFlinkMaterializedTablePrincipalPtrOutput
+	ToGetFlinkMaterializedTablePrincipalPtrOutputWithContext(context.Context) GetFlinkMaterializedTablePrincipalPtrOutput
+}
+
+type getFlinkMaterializedTablePrincipalPtrType GetFlinkMaterializedTablePrincipalArgs
+
+func GetFlinkMaterializedTablePrincipalPtr(v *GetFlinkMaterializedTablePrincipalArgs) GetFlinkMaterializedTablePrincipalPtrInput {
+	return (*getFlinkMaterializedTablePrincipalPtrType)(v)
+}
+
+func (*getFlinkMaterializedTablePrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkMaterializedTablePrincipal)(nil)).Elem()
+}
+
+func (i *getFlinkMaterializedTablePrincipalPtrType) ToGetFlinkMaterializedTablePrincipalPtrOutput() GetFlinkMaterializedTablePrincipalPtrOutput {
+	return i.ToGetFlinkMaterializedTablePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *getFlinkMaterializedTablePrincipalPtrType) ToGetFlinkMaterializedTablePrincipalPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTablePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTablePrincipalPtrOutput)
+}
+
+type GetFlinkMaterializedTablePrincipalOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTablePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTablePrincipal)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTablePrincipalOutput) ToGetFlinkMaterializedTablePrincipalOutput() GetFlinkMaterializedTablePrincipalOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTablePrincipalOutput) ToGetFlinkMaterializedTablePrincipalOutputWithContext(ctx context.Context) GetFlinkMaterializedTablePrincipalOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTablePrincipalOutput) ToGetFlinkMaterializedTablePrincipalPtrOutput() GetFlinkMaterializedTablePrincipalPtrOutput {
+	return o.ToGetFlinkMaterializedTablePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o GetFlinkMaterializedTablePrincipalOutput) ToGetFlinkMaterializedTablePrincipalPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTablePrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFlinkMaterializedTablePrincipal) *GetFlinkMaterializedTablePrincipal {
+		return &v
+	}).(GetFlinkMaterializedTablePrincipalPtrOutput)
+}
+
+// The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+func (o GetFlinkMaterializedTablePrincipalOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTablePrincipal) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetFlinkMaterializedTablePrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTablePrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFlinkMaterializedTablePrincipal)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTablePrincipalPtrOutput) ToGetFlinkMaterializedTablePrincipalPtrOutput() GetFlinkMaterializedTablePrincipalPtrOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTablePrincipalPtrOutput) ToGetFlinkMaterializedTablePrincipalPtrOutputWithContext(ctx context.Context) GetFlinkMaterializedTablePrincipalPtrOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTablePrincipalPtrOutput) Elem() GetFlinkMaterializedTablePrincipalOutput {
+	return o.ApplyT(func(v *GetFlinkMaterializedTablePrincipal) GetFlinkMaterializedTablePrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret GetFlinkMaterializedTablePrincipal
+		return ret
+	}).(GetFlinkMaterializedTablePrincipalOutput)
+}
+
+// The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+func (o GetFlinkMaterializedTablePrincipalPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFlinkMaterializedTablePrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFlinkMaterializedTableWatermark struct {
+	// (String) The name of the watermark column.
+	Column string `pulumi:"column"`
+	// (String) The watermark expression.
+	Expression string `pulumi:"expression"`
+}
+
+// GetFlinkMaterializedTableWatermarkInput is an input type that accepts GetFlinkMaterializedTableWatermarkArgs and GetFlinkMaterializedTableWatermarkOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableWatermarkInput` via:
+//
+//	GetFlinkMaterializedTableWatermarkArgs{...}
+type GetFlinkMaterializedTableWatermarkInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableWatermarkOutput() GetFlinkMaterializedTableWatermarkOutput
+	ToGetFlinkMaterializedTableWatermarkOutputWithContext(context.Context) GetFlinkMaterializedTableWatermarkOutput
+}
+
+type GetFlinkMaterializedTableWatermarkArgs struct {
+	// (String) The name of the watermark column.
+	Column pulumi.StringInput `pulumi:"column"`
+	// (String) The watermark expression.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (GetFlinkMaterializedTableWatermarkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableWatermark)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableWatermarkArgs) ToGetFlinkMaterializedTableWatermarkOutput() GetFlinkMaterializedTableWatermarkOutput {
+	return i.ToGetFlinkMaterializedTableWatermarkOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableWatermarkArgs) ToGetFlinkMaterializedTableWatermarkOutputWithContext(ctx context.Context) GetFlinkMaterializedTableWatermarkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableWatermarkOutput)
+}
+
+// GetFlinkMaterializedTableWatermarkArrayInput is an input type that accepts GetFlinkMaterializedTableWatermarkArray and GetFlinkMaterializedTableWatermarkArrayOutput values.
+// You can construct a concrete instance of `GetFlinkMaterializedTableWatermarkArrayInput` via:
+//
+//	GetFlinkMaterializedTableWatermarkArray{ GetFlinkMaterializedTableWatermarkArgs{...} }
+type GetFlinkMaterializedTableWatermarkArrayInput interface {
+	pulumi.Input
+
+	ToGetFlinkMaterializedTableWatermarkArrayOutput() GetFlinkMaterializedTableWatermarkArrayOutput
+	ToGetFlinkMaterializedTableWatermarkArrayOutputWithContext(context.Context) GetFlinkMaterializedTableWatermarkArrayOutput
+}
+
+type GetFlinkMaterializedTableWatermarkArray []GetFlinkMaterializedTableWatermarkInput
+
+func (GetFlinkMaterializedTableWatermarkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableWatermark)(nil)).Elem()
+}
+
+func (i GetFlinkMaterializedTableWatermarkArray) ToGetFlinkMaterializedTableWatermarkArrayOutput() GetFlinkMaterializedTableWatermarkArrayOutput {
+	return i.ToGetFlinkMaterializedTableWatermarkArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlinkMaterializedTableWatermarkArray) ToGetFlinkMaterializedTableWatermarkArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableWatermarkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkMaterializedTableWatermarkArrayOutput)
+}
+
+type GetFlinkMaterializedTableWatermarkOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableWatermarkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkMaterializedTableWatermark)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableWatermarkOutput) ToGetFlinkMaterializedTableWatermarkOutput() GetFlinkMaterializedTableWatermarkOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableWatermarkOutput) ToGetFlinkMaterializedTableWatermarkOutputWithContext(ctx context.Context) GetFlinkMaterializedTableWatermarkOutput {
+	return o
+}
+
+// (String) The name of the watermark column.
+func (o GetFlinkMaterializedTableWatermarkOutput) Column() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableWatermark) string { return v.Column }).(pulumi.StringOutput)
+}
+
+// (String) The watermark expression.
+func (o GetFlinkMaterializedTableWatermarkOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkMaterializedTableWatermark) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type GetFlinkMaterializedTableWatermarkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkMaterializedTableWatermarkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlinkMaterializedTableWatermark)(nil)).Elem()
+}
+
+func (o GetFlinkMaterializedTableWatermarkArrayOutput) ToGetFlinkMaterializedTableWatermarkArrayOutput() GetFlinkMaterializedTableWatermarkArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableWatermarkArrayOutput) ToGetFlinkMaterializedTableWatermarkArrayOutputWithContext(ctx context.Context) GetFlinkMaterializedTableWatermarkArrayOutput {
+	return o
+}
+
+func (o GetFlinkMaterializedTableWatermarkArrayOutput) Index(i pulumi.IntInput) GetFlinkMaterializedTableWatermarkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlinkMaterializedTableWatermark {
+		return vs[0].([]GetFlinkMaterializedTableWatermark)[vs[1].(int)]
+	}).(GetFlinkMaterializedTableWatermarkOutput)
 }
 
 type GetGatewayAwsEgressPrivateLinkGateway struct {
@@ -42120,6 +45974,8 @@ type GetSchemaRuleset struct {
 	// (Optional List of Blocks) supports the following:
 	DomainRules []GetSchemaRulesetDomainRule `pulumi:"domainRules"`
 	// (Optional List of Blocks) supports the following:
+	EncodingRules []GetSchemaRulesetEncodingRule `pulumi:"encodingRules"`
+	// (Optional List of Blocks) supports the following:
 	MigrationRules []GetSchemaRulesetMigrationRule `pulumi:"migrationRules"`
 }
 
@@ -42137,6 +45993,8 @@ type GetSchemaRulesetInput interface {
 type GetSchemaRulesetArgs struct {
 	// (Optional List of Blocks) supports the following:
 	DomainRules GetSchemaRulesetDomainRuleArrayInput `pulumi:"domainRules"`
+	// (Optional List of Blocks) supports the following:
+	EncodingRules GetSchemaRulesetEncodingRuleArrayInput `pulumi:"encodingRules"`
 	// (Optional List of Blocks) supports the following:
 	MigrationRules GetSchemaRulesetMigrationRuleArrayInput `pulumi:"migrationRules"`
 }
@@ -42224,6 +46082,11 @@ func (o GetSchemaRulesetOutput) DomainRules() GetSchemaRulesetDomainRuleArrayOut
 }
 
 // (Optional List of Blocks) supports the following:
+func (o GetSchemaRulesetOutput) EncodingRules() GetSchemaRulesetEncodingRuleArrayOutput {
+	return o.ApplyT(func(v GetSchemaRuleset) []GetSchemaRulesetEncodingRule { return v.EncodingRules }).(GetSchemaRulesetEncodingRuleArrayOutput)
+}
+
+// (Optional List of Blocks) supports the following:
 func (o GetSchemaRulesetOutput) MigrationRules() GetSchemaRulesetMigrationRuleArrayOutput {
 	return o.ApplyT(func(v GetSchemaRuleset) []GetSchemaRulesetMigrationRule { return v.MigrationRules }).(GetSchemaRulesetMigrationRuleArrayOutput)
 }
@@ -42263,6 +46126,16 @@ func (o GetSchemaRulesetPtrOutput) DomainRules() GetSchemaRulesetDomainRuleArray
 }
 
 // (Optional List of Blocks) supports the following:
+func (o GetSchemaRulesetPtrOutput) EncodingRules() GetSchemaRulesetEncodingRuleArrayOutput {
+	return o.ApplyT(func(v *GetSchemaRuleset) []GetSchemaRulesetEncodingRule {
+		if v == nil {
+			return nil
+		}
+		return v.EncodingRules
+	}).(GetSchemaRulesetEncodingRuleArrayOutput)
+}
+
+// (Optional List of Blocks) supports the following:
 func (o GetSchemaRulesetPtrOutput) MigrationRules() GetSchemaRulesetMigrationRuleArrayOutput {
 	return o.ApplyT(func(v *GetSchemaRuleset) []GetSchemaRulesetMigrationRule {
 		if v == nil {
@@ -42293,7 +46166,7 @@ type GetSchemaRulesetDomainRule struct {
 	Params map[string]string `pulumi:"params"`
 	// (Optional String List) The tags to which the rule applies, if any.
 	Tags []string `pulumi:"tags"`
-	// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+	// (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type string `pulumi:"type"`
 }
 
@@ -42329,7 +46202,7 @@ type GetSchemaRulesetDomainRuleArgs struct {
 	Params pulumi.StringMapInput `pulumi:"params"`
 	// (Optional String List) The tags to which the rule applies, if any.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
-	// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+	// (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -42434,7 +46307,7 @@ func (o GetSchemaRulesetDomainRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSchemaRulesetDomainRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+// (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 func (o GetSchemaRulesetDomainRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -42459,6 +46332,193 @@ func (o GetSchemaRulesetDomainRuleArrayOutput) Index(i pulumi.IntInput) GetSchem
 	}).(GetSchemaRulesetDomainRuleOutput)
 }
 
+type GetSchemaRulesetEncodingRule struct {
+	// (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+	Disabled *bool `pulumi:"disabled"`
+	// (Optional String) An optional description of the rule.
+	Doc *string `pulumi:"doc"`
+	// (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+	Expr *string `pulumi:"expr"`
+	// (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+	Kind string `pulumi:"kind"`
+	// (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+	Mode string `pulumi:"mode"`
+	// (Required String) A user-defined name that can be used to reference the rule.
+	Name string `pulumi:"name"`
+	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure *string `pulumi:"onFailure"`
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess *string `pulumi:"onSuccess"`
+	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	Params map[string]string `pulumi:"params"`
+	// (Optional String List) The tags to which the rule applies, if any.
+	Tags []string `pulumi:"tags"`
+	// (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+	Type string `pulumi:"type"`
+}
+
+// GetSchemaRulesetEncodingRuleInput is an input type that accepts GetSchemaRulesetEncodingRuleArgs and GetSchemaRulesetEncodingRuleOutput values.
+// You can construct a concrete instance of `GetSchemaRulesetEncodingRuleInput` via:
+//
+//	GetSchemaRulesetEncodingRuleArgs{...}
+type GetSchemaRulesetEncodingRuleInput interface {
+	pulumi.Input
+
+	ToGetSchemaRulesetEncodingRuleOutput() GetSchemaRulesetEncodingRuleOutput
+	ToGetSchemaRulesetEncodingRuleOutputWithContext(context.Context) GetSchemaRulesetEncodingRuleOutput
+}
+
+type GetSchemaRulesetEncodingRuleArgs struct {
+	// (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
+	// (Optional String) An optional description of the rule.
+	Doc pulumi.StringPtrInput `pulumi:"doc"`
+	// (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+	Expr pulumi.StringPtrInput `pulumi:"expr"`
+	// (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// (Required String) A user-defined name that can be used to reference the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
+	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	Params pulumi.StringMapInput `pulumi:"params"`
+	// (Optional String List) The tags to which the rule applies, if any.
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
+	// (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetSchemaRulesetEncodingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRulesetEncodingRule)(nil)).Elem()
+}
+
+func (i GetSchemaRulesetEncodingRuleArgs) ToGetSchemaRulesetEncodingRuleOutput() GetSchemaRulesetEncodingRuleOutput {
+	return i.ToGetSchemaRulesetEncodingRuleOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRulesetEncodingRuleArgs) ToGetSchemaRulesetEncodingRuleOutputWithContext(ctx context.Context) GetSchemaRulesetEncodingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRulesetEncodingRuleOutput)
+}
+
+// GetSchemaRulesetEncodingRuleArrayInput is an input type that accepts GetSchemaRulesetEncodingRuleArray and GetSchemaRulesetEncodingRuleArrayOutput values.
+// You can construct a concrete instance of `GetSchemaRulesetEncodingRuleArrayInput` via:
+//
+//	GetSchemaRulesetEncodingRuleArray{ GetSchemaRulesetEncodingRuleArgs{...} }
+type GetSchemaRulesetEncodingRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetSchemaRulesetEncodingRuleArrayOutput() GetSchemaRulesetEncodingRuleArrayOutput
+	ToGetSchemaRulesetEncodingRuleArrayOutputWithContext(context.Context) GetSchemaRulesetEncodingRuleArrayOutput
+}
+
+type GetSchemaRulesetEncodingRuleArray []GetSchemaRulesetEncodingRuleInput
+
+func (GetSchemaRulesetEncodingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaRulesetEncodingRule)(nil)).Elem()
+}
+
+func (i GetSchemaRulesetEncodingRuleArray) ToGetSchemaRulesetEncodingRuleArrayOutput() GetSchemaRulesetEncodingRuleArrayOutput {
+	return i.ToGetSchemaRulesetEncodingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRulesetEncodingRuleArray) ToGetSchemaRulesetEncodingRuleArrayOutputWithContext(ctx context.Context) GetSchemaRulesetEncodingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRulesetEncodingRuleArrayOutput)
+}
+
+type GetSchemaRulesetEncodingRuleOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRulesetEncodingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRulesetEncodingRule)(nil)).Elem()
+}
+
+func (o GetSchemaRulesetEncodingRuleOutput) ToGetSchemaRulesetEncodingRuleOutput() GetSchemaRulesetEncodingRuleOutput {
+	return o
+}
+
+func (o GetSchemaRulesetEncodingRuleOutput) ToGetSchemaRulesetEncodingRuleOutputWithContext(ctx context.Context) GetSchemaRulesetEncodingRuleOutput {
+	return o
+}
+
+// (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+func (o GetSchemaRulesetEncodingRuleOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetEncodingRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional String) An optional description of the rule.
+func (o GetSchemaRulesetEncodingRuleOutput) Doc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetEncodingRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
+}
+
+// (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+func (o GetSchemaRulesetEncodingRuleOutput) Expr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetEncodingRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+func (o GetSchemaRulesetEncodingRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetEncodingRule) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+func (o GetSchemaRulesetEncodingRuleOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetEncodingRule) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// (Required String) A user-defined name that can be used to reference the rule.
+func (o GetSchemaRulesetEncodingRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetEncodingRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+func (o GetSchemaRulesetEncodingRuleOutput) OnFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetEncodingRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
+}
+
+// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+func (o GetSchemaRulesetEncodingRuleOutput) OnSuccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemaRulesetEncodingRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
+}
+
+// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+func (o GetSchemaRulesetEncodingRuleOutput) Params() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSchemaRulesetEncodingRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
+}
+
+// (Optional String List) The tags to which the rule applies, if any.
+func (o GetSchemaRulesetEncodingRuleOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSchemaRulesetEncodingRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+func (o GetSchemaRulesetEncodingRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetEncodingRule) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetSchemaRulesetEncodingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRulesetEncodingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaRulesetEncodingRule)(nil)).Elem()
+}
+
+func (o GetSchemaRulesetEncodingRuleArrayOutput) ToGetSchemaRulesetEncodingRuleArrayOutput() GetSchemaRulesetEncodingRuleArrayOutput {
+	return o
+}
+
+func (o GetSchemaRulesetEncodingRuleArrayOutput) ToGetSchemaRulesetEncodingRuleArrayOutputWithContext(ctx context.Context) GetSchemaRulesetEncodingRuleArrayOutput {
+	return o
+}
+
+func (o GetSchemaRulesetEncodingRuleArrayOutput) Index(i pulumi.IntInput) GetSchemaRulesetEncodingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSchemaRulesetEncodingRule {
+		return vs[0].([]GetSchemaRulesetEncodingRule)[vs[1].(int)]
+	}).(GetSchemaRulesetEncodingRuleOutput)
+}
+
 type GetSchemaRulesetMigrationRule struct {
 	// (Optional Boolean) The boolean flag to control whether the rule should be disabled.
 	Disabled *bool `pulumi:"disabled"`
@@ -42480,7 +46540,7 @@ type GetSchemaRulesetMigrationRule struct {
 	Params map[string]string `pulumi:"params"`
 	// (Optional String List) The tags to which the rule applies, if any.
 	Tags []string `pulumi:"tags"`
-	// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+	// (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type string `pulumi:"type"`
 }
 
@@ -42516,7 +46576,7 @@ type GetSchemaRulesetMigrationRuleArgs struct {
 	Params pulumi.StringMapInput `pulumi:"params"`
 	// (Optional String List) The tags to which the rule applies, if any.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
-	// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+	// (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -42621,7 +46681,7 @@ func (o GetSchemaRulesetMigrationRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+// (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
 func (o GetSchemaRulesetMigrationRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -45907,6 +49967,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionOrganizationPtrInput)(nil)).Elem(), FlinkConnectionOrganizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionPrincipalInput)(nil)).Elem(), FlinkConnectionPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkConnectionPrincipalPtrInput)(nil)).Elem(), FlinkConnectionPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableColumnInput)(nil)).Elem(), FlinkMaterializedTableColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableColumnArrayInput)(nil)).Elem(), FlinkMaterializedTableColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableColumnColumnsComputedInput)(nil)).Elem(), FlinkMaterializedTableColumnColumnsComputedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableColumnColumnsComputedArrayInput)(nil)).Elem(), FlinkMaterializedTableColumnColumnsComputedArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableColumnColumnsMetadataInput)(nil)).Elem(), FlinkMaterializedTableColumnColumnsMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableColumnColumnsMetadataArrayInput)(nil)).Elem(), FlinkMaterializedTableColumnColumnsMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableColumnColumnsPhysicalInput)(nil)).Elem(), FlinkMaterializedTableColumnColumnsPhysicalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableColumnColumnsPhysicalArrayInput)(nil)).Elem(), FlinkMaterializedTableColumnColumnsPhysicalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableComputePoolInput)(nil)).Elem(), FlinkMaterializedTableComputePoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableComputePoolPtrInput)(nil)).Elem(), FlinkMaterializedTableComputePoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableConstraintInput)(nil)).Elem(), FlinkMaterializedTableConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableConstraintArrayInput)(nil)).Elem(), FlinkMaterializedTableConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableCredentialsInput)(nil)).Elem(), FlinkMaterializedTableCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableCredentialsPtrInput)(nil)).Elem(), FlinkMaterializedTableCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableDistributionInput)(nil)).Elem(), FlinkMaterializedTableDistributionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableDistributionPtrInput)(nil)).Elem(), FlinkMaterializedTableDistributionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableEnvironmentInput)(nil)).Elem(), FlinkMaterializedTableEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableEnvironmentPtrInput)(nil)).Elem(), FlinkMaterializedTableEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableKafkaClusterInput)(nil)).Elem(), FlinkMaterializedTableKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableKafkaClusterPtrInput)(nil)).Elem(), FlinkMaterializedTableKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableOrganizationInput)(nil)).Elem(), FlinkMaterializedTableOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableOrganizationPtrInput)(nil)).Elem(), FlinkMaterializedTableOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTablePrincipalInput)(nil)).Elem(), FlinkMaterializedTablePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTablePrincipalPtrInput)(nil)).Elem(), FlinkMaterializedTablePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableWatermarkInput)(nil)).Elem(), FlinkMaterializedTableWatermarkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkMaterializedTableWatermarkPtrInput)(nil)).Elem(), FlinkMaterializedTableWatermarkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementComputePoolInput)(nil)).Elem(), FlinkStatementComputePoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementComputePoolPtrInput)(nil)).Elem(), FlinkStatementComputePoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementCredentialsInput)(nil)).Elem(), FlinkStatementCredentialsArgs{})
@@ -46097,6 +50183,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetPtrInput)(nil)).Elem(), SchemaRulesetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetDomainRuleInput)(nil)).Elem(), SchemaRulesetDomainRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetDomainRuleArrayInput)(nil)).Elem(), SchemaRulesetDomainRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetEncodingRuleInput)(nil)).Elem(), SchemaRulesetEncodingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetEncodingRuleArrayInput)(nil)).Elem(), SchemaRulesetEncodingRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetMigrationRuleInput)(nil)).Elem(), SchemaRulesetMigrationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetMigrationRuleArrayInput)(nil)).Elem(), SchemaRulesetMigrationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaSchemaReferenceInput)(nil)).Elem(), SchemaSchemaReferenceArgs{})
@@ -46216,6 +50304,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionOrganizationPtrInput)(nil)).Elem(), GetFlinkConnectionOrganizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionPrincipalInput)(nil)).Elem(), GetFlinkConnectionPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkConnectionPrincipalPtrInput)(nil)).Elem(), GetFlinkConnectionPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableColumnInput)(nil)).Elem(), GetFlinkMaterializedTableColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableColumnArrayInput)(nil)).Elem(), GetFlinkMaterializedTableColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableColumnColumnsComputedInput)(nil)).Elem(), GetFlinkMaterializedTableColumnColumnsComputedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableColumnColumnsComputedArrayInput)(nil)).Elem(), GetFlinkMaterializedTableColumnColumnsComputedArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableColumnColumnsMetadataInput)(nil)).Elem(), GetFlinkMaterializedTableColumnColumnsMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableColumnColumnsMetadataArrayInput)(nil)).Elem(), GetFlinkMaterializedTableColumnColumnsMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableColumnColumnsPhysicalInput)(nil)).Elem(), GetFlinkMaterializedTableColumnColumnsPhysicalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableColumnColumnsPhysicalArrayInput)(nil)).Elem(), GetFlinkMaterializedTableColumnColumnsPhysicalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableComputePoolInput)(nil)).Elem(), GetFlinkMaterializedTableComputePoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableComputePoolPtrInput)(nil)).Elem(), GetFlinkMaterializedTableComputePoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableConstraintInput)(nil)).Elem(), GetFlinkMaterializedTableConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableConstraintArrayInput)(nil)).Elem(), GetFlinkMaterializedTableConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableCredentialsInput)(nil)).Elem(), GetFlinkMaterializedTableCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableCredentialsPtrInput)(nil)).Elem(), GetFlinkMaterializedTableCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableDistributionInput)(nil)).Elem(), GetFlinkMaterializedTableDistributionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableDistributionArrayInput)(nil)).Elem(), GetFlinkMaterializedTableDistributionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableEnvironmentInput)(nil)).Elem(), GetFlinkMaterializedTableEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableEnvironmentPtrInput)(nil)).Elem(), GetFlinkMaterializedTableEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableKafkaClusterInput)(nil)).Elem(), GetFlinkMaterializedTableKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableKafkaClusterArrayInput)(nil)).Elem(), GetFlinkMaterializedTableKafkaClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableOrganizationInput)(nil)).Elem(), GetFlinkMaterializedTableOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableOrganizationPtrInput)(nil)).Elem(), GetFlinkMaterializedTableOrganizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTablePrincipalInput)(nil)).Elem(), GetFlinkMaterializedTablePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTablePrincipalPtrInput)(nil)).Elem(), GetFlinkMaterializedTablePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableWatermarkInput)(nil)).Elem(), GetFlinkMaterializedTableWatermarkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkMaterializedTableWatermarkArrayInput)(nil)).Elem(), GetFlinkMaterializedTableWatermarkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayArrayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsIngressPrivateLinkGatewayInput)(nil)).Elem(), GetGatewayAwsIngressPrivateLinkGatewayArgs{})
@@ -46413,6 +50527,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetPtrInput)(nil)).Elem(), GetSchemaRulesetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetDomainRuleInput)(nil)).Elem(), GetSchemaRulesetDomainRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetDomainRuleArrayInput)(nil)).Elem(), GetSchemaRulesetDomainRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetEncodingRuleInput)(nil)).Elem(), GetSchemaRulesetEncodingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetEncodingRuleArrayInput)(nil)).Elem(), GetSchemaRulesetEncodingRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetMigrationRuleInput)(nil)).Elem(), GetSchemaRulesetMigrationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetMigrationRuleArrayInput)(nil)).Elem(), GetSchemaRulesetMigrationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaReferenceInput)(nil)).Elem(), GetSchemaSchemaReferenceArgs{})
@@ -46576,6 +50692,32 @@ func init() {
 	pulumi.RegisterOutputType(FlinkConnectionOrganizationPtrOutput{})
 	pulumi.RegisterOutputType(FlinkConnectionPrincipalOutput{})
 	pulumi.RegisterOutputType(FlinkConnectionPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableColumnOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableColumnArrayOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableColumnColumnsComputedOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableColumnColumnsComputedArrayOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableColumnColumnsMetadataOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableColumnColumnsMetadataArrayOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableColumnColumnsPhysicalOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableColumnColumnsPhysicalArrayOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableComputePoolOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableComputePoolPtrOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableConstraintOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableConstraintArrayOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableCredentialsOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableDistributionOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableDistributionPtrOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableEnvironmentOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableKafkaClusterOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableOrganizationOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableOrganizationPtrOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTablePrincipalOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTablePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableWatermarkOutput{})
+	pulumi.RegisterOutputType(FlinkMaterializedTableWatermarkPtrOutput{})
 	pulumi.RegisterOutputType(FlinkStatementComputePoolOutput{})
 	pulumi.RegisterOutputType(FlinkStatementComputePoolPtrOutput{})
 	pulumi.RegisterOutputType(FlinkStatementCredentialsOutput{})
@@ -46766,6 +50908,8 @@ func init() {
 	pulumi.RegisterOutputType(SchemaRulesetPtrOutput{})
 	pulumi.RegisterOutputType(SchemaRulesetDomainRuleOutput{})
 	pulumi.RegisterOutputType(SchemaRulesetDomainRuleArrayOutput{})
+	pulumi.RegisterOutputType(SchemaRulesetEncodingRuleOutput{})
+	pulumi.RegisterOutputType(SchemaRulesetEncodingRuleArrayOutput{})
 	pulumi.RegisterOutputType(SchemaRulesetMigrationRuleOutput{})
 	pulumi.RegisterOutputType(SchemaRulesetMigrationRuleArrayOutput{})
 	pulumi.RegisterOutputType(SchemaSchemaReferenceOutput{})
@@ -46885,6 +51029,32 @@ func init() {
 	pulumi.RegisterOutputType(GetFlinkConnectionOrganizationPtrOutput{})
 	pulumi.RegisterOutputType(GetFlinkConnectionPrincipalOutput{})
 	pulumi.RegisterOutputType(GetFlinkConnectionPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableColumnOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableColumnArrayOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableColumnColumnsComputedOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableColumnColumnsComputedArrayOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableColumnColumnsMetadataOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableColumnColumnsMetadataArrayOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableColumnColumnsPhysicalOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableColumnColumnsPhysicalArrayOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableComputePoolOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableComputePoolPtrOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableConstraintOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableCredentialsOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableDistributionOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableDistributionArrayOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableKafkaClusterOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableKafkaClusterArrayOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableOrganizationOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableOrganizationPtrOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTablePrincipalOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTablePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableWatermarkOutput{})
+	pulumi.RegisterOutputType(GetFlinkMaterializedTableWatermarkArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayAwsIngressPrivateLinkGatewayOutput{})
@@ -47082,6 +51252,8 @@ func init() {
 	pulumi.RegisterOutputType(GetSchemaRulesetPtrOutput{})
 	pulumi.RegisterOutputType(GetSchemaRulesetDomainRuleOutput{})
 	pulumi.RegisterOutputType(GetSchemaRulesetDomainRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetSchemaRulesetEncodingRuleOutput{})
+	pulumi.RegisterOutputType(GetSchemaRulesetEncodingRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetSchemaRulesetMigrationRuleOutput{})
 	pulumi.RegisterOutputType(GetSchemaRulesetMigrationRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetSchemaSchemaReferenceOutput{})

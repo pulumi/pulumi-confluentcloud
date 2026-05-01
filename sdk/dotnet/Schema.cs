@@ -195,11 +195,91 @@ namespace Pulumi.ConfluentCloud
     ///                     },
     ///                 },
     ///             },
+    ///             EncodingRules = new[]
+    ///             {
+    ///                 new ConfluentCloud.Inputs.SchemaRulesetEncodingRuleArgs
+    ///                 {
+    ///                     Name = "encryptCSPE",
+    ///                     Kind = "TRANSFORM",
+    ///                     Type = "ENCRYPT",
+    ///                     Mode = "WRITEREAD",
+    ///                     Tags = new[]
+    ///                     {
+    ///                         "CSPE",
+    ///                     },
+    ///                     Params = 
+    ///                     {
+    ///                         { "encrypt.kek.name", "cspe-kek" },
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// 
+    /// ### Example: Schema with Client-Side Payload Encryption (CSPE)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var avro_user_cspe = new ConfluentCloud.Index.Schema("avro-user-cspe", new()
+    ///     {
+    ///         SubjectName = "avro-user-value",
+    ///         Format = "AVRO",
+    ///         SchemaDetails = Std.Index.File.Invoke(new()
+    ///         {
+    ///             Input = "./schemas/avro/user.avsc",
+    ///         }).Result,
+    ///         Ruleset = new ConfluentCloud.Inputs.SchemaRulesetArgs
+    ///         {
+    ///             EncodingRules = new[]
+    ///             {
+    ///                 new ConfluentCloud.Inputs.SchemaRulesetEncodingRuleArgs
+    ///                 {
+    ///                     Name = "encryptSSN",
+    ///                     Kind = "TRANSFORM",
+    ///                     Type = "ENCRYPT",
+    ///                     Mode = "WRITEREAD",
+    ///                     Tags = new[]
+    ///                     {
+    ///                         "SSN",
+    ///                     },
+    ///                     Params = 
+    ///                     {
+    ///                         { "encrypt.kek.name", "my-kek-for-ssn" },
+    ///                     },
+    ///                 },
+    ///                 new ConfluentCloud.Inputs.SchemaRulesetEncodingRuleArgs
+    ///                 {
+    ///                     Name = "encryptCreditCard",
+    ///                     Kind = "TRANSFORM",
+    ///                     Type = "ENCRYPT",
+    ///                     Mode = "WRITEREAD",
+    ///                     Tags = new[]
+    ///                     {
+    ///                         "CREDIT_CARD",
+    ///                     },
+    ///                     Params = 
+    ///                     {
+    ///                         { "encrypt.kek.name", "my-kek-for-cc" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note:** `EncodingRules` are used for Client-Side Payload Encryption (CSPE), which encrypts data at the application level before sending to Kafka. This differs from `DomainRules` which are used for Client-Side Field Level Encryption (CSFLE). See [Client-Side Field Level Encryption documentation](https://docs.confluent.io/platform/current/schema-registry/fundamentals/data-contracts.html#client-side-field-level-encryption) for more details on both approaches.
     /// 
     /// ## Import
     /// 

@@ -36,6 +36,8 @@ import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolConfigPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkConnectionArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkConnectionPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
+import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTablePlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkRegionPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
@@ -137,6 +139,7 @@ import com.pulumi.confluentcloud.outputs.GetFlinkArtifactResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkComputePoolConfigResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkComputePoolResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkConnectionResult;
+import com.pulumi.confluentcloud.outputs.GetFlinkMaterializedTableResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkRegionResult;
 import com.pulumi.confluentcloud.outputs.GetGatewayResult;
 import com.pulumi.confluentcloud.outputs.GetGatewaysResult;
@@ -5874,6 +5877,491 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetFlinkConnectionResult> getFlinkConnectionPlain(GetFlinkConnectionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getFlinkConnection:getFlinkConnection", TypeShape.of(GetFlinkConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkMaterializedTable` describes a Flink Materialized Table data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Flink Materialized Tables in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableOrganizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
+     *             .organization(GetFlinkMaterializedTableOrganizationArgs.builder()
+     *                 .id(main.id())
+     *                 .build())
+     *             .environment(GetFlinkMaterializedTableEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .computePool(GetFlinkMaterializedTableComputePoolArgs.builder()
+     *                 .id(exampleConfluentFlinkComputePool.id())
+     *                 .build())
+     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .credentials(GetFlinkMaterializedTableCredentialsArgs.builder()
+     *                 .key(flink.id())
+     *                 .secret(flink.secret())
+     *                 .build())
+     *             .displayName("my_materialized_table")
+     *             .build());
+     * 
+     *         ctx.export("materializedTableOutput", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Flink Materialized Table in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
+     *             .displayName("my_materialized_table")
+     *             .build());
+     * 
+     *         ctx.export("materializedTableOutput", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFlinkMaterializedTableResult> getFlinkMaterializedTable(GetFlinkMaterializedTableArgs args) {
+        return getFlinkMaterializedTable(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkMaterializedTable` describes a Flink Materialized Table data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Flink Materialized Tables in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableOrganizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
+     *             .organization(GetFlinkMaterializedTableOrganizationArgs.builder()
+     *                 .id(main.id())
+     *                 .build())
+     *             .environment(GetFlinkMaterializedTableEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .computePool(GetFlinkMaterializedTableComputePoolArgs.builder()
+     *                 .id(exampleConfluentFlinkComputePool.id())
+     *                 .build())
+     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .credentials(GetFlinkMaterializedTableCredentialsArgs.builder()
+     *                 .key(flink.id())
+     *                 .secret(flink.secret())
+     *                 .build())
+     *             .displayName("my_materialized_table")
+     *             .build());
+     * 
+     *         ctx.export("materializedTableOutput", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Flink Materialized Table in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
+     *             .displayName("my_materialized_table")
+     *             .build());
+     * 
+     *         ctx.export("materializedTableOutput", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFlinkMaterializedTableResult> getFlinkMaterializedTablePlain(GetFlinkMaterializedTablePlainArgs args) {
+        return getFlinkMaterializedTablePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkMaterializedTable` describes a Flink Materialized Table data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Flink Materialized Tables in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableOrganizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
+     *             .organization(GetFlinkMaterializedTableOrganizationArgs.builder()
+     *                 .id(main.id())
+     *                 .build())
+     *             .environment(GetFlinkMaterializedTableEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .computePool(GetFlinkMaterializedTableComputePoolArgs.builder()
+     *                 .id(exampleConfluentFlinkComputePool.id())
+     *                 .build())
+     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .credentials(GetFlinkMaterializedTableCredentialsArgs.builder()
+     *                 .key(flink.id())
+     *                 .secret(flink.secret())
+     *                 .build())
+     *             .displayName("my_materialized_table")
+     *             .build());
+     * 
+     *         ctx.export("materializedTableOutput", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Flink Materialized Table in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
+     *             .displayName("my_materialized_table")
+     *             .build());
+     * 
+     *         ctx.export("materializedTableOutput", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFlinkMaterializedTableResult> getFlinkMaterializedTable(GetFlinkMaterializedTableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getFlinkMaterializedTable:getFlinkMaterializedTable", TypeShape.of(GetFlinkMaterializedTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkMaterializedTable` describes a Flink Materialized Table data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Flink Materialized Tables in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableOrganizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
+     *             .organization(GetFlinkMaterializedTableOrganizationArgs.builder()
+     *                 .id(main.id())
+     *                 .build())
+     *             .environment(GetFlinkMaterializedTableEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .computePool(GetFlinkMaterializedTableComputePoolArgs.builder()
+     *                 .id(exampleConfluentFlinkComputePool.id())
+     *                 .build())
+     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .credentials(GetFlinkMaterializedTableCredentialsArgs.builder()
+     *                 .key(flink.id())
+     *                 .secret(flink.secret())
+     *                 .build())
+     *             .displayName("my_materialized_table")
+     *             .build());
+     * 
+     *         ctx.export("materializedTableOutput", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Flink Materialized Table in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
+     *             .displayName("my_materialized_table")
+     *             .build());
+     * 
+     *         ctx.export("materializedTableOutput", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFlinkMaterializedTableResult> getFlinkMaterializedTable(GetFlinkMaterializedTableArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getFlinkMaterializedTable:getFlinkMaterializedTable", TypeShape.of(GetFlinkMaterializedTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.FlinkMaterializedTable` describes a Flink Materialized Table data source.
+     * 
+     * ## Example Usage
+     * 
+     * ### Option #1: Manage multiple Flink Materialized Tables in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableOrganizationArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableEnvironmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
+     *             .organization(GetFlinkMaterializedTableOrganizationArgs.builder()
+     *                 .id(main.id())
+     *                 .build())
+     *             .environment(GetFlinkMaterializedTableEnvironmentArgs.builder()
+     *                 .id(staging.id())
+     *                 .build())
+     *             .computePool(GetFlinkMaterializedTableComputePoolArgs.builder()
+     *                 .id(exampleConfluentFlinkComputePool.id())
+     *                 .build())
+     *             .restEndpoint(mainConfluentFlinkRegion.restEndpoint())
+     *             .credentials(GetFlinkMaterializedTableCredentialsArgs.builder()
+     *                 .key(flink.id())
+     *                 .secret(flink.secret())
+     *                 .build())
+     *             .displayName("my_materialized_table")
+     *             .build());
+     * 
+     *         ctx.export("materializedTableOutput", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Option #2: Manage a single Flink Materialized Table in the same Pulumi Stack
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()
+     *             .displayName("my_materialized_table")
+     *             .build());
+     * 
+     *         ctx.export("materializedTableOutput", example);
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFlinkMaterializedTableResult> getFlinkMaterializedTablePlain(GetFlinkMaterializedTablePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getFlinkMaterializedTable:getFlinkMaterializedTable", TypeShape.of(GetFlinkMaterializedTableResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

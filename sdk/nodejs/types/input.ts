@@ -647,6 +647,200 @@ export interface FlinkConnectionPrincipal {
     id: pulumi.Input<string>;
 }
 
+export interface FlinkMaterializedTableColumn {
+    /**
+     * Computed column definitions. Each block supports:
+     */
+    columnsComputeds?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumnColumnsComputed>[]>;
+    /**
+     * Metadata column definitions. Each block supports:
+     */
+    columnsMetadatas?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumnColumnsMetadata>[]>;
+    /**
+     * Physical column definitions. Each block supports:
+     */
+    columnsPhysicals?: pulumi.Input<pulumi.Input<inputs.FlinkMaterializedTableColumnColumnsPhysical>[]>;
+}
+
+export interface FlinkMaterializedTableColumnColumnsComputed {
+    /**
+     * Comment for the computed column.
+     */
+    columnComputedComment?: pulumi.Input<string>;
+    /**
+     * Expression of the computed column.
+     */
+    columnComputedExpression?: pulumi.Input<string>;
+    /**
+     * Kind of the computed column.
+     */
+    columnComputedKind?: pulumi.Input<string>;
+    /**
+     * Name of the computed column.
+     */
+    columnComputedName?: pulumi.Input<string>;
+    /**
+     * Type of the computed column.
+     */
+    columnComputedType?: pulumi.Input<string>;
+    /**
+     * Whether the computed column is virtual. Defaults to `false`.
+     */
+    columnComputedVirtual?: pulumi.Input<boolean>;
+}
+
+export interface FlinkMaterializedTableColumnColumnsMetadata {
+    /**
+     * Comment for the metadata column.
+     */
+    columnMetadataComment?: pulumi.Input<string>;
+    /**
+     * Metadata key of the metadata column.
+     */
+    columnMetadataKey?: pulumi.Input<string>;
+    /**
+     * Kind of the metadata column.
+     */
+    columnMetadataKind?: pulumi.Input<string>;
+    /**
+     * Name of the metadata column.
+     */
+    columnMetadataName?: pulumi.Input<string>;
+    /**
+     * Type of the metadata column.
+     */
+    columnMetadataType?: pulumi.Input<string>;
+    /**
+     * Whether the metadata column is virtual. Defaults to `false`.
+     *
+     * > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+     *
+     * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+     *
+     * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     *
+     * > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as confluentcloud from "@pulumi/confluentcloud";
+     *
+     * const identity_pool_assigner = new confluentcloud.RoleBinding("identity-pool-assigner", {
+     *     principal: "User:pool-abc123",
+     *     roleName: "Assigner",
+     *     crnPattern: `${main.resourceName}/service-account=sa-def456`,
+     * });
+     * ```
+     */
+    columnMetadataVirtual?: pulumi.Input<boolean>;
+}
+
+export interface FlinkMaterializedTableColumnColumnsPhysical {
+    /**
+     * Comment for the physical column.
+     */
+    columnPhysicalComment?: pulumi.Input<string>;
+    /**
+     * Kind of the physical column.
+     */
+    columnPhysicalKind?: pulumi.Input<string>;
+    /**
+     * Name of the physical column.
+     */
+    columnPhysicalName?: pulumi.Input<string>;
+    /**
+     * Type of the physical column.
+     */
+    columnPhysicalType?: pulumi.Input<string>;
+}
+
+export interface FlinkMaterializedTableComputePool {
+    /**
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface FlinkMaterializedTableConstraint {
+    /**
+     * The column names of the constraint.
+     */
+    columns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether the constraint is enforced. Defaults to `false`.
+     */
+    enforced?: pulumi.Input<boolean>;
+    /**
+     * The name of the constraint, for example, `pkOrders`.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The type of the constraint, for example, `PRIMARY_KEY`.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface FlinkMaterializedTableCredentials {
+    /**
+     * The Flink API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Flink API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface FlinkMaterializedTableDistribution {
+    /**
+     * The number of buckets the table is distributed by.
+     */
+    bucketCount?: pulumi.Input<number>;
+    /**
+     * The names of the columns the table is distributed by.
+     */
+    keys?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface FlinkMaterializedTableEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface FlinkMaterializedTableKafkaCluster {
+    /**
+     * The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface FlinkMaterializedTableOrganization {
+    /**
+     * The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface FlinkMaterializedTablePrincipal {
+    /**
+     * The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface FlinkMaterializedTableWatermark {
+    /**
+     * The name of the watermark column.
+     */
+    column?: pulumi.Input<string>;
+    /**
+     * The watermark expression, for example, `eventTime - INTERVAL '5' SECOND`.
+     */
+    expression?: pulumi.Input<string>;
+}
+
 export interface FlinkStatementComputePool {
     /**
      * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
@@ -1239,6 +1433,118 @@ export interface GetFlinkConnectionPrincipal {
 export interface GetFlinkConnectionPrincipalArgs {
     /**
      * The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetFlinkMaterializedTableComputePool {
+    /**
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+     */
+    id: string;
+}
+
+export interface GetFlinkMaterializedTableComputePoolArgs {
+    /**
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetFlinkMaterializedTableCredentials {
+    /**
+     * The Flink API Key.
+     */
+    key: string;
+    /**
+     * The Flink API Secret.
+     *
+     * > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+     *
+     * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+     *
+     * > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as confluentcloud from "@pulumi/confluentcloud";
+     *
+     * const identity_pool_assigner = new confluentcloud.RoleBinding("identity-pool-assigner", {
+     *     principal: "User:pool-abc123",
+     *     roleName: "Assigner",
+     *     crnPattern: `${main.resourceName}/service-account=sa-def456`,
+     * });
+     * ```
+     */
+    secret: string;
+}
+
+export interface GetFlinkMaterializedTableCredentialsArgs {
+    /**
+     * The Flink API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Flink API Secret.
+     *
+     * > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+     *
+     * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+     *
+     * > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as confluentcloud from "@pulumi/confluentcloud";
+     *
+     * const identity_pool_assigner = new confluentcloud.RoleBinding("identity-pool-assigner", {
+     *     principal: "User:pool-abc123",
+     *     roleName: "Assigner",
+     *     crnPattern: `${main.resourceName}/service-account=sa-def456`,
+     * });
+     * ```
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetFlinkMaterializedTableEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface GetFlinkMaterializedTableEnvironmentArgs {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetFlinkMaterializedTableOrganization {
+    /**
+     * The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+     */
+    id: string;
+}
+
+export interface GetFlinkMaterializedTableOrganizationArgs {
+    /**
+     * The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetFlinkMaterializedTablePrincipal {
+    /**
+     * The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+     */
+    id: string;
+}
+
+export interface GetFlinkMaterializedTablePrincipalArgs {
+    /**
+     * The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -2107,6 +2413,10 @@ export interface GetSchemaRuleset {
     /**
      * (Optional List of Blocks) supports the following:
      */
+    encodingRules?: inputs.GetSchemaRulesetEncodingRule[];
+    /**
+     * (Optional List of Blocks) supports the following:
+     */
     migrationRules?: inputs.GetSchemaRulesetMigrationRule[];
 }
 
@@ -2115,6 +2425,10 @@ export interface GetSchemaRulesetArgs {
      * (Optional List of Blocks) supports the following:
      */
     domainRules?: pulumi.Input<pulumi.Input<inputs.GetSchemaRulesetDomainRuleArgs>[]>;
+    /**
+     * (Optional List of Blocks) supports the following:
+     */
+    encodingRules?: pulumi.Input<pulumi.Input<inputs.GetSchemaRulesetEncodingRuleArgs>[]>;
     /**
      * (Optional List of Blocks) supports the following:
      */
@@ -2163,7 +2477,7 @@ export interface GetSchemaRulesetDomainRule {
      */
     tags?: string[];
     /**
-     * (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+     * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
     type: string;
 }
@@ -2210,7 +2524,101 @@ export interface GetSchemaRulesetDomainRuleArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+     * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface GetSchemaRulesetEncodingRule {
+    /**
+     * (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+     */
+    disabled?: boolean;
+    /**
+     * (Optional String) An optional description of the rule.
+     */
+    doc?: string;
+    /**
+     * (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+     */
+    expr?: string;
+    /**
+     * (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+     */
+    kind: string;
+    /**
+     * (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+     */
+    mode: string;
+    /**
+     * (Required String) A user-defined name that can be used to reference the rule.
+     */
+    name: string;
+    /**
+     * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     */
+    onFailure?: string;
+    /**
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     */
+    onSuccess?: string;
+    /**
+     * (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     */
+    params?: {[key: string]: string};
+    /**
+     * (Optional String List) The tags to which the rule applies, if any.
+     */
+    tags?: string[];
+    /**
+     * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+     */
+    type: string;
+}
+
+export interface GetSchemaRulesetEncodingRuleArgs {
+    /**
+     * (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+     */
+    disabled?: pulumi.Input<boolean>;
+    /**
+     * (Optional String) An optional description of the rule.
+     */
+    doc?: pulumi.Input<string>;
+    /**
+     * (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+     */
+    expr?: pulumi.Input<string>;
+    /**
+     * (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+     */
+    kind: pulumi.Input<string>;
+    /**
+     * (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+     */
+    mode: pulumi.Input<string>;
+    /**
+     * (Required String) A user-defined name that can be used to reference the rule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     */
+    onFailure?: pulumi.Input<string>;
+    /**
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     */
+    onSuccess?: pulumi.Input<string>;
+    /**
+     * (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     */
+    params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * (Optional String List) The tags to which the rule applies, if any.
+     */
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
     type: pulumi.Input<string>;
 }
@@ -2257,7 +2665,7 @@ export interface GetSchemaRulesetMigrationRule {
      */
     tags?: string[];
     /**
-     * (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+     * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
     type: string;
 }
@@ -2304,7 +2712,7 @@ export interface GetSchemaRulesetMigrationRuleArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+     * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
     type: pulumi.Input<string>;
 }
@@ -3449,10 +3857,28 @@ export interface SchemaRuleset {
     /**
      * supports the following:
      */
+    encodingRules?: pulumi.Input<pulumi.Input<inputs.SchemaRulesetEncodingRule>[]>;
+    /**
+     * supports the following:
+     */
     migrationRules?: pulumi.Input<pulumi.Input<inputs.SchemaRulesetMigrationRule>[]>;
 }
 
 export interface SchemaRulesetDomainRule {
+    disabled?: pulumi.Input<boolean>;
+    doc?: pulumi.Input<string>;
+    expr?: pulumi.Input<string>;
+    kind: pulumi.Input<string>;
+    mode: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    onFailure?: pulumi.Input<string>;
+    onSuccess?: pulumi.Input<string>;
+    params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
+    type: pulumi.Input<string>;
+}
+
+export interface SchemaRulesetEncodingRule {
     disabled?: pulumi.Input<boolean>;
     doc?: pulumi.Input<string>;
     expr?: pulumi.Input<string>;

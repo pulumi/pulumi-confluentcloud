@@ -203,6 +203,20 @@ import (
 //							},
 //						},
 //					},
+//					EncodingRules: confluentcloud.SchemaRulesetEncodingRuleArray{
+//						&confluentcloud.SchemaRulesetEncodingRuleArgs{
+//							Name: pulumi.String("encryptCSPE"),
+//							Kind: pulumi.String("TRANSFORM"),
+//							Type: pulumi.String("ENCRYPT"),
+//							Mode: pulumi.String("WRITEREAD"),
+//							Tags: pulumi.StringArray{
+//								pulumi.String("CSPE"),
+//							},
+//							Params: pulumi.StringMap{
+//								"encrypt.kek.name": pulumi.String("cspe-kek"),
+//							},
+//						},
+//					},
 //				},
 //			})
 //			if err != nil {
@@ -213,6 +227,71 @@ import (
 //	}
 //
 // ```
+//
+// ### Example: Schema with Client-Side Payload Encryption (CSPE)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, map[string]interface{}{
+//				"input": "./schemas/avro/user.avsc",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewSchema(ctx, "avro-user-cspe", &confluentcloud.SchemaArgs{
+//				SubjectName: pulumi.String("avro-user-value"),
+//				Format:      pulumi.String("AVRO"),
+//				Schema:      invokeFile.Result,
+//				Ruleset: &confluentcloud.SchemaRulesetArgs{
+//					EncodingRules: confluentcloud.SchemaRulesetEncodingRuleArray{
+//						&confluentcloud.SchemaRulesetEncodingRuleArgs{
+//							Name: pulumi.String("encryptSSN"),
+//							Kind: pulumi.String("TRANSFORM"),
+//							Type: pulumi.String("ENCRYPT"),
+//							Mode: pulumi.String("WRITEREAD"),
+//							Tags: pulumi.StringArray{
+//								pulumi.String("SSN"),
+//							},
+//							Params: pulumi.StringMap{
+//								"encrypt.kek.name": pulumi.String("my-kek-for-ssn"),
+//							},
+//						},
+//						&confluentcloud.SchemaRulesetEncodingRuleArgs{
+//							Name: pulumi.String("encryptCreditCard"),
+//							Kind: pulumi.String("TRANSFORM"),
+//							Type: pulumi.String("ENCRYPT"),
+//							Mode: pulumi.String("WRITEREAD"),
+//							Tags: pulumi.StringArray{
+//								pulumi.String("CREDIT_CARD"),
+//							},
+//							Params: pulumi.StringMap{
+//								"encrypt.kek.name": pulumi.String("my-kek-for-cc"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note:** `encodingRules` are used for Client-Side Payload Encryption (CSPE), which encrypts data at the application level before sending to Kafka. This differs from `domainRules` which are used for Client-Side Field Level Encryption (CSFLE). See [Client-Side Field Level Encryption documentation](https://docs.confluent.io/platform/current/schema-registry/fundamentals/data-contracts.html#client-side-field-level-encryption) for more details on both approaches.
 //
 // ## Import
 //

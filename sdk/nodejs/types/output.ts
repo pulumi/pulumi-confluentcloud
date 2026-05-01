@@ -647,6 +647,200 @@ export interface FlinkConnectionPrincipal {
     id: string;
 }
 
+export interface FlinkMaterializedTableColumn {
+    /**
+     * Computed column definitions. Each block supports:
+     */
+    columnsComputeds?: outputs.FlinkMaterializedTableColumnColumnsComputed[];
+    /**
+     * Metadata column definitions. Each block supports:
+     */
+    columnsMetadatas?: outputs.FlinkMaterializedTableColumnColumnsMetadata[];
+    /**
+     * Physical column definitions. Each block supports:
+     */
+    columnsPhysicals?: outputs.FlinkMaterializedTableColumnColumnsPhysical[];
+}
+
+export interface FlinkMaterializedTableColumnColumnsComputed {
+    /**
+     * Comment for the computed column.
+     */
+    columnComputedComment?: string;
+    /**
+     * Expression of the computed column.
+     */
+    columnComputedExpression?: string;
+    /**
+     * Kind of the computed column.
+     */
+    columnComputedKind?: string;
+    /**
+     * Name of the computed column.
+     */
+    columnComputedName?: string;
+    /**
+     * Type of the computed column.
+     */
+    columnComputedType?: string;
+    /**
+     * Whether the computed column is virtual. Defaults to `false`.
+     */
+    columnComputedVirtual?: boolean;
+}
+
+export interface FlinkMaterializedTableColumnColumnsMetadata {
+    /**
+     * Comment for the metadata column.
+     */
+    columnMetadataComment?: string;
+    /**
+     * Metadata key of the metadata column.
+     */
+    columnMetadataKey?: string;
+    /**
+     * Kind of the metadata column.
+     */
+    columnMetadataKind?: string;
+    /**
+     * Name of the metadata column.
+     */
+    columnMetadataName?: string;
+    /**
+     * Type of the metadata column.
+     */
+    columnMetadataType?: string;
+    /**
+     * Whether the metadata column is virtual. Defaults to `false`.
+     *
+     * > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+     *
+     * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+     *
+     * !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `confluentcloud.FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+     *
+     * > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as confluentcloud from "@pulumi/confluentcloud";
+     *
+     * const identity_pool_assigner = new confluentcloud.RoleBinding("identity-pool-assigner", {
+     *     principal: "User:pool-abc123",
+     *     roleName: "Assigner",
+     *     crnPattern: `${main.resourceName}/service-account=sa-def456`,
+     * });
+     * ```
+     */
+    columnMetadataVirtual?: boolean;
+}
+
+export interface FlinkMaterializedTableColumnColumnsPhysical {
+    /**
+     * Comment for the physical column.
+     */
+    columnPhysicalComment?: string;
+    /**
+     * Kind of the physical column.
+     */
+    columnPhysicalKind?: string;
+    /**
+     * Name of the physical column.
+     */
+    columnPhysicalName?: string;
+    /**
+     * Type of the physical column.
+     */
+    columnPhysicalType?: string;
+}
+
+export interface FlinkMaterializedTableComputePool {
+    /**
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+     */
+    id: string;
+}
+
+export interface FlinkMaterializedTableConstraint {
+    /**
+     * The column names of the constraint.
+     */
+    columns?: string[];
+    /**
+     * Whether the constraint is enforced. Defaults to `false`.
+     */
+    enforced?: boolean;
+    /**
+     * The name of the constraint, for example, `pkOrders`.
+     */
+    name?: string;
+    /**
+     * The type of the constraint, for example, `PRIMARY_KEY`.
+     */
+    type?: string;
+}
+
+export interface FlinkMaterializedTableCredentials {
+    /**
+     * The Flink API Key.
+     */
+    key: string;
+    /**
+     * The Flink API Secret.
+     */
+    secret: string;
+}
+
+export interface FlinkMaterializedTableDistribution {
+    /**
+     * The number of buckets the table is distributed by.
+     */
+    bucketCount?: number;
+    /**
+     * The names of the columns the table is distributed by.
+     */
+    keys?: string[];
+}
+
+export interface FlinkMaterializedTableEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface FlinkMaterializedTableKafkaCluster {
+    /**
+     * The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
+export interface FlinkMaterializedTableOrganization {
+    /**
+     * The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+     */
+    id: string;
+}
+
+export interface FlinkMaterializedTablePrincipal {
+    /**
+     * The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+     */
+    id: string;
+}
+
+export interface FlinkMaterializedTableWatermark {
+    /**
+     * The name of the watermark column.
+     */
+    column?: string;
+    /**
+     * The watermark expression, for example, `eventTime - INTERVAL '5' SECOND`.
+     */
+    expression?: string;
+}
+
 export interface FlinkStatementComputePool {
     /**
      * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
@@ -1295,6 +1489,189 @@ export interface GetFlinkConnectionPrincipal {
      * The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
      */
     id: string;
+}
+
+export interface GetFlinkMaterializedTableColumn {
+    columnsComputeds: outputs.GetFlinkMaterializedTableColumnColumnsComputed[];
+    columnsMetadatas: outputs.GetFlinkMaterializedTableColumnColumnsMetadata[];
+    columnsPhysicals: outputs.GetFlinkMaterializedTableColumnColumnsPhysical[];
+}
+
+export interface GetFlinkMaterializedTableColumnColumnsComputed {
+    /**
+     * Comment for the computed column.
+     */
+    columnComputedComment: string;
+    /**
+     * Expression of the computed column.
+     */
+    columnComputedExpression: string;
+    /**
+     * Kind of the computed column.
+     */
+    columnComputedKind: string;
+    /**
+     * Name of the computed column.
+     */
+    columnComputedName: string;
+    /**
+     * Type of the computed column.
+     */
+    columnComputedType: string;
+    /**
+     * Whether computed column is virtual.
+     */
+    columnComputedVirtual: boolean;
+}
+
+export interface GetFlinkMaterializedTableColumnColumnsMetadata {
+    /**
+     * Comment for the metadata column.
+     */
+    columnMetadataComment: string;
+    /**
+     * Metadata key of the metadata column.
+     */
+    columnMetadataKey: string;
+    /**
+     * Kind of the metadata column.
+     */
+    columnMetadataKind: string;
+    /**
+     * Name of the metadata column.
+     */
+    columnMetadataName: string;
+    /**
+     * Type of the metadata column.
+     */
+    columnMetadataType: string;
+    /**
+     * Whether metadata column is virtual.
+     */
+    columnMetadataVirtual: boolean;
+}
+
+export interface GetFlinkMaterializedTableColumnColumnsPhysical {
+    /**
+     * Comment for the physical column.
+     */
+    columnPhysicalComment: string;
+    /**
+     * Kind of the physical column.
+     */
+    columnPhysicalKind: string;
+    /**
+     * Name of the physical column.
+     */
+    columnPhysicalName: string;
+    /**
+     * Type of the physical column.
+     */
+    columnPhysicalType: string;
+}
+
+export interface GetFlinkMaterializedTableComputePool {
+    /**
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+     */
+    id: string;
+}
+
+export interface GetFlinkMaterializedTableConstraint {
+    /**
+     * (Set of Strings) The column names of the constraint.
+     */
+    columns: string[];
+    /**
+     * (Boolean) Whether the constraint is enforced.
+     */
+    enforced: boolean;
+    /**
+     * (String) The name of the constraint, for example, `pkOrders`.
+     */
+    name: string;
+    /**
+     * (String) The type of the constraint, for example, `PRIMARY_KEY`.
+     */
+    type: string;
+}
+
+export interface GetFlinkMaterializedTableCredentials {
+    /**
+     * The Flink API Key.
+     */
+    key: string;
+    /**
+     * The Flink API Secret.
+     *
+     * > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+     *
+     * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+     *
+     * > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as confluentcloud from "@pulumi/confluentcloud";
+     *
+     * const identity_pool_assigner = new confluentcloud.RoleBinding("identity-pool-assigner", {
+     *     principal: "User:pool-abc123",
+     *     roleName: "Assigner",
+     *     crnPattern: `${main.resourceName}/service-account=sa-def456`,
+     * });
+     * ```
+     */
+    secret: string;
+}
+
+export interface GetFlinkMaterializedTableDistribution {
+    /**
+     * (Integer) The number of buckets the table is distributed by.
+     */
+    bucketCount: number;
+    /**
+     * (Set of Strings) The names of the columns the table is distributed by.
+     */
+    keys: string[];
+}
+
+export interface GetFlinkMaterializedTableEnvironment {
+    /**
+     * The ID of the Environment, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface GetFlinkMaterializedTableKafkaCluster {
+    /**
+     * (String) The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetFlinkMaterializedTableOrganization {
+    /**
+     * The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+     */
+    id: string;
+}
+
+export interface GetFlinkMaterializedTablePrincipal {
+    /**
+     * The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+     */
+    id: string;
+}
+
+export interface GetFlinkMaterializedTableWatermark {
+    /**
+     * (String) The name of the watermark column.
+     */
+    column: string;
+    /**
+     * (String) The watermark expression.
+     */
+    expression: string;
 }
 
 export interface GetGatewayAwsEgressPrivateLinkGateway {
@@ -2511,6 +2888,10 @@ export interface GetSchemaRuleset {
     /**
      * (Optional List of Blocks) supports the following:
      */
+    encodingRules?: outputs.GetSchemaRulesetEncodingRule[];
+    /**
+     * (Optional List of Blocks) supports the following:
+     */
     migrationRules?: outputs.GetSchemaRulesetMigrationRule[];
 }
 
@@ -2556,7 +2937,54 @@ export interface GetSchemaRulesetDomainRule {
      */
     tags: string[];
     /**
-     * (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+     * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+     */
+    type: string;
+}
+
+export interface GetSchemaRulesetEncodingRule {
+    /**
+     * (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+     */
+    disabled?: boolean;
+    /**
+     * (Optional String) An optional description of the rule.
+     */
+    doc?: string;
+    /**
+     * (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+     */
+    expr?: string;
+    /**
+     * (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+     */
+    kind: string;
+    /**
+     * (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+     */
+    mode: string;
+    /**
+     * (Required String) A user-defined name that can be used to reference the rule.
+     */
+    name: string;
+    /**
+     * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     */
+    onFailure?: string;
+    /**
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     */
+    onSuccess?: string;
+    /**
+     * (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     */
+    params: {[key: string]: string};
+    /**
+     * (Optional String List) The tags to which the rule applies, if any.
+     */
+    tags: string[];
+    /**
+     * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
     type: string;
 }
@@ -2603,7 +3031,7 @@ export interface GetSchemaRulesetMigrationRule {
      */
     tags: string[];
     /**
-     * (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+     * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      */
     type: string;
 }
@@ -3702,10 +4130,28 @@ export interface SchemaRuleset {
     /**
      * supports the following:
      */
+    encodingRules?: outputs.SchemaRulesetEncodingRule[];
+    /**
+     * supports the following:
+     */
     migrationRules?: outputs.SchemaRulesetMigrationRule[];
 }
 
 export interface SchemaRulesetDomainRule {
+    disabled?: boolean;
+    doc?: string;
+    expr?: string;
+    kind: string;
+    mode: string;
+    name: string;
+    onFailure?: string;
+    onSuccess?: string;
+    params: {[key: string]: string};
+    tags: string[];
+    type: string;
+}
+
+export interface SchemaRulesetEncodingRule {
     disabled?: boolean;
     doc?: string;
     expr?: string;

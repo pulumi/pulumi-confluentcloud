@@ -136,9 +136,61 @@ import * as utilities from "./utilities";
  *                 "encrypt.kek.name": "testkekM",
  *             },
  *         }],
+ *         encodingRules: [{
+ *             name: "encryptCSPE",
+ *             kind: "TRANSFORM",
+ *             type: "ENCRYPT",
+ *             mode: "WRITEREAD",
+ *             tags: ["CSPE"],
+ *             params: {
+ *                 "encrypt.kek.name": "cspe-kek",
+ *             },
+ *         }],
  *     },
  * });
  * ```
+ *
+ * ### Example: Schema with Client-Side Payload Encryption (CSPE)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ * import * as std from "@pulumi/std";
+ *
+ * const avro_user_cspe = new confluentcloud.Schema("avro-user-cspe", {
+ *     subjectName: "avro-user-value",
+ *     format: "AVRO",
+ *     schema: std.file({
+ *         input: "./schemas/avro/user.avsc",
+ *     }).result,
+ *     ruleset: {
+ *         encodingRules: [
+ *             {
+ *                 name: "encryptSSN",
+ *                 kind: "TRANSFORM",
+ *                 type: "ENCRYPT",
+ *                 mode: "WRITEREAD",
+ *                 tags: ["SSN"],
+ *                 params: {
+ *                     "encrypt.kek.name": "my-kek-for-ssn",
+ *                 },
+ *             },
+ *             {
+ *                 name: "encryptCreditCard",
+ *                 kind: "TRANSFORM",
+ *                 type: "ENCRYPT",
+ *                 mode: "WRITEREAD",
+ *                 tags: ["CREDIT_CARD"],
+ *                 params: {
+ *                     "encrypt.kek.name": "my-kek-for-cc",
+ *                 },
+ *             },
+ *         ],
+ *     },
+ * });
+ * ```
+ *
+ * > **Note:** `encodingRules` are used for Client-Side Payload Encryption (CSPE), which encrypts data at the application level before sending to Kafka. This differs from `domainRules` which are used for Client-Side Field Level Encryption (CSFLE). See [Client-Side Field Level Encryption documentation](https://docs.confluent.io/platform/current/schema-registry/fundamentals/data-contracts.html#client-side-field-level-encryption) for more details on both approaches.
  *
  * ## Import
  *

@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.GetSchemaRulesetDomainRuleArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemaRulesetEncodingRuleArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRulesetMigrationRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -36,6 +37,21 @@ public final class GetSchemaRulesetArgs extends com.pulumi.resources.ResourceArg
      * (Optional List of Blocks) supports the following:
      * 
      */
+    @Import(name="encodingRules")
+    private @Nullable Output<List<GetSchemaRulesetEncodingRuleArgs>> encodingRules;
+
+    /**
+     * @return (Optional List of Blocks) supports the following:
+     * 
+     */
+    public Optional<Output<List<GetSchemaRulesetEncodingRuleArgs>>> encodingRules() {
+        return Optional.ofNullable(this.encodingRules);
+    }
+
+    /**
+     * (Optional List of Blocks) supports the following:
+     * 
+     */
     @Import(name="migrationRules")
     private @Nullable Output<List<GetSchemaRulesetMigrationRuleArgs>> migrationRules;
 
@@ -51,6 +67,7 @@ public final class GetSchemaRulesetArgs extends com.pulumi.resources.ResourceArg
 
     private GetSchemaRulesetArgs(GetSchemaRulesetArgs $) {
         this.domainRules = $.domainRules;
+        this.encodingRules = $.encodingRules;
         this.migrationRules = $.migrationRules;
     }
 
@@ -101,6 +118,37 @@ public final class GetSchemaRulesetArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder domainRules(GetSchemaRulesetDomainRuleArgs... domainRules) {
             return domainRules(List.of(domainRules));
+        }
+
+        /**
+         * @param encodingRules (Optional List of Blocks) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encodingRules(@Nullable Output<List<GetSchemaRulesetEncodingRuleArgs>> encodingRules) {
+            $.encodingRules = encodingRules;
+            return this;
+        }
+
+        /**
+         * @param encodingRules (Optional List of Blocks) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encodingRules(List<GetSchemaRulesetEncodingRuleArgs> encodingRules) {
+            return encodingRules(Output.of(encodingRules));
+        }
+
+        /**
+         * @param encodingRules (Optional List of Blocks) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encodingRules(GetSchemaRulesetEncodingRuleArgs... encodingRules) {
+            return encodingRules(List.of(encodingRules));
         }
 
         /**

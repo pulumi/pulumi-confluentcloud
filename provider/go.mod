@@ -91,7 +91,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/endpoint v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/flink v0.11.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/flink-artifact v0.4.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/flink-gateway v0.18.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/flink-gateway v0.19.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/iam v0.17.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/iam-ip-filtering v0.5.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.3.0 // indirect
@@ -107,7 +107,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-privatelink v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/org v0.9.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/provider-integration v0.2.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/schema-registry v0.4.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/schema-registry v0.5.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.7.3 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/sso v0.0.1 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/sts v0.0.2 // indirect

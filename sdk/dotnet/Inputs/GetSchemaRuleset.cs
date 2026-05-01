@@ -24,6 +24,18 @@ namespace Pulumi.ConfluentCloud.Inputs
             set => _domainRules = value;
         }
 
+        [Input("encodingRules")]
+        private List<Inputs.GetSchemaRulesetEncodingRuleArgs>? _encodingRules;
+
+        /// <summary>
+        /// (Optional List of Blocks) supports the following:
+        /// </summary>
+        public List<Inputs.GetSchemaRulesetEncodingRuleArgs> EncodingRules
+        {
+            get => _encodingRules ?? (_encodingRules = new List<Inputs.GetSchemaRulesetEncodingRuleArgs>());
+            set => _encodingRules = value;
+        }
+
         [Input("migrationRules")]
         private List<Inputs.GetSchemaRulesetMigrationRuleArgs>? _migrationRules;
 

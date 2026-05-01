@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.SchemaRulesetDomainRule;
+import com.pulumi.confluentcloud.outputs.SchemaRulesetEncodingRule;
 import com.pulumi.confluentcloud.outputs.SchemaRulesetMigrationRule;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
@@ -21,6 +22,11 @@ public final class SchemaRuleset {
      * @return supports the following:
      * 
      */
+    private @Nullable List<SchemaRulesetEncodingRule> encodingRules;
+    /**
+     * @return supports the following:
+     * 
+     */
     private @Nullable List<SchemaRulesetMigrationRule> migrationRules;
 
     private SchemaRuleset() {}
@@ -30,6 +36,13 @@ public final class SchemaRuleset {
      */
     public List<SchemaRulesetDomainRule> domainRules() {
         return this.domainRules == null ? List.of() : this.domainRules;
+    }
+    /**
+     * @return supports the following:
+     * 
+     */
+    public List<SchemaRulesetEncodingRule> encodingRules() {
+        return this.encodingRules == null ? List.of() : this.encodingRules;
     }
     /**
      * @return supports the following:
@@ -49,11 +62,13 @@ public final class SchemaRuleset {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<SchemaRulesetDomainRule> domainRules;
+        private @Nullable List<SchemaRulesetEncodingRule> encodingRules;
         private @Nullable List<SchemaRulesetMigrationRule> migrationRules;
         public Builder() {}
         public Builder(SchemaRuleset defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainRules = defaults.domainRules;
+    	      this.encodingRules = defaults.encodingRules;
     	      this.migrationRules = defaults.migrationRules;
         }
 
@@ -67,6 +82,15 @@ public final class SchemaRuleset {
             return domainRules(List.of(domainRules));
         }
         @CustomType.Setter
+        public Builder encodingRules(@Nullable List<SchemaRulesetEncodingRule> encodingRules) {
+
+            this.encodingRules = encodingRules;
+            return this;
+        }
+        public Builder encodingRules(SchemaRulesetEncodingRule... encodingRules) {
+            return encodingRules(List.of(encodingRules));
+        }
+        @CustomType.Setter
         public Builder migrationRules(@Nullable List<SchemaRulesetMigrationRule> migrationRules) {
 
             this.migrationRules = migrationRules;
@@ -78,6 +102,7 @@ public final class SchemaRuleset {
         public SchemaRuleset build() {
             final var _resultValue = new SchemaRuleset();
             _resultValue.domainRules = domainRules;
+            _resultValue.encodingRules = encodingRules;
             _resultValue.migrationRules = migrationRules;
             return _resultValue;
         }

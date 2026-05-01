@@ -1338,6 +1338,248 @@
                 "id"
             ]
         },
+        "confluentcloud:index/FlinkMaterializedTableColumn:FlinkMaterializedTableColumn": {
+            "properties": {
+                "columnsComputeds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableColumnColumnsComputed:FlinkMaterializedTableColumnColumnsComputed"
+                    },
+                    "description": "Computed column definitions. Each block supports:\n"
+                },
+                "columnsMetadatas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableColumnColumnsMetadata:FlinkMaterializedTableColumnColumnsMetadata"
+                    },
+                    "description": "Metadata column definitions. Each block supports:\n"
+                },
+                "columnsPhysicals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableColumnColumnsPhysical:FlinkMaterializedTableColumnColumnsPhysical"
+                    },
+                    "description": "Physical column definitions. Each block supports:\n"
+                }
+            },
+            "type": "object"
+        },
+        "confluentcloud:index/FlinkMaterializedTableColumnColumnsComputed:FlinkMaterializedTableColumnColumnsComputed": {
+            "properties": {
+                "columnComputedComment": {
+                    "type": "string",
+                    "description": "Comment for the computed column.\n"
+                },
+                "columnComputedExpression": {
+                    "type": "string",
+                    "description": "Expression of the computed column.\n"
+                },
+                "columnComputedKind": {
+                    "type": "string",
+                    "description": "Kind of the computed column.\n"
+                },
+                "columnComputedName": {
+                    "type": "string",
+                    "description": "Name of the computed column.\n"
+                },
+                "columnComputedType": {
+                    "type": "string",
+                    "description": "Type of the computed column.\n"
+                },
+                "columnComputedVirtual": {
+                    "type": "boolean",
+                    "description": "Whether the computed column is virtual. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                }
+            },
+            "type": "object"
+        },
+        "confluentcloud:index/FlinkMaterializedTableColumnColumnsMetadata:FlinkMaterializedTableColumnColumnsMetadata": {
+            "properties": {
+                "columnMetadataComment": {
+                    "type": "string",
+                    "description": "Comment for the metadata column.\n"
+                },
+                "columnMetadataKey": {
+                    "type": "string",
+                    "description": "Metadata key of the metadata column.\n"
+                },
+                "columnMetadataKind": {
+                    "type": "string",
+                    "description": "Kind of the metadata column.\n"
+                },
+                "columnMetadataName": {
+                    "type": "string",
+                    "description": "Name of the metadata column.\n"
+                },
+                "columnMetadataType": {
+                    "type": "string",
+                    "description": "Type of the metadata column.\n"
+                },
+                "columnMetadataVirtual": {
+                    "type": "boolean",
+                    "description": "Whether the metadata column is virtual. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n\n\u003e **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.\n\n\u003e **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the \u003cspan pulumi-lang-nodejs=\"`credentials`\" pulumi-lang-dotnet=\"`Credentials`\" pulumi-lang-go=\"`credentials`\" pulumi-lang-python=\"`credentials`\" pulumi-lang-yaml=\"`credentials`\" pulumi-lang-java=\"`credentials`\"\u003e`credentials`\u003c/span\u003e block in all configuration files to use the new Flink API key, run `pulumi up -target=\"confluent_flink_materialized_table.example\"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=\"confluent_flink_materialized_table.example\" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.\n\n!\u003e **Warning:** Use Option #2 to avoid exposing sensitive \u003cspan pulumi-lang-nodejs=\"`credentials`\" pulumi-lang-dotnet=\"`Credentials`\" pulumi-lang-go=\"`credentials`\" pulumi-lang-python=\"`credentials`\" pulumi-lang-yaml=\"`credentials`\" pulumi-lang-java=\"`credentials`\"\u003e`credentials`\u003c/span\u003e value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive \u003cspan pulumi-lang-nodejs=\"`credentials`\" pulumi-lang-dotnet=\"`Credentials`\" pulumi-lang-go=\"`credentials`\" pulumi-lang-python=\"`credentials`\" pulumi-lang-yaml=\"`credentials`\" pulumi-lang-java=\"`credentials`\"\u003e`credentials`\u003c/span\u003e value of the \u003cspan pulumi-lang-nodejs=\"`confluentcloud.FlinkMaterializedTable`\" pulumi-lang-dotnet=\"`confluentcloud.FlinkMaterializedTable`\" pulumi-lang-go=\"`FlinkMaterializedTable`\" pulumi-lang-python=\"`FlinkMaterializedTable`\" pulumi-lang-yaml=\"`confluentcloud.FlinkMaterializedTable`\" pulumi-lang-java=\"`confluentcloud.FlinkMaterializedTable`\"\u003e`confluentcloud.FlinkMaterializedTable`\u003c/span\u003e resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.\n\n\u003e **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst identity_pool_assigner = new confluentcloud.RoleBinding(\"identity-pool-assigner\", {\n    principal: \"User:pool-abc123\",\n    roleName: \"Assigner\",\n    crnPattern: `${main.resourceName}/service-account=sa-def456`,\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nidentity_pool_assigner = confluentcloud.RoleBinding(\"identity-pool-assigner\",\n    principal=\"User:pool-abc123\",\n    role_name=\"Assigner\",\n    crn_pattern=f\"{main['resourceName']}/service-account=sa-def456\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var identity_pool_assigner = new ConfluentCloud.Index.RoleBinding(\"identity-pool-assigner\", new()\n    {\n        Principal = \"User:pool-abc123\",\n        RoleName = \"Assigner\",\n        CrnPattern = $\"{main.ResourceName}/service-account=sa-def456\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewRoleBinding(ctx, \"identity-pool-assigner\", \u0026confluentcloud.RoleBindingArgs{\n\t\t\tPrincipal:  pulumi.String(\"User:pool-abc123\"),\n\t\t\tRoleName:   pulumi.String(\"Assigner\"),\n\t\t\tCrnPattern: pulumi.Sprintf(\"%v/service-account=sa-def456\", main.ResourceName),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.RoleBinding;\nimport com.pulumi.confluentcloud.RoleBindingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var identity_pool_assigner = new RoleBinding(\"identity-pool-assigner\", RoleBindingArgs.builder()\n            .principal(\"User:pool-abc123\")\n            .roleName(\"Assigner\")\n            .crnPattern(String.format(\"%s/service-account=sa-def456\", main.resourceName()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  identity-pool-assigner:\n    type: confluentcloud:RoleBinding\n    properties:\n      principal: User:pool-abc123\n      roleName: Assigner\n      crnPattern: ${main.resourceName}/service-account=sa-def456\n```\n\u003c!--End PulumiCodeChooser --\u003e\n"
+                }
+            },
+            "type": "object"
+        },
+        "confluentcloud:index/FlinkMaterializedTableColumnColumnsPhysical:FlinkMaterializedTableColumnColumnsPhysical": {
+            "properties": {
+                "columnPhysicalComment": {
+                    "type": "string",
+                    "description": "Comment for the physical column.\n"
+                },
+                "columnPhysicalKind": {
+                    "type": "string",
+                    "description": "Kind of the physical column.\n"
+                },
+                "columnPhysicalName": {
+                    "type": "string",
+                    "description": "Name of the physical column.\n"
+                },
+                "columnPhysicalType": {
+                    "type": "string",
+                    "description": "Type of the physical column.\n"
+                }
+            },
+            "type": "object"
+        },
+        "confluentcloud:index/FlinkMaterializedTableComputePool:FlinkMaterializedTableComputePool": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Flink Compute Pool, for example, `lfcp-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/FlinkMaterializedTableConstraint:FlinkMaterializedTableConstraint": {
+            "properties": {
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The column names of the constraint.\n"
+                },
+                "enforced": {
+                    "type": "boolean",
+                    "description": "Whether the constraint is enforced. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the constraint, for example, \u003cspan pulumi-lang-nodejs=\"`pkOrders`\" pulumi-lang-dotnet=\"`PkOrders`\" pulumi-lang-go=\"`pkOrders`\" pulumi-lang-python=\"`pk_orders`\" pulumi-lang-yaml=\"`pkOrders`\" pulumi-lang-java=\"`pkOrders`\"\u003e`pkOrders`\u003c/span\u003e.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the constraint, for example, `PRIMARY_KEY`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "confluentcloud:index/FlinkMaterializedTableCredentials:FlinkMaterializedTableCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Flink API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Flink API Secret.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/FlinkMaterializedTableDistribution:FlinkMaterializedTableDistribution": {
+            "properties": {
+                "bucketCount": {
+                    "type": "integer",
+                    "description": "The number of buckets the table is distributed by.\n",
+                    "willReplaceOnChanges": true
+                },
+                "keys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The names of the columns the table is distributed by.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object"
+        },
+        "confluentcloud:index/FlinkMaterializedTableEnvironment:FlinkMaterializedTableEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment, for example, `env-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/FlinkMaterializedTableKafkaCluster:FlinkMaterializedTableKafkaCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/FlinkMaterializedTableOrganization:FlinkMaterializedTableOrganization": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/FlinkMaterializedTablePrincipal:FlinkMaterializedTablePrincipal": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/FlinkMaterializedTableWatermark:FlinkMaterializedTableWatermark": {
+            "properties": {
+                "column": {
+                    "type": "string",
+                    "description": "The name of the watermark column.\n"
+                },
+                "expression": {
+                    "type": "string",
+                    "description": "The watermark expression, for example, \u003cspan pulumi-lang-nodejs=\"`eventTime \" pulumi-lang-dotnet=\"`EventTime \" pulumi-lang-go=\"`eventTime \" pulumi-lang-python=\"`event_time \" pulumi-lang-yaml=\"`eventTime \" pulumi-lang-java=\"`eventTime \"\u003e`eventTime \u003c/span\u003e- INTERVAL '5' SECOND`.\n"
+                }
+            },
+            "type": "object"
+        },
         "confluentcloud:index/FlinkStatementComputePool:FlinkStatementComputePool": {
             "properties": {
                 "id": {
@@ -2994,6 +3236,13 @@
                     },
                     "description": "supports the following:\n"
                 },
+                "encodingRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/SchemaRulesetEncodingRule:SchemaRulesetEncodingRule"
+                    },
+                    "description": "supports the following:\n"
+                },
                 "migrationRules": {
                     "type": "array",
                     "items": {
@@ -3005,6 +3254,68 @@
             "type": "object"
         },
         "confluentcloud:index/SchemaRulesetDomainRule:SchemaRulesetDomainRule": {
+            "properties": {
+                "disabled": {
+                    "type": "boolean"
+                },
+                "doc": {
+                    "type": "string"
+                },
+                "expr": {
+                    "type": "string"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "mode": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "onFailure": {
+                    "type": "string"
+                },
+                "onSuccess": {
+                    "type": "string"
+                },
+                "params": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "kind",
+                "mode",
+                "name",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "kind",
+                        "mode",
+                        "name",
+                        "params",
+                        "tags",
+                        "type"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/SchemaRulesetEncodingRule:SchemaRulesetEncodingRule": {
             "properties": {
                 "disabled": {
                     "type": "boolean"
@@ -4421,6 +4732,321 @@
             "required": [
                 "id"
             ]
+        },
+        "confluentcloud:index/getFlinkMaterializedTableColumn:getFlinkMaterializedTableColumn": {
+            "properties": {
+                "columnsComputeds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableColumnColumnsComputed:getFlinkMaterializedTableColumnColumnsComputed"
+                    }
+                },
+                "columnsMetadatas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableColumnColumnsMetadata:getFlinkMaterializedTableColumnColumnsMetadata"
+                    }
+                },
+                "columnsPhysicals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableColumnColumnsPhysical:getFlinkMaterializedTableColumnColumnsPhysical"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "columnsComputeds",
+                "columnsMetadatas",
+                "columnsPhysicals"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getFlinkMaterializedTableColumnColumnsComputed:getFlinkMaterializedTableColumnColumnsComputed": {
+            "properties": {
+                "columnComputedComment": {
+                    "type": "string",
+                    "description": "Comment for the computed column.\n"
+                },
+                "columnComputedExpression": {
+                    "type": "string",
+                    "description": "Expression of the computed column.\n"
+                },
+                "columnComputedKind": {
+                    "type": "string",
+                    "description": "Kind of the computed column.\n"
+                },
+                "columnComputedName": {
+                    "type": "string",
+                    "description": "Name of the computed column.\n"
+                },
+                "columnComputedType": {
+                    "type": "string",
+                    "description": "Type of the computed column.\n"
+                },
+                "columnComputedVirtual": {
+                    "type": "boolean",
+                    "description": "Whether computed column is virtual.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "columnComputedComment",
+                "columnComputedExpression",
+                "columnComputedKind",
+                "columnComputedName",
+                "columnComputedType",
+                "columnComputedVirtual"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getFlinkMaterializedTableColumnColumnsMetadata:getFlinkMaterializedTableColumnColumnsMetadata": {
+            "properties": {
+                "columnMetadataComment": {
+                    "type": "string",
+                    "description": "Comment for the metadata column.\n"
+                },
+                "columnMetadataKey": {
+                    "type": "string",
+                    "description": "Metadata key of the metadata column.\n"
+                },
+                "columnMetadataKind": {
+                    "type": "string",
+                    "description": "Kind of the metadata column.\n"
+                },
+                "columnMetadataName": {
+                    "type": "string",
+                    "description": "Name of the metadata column.\n"
+                },
+                "columnMetadataType": {
+                    "type": "string",
+                    "description": "Type of the metadata column.\n"
+                },
+                "columnMetadataVirtual": {
+                    "type": "boolean",
+                    "description": "Whether metadata column is virtual.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "columnMetadataComment",
+                "columnMetadataKey",
+                "columnMetadataKind",
+                "columnMetadataName",
+                "columnMetadataType",
+                "columnMetadataVirtual"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getFlinkMaterializedTableColumnColumnsPhysical:getFlinkMaterializedTableColumnColumnsPhysical": {
+            "properties": {
+                "columnPhysicalComment": {
+                    "type": "string",
+                    "description": "Comment for the physical column.\n"
+                },
+                "columnPhysicalKind": {
+                    "type": "string",
+                    "description": "Kind of the physical column.\n"
+                },
+                "columnPhysicalName": {
+                    "type": "string",
+                    "description": "Name of the physical column.\n"
+                },
+                "columnPhysicalType": {
+                    "type": "string",
+                    "description": "Type of the physical column.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "columnPhysicalComment",
+                "columnPhysicalKind",
+                "columnPhysicalName",
+                "columnPhysicalType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getFlinkMaterializedTableComputePool:getFlinkMaterializedTableComputePool": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Flink Compute Pool, for example, `lfcp-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getFlinkMaterializedTableConstraint:getFlinkMaterializedTableConstraint": {
+            "properties": {
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Set of Strings) The column names of the constraint.\n"
+                },
+                "enforced": {
+                    "type": "boolean",
+                    "description": "(Boolean) Whether the constraint is enforced.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "(String) The name of the constraint, for example, \u003cspan pulumi-lang-nodejs=\"`pkOrders`\" pulumi-lang-dotnet=\"`PkOrders`\" pulumi-lang-go=\"`pkOrders`\" pulumi-lang-python=\"`pk_orders`\" pulumi-lang-yaml=\"`pkOrders`\" pulumi-lang-java=\"`pkOrders`\"\u003e`pkOrders`\u003c/span\u003e.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(String) The type of the constraint, for example, `PRIMARY_KEY`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "columns",
+                "enforced",
+                "name",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getFlinkMaterializedTableCredentials:getFlinkMaterializedTableCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Flink API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Flink API Secret.\n\n\u003e **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.\n\n\u003e **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the \u003cspan pulumi-lang-nodejs=\"`credentials`\" pulumi-lang-dotnet=\"`Credentials`\" pulumi-lang-go=\"`credentials`\" pulumi-lang-python=\"`credentials`\" pulumi-lang-yaml=\"`credentials`\" pulumi-lang-java=\"`credentials`\"\u003e`credentials`\u003c/span\u003e block in all configuration files to use the new Flink API key, run `pulumi up -target=\"confluent_flink_materialized_table.example\"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=\"confluent_flink_materialized_table.example\" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.\n\n\u003e **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst identity_pool_assigner = new confluentcloud.RoleBinding(\"identity-pool-assigner\", {\n    principal: \"User:pool-abc123\",\n    roleName: \"Assigner\",\n    crnPattern: `${main.resourceName}/service-account=sa-def456`,\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nidentity_pool_assigner = confluentcloud.RoleBinding(\"identity-pool-assigner\",\n    principal=\"User:pool-abc123\",\n    role_name=\"Assigner\",\n    crn_pattern=f\"{main['resourceName']}/service-account=sa-def456\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var identity_pool_assigner = new ConfluentCloud.Index.RoleBinding(\"identity-pool-assigner\", new()\n    {\n        Principal = \"User:pool-abc123\",\n        RoleName = \"Assigner\",\n        CrnPattern = $\"{main.ResourceName}/service-account=sa-def456\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewRoleBinding(ctx, \"identity-pool-assigner\", \u0026confluentcloud.RoleBindingArgs{\n\t\t\tPrincipal:  pulumi.String(\"User:pool-abc123\"),\n\t\t\tRoleName:   pulumi.String(\"Assigner\"),\n\t\t\tCrnPattern: pulumi.Sprintf(\"%v/service-account=sa-def456\", main.ResourceName),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.RoleBinding;\nimport com.pulumi.confluentcloud.RoleBindingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var identity_pool_assigner = new RoleBinding(\"identity-pool-assigner\", RoleBindingArgs.builder()\n            .principal(\"User:pool-abc123\")\n            .roleName(\"Assigner\")\n            .crnPattern(String.format(\"%s/service-account=sa-def456\", main.resourceName()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  identity-pool-assigner:\n    type: confluentcloud:RoleBinding\n    properties:\n      principal: User:pool-abc123\n      roleName: Assigner\n      crnPattern: ${main.resourceName}/service-account=sa-def456\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/getFlinkMaterializedTableDistribution:getFlinkMaterializedTableDistribution": {
+            "properties": {
+                "bucketCount": {
+                    "type": "integer",
+                    "description": "(Integer) The number of buckets the table is distributed by.\n"
+                },
+                "keys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Set of Strings) The names of the columns the table is distributed by.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "bucketCount",
+                "keys"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getFlinkMaterializedTableEnvironment:getFlinkMaterializedTableEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment, for example, `env-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getFlinkMaterializedTableKafkaCluster:getFlinkMaterializedTableKafkaCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "(String) The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getFlinkMaterializedTableOrganization:getFlinkMaterializedTableOrganization": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getFlinkMaterializedTablePrincipal:getFlinkMaterializedTablePrincipal": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getFlinkMaterializedTableWatermark:getFlinkMaterializedTableWatermark": {
+            "properties": {
+                "column": {
+                    "type": "string",
+                    "description": "(String) The name of the watermark column.\n"
+                },
+                "expression": {
+                    "type": "string",
+                    "description": "(String) The watermark expression.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "column",
+                "expression"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "confluentcloud:index/getGatewayAwsEgressPrivateLinkGateway:getGatewayAwsEgressPrivateLinkGateway": {
             "properties": {
@@ -6726,6 +7352,13 @@
                     },
                     "description": "(Optional List of Blocks) supports the following:\n"
                 },
+                "encodingRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRulesetEncodingRule:getSchemaRulesetEncodingRule"
+                    },
+                    "description": "(Optional List of Blocks) supports the following:\n"
+                },
                 "migrationRules": {
                     "type": "array",
                     "items": {
@@ -6786,7 +7419,80 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "(Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.\n"
+                    "description": "(Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "kind",
+                "mode",
+                "name",
+                "params",
+                "tags",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": [
+                        "kind",
+                        "mode",
+                        "name",
+                        "type"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/getSchemaRulesetEncodingRule:getSchemaRulesetEncodingRule": {
+            "properties": {
+                "disabled": {
+                    "type": "boolean",
+                    "description": "(Optional Boolean) The boolean flag to control whether the rule should be disabled.\n"
+                },
+                "doc": {
+                    "type": "string",
+                    "description": "(Optional String) An optional description of the rule.\n"
+                },
+                "expr": {
+                    "type": "string",
+                    "description": "(Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to \"\".\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "(Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "(Required String) A user-defined name that can be used to reference the rule.\n"
+                },
+                "onFailure": {
+                    "type": "string",
+                    "description": "(Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.\n"
+                },
+                "onSuccess": {
+                    "type": "string",
+                    "description": "(Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
+                },
+                "params": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "(Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional String List) The tags to which the rule applies, if any.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.\n"
                 }
             },
             "type": "object",
@@ -6859,7 +7565,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "(Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.\n"
+                    "description": "(Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.\n"
                 }
             },
             "type": "object",
@@ -10124,6 +10830,210 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.FlinkMaterializedTable`\" pulumi-lang-dotnet=\"`confluentcloud.FlinkMaterializedTable`\" pulumi-lang-go=\"`FlinkMaterializedTable`\" pulumi-lang-python=\"`FlinkMaterializedTable`\" pulumi-lang-yaml=\"`confluentcloud.FlinkMaterializedTable`\" pulumi-lang-java=\"`confluentcloud.FlinkMaterializedTable`\"\u003e`confluentcloud.FlinkMaterializedTable`\u003c/span\u003e provides a Flink Materialized Table resource that enables creating, editing, and deleting Flink Materialized Tables on Confluent Cloud.\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental Flink Materialized Table deletion. This setting rejects plans that would destroy or recreate the Flink Materialized Table, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n## Example Usage\n\n### Option #1: Manage multiple Flink Materialized Tables in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.FlinkMaterializedTable(\"example\", {\n    organization: {\n        id: main.id,\n    },\n    environment: {\n        id: staging.id,\n    },\n    computePool: {\n        id: exampleConfluentFlinkComputePool.id,\n    },\n    principal: {\n        id: app_manager_flink.id,\n    },\n    restEndpoint: mainConfluentFlinkRegion.restEndpoint,\n    credentials: {\n        key: flink.id,\n        secret: flink.secret,\n    },\n    displayName: \"my_materialized_table\",\n    kafkaCluster: {\n        id: basic_cluster.id,\n    },\n    query: \"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.FlinkMaterializedTable(\"example\",\n    organization={\n        \"id\": main[\"id\"],\n    },\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    compute_pool={\n        \"id\": example_confluent_flink_compute_pool[\"id\"],\n    },\n    principal={\n        \"id\": app_manager_flink[\"id\"],\n    },\n    rest_endpoint=main_confluent_flink_region[\"restEndpoint\"],\n    credentials={\n        \"key\": flink[\"id\"],\n        \"secret\": flink[\"secret\"],\n    },\n    display_name=\"my_materialized_table\",\n    kafka_cluster={\n        \"id\": basic_cluster[\"id\"],\n    },\n    query=\"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.Index.FlinkMaterializedTable(\"example\", new()\n    {\n        Organization = new ConfluentCloud.Inputs.FlinkMaterializedTableOrganizationArgs\n        {\n            Id = main.Id,\n        },\n        Environment = new ConfluentCloud.Inputs.FlinkMaterializedTableEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        ComputePool = new ConfluentCloud.Inputs.FlinkMaterializedTableComputePoolArgs\n        {\n            Id = exampleConfluentFlinkComputePool.Id,\n        },\n        Principal = new ConfluentCloud.Inputs.FlinkMaterializedTablePrincipalArgs\n        {\n            Id = app_manager_flink.Id,\n        },\n        RestEndpoint = mainConfluentFlinkRegion.RestEndpoint,\n        Credentials = new ConfluentCloud.Inputs.FlinkMaterializedTableCredentialsArgs\n        {\n            Key = flink.Id,\n            Secret = flink.Secret,\n        },\n        DisplayName = \"my_materialized_table\",\n        KafkaCluster = new ConfluentCloud.Inputs.FlinkMaterializedTableKafkaClusterArgs\n        {\n            Id = basic_cluster.Id,\n        },\n        Query = \"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewFlinkMaterializedTable(ctx, \"example\", \u0026confluentcloud.FlinkMaterializedTableArgs{\n\t\t\tOrganization: \u0026confluentcloud.FlinkMaterializedTableOrganizationArgs{\n\t\t\t\tId: pulumi.Any(main.Id),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.FlinkMaterializedTableEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tComputePool: \u0026confluentcloud.FlinkMaterializedTableComputePoolArgs{\n\t\t\t\tId: pulumi.Any(exampleConfluentFlinkComputePool.Id),\n\t\t\t},\n\t\t\tPrincipal: \u0026confluentcloud.FlinkMaterializedTablePrincipalArgs{\n\t\t\t\tId: pulumi.Any(app_manager_flink.Id),\n\t\t\t},\n\t\t\tRestEndpoint: pulumi.Any(mainConfluentFlinkRegion.RestEndpoint),\n\t\t\tCredentials: \u0026confluentcloud.FlinkMaterializedTableCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(flink.Id),\n\t\t\t\tSecret: pulumi.Any(flink.Secret),\n\t\t\t},\n\t\t\tDisplayName: pulumi.String(\"my_materialized_table\"),\n\t\t\tKafkaCluster: \u0026confluentcloud.FlinkMaterializedTableKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(basic_cluster.Id),\n\t\t\t},\n\t\t\tQuery: pulumi.String(\"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.FlinkMaterializedTable;\nimport com.pulumi.confluentcloud.FlinkMaterializedTableArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTableOrganizationArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTableEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTableComputePoolArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTablePrincipalArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTableCredentialsArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTableKafkaClusterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new FlinkMaterializedTable(\"example\", FlinkMaterializedTableArgs.builder()\n            .organization(FlinkMaterializedTableOrganizationArgs.builder()\n                .id(main.id())\n                .build())\n            .environment(FlinkMaterializedTableEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .computePool(FlinkMaterializedTableComputePoolArgs.builder()\n                .id(exampleConfluentFlinkComputePool.id())\n                .build())\n            .principal(FlinkMaterializedTablePrincipalArgs.builder()\n                .id(app_manager_flink.id())\n                .build())\n            .restEndpoint(mainConfluentFlinkRegion.restEndpoint())\n            .credentials(FlinkMaterializedTableCredentialsArgs.builder()\n                .key(flink.id())\n                .secret(flink.secret())\n                .build())\n            .displayName(\"my_materialized_table\")\n            .kafkaCluster(FlinkMaterializedTableKafkaClusterArgs.builder()\n                .id(basic_cluster.id())\n                .build())\n            .query(\"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:FlinkMaterializedTable\n    properties:\n      organization:\n        id: ${main.id}\n      environment:\n        id: ${staging.id}\n      computePool:\n        id: ${exampleConfluentFlinkComputePool.id}\n      principal:\n        id: ${[\"app-manager-flink\"].id}\n      restEndpoint: ${mainConfluentFlinkRegion.restEndpoint}\n      credentials:\n        key: ${flink.id}\n        secret: ${flink.secret}\n      displayName: my_materialized_table\n      kafkaCluster:\n        id: ${[\"basic-cluster\"].id}\n      query: SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Flink Materialized Table in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.FlinkMaterializedTable(\"example\", {\n    displayName: \"my_materialized_table\",\n    kafkaCluster: {\n        id: basic_cluster.id,\n    },\n    query: \"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.FlinkMaterializedTable(\"example\",\n    display_name=\"my_materialized_table\",\n    kafka_cluster={\n        \"id\": basic_cluster[\"id\"],\n    },\n    query=\"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.Index.FlinkMaterializedTable(\"example\", new()\n    {\n        DisplayName = \"my_materialized_table\",\n        KafkaCluster = new ConfluentCloud.Inputs.FlinkMaterializedTableKafkaClusterArgs\n        {\n            Id = basic_cluster.Id,\n        },\n        Query = \"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewFlinkMaterializedTable(ctx, \"example\", \u0026confluentcloud.FlinkMaterializedTableArgs{\n\t\t\tDisplayName: pulumi.String(\"my_materialized_table\"),\n\t\t\tKafkaCluster: \u0026confluentcloud.FlinkMaterializedTableKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(basic_cluster.Id),\n\t\t\t},\n\t\t\tQuery: pulumi.String(\"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.FlinkMaterializedTable;\nimport com.pulumi.confluentcloud.FlinkMaterializedTableArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTableKafkaClusterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new FlinkMaterializedTable(\"example\", FlinkMaterializedTableArgs.builder()\n            .displayName(\"my_materialized_table\")\n            .kafkaCluster(FlinkMaterializedTableKafkaClusterArgs.builder()\n                .id(basic_cluster.id())\n                .build())\n            .query(\"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:FlinkMaterializedTable\n    properties:\n      displayName: my_materialized_table\n      kafkaCluster:\n        id: ${[\"basic-cluster\"].id}\n      query: SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Stopping and Resuming a Materialized Table\n\nA running Materialized Table can be paused and later resumed by toggling the \u003cspan pulumi-lang-nodejs=\"`stopped`\" pulumi-lang-dotnet=\"`Stopped`\" pulumi-lang-go=\"`stopped`\" pulumi-lang-python=\"`stopped`\" pulumi-lang-yaml=\"`stopped`\" pulumi-lang-java=\"`stopped`\"\u003e`stopped`\u003c/span\u003e attribute. The default value is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e (running). To stop the table, set `stopped = true` and run `pulumi up`; to resume it, set `stopped = false` (or remove the attribute) and apply again. The Materialized Table is preserved across stop/resume — only its execution is paused.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.FlinkMaterializedTable(\"example\", {\n    organization: {\n        id: main.id,\n    },\n    environment: {\n        id: staging.id,\n    },\n    computePool: {\n        id: exampleConfluentFlinkComputePool.id,\n    },\n    principal: {\n        id: app_manager_flink.id,\n    },\n    restEndpoint: mainConfluentFlinkRegion.restEndpoint,\n    credentials: {\n        key: flink.id,\n        secret: flink.secret,\n    },\n    displayName: \"my_materialized_table\",\n    kafkaCluster: {\n        id: basic_cluster.id,\n    },\n    query: \"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\",\n    stopped: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.FlinkMaterializedTable(\"example\",\n    organization={\n        \"id\": main[\"id\"],\n    },\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    compute_pool={\n        \"id\": example_confluent_flink_compute_pool[\"id\"],\n    },\n    principal={\n        \"id\": app_manager_flink[\"id\"],\n    },\n    rest_endpoint=main_confluent_flink_region[\"restEndpoint\"],\n    credentials={\n        \"key\": flink[\"id\"],\n        \"secret\": flink[\"secret\"],\n    },\n    display_name=\"my_materialized_table\",\n    kafka_cluster={\n        \"id\": basic_cluster[\"id\"],\n    },\n    query=\"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\",\n    stopped=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.Index.FlinkMaterializedTable(\"example\", new()\n    {\n        Organization = new ConfluentCloud.Inputs.FlinkMaterializedTableOrganizationArgs\n        {\n            Id = main.Id,\n        },\n        Environment = new ConfluentCloud.Inputs.FlinkMaterializedTableEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        ComputePool = new ConfluentCloud.Inputs.FlinkMaterializedTableComputePoolArgs\n        {\n            Id = exampleConfluentFlinkComputePool.Id,\n        },\n        Principal = new ConfluentCloud.Inputs.FlinkMaterializedTablePrincipalArgs\n        {\n            Id = app_manager_flink.Id,\n        },\n        RestEndpoint = mainConfluentFlinkRegion.RestEndpoint,\n        Credentials = new ConfluentCloud.Inputs.FlinkMaterializedTableCredentialsArgs\n        {\n            Key = flink.Id,\n            Secret = flink.Secret,\n        },\n        DisplayName = \"my_materialized_table\",\n        KafkaCluster = new ConfluentCloud.Inputs.FlinkMaterializedTableKafkaClusterArgs\n        {\n            Id = basic_cluster.Id,\n        },\n        Query = \"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\",\n        Stopped = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewFlinkMaterializedTable(ctx, \"example\", \u0026confluentcloud.FlinkMaterializedTableArgs{\n\t\t\tOrganization: \u0026confluentcloud.FlinkMaterializedTableOrganizationArgs{\n\t\t\t\tId: pulumi.Any(main.Id),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.FlinkMaterializedTableEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tComputePool: \u0026confluentcloud.FlinkMaterializedTableComputePoolArgs{\n\t\t\t\tId: pulumi.Any(exampleConfluentFlinkComputePool.Id),\n\t\t\t},\n\t\t\tPrincipal: \u0026confluentcloud.FlinkMaterializedTablePrincipalArgs{\n\t\t\t\tId: pulumi.Any(app_manager_flink.Id),\n\t\t\t},\n\t\t\tRestEndpoint: pulumi.Any(mainConfluentFlinkRegion.RestEndpoint),\n\t\t\tCredentials: \u0026confluentcloud.FlinkMaterializedTableCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(flink.Id),\n\t\t\t\tSecret: pulumi.Any(flink.Secret),\n\t\t\t},\n\t\t\tDisplayName: pulumi.String(\"my_materialized_table\"),\n\t\t\tKafkaCluster: \u0026confluentcloud.FlinkMaterializedTableKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(basic_cluster.Id),\n\t\t\t},\n\t\t\tQuery:   pulumi.String(\"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\"),\n\t\t\tStopped: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.FlinkMaterializedTable;\nimport com.pulumi.confluentcloud.FlinkMaterializedTableArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTableOrganizationArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTableEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTableComputePoolArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTablePrincipalArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTableCredentialsArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkMaterializedTableKafkaClusterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new FlinkMaterializedTable(\"example\", FlinkMaterializedTableArgs.builder()\n            .organization(FlinkMaterializedTableOrganizationArgs.builder()\n                .id(main.id())\n                .build())\n            .environment(FlinkMaterializedTableEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .computePool(FlinkMaterializedTableComputePoolArgs.builder()\n                .id(exampleConfluentFlinkComputePool.id())\n                .build())\n            .principal(FlinkMaterializedTablePrincipalArgs.builder()\n                .id(app_manager_flink.id())\n                .build())\n            .restEndpoint(mainConfluentFlinkRegion.restEndpoint())\n            .credentials(FlinkMaterializedTableCredentialsArgs.builder()\n                .key(flink.id())\n                .secret(flink.secret())\n                .build())\n            .displayName(\"my_materialized_table\")\n            .kafkaCluster(FlinkMaterializedTableKafkaClusterArgs.builder()\n                .id(basic_cluster.id())\n                .build())\n            .query(\"SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\")\n            .stopped(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:FlinkMaterializedTable\n    properties:\n      organization:\n        id: ${main.id}\n      environment:\n        id: ${staging.id}\n      computePool:\n        id: ${exampleConfluentFlinkComputePool.id}\n      principal:\n        id: ${[\"app-manager-flink\"].id}\n      restEndpoint: ${mainConfluentFlinkRegion.restEndpoint}\n      credentials:\n        key: ${flink.id}\n        secret: ${flink.secret}\n      displayName: my_materialized_table\n      kafkaCluster:\n        id: ${[\"basic-cluster\"].id}\n      query: SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;\n      stopped: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Flink Materialized Table by using the Materialized Table name, for example:\n\nOption #1: Manage multiple Flink Materialized Tables in the same Pulumi Stack\n\n```sh\n$ export IMPORT_CONFLUENT_ORGANIZATION_ID=\"\u003corganization_id\u003e\"\n$ export IMPORT_CONFLUENT_ENVIRONMENT_ID=\"\u003cenvironment_id\u003e\"\n$ export IMPORT_FLINK_COMPUTE_POOL_ID=\"\u003cflink_compute_pool_id\u003e\"\n$ export IMPORT_FLINK_API_KEY=\"\u003cflink_api_key\u003e\"\n$ export IMPORT_FLINK_API_SECRET=\"\u003cflink_api_secret\u003e\"\n$ export IMPORT_FLINK_REST_ENDPOINT=\"\u003cflink_rest_endpoint\u003e\"\n$ export IMPORT_FLINK_PRINCIPAL_ID=\"\u003cflink_principal_id\u003e\"\n$ pulumi import confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable example env-abc123/lkc-xyz123/my_materialized_table\n```\n\nOption #2: Manage a single Flink Materialized Table in the same Pulumi Stack\n\n```sh\n$ pulumi import confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable example env-abc123/lkc-xyz123/my_materialized_table\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "properties": {
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableColumn:FlinkMaterializedTableColumn"
+                    },
+                    "description": "A list of column definitions. Each \u003cspan pulumi-lang-nodejs=\"`columns`\" pulumi-lang-dotnet=\"`Columns`\" pulumi-lang-go=\"`columns`\" pulumi-lang-python=\"`columns`\" pulumi-lang-yaml=\"`columns`\" pulumi-lang-java=\"`columns`\"\u003e`columns`\u003c/span\u003e block supports the following sub-blocks:\n"
+                },
+                "computePool": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableComputePool:FlinkMaterializedTableComputePool"
+                },
+                "constraints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableConstraint:FlinkMaterializedTableConstraint"
+                    }
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableCredentials:FlinkMaterializedTableCredentials",
+                    "description": "The Cluster API Credentials.",
+                    "secret": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The unique name of the Materialized Table.\n"
+                },
+                "distribution": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableDistribution:FlinkMaterializedTableDistribution",
+                    "description": "The distribution definition for the Materialized Table. Supports the following:\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableEnvironment:FlinkMaterializedTableEnvironment"
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableKafkaCluster:FlinkMaterializedTableKafkaCluster"
+                },
+                "organization": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableOrganization:FlinkMaterializedTableOrganization"
+                },
+                "principal": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTablePrincipal:FlinkMaterializedTablePrincipal"
+                },
+                "query": {
+                    "type": "string",
+                    "description": "The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;`.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.\n"
+                },
+                "stopped": {
+                    "type": "boolean",
+                    "description": "Indicates whether the Materialized Table is stopped. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e. Update it to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e to stop the Materialized Table. Subsequently update it to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e to resume it.\n"
+                },
+                "watermark": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableWatermark:FlinkMaterializedTableWatermark",
+                    "description": "The watermark definition for the Materialized Table. Supports the following:\n"
+                }
+            },
+            "required": [
+                "computePool",
+                "displayName",
+                "environment",
+                "kafkaCluster",
+                "organization",
+                "principal"
+            ],
+            "inputProperties": {
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableColumn:FlinkMaterializedTableColumn"
+                    },
+                    "description": "A list of column definitions. Each \u003cspan pulumi-lang-nodejs=\"`columns`\" pulumi-lang-dotnet=\"`Columns`\" pulumi-lang-go=\"`columns`\" pulumi-lang-python=\"`columns`\" pulumi-lang-yaml=\"`columns`\" pulumi-lang-java=\"`columns`\"\u003e`columns`\u003c/span\u003e block supports the following sub-blocks:\n"
+                },
+                "computePool": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableComputePool:FlinkMaterializedTableComputePool"
+                },
+                "constraints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableConstraint:FlinkMaterializedTableConstraint"
+                    }
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableCredentials:FlinkMaterializedTableCredentials",
+                    "description": "The Cluster API Credentials.",
+                    "secret": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The unique name of the Materialized Table.\n",
+                    "willReplaceOnChanges": true
+                },
+                "distribution": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableDistribution:FlinkMaterializedTableDistribution",
+                    "description": "The distribution definition for the Materialized Table. Supports the following:\n",
+                    "willReplaceOnChanges": true
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableEnvironment:FlinkMaterializedTableEnvironment"
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableKafkaCluster:FlinkMaterializedTableKafkaCluster",
+                    "willReplaceOnChanges": true
+                },
+                "organization": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableOrganization:FlinkMaterializedTableOrganization"
+                },
+                "principal": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTablePrincipal:FlinkMaterializedTablePrincipal"
+                },
+                "query": {
+                    "type": "string",
+                    "description": "The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;`.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "stopped": {
+                    "type": "boolean",
+                    "description": "Indicates whether the Materialized Table is stopped. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e. Update it to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e to stop the Materialized Table. Subsequently update it to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e to resume it.\n"
+                },
+                "watermark": {
+                    "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableWatermark:FlinkMaterializedTableWatermark",
+                    "description": "The watermark definition for the Materialized Table. Supports the following:\n"
+                }
+            },
+            "requiredInputs": [
+                "displayName",
+                "kafkaCluster"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FlinkMaterializedTable resources.\n",
+                "properties": {
+                    "columns": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableColumn:FlinkMaterializedTableColumn"
+                        },
+                        "description": "A list of column definitions. Each \u003cspan pulumi-lang-nodejs=\"`columns`\" pulumi-lang-dotnet=\"`Columns`\" pulumi-lang-go=\"`columns`\" pulumi-lang-python=\"`columns`\" pulumi-lang-yaml=\"`columns`\" pulumi-lang-java=\"`columns`\"\u003e`columns`\u003c/span\u003e block supports the following sub-blocks:\n"
+                    },
+                    "computePool": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableComputePool:FlinkMaterializedTableComputePool"
+                    },
+                    "constraints": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableConstraint:FlinkMaterializedTableConstraint"
+                        }
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableCredentials:FlinkMaterializedTableCredentials",
+                        "description": "The Cluster API Credentials.",
+                        "secret": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The unique name of the Materialized Table.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "distribution": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableDistribution:FlinkMaterializedTableDistribution",
+                        "description": "The distribution definition for the Materialized Table. Supports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableEnvironment:FlinkMaterializedTableEnvironment"
+                    },
+                    "kafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableKafkaCluster:FlinkMaterializedTableKafkaCluster",
+                        "willReplaceOnChanges": true
+                    },
+                    "organization": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableOrganization:FlinkMaterializedTableOrganization"
+                    },
+                    "principal": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTablePrincipal:FlinkMaterializedTablePrincipal"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "The SQL query that defines the Materialized Table, for example, `SELECT user_id, product_id, price, quantity FROM orders WHERE price \u003e 1000;`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "stopped": {
+                        "type": "boolean",
+                        "description": "Indicates whether the Materialized Table is stopped. Defaults to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e. Update it to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e to stop the Materialized Table. Subsequently update it to \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e to resume it.\n"
+                    },
+                    "watermark": {
+                        "$ref": "#/types/confluentcloud:index/FlinkMaterializedTableWatermark:FlinkMaterializedTableWatermark",
+                        "description": "The watermark definition for the Materialized Table. Supports the following:\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/flinkStatement:FlinkStatement": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental statement deletion. This setting rejects plans that would destroy or recreate the statement, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n## Example Usage\n\n### Option #1: Manage multiple Flink Compute Pools in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst randomIntTable = new confluentcloud.FlinkStatement(\"random_int_table\", {\n    organization: {\n        id: main.id,\n    },\n    environment: {\n        id: staging.id,\n    },\n    computePool: {\n        id: example.id,\n    },\n    principal: {\n        id: app_manager_flink.id,\n    },\n    statement: \"CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);\",\n    properties: {\n        \"sql.current-catalog\": exampleConfluentEnvironment.displayName,\n        \"sql.current-database\": exampleConfluentKafkaCluster.displayName,\n    },\n    restEndpoint: mainConfluentFlinkRegion.restEndpoint,\n    credentials: {\n        key: env_admin_flink_api_key.id,\n        secret: env_admin_flink_api_key.secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nrandom_int_table = confluentcloud.FlinkStatement(\"random_int_table\",\n    organization={\n        \"id\": main[\"id\"],\n    },\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    compute_pool={\n        \"id\": example[\"id\"],\n    },\n    principal={\n        \"id\": app_manager_flink[\"id\"],\n    },\n    statement=\"CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);\",\n    properties={\n        \"sql.current-catalog\": example_confluent_environment[\"displayName\"],\n        \"sql.current-database\": example_confluent_kafka_cluster[\"displayName\"],\n    },\n    rest_endpoint=main_confluent_flink_region[\"restEndpoint\"],\n    credentials={\n        \"key\": env_admin_flink_api_key[\"id\"],\n        \"secret\": env_admin_flink_api_key[\"secret\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var randomIntTable = new ConfluentCloud.Index.FlinkStatement(\"random_int_table\", new()\n    {\n        Organization = new ConfluentCloud.Inputs.FlinkStatementOrganizationArgs\n        {\n            Id = main.Id,\n        },\n        Environment = new ConfluentCloud.Inputs.FlinkStatementEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        ComputePool = new ConfluentCloud.Inputs.FlinkStatementComputePoolArgs\n        {\n            Id = example.Id,\n        },\n        Principal = new ConfluentCloud.Inputs.FlinkStatementPrincipalArgs\n        {\n            Id = app_manager_flink.Id,\n        },\n        Statement = \"CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);\",\n        Properties = \n        {\n            { \"sql.current-catalog\", exampleConfluentEnvironment.DisplayName },\n            { \"sql.current-database\", exampleConfluentKafkaCluster.DisplayName },\n        },\n        RestEndpoint = mainConfluentFlinkRegion.RestEndpoint,\n        Credentials = new ConfluentCloud.Inputs.FlinkStatementCredentialsArgs\n        {\n            Key = env_admin_flink_api_key.Id,\n            Secret = env_admin_flink_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewFlinkStatement(ctx, \"random_int_table\", \u0026confluentcloud.FlinkStatementArgs{\n\t\t\tOrganization: \u0026confluentcloud.FlinkStatementOrganizationArgs{\n\t\t\t\tId: pulumi.Any(main.Id),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.FlinkStatementEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tComputePool: \u0026confluentcloud.FlinkStatementComputePoolArgs{\n\t\t\t\tId: pulumi.Any(example.Id),\n\t\t\t},\n\t\t\tPrincipal: \u0026confluentcloud.FlinkStatementPrincipalArgs{\n\t\t\t\tId: pulumi.Any(app_manager_flink.Id),\n\t\t\t},\n\t\t\tStatement: pulumi.String(\"CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);\"),\n\t\t\tProperties: pulumi.StringMap{\n\t\t\t\t\"sql.current-catalog\":  pulumi.Any(exampleConfluentEnvironment.DisplayName),\n\t\t\t\t\"sql.current-database\": pulumi.Any(exampleConfluentKafkaCluster.DisplayName),\n\t\t\t},\n\t\t\tRestEndpoint: pulumi.Any(mainConfluentFlinkRegion.RestEndpoint),\n\t\t\tCredentials: \u0026confluentcloud.FlinkStatementCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(env_admin_flink_api_key.Id),\n\t\t\t\tSecret: pulumi.Any(env_admin_flink_api_key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.FlinkStatement;\nimport com.pulumi.confluentcloud.FlinkStatementArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkStatementOrganizationArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkStatementEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkStatementComputePoolArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkStatementPrincipalArgs;\nimport com.pulumi.confluentcloud.inputs.FlinkStatementCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var randomIntTable = new FlinkStatement(\"randomIntTable\", FlinkStatementArgs.builder()\n            .organization(FlinkStatementOrganizationArgs.builder()\n                .id(main.id())\n                .build())\n            .environment(FlinkStatementEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .computePool(FlinkStatementComputePoolArgs.builder()\n                .id(example.id())\n                .build())\n            .principal(FlinkStatementPrincipalArgs.builder()\n                .id(app_manager_flink.id())\n                .build())\n            .statement(\"CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);\")\n            .properties(Map.ofEntries(\n                Map.entry(\"sql.current-catalog\", exampleConfluentEnvironment.displayName()),\n                Map.entry(\"sql.current-database\", exampleConfluentKafkaCluster.displayName())\n            ))\n            .restEndpoint(mainConfluentFlinkRegion.restEndpoint())\n            .credentials(FlinkStatementCredentialsArgs.builder()\n                .key(env_admin_flink_api_key.id())\n                .secret(env_admin_flink_api_key.secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  randomIntTable:\n    type: confluentcloud:FlinkStatement\n    name: random_int_table\n    properties:\n      organization:\n        id: ${main.id}\n      environment:\n        id: ${staging.id}\n      computePool:\n        id: ${example.id}\n      principal:\n        id: ${[\"app-manager-flink\"].id}\n      statement: CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);\n      properties:\n        sql.current-catalog: ${exampleConfluentEnvironment.displayName}\n        sql.current-database: ${exampleConfluentKafkaCluster.displayName}\n      restEndpoint: ${mainConfluentFlinkRegion.restEndpoint}\n      credentials:\n        key: ${[\"env-admin-flink-api-key\"].id}\n        secret: ${[\"env-admin-flink-api-key\"].secret}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Flink Compute Pool in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.FlinkStatement(\"example\", {\n    statement: \"CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);\",\n    properties: {\n        \"sql.current-catalog\": confluentEnvironmentDisplayName,\n        \"sql.current-database\": confluentKafkaClusterDisplayName,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.FlinkStatement(\"example\",\n    statement=\"CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);\",\n    properties={\n        \"sql.current-catalog\": confluent_environment_display_name,\n        \"sql.current-database\": confluent_kafka_cluster_display_name,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.Index.FlinkStatement(\"example\", new()\n    {\n        Statement = \"CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);\",\n        Properties = \n        {\n            { \"sql.current-catalog\", confluentEnvironmentDisplayName },\n            { \"sql.current-database\", confluentKafkaClusterDisplayName },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewFlinkStatement(ctx, \"example\", \u0026confluentcloud.FlinkStatementArgs{\n\t\t\tStatement: pulumi.String(\"CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);\"),\n\t\t\tProperties: pulumi.StringMap{\n\t\t\t\t\"sql.current-catalog\":  pulumi.Any(confluentEnvironmentDisplayName),\n\t\t\t\t\"sql.current-database\": pulumi.Any(confluentKafkaClusterDisplayName),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.FlinkStatement;\nimport com.pulumi.confluentcloud.FlinkStatementArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new FlinkStatement(\"example\", FlinkStatementArgs.builder()\n            .statement(\"CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);\")\n            .properties(Map.ofEntries(\n                Map.entry(\"sql.current-catalog\", confluentEnvironmentDisplayName),\n                Map.entry(\"sql.current-database\", confluentKafkaClusterDisplayName)\n            ))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:FlinkStatement\n    properties:\n      statement: CREATE TABLE random_int_table(ts TIMESTAMP_LTZ(3), random_value INT);\n      properties:\n        sql.current-catalog: ${confluentEnvironmentDisplayName}\n        sql.current-database: ${confluentKafkaClusterDisplayName}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\nExample of \u003cspan pulumi-lang-nodejs=\"`confluentcloud.FlinkStatement`\" pulumi-lang-dotnet=\"`confluentcloud.FlinkStatement`\" pulumi-lang-go=\"`FlinkStatement`\" pulumi-lang-python=\"`FlinkStatement`\" pulumi-lang-yaml=\"`confluentcloud.FlinkStatement`\" pulumi-lang-java=\"`confluentcloud.FlinkStatement`\"\u003e`confluentcloud.FlinkStatement`\u003c/span\u003e that creates a model:\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.FlinkStatement(\"example\", {\n    statement: \"CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY\u003cFLOAT\u003e) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');\",\n    properties: {\n        \"sql.current-catalog\": confluentEnvironmentDisplayName,\n        \"sql.current-database\": confluentKafkaClusterDisplayName,\n    },\n    propertiesSensitive: {\n        \"sql.secrets.openaikey\": \"***REDACTED***\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.FlinkStatement(\"example\",\n    statement=\"CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY\u003cFLOAT\u003e) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');\",\n    properties={\n        \"sql.current-catalog\": confluent_environment_display_name,\n        \"sql.current-database\": confluent_kafka_cluster_display_name,\n    },\n    properties_sensitive={\n        \"sql.secrets.openaikey\": \"***REDACTED***\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.Index.FlinkStatement(\"example\", new()\n    {\n        Statement = \"CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY\u003cFLOAT\u003e) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');\",\n        Properties = \n        {\n            { \"sql.current-catalog\", confluentEnvironmentDisplayName },\n            { \"sql.current-database\", confluentKafkaClusterDisplayName },\n        },\n        PropertiesSensitive = \n        {\n            { \"sql.secrets.openaikey\", \"***REDACTED***\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewFlinkStatement(ctx, \"example\", \u0026confluentcloud.FlinkStatementArgs{\n\t\t\tStatement: pulumi.String(\"CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY\u003cFLOAT\u003e) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');\"),\n\t\t\tProperties: pulumi.StringMap{\n\t\t\t\t\"sql.current-catalog\":  pulumi.Any(confluentEnvironmentDisplayName),\n\t\t\t\t\"sql.current-database\": pulumi.Any(confluentKafkaClusterDisplayName),\n\t\t\t},\n\t\t\tPropertiesSensitive: pulumi.StringMap{\n\t\t\t\t\"sql.secrets.openaikey\": pulumi.String(\"***REDACTED***\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.FlinkStatement;\nimport com.pulumi.confluentcloud.FlinkStatementArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new FlinkStatement(\"example\", FlinkStatementArgs.builder()\n            .statement(\"CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY\u003cFLOAT\u003e) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');\")\n            .properties(Map.ofEntries(\n                Map.entry(\"sql.current-catalog\", confluentEnvironmentDisplayName),\n                Map.entry(\"sql.current-database\", confluentKafkaClusterDisplayName)\n            ))\n            .propertiesSensitive(Map.of(\"sql.secrets.openaikey\", \"***REDACTED***\"))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:FlinkStatement\n    properties:\n      statement: CREATE MODEL `vector_encoding` INPUT (input STRING) OUTPUT (vector ARRAY\u003cFLOAT\u003e) WITH( 'TASK' = 'classification','PROVIDER' = 'OPENAI','OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings','OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}');\n      properties:\n        sql.current-catalog: ${confluentEnvironmentDisplayName}\n        sql.current-database: ${confluentKafkaClusterDisplayName}\n      propertiesSensitive:\n        sql.secrets.openaikey: '***REDACTED***'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end example might help to get started with [Flink Statements](https://docs.confluent.io/cloud/current/flink/get-started/overview.html):\n  * flink-quickstart\n  * flink-carry-over-offset-between-statements\n\n## Import\n\nYou can import a Flink statement by using the Flink Statement name, for example:\n\nOption #1: Manage multiple Flink Compute Pools in the same Pulumi Stack\n\n```sh\n$ export IMPORT_CONFLUENT_ORGANIZATION_ID=\"\u003corganization_id\u003e\"\n$ export IMPORT_CONFLUENT_ENVIRONMENT_ID=\"\u003cenvironment_id\u003e\"\n$ export IMPORT_FLINK_COMPUTE_POOL_ID=\"\u003cflink_compute_pool_id\u003e\"\n$ export IMPORT_FLINK_API_KEY=\"\u003cflink_api_key\u003e\"\n$ export IMPORT_FLINK_API_SECRET=\"\u003cflink_api_secret\u003e\"\n$ export IMPORT_FLINK_REST_ENDPOINT=\"\u003cflink_rest_endpoint\u003e\"\n$ export IMPORT_FLINK_PRINCIPAL_ID=\"\u003cflink_rest_endpoint\u003e\"\n$ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67\n```\n\nOption #2: Manage a single Flink Compute Pool in the same Pulumi Stack\n\n```sh\n$ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
@@ -13273,7 +14183,7 @@
             }
         },
         "confluentcloud:index/schema:Schema": {
-            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.Schema`\" pulumi-lang-dotnet=\"`confluentcloud.Schema`\" pulumi-lang-go=\"`Schema`\" pulumi-lang-python=\"`Schema`\" pulumi-lang-yaml=\"`confluentcloud.Schema`\" pulumi-lang-java=\"`confluentcloud.Schema`\"\u003e`confluentcloud.Schema`\u003c/span\u003e provides a Schema resource that enables creating, evolving, and deleting Schemas on a Schema Registry cluster on Confluent Cloud.\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.Schema`\" pulumi-lang-dotnet=\"`confluentcloud.Schema`\" pulumi-lang-go=\"`Schema`\" pulumi-lang-python=\"`Schema`\" pulumi-lang-yaml=\"`confluentcloud.Schema`\" pulumi-lang-java=\"`confluentcloud.Schema`\"\u003e`confluentcloud.Schema`\u003c/span\u003e enables managing the latest version or a specific version of a schema. By design, \u003cspan pulumi-lang-nodejs=\"`confluentcloud.Schema`\" pulumi-lang-dotnet=\"`confluentcloud.Schema`\" pulumi-lang-go=\"`Schema`\" pulumi-lang-python=\"`Schema`\" pulumi-lang-yaml=\"`confluentcloud.Schema`\" pulumi-lang-java=\"`confluentcloud.Schema`\"\u003e`confluentcloud.Schema`\u003c/span\u003e won't destroy all versions of a schema, which differs from Confluent Platform, which permits hard delete on all schema versions at once.\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental schema deletion. This setting rejects plans that would destroy or recreate the schema, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n## Example Usage\n\n### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\nimport * as std from \"@pulumi/std\";\n\nconst avro_purchase = new confluentcloud.Schema(\"avro-purchase\", {\n    schemaRegistryCluster: {\n        id: essentials.id,\n    },\n    restEndpoint: essentials.restEndpoint,\n    subjectName: \"avro-purchase-value\",\n    format: \"AVRO\",\n    schema: std.file({\n        input: \"./schemas/avro/purchase.avsc\",\n    }).result,\n    credentials: {\n        key: \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        secret: \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\nimport pulumi_std as std\n\navro_purchase = confluentcloud.Schema(\"avro-purchase\",\n    schema_registry_cluster={\n        \"id\": essentials[\"id\"],\n    },\n    rest_endpoint=essentials[\"restEndpoint\"],\n    subject_name=\"avro-purchase-value\",\n    format=\"AVRO\",\n    schema=std.file(input=\"./schemas/avro/purchase.avsc\")[\"result\"],\n    credentials={\n        \"key\": \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        \"secret\": \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var avro_purchase = new ConfluentCloud.Index.Schema(\"avro-purchase\", new()\n    {\n        SchemaRegistryCluster = new ConfluentCloud.Inputs.SchemaSchemaRegistryClusterArgs\n        {\n            Id = essentials.Id,\n        },\n        RestEndpoint = essentials.RestEndpoint,\n        SubjectName = \"avro-purchase-value\",\n        Format = \"AVRO\",\n        SchemaDetails = Std.Index.File.Invoke(new()\n        {\n            Input = \"./schemas/avro/purchase.avsc\",\n        }).Result,\n        Credentials = new ConfluentCloud.Inputs.SchemaCredentialsArgs\n        {\n            Key = \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n            Secret = \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, map[string]interface{}{\n\t\t\t\"input\": \"./schemas/avro/purchase.avsc\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewSchema(ctx, \"avro-purchase\", \u0026confluentcloud.SchemaArgs{\n\t\t\tSchemaRegistryCluster: \u0026confluentcloud.SchemaSchemaRegistryClusterArgs{\n\t\t\t\tId: pulumi.Any(essentials.Id),\n\t\t\t},\n\t\t\tRestEndpoint: pulumi.Any(essentials.RestEndpoint),\n\t\t\tSubjectName:  pulumi.String(\"avro-purchase-value\"),\n\t\t\tFormat:       pulumi.String(\"AVRO\"),\n\t\t\tSchema:       invokeFile.Result,\n\t\t\tCredentials: \u0026confluentcloud.SchemaCredentialsArgs{\n\t\t\t\tKey:    pulumi.String(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t\tSecret: pulumi.String(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Schema;\nimport com.pulumi.confluentcloud.SchemaArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaSchemaRegistryClusterArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaCredentialsArgs;\nimport com.pulumi.std.StdFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var avro_purchase = new Schema(\"avro-purchase\", SchemaArgs.builder()\n            .schemaRegistryCluster(SchemaSchemaRegistryClusterArgs.builder()\n                .id(essentials.id())\n                .build())\n            .restEndpoint(essentials.restEndpoint())\n            .subjectName(\"avro-purchase-value\")\n            .format(\"AVRO\")\n            .schema(StdFunctions.file(Map.of(\"input\", \"./schemas/avro/purchase.avsc\")).result())\n            .credentials(SchemaCredentialsArgs.builder()\n                .key(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .secret(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  avro-purchase:\n    type: confluentcloud:Schema\n    properties:\n      schemaRegistryCluster:\n        id: ${essentials.id}\n      restEndpoint: ${essentials.restEndpoint}\n      subjectName: avro-purchase-value\n      format: AVRO\n      schema:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: ./schemas/avro/purchase.avsc\n          return: result\n      credentials:\n        key: \u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\n        secret: \u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\nimport * as std from \"@pulumi/std\";\n\nconst avro_purchase = new confluentcloud.Schema(\"avro-purchase\", {\n    subjectName: \"avro-purchase-value\",\n    format: \"AVRO\",\n    schema: std.file({\n        input: \"./schemas/avro/purchase.avsc\",\n    }).result,\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\nimport pulumi_std as std\n\navro_purchase = confluentcloud.Schema(\"avro-purchase\",\n    subject_name=\"avro-purchase-value\",\n    format=\"AVRO\",\n    schema=std.file(input=\"./schemas/avro/purchase.avsc\")[\"result\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var avro_purchase = new ConfluentCloud.Index.Schema(\"avro-purchase\", new()\n    {\n        SubjectName = \"avro-purchase-value\",\n        Format = \"AVRO\",\n        SchemaDetails = Std.Index.File.Invoke(new()\n        {\n            Input = \"./schemas/avro/purchase.avsc\",\n        }).Result,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, map[string]interface{}{\n\t\t\t\"input\": \"./schemas/avro/purchase.avsc\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewSchema(ctx, \"avro-purchase\", \u0026confluentcloud.SchemaArgs{\n\t\t\tSubjectName: pulumi.String(\"avro-purchase-value\"),\n\t\t\tFormat:      pulumi.String(\"AVRO\"),\n\t\t\tSchema:      invokeFile.Result,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Schema;\nimport com.pulumi.confluentcloud.SchemaArgs;\nimport com.pulumi.std.StdFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var avro_purchase = new Schema(\"avro-purchase\", SchemaArgs.builder()\n            .subjectName(\"avro-purchase-value\")\n            .format(\"AVRO\")\n            .schema(StdFunctions.file(Map.of(\"input\", \"./schemas/avro/purchase.avsc\")).result())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  avro-purchase:\n    type: confluentcloud:Schema\n    properties:\n      subjectName: avro-purchase-value\n      format: AVRO\n      schema:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: ./schemas/avro/purchase.avsc\n          return: result\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with \u003cspan pulumi-lang-nodejs=\"`confluentcloud.Schema`\" pulumi-lang-dotnet=\"`confluentcloud.Schema`\" pulumi-lang-go=\"`Schema`\" pulumi-lang-python=\"`Schema`\" pulumi-lang-yaml=\"`confluentcloud.Schema`\" pulumi-lang-java=\"`confluentcloud.Schema`\"\u003e`confluentcloud.Schema`\u003c/span\u003e resource:\n* single-event-types-avro-schema\n* single-event-types-proto-schema\n* single-event-types-proto-schema-with-alias\n* multiple-event-types-avro-schema\n* multiple-event-types-proto-schema\n* field-level-encryption-schema\n\n## Additional Examples\n\n### Default Option A: Manage the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\nimport * as std from \"@pulumi/std\";\n\n// confluent_schema.avro-purchase points to v1.\nconst avro_purchase = new confluentcloud.Schema(\"avro-purchase\", {\n    subjectName: \"avro-purchase-value\",\n    format: \"AVRO\",\n    schema: std.file({\n        input: \"./schemas/avro/purchase.avsc\",\n    }).result,\n    metadata: {\n        properties: {\n            owner: \"Bob Jones\",\n            email: \"bob@acme.com\",\n        },\n        sensitives: [\n            \"s1\",\n            \"s2\",\n        ],\n        tags: [\n            {\n                key: \"tag1\",\n                values: [\"PII\"],\n            },\n            {\n                key: \"tag2\",\n                values: [\"PIIIII\"],\n            },\n        ],\n    },\n    ruleset: {\n        domainRules: [\n            {\n                name: \"encryptPII\",\n                kind: \"TRANSFORM\",\n                type: \"ENCRYPT\",\n                mode: \"WRITEREAD\",\n                tags: [\"PII\"],\n                params: {\n                    \"encrypt.kek.name\": \"testkek2\",\n                },\n            },\n            {\n                name: \"encrypt\",\n                kind: \"TRANSFORM\",\n                type: \"ENCRYPT\",\n                mode: \"WRITEREAD\",\n                tags: [\"PIIIII\"],\n                params: {\n                    \"encrypt.kek.name\": \"testkek2\",\n                },\n            },\n        ],\n        migrationRules: [{\n            name: \"encrypt\",\n            kind: \"TRANSFORM\",\n            type: \"ENCRYPT\",\n            mode: \"WRITEREAD\",\n            tags: [\"PIM\"],\n            params: {\n                \"encrypt.kek.name\": \"testkekM\",\n            },\n        }],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\nimport pulumi_std as std\n\n# confluent_schema.avro-purchase points to v1.\navro_purchase = confluentcloud.Schema(\"avro-purchase\",\n    subject_name=\"avro-purchase-value\",\n    format=\"AVRO\",\n    schema=std.file(input=\"./schemas/avro/purchase.avsc\")[\"result\"],\n    metadata={\n        \"properties\": {\n            \"owner\": \"Bob Jones\",\n            \"email\": \"bob@acme.com\",\n        },\n        \"sensitives\": [\n            \"s1\",\n            \"s2\",\n        ],\n        \"tags\": [\n            {\n                \"key\": \"tag1\",\n                \"values\": [\"PII\"],\n            },\n            {\n                \"key\": \"tag2\",\n                \"values\": [\"PIIIII\"],\n            },\n        ],\n    },\n    ruleset={\n        \"domain_rules\": [\n            {\n                \"name\": \"encryptPII\",\n                \"kind\": \"TRANSFORM\",\n                \"type\": \"ENCRYPT\",\n                \"mode\": \"WRITEREAD\",\n                \"tags\": [\"PII\"],\n                \"params\": {\n                    \"encrypt.kek.name\": \"testkek2\",\n                },\n            },\n            {\n                \"name\": \"encrypt\",\n                \"kind\": \"TRANSFORM\",\n                \"type\": \"ENCRYPT\",\n                \"mode\": \"WRITEREAD\",\n                \"tags\": [\"PIIIII\"],\n                \"params\": {\n                    \"encrypt.kek.name\": \"testkek2\",\n                },\n            },\n        ],\n        \"migration_rules\": [{\n            \"name\": \"encrypt\",\n            \"kind\": \"TRANSFORM\",\n            \"type\": \"ENCRYPT\",\n            \"mode\": \"WRITEREAD\",\n            \"tags\": [\"PIM\"],\n            \"params\": {\n                \"encrypt.kek.name\": \"testkekM\",\n            },\n        }],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // confluent_schema.avro-purchase points to v1.\n    var avro_purchase = new ConfluentCloud.Index.Schema(\"avro-purchase\", new()\n    {\n        SubjectName = \"avro-purchase-value\",\n        Format = \"AVRO\",\n        SchemaDetails = Std.Index.File.Invoke(new()\n        {\n            Input = \"./schemas/avro/purchase.avsc\",\n        }).Result,\n        Metadata = new ConfluentCloud.Inputs.SchemaMetadataArgs\n        {\n            Properties = \n            {\n                { \"owner\", \"Bob Jones\" },\n                { \"email\", \"bob@acme.com\" },\n            },\n            Sensitives = new[]\n            {\n                \"s1\",\n                \"s2\",\n            },\n            Tags = new[]\n            {\n                new ConfluentCloud.Inputs.SchemaMetadataTagArgs\n                {\n                    Key = \"tag1\",\n                    Values = new[]\n                    {\n                        \"PII\",\n                    },\n                },\n                new ConfluentCloud.Inputs.SchemaMetadataTagArgs\n                {\n                    Key = \"tag2\",\n                    Values = new[]\n                    {\n                        \"PIIIII\",\n                    },\n                },\n            },\n        },\n        Ruleset = new ConfluentCloud.Inputs.SchemaRulesetArgs\n        {\n            DomainRules = new[]\n            {\n                new ConfluentCloud.Inputs.SchemaRulesetDomainRuleArgs\n                {\n                    Name = \"encryptPII\",\n                    Kind = \"TRANSFORM\",\n                    Type = \"ENCRYPT\",\n                    Mode = \"WRITEREAD\",\n                    Tags = new[]\n                    {\n                        \"PII\",\n                    },\n                    Params = \n                    {\n                        { \"encrypt.kek.name\", \"testkek2\" },\n                    },\n                },\n                new ConfluentCloud.Inputs.SchemaRulesetDomainRuleArgs\n                {\n                    Name = \"encrypt\",\n                    Kind = \"TRANSFORM\",\n                    Type = \"ENCRYPT\",\n                    Mode = \"WRITEREAD\",\n                    Tags = new[]\n                    {\n                        \"PIIIII\",\n                    },\n                    Params = \n                    {\n                        { \"encrypt.kek.name\", \"testkek2\" },\n                    },\n                },\n            },\n            MigrationRules = new[]\n            {\n                new ConfluentCloud.Inputs.SchemaRulesetMigrationRuleArgs\n                {\n                    Name = \"encrypt\",\n                    Kind = \"TRANSFORM\",\n                    Type = \"ENCRYPT\",\n                    Mode = \"WRITEREAD\",\n                    Tags = new[]\n                    {\n                        \"PIM\",\n                    },\n                    Params = \n                    {\n                        { \"encrypt.kek.name\", \"testkekM\" },\n                    },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, map[string]interface{}{\n\t\t\t\"input\": \"./schemas/avro/purchase.avsc\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// confluent_schema.avro-purchase points to v1.\n\t\t_, err = confluentcloud.NewSchema(ctx, \"avro-purchase\", \u0026confluentcloud.SchemaArgs{\n\t\t\tSubjectName: pulumi.String(\"avro-purchase-value\"),\n\t\t\tFormat:      pulumi.String(\"AVRO\"),\n\t\t\tSchema:      invokeFile.Result,\n\t\t\tMetadata: \u0026confluentcloud.SchemaMetadataArgs{\n\t\t\t\tProperties: pulumi.StringMap{\n\t\t\t\t\t\"owner\": pulumi.String(\"Bob Jones\"),\n\t\t\t\t\t\"email\": pulumi.String(\"bob@acme.com\"),\n\t\t\t\t},\n\t\t\t\tSensitives: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"s1\"),\n\t\t\t\t\tpulumi.String(\"s2\"),\n\t\t\t\t},\n\t\t\t\tTags: confluentcloud.SchemaMetadataTagArray{\n\t\t\t\t\t\u0026confluentcloud.SchemaMetadataTagArgs{\n\t\t\t\t\t\tKey: pulumi.String(\"tag1\"),\n\t\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"PII\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\t\u0026confluentcloud.SchemaMetadataTagArgs{\n\t\t\t\t\t\tKey: pulumi.String(\"tag2\"),\n\t\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"PIIIII\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tRuleset: \u0026confluentcloud.SchemaRulesetArgs{\n\t\t\t\tDomainRules: confluentcloud.SchemaRulesetDomainRuleArray{\n\t\t\t\t\t\u0026confluentcloud.SchemaRulesetDomainRuleArgs{\n\t\t\t\t\t\tName: pulumi.String(\"encryptPII\"),\n\t\t\t\t\t\tKind: pulumi.String(\"TRANSFORM\"),\n\t\t\t\t\t\tType: pulumi.String(\"ENCRYPT\"),\n\t\t\t\t\t\tMode: pulumi.String(\"WRITEREAD\"),\n\t\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"PII\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tParams: pulumi.StringMap{\n\t\t\t\t\t\t\t\"encrypt.kek.name\": pulumi.String(\"testkek2\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\t\u0026confluentcloud.SchemaRulesetDomainRuleArgs{\n\t\t\t\t\t\tName: pulumi.String(\"encrypt\"),\n\t\t\t\t\t\tKind: pulumi.String(\"TRANSFORM\"),\n\t\t\t\t\t\tType: pulumi.String(\"ENCRYPT\"),\n\t\t\t\t\t\tMode: pulumi.String(\"WRITEREAD\"),\n\t\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"PIIIII\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tParams: pulumi.StringMap{\n\t\t\t\t\t\t\t\"encrypt.kek.name\": pulumi.String(\"testkek2\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tMigrationRules: confluentcloud.SchemaRulesetMigrationRuleArray{\n\t\t\t\t\t\u0026confluentcloud.SchemaRulesetMigrationRuleArgs{\n\t\t\t\t\t\tName: pulumi.String(\"encrypt\"),\n\t\t\t\t\t\tKind: pulumi.String(\"TRANSFORM\"),\n\t\t\t\t\t\tType: pulumi.String(\"ENCRYPT\"),\n\t\t\t\t\t\tMode: pulumi.String(\"WRITEREAD\"),\n\t\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"PIM\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tParams: pulumi.StringMap{\n\t\t\t\t\t\t\t\"encrypt.kek.name\": pulumi.String(\"testkekM\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Schema;\nimport com.pulumi.confluentcloud.SchemaArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaMetadataArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaRulesetArgs;\nimport com.pulumi.std.StdFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // confluent_schema.avro-purchase points to v1.\n        var avro_purchase = new Schema(\"avro-purchase\", SchemaArgs.builder()\n            .subjectName(\"avro-purchase-value\")\n            .format(\"AVRO\")\n            .schema(StdFunctions.file(Map.of(\"input\", \"./schemas/avro/purchase.avsc\")).result())\n            .metadata(SchemaMetadataArgs.builder()\n                .properties(Map.ofEntries(\n                    Map.entry(\"owner\", \"Bob Jones\"),\n                    Map.entry(\"email\", \"bob@acme.com\")\n                ))\n                .sensitives(                \n                    \"s1\",\n                    \"s2\")\n                .tags(                \n                    SchemaMetadataTagArgs.builder()\n                        .key(\"tag1\")\n                        .values(\"PII\")\n                        .build(),\n                    SchemaMetadataTagArgs.builder()\n                        .key(\"tag2\")\n                        .values(\"PIIIII\")\n                        .build())\n                .build())\n            .ruleset(SchemaRulesetArgs.builder()\n                .domainRules(                \n                    SchemaRulesetDomainRuleArgs.builder()\n                        .name(\"encryptPII\")\n                        .kind(\"TRANSFORM\")\n                        .type(\"ENCRYPT\")\n                        .mode(\"WRITEREAD\")\n                        .tags(\"PII\")\n                        .params(Map.of(\"encrypt.kek.name\", \"testkek2\"))\n                        .build(),\n                    SchemaRulesetDomainRuleArgs.builder()\n                        .name(\"encrypt\")\n                        .kind(\"TRANSFORM\")\n                        .type(\"ENCRYPT\")\n                        .mode(\"WRITEREAD\")\n                        .tags(\"PIIIII\")\n                        .params(Map.of(\"encrypt.kek.name\", \"testkek2\"))\n                        .build())\n                .migrationRules(SchemaRulesetMigrationRuleArgs.builder()\n                    .name(\"encrypt\")\n                    .kind(\"TRANSFORM\")\n                    .type(\"ENCRYPT\")\n                    .mode(\"WRITEREAD\")\n                    .tags(\"PIM\")\n                    .params(Map.of(\"encrypt.kek.name\", \"testkekM\"))\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # confluent_schema.avro-purchase points to v1.\n  avro-purchase:\n    type: confluentcloud:Schema\n    properties:\n      subjectName: avro-purchase-value\n      format: AVRO\n      schema:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: ./schemas/avro/purchase.avsc\n          return: result\n      metadata:\n        properties:\n          owner: Bob Jones\n          email: bob@acme.com\n        sensitives:\n          - s1\n          - s2\n        tags:\n          - key: tag1\n            values:\n              - PII\n          - key: tag2\n            values:\n              - PIIIII\n      ruleset:\n        domainRules:\n          - name: encryptPII\n            kind: TRANSFORM\n            type: ENCRYPT\n            mode: WRITEREAD\n            tags:\n              - PII\n            params:\n              encrypt.kek.name: testkek2\n          - name: encrypt\n            kind: TRANSFORM\n            type: ENCRYPT\n            mode: WRITEREAD\n            tags:\n              - PIIIII\n            params:\n              encrypt.kek.name: testkek2\n        migrationRules:\n          - name: encrypt\n            kind: TRANSFORM\n            type: ENCRYPT\n            mode: WRITEREAD\n            tags:\n              - PIM\n            params:\n              encrypt.kek.name: testkekM\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or \u003cspan pulumi-lang-nodejs=\"`latest`\" pulumi-lang-dotnet=\"`Latest`\" pulumi-lang-go=\"`latest`\" pulumi-lang-python=\"`latest`\" pulumi-lang-yaml=\"`latest`\" pulumi-lang-java=\"`latest`\"\u003e`latest`\u003c/span\u003e when \u003cspan pulumi-lang-nodejs=\"`recreateOnUpdate \" pulumi-lang-dotnet=\"`RecreateOnUpdate \" pulumi-lang-go=\"`recreateOnUpdate \" pulumi-lang-python=\"`recreate_on_update \" pulumi-lang-yaml=\"`recreateOnUpdate \" pulumi-lang-java=\"`recreateOnUpdate \"\u003e`recreateOnUpdate \u003c/span\u003e= false`) of the Schema in the format `\u003cSchema Registry cluster ID\u003e/\u003cSubject name\u003e/\u003cSchema identifier\u003e`, for example:\n\nOption A:\u003cspan pulumi-lang-nodejs=\" recreateOnUpdate \" pulumi-lang-dotnet=\" RecreateOnUpdate \" pulumi-lang-go=\" recreateOnUpdate \" pulumi-lang-python=\" recreate_on_update \" pulumi-lang-yaml=\" recreateOnUpdate \" pulumi-lang-java=\" recreateOnUpdate \"\u003e recreateOnUpdate \u003c/span\u003e= false (by default)\n\n```sh\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n$ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest\n```\n\nOption B:\u003cspan pulumi-lang-nodejs=\" recreateOnUpdate \" pulumi-lang-dotnet=\" RecreateOnUpdate \" pulumi-lang-go=\" recreateOnUpdate \" pulumi-lang-python=\" recreate_on_update \" pulumi-lang-yaml=\" recreateOnUpdate \" pulumi-lang-java=\" recreateOnUpdate \"\u003e recreateOnUpdate \u003c/span\u003e= true\n\n```sh\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n$ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.Schema`\" pulumi-lang-dotnet=\"`confluentcloud.Schema`\" pulumi-lang-go=\"`Schema`\" pulumi-lang-python=\"`Schema`\" pulumi-lang-yaml=\"`confluentcloud.Schema`\" pulumi-lang-java=\"`confluentcloud.Schema`\"\u003e`confluentcloud.Schema`\u003c/span\u003e provides a Schema resource that enables creating, evolving, and deleting Schemas on a Schema Registry cluster on Confluent Cloud.\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.Schema`\" pulumi-lang-dotnet=\"`confluentcloud.Schema`\" pulumi-lang-go=\"`Schema`\" pulumi-lang-python=\"`Schema`\" pulumi-lang-yaml=\"`confluentcloud.Schema`\" pulumi-lang-java=\"`confluentcloud.Schema`\"\u003e`confluentcloud.Schema`\u003c/span\u003e enables managing the latest version or a specific version of a schema. By design, \u003cspan pulumi-lang-nodejs=\"`confluentcloud.Schema`\" pulumi-lang-dotnet=\"`confluentcloud.Schema`\" pulumi-lang-go=\"`Schema`\" pulumi-lang-python=\"`Schema`\" pulumi-lang-yaml=\"`confluentcloud.Schema`\" pulumi-lang-java=\"`confluentcloud.Schema`\"\u003e`confluentcloud.Schema`\u003c/span\u003e won't destroy all versions of a schema, which differs from Confluent Platform, which permits hard delete on all schema versions at once.\n\n\u003e **Note:** It is recommended to set `lifecycle {\u003cspan pulumi-lang-nodejs=\" preventDestroy \" pulumi-lang-dotnet=\" PreventDestroy \" pulumi-lang-go=\" preventDestroy \" pulumi-lang-python=\" prevent_destroy \" pulumi-lang-yaml=\" preventDestroy \" pulumi-lang-java=\" preventDestroy \"\u003e preventDestroy \u003c/span\u003e= true }` on production instances to prevent accidental schema deletion. This setting rejects plans that would destroy or recreate the schema, such as attempting to change uneditable attributes. Read more about it in the Terraform docs.\n\n## Example Usage\n\n### Option #1: Manage multiple Schema Registry clusters in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\nimport * as std from \"@pulumi/std\";\n\nconst avro_purchase = new confluentcloud.Schema(\"avro-purchase\", {\n    schemaRegistryCluster: {\n        id: essentials.id,\n    },\n    restEndpoint: essentials.restEndpoint,\n    subjectName: \"avro-purchase-value\",\n    format: \"AVRO\",\n    schema: std.file({\n        input: \"./schemas/avro/purchase.avsc\",\n    }).result,\n    credentials: {\n        key: \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        secret: \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\nimport pulumi_std as std\n\navro_purchase = confluentcloud.Schema(\"avro-purchase\",\n    schema_registry_cluster={\n        \"id\": essentials[\"id\"],\n    },\n    rest_endpoint=essentials[\"restEndpoint\"],\n    subject_name=\"avro-purchase-value\",\n    format=\"AVRO\",\n    schema=std.file(input=\"./schemas/avro/purchase.avsc\")[\"result\"],\n    credentials={\n        \"key\": \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n        \"secret\": \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var avro_purchase = new ConfluentCloud.Index.Schema(\"avro-purchase\", new()\n    {\n        SchemaRegistryCluster = new ConfluentCloud.Inputs.SchemaSchemaRegistryClusterArgs\n        {\n            Id = essentials.Id,\n        },\n        RestEndpoint = essentials.RestEndpoint,\n        SubjectName = \"avro-purchase-value\",\n        Format = \"AVRO\",\n        SchemaDetails = Std.Index.File.Invoke(new()\n        {\n            Input = \"./schemas/avro/purchase.avsc\",\n        }).Result,\n        Credentials = new ConfluentCloud.Inputs.SchemaCredentialsArgs\n        {\n            Key = \"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\",\n            Secret = \"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, map[string]interface{}{\n\t\t\t\"input\": \"./schemas/avro/purchase.avsc\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewSchema(ctx, \"avro-purchase\", \u0026confluentcloud.SchemaArgs{\n\t\t\tSchemaRegistryCluster: \u0026confluentcloud.SchemaSchemaRegistryClusterArgs{\n\t\t\t\tId: pulumi.Any(essentials.Id),\n\t\t\t},\n\t\t\tRestEndpoint: pulumi.Any(essentials.RestEndpoint),\n\t\t\tSubjectName:  pulumi.String(\"avro-purchase-value\"),\n\t\t\tFormat:       pulumi.String(\"AVRO\"),\n\t\t\tSchema:       invokeFile.Result,\n\t\t\tCredentials: \u0026confluentcloud.SchemaCredentialsArgs{\n\t\t\t\tKey:    pulumi.String(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t\tSecret: pulumi.String(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Schema;\nimport com.pulumi.confluentcloud.SchemaArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaSchemaRegistryClusterArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaCredentialsArgs;\nimport com.pulumi.std.StdFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var avro_purchase = new Schema(\"avro-purchase\", SchemaArgs.builder()\n            .schemaRegistryCluster(SchemaSchemaRegistryClusterArgs.builder()\n                .id(essentials.id())\n                .build())\n            .restEndpoint(essentials.restEndpoint())\n            .subjectName(\"avro-purchase-value\")\n            .format(\"AVRO\")\n            .schema(StdFunctions.file(Map.of(\"input\", \"./schemas/avro/purchase.avsc\")).result())\n            .credentials(SchemaCredentialsArgs.builder()\n                .key(\"\u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .secret(\"\u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  avro-purchase:\n    type: confluentcloud:Schema\n    properties:\n      schemaRegistryCluster:\n        id: ${essentials.id}\n      restEndpoint: ${essentials.restEndpoint}\n      subjectName: avro-purchase-value\n      format: AVRO\n      schema:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: ./schemas/avro/purchase.avsc\n          return: result\n      credentials:\n        key: \u003cSchema Registry API Key for data.confluent_schema_registry_cluster.essentials\u003e\n        secret: \u003cSchema Registry API Secret for data.confluent_schema_registry_cluster.essentials\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Schema Registry cluster in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\nimport * as std from \"@pulumi/std\";\n\nconst avro_purchase = new confluentcloud.Schema(\"avro-purchase\", {\n    subjectName: \"avro-purchase-value\",\n    format: \"AVRO\",\n    schema: std.file({\n        input: \"./schemas/avro/purchase.avsc\",\n    }).result,\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\nimport pulumi_std as std\n\navro_purchase = confluentcloud.Schema(\"avro-purchase\",\n    subject_name=\"avro-purchase-value\",\n    format=\"AVRO\",\n    schema=std.file(input=\"./schemas/avro/purchase.avsc\")[\"result\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var avro_purchase = new ConfluentCloud.Index.Schema(\"avro-purchase\", new()\n    {\n        SubjectName = \"avro-purchase-value\",\n        Format = \"AVRO\",\n        SchemaDetails = Std.Index.File.Invoke(new()\n        {\n            Input = \"./schemas/avro/purchase.avsc\",\n        }).Result,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, map[string]interface{}{\n\t\t\t\"input\": \"./schemas/avro/purchase.avsc\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewSchema(ctx, \"avro-purchase\", \u0026confluentcloud.SchemaArgs{\n\t\t\tSubjectName: pulumi.String(\"avro-purchase-value\"),\n\t\t\tFormat:      pulumi.String(\"AVRO\"),\n\t\t\tSchema:      invokeFile.Result,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Schema;\nimport com.pulumi.confluentcloud.SchemaArgs;\nimport com.pulumi.std.StdFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var avro_purchase = new Schema(\"avro-purchase\", SchemaArgs.builder()\n            .subjectName(\"avro-purchase-value\")\n            .format(\"AVRO\")\n            .schema(StdFunctions.file(Map.of(\"input\", \"./schemas/avro/purchase.avsc\")).result())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  avro-purchase:\n    type: confluentcloud:Schema\n    properties:\n      subjectName: avro-purchase-value\n      format: AVRO\n      schema:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: ./schemas/avro/purchase.avsc\n          return: result\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with \u003cspan pulumi-lang-nodejs=\"`confluentcloud.Schema`\" pulumi-lang-dotnet=\"`confluentcloud.Schema`\" pulumi-lang-go=\"`Schema`\" pulumi-lang-python=\"`Schema`\" pulumi-lang-yaml=\"`confluentcloud.Schema`\" pulumi-lang-java=\"`confluentcloud.Schema`\"\u003e`confluentcloud.Schema`\u003c/span\u003e resource:\n* single-event-types-avro-schema\n* single-event-types-proto-schema\n* single-event-types-proto-schema-with-alias\n* multiple-event-types-avro-schema\n* multiple-event-types-proto-schema\n* field-level-encryption-schema\n\n## Additional Examples\n\n### Default Option A: Manage the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\nimport * as std from \"@pulumi/std\";\n\n// confluent_schema.avro-purchase points to v1.\nconst avro_purchase = new confluentcloud.Schema(\"avro-purchase\", {\n    subjectName: \"avro-purchase-value\",\n    format: \"AVRO\",\n    schema: std.file({\n        input: \"./schemas/avro/purchase.avsc\",\n    }).result,\n    metadata: {\n        properties: {\n            owner: \"Bob Jones\",\n            email: \"bob@acme.com\",\n        },\n        sensitives: [\n            \"s1\",\n            \"s2\",\n        ],\n        tags: [\n            {\n                key: \"tag1\",\n                values: [\"PII\"],\n            },\n            {\n                key: \"tag2\",\n                values: [\"PIIIII\"],\n            },\n        ],\n    },\n    ruleset: {\n        domainRules: [\n            {\n                name: \"encryptPII\",\n                kind: \"TRANSFORM\",\n                type: \"ENCRYPT\",\n                mode: \"WRITEREAD\",\n                tags: [\"PII\"],\n                params: {\n                    \"encrypt.kek.name\": \"testkek2\",\n                },\n            },\n            {\n                name: \"encrypt\",\n                kind: \"TRANSFORM\",\n                type: \"ENCRYPT\",\n                mode: \"WRITEREAD\",\n                tags: [\"PIIIII\"],\n                params: {\n                    \"encrypt.kek.name\": \"testkek2\",\n                },\n            },\n        ],\n        migrationRules: [{\n            name: \"encrypt\",\n            kind: \"TRANSFORM\",\n            type: \"ENCRYPT\",\n            mode: \"WRITEREAD\",\n            tags: [\"PIM\"],\n            params: {\n                \"encrypt.kek.name\": \"testkekM\",\n            },\n        }],\n        encodingRules: [{\n            name: \"encryptCSPE\",\n            kind: \"TRANSFORM\",\n            type: \"ENCRYPT\",\n            mode: \"WRITEREAD\",\n            tags: [\"CSPE\"],\n            params: {\n                \"encrypt.kek.name\": \"cspe-kek\",\n            },\n        }],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\nimport pulumi_std as std\n\n# confluent_schema.avro-purchase points to v1.\navro_purchase = confluentcloud.Schema(\"avro-purchase\",\n    subject_name=\"avro-purchase-value\",\n    format=\"AVRO\",\n    schema=std.file(input=\"./schemas/avro/purchase.avsc\")[\"result\"],\n    metadata={\n        \"properties\": {\n            \"owner\": \"Bob Jones\",\n            \"email\": \"bob@acme.com\",\n        },\n        \"sensitives\": [\n            \"s1\",\n            \"s2\",\n        ],\n        \"tags\": [\n            {\n                \"key\": \"tag1\",\n                \"values\": [\"PII\"],\n            },\n            {\n                \"key\": \"tag2\",\n                \"values\": [\"PIIIII\"],\n            },\n        ],\n    },\n    ruleset={\n        \"domain_rules\": [\n            {\n                \"name\": \"encryptPII\",\n                \"kind\": \"TRANSFORM\",\n                \"type\": \"ENCRYPT\",\n                \"mode\": \"WRITEREAD\",\n                \"tags\": [\"PII\"],\n                \"params\": {\n                    \"encrypt.kek.name\": \"testkek2\",\n                },\n            },\n            {\n                \"name\": \"encrypt\",\n                \"kind\": \"TRANSFORM\",\n                \"type\": \"ENCRYPT\",\n                \"mode\": \"WRITEREAD\",\n                \"tags\": [\"PIIIII\"],\n                \"params\": {\n                    \"encrypt.kek.name\": \"testkek2\",\n                },\n            },\n        ],\n        \"migration_rules\": [{\n            \"name\": \"encrypt\",\n            \"kind\": \"TRANSFORM\",\n            \"type\": \"ENCRYPT\",\n            \"mode\": \"WRITEREAD\",\n            \"tags\": [\"PIM\"],\n            \"params\": {\n                \"encrypt.kek.name\": \"testkekM\",\n            },\n        }],\n        \"encoding_rules\": [{\n            \"name\": \"encryptCSPE\",\n            \"kind\": \"TRANSFORM\",\n            \"type\": \"ENCRYPT\",\n            \"mode\": \"WRITEREAD\",\n            \"tags\": [\"CSPE\"],\n            \"params\": {\n                \"encrypt.kek.name\": \"cspe-kek\",\n            },\n        }],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // confluent_schema.avro-purchase points to v1.\n    var avro_purchase = new ConfluentCloud.Index.Schema(\"avro-purchase\", new()\n    {\n        SubjectName = \"avro-purchase-value\",\n        Format = \"AVRO\",\n        SchemaDetails = Std.Index.File.Invoke(new()\n        {\n            Input = \"./schemas/avro/purchase.avsc\",\n        }).Result,\n        Metadata = new ConfluentCloud.Inputs.SchemaMetadataArgs\n        {\n            Properties = \n            {\n                { \"owner\", \"Bob Jones\" },\n                { \"email\", \"bob@acme.com\" },\n            },\n            Sensitives = new[]\n            {\n                \"s1\",\n                \"s2\",\n            },\n            Tags = new[]\n            {\n                new ConfluentCloud.Inputs.SchemaMetadataTagArgs\n                {\n                    Key = \"tag1\",\n                    Values = new[]\n                    {\n                        \"PII\",\n                    },\n                },\n                new ConfluentCloud.Inputs.SchemaMetadataTagArgs\n                {\n                    Key = \"tag2\",\n                    Values = new[]\n                    {\n                        \"PIIIII\",\n                    },\n                },\n            },\n        },\n        Ruleset = new ConfluentCloud.Inputs.SchemaRulesetArgs\n        {\n            DomainRules = new[]\n            {\n                new ConfluentCloud.Inputs.SchemaRulesetDomainRuleArgs\n                {\n                    Name = \"encryptPII\",\n                    Kind = \"TRANSFORM\",\n                    Type = \"ENCRYPT\",\n                    Mode = \"WRITEREAD\",\n                    Tags = new[]\n                    {\n                        \"PII\",\n                    },\n                    Params = \n                    {\n                        { \"encrypt.kek.name\", \"testkek2\" },\n                    },\n                },\n                new ConfluentCloud.Inputs.SchemaRulesetDomainRuleArgs\n                {\n                    Name = \"encrypt\",\n                    Kind = \"TRANSFORM\",\n                    Type = \"ENCRYPT\",\n                    Mode = \"WRITEREAD\",\n                    Tags = new[]\n                    {\n                        \"PIIIII\",\n                    },\n                    Params = \n                    {\n                        { \"encrypt.kek.name\", \"testkek2\" },\n                    },\n                },\n            },\n            MigrationRules = new[]\n            {\n                new ConfluentCloud.Inputs.SchemaRulesetMigrationRuleArgs\n                {\n                    Name = \"encrypt\",\n                    Kind = \"TRANSFORM\",\n                    Type = \"ENCRYPT\",\n                    Mode = \"WRITEREAD\",\n                    Tags = new[]\n                    {\n                        \"PIM\",\n                    },\n                    Params = \n                    {\n                        { \"encrypt.kek.name\", \"testkekM\" },\n                    },\n                },\n            },\n            EncodingRules = new[]\n            {\n                new ConfluentCloud.Inputs.SchemaRulesetEncodingRuleArgs\n                {\n                    Name = \"encryptCSPE\",\n                    Kind = \"TRANSFORM\",\n                    Type = \"ENCRYPT\",\n                    Mode = \"WRITEREAD\",\n                    Tags = new[]\n                    {\n                        \"CSPE\",\n                    },\n                    Params = \n                    {\n                        { \"encrypt.kek.name\", \"cspe-kek\" },\n                    },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, map[string]interface{}{\n\t\t\t\"input\": \"./schemas/avro/purchase.avsc\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// confluent_schema.avro-purchase points to v1.\n\t\t_, err = confluentcloud.NewSchema(ctx, \"avro-purchase\", \u0026confluentcloud.SchemaArgs{\n\t\t\tSubjectName: pulumi.String(\"avro-purchase-value\"),\n\t\t\tFormat:      pulumi.String(\"AVRO\"),\n\t\t\tSchema:      invokeFile.Result,\n\t\t\tMetadata: \u0026confluentcloud.SchemaMetadataArgs{\n\t\t\t\tProperties: pulumi.StringMap{\n\t\t\t\t\t\"owner\": pulumi.String(\"Bob Jones\"),\n\t\t\t\t\t\"email\": pulumi.String(\"bob@acme.com\"),\n\t\t\t\t},\n\t\t\t\tSensitives: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"s1\"),\n\t\t\t\t\tpulumi.String(\"s2\"),\n\t\t\t\t},\n\t\t\t\tTags: confluentcloud.SchemaMetadataTagArray{\n\t\t\t\t\t\u0026confluentcloud.SchemaMetadataTagArgs{\n\t\t\t\t\t\tKey: pulumi.String(\"tag1\"),\n\t\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"PII\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\t\u0026confluentcloud.SchemaMetadataTagArgs{\n\t\t\t\t\t\tKey: pulumi.String(\"tag2\"),\n\t\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"PIIIII\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tRuleset: \u0026confluentcloud.SchemaRulesetArgs{\n\t\t\t\tDomainRules: confluentcloud.SchemaRulesetDomainRuleArray{\n\t\t\t\t\t\u0026confluentcloud.SchemaRulesetDomainRuleArgs{\n\t\t\t\t\t\tName: pulumi.String(\"encryptPII\"),\n\t\t\t\t\t\tKind: pulumi.String(\"TRANSFORM\"),\n\t\t\t\t\t\tType: pulumi.String(\"ENCRYPT\"),\n\t\t\t\t\t\tMode: pulumi.String(\"WRITEREAD\"),\n\t\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"PII\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tParams: pulumi.StringMap{\n\t\t\t\t\t\t\t\"encrypt.kek.name\": pulumi.String(\"testkek2\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\t\u0026confluentcloud.SchemaRulesetDomainRuleArgs{\n\t\t\t\t\t\tName: pulumi.String(\"encrypt\"),\n\t\t\t\t\t\tKind: pulumi.String(\"TRANSFORM\"),\n\t\t\t\t\t\tType: pulumi.String(\"ENCRYPT\"),\n\t\t\t\t\t\tMode: pulumi.String(\"WRITEREAD\"),\n\t\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"PIIIII\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tParams: pulumi.StringMap{\n\t\t\t\t\t\t\t\"encrypt.kek.name\": pulumi.String(\"testkek2\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tMigrationRules: confluentcloud.SchemaRulesetMigrationRuleArray{\n\t\t\t\t\t\u0026confluentcloud.SchemaRulesetMigrationRuleArgs{\n\t\t\t\t\t\tName: pulumi.String(\"encrypt\"),\n\t\t\t\t\t\tKind: pulumi.String(\"TRANSFORM\"),\n\t\t\t\t\t\tType: pulumi.String(\"ENCRYPT\"),\n\t\t\t\t\t\tMode: pulumi.String(\"WRITEREAD\"),\n\t\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"PIM\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tParams: pulumi.StringMap{\n\t\t\t\t\t\t\t\"encrypt.kek.name\": pulumi.String(\"testkekM\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tEncodingRules: confluentcloud.SchemaRulesetEncodingRuleArray{\n\t\t\t\t\t\u0026confluentcloud.SchemaRulesetEncodingRuleArgs{\n\t\t\t\t\t\tName: pulumi.String(\"encryptCSPE\"),\n\t\t\t\t\t\tKind: pulumi.String(\"TRANSFORM\"),\n\t\t\t\t\t\tType: pulumi.String(\"ENCRYPT\"),\n\t\t\t\t\t\tMode: pulumi.String(\"WRITEREAD\"),\n\t\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"CSPE\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tParams: pulumi.StringMap{\n\t\t\t\t\t\t\t\"encrypt.kek.name\": pulumi.String(\"cspe-kek\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Schema;\nimport com.pulumi.confluentcloud.SchemaArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaMetadataArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaRulesetArgs;\nimport com.pulumi.std.StdFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // confluent_schema.avro-purchase points to v1.\n        var avro_purchase = new Schema(\"avro-purchase\", SchemaArgs.builder()\n            .subjectName(\"avro-purchase-value\")\n            .format(\"AVRO\")\n            .schema(StdFunctions.file(Map.of(\"input\", \"./schemas/avro/purchase.avsc\")).result())\n            .metadata(SchemaMetadataArgs.builder()\n                .properties(Map.ofEntries(\n                    Map.entry(\"owner\", \"Bob Jones\"),\n                    Map.entry(\"email\", \"bob@acme.com\")\n                ))\n                .sensitives(                \n                    \"s1\",\n                    \"s2\")\n                .tags(                \n                    SchemaMetadataTagArgs.builder()\n                        .key(\"tag1\")\n                        .values(\"PII\")\n                        .build(),\n                    SchemaMetadataTagArgs.builder()\n                        .key(\"tag2\")\n                        .values(\"PIIIII\")\n                        .build())\n                .build())\n            .ruleset(SchemaRulesetArgs.builder()\n                .domainRules(                \n                    SchemaRulesetDomainRuleArgs.builder()\n                        .name(\"encryptPII\")\n                        .kind(\"TRANSFORM\")\n                        .type(\"ENCRYPT\")\n                        .mode(\"WRITEREAD\")\n                        .tags(\"PII\")\n                        .params(Map.of(\"encrypt.kek.name\", \"testkek2\"))\n                        .build(),\n                    SchemaRulesetDomainRuleArgs.builder()\n                        .name(\"encrypt\")\n                        .kind(\"TRANSFORM\")\n                        .type(\"ENCRYPT\")\n                        .mode(\"WRITEREAD\")\n                        .tags(\"PIIIII\")\n                        .params(Map.of(\"encrypt.kek.name\", \"testkek2\"))\n                        .build())\n                .migrationRules(SchemaRulesetMigrationRuleArgs.builder()\n                    .name(\"encrypt\")\n                    .kind(\"TRANSFORM\")\n                    .type(\"ENCRYPT\")\n                    .mode(\"WRITEREAD\")\n                    .tags(\"PIM\")\n                    .params(Map.of(\"encrypt.kek.name\", \"testkekM\"))\n                    .build())\n                .encodingRules(SchemaRulesetEncodingRuleArgs.builder()\n                    .name(\"encryptCSPE\")\n                    .kind(\"TRANSFORM\")\n                    .type(\"ENCRYPT\")\n                    .mode(\"WRITEREAD\")\n                    .tags(\"CSPE\")\n                    .params(Map.of(\"encrypt.kek.name\", \"cspe-kek\"))\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # confluent_schema.avro-purchase points to v1.\n  avro-purchase:\n    type: confluentcloud:Schema\n    properties:\n      subjectName: avro-purchase-value\n      format: AVRO\n      schema:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: ./schemas/avro/purchase.avsc\n          return: result\n      metadata:\n        properties:\n          owner: Bob Jones\n          email: bob@acme.com\n        sensitives:\n          - s1\n          - s2\n        tags:\n          - key: tag1\n            values:\n              - PII\n          - key: tag2\n            values:\n              - PIIIII\n      ruleset:\n        domainRules:\n          - name: encryptPII\n            kind: TRANSFORM\n            type: ENCRYPT\n            mode: WRITEREAD\n            tags:\n              - PII\n            params:\n              encrypt.kek.name: testkek2\n          - name: encrypt\n            kind: TRANSFORM\n            type: ENCRYPT\n            mode: WRITEREAD\n            tags:\n              - PIIIII\n            params:\n              encrypt.kek.name: testkek2\n        migrationRules:\n          - name: encrypt\n            kind: TRANSFORM\n            type: ENCRYPT\n            mode: WRITEREAD\n            tags:\n              - PIM\n            params:\n              encrypt.kek.name: testkekM\n        encodingRules:\n          - name: encryptCSPE\n            kind: TRANSFORM\n            type: ENCRYPT\n            mode: WRITEREAD\n            tags:\n              - CSPE\n            params:\n              encrypt.kek.name: cspe-kek\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example: Schema with Client-Side Payload Encryption (CSPE)\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\nimport * as std from \"@pulumi/std\";\n\nconst avro_user_cspe = new confluentcloud.Schema(\"avro-user-cspe\", {\n    subjectName: \"avro-user-value\",\n    format: \"AVRO\",\n    schema: std.file({\n        input: \"./schemas/avro/user.avsc\",\n    }).result,\n    ruleset: {\n        encodingRules: [\n            {\n                name: \"encryptSSN\",\n                kind: \"TRANSFORM\",\n                type: \"ENCRYPT\",\n                mode: \"WRITEREAD\",\n                tags: [\"SSN\"],\n                params: {\n                    \"encrypt.kek.name\": \"my-kek-for-ssn\",\n                },\n            },\n            {\n                name: \"encryptCreditCard\",\n                kind: \"TRANSFORM\",\n                type: \"ENCRYPT\",\n                mode: \"WRITEREAD\",\n                tags: [\"CREDIT_CARD\"],\n                params: {\n                    \"encrypt.kek.name\": \"my-kek-for-cc\",\n                },\n            },\n        ],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\nimport pulumi_std as std\n\navro_user_cspe = confluentcloud.Schema(\"avro-user-cspe\",\n    subject_name=\"avro-user-value\",\n    format=\"AVRO\",\n    schema=std.file(input=\"./schemas/avro/user.avsc\")[\"result\"],\n    ruleset={\n        \"encoding_rules\": [\n            {\n                \"name\": \"encryptSSN\",\n                \"kind\": \"TRANSFORM\",\n                \"type\": \"ENCRYPT\",\n                \"mode\": \"WRITEREAD\",\n                \"tags\": [\"SSN\"],\n                \"params\": {\n                    \"encrypt.kek.name\": \"my-kek-for-ssn\",\n                },\n            },\n            {\n                \"name\": \"encryptCreditCard\",\n                \"kind\": \"TRANSFORM\",\n                \"type\": \"ENCRYPT\",\n                \"mode\": \"WRITEREAD\",\n                \"tags\": [\"CREDIT_CARD\"],\n                \"params\": {\n                    \"encrypt.kek.name\": \"my-kek-for-cc\",\n                },\n            },\n        ],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var avro_user_cspe = new ConfluentCloud.Index.Schema(\"avro-user-cspe\", new()\n    {\n        SubjectName = \"avro-user-value\",\n        Format = \"AVRO\",\n        SchemaDetails = Std.Index.File.Invoke(new()\n        {\n            Input = \"./schemas/avro/user.avsc\",\n        }).Result,\n        Ruleset = new ConfluentCloud.Inputs.SchemaRulesetArgs\n        {\n            EncodingRules = new[]\n            {\n                new ConfluentCloud.Inputs.SchemaRulesetEncodingRuleArgs\n                {\n                    Name = \"encryptSSN\",\n                    Kind = \"TRANSFORM\",\n                    Type = \"ENCRYPT\",\n                    Mode = \"WRITEREAD\",\n                    Tags = new[]\n                    {\n                        \"SSN\",\n                    },\n                    Params = \n                    {\n                        { \"encrypt.kek.name\", \"my-kek-for-ssn\" },\n                    },\n                },\n                new ConfluentCloud.Inputs.SchemaRulesetEncodingRuleArgs\n                {\n                    Name = \"encryptCreditCard\",\n                    Kind = \"TRANSFORM\",\n                    Type = \"ENCRYPT\",\n                    Mode = \"WRITEREAD\",\n                    Tags = new[]\n                    {\n                        \"CREDIT_CARD\",\n                    },\n                    Params = \n                    {\n                        { \"encrypt.kek.name\", \"my-kek-for-cc\" },\n                    },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tinvokeFile, err := std.File(ctx, map[string]interface{}{\n\t\t\t\"input\": \"./schemas/avro/user.avsc\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewSchema(ctx, \"avro-user-cspe\", \u0026confluentcloud.SchemaArgs{\n\t\t\tSubjectName: pulumi.String(\"avro-user-value\"),\n\t\t\tFormat:      pulumi.String(\"AVRO\"),\n\t\t\tSchema:      invokeFile.Result,\n\t\t\tRuleset: \u0026confluentcloud.SchemaRulesetArgs{\n\t\t\t\tEncodingRules: confluentcloud.SchemaRulesetEncodingRuleArray{\n\t\t\t\t\t\u0026confluentcloud.SchemaRulesetEncodingRuleArgs{\n\t\t\t\t\t\tName: pulumi.String(\"encryptSSN\"),\n\t\t\t\t\t\tKind: pulumi.String(\"TRANSFORM\"),\n\t\t\t\t\t\tType: pulumi.String(\"ENCRYPT\"),\n\t\t\t\t\t\tMode: pulumi.String(\"WRITEREAD\"),\n\t\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"SSN\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tParams: pulumi.StringMap{\n\t\t\t\t\t\t\t\"encrypt.kek.name\": pulumi.String(\"my-kek-for-ssn\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\t\u0026confluentcloud.SchemaRulesetEncodingRuleArgs{\n\t\t\t\t\t\tName: pulumi.String(\"encryptCreditCard\"),\n\t\t\t\t\t\tKind: pulumi.String(\"TRANSFORM\"),\n\t\t\t\t\t\tType: pulumi.String(\"ENCRYPT\"),\n\t\t\t\t\t\tMode: pulumi.String(\"WRITEREAD\"),\n\t\t\t\t\t\tTags: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"CREDIT_CARD\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tParams: pulumi.StringMap{\n\t\t\t\t\t\t\t\"encrypt.kek.name\": pulumi.String(\"my-kek-for-cc\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Schema;\nimport com.pulumi.confluentcloud.SchemaArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaRulesetArgs;\nimport com.pulumi.std.StdFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var avro_user_cspe = new Schema(\"avro-user-cspe\", SchemaArgs.builder()\n            .subjectName(\"avro-user-value\")\n            .format(\"AVRO\")\n            .schema(StdFunctions.file(Map.of(\"input\", \"./schemas/avro/user.avsc\")).result())\n            .ruleset(SchemaRulesetArgs.builder()\n                .encodingRules(                \n                    SchemaRulesetEncodingRuleArgs.builder()\n                        .name(\"encryptSSN\")\n                        .kind(\"TRANSFORM\")\n                        .type(\"ENCRYPT\")\n                        .mode(\"WRITEREAD\")\n                        .tags(\"SSN\")\n                        .params(Map.of(\"encrypt.kek.name\", \"my-kek-for-ssn\"))\n                        .build(),\n                    SchemaRulesetEncodingRuleArgs.builder()\n                        .name(\"encryptCreditCard\")\n                        .kind(\"TRANSFORM\")\n                        .type(\"ENCRYPT\")\n                        .mode(\"WRITEREAD\")\n                        .tags(\"CREDIT_CARD\")\n                        .params(Map.of(\"encrypt.kek.name\", \"my-kek-for-cc\"))\n                        .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  avro-user-cspe:\n    type: confluentcloud:Schema\n    properties:\n      subjectName: avro-user-value\n      format: AVRO\n      schema:\n        fn::invoke:\n          function: std:file\n          arguments:\n            input: ./schemas/avro/user.avsc\n          return: result\n      ruleset:\n        encodingRules:\n          - name: encryptSSN\n            kind: TRANSFORM\n            type: ENCRYPT\n            mode: WRITEREAD\n            tags:\n              - SSN\n            params:\n              encrypt.kek.name: my-kek-for-ssn\n          - name: encryptCreditCard\n            kind: TRANSFORM\n            type: ENCRYPT\n            mode: WRITEREAD\n            tags:\n              - CREDIT_CARD\n            params:\n              encrypt.kek.name: my-kek-for-cc\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\u003e **Note:** \u003cspan pulumi-lang-nodejs=\"`encodingRules`\" pulumi-lang-dotnet=\"`EncodingRules`\" pulumi-lang-go=\"`encodingRules`\" pulumi-lang-python=\"`encoding_rules`\" pulumi-lang-yaml=\"`encodingRules`\" pulumi-lang-java=\"`encodingRules`\"\u003e`encodingRules`\u003c/span\u003e are used for Client-Side Payload Encryption (CSPE), which encrypts data at the application level before sending to Kafka. This differs from \u003cspan pulumi-lang-nodejs=\"`domainRules`\" pulumi-lang-dotnet=\"`DomainRules`\" pulumi-lang-go=\"`domainRules`\" pulumi-lang-python=\"`domain_rules`\" pulumi-lang-yaml=\"`domainRules`\" pulumi-lang-java=\"`domainRules`\"\u003e`domainRules`\u003c/span\u003e which are used for Client-Side Field Level Encryption (CSFLE). See [Client-Side Field Level Encryption documentation](https://docs.confluent.io/platform/current/schema-registry/fundamentals/data-contracts.html#client-side-field-level-encryption) for more details on both approaches.\n\n## Import\n\nYou can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or \u003cspan pulumi-lang-nodejs=\"`latest`\" pulumi-lang-dotnet=\"`Latest`\" pulumi-lang-go=\"`latest`\" pulumi-lang-python=\"`latest`\" pulumi-lang-yaml=\"`latest`\" pulumi-lang-java=\"`latest`\"\u003e`latest`\u003c/span\u003e when \u003cspan pulumi-lang-nodejs=\"`recreateOnUpdate \" pulumi-lang-dotnet=\"`RecreateOnUpdate \" pulumi-lang-go=\"`recreateOnUpdate \" pulumi-lang-python=\"`recreate_on_update \" pulumi-lang-yaml=\"`recreateOnUpdate \" pulumi-lang-java=\"`recreateOnUpdate \"\u003e`recreateOnUpdate \u003c/span\u003e= false`) of the Schema in the format `\u003cSchema Registry cluster ID\u003e/\u003cSubject name\u003e/\u003cSchema identifier\u003e`, for example:\n\nOption A:\u003cspan pulumi-lang-nodejs=\" recreateOnUpdate \" pulumi-lang-dotnet=\" RecreateOnUpdate \" pulumi-lang-go=\" recreateOnUpdate \" pulumi-lang-python=\" recreate_on_update \" pulumi-lang-yaml=\" recreateOnUpdate \" pulumi-lang-java=\" recreateOnUpdate \"\u003e recreateOnUpdate \u003c/span\u003e= false (by default)\n\n```sh\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n$ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest\n```\n\nOption B:\u003cspan pulumi-lang-nodejs=\" recreateOnUpdate \" pulumi-lang-dotnet=\" RecreateOnUpdate \" pulumi-lang-go=\" recreateOnUpdate \" pulumi-lang-python=\" recreate_on_update \" pulumi-lang-yaml=\" recreateOnUpdate \" pulumi-lang-java=\" recreateOnUpdate \"\u003e recreateOnUpdate \u003c/span\u003e= true\n\n```sh\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n$ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaCredentials:SchemaCredentials",
@@ -16200,6 +17110,132 @@
                     "principal",
                     "status",
                     "statusDetail",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/getFlinkMaterializedTable:getFlinkMaterializedTable": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003cspan pulumi-lang-nodejs=\"`confluentcloud.FlinkMaterializedTable`\" pulumi-lang-dotnet=\"`confluentcloud.FlinkMaterializedTable`\" pulumi-lang-go=\"`FlinkMaterializedTable`\" pulumi-lang-python=\"`FlinkMaterializedTable`\" pulumi-lang-yaml=\"`confluentcloud.FlinkMaterializedTable`\" pulumi-lang-java=\"`confluentcloud.FlinkMaterializedTable`\"\u003e`confluentcloud.FlinkMaterializedTable`\u003c/span\u003e describes a Flink Materialized Table data source.\n\n## Example Usage\n\n### Option #1: Manage multiple Flink Materialized Tables in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = confluentcloud.getFlinkMaterializedTable({\n    organization: {\n        id: main.id,\n    },\n    environment: {\n        id: staging.id,\n    },\n    computePool: {\n        id: exampleConfluentFlinkComputePool.id,\n    },\n    restEndpoint: mainConfluentFlinkRegion.restEndpoint,\n    credentials: {\n        key: flink.id,\n        secret: flink.secret,\n    },\n    displayName: \"my_materialized_table\",\n});\nexport const materializedTableOutput = example;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_flink_materialized_table(organization={\n        \"id\": main[\"id\"],\n    },\n    environment={\n        \"id\": staging[\"id\"],\n    },\n    compute_pool={\n        \"id\": example_confluent_flink_compute_pool[\"id\"],\n    },\n    rest_endpoint=main_confluent_flink_region[\"restEndpoint\"],\n    credentials={\n        \"key\": flink[\"id\"],\n        \"secret\": flink[\"secret\"],\n    },\n    display_name=\"my_materialized_table\")\npulumi.export(\"materializedTableOutput\", example)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.Index.GetFlinkMaterializedTable.Invoke(new()\n    {\n        Organization = new ConfluentCloud.Inputs.GetFlinkMaterializedTableOrganizationInputArgs\n        {\n            Id = main.Id,\n        },\n        Environment = new ConfluentCloud.Inputs.GetFlinkMaterializedTableEnvironmentInputArgs\n        {\n            Id = staging.Id,\n        },\n        ComputePool = new ConfluentCloud.Inputs.GetFlinkMaterializedTableComputePoolInputArgs\n        {\n            Id = exampleConfluentFlinkComputePool.Id,\n        },\n        RestEndpoint = mainConfluentFlinkRegion.RestEndpoint,\n        Credentials = new ConfluentCloud.Inputs.GetFlinkMaterializedTableCredentialsInputArgs\n        {\n            Key = flink.Id,\n            Secret = flink.Secret,\n        },\n        DisplayName = \"my_materialized_table\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"materializedTableOutput\"] = example,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.GetFlinkMaterializedTable(ctx, \u0026confluentcloud.LookupFlinkMaterializedTableArgs{\n\t\t\tOrganization: confluentcloud.GetFlinkMaterializedTableOrganization{\n\t\t\t\tId: main.Id,\n\t\t\t},\n\t\t\tEnvironment: confluentcloud.GetFlinkMaterializedTableEnvironment{\n\t\t\t\tId: staging.Id,\n\t\t\t},\n\t\t\tComputePool: confluentcloud.GetFlinkMaterializedTableComputePool{\n\t\t\t\tId: exampleConfluentFlinkComputePool.Id,\n\t\t\t},\n\t\t\tRestEndpoint: pulumi.StringRef(mainConfluentFlinkRegion.RestEndpoint),\n\t\t\tCredentials: confluentcloud.GetFlinkMaterializedTableCredentials{\n\t\t\t\tKey:    flink.Id,\n\t\t\t\tSecret: flink.Secret,\n\t\t\t},\n\t\t\tDisplayName: \"my_materialized_table\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"materializedTableOutput\", example)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;\nimport com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableOrganizationArgs;\nimport com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableComputePoolArgs;\nimport com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()\n            .organization(GetFlinkMaterializedTableOrganizationArgs.builder()\n                .id(main.id())\n                .build())\n            .environment(GetFlinkMaterializedTableEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .computePool(GetFlinkMaterializedTableComputePoolArgs.builder()\n                .id(exampleConfluentFlinkComputePool.id())\n                .build())\n            .restEndpoint(mainConfluentFlinkRegion.restEndpoint())\n            .credentials(GetFlinkMaterializedTableCredentialsArgs.builder()\n                .key(flink.id())\n                .secret(flink.secret())\n                .build())\n            .displayName(\"my_materialized_table\")\n            .build());\n\n        ctx.export(\"materializedTableOutput\", example);\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getFlinkMaterializedTable\n      arguments:\n        organization:\n          id: ${main.id}\n        environment:\n          id: ${staging.id}\n        computePool:\n          id: ${exampleConfluentFlinkComputePool.id}\n        restEndpoint: ${mainConfluentFlinkRegion.restEndpoint}\n        credentials:\n          key: ${flink.id}\n          secret: ${flink.secret}\n        displayName: my_materialized_table\noutputs:\n  materializedTableOutput: ${example}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Option #2: Manage a single Flink Materialized Table in the same Pulumi Stack\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = confluentcloud.getFlinkMaterializedTable({\n    displayName: \"my_materialized_table\",\n});\nexport const materializedTableOutput = example;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.get_flink_materialized_table(display_name=\"my_materialized_table\")\npulumi.export(\"materializedTableOutput\", example)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = ConfluentCloud.Index.GetFlinkMaterializedTable.Invoke(new()\n    {\n        DisplayName = \"my_materialized_table\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"materializedTableOutput\"] = example,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/v2/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := confluentcloud.GetFlinkMaterializedTable(ctx, \u0026confluentcloud.LookupFlinkMaterializedTableArgs{\n\t\t\tDisplayName: \"my_materialized_table\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"materializedTableOutput\", example)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetFlinkMaterializedTableArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = ConfluentcloudFunctions.getFlinkMaterializedTable(GetFlinkMaterializedTableArgs.builder()\n            .displayName(\"my_materialized_table\")\n            .build());\n\n        ctx.export(\"materializedTableOutput\", example);\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: confluentcloud:getFlinkMaterializedTable\n      arguments:\n        displayName: my_materialized_table\noutputs:\n  materializedTableOutput: ${example}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getFlinkMaterializedTable.\n",
+                "properties": {
+                    "computePool": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableComputePool:getFlinkMaterializedTableComputePool"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableCredentials:getFlinkMaterializedTableCredentials",
+                        "secret": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The unique name of the Materialized Table.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableEnvironment:getFlinkMaterializedTableEnvironment"
+                    },
+                    "organization": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableOrganization:getFlinkMaterializedTableOrganization"
+                    },
+                    "principal": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTablePrincipal:getFlinkMaterializedTablePrincipal"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "displayName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFlinkMaterializedTable.\n",
+                "properties": {
+                    "columns": {
+                        "description": "(Set of Strings) The column names of the constraint.\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableColumn:getFlinkMaterializedTableColumn"
+                        },
+                        "type": "array"
+                    },
+                    "computePool": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableComputePool:getFlinkMaterializedTableComputePool"
+                    },
+                    "constraints": {
+                        "description": "(List of Blocks) The table constraints of the Materialized Table. Each \u003cspan pulumi-lang-nodejs=\"`constraints`\" pulumi-lang-dotnet=\"`Constraints`\" pulumi-lang-go=\"`constraints`\" pulumi-lang-python=\"`constraints`\" pulumi-lang-yaml=\"`constraints`\" pulumi-lang-java=\"`constraints`\"\u003e`constraints`\u003c/span\u003e block supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableConstraint:getFlinkMaterializedTableConstraint"
+                        },
+                        "type": "array"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableCredentials:getFlinkMaterializedTableCredentials",
+                        "secret": true
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "distributions": {
+                        "description": "(Configuration Block) The distribution definition for the Materialized Table. Supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableDistribution:getFlinkMaterializedTableDistribution"
+                        },
+                        "type": "array"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableEnvironment:getFlinkMaterializedTableEnvironment"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "kafkaClusters": {
+                        "description": "(Configuration Block) supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableKafkaCluster:getFlinkMaterializedTableKafkaCluster"
+                        },
+                        "type": "array"
+                    },
+                    "organization": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableOrganization:getFlinkMaterializedTableOrganization"
+                    },
+                    "principal": {
+                        "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTablePrincipal:getFlinkMaterializedTablePrincipal"
+                    },
+                    "query": {
+                        "description": "(String) The SQL query that defines the Materialized Table.\n",
+                        "type": "string"
+                    },
+                    "restEndpoint": {
+                        "type": "string"
+                    },
+                    "stopped": {
+                        "description": "(Boolean) Whether the Materialized Table is stopped.\n",
+                        "type": "boolean"
+                    },
+                    "watermarks": {
+                        "description": "(Configuration Block) The watermark definition for the Materialized Table. Supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getFlinkMaterializedTableWatermark:getFlinkMaterializedTableWatermark"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "columns",
+                    "computePool",
+                    "constraints",
+                    "displayName",
+                    "distributions",
+                    "environment",
+                    "kafkaClusters",
+                    "organization",
+                    "principal",
+                    "query",
+                    "stopped",
+                    "watermarks",
                     "id"
                 ],
                 "type": "object"

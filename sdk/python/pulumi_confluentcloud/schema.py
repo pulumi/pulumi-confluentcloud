@@ -575,8 +575,57 @@ class Schema(pulumi.CustomResource):
                         "encrypt.kek.name": "testkekM",
                     },
                 }],
+                "encoding_rules": [{
+                    "name": "encryptCSPE",
+                    "kind": "TRANSFORM",
+                    "type": "ENCRYPT",
+                    "mode": "WRITEREAD",
+                    "tags": ["CSPE"],
+                    "params": {
+                        "encrypt.kek.name": "cspe-kek",
+                    },
+                }],
             })
         ```
+
+        ### Example: Schema with Client-Side Payload Encryption (CSPE)
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+        import pulumi_std as std
+
+        avro_user_cspe = confluentcloud.Schema("avro-user-cspe",
+            subject_name="avro-user-value",
+            format="AVRO",
+            schema=std.file(input="./schemas/avro/user.avsc")["result"],
+            ruleset={
+                "encoding_rules": [
+                    {
+                        "name": "encryptSSN",
+                        "kind": "TRANSFORM",
+                        "type": "ENCRYPT",
+                        "mode": "WRITEREAD",
+                        "tags": ["SSN"],
+                        "params": {
+                            "encrypt.kek.name": "my-kek-for-ssn",
+                        },
+                    },
+                    {
+                        "name": "encryptCreditCard",
+                        "kind": "TRANSFORM",
+                        "type": "ENCRYPT",
+                        "mode": "WRITEREAD",
+                        "tags": ["CREDIT_CARD"],
+                        "params": {
+                            "encrypt.kek.name": "my-kek-for-cc",
+                        },
+                    },
+                ],
+            })
+        ```
+
+        > **Note:** `encoding_rules` are used for Client-Side Payload Encryption (CSPE), which encrypts data at the application level before sending to Kafka. This differs from `domain_rules` which are used for Client-Side Field Level Encryption (CSFLE). See [Client-Side Field Level Encryption documentation](https://docs.confluent.io/platform/current/schema-registry/fundamentals/data-contracts.html#client-side-field-level-encryption) for more details on both approaches.
 
         ## Import
 
@@ -745,8 +794,57 @@ class Schema(pulumi.CustomResource):
                         "encrypt.kek.name": "testkekM",
                     },
                 }],
+                "encoding_rules": [{
+                    "name": "encryptCSPE",
+                    "kind": "TRANSFORM",
+                    "type": "ENCRYPT",
+                    "mode": "WRITEREAD",
+                    "tags": ["CSPE"],
+                    "params": {
+                        "encrypt.kek.name": "cspe-kek",
+                    },
+                }],
             })
         ```
+
+        ### Example: Schema with Client-Side Payload Encryption (CSPE)
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+        import pulumi_std as std
+
+        avro_user_cspe = confluentcloud.Schema("avro-user-cspe",
+            subject_name="avro-user-value",
+            format="AVRO",
+            schema=std.file(input="./schemas/avro/user.avsc")["result"],
+            ruleset={
+                "encoding_rules": [
+                    {
+                        "name": "encryptSSN",
+                        "kind": "TRANSFORM",
+                        "type": "ENCRYPT",
+                        "mode": "WRITEREAD",
+                        "tags": ["SSN"],
+                        "params": {
+                            "encrypt.kek.name": "my-kek-for-ssn",
+                        },
+                    },
+                    {
+                        "name": "encryptCreditCard",
+                        "kind": "TRANSFORM",
+                        "type": "ENCRYPT",
+                        "mode": "WRITEREAD",
+                        "tags": ["CREDIT_CARD"],
+                        "params": {
+                            "encrypt.kek.name": "my-kek-for-cc",
+                        },
+                    },
+                ],
+            })
+        ```
+
+        > **Note:** `encoding_rules` are used for Client-Side Payload Encryption (CSPE), which encrypts data at the application level before sending to Kafka. This differs from `domain_rules` which are used for Client-Side Field Level Encryption (CSFLE). See [Client-Side Field Level Encryption documentation](https://docs.confluent.io/platform/current/schema-registry/fundamentals/data-contracts.html#client-side-field-level-encryption) for more details on both approaches.
 
         ## Import
 

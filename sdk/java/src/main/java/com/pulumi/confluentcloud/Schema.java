@@ -203,6 +203,14 @@ import javax.annotation.Nullable;
  *                     .tags("PIM")
  *                     .params(Map.of("encrypt.kek.name", "testkekM"))
  *                     .build())
+ *                 .encodingRules(SchemaRulesetEncodingRuleArgs.builder()
+ *                     .name("encryptCSPE")
+ *                     .kind("TRANSFORM")
+ *                     .type("ENCRYPT")
+ *                     .mode("WRITEREAD")
+ *                     .tags("CSPE")
+ *                     .params(Map.of("encrypt.kek.name", "cspe-kek"))
+ *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -210,6 +218,64 @@ import javax.annotation.Nullable;
  * }}{@code
  * }
  * </pre>
+ * 
+ * ### Example: Schema with Client-Side Payload Encryption (CSPE)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Schema;
+ * import com.pulumi.confluentcloud.SchemaArgs;
+ * import com.pulumi.confluentcloud.inputs.SchemaRulesetArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var avro_user_cspe = new Schema("avro-user-cspe", SchemaArgs.builder()
+ *             .subjectName("avro-user-value")
+ *             .format("AVRO")
+ *             .schema(StdFunctions.file(Map.of("input", "./schemas/avro/user.avsc")).result())
+ *             .ruleset(SchemaRulesetArgs.builder()
+ *                 .encodingRules(                
+ *                     SchemaRulesetEncodingRuleArgs.builder()
+ *                         .name("encryptSSN")
+ *                         .kind("TRANSFORM")
+ *                         .type("ENCRYPT")
+ *                         .mode("WRITEREAD")
+ *                         .tags("SSN")
+ *                         .params(Map.of("encrypt.kek.name", "my-kek-for-ssn"))
+ *                         .build(),
+ *                     SchemaRulesetEncodingRuleArgs.builder()
+ *                         .name("encryptCreditCard")
+ *                         .kind("TRANSFORM")
+ *                         .type("ENCRYPT")
+ *                         .mode("WRITEREAD")
+ *                         .tags("CREDIT_CARD")
+ *                         .params(Map.of("encrypt.kek.name", "my-kek-for-cc"))
+ *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Note:** `encodingRules` are used for Client-Side Payload Encryption (CSPE), which encrypts data at the application level before sending to Kafka. This differs from `domainRules` which are used for Client-Side Field Level Encryption (CSFLE). See [Client-Side Field Level Encryption documentation](https://docs.confluent.io/platform/current/schema-registry/fundamentals/data-contracts.html#client-side-field-level-encryption) for more details on both approaches.
  * 
  * ## Import
  * 

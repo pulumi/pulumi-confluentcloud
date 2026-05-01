@@ -20,15 +20,22 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// <summary>
         /// (Optional List of Blocks) supports the following:
         /// </summary>
+        public readonly ImmutableArray<Outputs.GetSchemaRulesetEncodingRuleResult> EncodingRules;
+        /// <summary>
+        /// (Optional List of Blocks) supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSchemaRulesetMigrationRuleResult> MigrationRules;
 
         [OutputConstructor]
         private GetSchemaRulesetResult(
             ImmutableArray<Outputs.GetSchemaRulesetDomainRuleResult> domainRules,
 
+            ImmutableArray<Outputs.GetSchemaRulesetEncodingRuleResult> encodingRules,
+
             ImmutableArray<Outputs.GetSchemaRulesetMigrationRuleResult> migrationRules)
         {
             DomainRules = domainRules;
+            EncodingRules = encodingRules;
             MigrationRules = migrationRules;
         }
     }

@@ -110,6 +110,11 @@ export type FlinkConnection = import("./flinkConnection").FlinkConnection;
 export const FlinkConnection: typeof import("./flinkConnection").FlinkConnection = null as any;
 utilities.lazyLoad(exports, ["FlinkConnection"], () => require("./flinkConnection"));
 
+export { FlinkMaterializedTableArgs, FlinkMaterializedTableState } from "./flinkMaterializedTable";
+export type FlinkMaterializedTable = import("./flinkMaterializedTable").FlinkMaterializedTable;
+export const FlinkMaterializedTable: typeof import("./flinkMaterializedTable").FlinkMaterializedTable = null as any;
+utilities.lazyLoad(exports, ["FlinkMaterializedTable"], () => require("./flinkMaterializedTable"));
+
 export { FlinkStatementArgs, FlinkStatementState } from "./flinkStatement";
 export type FlinkStatement = import("./flinkStatement").FlinkStatement;
 export const FlinkStatement: typeof import("./flinkStatement").FlinkStatement = null as any;
@@ -204,6 +209,11 @@ export { GetFlinkConnectionArgs, GetFlinkConnectionResult, GetFlinkConnectionOut
 export const getFlinkConnection: typeof import("./getFlinkConnection").getFlinkConnection = null as any;
 export const getFlinkConnectionOutput: typeof import("./getFlinkConnection").getFlinkConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getFlinkConnection","getFlinkConnectionOutput"], () => require("./getFlinkConnection"));
+
+export { GetFlinkMaterializedTableArgs, GetFlinkMaterializedTableResult, GetFlinkMaterializedTableOutputArgs } from "./getFlinkMaterializedTable";
+export const getFlinkMaterializedTable: typeof import("./getFlinkMaterializedTable").getFlinkMaterializedTable = null as any;
+export const getFlinkMaterializedTableOutput: typeof import("./getFlinkMaterializedTable").getFlinkMaterializedTableOutput = null as any;
+utilities.lazyLoad(exports, ["getFlinkMaterializedTable","getFlinkMaterializedTableOutput"], () => require("./getFlinkMaterializedTable"));
 
 export { GetFlinkRegionArgs, GetFlinkRegionResult, GetFlinkRegionOutputArgs } from "./getFlinkRegion";
 export const getFlinkRegion: typeof import("./getFlinkRegion").getFlinkRegion = null as any;
@@ -679,6 +689,8 @@ const _module = {
                 return new FlinkComputePoolConfig(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkConnection:FlinkConnection":
                 return new FlinkConnection(name, <any>undefined, { urn })
+            case "confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable":
+                return new FlinkMaterializedTable(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkStatement:FlinkStatement":
                 return new FlinkStatement(name, <any>undefined, { urn })
             case "confluentcloud:index/gateway:Gateway":
@@ -787,6 +799,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkArtifact", _
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkComputePool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkComputePoolConfig", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkConnection", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkMaterializedTable", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkStatement", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/gateway", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/groupMapping", _module)
