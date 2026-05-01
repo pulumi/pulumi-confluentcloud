@@ -73,6 +73,19 @@ __all__ = [
     'FlinkConnectionEnvironment',
     'FlinkConnectionOrganization',
     'FlinkConnectionPrincipal',
+    'FlinkMaterializedTableColumn',
+    'FlinkMaterializedTableColumnColumnsComputed',
+    'FlinkMaterializedTableColumnColumnsMetadata',
+    'FlinkMaterializedTableColumnColumnsPhysical',
+    'FlinkMaterializedTableComputePool',
+    'FlinkMaterializedTableConstraint',
+    'FlinkMaterializedTableCredentials',
+    'FlinkMaterializedTableDistribution',
+    'FlinkMaterializedTableEnvironment',
+    'FlinkMaterializedTableKafkaCluster',
+    'FlinkMaterializedTableOrganization',
+    'FlinkMaterializedTablePrincipal',
+    'FlinkMaterializedTableWatermark',
     'FlinkStatementComputePool',
     'FlinkStatementCredentials',
     'FlinkStatementEnvironment',
@@ -167,6 +180,7 @@ __all__ = [
     'SchemaRegistryKekSchemaRegistryCluster',
     'SchemaRuleset',
     'SchemaRulesetDomainRule',
+    'SchemaRulesetEncodingRule',
     'SchemaRulesetMigrationRule',
     'SchemaSchemaReference',
     'SchemaSchemaRegistryCluster',
@@ -232,6 +246,19 @@ __all__ = [
     'GetFlinkConnectionEnvironmentResult',
     'GetFlinkConnectionOrganizationResult',
     'GetFlinkConnectionPrincipalResult',
+    'GetFlinkMaterializedTableColumnResult',
+    'GetFlinkMaterializedTableColumnColumnsComputedResult',
+    'GetFlinkMaterializedTableColumnColumnsMetadataResult',
+    'GetFlinkMaterializedTableColumnColumnsPhysicalResult',
+    'GetFlinkMaterializedTableComputePoolResult',
+    'GetFlinkMaterializedTableConstraintResult',
+    'GetFlinkMaterializedTableCredentialsResult',
+    'GetFlinkMaterializedTableDistributionResult',
+    'GetFlinkMaterializedTableEnvironmentResult',
+    'GetFlinkMaterializedTableKafkaClusterResult',
+    'GetFlinkMaterializedTableOrganizationResult',
+    'GetFlinkMaterializedTablePrincipalResult',
+    'GetFlinkMaterializedTableWatermarkResult',
     'GetGatewayAwsEgressPrivateLinkGatewayResult',
     'GetGatewayAwsIngressPrivateLinkGatewayResult',
     'GetGatewayAwsPeeringGatewayResult',
@@ -340,6 +367,7 @@ __all__ = [
     'GetSchemaRegistryKekSchemaRegistryClusterResult',
     'GetSchemaRulesetResult',
     'GetSchemaRulesetDomainRuleResult',
+    'GetSchemaRulesetEncodingRuleResult',
     'GetSchemaRulesetMigrationRuleResult',
     'GetSchemaSchemaReferenceResult',
     'GetSchemaSchemaRegistryClusterResult',
@@ -2510,6 +2538,649 @@ class FlinkConnectionPrincipal(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnsComputeds":
+            suggest = "columns_computeds"
+        elif key == "columnsMetadatas":
+            suggest = "columns_metadatas"
+        elif key == "columnsPhysicals":
+            suggest = "columns_physicals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlinkMaterializedTableColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlinkMaterializedTableColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlinkMaterializedTableColumn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 columns_computeds: Optional[Sequence['outputs.FlinkMaterializedTableColumnColumnsComputed']] = None,
+                 columns_metadatas: Optional[Sequence['outputs.FlinkMaterializedTableColumnColumnsMetadata']] = None,
+                 columns_physicals: Optional[Sequence['outputs.FlinkMaterializedTableColumnColumnsPhysical']] = None):
+        """
+        :param Sequence['FlinkMaterializedTableColumnColumnsComputedArgs'] columns_computeds: Computed column definitions. Each block supports:
+        :param Sequence['FlinkMaterializedTableColumnColumnsMetadataArgs'] columns_metadatas: Metadata column definitions. Each block supports:
+        :param Sequence['FlinkMaterializedTableColumnColumnsPhysicalArgs'] columns_physicals: Physical column definitions. Each block supports:
+        """
+        if columns_computeds is not None:
+            pulumi.set(__self__, "columns_computeds", columns_computeds)
+        if columns_metadatas is not None:
+            pulumi.set(__self__, "columns_metadatas", columns_metadatas)
+        if columns_physicals is not None:
+            pulumi.set(__self__, "columns_physicals", columns_physicals)
+
+    @_builtins.property
+    @pulumi.getter(name="columnsComputeds")
+    def columns_computeds(self) -> Optional[Sequence['outputs.FlinkMaterializedTableColumnColumnsComputed']]:
+        """
+        Computed column definitions. Each block supports:
+        """
+        return pulumi.get(self, "columns_computeds")
+
+    @_builtins.property
+    @pulumi.getter(name="columnsMetadatas")
+    def columns_metadatas(self) -> Optional[Sequence['outputs.FlinkMaterializedTableColumnColumnsMetadata']]:
+        """
+        Metadata column definitions. Each block supports:
+        """
+        return pulumi.get(self, "columns_metadatas")
+
+    @_builtins.property
+    @pulumi.getter(name="columnsPhysicals")
+    def columns_physicals(self) -> Optional[Sequence['outputs.FlinkMaterializedTableColumnColumnsPhysical']]:
+        """
+        Physical column definitions. Each block supports:
+        """
+        return pulumi.get(self, "columns_physicals")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableColumnColumnsComputed(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnComputedComment":
+            suggest = "column_computed_comment"
+        elif key == "columnComputedExpression":
+            suggest = "column_computed_expression"
+        elif key == "columnComputedKind":
+            suggest = "column_computed_kind"
+        elif key == "columnComputedName":
+            suggest = "column_computed_name"
+        elif key == "columnComputedType":
+            suggest = "column_computed_type"
+        elif key == "columnComputedVirtual":
+            suggest = "column_computed_virtual"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlinkMaterializedTableColumnColumnsComputed. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlinkMaterializedTableColumnColumnsComputed.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlinkMaterializedTableColumnColumnsComputed.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_computed_comment: Optional[_builtins.str] = None,
+                 column_computed_expression: Optional[_builtins.str] = None,
+                 column_computed_kind: Optional[_builtins.str] = None,
+                 column_computed_name: Optional[_builtins.str] = None,
+                 column_computed_type: Optional[_builtins.str] = None,
+                 column_computed_virtual: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str column_computed_comment: Comment for the computed column.
+        :param _builtins.str column_computed_expression: Expression of the computed column.
+        :param _builtins.str column_computed_kind: Kind of the computed column.
+        :param _builtins.str column_computed_name: Name of the computed column.
+        :param _builtins.str column_computed_type: Type of the computed column.
+        :param _builtins.bool column_computed_virtual: Whether the computed column is virtual. Defaults to `false`.
+        """
+        if column_computed_comment is not None:
+            pulumi.set(__self__, "column_computed_comment", column_computed_comment)
+        if column_computed_expression is not None:
+            pulumi.set(__self__, "column_computed_expression", column_computed_expression)
+        if column_computed_kind is not None:
+            pulumi.set(__self__, "column_computed_kind", column_computed_kind)
+        if column_computed_name is not None:
+            pulumi.set(__self__, "column_computed_name", column_computed_name)
+        if column_computed_type is not None:
+            pulumi.set(__self__, "column_computed_type", column_computed_type)
+        if column_computed_virtual is not None:
+            pulumi.set(__self__, "column_computed_virtual", column_computed_virtual)
+
+    @_builtins.property
+    @pulumi.getter(name="columnComputedComment")
+    def column_computed_comment(self) -> Optional[_builtins.str]:
+        """
+        Comment for the computed column.
+        """
+        return pulumi.get(self, "column_computed_comment")
+
+    @_builtins.property
+    @pulumi.getter(name="columnComputedExpression")
+    def column_computed_expression(self) -> Optional[_builtins.str]:
+        """
+        Expression of the computed column.
+        """
+        return pulumi.get(self, "column_computed_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="columnComputedKind")
+    def column_computed_kind(self) -> Optional[_builtins.str]:
+        """
+        Kind of the computed column.
+        """
+        return pulumi.get(self, "column_computed_kind")
+
+    @_builtins.property
+    @pulumi.getter(name="columnComputedName")
+    def column_computed_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the computed column.
+        """
+        return pulumi.get(self, "column_computed_name")
+
+    @_builtins.property
+    @pulumi.getter(name="columnComputedType")
+    def column_computed_type(self) -> Optional[_builtins.str]:
+        """
+        Type of the computed column.
+        """
+        return pulumi.get(self, "column_computed_type")
+
+    @_builtins.property
+    @pulumi.getter(name="columnComputedVirtual")
+    def column_computed_virtual(self) -> Optional[_builtins.bool]:
+        """
+        Whether the computed column is virtual. Defaults to `false`.
+        """
+        return pulumi.get(self, "column_computed_virtual")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableColumnColumnsMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnMetadataComment":
+            suggest = "column_metadata_comment"
+        elif key == "columnMetadataKey":
+            suggest = "column_metadata_key"
+        elif key == "columnMetadataKind":
+            suggest = "column_metadata_kind"
+        elif key == "columnMetadataName":
+            suggest = "column_metadata_name"
+        elif key == "columnMetadataType":
+            suggest = "column_metadata_type"
+        elif key == "columnMetadataVirtual":
+            suggest = "column_metadata_virtual"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlinkMaterializedTableColumnColumnsMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlinkMaterializedTableColumnColumnsMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlinkMaterializedTableColumnColumnsMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_metadata_comment: Optional[_builtins.str] = None,
+                 column_metadata_key: Optional[_builtins.str] = None,
+                 column_metadata_kind: Optional[_builtins.str] = None,
+                 column_metadata_name: Optional[_builtins.str] = None,
+                 column_metadata_type: Optional[_builtins.str] = None,
+                 column_metadata_virtual: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str column_metadata_comment: Comment for the metadata column.
+        :param _builtins.str column_metadata_key: Metadata key of the metadata column.
+        :param _builtins.str column_metadata_kind: Kind of the metadata column.
+        :param _builtins.str column_metadata_name: Name of the metadata column.
+        :param _builtins.str column_metadata_type: Type of the metadata column.
+        :param _builtins.bool column_metadata_virtual: Whether the metadata column is virtual. Defaults to `false`.
+               
+               > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+               
+               !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+               
+               > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+               
+               ```python
+               import pulumi
+               import pulumi_confluentcloud as confluentcloud
+               
+               identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+                   principal="User:pool-abc123",
+                   role_name="Assigner",
+                   crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+               ```
+        """
+        if column_metadata_comment is not None:
+            pulumi.set(__self__, "column_metadata_comment", column_metadata_comment)
+        if column_metadata_key is not None:
+            pulumi.set(__self__, "column_metadata_key", column_metadata_key)
+        if column_metadata_kind is not None:
+            pulumi.set(__self__, "column_metadata_kind", column_metadata_kind)
+        if column_metadata_name is not None:
+            pulumi.set(__self__, "column_metadata_name", column_metadata_name)
+        if column_metadata_type is not None:
+            pulumi.set(__self__, "column_metadata_type", column_metadata_type)
+        if column_metadata_virtual is not None:
+            pulumi.set(__self__, "column_metadata_virtual", column_metadata_virtual)
+
+    @_builtins.property
+    @pulumi.getter(name="columnMetadataComment")
+    def column_metadata_comment(self) -> Optional[_builtins.str]:
+        """
+        Comment for the metadata column.
+        """
+        return pulumi.get(self, "column_metadata_comment")
+
+    @_builtins.property
+    @pulumi.getter(name="columnMetadataKey")
+    def column_metadata_key(self) -> Optional[_builtins.str]:
+        """
+        Metadata key of the metadata column.
+        """
+        return pulumi.get(self, "column_metadata_key")
+
+    @_builtins.property
+    @pulumi.getter(name="columnMetadataKind")
+    def column_metadata_kind(self) -> Optional[_builtins.str]:
+        """
+        Kind of the metadata column.
+        """
+        return pulumi.get(self, "column_metadata_kind")
+
+    @_builtins.property
+    @pulumi.getter(name="columnMetadataName")
+    def column_metadata_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the metadata column.
+        """
+        return pulumi.get(self, "column_metadata_name")
+
+    @_builtins.property
+    @pulumi.getter(name="columnMetadataType")
+    def column_metadata_type(self) -> Optional[_builtins.str]:
+        """
+        Type of the metadata column.
+        """
+        return pulumi.get(self, "column_metadata_type")
+
+    @_builtins.property
+    @pulumi.getter(name="columnMetadataVirtual")
+    def column_metadata_virtual(self) -> Optional[_builtins.bool]:
+        """
+        Whether the metadata column is virtual. Defaults to `false`.
+
+        > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+
+        !> **Warning:** Use Option #2 to avoid exposing sensitive `credentials` value in a state file. When using Option #1, Terraform doesn't encrypt the sensitive `credentials` value of the `FlinkMaterializedTable` resource, so you must keep your state file secure to avoid exposing it. Refer to the Terraform documentation to learn more about securing your state file.
+
+        > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+            principal="User:pool-abc123",
+            role_name="Assigner",
+            crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+        ```
+        """
+        return pulumi.get(self, "column_metadata_virtual")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableColumnColumnsPhysical(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnPhysicalComment":
+            suggest = "column_physical_comment"
+        elif key == "columnPhysicalKind":
+            suggest = "column_physical_kind"
+        elif key == "columnPhysicalName":
+            suggest = "column_physical_name"
+        elif key == "columnPhysicalType":
+            suggest = "column_physical_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlinkMaterializedTableColumnColumnsPhysical. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlinkMaterializedTableColumnColumnsPhysical.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlinkMaterializedTableColumnColumnsPhysical.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_physical_comment: Optional[_builtins.str] = None,
+                 column_physical_kind: Optional[_builtins.str] = None,
+                 column_physical_name: Optional[_builtins.str] = None,
+                 column_physical_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str column_physical_comment: Comment for the physical column.
+        :param _builtins.str column_physical_kind: Kind of the physical column.
+        :param _builtins.str column_physical_name: Name of the physical column.
+        :param _builtins.str column_physical_type: Type of the physical column.
+        """
+        if column_physical_comment is not None:
+            pulumi.set(__self__, "column_physical_comment", column_physical_comment)
+        if column_physical_kind is not None:
+            pulumi.set(__self__, "column_physical_kind", column_physical_kind)
+        if column_physical_name is not None:
+            pulumi.set(__self__, "column_physical_name", column_physical_name)
+        if column_physical_type is not None:
+            pulumi.set(__self__, "column_physical_type", column_physical_type)
+
+    @_builtins.property
+    @pulumi.getter(name="columnPhysicalComment")
+    def column_physical_comment(self) -> Optional[_builtins.str]:
+        """
+        Comment for the physical column.
+        """
+        return pulumi.get(self, "column_physical_comment")
+
+    @_builtins.property
+    @pulumi.getter(name="columnPhysicalKind")
+    def column_physical_kind(self) -> Optional[_builtins.str]:
+        """
+        Kind of the physical column.
+        """
+        return pulumi.get(self, "column_physical_kind")
+
+    @_builtins.property
+    @pulumi.getter(name="columnPhysicalName")
+    def column_physical_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the physical column.
+        """
+        return pulumi.get(self, "column_physical_name")
+
+    @_builtins.property
+    @pulumi.getter(name="columnPhysicalType")
+    def column_physical_type(self) -> Optional[_builtins.str]:
+        """
+        Type of the physical column.
+        """
+        return pulumi.get(self, "column_physical_type")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableComputePool(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableConstraint(dict):
+    def __init__(__self__, *,
+                 columns: Optional[Sequence[_builtins.str]] = None,
+                 enforced: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] columns: The column names of the constraint.
+        :param _builtins.bool enforced: Whether the constraint is enforced. Defaults to `false`.
+        :param _builtins.str name: The name of the constraint, for example, `pk_orders`.
+        :param _builtins.str type: The type of the constraint, for example, `PRIMARY_KEY`.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if enforced is not None:
+            pulumi.set(__self__, "enforced", enforced)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The column names of the constraint.
+        """
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def enforced(self) -> Optional[_builtins.bool]:
+        """
+        Whether the constraint is enforced. Defaults to `false`.
+        """
+        return pulumi.get(self, "enforced")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the constraint, for example, `pk_orders`.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The type of the constraint, for example, `PRIMARY_KEY`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableCredentials(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret: _builtins.str):
+        """
+        :param _builtins.str key: The Flink API Key.
+        :param _builtins.str secret: The Flink API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The Flink API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def secret(self) -> _builtins.str:
+        """
+        The Flink API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableDistribution(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketCount":
+            suggest = "bucket_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlinkMaterializedTableDistribution. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlinkMaterializedTableDistribution.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlinkMaterializedTableDistribution.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_count: Optional[_builtins.int] = None,
+                 keys: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.int bucket_count: The number of buckets the table is distributed by.
+        :param Sequence[_builtins.str] keys: The names of the columns the table is distributed by.
+        """
+        if bucket_count is not None:
+            pulumi.set(__self__, "bucket_count", bucket_count)
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketCount")
+    def bucket_count(self) -> Optional[_builtins.int]:
+        """
+        The number of buckets the table is distributed by.
+        """
+        return pulumi.get(self, "bucket_count")
+
+    @_builtins.property
+    @pulumi.getter
+    def keys(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The names of the columns the table is distributed by.
+        """
+        return pulumi.get(self, "keys")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableEnvironment(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableKafkaCluster(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableOrganization(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkMaterializedTablePrincipal(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkMaterializedTableWatermark(dict):
+    def __init__(__self__, *,
+                 column: Optional[_builtins.str] = None,
+                 expression: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str column: The name of the watermark column.
+        :param _builtins.str expression: The watermark expression, for example, `event_time - INTERVAL '5' SECOND`.
+        """
+        if column is not None:
+            pulumi.set(__self__, "column", column)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+
+    @_builtins.property
+    @pulumi.getter
+    def column(self) -> Optional[_builtins.str]:
+        """
+        The name of the watermark column.
+        """
+        return pulumi.get(self, "column")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        """
+        The watermark expression, for example, `event_time - INTERVAL '5' SECOND`.
+        """
+        return pulumi.get(self, "expression")
 
 
 @pulumi.output_type
@@ -5400,6 +6071,8 @@ class SchemaRuleset(dict):
         suggest = None
         if key == "domainRules":
             suggest = "domain_rules"
+        elif key == "encodingRules":
+            suggest = "encoding_rules"
         elif key == "migrationRules":
             suggest = "migration_rules"
 
@@ -5416,13 +6089,17 @@ class SchemaRuleset(dict):
 
     def __init__(__self__, *,
                  domain_rules: Optional[Sequence['outputs.SchemaRulesetDomainRule']] = None,
+                 encoding_rules: Optional[Sequence['outputs.SchemaRulesetEncodingRule']] = None,
                  migration_rules: Optional[Sequence['outputs.SchemaRulesetMigrationRule']] = None):
         """
         :param Sequence['SchemaRulesetDomainRuleArgs'] domain_rules: supports the following:
+        :param Sequence['SchemaRulesetEncodingRuleArgs'] encoding_rules: supports the following:
         :param Sequence['SchemaRulesetMigrationRuleArgs'] migration_rules: supports the following:
         """
         if domain_rules is not None:
             pulumi.set(__self__, "domain_rules", domain_rules)
+        if encoding_rules is not None:
+            pulumi.set(__self__, "encoding_rules", encoding_rules)
         if migration_rules is not None:
             pulumi.set(__self__, "migration_rules", migration_rules)
 
@@ -5433,6 +6110,14 @@ class SchemaRuleset(dict):
         supports the following:
         """
         return pulumi.get(self, "domain_rules")
+
+    @_builtins.property
+    @pulumi.getter(name="encodingRules")
+    def encoding_rules(self) -> Optional[Sequence['outputs.SchemaRulesetEncodingRule']]:
+        """
+        supports the following:
+        """
+        return pulumi.get(self, "encoding_rules")
 
     @_builtins.property
     @pulumi.getter(name="migrationRules")
@@ -5462,6 +6147,114 @@ class SchemaRulesetDomainRule(dict):
 
     def get(self, key: str, default = None) -> Any:
         SchemaRulesetDomainRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kind: _builtins.str,
+                 mode: _builtins.str,
+                 name: _builtins.str,
+                 type: _builtins.str,
+                 disabled: Optional[_builtins.bool] = None,
+                 doc: Optional[_builtins.str] = None,
+                 expr: Optional[_builtins.str] = None,
+                 on_failure: Optional[_builtins.str] = None,
+                 on_success: Optional[_builtins.str] = None,
+                 params: Optional[Mapping[str, _builtins.str]] = None,
+                 tags: Optional[Sequence[_builtins.str]] = None):
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if doc is not None:
+            pulumi.set(__self__, "doc", doc)
+        if expr is not None:
+            pulumi.set(__self__, "expr", expr)
+        if on_failure is not None:
+            pulumi.set(__self__, "on_failure", on_failure)
+        if on_success is not None:
+            pulumi.set(__self__, "on_success", on_success)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> _builtins.str:
+        return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def disabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "disabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def doc(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "doc")
+
+    @_builtins.property
+    @pulumi.getter
+    def expr(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "expr")
+
+    @_builtins.property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "on_failure")
+
+    @_builtins.property
+    @pulumi.getter(name="onSuccess")
+    def on_success(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "on_success")
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "params")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class SchemaRulesetEncodingRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onFailure":
+            suggest = "on_failure"
+        elif key == "onSuccess":
+            suggest = "on_success"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchemaRulesetEncodingRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchemaRulesetEncodingRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchemaRulesetEncodingRule.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -7763,6 +8556,489 @@ class GetFlinkConnectionPrincipalResult(dict):
         The ID of the Principal the Flink Connection runs as, for example, `sa-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableColumnResult(dict):
+    def __init__(__self__, *,
+                 columns_computeds: Sequence['outputs.GetFlinkMaterializedTableColumnColumnsComputedResult'],
+                 columns_metadatas: Sequence['outputs.GetFlinkMaterializedTableColumnColumnsMetadataResult'],
+                 columns_physicals: Sequence['outputs.GetFlinkMaterializedTableColumnColumnsPhysicalResult']):
+        pulumi.set(__self__, "columns_computeds", columns_computeds)
+        pulumi.set(__self__, "columns_metadatas", columns_metadatas)
+        pulumi.set(__self__, "columns_physicals", columns_physicals)
+
+    @_builtins.property
+    @pulumi.getter(name="columnsComputeds")
+    def columns_computeds(self) -> Sequence['outputs.GetFlinkMaterializedTableColumnColumnsComputedResult']:
+        return pulumi.get(self, "columns_computeds")
+
+    @_builtins.property
+    @pulumi.getter(name="columnsMetadatas")
+    def columns_metadatas(self) -> Sequence['outputs.GetFlinkMaterializedTableColumnColumnsMetadataResult']:
+        return pulumi.get(self, "columns_metadatas")
+
+    @_builtins.property
+    @pulumi.getter(name="columnsPhysicals")
+    def columns_physicals(self) -> Sequence['outputs.GetFlinkMaterializedTableColumnColumnsPhysicalResult']:
+        return pulumi.get(self, "columns_physicals")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableColumnColumnsComputedResult(dict):
+    def __init__(__self__, *,
+                 column_computed_comment: _builtins.str,
+                 column_computed_expression: _builtins.str,
+                 column_computed_kind: _builtins.str,
+                 column_computed_name: _builtins.str,
+                 column_computed_type: _builtins.str,
+                 column_computed_virtual: _builtins.bool):
+        """
+        :param _builtins.str column_computed_comment: Comment for the computed column.
+        :param _builtins.str column_computed_expression: Expression of the computed column.
+        :param _builtins.str column_computed_kind: Kind of the computed column.
+        :param _builtins.str column_computed_name: Name of the computed column.
+        :param _builtins.str column_computed_type: Type of the computed column.
+        :param _builtins.bool column_computed_virtual: Whether computed column is virtual.
+        """
+        pulumi.set(__self__, "column_computed_comment", column_computed_comment)
+        pulumi.set(__self__, "column_computed_expression", column_computed_expression)
+        pulumi.set(__self__, "column_computed_kind", column_computed_kind)
+        pulumi.set(__self__, "column_computed_name", column_computed_name)
+        pulumi.set(__self__, "column_computed_type", column_computed_type)
+        pulumi.set(__self__, "column_computed_virtual", column_computed_virtual)
+
+    @_builtins.property
+    @pulumi.getter(name="columnComputedComment")
+    def column_computed_comment(self) -> _builtins.str:
+        """
+        Comment for the computed column.
+        """
+        return pulumi.get(self, "column_computed_comment")
+
+    @_builtins.property
+    @pulumi.getter(name="columnComputedExpression")
+    def column_computed_expression(self) -> _builtins.str:
+        """
+        Expression of the computed column.
+        """
+        return pulumi.get(self, "column_computed_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="columnComputedKind")
+    def column_computed_kind(self) -> _builtins.str:
+        """
+        Kind of the computed column.
+        """
+        return pulumi.get(self, "column_computed_kind")
+
+    @_builtins.property
+    @pulumi.getter(name="columnComputedName")
+    def column_computed_name(self) -> _builtins.str:
+        """
+        Name of the computed column.
+        """
+        return pulumi.get(self, "column_computed_name")
+
+    @_builtins.property
+    @pulumi.getter(name="columnComputedType")
+    def column_computed_type(self) -> _builtins.str:
+        """
+        Type of the computed column.
+        """
+        return pulumi.get(self, "column_computed_type")
+
+    @_builtins.property
+    @pulumi.getter(name="columnComputedVirtual")
+    def column_computed_virtual(self) -> _builtins.bool:
+        """
+        Whether computed column is virtual.
+        """
+        return pulumi.get(self, "column_computed_virtual")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableColumnColumnsMetadataResult(dict):
+    def __init__(__self__, *,
+                 column_metadata_comment: _builtins.str,
+                 column_metadata_key: _builtins.str,
+                 column_metadata_kind: _builtins.str,
+                 column_metadata_name: _builtins.str,
+                 column_metadata_type: _builtins.str,
+                 column_metadata_virtual: _builtins.bool):
+        """
+        :param _builtins.str column_metadata_comment: Comment for the metadata column.
+        :param _builtins.str column_metadata_key: Metadata key of the metadata column.
+        :param _builtins.str column_metadata_kind: Kind of the metadata column.
+        :param _builtins.str column_metadata_name: Name of the metadata column.
+        :param _builtins.str column_metadata_type: Type of the metadata column.
+        :param _builtins.bool column_metadata_virtual: Whether metadata column is virtual.
+        """
+        pulumi.set(__self__, "column_metadata_comment", column_metadata_comment)
+        pulumi.set(__self__, "column_metadata_key", column_metadata_key)
+        pulumi.set(__self__, "column_metadata_kind", column_metadata_kind)
+        pulumi.set(__self__, "column_metadata_name", column_metadata_name)
+        pulumi.set(__self__, "column_metadata_type", column_metadata_type)
+        pulumi.set(__self__, "column_metadata_virtual", column_metadata_virtual)
+
+    @_builtins.property
+    @pulumi.getter(name="columnMetadataComment")
+    def column_metadata_comment(self) -> _builtins.str:
+        """
+        Comment for the metadata column.
+        """
+        return pulumi.get(self, "column_metadata_comment")
+
+    @_builtins.property
+    @pulumi.getter(name="columnMetadataKey")
+    def column_metadata_key(self) -> _builtins.str:
+        """
+        Metadata key of the metadata column.
+        """
+        return pulumi.get(self, "column_metadata_key")
+
+    @_builtins.property
+    @pulumi.getter(name="columnMetadataKind")
+    def column_metadata_kind(self) -> _builtins.str:
+        """
+        Kind of the metadata column.
+        """
+        return pulumi.get(self, "column_metadata_kind")
+
+    @_builtins.property
+    @pulumi.getter(name="columnMetadataName")
+    def column_metadata_name(self) -> _builtins.str:
+        """
+        Name of the metadata column.
+        """
+        return pulumi.get(self, "column_metadata_name")
+
+    @_builtins.property
+    @pulumi.getter(name="columnMetadataType")
+    def column_metadata_type(self) -> _builtins.str:
+        """
+        Type of the metadata column.
+        """
+        return pulumi.get(self, "column_metadata_type")
+
+    @_builtins.property
+    @pulumi.getter(name="columnMetadataVirtual")
+    def column_metadata_virtual(self) -> _builtins.bool:
+        """
+        Whether metadata column is virtual.
+        """
+        return pulumi.get(self, "column_metadata_virtual")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableColumnColumnsPhysicalResult(dict):
+    def __init__(__self__, *,
+                 column_physical_comment: _builtins.str,
+                 column_physical_kind: _builtins.str,
+                 column_physical_name: _builtins.str,
+                 column_physical_type: _builtins.str):
+        """
+        :param _builtins.str column_physical_comment: Comment for the physical column.
+        :param _builtins.str column_physical_kind: Kind of the physical column.
+        :param _builtins.str column_physical_name: Name of the physical column.
+        :param _builtins.str column_physical_type: Type of the physical column.
+        """
+        pulumi.set(__self__, "column_physical_comment", column_physical_comment)
+        pulumi.set(__self__, "column_physical_kind", column_physical_kind)
+        pulumi.set(__self__, "column_physical_name", column_physical_name)
+        pulumi.set(__self__, "column_physical_type", column_physical_type)
+
+    @_builtins.property
+    @pulumi.getter(name="columnPhysicalComment")
+    def column_physical_comment(self) -> _builtins.str:
+        """
+        Comment for the physical column.
+        """
+        return pulumi.get(self, "column_physical_comment")
+
+    @_builtins.property
+    @pulumi.getter(name="columnPhysicalKind")
+    def column_physical_kind(self) -> _builtins.str:
+        """
+        Kind of the physical column.
+        """
+        return pulumi.get(self, "column_physical_kind")
+
+    @_builtins.property
+    @pulumi.getter(name="columnPhysicalName")
+    def column_physical_name(self) -> _builtins.str:
+        """
+        Name of the physical column.
+        """
+        return pulumi.get(self, "column_physical_name")
+
+    @_builtins.property
+    @pulumi.getter(name="columnPhysicalType")
+    def column_physical_type(self) -> _builtins.str:
+        """
+        Type of the physical column.
+        """
+        return pulumi.get(self, "column_physical_type")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableComputePoolResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableConstraintResult(dict):
+    def __init__(__self__, *,
+                 columns: Sequence[_builtins.str],
+                 enforced: _builtins.bool,
+                 name: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] columns: (Set of Strings) The column names of the constraint.
+        :param _builtins.bool enforced: (Boolean) Whether the constraint is enforced.
+        :param _builtins.str name: (String) The name of the constraint, for example, `pk_orders`.
+        :param _builtins.str type: (String) The type of the constraint, for example, `PRIMARY_KEY`.
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "enforced", enforced)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Sequence[_builtins.str]:
+        """
+        (Set of Strings) The column names of the constraint.
+        """
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def enforced(self) -> _builtins.bool:
+        """
+        (Boolean) Whether the constraint is enforced.
+        """
+        return pulumi.get(self, "enforced")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        (String) The name of the constraint, for example, `pk_orders`.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        (String) The type of the constraint, for example, `PRIMARY_KEY`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret: _builtins.str):
+        """
+        :param _builtins.str key: The Flink API Key.
+        :param _builtins.str secret: The Flink API Secret.
+               
+               > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+               
+               > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+               
+               ```python
+               import pulumi
+               import pulumi_confluentcloud as confluentcloud
+               
+               identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+                   principal="User:pool-abc123",
+                   role_name="Assigner",
+                   crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+               ```
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The Flink API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def secret(self) -> _builtins.str:
+        """
+        The Flink API Secret.
+
+        > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Materialized Tables in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_materialized_table.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_materialized_table.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+
+        > **Note:** When using OAuth to authenticate a Flink Materialized Table, if the intended `principal.id` is a service account instead of an Identity Pool, make sure the Identity Pool has an `Assigner` role binding on the service account. Otherwise, you may encounter a 403 Forbidden error. For example:
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        identity_pool_assigner = confluentcloud.RoleBinding("identity-pool-assigner",
+            principal="User:pool-abc123",
+            role_name="Assigner",
+            crn_pattern=f"{main['resourceName']}/service-account=sa-def456")
+        ```
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableDistributionResult(dict):
+    def __init__(__self__, *,
+                 bucket_count: _builtins.int,
+                 keys: Sequence[_builtins.str]):
+        """
+        :param _builtins.int bucket_count: (Integer) The number of buckets the table is distributed by.
+        :param Sequence[_builtins.str] keys: (Set of Strings) The names of the columns the table is distributed by.
+        """
+        pulumi.set(__self__, "bucket_count", bucket_count)
+        pulumi.set(__self__, "keys", keys)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketCount")
+    def bucket_count(self) -> _builtins.int:
+        """
+        (Integer) The number of buckets the table is distributed by.
+        """
+        return pulumi.get(self, "bucket_count")
+
+    @_builtins.property
+    @pulumi.getter
+    def keys(self) -> Sequence[_builtins.str]:
+        """
+        (Set of Strings) The names of the columns the table is distributed by.
+        """
+        return pulumi.get(self, "keys")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Environment, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Environment, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableKafkaClusterResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: (String) The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        (String) The ID of the Kafka Cluster hosting the Materialized Table's topic, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableOrganizationResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTablePrincipalResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the Principal the Flink Materialized Table runs as, for example, `sa-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetFlinkMaterializedTableWatermarkResult(dict):
+    def __init__(__self__, *,
+                 column: _builtins.str,
+                 expression: _builtins.str):
+        """
+        :param _builtins.str column: (String) The name of the watermark column.
+        :param _builtins.str expression: (String) The watermark expression.
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "expression", expression)
+
+    @_builtins.property
+    @pulumi.getter
+    def column(self) -> _builtins.str:
+        """
+        (String) The name of the watermark column.
+        """
+        return pulumi.get(self, "column")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        (String) The watermark expression.
+        """
+        return pulumi.get(self, "expression")
 
 
 @pulumi.output_type
@@ -10934,13 +12210,17 @@ class GetSchemaRegistryKekSchemaRegistryClusterResult(dict):
 class GetSchemaRulesetResult(dict):
     def __init__(__self__, *,
                  domain_rules: Optional[Sequence['outputs.GetSchemaRulesetDomainRuleResult']] = None,
+                 encoding_rules: Optional[Sequence['outputs.GetSchemaRulesetEncodingRuleResult']] = None,
                  migration_rules: Optional[Sequence['outputs.GetSchemaRulesetMigrationRuleResult']] = None):
         """
         :param Sequence['GetSchemaRulesetDomainRuleArgs'] domain_rules: (Optional List of Blocks) supports the following:
+        :param Sequence['GetSchemaRulesetEncodingRuleArgs'] encoding_rules: (Optional List of Blocks) supports the following:
         :param Sequence['GetSchemaRulesetMigrationRuleArgs'] migration_rules: (Optional List of Blocks) supports the following:
         """
         if domain_rules is not None:
             pulumi.set(__self__, "domain_rules", domain_rules)
+        if encoding_rules is not None:
+            pulumi.set(__self__, "encoding_rules", encoding_rules)
         if migration_rules is not None:
             pulumi.set(__self__, "migration_rules", migration_rules)
 
@@ -10951,6 +12231,14 @@ class GetSchemaRulesetResult(dict):
         (Optional List of Blocks) supports the following:
         """
         return pulumi.get(self, "domain_rules")
+
+    @_builtins.property
+    @pulumi.getter(name="encodingRules")
+    def encoding_rules(self) -> Optional[Sequence['outputs.GetSchemaRulesetEncodingRuleResult']]:
+        """
+        (Optional List of Blocks) supports the following:
+        """
+        return pulumi.get(self, "encoding_rules")
 
     @_builtins.property
     @pulumi.getter(name="migrationRules")
@@ -10981,7 +12269,7 @@ class GetSchemaRulesetDomainRuleResult(dict):
         :param _builtins.str name: (Required String) A user-defined name that can be used to reference the rule.
         :param Mapping[str, _builtins.str] params: (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
         :param Sequence[_builtins.str] tags: (Optional String List) The tags to which the rule applies, if any.
-        :param _builtins.str type: (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        :param _builtins.str type: (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
         :param _builtins.bool disabled: (Optional Boolean) The boolean flag to control whether the rule should be disabled.
         :param _builtins.str doc: (Optional String) An optional description of the rule.
         :param _builtins.str expr: (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
@@ -11049,7 +12337,140 @@ class GetSchemaRulesetDomainRuleResult(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def disabled(self) -> Optional[_builtins.bool]:
+        """
+        (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+        """
+        return pulumi.get(self, "disabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def doc(self) -> Optional[_builtins.str]:
+        """
+        (Optional String) An optional description of the rule.
+        """
+        return pulumi.get(self, "doc")
+
+    @_builtins.property
+    @pulumi.getter
+    def expr(self) -> Optional[_builtins.str]:
+        """
+        (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        """
+        return pulumi.get(self, "expr")
+
+    @_builtins.property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> Optional[_builtins.str]:
+        """
+        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        return pulumi.get(self, "on_failure")
+
+    @_builtins.property
+    @pulumi.getter(name="onSuccess")
+    def on_success(self) -> Optional[_builtins.str]:
+        """
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        """
+        return pulumi.get(self, "on_success")
+
+
+@pulumi.output_type
+class GetSchemaRulesetEncodingRuleResult(dict):
+    def __init__(__self__, *,
+                 kind: _builtins.str,
+                 mode: _builtins.str,
+                 name: _builtins.str,
+                 params: Mapping[str, _builtins.str],
+                 tags: Sequence[_builtins.str],
+                 type: _builtins.str,
+                 disabled: Optional[_builtins.bool] = None,
+                 doc: Optional[_builtins.str] = None,
+                 expr: Optional[_builtins.str] = None,
+                 on_failure: Optional[_builtins.str] = None,
+                 on_success: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str kind: (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+        :param _builtins.str mode: (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        :param _builtins.str name: (Required String) A user-defined name that can be used to reference the rule.
+        :param Mapping[str, _builtins.str] params: (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+        :param Sequence[_builtins.str] tags: (Optional String List) The tags to which the rule applies, if any.
+        :param _builtins.str type: (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        :param _builtins.bool disabled: (Optional Boolean) The boolean flag to control whether the rule should be disabled.
+        :param _builtins.str doc: (Optional String) An optional description of the rule.
+        :param _builtins.str expr: (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
+        :param _builtins.str on_failure: (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type `ERROR` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        :param _builtins.str on_success: (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type `NONE` is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as `NONE,ERROR` for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        """
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "params", params)
+        pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "type", type)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if doc is not None:
+            pulumi.set(__self__, "doc", doc)
+        if expr is not None:
+            pulumi.set(__self__, "expr", expr)
+        if on_failure is not None:
+            pulumi.set(__self__, "on_failure", on_failure)
+        if on_success is not None:
+            pulumi.set(__self__, "on_success", on_success)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        """
+        (Required String) The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`. `CONDITION` - validate the value of a field, `TRANSFORM` - transform the value of a field. Data quality rules use `CONDITION` kind, data transformation, encryption and migration rules use `TRANSFORM` kind.
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> _builtins.str:
+        """
+        (Required String) The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        """
+        return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        (Required String) A user-defined name that can be used to reference the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> Mapping[str, _builtins.str]:
+        """
+        (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+        """
+        return pulumi.get(self, "params")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Sequence[_builtins.str]:
+        """
+        (Optional String List) The tags to which the rule applies, if any.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
         """
         return pulumi.get(self, "type")
 
@@ -11114,7 +12535,7 @@ class GetSchemaRulesetMigrationRuleResult(dict):
         :param _builtins.str name: (Required String) A user-defined name that can be used to reference the rule.
         :param Mapping[str, _builtins.str] params: (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
         :param Sequence[_builtins.str] tags: (Optional String List) The tags to which the rule applies, if any.
-        :param _builtins.str type: (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        :param _builtins.str type: (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
         :param _builtins.bool disabled: (Optional Boolean) The boolean flag to control whether the rule should be disabled.
         :param _builtins.str doc: (Optional String) An optional description of the rule.
         :param _builtins.str expr: (Optional String) The rule body. Data quality and transformation rules use `CEL` language expressions, data migration rules use `JSONata` expressions. Defaults to "".
@@ -11182,7 +12603,7 @@ class GetSchemaRulesetMigrationRuleResult(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+        (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
         """
         return pulumi.get(self, "type")
 

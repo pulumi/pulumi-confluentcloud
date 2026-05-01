@@ -169,14 +169,14 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
     }
 
     /**
-     * (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+     * (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      * 
      */
     @Import(name="type", required=true)
     private String type;
 
     /**
-     * @return (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+     * @return (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
      * 
      */
     public String type() {
@@ -338,7 +338,7 @@ public final class GetSchemaRulesetDomainRule extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param type (Required String) The type of rule, which invokes a specific rule executor that that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
+         * @param type (Required String) The type of rule, which invokes a specific rule executor that will run the rule. Google Common Expression Language (`CEL`) is used for data quality and transformation rules, Confluent `ENCRYPT` is used for data encryption rules, and `JSONata` is used for migration rules.
          * 
          * @return builder
          * 

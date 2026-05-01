@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.GetSchemaRulesetDomainRule;
+import com.pulumi.confluentcloud.inputs.GetSchemaRulesetEncodingRule;
 import com.pulumi.confluentcloud.inputs.GetSchemaRulesetMigrationRule;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
@@ -35,6 +36,21 @@ public final class GetSchemaRuleset extends com.pulumi.resources.InvokeArgs {
      * (Optional List of Blocks) supports the following:
      * 
      */
+    @Import(name="encodingRules")
+    private @Nullable List<GetSchemaRulesetEncodingRule> encodingRules;
+
+    /**
+     * @return (Optional List of Blocks) supports the following:
+     * 
+     */
+    public Optional<List<GetSchemaRulesetEncodingRule>> encodingRules() {
+        return Optional.ofNullable(this.encodingRules);
+    }
+
+    /**
+     * (Optional List of Blocks) supports the following:
+     * 
+     */
     @Import(name="migrationRules")
     private @Nullable List<GetSchemaRulesetMigrationRule> migrationRules;
 
@@ -50,6 +66,7 @@ public final class GetSchemaRuleset extends com.pulumi.resources.InvokeArgs {
 
     private GetSchemaRuleset(GetSchemaRuleset $) {
         this.domainRules = $.domainRules;
+        this.encodingRules = $.encodingRules;
         this.migrationRules = $.migrationRules;
     }
 
@@ -90,6 +107,27 @@ public final class GetSchemaRuleset extends com.pulumi.resources.InvokeArgs {
          */
         public Builder domainRules(GetSchemaRulesetDomainRule... domainRules) {
             return domainRules(List.of(domainRules));
+        }
+
+        /**
+         * @param encodingRules (Optional List of Blocks) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encodingRules(@Nullable List<GetSchemaRulesetEncodingRule> encodingRules) {
+            $.encodingRules = encodingRules;
+            return this;
+        }
+
+        /**
+         * @param encodingRules (Optional List of Blocks) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encodingRules(GetSchemaRulesetEncodingRule... encodingRules) {
+            return encodingRules(List.of(encodingRules));
         }
 
         /**

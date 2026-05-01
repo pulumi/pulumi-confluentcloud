@@ -27,6 +27,7 @@ from .flink_artifact import *
 from .flink_compute_pool import *
 from .flink_compute_pool_config import *
 from .flink_connection import *
+from .flink_materialized_table import *
 from .flink_statement import *
 from .gateway import *
 from .get_access_point import *
@@ -46,6 +47,7 @@ from .get_flink_artifact import *
 from .get_flink_compute_pool import *
 from .get_flink_compute_pool_config import *
 from .get_flink_connection import *
+from .get_flink_materialized_table import *
 from .get_flink_region import *
 from .get_gateway import *
 from .get_gateways import *
@@ -309,6 +311,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/flinkConnection:FlinkConnection": "FlinkConnection"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/flinkMaterializedTable",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/flinkMaterializedTable:FlinkMaterializedTable": "FlinkMaterializedTable"
   }
  },
  {
