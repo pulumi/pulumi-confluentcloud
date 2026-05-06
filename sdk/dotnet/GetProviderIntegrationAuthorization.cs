@@ -34,7 +34,7 @@ namespace Pulumi.ConfluentCloud
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the authorization data
-        ///     var azure = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var azure = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = "cspi-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -44,7 +44,7 @@ namespace Pulumi.ConfluentCloud
         ///     });
         /// 
         ///     // Create the service principal using Azure Terraform Provider
-        ///     var confluent = new Azuread.Index.ServicePrincipal("confluent", new()
+        ///     var confluent = new Azuread.ServicePrincipal("confluent", new()
         ///     {
         ///         ClientId = azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId),
         ///     });
@@ -68,7 +68,7 @@ namespace Pulumi.ConfluentCloud
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the authorization data
-        ///     var azure = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var azure = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = "cspi-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -100,7 +100,7 @@ namespace Pulumi.ConfluentCloud
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the authorization data
-        ///     var gcp = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var gcp = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = "cspi-def456",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -110,7 +110,7 @@ namespace Pulumi.ConfluentCloud
         ///     });
         /// 
         ///     // Grant IAM permissions using Google Terraform Provider
-        ///     var confluentTokenCreator = new Google.Index.ProjectIamMember("confluent_token_creator", new()
+        ///     var confluentTokenCreator = new Google.ProjectIamMember("confluent_token_creator", new()
         ///     {
         ///         Project = gcpProjectId,
         ///         Role = "roles/iam.serviceAccountTokenCreator",
@@ -145,7 +145,7 @@ namespace Pulumi.ConfluentCloud
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the authorization data
-        ///     var gcp = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var gcp = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = "cspi-def456",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -177,7 +177,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.Index.GetProviderIntegrationSetup.Invoke(new()
+        ///     var main = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
         ///     {
         ///         DisplayName = "my-integration",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
@@ -186,7 +186,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Id),
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -251,7 +251,7 @@ namespace Pulumi.ConfluentCloud
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the authorization data
-        ///     var azure = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var azure = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = "cspi-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -261,7 +261,7 @@ namespace Pulumi.ConfluentCloud
         ///     });
         /// 
         ///     // Create the service principal using Azure Terraform Provider
-        ///     var confluent = new Azuread.Index.ServicePrincipal("confluent", new()
+        ///     var confluent = new Azuread.ServicePrincipal("confluent", new()
         ///     {
         ///         ClientId = azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId),
         ///     });
@@ -285,7 +285,7 @@ namespace Pulumi.ConfluentCloud
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the authorization data
-        ///     var azure = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var azure = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = "cspi-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -317,7 +317,7 @@ namespace Pulumi.ConfluentCloud
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the authorization data
-        ///     var gcp = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var gcp = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = "cspi-def456",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -327,7 +327,7 @@ namespace Pulumi.ConfluentCloud
         ///     });
         /// 
         ///     // Grant IAM permissions using Google Terraform Provider
-        ///     var confluentTokenCreator = new Google.Index.ProjectIamMember("confluent_token_creator", new()
+        ///     var confluentTokenCreator = new Google.ProjectIamMember("confluent_token_creator", new()
         ///     {
         ///         Project = gcpProjectId,
         ///         Role = "roles/iam.serviceAccountTokenCreator",
@@ -362,7 +362,7 @@ namespace Pulumi.ConfluentCloud
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the authorization data
-        ///     var gcp = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var gcp = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = "cspi-def456",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -394,7 +394,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.Index.GetProviderIntegrationSetup.Invoke(new()
+        ///     var main = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
         ///     {
         ///         DisplayName = "my-integration",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
@@ -403,7 +403,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Id),
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -468,7 +468,7 @@ namespace Pulumi.ConfluentCloud
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the authorization data
-        ///     var azure = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var azure = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = "cspi-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -478,7 +478,7 @@ namespace Pulumi.ConfluentCloud
         ///     });
         /// 
         ///     // Create the service principal using Azure Terraform Provider
-        ///     var confluent = new Azuread.Index.ServicePrincipal("confluent", new()
+        ///     var confluent = new Azuread.ServicePrincipal("confluent", new()
         ///     {
         ///         ClientId = azure.Apply(getProviderIntegrationAuthorizationResult =&gt; getProviderIntegrationAuthorizationResult.Azures[0]?.ConfluentMultiTenantAppId),
         ///     });
@@ -502,7 +502,7 @@ namespace Pulumi.ConfluentCloud
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the authorization data
-        ///     var azure = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var azure = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = "cspi-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -534,7 +534,7 @@ namespace Pulumi.ConfluentCloud
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the authorization data
-        ///     var gcp = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var gcp = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = "cspi-def456",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -544,7 +544,7 @@ namespace Pulumi.ConfluentCloud
         ///     });
         /// 
         ///     // Grant IAM permissions using Google Terraform Provider
-        ///     var confluentTokenCreator = new Google.Index.ProjectIamMember("confluent_token_creator", new()
+        ///     var confluentTokenCreator = new Google.ProjectIamMember("confluent_token_creator", new()
         ///     {
         ///         Project = gcpProjectId,
         ///         Role = "roles/iam.serviceAccountTokenCreator",
@@ -579,7 +579,7 @@ namespace Pulumi.ConfluentCloud
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get the authorization data
-        ///     var gcp = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var gcp = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = "cspi-def456",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs
@@ -611,7 +611,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = ConfluentCloud.Index.GetProviderIntegrationSetup.Invoke(new()
+        ///     var main = ConfluentCloud.GetProviderIntegrationSetup.Invoke(new()
         ///     {
         ///         DisplayName = "my-integration",
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationSetupEnvironmentInputArgs
@@ -620,7 +620,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.Index.GetProviderIntegrationAuthorization.Invoke(new()
+        ///     var mainGetProviderIntegrationAuthorization = ConfluentCloud.GetProviderIntegrationAuthorization.Invoke(new()
         ///     {
         ///         Id = main.Apply(getProviderIntegrationSetupResult =&gt; getProviderIntegrationSetupResult.Id),
         ///         Environment = new ConfluentCloud.Inputs.GetProviderIntegrationAuthorizationEnvironmentInputArgs

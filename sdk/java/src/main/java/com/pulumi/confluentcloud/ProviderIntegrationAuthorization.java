@@ -48,8 +48,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationAzureArgs;
  * import com.pulumi.azuread.ServicePrincipal;
  * import com.pulumi.azuread.ServicePrincipalArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -107,8 +107,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.ProviderIntegrationAuthorizationArgs;
  * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationEnvironmentArgs;
  * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationAzureArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -166,8 +166,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationGcpArgs;
  * import com.pulumi.google.ProjectIamMember;
  * import com.pulumi.google.ProjectIamMemberArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -202,7 +202,7 @@ import javax.annotation.Nullable;
  *             .project(gcpProjectId)
  *             .role("roles/iam.serviceAccountTokenCreator")
  *             .member(String.format("serviceAccount:%s", gcpProviderIntegrationAuthorization.gcp().googleServiceAccount()))
- *             .condition(List.of(Map.ofEntries(
+ *             .condition(Arrays.asList(Map.ofEntries(
  *                 Map.entry("title", "Confluent Cloud Access"),
  *                 Map.entry("description", "Allow Confluent Cloud to impersonate the customer service account"),
  *                 Map.entry("expression", String.format("request.auth.claims.sub == '%s'", gcpProviderIntegrationAuthorization.gcp().googleServiceAccount()))
@@ -231,8 +231,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.ProviderIntegrationAuthorizationArgs;
  * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationEnvironmentArgs;
  * import com.pulumi.confluentcloud.inputs.ProviderIntegrationAuthorizationGcpArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;

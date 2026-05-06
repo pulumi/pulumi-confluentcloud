@@ -90,7 +90,7 @@ import (
 // Id: pulumi.Any(mainConfluentGateway.Id),
 // },
 // AwsPrivateNetworkInterface: &confluentcloud.AccessPointAwsPrivateNetworkInterfaceArgs{
-// NetworkInterfaces: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:56,25-54)),
+// NetworkInterfaces: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:56,25-54)),
 // Account: pulumi.Any(awsAccountId),
 // Routes: pulumi.StringArray{
 // pulumi.String("172.31.0.0/16"),
