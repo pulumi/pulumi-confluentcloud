@@ -71,6 +71,10 @@ export interface GetAccessPointResult {
      */
     readonly azureEgressPrivateLinkEndpoints: outputs.GetAccessPointAzureEgressPrivateLinkEndpoint[];
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly azureIngressPrivateLinkEndpoints: outputs.GetAccessPointAzureIngressPrivateLinkEndpoint[];
+    /**
      * (Required String) A human-readable name for the Access Point.
      */
     readonly displayName: string;
@@ -83,6 +87,10 @@ export interface GetAccessPointResult {
      * (Optional Configuration Block) supports the following:
      */
     readonly gcpEgressPrivateServiceConnectEndpoints?: outputs.GetAccessPointGcpEgressPrivateServiceConnectEndpoint[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly gcpIngressPrivateServiceConnectEndpoints: outputs.GetAccessPointGcpIngressPrivateServiceConnectEndpoint[];
     /**
      * (Required String) The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
      */

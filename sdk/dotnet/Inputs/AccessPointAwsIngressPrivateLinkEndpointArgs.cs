@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class AccessPointAwsIngressPrivateLinkEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+        /// (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
         /// </summary>
         [Input("dnsDomain")]
         public Input<string>? DnsDomain { get; set; }

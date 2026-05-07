@@ -36,6 +36,10 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// <summary>
         /// (Optional Configuration Block) supports the following:
         /// </summary>
+        public readonly ImmutableArray<Outputs.GetGatewaysGatewayAzureIngressPrivateLinkGatewayResult> AzureIngressPrivateLinkGateways;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetGatewaysGatewayAzurePeeringGatewayResult> AzurePeeringGateways;
         /// <summary>
         /// (Required String) A human-readable name for the Gateway.
@@ -45,6 +49,10 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// (Optional Configuration Block) supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayResult> GcpEgressPrivateServiceConnectGateways;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetGatewaysGatewayGcpIngressPrivateServiceConnectGatewayResult> GcpIngressPrivateServiceConnectGateways;
         /// <summary>
         /// (Optional Configuration Block) supports the following:
         /// </summary>
@@ -66,11 +74,15 @@ namespace Pulumi.ConfluentCloud.Outputs
 
             ImmutableArray<Outputs.GetGatewaysGatewayAzureEgressPrivateLinkGatewayResult> azureEgressPrivateLinkGateways,
 
+            ImmutableArray<Outputs.GetGatewaysGatewayAzureIngressPrivateLinkGatewayResult> azureIngressPrivateLinkGateways,
+
             ImmutableArray<Outputs.GetGatewaysGatewayAzurePeeringGatewayResult> azurePeeringGateways,
 
             string displayName,
 
             ImmutableArray<Outputs.GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayResult> gcpEgressPrivateServiceConnectGateways,
+
+            ImmutableArray<Outputs.GetGatewaysGatewayGcpIngressPrivateServiceConnectGatewayResult> gcpIngressPrivateServiceConnectGateways,
 
             ImmutableArray<Outputs.GetGatewaysGatewayGcpPeeringGatewayResult> gcpPeeringGateways,
 
@@ -81,9 +93,11 @@ namespace Pulumi.ConfluentCloud.Outputs
             AwsPeeringGateways = awsPeeringGateways;
             AwsPrivateNetworkInterfaceGateways = awsPrivateNetworkInterfaceGateways;
             AzureEgressPrivateLinkGateways = azureEgressPrivateLinkGateways;
+            AzureIngressPrivateLinkGateways = azureIngressPrivateLinkGateways;
             AzurePeeringGateways = azurePeeringGateways;
             DisplayName = displayName;
             GcpEgressPrivateServiceConnectGateways = gcpEgressPrivateServiceConnectGateways;
+            GcpIngressPrivateServiceConnectGateways = gcpIngressPrivateServiceConnectGateways;
             GcpPeeringGateways = gcpPeeringGateways;
             Id = id;
         }

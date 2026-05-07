@@ -86,6 +86,30 @@ import * as utilities from "./utilities";
  *         vpcEndpointId: "vpce-00000000000000000",
  *     },
  * });
+ * const azureIngress = new confluentcloud.AccessPoint("azure_ingress", {
+ *     displayName: "access_point_ingress",
+ *     environment: {
+ *         id: development.id,
+ *     },
+ *     gateway: {
+ *         id: ingress.id,
+ *     },
+ *     azureIngressPrivateLinkEndpoint: {
+ *         privateEndpointResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup/providers/Microsoft.Network/privateEndpoints/my-private-endpoint",
+ *     },
+ * });
+ * const gcpIngress = new confluentcloud.AccessPoint("gcp_ingress", {
+ *     displayName: "access_point_ingress",
+ *     environment: {
+ *         id: development.id,
+ *     },
+ *     gateway: {
+ *         id: ingress.id,
+ *     },
+ *     gcpIngressPrivateServiceConnectEndpoint: {
+ *         privateServiceConnectConnectionId: "12345678",
+ *     },
+ * });
  * ```
  *
  * ## Getting Started
@@ -153,6 +177,10 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     declare public readonly azureEgressPrivateLinkEndpoint: pulumi.Output<outputs.AccessPointAzureEgressPrivateLinkEndpoint | undefined>;
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    declare public readonly azureIngressPrivateLinkEndpoint: pulumi.Output<outputs.AccessPointAzureIngressPrivateLinkEndpoint | undefined>;
+    /**
      * The name of the Access Point.
      */
     declare public readonly displayName: pulumi.Output<string>;
@@ -165,6 +193,10 @@ export class AccessPoint extends pulumi.CustomResource {
      * (Optional Configuration Block) supports the following:
      */
     declare public readonly gcpEgressPrivateServiceConnectEndpoint: pulumi.Output<outputs.AccessPointGcpEgressPrivateServiceConnectEndpoint | undefined>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    declare public readonly gcpIngressPrivateServiceConnectEndpoint: pulumi.Output<outputs.AccessPointGcpIngressPrivateServiceConnectEndpoint | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -183,10 +215,12 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["awsIngressPrivateLinkEndpoint"] = state?.awsIngressPrivateLinkEndpoint;
             resourceInputs["awsPrivateNetworkInterface"] = state?.awsPrivateNetworkInterface;
             resourceInputs["azureEgressPrivateLinkEndpoint"] = state?.azureEgressPrivateLinkEndpoint;
+            resourceInputs["azureIngressPrivateLinkEndpoint"] = state?.azureIngressPrivateLinkEndpoint;
             resourceInputs["displayName"] = state?.displayName;
             resourceInputs["environment"] = state?.environment;
             resourceInputs["gateway"] = state?.gateway;
             resourceInputs["gcpEgressPrivateServiceConnectEndpoint"] = state?.gcpEgressPrivateServiceConnectEndpoint;
+            resourceInputs["gcpIngressPrivateServiceConnectEndpoint"] = state?.gcpIngressPrivateServiceConnectEndpoint;
         } else {
             const args = argsOrState as AccessPointArgs | undefined;
             if (args?.environment === undefined && !opts.urn) {
@@ -199,10 +233,12 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["awsIngressPrivateLinkEndpoint"] = args?.awsIngressPrivateLinkEndpoint;
             resourceInputs["awsPrivateNetworkInterface"] = args?.awsPrivateNetworkInterface;
             resourceInputs["azureEgressPrivateLinkEndpoint"] = args?.azureEgressPrivateLinkEndpoint;
+            resourceInputs["azureIngressPrivateLinkEndpoint"] = args?.azureIngressPrivateLinkEndpoint;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["environment"] = args?.environment;
             resourceInputs["gateway"] = args?.gateway;
             resourceInputs["gcpEgressPrivateServiceConnectEndpoint"] = args?.gcpEgressPrivateServiceConnectEndpoint;
+            resourceInputs["gcpIngressPrivateServiceConnectEndpoint"] = args?.gcpIngressPrivateServiceConnectEndpoint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccessPoint.__pulumiType, name, resourceInputs, opts);
@@ -230,6 +266,10 @@ export interface AccessPointState {
      */
     azureEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureEgressPrivateLinkEndpoint>;
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    azureIngressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureIngressPrivateLinkEndpoint>;
+    /**
      * The name of the Access Point.
      */
     displayName?: pulumi.Input<string>;
@@ -242,6 +282,10 @@ export interface AccessPointState {
      * (Optional Configuration Block) supports the following:
      */
     gcpEgressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpEgressPrivateServiceConnectEndpoint>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcpIngressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpIngressPrivateServiceConnectEndpoint>;
 }
 
 /**
@@ -265,6 +309,10 @@ export interface AccessPointArgs {
      */
     azureEgressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureEgressPrivateLinkEndpoint>;
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    azureIngressPrivateLinkEndpoint?: pulumi.Input<inputs.AccessPointAzureIngressPrivateLinkEndpoint>;
+    /**
      * The name of the Access Point.
      */
     displayName?: pulumi.Input<string>;
@@ -277,4 +325,8 @@ export interface AccessPointArgs {
      * (Optional Configuration Block) supports the following:
      */
     gcpEgressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpEgressPrivateServiceConnectEndpoint>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcpIngressPrivateServiceConnectEndpoint?: pulumi.Input<inputs.AccessPointGcpIngressPrivateServiceConnectEndpoint>;
 }

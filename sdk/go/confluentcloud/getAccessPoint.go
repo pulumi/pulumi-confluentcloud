@@ -73,6 +73,8 @@ type LookupAccessPointResult struct {
 	AwsPrivateNetworkInterfaces []GetAccessPointAwsPrivateNetworkInterface `pulumi:"awsPrivateNetworkInterfaces"`
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkEndpoints []GetAccessPointAzureEgressPrivateLinkEndpoint `pulumi:"azureEgressPrivateLinkEndpoints"`
+	// (Optional Configuration Block) supports the following:
+	AzureIngressPrivateLinkEndpoints []GetAccessPointAzureIngressPrivateLinkEndpoint `pulumi:"azureIngressPrivateLinkEndpoints"`
 	// (Required String) A human-readable name for the Access Point.
 	DisplayName string                    `pulumi:"displayName"`
 	Environment GetAccessPointEnvironment `pulumi:"environment"`
@@ -80,6 +82,8 @@ type LookupAccessPointResult struct {
 	Gateways []GetAccessPointGateway `pulumi:"gateways"`
 	// (Optional Configuration Block) supports the following:
 	GcpEgressPrivateServiceConnectEndpoints []GetAccessPointGcpEgressPrivateServiceConnectEndpoint `pulumi:"gcpEgressPrivateServiceConnectEndpoints"`
+	// (Optional Configuration Block) supports the following:
+	GcpIngressPrivateServiceConnectEndpoints []GetAccessPointGcpIngressPrivateServiceConnectEndpoint `pulumi:"gcpIngressPrivateServiceConnectEndpoints"`
 	// (Required String) The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
 	Id string `pulumi:"id"`
 }
@@ -149,6 +153,13 @@ func (o LookupAccessPointResultOutput) AzureEgressPrivateLinkEndpoints() GetAcce
 	}).(GetAccessPointAzureEgressPrivateLinkEndpointArrayOutput)
 }
 
+// (Optional Configuration Block) supports the following:
+func (o LookupAccessPointResultOutput) AzureIngressPrivateLinkEndpoints() GetAccessPointAzureIngressPrivateLinkEndpointArrayOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointAzureIngressPrivateLinkEndpoint {
+		return v.AzureIngressPrivateLinkEndpoints
+	}).(GetAccessPointAzureIngressPrivateLinkEndpointArrayOutput)
+}
+
 // (Required String) A human-readable name for the Access Point.
 func (o LookupAccessPointResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.DisplayName }).(pulumi.StringOutput)
@@ -168,6 +179,13 @@ func (o LookupAccessPointResultOutput) GcpEgressPrivateServiceConnectEndpoints()
 	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointGcpEgressPrivateServiceConnectEndpoint {
 		return v.GcpEgressPrivateServiceConnectEndpoints
 	}).(GetAccessPointGcpEgressPrivateServiceConnectEndpointArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupAccessPointResultOutput) GcpIngressPrivateServiceConnectEndpoints() GetAccessPointGcpIngressPrivateServiceConnectEndpointArrayOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointGcpIngressPrivateServiceConnectEndpoint {
+		return v.GcpIngressPrivateServiceConnectEndpoints
+	}).(GetAccessPointGcpIngressPrivateServiceConnectEndpointArrayOutput)
 }
 
 // (Required String) The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.

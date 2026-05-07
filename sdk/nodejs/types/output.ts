@@ -26,7 +26,7 @@ export interface AccessPointAwsEgressPrivateLinkEndpoint {
 
 export interface AccessPointAwsIngressPrivateLinkEndpoint {
     /**
-     * (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+     * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
      */
     dnsDomain: string;
     /**
@@ -81,6 +81,25 @@ export interface AccessPointAzureEgressPrivateLinkEndpoint {
     privateLinkSubresourceName?: string;
 }
 
+export interface AccessPointAzureIngressPrivateLinkEndpoint {
+    /**
+     * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+     */
+    dnsDomain: string;
+    /**
+     * Resource ID of a Private Endpoint that will be connected to the Private Link service.
+     */
+    privateEndpointResourceId: string;
+    /**
+     * (Required String) Alias of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceAlias: string;
+    /**
+     * (Required String) Resource ID of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceResourceId: string;
+}
+
 export interface AccessPointEnvironment {
     /**
      * The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
@@ -112,6 +131,21 @@ export interface AccessPointGcpEgressPrivateServiceConnectEndpoint {
      * URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
      */
     privateServiceConnectEndpointTarget: string;
+}
+
+export interface AccessPointGcpIngressPrivateServiceConnectEndpoint {
+    /**
+     * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+     */
+    dnsDomain: string;
+    /**
+     * The ID of the Private Service Connect connection. Must be quoted in HCL to avoid numeric precision loss, for example, `privateServiceConnectConnectionId = "116002050319319045"`.
+     */
+    privateServiceConnectConnectionId: string;
+    /**
+     * (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+     */
+    privateServiceConnectServiceAttachment: string;
 }
 
 export interface ApiKeyManagedResource {
@@ -932,11 +966,37 @@ export interface GatewayAzureEgressPrivateLinkGateway {
     subscription: string;
 }
 
+export interface GatewayAzureIngressPrivateLinkGateway {
+    /**
+     * (Required String) Alias of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceAlias: string;
+    /**
+     * (Required String) Resource ID of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceResourceId: string;
+    /**
+     * Azure region of the Ingress Private Link Gateway, for example, `centralus`.
+     */
+    region: string;
+}
+
 export interface GatewayEnvironment {
     /**
      * The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
      */
     id: string;
+}
+
+export interface GatewayGcpIngressPrivateServiceConnectGateway {
+    /**
+     * (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+     */
+    privateServiceConnectServiceAttachment: string;
+    /**
+     * GCP region of the Ingress Private Service Connect Gateway, for example, `us-central1`.
+     */
+    region: string;
 }
 
 export interface GetAccessPointAwsEgressPrivateLinkEndpoint {
@@ -960,7 +1020,7 @@ export interface GetAccessPointAwsEgressPrivateLinkEndpoint {
 
 export interface GetAccessPointAwsIngressPrivateLinkEndpoint {
     /**
-     * (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+     * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
      */
     dnsDomain: string;
     /**
@@ -1002,17 +1062,36 @@ export interface GetAccessPointAzureEgressPrivateLinkEndpoint {
      */
     privateEndpointIpAddress: string;
     /**
-     * (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+     * (Required String) Resource ID of a Private Endpoint that will be connected to the Private Link service.
      */
     privateEndpointResourceId: string;
     /**
-     * (Required String) Resource ID of the Azure Private Link service.
+     * (Required String) Resource ID of the Confluent Cloud Private Link Service.
      */
     privateLinkServiceResourceId: string;
     /**
      * (Required String) Name of the subresource for the Private Endpoint to connect to.
      */
     privateLinkSubresourceName: string;
+}
+
+export interface GetAccessPointAzureIngressPrivateLinkEndpoint {
+    /**
+     * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+     */
+    dnsDomain: string;
+    /**
+     * (Required String) Resource ID of a Private Endpoint that will be connected to the Private Link service.
+     */
+    privateEndpointResourceId: string;
+    /**
+     * (Required String) Alias of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceAlias: string;
+    /**
+     * (Required String) Resource ID of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceResourceId: string;
 }
 
 export interface GetAccessPointEnvironment {
@@ -1046,6 +1125,21 @@ export interface GetAccessPointGcpEgressPrivateServiceConnectEndpoint {
      * (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
      */
     privateServiceConnectEndpointTarget: string;
+}
+
+export interface GetAccessPointGcpIngressPrivateServiceConnectEndpoint {
+    /**
+     * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+     */
+    dnsDomain: string;
+    /**
+     * (Required String) The ID of the Private Service Connect connection. Must be quoted in HCL to avoid numeric precision loss, for example, `privateServiceConnectConnectionId = "116002050319319045"`.
+     */
+    privateServiceConnectConnectionId: string;
+    /**
+     * (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+     */
+    privateServiceConnectServiceAttachment: string;
 }
 
 export interface GetBusinessMetadataAttributeDefinition {
@@ -1729,6 +1823,21 @@ export interface GetGatewayAzureEgressPrivateLinkGateway {
     subscription: string;
 }
 
+export interface GetGatewayAzureIngressPrivateLinkGateway {
+    /**
+     * (Required String) Alias of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceAlias: string;
+    /**
+     * (Required String) Resource ID of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceResourceId: string;
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+}
+
 export interface GetGatewayAzurePeeringGateway {
     /**
      * (Required String) GCP region of the Peering Gateway.
@@ -1748,6 +1857,17 @@ export interface GetGatewayGcpEgressPrivateServiceConnectGateway {
      * (Required String) The GCP project used by the GCP Private Service Connect Gateway.
      */
     project: string;
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+}
+
+export interface GetGatewayGcpIngressPrivateServiceConnectGateway {
+    /**
+     * (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+     */
+    privateServiceConnectServiceAttachment: string;
     /**
      * (Required String) GCP region of the Peering Gateway.
      */
@@ -1778,7 +1898,7 @@ export interface GetGatewaysFilter {
      */
     displayNames?: string[];
     /**
-     * Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+     * Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzureIngressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpIngressPrivateServiceConnect`, `GcpPeering`.
      */
     gatewayTypes?: string[];
     /**
@@ -1819,6 +1939,10 @@ export interface GetGatewaysGateway {
     /**
      * (Optional Configuration Block) supports the following:
      */
+    azureIngressPrivateLinkGateways: outputs.GetGatewaysGatewayAzureIngressPrivateLinkGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     azurePeeringGateways: outputs.GetGatewaysGatewayAzurePeeringGateway[];
     /**
      * (Required String) A human-readable name for the Gateway.
@@ -1828,6 +1952,10 @@ export interface GetGatewaysGateway {
      * (Optional Configuration Block) supports the following:
      */
     gcpEgressPrivateServiceConnectGateways: outputs.GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcpIngressPrivateServiceConnectGateways: outputs.GetGatewaysGatewayGcpIngressPrivateServiceConnectGateway[];
     /**
      * (Optional Configuration Block) supports the following:
      */
@@ -1893,6 +2021,21 @@ export interface GetGatewaysGatewayAzureEgressPrivateLinkGateway {
     subscription: string;
 }
 
+export interface GetGatewaysGatewayAzureIngressPrivateLinkGateway {
+    /**
+     * (Required String) Alias of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceAlias: string;
+    /**
+     * (Required String) Resource ID of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceResourceId: string;
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+}
+
 export interface GetGatewaysGatewayAzurePeeringGateway {
     /**
      * (Required String) GCP region of the Peering Gateway.
@@ -1905,6 +2048,17 @@ export interface GetGatewaysGatewayGcpEgressPrivateServiceConnectGateway {
      * (Required String) The GCP project used by the GCP Private Service Connect Gateway.
      */
     project: string;
+    /**
+     * (Required String) GCP region of the Peering Gateway.
+     */
+    region: string;
+}
+
+export interface GetGatewaysGatewayGcpIngressPrivateServiceConnectGateway {
+    /**
+     * (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+     */
+    privateServiceConnectServiceAttachment: string;
     /**
      * (Required String) GCP region of the Peering Gateway.
      */

@@ -94,6 +94,10 @@ export class Gateway extends pulumi.CustomResource {
      */
     declare public readonly azureEgressPrivateLinkGateway: pulumi.Output<outputs.GatewayAzureEgressPrivateLinkGateway>;
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    declare public readonly azureIngressPrivateLinkGateway: pulumi.Output<outputs.GatewayAzureIngressPrivateLinkGateway>;
+    /**
      * The name of the Gateway.
      */
     declare public readonly displayName: pulumi.Output<string>;
@@ -101,6 +105,10 @@ export class Gateway extends pulumi.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     declare public readonly environment: pulumi.Output<outputs.GatewayEnvironment>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    declare public readonly gcpIngressPrivateServiceConnectGateway: pulumi.Output<outputs.GatewayGcpIngressPrivateServiceConnectGateway>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -119,8 +127,10 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["awsIngressPrivateLinkGateway"] = state?.awsIngressPrivateLinkGateway;
             resourceInputs["awsPrivateNetworkInterfaceGateway"] = state?.awsPrivateNetworkInterfaceGateway;
             resourceInputs["azureEgressPrivateLinkGateway"] = state?.azureEgressPrivateLinkGateway;
+            resourceInputs["azureIngressPrivateLinkGateway"] = state?.azureIngressPrivateLinkGateway;
             resourceInputs["displayName"] = state?.displayName;
             resourceInputs["environment"] = state?.environment;
+            resourceInputs["gcpIngressPrivateServiceConnectGateway"] = state?.gcpIngressPrivateServiceConnectGateway;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
             if (args?.displayName === undefined && !opts.urn) {
@@ -133,8 +143,10 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["awsIngressPrivateLinkGateway"] = args?.awsIngressPrivateLinkGateway;
             resourceInputs["awsPrivateNetworkInterfaceGateway"] = args?.awsPrivateNetworkInterfaceGateway;
             resourceInputs["azureEgressPrivateLinkGateway"] = args?.azureEgressPrivateLinkGateway;
+            resourceInputs["azureIngressPrivateLinkGateway"] = args?.azureIngressPrivateLinkGateway;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["environment"] = args?.environment;
+            resourceInputs["gcpIngressPrivateServiceConnectGateway"] = args?.gcpIngressPrivateServiceConnectGateway;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);
@@ -162,6 +174,10 @@ export interface GatewayState {
      */
     azureEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAzureEgressPrivateLinkGateway>;
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    azureIngressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAzureIngressPrivateLinkGateway>;
+    /**
      * The name of the Gateway.
      */
     displayName?: pulumi.Input<string>;
@@ -169,6 +185,10 @@ export interface GatewayState {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment?: pulumi.Input<inputs.GatewayEnvironment>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcpIngressPrivateServiceConnectGateway?: pulumi.Input<inputs.GatewayGcpIngressPrivateServiceConnectGateway>;
 }
 
 /**
@@ -192,6 +212,10 @@ export interface GatewayArgs {
      */
     azureEgressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAzureEgressPrivateLinkGateway>;
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    azureIngressPrivateLinkGateway?: pulumi.Input<inputs.GatewayAzureIngressPrivateLinkGateway>;
+    /**
      * The name of the Gateway.
      */
     displayName: pulumi.Input<string>;
@@ -199,4 +223,8 @@ export interface GatewayArgs {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.GatewayEnvironment>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcpIngressPrivateServiceConnectGateway?: pulumi.Input<inputs.GatewayGcpIngressPrivateServiceConnectGateway>;
 }

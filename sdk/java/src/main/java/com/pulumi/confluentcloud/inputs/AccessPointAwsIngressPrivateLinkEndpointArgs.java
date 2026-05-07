@@ -17,14 +17,14 @@ public final class AccessPointAwsIngressPrivateLinkEndpointArgs extends com.pulu
     public static final AccessPointAwsIngressPrivateLinkEndpointArgs Empty = new AccessPointAwsIngressPrivateLinkEndpointArgs();
 
     /**
-     * (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+     * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
      * 
      */
     @Import(name="dnsDomain")
     private @Nullable Output<String> dnsDomain;
 
     /**
-     * @return (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+     * @return (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
      * 
      */
     public Optional<Output<String>> dnsDomain() {
@@ -88,7 +88,7 @@ public final class AccessPointAwsIngressPrivateLinkEndpointArgs extends com.pulu
         }
 
         /**
-         * @param dnsDomain (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+         * @param dnsDomain (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class AccessPointAwsIngressPrivateLinkEndpointArgs extends com.pulu
         }
 
         /**
-         * @param dnsDomain (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+         * @param dnsDomain (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
          * 
          * @return builder
          * 

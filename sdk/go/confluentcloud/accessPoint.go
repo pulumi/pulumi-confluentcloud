@@ -118,6 +118,36 @@ import (
 // if err != nil {
 // return err
 // }
+// _, err = confluentcloud.NewAccessPoint(ctx, "azure_ingress", &confluentcloud.AccessPointArgs{
+// DisplayName: pulumi.String("access_point_ingress"),
+// Environment: &confluentcloud.AccessPointEnvironmentArgs{
+// Id: development.ID(),
+// },
+// Gateway: &confluentcloud.AccessPointGatewayArgs{
+// Id: pulumi.Any(ingress.Id),
+// },
+// AzureIngressPrivateLinkEndpoint: &confluentcloud.AccessPointAzureIngressPrivateLinkEndpointArgs{
+// PrivateEndpointResourceId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup/providers/Microsoft.Network/privateEndpoints/my-private-endpoint"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = confluentcloud.NewAccessPoint(ctx, "gcp_ingress", &confluentcloud.AccessPointArgs{
+// DisplayName: pulumi.String("access_point_ingress"),
+// Environment: &confluentcloud.AccessPointEnvironmentArgs{
+// Id: development.ID(),
+// },
+// Gateway: &confluentcloud.AccessPointGatewayArgs{
+// Id: pulumi.Any(ingress.Id),
+// },
+// GcpIngressPrivateServiceConnectEndpoint: &confluentcloud.AccessPointGcpIngressPrivateServiceConnectEndpointArgs{
+// PrivateServiceConnectConnectionId: pulumi.String("12345678"),
+// },
+// })
+// if err != nil {
+// return err
+// }
 // return nil
 // })
 // }
@@ -153,6 +183,8 @@ type AccessPoint struct {
 	AwsPrivateNetworkInterface AccessPointAwsPrivateNetworkInterfacePtrOutput `pulumi:"awsPrivateNetworkInterface"`
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkEndpoint AccessPointAzureEgressPrivateLinkEndpointPtrOutput `pulumi:"azureEgressPrivateLinkEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	AzureIngressPrivateLinkEndpoint AccessPointAzureIngressPrivateLinkEndpointPtrOutput `pulumi:"azureIngressPrivateLinkEndpoint"`
 	// The name of the Access Point.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -160,6 +192,8 @@ type AccessPoint struct {
 	Gateway     AccessPointGatewayOutput     `pulumi:"gateway"`
 	// (Optional Configuration Block) supports the following:
 	GcpEgressPrivateServiceConnectEndpoint AccessPointGcpEgressPrivateServiceConnectEndpointPtrOutput `pulumi:"gcpEgressPrivateServiceConnectEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	GcpIngressPrivateServiceConnectEndpoint AccessPointGcpIngressPrivateServiceConnectEndpointPtrOutput `pulumi:"gcpIngressPrivateServiceConnectEndpoint"`
 }
 
 // NewAccessPoint registers a new resource with the given unique name, arguments, and options.
@@ -206,6 +240,8 @@ type accessPointState struct {
 	AwsPrivateNetworkInterface *AccessPointAwsPrivateNetworkInterface `pulumi:"awsPrivateNetworkInterface"`
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkEndpoint *AccessPointAzureEgressPrivateLinkEndpoint `pulumi:"azureEgressPrivateLinkEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	AzureIngressPrivateLinkEndpoint *AccessPointAzureIngressPrivateLinkEndpoint `pulumi:"azureIngressPrivateLinkEndpoint"`
 	// The name of the Access Point.
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -213,6 +249,8 @@ type accessPointState struct {
 	Gateway     *AccessPointGateway     `pulumi:"gateway"`
 	// (Optional Configuration Block) supports the following:
 	GcpEgressPrivateServiceConnectEndpoint *AccessPointGcpEgressPrivateServiceConnectEndpoint `pulumi:"gcpEgressPrivateServiceConnectEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	GcpIngressPrivateServiceConnectEndpoint *AccessPointGcpIngressPrivateServiceConnectEndpoint `pulumi:"gcpIngressPrivateServiceConnectEndpoint"`
 }
 
 type AccessPointState struct {
@@ -224,6 +262,8 @@ type AccessPointState struct {
 	AwsPrivateNetworkInterface AccessPointAwsPrivateNetworkInterfacePtrInput
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkEndpoint AccessPointAzureEgressPrivateLinkEndpointPtrInput
+	// (Optional Configuration Block) supports the following:
+	AzureIngressPrivateLinkEndpoint AccessPointAzureIngressPrivateLinkEndpointPtrInput
 	// The name of the Access Point.
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -231,6 +271,8 @@ type AccessPointState struct {
 	Gateway     AccessPointGatewayPtrInput
 	// (Optional Configuration Block) supports the following:
 	GcpEgressPrivateServiceConnectEndpoint AccessPointGcpEgressPrivateServiceConnectEndpointPtrInput
+	// (Optional Configuration Block) supports the following:
+	GcpIngressPrivateServiceConnectEndpoint AccessPointGcpIngressPrivateServiceConnectEndpointPtrInput
 }
 
 func (AccessPointState) ElementType() reflect.Type {
@@ -246,6 +288,8 @@ type accessPointArgs struct {
 	AwsPrivateNetworkInterface *AccessPointAwsPrivateNetworkInterface `pulumi:"awsPrivateNetworkInterface"`
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkEndpoint *AccessPointAzureEgressPrivateLinkEndpoint `pulumi:"azureEgressPrivateLinkEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	AzureIngressPrivateLinkEndpoint *AccessPointAzureIngressPrivateLinkEndpoint `pulumi:"azureIngressPrivateLinkEndpoint"`
 	// The name of the Access Point.
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -253,6 +297,8 @@ type accessPointArgs struct {
 	Gateway     AccessPointGateway     `pulumi:"gateway"`
 	// (Optional Configuration Block) supports the following:
 	GcpEgressPrivateServiceConnectEndpoint *AccessPointGcpEgressPrivateServiceConnectEndpoint `pulumi:"gcpEgressPrivateServiceConnectEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	GcpIngressPrivateServiceConnectEndpoint *AccessPointGcpIngressPrivateServiceConnectEndpoint `pulumi:"gcpIngressPrivateServiceConnectEndpoint"`
 }
 
 // The set of arguments for constructing a AccessPoint resource.
@@ -265,6 +311,8 @@ type AccessPointArgs struct {
 	AwsPrivateNetworkInterface AccessPointAwsPrivateNetworkInterfacePtrInput
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkEndpoint AccessPointAzureEgressPrivateLinkEndpointPtrInput
+	// (Optional Configuration Block) supports the following:
+	AzureIngressPrivateLinkEndpoint AccessPointAzureIngressPrivateLinkEndpointPtrInput
 	// The name of the Access Point.
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -272,6 +320,8 @@ type AccessPointArgs struct {
 	Gateway     AccessPointGatewayInput
 	// (Optional Configuration Block) supports the following:
 	GcpEgressPrivateServiceConnectEndpoint AccessPointGcpEgressPrivateServiceConnectEndpointPtrInput
+	// (Optional Configuration Block) supports the following:
+	GcpIngressPrivateServiceConnectEndpoint AccessPointGcpIngressPrivateServiceConnectEndpointPtrInput
 }
 
 func (AccessPointArgs) ElementType() reflect.Type {
@@ -389,6 +439,13 @@ func (o AccessPointOutput) AzureEgressPrivateLinkEndpoint() AccessPointAzureEgre
 	}).(AccessPointAzureEgressPrivateLinkEndpointPtrOutput)
 }
 
+// (Optional Configuration Block) supports the following:
+func (o AccessPointOutput) AzureIngressPrivateLinkEndpoint() AccessPointAzureIngressPrivateLinkEndpointPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointAzureIngressPrivateLinkEndpointPtrOutput {
+		return v.AzureIngressPrivateLinkEndpoint
+	}).(AccessPointAzureIngressPrivateLinkEndpointPtrOutput)
+}
+
 // The name of the Access Point.
 func (o AccessPointOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
@@ -408,6 +465,13 @@ func (o AccessPointOutput) GcpEgressPrivateServiceConnectEndpoint() AccessPointG
 	return o.ApplyT(func(v *AccessPoint) AccessPointGcpEgressPrivateServiceConnectEndpointPtrOutput {
 		return v.GcpEgressPrivateServiceConnectEndpoint
 	}).(AccessPointGcpEgressPrivateServiceConnectEndpointPtrOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o AccessPointOutput) GcpIngressPrivateServiceConnectEndpoint() AccessPointGcpIngressPrivateServiceConnectEndpointPtrOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPointGcpIngressPrivateServiceConnectEndpointPtrOutput {
+		return v.GcpIngressPrivateServiceConnectEndpoint
+	}).(AccessPointGcpIngressPrivateServiceConnectEndpointPtrOutput)
 }
 
 type AccessPointArrayOutput struct{ *pulumi.OutputState }

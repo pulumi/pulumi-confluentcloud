@@ -26,11 +26,11 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string PrivateEndpointIpAddress;
         /// <summary>
-        /// (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+        /// (Required String) Resource ID of a Private Endpoint that will be connected to the Private Link service.
         /// </summary>
         public readonly string PrivateEndpointResourceId;
         /// <summary>
-        /// (Required String) Resource ID of the Azure Private Link service.
+        /// (Required String) Resource ID of the Confluent Cloud Private Link Service.
         /// </summary>
         public readonly string PrivateLinkServiceResourceId;
         /// <summary>

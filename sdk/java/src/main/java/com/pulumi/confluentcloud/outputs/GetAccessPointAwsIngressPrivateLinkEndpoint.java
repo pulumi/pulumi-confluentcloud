@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAccessPointAwsIngressPrivateLinkEndpoint {
     /**
-     * @return (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+     * @return (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
      * 
      */
     private String dnsDomain;
@@ -28,7 +28,7 @@ public final class GetAccessPointAwsIngressPrivateLinkEndpoint {
 
     private GetAccessPointAwsIngressPrivateLinkEndpoint() {}
     /**
-     * @return (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+     * @return (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
      * 
      */
     public String dnsDomain() {

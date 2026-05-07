@@ -74,12 +74,16 @@ type LookupGatewayResult struct {
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateways []GetGatewayAzureEgressPrivateLinkGateway `pulumi:"azureEgressPrivateLinkGateways"`
 	// (Optional Configuration Block) supports the following:
+	AzureIngressPrivateLinkGateways []GetGatewayAzureIngressPrivateLinkGateway `pulumi:"azureIngressPrivateLinkGateways"`
+	// (Optional Configuration Block) supports the following:
 	AzurePeeringGateways []GetGatewayAzurePeeringGateway `pulumi:"azurePeeringGateways"`
 	// (Required String) A human-readable name for the Gateway.
 	DisplayName string                `pulumi:"displayName"`
 	Environment GetGatewayEnvironment `pulumi:"environment"`
 	// (Optional Configuration Block) supports the following:
 	GcpEgressPrivateServiceConnectGateways []GetGatewayGcpEgressPrivateServiceConnectGateway `pulumi:"gcpEgressPrivateServiceConnectGateways"`
+	// (Optional Configuration Block) supports the following:
+	GcpIngressPrivateServiceConnectGateways []GetGatewayGcpIngressPrivateServiceConnectGateway `pulumi:"gcpIngressPrivateServiceConnectGateways"`
 	// (Optional Configuration Block) supports the following:
 	GcpPeeringGateways []GetGatewayGcpPeeringGateway `pulumi:"gcpPeeringGateways"`
 	Id                 string                        `pulumi:"id"`
@@ -154,6 +158,13 @@ func (o LookupGatewayResultOutput) AzureEgressPrivateLinkGateways() GetGatewayAz
 }
 
 // (Optional Configuration Block) supports the following:
+func (o LookupGatewayResultOutput) AzureIngressPrivateLinkGateways() GetGatewayAzureIngressPrivateLinkGatewayArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayAzureIngressPrivateLinkGateway {
+		return v.AzureIngressPrivateLinkGateways
+	}).(GetGatewayAzureIngressPrivateLinkGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
 func (o LookupGatewayResultOutput) AzurePeeringGateways() GetGatewayAzurePeeringGatewayArrayOutput {
 	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayAzurePeeringGateway { return v.AzurePeeringGateways }).(GetGatewayAzurePeeringGatewayArrayOutput)
 }
@@ -172,6 +183,13 @@ func (o LookupGatewayResultOutput) GcpEgressPrivateServiceConnectGateways() GetG
 	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayGcpEgressPrivateServiceConnectGateway {
 		return v.GcpEgressPrivateServiceConnectGateways
 	}).(GetGatewayGcpEgressPrivateServiceConnectGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupGatewayResultOutput) GcpIngressPrivateServiceConnectGateways() GetGatewayGcpIngressPrivateServiceConnectGatewayArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []GetGatewayGcpIngressPrivateServiceConnectGateway {
+		return v.GcpIngressPrivateServiceConnectGateways
+	}).(GetGatewayGcpIngressPrivateServiceConnectGatewayArrayOutput)
 }
 
 // (Optional Configuration Block) supports the following:

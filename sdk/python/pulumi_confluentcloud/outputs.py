@@ -20,9 +20,11 @@ __all__ = [
     'AccessPointAwsIngressPrivateLinkEndpoint',
     'AccessPointAwsPrivateNetworkInterface',
     'AccessPointAzureEgressPrivateLinkEndpoint',
+    'AccessPointAzureIngressPrivateLinkEndpoint',
     'AccessPointEnvironment',
     'AccessPointGateway',
     'AccessPointGcpEgressPrivateServiceConnectEndpoint',
+    'AccessPointGcpIngressPrivateServiceConnectEndpoint',
     'ApiKeyManagedResource',
     'ApiKeyManagedResourceEnvironment',
     'ApiKeyOwner',
@@ -95,7 +97,9 @@ __all__ = [
     'GatewayAwsIngressPrivateLinkGateway',
     'GatewayAwsPrivateNetworkInterfaceGateway',
     'GatewayAzureEgressPrivateLinkGateway',
+    'GatewayAzureIngressPrivateLinkGateway',
     'GatewayEnvironment',
+    'GatewayGcpIngressPrivateServiceConnectGateway',
     'IdentityPoolIdentityProvider',
     'InvitationCreator',
     'InvitationUser',
@@ -206,9 +210,11 @@ __all__ = [
     'GetAccessPointAwsIngressPrivateLinkEndpointResult',
     'GetAccessPointAwsPrivateNetworkInterfaceResult',
     'GetAccessPointAzureEgressPrivateLinkEndpointResult',
+    'GetAccessPointAzureIngressPrivateLinkEndpointResult',
     'GetAccessPointEnvironmentResult',
     'GetAccessPointGatewayResult',
     'GetAccessPointGcpEgressPrivateServiceConnectEndpointResult',
+    'GetAccessPointGcpIngressPrivateServiceConnectEndpointResult',
     'GetBusinessMetadataAttributeDefinitionResult',
     'GetBusinessMetadataBindingCredentialsResult',
     'GetBusinessMetadataBindingSchemaRegistryClusterResult',
@@ -264,9 +270,11 @@ __all__ = [
     'GetGatewayAwsPeeringGatewayResult',
     'GetGatewayAwsPrivateNetworkInterfaceGatewayResult',
     'GetGatewayAzureEgressPrivateLinkGatewayResult',
+    'GetGatewayAzureIngressPrivateLinkGatewayResult',
     'GetGatewayAzurePeeringGatewayResult',
     'GetGatewayEnvironmentResult',
     'GetGatewayGcpEgressPrivateServiceConnectGatewayResult',
+    'GetGatewayGcpIngressPrivateServiceConnectGatewayResult',
     'GetGatewayGcpPeeringGatewayResult',
     'GetGatewaysEnvironmentResult',
     'GetGatewaysFilterResult',
@@ -276,8 +284,10 @@ __all__ = [
     'GetGatewaysGatewayAwsPeeringGatewayResult',
     'GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayResult',
     'GetGatewaysGatewayAzureEgressPrivateLinkGatewayResult',
+    'GetGatewaysGatewayAzureIngressPrivateLinkGatewayResult',
     'GetGatewaysGatewayAzurePeeringGatewayResult',
     'GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayResult',
+    'GetGatewaysGatewayGcpIngressPrivateServiceConnectGatewayResult',
     'GetGatewaysGatewayGcpPeeringGatewayResult',
     'GetIdentityPoolIdentityProviderResult',
     'GetInvitationCreatorResult',
@@ -502,7 +512,7 @@ class AccessPointAwsIngressPrivateLinkEndpoint(dict):
                  vpc_endpoint_service_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str vpc_endpoint_id: ID of a VPC Endpoint that will be connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
-        :param _builtins.str dns_domain: (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+        :param _builtins.str dns_domain: (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
         :param _builtins.str vpc_endpoint_service_name: (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
         """
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
@@ -523,7 +533,7 @@ class AccessPointAwsIngressPrivateLinkEndpoint(dict):
     @pulumi.getter(name="dnsDomain")
     def dns_domain(self) -> Optional[_builtins.str]:
         """
-        (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+        (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
         """
         return pulumi.get(self, "dns_domain")
 
@@ -700,6 +710,83 @@ class AccessPointAzureEgressPrivateLinkEndpoint(dict):
 
 
 @pulumi.output_type
+class AccessPointAzureIngressPrivateLinkEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpointResourceId":
+            suggest = "private_endpoint_resource_id"
+        elif key == "dnsDomain":
+            suggest = "dns_domain"
+        elif key == "privateLinkServiceAlias":
+            suggest = "private_link_service_alias"
+        elif key == "privateLinkServiceResourceId":
+            suggest = "private_link_service_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointAzureIngressPrivateLinkEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointAzureIngressPrivateLinkEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointAzureIngressPrivateLinkEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_endpoint_resource_id: _builtins.str,
+                 dns_domain: Optional[_builtins.str] = None,
+                 private_link_service_alias: Optional[_builtins.str] = None,
+                 private_link_service_resource_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str private_endpoint_resource_id: Resource ID of a Private Endpoint that will be connected to the Private Link service.
+        :param _builtins.str dns_domain: (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+        :param _builtins.str private_link_service_alias: (Required String) Alias of the Confluent Cloud Private Link Service.
+        :param _builtins.str private_link_service_resource_id: (Required String) Resource ID of the Confluent Cloud Private Link Service.
+        """
+        pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
+        if dns_domain is not None:
+            pulumi.set(__self__, "dns_domain", dns_domain)
+        if private_link_service_alias is not None:
+            pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
+        if private_link_service_resource_id is not None:
+            pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointResourceId")
+    def private_endpoint_resource_id(self) -> _builtins.str:
+        """
+        Resource ID of a Private Endpoint that will be connected to the Private Link service.
+        """
+        return pulumi.get(self, "private_endpoint_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsDomain")
+    def dns_domain(self) -> Optional[_builtins.str]:
+        """
+        (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+        """
+        return pulumi.get(self, "dns_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceAlias")
+    def private_link_service_alias(self) -> Optional[_builtins.str]:
+        """
+        (Required String) Alias of the Confluent Cloud Private Link Service.
+        """
+        return pulumi.get(self, "private_link_service_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceResourceId")
+    def private_link_service_resource_id(self) -> Optional[_builtins.str]:
+        """
+        (Required String) Resource ID of the Confluent Cloud Private Link Service.
+        """
+        return pulumi.get(self, "private_link_service_resource_id")
+
+
+@pulumi.output_type
 class AccessPointEnvironment(dict):
     def __init__(__self__, *,
                  id: _builtins.str):
@@ -810,6 +897,69 @@ class AccessPointGcpEgressPrivateServiceConnectEndpoint(dict):
         (Required String) Name of the Private Service Connect Endpoint that is connected to the endpoint target.
         """
         return pulumi.get(self, "private_service_connect_endpoint_name")
+
+
+@pulumi.output_type
+class AccessPointGcpIngressPrivateServiceConnectEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateServiceConnectConnectionId":
+            suggest = "private_service_connect_connection_id"
+        elif key == "dnsDomain":
+            suggest = "dns_domain"
+        elif key == "privateServiceConnectServiceAttachment":
+            suggest = "private_service_connect_service_attachment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointGcpIngressPrivateServiceConnectEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointGcpIngressPrivateServiceConnectEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointGcpIngressPrivateServiceConnectEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_service_connect_connection_id: _builtins.str,
+                 dns_domain: Optional[_builtins.str] = None,
+                 private_service_connect_service_attachment: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str private_service_connect_connection_id: The ID of the Private Service Connect connection. Must be quoted in HCL to avoid numeric precision loss, for example, `private_service_connect_connection_id = "116002050319319045"`.
+        :param _builtins.str dns_domain: (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+        :param _builtins.str private_service_connect_service_attachment: (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+        """
+        pulumi.set(__self__, "private_service_connect_connection_id", private_service_connect_connection_id)
+        if dns_domain is not None:
+            pulumi.set(__self__, "dns_domain", dns_domain)
+        if private_service_connect_service_attachment is not None:
+            pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
+
+    @_builtins.property
+    @pulumi.getter(name="privateServiceConnectConnectionId")
+    def private_service_connect_connection_id(self) -> _builtins.str:
+        """
+        The ID of the Private Service Connect connection. Must be quoted in HCL to avoid numeric precision loss, for example, `private_service_connect_connection_id = "116002050319319045"`.
+        """
+        return pulumi.get(self, "private_service_connect_connection_id")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsDomain")
+    def dns_domain(self) -> Optional[_builtins.str]:
+        """
+        (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+        """
+        return pulumi.get(self, "dns_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateServiceConnectServiceAttachment")
+    def private_service_connect_service_attachment(self) -> Optional[_builtins.str]:
+        """
+        (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+        """
+        return pulumi.get(self, "private_service_connect_service_attachment")
 
 
 @pulumi.output_type
@@ -3458,6 +3608,67 @@ class GatewayAzureEgressPrivateLinkGateway(dict):
 
 
 @pulumi.output_type
+class GatewayAzureIngressPrivateLinkGateway(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceAlias":
+            suggest = "private_link_service_alias"
+        elif key == "privateLinkServiceResourceId":
+            suggest = "private_link_service_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayAzureIngressPrivateLinkGateway. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayAzureIngressPrivateLinkGateway.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayAzureIngressPrivateLinkGateway.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: _builtins.str,
+                 private_link_service_alias: Optional[_builtins.str] = None,
+                 private_link_service_resource_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str region: Azure region of the Ingress Private Link Gateway, for example, `centralus`.
+        :param _builtins.str private_link_service_alias: (Required String) Alias of the Confluent Cloud Private Link Service.
+        :param _builtins.str private_link_service_resource_id: (Required String) Resource ID of the Confluent Cloud Private Link Service.
+        """
+        pulumi.set(__self__, "region", region)
+        if private_link_service_alias is not None:
+            pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
+        if private_link_service_resource_id is not None:
+            pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        Azure region of the Ingress Private Link Gateway, for example, `centralus`.
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceAlias")
+    def private_link_service_alias(self) -> Optional[_builtins.str]:
+        """
+        (Required String) Alias of the Confluent Cloud Private Link Service.
+        """
+        return pulumi.get(self, "private_link_service_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceResourceId")
+    def private_link_service_resource_id(self) -> Optional[_builtins.str]:
+        """
+        (Required String) Resource ID of the Confluent Cloud Private Link Service.
+        """
+        return pulumi.get(self, "private_link_service_resource_id")
+
+
+@pulumi.output_type
 class GatewayEnvironment(dict):
     def __init__(__self__, *,
                  id: _builtins.str):
@@ -3473,6 +3684,53 @@ class GatewayEnvironment(dict):
         The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GatewayGcpIngressPrivateServiceConnectGateway(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateServiceConnectServiceAttachment":
+            suggest = "private_service_connect_service_attachment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayGcpIngressPrivateServiceConnectGateway. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayGcpIngressPrivateServiceConnectGateway.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayGcpIngressPrivateServiceConnectGateway.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: _builtins.str,
+                 private_service_connect_service_attachment: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str region: GCP region of the Ingress Private Service Connect Gateway, for example, `us-central1`.
+        :param _builtins.str private_service_connect_service_attachment: (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+        """
+        pulumi.set(__self__, "region", region)
+        if private_service_connect_service_attachment is not None:
+            pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        GCP region of the Ingress Private Service Connect Gateway, for example, `us-central1`.
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="privateServiceConnectServiceAttachment")
+    def private_service_connect_service_attachment(self) -> Optional[_builtins.str]:
+        """
+        (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+        """
+        return pulumi.get(self, "private_service_connect_service_attachment")
 
 
 @pulumi.output_type
@@ -7178,7 +7436,7 @@ class GetAccessPointAwsIngressPrivateLinkEndpointResult(dict):
                  vpc_endpoint_id: _builtins.str,
                  vpc_endpoint_service_name: _builtins.str):
         """
-        :param _builtins.str dns_domain: (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+        :param _builtins.str dns_domain: (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
         :param _builtins.str vpc_endpoint_id: (Required String) ID of the VPC Endpoint used for connecting to the VPC Endpoint service, for example, `vpce-00000000000000000`.
         :param _builtins.str vpc_endpoint_service_name: (Required String) ID of the Confluent Cloud VPC Endpoint service used for PrivateLink, for example, `com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000`.
         """
@@ -7190,7 +7448,7 @@ class GetAccessPointAwsIngressPrivateLinkEndpointResult(dict):
     @pulumi.getter(name="dnsDomain")
     def dns_domain(self) -> _builtins.str:
         """
-        (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+        (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
         """
         return pulumi.get(self, "dns_domain")
 
@@ -7264,8 +7522,8 @@ class GetAccessPointAzureEgressPrivateLinkEndpointResult(dict):
         :param Sequence[_builtins.str] private_endpoint_custom_dns_config_domains: (Required List of Strings) Domains of the Private Endpoint (if any) based off FQDNs in Azure custom DNS configs, which are required in your private DNS setup, for example: `["dbname.database.windows.net", "dbname-region.database.windows.net"]`.
         :param _builtins.str private_endpoint_domain: (Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.
         :param _builtins.str private_endpoint_ip_address: (Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.
-        :param _builtins.str private_endpoint_resource_id: (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
-        :param _builtins.str private_link_service_resource_id: (Required String) Resource ID of the Azure Private Link service.
+        :param _builtins.str private_endpoint_resource_id: (Required String) Resource ID of a Private Endpoint that will be connected to the Private Link service.
+        :param _builtins.str private_link_service_resource_id: (Required String) Resource ID of the Confluent Cloud Private Link Service.
         :param _builtins.str private_link_subresource_name: (Required String) Name of the subresource for the Private Endpoint to connect to.
         """
         pulumi.set(__self__, "private_endpoint_custom_dns_config_domains", private_endpoint_custom_dns_config_domains)
@@ -7303,7 +7561,7 @@ class GetAccessPointAzureEgressPrivateLinkEndpointResult(dict):
     @pulumi.getter(name="privateEndpointResourceId")
     def private_endpoint_resource_id(self) -> _builtins.str:
         """
-        (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+        (Required String) Resource ID of a Private Endpoint that will be connected to the Private Link service.
         """
         return pulumi.get(self, "private_endpoint_resource_id")
 
@@ -7311,7 +7569,7 @@ class GetAccessPointAzureEgressPrivateLinkEndpointResult(dict):
     @pulumi.getter(name="privateLinkServiceResourceId")
     def private_link_service_resource_id(self) -> _builtins.str:
         """
-        (Required String) Resource ID of the Azure Private Link service.
+        (Required String) Resource ID of the Confluent Cloud Private Link Service.
         """
         return pulumi.get(self, "private_link_service_resource_id")
 
@@ -7322,6 +7580,57 @@ class GetAccessPointAzureEgressPrivateLinkEndpointResult(dict):
         (Required String) Name of the subresource for the Private Endpoint to connect to.
         """
         return pulumi.get(self, "private_link_subresource_name")
+
+
+@pulumi.output_type
+class GetAccessPointAzureIngressPrivateLinkEndpointResult(dict):
+    def __init__(__self__, *,
+                 dns_domain: _builtins.str,
+                 private_endpoint_resource_id: _builtins.str,
+                 private_link_service_alias: _builtins.str,
+                 private_link_service_resource_id: _builtins.str):
+        """
+        :param _builtins.str dns_domain: (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+        :param _builtins.str private_endpoint_resource_id: (Required String) Resource ID of a Private Endpoint that will be connected to the Private Link service.
+        :param _builtins.str private_link_service_alias: (Required String) Alias of the Confluent Cloud Private Link Service.
+        :param _builtins.str private_link_service_resource_id: (Required String) Resource ID of the Confluent Cloud Private Link Service.
+        """
+        pulumi.set(__self__, "dns_domain", dns_domain)
+        pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
+        pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
+        pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsDomain")
+    def dns_domain(self) -> _builtins.str:
+        """
+        (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+        """
+        return pulumi.get(self, "dns_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointResourceId")
+    def private_endpoint_resource_id(self) -> _builtins.str:
+        """
+        (Required String) Resource ID of a Private Endpoint that will be connected to the Private Link service.
+        """
+        return pulumi.get(self, "private_endpoint_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceAlias")
+    def private_link_service_alias(self) -> _builtins.str:
+        """
+        (Required String) Alias of the Confluent Cloud Private Link Service.
+        """
+        return pulumi.get(self, "private_link_service_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceResourceId")
+    def private_link_service_resource_id(self) -> _builtins.str:
+        """
+        (Required String) Resource ID of the Confluent Cloud Private Link Service.
+        """
+        return pulumi.get(self, "private_link_service_resource_id")
 
 
 @pulumi.output_type
@@ -7409,6 +7718,46 @@ class GetAccessPointGcpEgressPrivateServiceConnectEndpointResult(dict):
         (Required String) URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
         """
         return pulumi.get(self, "private_service_connect_endpoint_target")
+
+
+@pulumi.output_type
+class GetAccessPointGcpIngressPrivateServiceConnectEndpointResult(dict):
+    def __init__(__self__, *,
+                 dns_domain: _builtins.str,
+                 private_service_connect_connection_id: _builtins.str,
+                 private_service_connect_service_attachment: _builtins.str):
+        """
+        :param _builtins.str dns_domain: (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+        :param _builtins.str private_service_connect_connection_id: (Required String) The ID of the Private Service Connect connection. Must be quoted in HCL to avoid numeric precision loss, for example, `private_service_connect_connection_id = "116002050319319045"`.
+        :param _builtins.str private_service_connect_service_attachment: (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+        """
+        pulumi.set(__self__, "dns_domain", dns_domain)
+        pulumi.set(__self__, "private_service_connect_connection_id", private_service_connect_connection_id)
+        pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsDomain")
+    def dns_domain(self) -> _builtins.str:
+        """
+        (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+        """
+        return pulumi.get(self, "dns_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateServiceConnectConnectionId")
+    def private_service_connect_connection_id(self) -> _builtins.str:
+        """
+        (Required String) The ID of the Private Service Connect connection. Must be quoted in HCL to avoid numeric precision loss, for example, `private_service_connect_connection_id = "116002050319319045"`.
+        """
+        return pulumi.get(self, "private_service_connect_connection_id")
+
+    @_builtins.property
+    @pulumi.getter(name="privateServiceConnectServiceAttachment")
+    def private_service_connect_service_attachment(self) -> _builtins.str:
+        """
+        (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+        """
+        return pulumi.get(self, "private_service_connect_service_attachment")
 
 
 @pulumi.output_type
@@ -9187,6 +9536,46 @@ class GetGatewayAzureEgressPrivateLinkGatewayResult(dict):
 
 
 @pulumi.output_type
+class GetGatewayAzureIngressPrivateLinkGatewayResult(dict):
+    def __init__(__self__, *,
+                 private_link_service_alias: _builtins.str,
+                 private_link_service_resource_id: _builtins.str,
+                 region: _builtins.str):
+        """
+        :param _builtins.str private_link_service_alias: (Required String) Alias of the Confluent Cloud Private Link Service.
+        :param _builtins.str private_link_service_resource_id: (Required String) Resource ID of the Confluent Cloud Private Link Service.
+        :param _builtins.str region: (Required String) GCP region of the Peering Gateway.
+        """
+        pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
+        pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceAlias")
+    def private_link_service_alias(self) -> _builtins.str:
+        """
+        (Required String) Alias of the Confluent Cloud Private Link Service.
+        """
+        return pulumi.get(self, "private_link_service_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceResourceId")
+    def private_link_service_resource_id(self) -> _builtins.str:
+        """
+        (Required String) Resource ID of the Confluent Cloud Private Link Service.
+        """
+        return pulumi.get(self, "private_link_service_resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        (Required String) GCP region of the Peering Gateway.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
 class GetGatewayAzurePeeringGatewayResult(dict):
     def __init__(__self__, *,
                  region: _builtins.str):
@@ -9241,6 +9630,35 @@ class GetGatewayGcpEgressPrivateServiceConnectGatewayResult(dict):
         (Required String) The GCP project used by the GCP Private Service Connect Gateway.
         """
         return pulumi.get(self, "project")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        (Required String) GCP region of the Peering Gateway.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetGatewayGcpIngressPrivateServiceConnectGatewayResult(dict):
+    def __init__(__self__, *,
+                 private_service_connect_service_attachment: _builtins.str,
+                 region: _builtins.str):
+        """
+        :param _builtins.str private_service_connect_service_attachment: (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+        :param _builtins.str region: (Required String) GCP region of the Peering Gateway.
+        """
+        pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="privateServiceConnectServiceAttachment")
+    def private_service_connect_service_attachment(self) -> _builtins.str:
+        """
+        (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+        """
+        return pulumi.get(self, "private_service_connect_service_attachment")
 
     @_builtins.property
     @pulumi.getter
@@ -9308,7 +9726,7 @@ class GetGatewaysFilterResult(dict):
                  regions: Optional[Sequence[_builtins.str]] = None):
         """
         :param Sequence[_builtins.str] display_names: Filter the results by exact match for spec.display_name. Pass multiple times to see results matching any of the values, for example, `["prod-gateway-ingress-use1", "prod-gateway-ingress-use2"]`.
-        :param Sequence[_builtins.str] gateway_types: Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+        :param Sequence[_builtins.str] gateway_types: Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzureIngressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpIngressPrivateServiceConnect`, `GcpPeering`.
         :param Sequence[_builtins.str] ids: Filter the results by exact match for id. Pass multiple times to see results matching any of the values, for example, `["gw-abc123", "gw-def456"]`.
         :param Sequence[_builtins.str] phases: Filter the results by exact match for status.phase. Pass multiple times to see results matching any of the values. Valid values are: `CREATED`, `PROVISIONING`, `READY`, `FAILED`, `DEPROVISIONING`, `EXPIRED`.
         :param Sequence[_builtins.str] regions: Filter the results by exact match for spec.config.region. Pass multiple times to see results matching any of the values, for example, `["us-east-1", "us-west-2"]`.
@@ -9336,7 +9754,7 @@ class GetGatewaysFilterResult(dict):
     @pulumi.getter(name="gatewayTypes")
     def gateway_types(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+        Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzureIngressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpIngressPrivateServiceConnect`, `GcpPeering`.
         """
         return pulumi.get(self, "gateway_types")
 
@@ -9373,9 +9791,11 @@ class GetGatewaysGatewayResult(dict):
                  aws_peering_gateways: Sequence['outputs.GetGatewaysGatewayAwsPeeringGatewayResult'],
                  aws_private_network_interface_gateways: Sequence['outputs.GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayResult'],
                  azure_egress_private_link_gateways: Sequence['outputs.GetGatewaysGatewayAzureEgressPrivateLinkGatewayResult'],
+                 azure_ingress_private_link_gateways: Sequence['outputs.GetGatewaysGatewayAzureIngressPrivateLinkGatewayResult'],
                  azure_peering_gateways: Sequence['outputs.GetGatewaysGatewayAzurePeeringGatewayResult'],
                  display_name: _builtins.str,
                  gcp_egress_private_service_connect_gateways: Sequence['outputs.GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayResult'],
+                 gcp_ingress_private_service_connect_gateways: Sequence['outputs.GetGatewaysGatewayGcpIngressPrivateServiceConnectGatewayResult'],
                  gcp_peering_gateways: Sequence['outputs.GetGatewaysGatewayGcpPeeringGatewayResult'],
                  id: _builtins.str):
         """
@@ -9384,9 +9804,11 @@ class GetGatewaysGatewayResult(dict):
         :param Sequence['GetGatewaysGatewayAwsPeeringGatewayArgs'] aws_peering_gateways: (Optional Configuration Block) supports the following:
         :param Sequence['GetGatewaysGatewayAwsPrivateNetworkInterfaceGatewayArgs'] aws_private_network_interface_gateways: (Optional Configuration Block) supports the following:
         :param Sequence['GetGatewaysGatewayAzureEgressPrivateLinkGatewayArgs'] azure_egress_private_link_gateways: (Optional Configuration Block) supports the following:
+        :param Sequence['GetGatewaysGatewayAzureIngressPrivateLinkGatewayArgs'] azure_ingress_private_link_gateways: (Optional Configuration Block) supports the following:
         :param Sequence['GetGatewaysGatewayAzurePeeringGatewayArgs'] azure_peering_gateways: (Optional Configuration Block) supports the following:
         :param _builtins.str display_name: (Required String) A human-readable name for the Gateway.
         :param Sequence['GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayArgs'] gcp_egress_private_service_connect_gateways: (Optional Configuration Block) supports the following:
+        :param Sequence['GetGatewaysGatewayGcpIngressPrivateServiceConnectGatewayArgs'] gcp_ingress_private_service_connect_gateways: (Optional Configuration Block) supports the following:
         :param Sequence['GetGatewaysGatewayGcpPeeringGatewayArgs'] gcp_peering_gateways: (Optional Configuration Block) supports the following:
         :param _builtins.str id: (Required String) The ID of the Gateway, for example, `gw-abc123`.
         """
@@ -9395,9 +9817,11 @@ class GetGatewaysGatewayResult(dict):
         pulumi.set(__self__, "aws_peering_gateways", aws_peering_gateways)
         pulumi.set(__self__, "aws_private_network_interface_gateways", aws_private_network_interface_gateways)
         pulumi.set(__self__, "azure_egress_private_link_gateways", azure_egress_private_link_gateways)
+        pulumi.set(__self__, "azure_ingress_private_link_gateways", azure_ingress_private_link_gateways)
         pulumi.set(__self__, "azure_peering_gateways", azure_peering_gateways)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "gcp_egress_private_service_connect_gateways", gcp_egress_private_service_connect_gateways)
+        pulumi.set(__self__, "gcp_ingress_private_service_connect_gateways", gcp_ingress_private_service_connect_gateways)
         pulumi.set(__self__, "gcp_peering_gateways", gcp_peering_gateways)
         pulumi.set(__self__, "id", id)
 
@@ -9442,6 +9866,14 @@ class GetGatewaysGatewayResult(dict):
         return pulumi.get(self, "azure_egress_private_link_gateways")
 
     @_builtins.property
+    @pulumi.getter(name="azureIngressPrivateLinkGateways")
+    def azure_ingress_private_link_gateways(self) -> Sequence['outputs.GetGatewaysGatewayAzureIngressPrivateLinkGatewayResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_ingress_private_link_gateways")
+
+    @_builtins.property
     @pulumi.getter(name="azurePeeringGateways")
     def azure_peering_gateways(self) -> Sequence['outputs.GetGatewaysGatewayAzurePeeringGatewayResult']:
         """
@@ -9464,6 +9896,14 @@ class GetGatewaysGatewayResult(dict):
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "gcp_egress_private_service_connect_gateways")
+
+    @_builtins.property
+    @pulumi.getter(name="gcpIngressPrivateServiceConnectGateways")
+    def gcp_ingress_private_service_connect_gateways(self) -> Sequence['outputs.GetGatewaysGatewayGcpIngressPrivateServiceConnectGatewayResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "gcp_ingress_private_service_connect_gateways")
 
     @_builtins.property
     @pulumi.getter(name="gcpPeeringGateways")
@@ -9628,6 +10068,46 @@ class GetGatewaysGatewayAzureEgressPrivateLinkGatewayResult(dict):
 
 
 @pulumi.output_type
+class GetGatewaysGatewayAzureIngressPrivateLinkGatewayResult(dict):
+    def __init__(__self__, *,
+                 private_link_service_alias: _builtins.str,
+                 private_link_service_resource_id: _builtins.str,
+                 region: _builtins.str):
+        """
+        :param _builtins.str private_link_service_alias: (Required String) Alias of the Confluent Cloud Private Link Service.
+        :param _builtins.str private_link_service_resource_id: (Required String) Resource ID of the Confluent Cloud Private Link Service.
+        :param _builtins.str region: (Required String) GCP region of the Peering Gateway.
+        """
+        pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
+        pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceAlias")
+    def private_link_service_alias(self) -> _builtins.str:
+        """
+        (Required String) Alias of the Confluent Cloud Private Link Service.
+        """
+        return pulumi.get(self, "private_link_service_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceResourceId")
+    def private_link_service_resource_id(self) -> _builtins.str:
+        """
+        (Required String) Resource ID of the Confluent Cloud Private Link Service.
+        """
+        return pulumi.get(self, "private_link_service_resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        (Required String) GCP region of the Peering Gateway.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
 class GetGatewaysGatewayAzurePeeringGatewayResult(dict):
     def __init__(__self__, *,
                  region: _builtins.str):
@@ -9664,6 +10144,35 @@ class GetGatewaysGatewayGcpEgressPrivateServiceConnectGatewayResult(dict):
         (Required String) The GCP project used by the GCP Private Service Connect Gateway.
         """
         return pulumi.get(self, "project")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        (Required String) GCP region of the Peering Gateway.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetGatewaysGatewayGcpIngressPrivateServiceConnectGatewayResult(dict):
+    def __init__(__self__, *,
+                 private_service_connect_service_attachment: _builtins.str,
+                 region: _builtins.str):
+        """
+        :param _builtins.str private_service_connect_service_attachment: (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+        :param _builtins.str region: (Required String) GCP region of the Peering Gateway.
+        """
+        pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="privateServiceConnectServiceAttachment")
+    def private_service_connect_service_attachment(self) -> _builtins.str:
+        """
+        (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+        """
+        return pulumi.get(self, "private_service_connect_service_attachment")
 
     @_builtins.property
     @pulumi.getter

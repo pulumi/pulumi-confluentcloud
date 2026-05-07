@@ -7,9 +7,11 @@ import com.pulumi.confluentcloud.inputs.AccessPointAwsEgressPrivateLinkEndpointA
 import com.pulumi.confluentcloud.inputs.AccessPointAwsIngressPrivateLinkEndpointArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointAwsPrivateNetworkInterfaceArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointAzureEgressPrivateLinkEndpointArgs;
+import com.pulumi.confluentcloud.inputs.AccessPointAzureIngressPrivateLinkEndpointArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointGatewayArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs;
+import com.pulumi.confluentcloud.inputs.AccessPointGcpIngressPrivateServiceConnectEndpointArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -84,6 +86,21 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Import(name="azureIngressPrivateLinkEndpoint")
+    private @Nullable Output<AccessPointAzureIngressPrivateLinkEndpointArgs> azureIngressPrivateLinkEndpoint;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Optional<Output<AccessPointAzureIngressPrivateLinkEndpointArgs>> azureIngressPrivateLinkEndpoint() {
+        return Optional.ofNullable(this.azureIngressPrivateLinkEndpoint);
+    }
+
+    /**
      * The name of the Access Point.
      * 
      */
@@ -135,6 +152,21 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.gcpEgressPrivateServiceConnectEndpoint);
     }
 
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Import(name="gcpIngressPrivateServiceConnectEndpoint")
+    private @Nullable Output<AccessPointGcpIngressPrivateServiceConnectEndpointArgs> gcpIngressPrivateServiceConnectEndpoint;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Optional<Output<AccessPointGcpIngressPrivateServiceConnectEndpointArgs>> gcpIngressPrivateServiceConnectEndpoint() {
+        return Optional.ofNullable(this.gcpIngressPrivateServiceConnectEndpoint);
+    }
+
     private AccessPointArgs() {}
 
     private AccessPointArgs(AccessPointArgs $) {
@@ -142,10 +174,12 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
         this.awsIngressPrivateLinkEndpoint = $.awsIngressPrivateLinkEndpoint;
         this.awsPrivateNetworkInterface = $.awsPrivateNetworkInterface;
         this.azureEgressPrivateLinkEndpoint = $.azureEgressPrivateLinkEndpoint;
+        this.azureIngressPrivateLinkEndpoint = $.azureIngressPrivateLinkEndpoint;
         this.displayName = $.displayName;
         this.environment = $.environment;
         this.gateway = $.gateway;
         this.gcpEgressPrivateServiceConnectEndpoint = $.gcpEgressPrivateServiceConnectEndpoint;
+        this.gcpIngressPrivateServiceConnectEndpoint = $.gcpIngressPrivateServiceConnectEndpoint;
     }
 
     public static Builder builder() {
@@ -251,6 +285,27 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param azureIngressPrivateLinkEndpoint (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureIngressPrivateLinkEndpoint(@Nullable Output<AccessPointAzureIngressPrivateLinkEndpointArgs> azureIngressPrivateLinkEndpoint) {
+            $.azureIngressPrivateLinkEndpoint = azureIngressPrivateLinkEndpoint;
+            return this;
+        }
+
+        /**
+         * @param azureIngressPrivateLinkEndpoint (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureIngressPrivateLinkEndpoint(AccessPointAzureIngressPrivateLinkEndpointArgs azureIngressPrivateLinkEndpoint) {
+            return azureIngressPrivateLinkEndpoint(Output.of(azureIngressPrivateLinkEndpoint));
+        }
+
+        /**
          * @param displayName The name of the Access Point.
          * 
          * @return builder
@@ -320,6 +375,27 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder gcpEgressPrivateServiceConnectEndpoint(AccessPointGcpEgressPrivateServiceConnectEndpointArgs gcpEgressPrivateServiceConnectEndpoint) {
             return gcpEgressPrivateServiceConnectEndpoint(Output.of(gcpEgressPrivateServiceConnectEndpoint));
+        }
+
+        /**
+         * @param gcpIngressPrivateServiceConnectEndpoint (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcpIngressPrivateServiceConnectEndpoint(@Nullable Output<AccessPointGcpIngressPrivateServiceConnectEndpointArgs> gcpIngressPrivateServiceConnectEndpoint) {
+            $.gcpIngressPrivateServiceConnectEndpoint = gcpIngressPrivateServiceConnectEndpoint;
+            return this;
+        }
+
+        /**
+         * @param gcpIngressPrivateServiceConnectEndpoint (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcpIngressPrivateServiceConnectEndpoint(AccessPointGcpIngressPrivateServiceConnectEndpointArgs gcpIngressPrivateServiceConnectEndpoint) {
+            return gcpIngressPrivateServiceConnectEndpoint(Output.of(gcpIngressPrivateServiceConnectEndpoint));
         }
 
         public AccessPointArgs build() {

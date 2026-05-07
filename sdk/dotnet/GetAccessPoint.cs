@@ -194,6 +194,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessPointAzureEgressPrivateLinkEndpointResult> AzureEgressPrivateLinkEndpoints;
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccessPointAzureIngressPrivateLinkEndpointResult> AzureIngressPrivateLinkEndpoints;
+        /// <summary>
         /// (Required String) A human-readable name for the Access Point.
         /// </summary>
         public readonly string DisplayName;
@@ -206,6 +210,10 @@ namespace Pulumi.ConfluentCloud
         /// (Optional Configuration Block) supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointResult> GcpEgressPrivateServiceConnectEndpoints;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccessPointGcpIngressPrivateServiceConnectEndpointResult> GcpIngressPrivateServiceConnectEndpoints;
         /// <summary>
         /// (Required String) The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
         /// </summary>
@@ -221,6 +229,8 @@ namespace Pulumi.ConfluentCloud
 
             ImmutableArray<Outputs.GetAccessPointAzureEgressPrivateLinkEndpointResult> azureEgressPrivateLinkEndpoints,
 
+            ImmutableArray<Outputs.GetAccessPointAzureIngressPrivateLinkEndpointResult> azureIngressPrivateLinkEndpoints,
+
             string displayName,
 
             Outputs.GetAccessPointEnvironmentResult environment,
@@ -229,16 +239,20 @@ namespace Pulumi.ConfluentCloud
 
             ImmutableArray<Outputs.GetAccessPointGcpEgressPrivateServiceConnectEndpointResult> gcpEgressPrivateServiceConnectEndpoints,
 
+            ImmutableArray<Outputs.GetAccessPointGcpIngressPrivateServiceConnectEndpointResult> gcpIngressPrivateServiceConnectEndpoints,
+
             string id)
         {
             AwsEgressPrivateLinkEndpoints = awsEgressPrivateLinkEndpoints;
             AwsIngressPrivateLinkEndpoints = awsIngressPrivateLinkEndpoints;
             AwsPrivateNetworkInterfaces = awsPrivateNetworkInterfaces;
             AzureEgressPrivateLinkEndpoints = azureEgressPrivateLinkEndpoints;
+            AzureIngressPrivateLinkEndpoints = azureIngressPrivateLinkEndpoints;
             DisplayName = displayName;
             Environment = environment;
             Gateways = gateways;
             GcpEgressPrivateServiceConnectEndpoints = gcpEgressPrivateServiceConnectEndpoints;
+            GcpIngressPrivateServiceConnectEndpoints = gcpIngressPrivateServiceConnectEndpoints;
             Id = id;
         }
     }

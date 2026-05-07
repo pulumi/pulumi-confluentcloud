@@ -93,6 +93,12 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.GatewayAzureEgressPrivateLinkGateway> AzureEgressPrivateLinkGateway { get; private set; } = null!;
 
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Output("azureIngressPrivateLinkGateway")]
+        public Output<Outputs.GatewayAzureIngressPrivateLinkGateway> AzureIngressPrivateLinkGateway { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Gateway.
         /// </summary>
         [Output("displayName")]
@@ -103,6 +109,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("environment")]
         public Output<Outputs.GatewayEnvironment> Environment { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Output("gcpIngressPrivateServiceConnectGateway")]
+        public Output<Outputs.GatewayGcpIngressPrivateServiceConnectGateway> GcpIngressPrivateServiceConnectGateway { get; private set; } = null!;
 
 
         /// <summary>
@@ -175,6 +187,12 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GatewayAzureEgressPrivateLinkGatewayArgs>? AzureEgressPrivateLinkGateway { get; set; }
 
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("azureIngressPrivateLinkGateway")]
+        public Input<Inputs.GatewayAzureIngressPrivateLinkGatewayArgs>? AzureIngressPrivateLinkGateway { get; set; }
+
+        /// <summary>
         /// The name of the Gateway.
         /// </summary>
         [Input("displayName", required: true)]
@@ -185,6 +203,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("environment", required: true)]
         public Input<Inputs.GatewayEnvironmentArgs> Environment { get; set; } = null!;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("gcpIngressPrivateServiceConnectGateway")]
+        public Input<Inputs.GatewayGcpIngressPrivateServiceConnectGatewayArgs>? GcpIngressPrivateServiceConnectGateway { get; set; }
 
         public GatewayArgs()
         {
@@ -219,6 +243,12 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GatewayAzureEgressPrivateLinkGatewayGetArgs>? AzureEgressPrivateLinkGateway { get; set; }
 
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("azureIngressPrivateLinkGateway")]
+        public Input<Inputs.GatewayAzureIngressPrivateLinkGatewayGetArgs>? AzureIngressPrivateLinkGateway { get; set; }
+
+        /// <summary>
         /// The name of the Gateway.
         /// </summary>
         [Input("displayName")]
@@ -229,6 +259,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("environment")]
         public Input<Inputs.GatewayEnvironmentGetArgs>? Environment { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("gcpIngressPrivateServiceConnectGateway")]
+        public Input<Inputs.GatewayGcpIngressPrivateServiceConnectGatewayGetArgs>? GcpIngressPrivateServiceConnectGateway { get; set; }
 
         public GatewayState()
         {

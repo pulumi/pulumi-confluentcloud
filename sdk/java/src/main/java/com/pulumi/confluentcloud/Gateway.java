@@ -10,7 +10,9 @@ import com.pulumi.confluentcloud.outputs.GatewayAwsEgressPrivateLinkGateway;
 import com.pulumi.confluentcloud.outputs.GatewayAwsIngressPrivateLinkGateway;
 import com.pulumi.confluentcloud.outputs.GatewayAwsPrivateNetworkInterfaceGateway;
 import com.pulumi.confluentcloud.outputs.GatewayAzureEgressPrivateLinkGateway;
+import com.pulumi.confluentcloud.outputs.GatewayAzureIngressPrivateLinkGateway;
 import com.pulumi.confluentcloud.outputs.GatewayEnvironment;
+import com.pulumi.confluentcloud.outputs.GatewayGcpIngressPrivateServiceConnectGateway;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -150,6 +152,20 @@ public class Gateway extends com.pulumi.resources.CustomResource {
         return this.azureEgressPrivateLinkGateway;
     }
     /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Export(name="azureIngressPrivateLinkGateway", refs={GatewayAzureIngressPrivateLinkGateway.class}, tree="[0]")
+    private Output<GatewayAzureIngressPrivateLinkGateway> azureIngressPrivateLinkGateway;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Output<GatewayAzureIngressPrivateLinkGateway> azureIngressPrivateLinkGateway() {
+        return this.azureIngressPrivateLinkGateway;
+    }
+    /**
      * The name of the Gateway.
      * 
      */
@@ -176,6 +192,20 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      */
     public Output<GatewayEnvironment> environment() {
         return this.environment;
+    }
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Export(name="gcpIngressPrivateServiceConnectGateway", refs={GatewayGcpIngressPrivateServiceConnectGateway.class}, tree="[0]")
+    private Output<GatewayGcpIngressPrivateServiceConnectGateway> gcpIngressPrivateServiceConnectGateway;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Output<GatewayGcpIngressPrivateServiceConnectGateway> gcpIngressPrivateServiceConnectGateway() {
+        return this.gcpIngressPrivateServiceConnectGateway;
     }
 
     /**
