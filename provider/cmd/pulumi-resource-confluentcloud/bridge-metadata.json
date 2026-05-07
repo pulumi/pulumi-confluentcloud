@@ -33,6 +33,9 @@
                             }
                         }
                     },
+                    "azure_ingress_private_link_endpoint": {
+                        "maxItemsOne": true
+                    },
                     "environment": {
                         "maxItemsOne": true
                     },
@@ -40,6 +43,9 @@
                         "maxItemsOne": true
                     },
                     "gcp_egress_private_service_connect_endpoint": {
+                        "maxItemsOne": true
+                    },
+                    "gcp_ingress_private_service_connect_endpoint": {
                         "maxItemsOne": true
                     }
                 }
@@ -448,7 +454,13 @@
                     "azure_egress_private_link_gateway": {
                         "maxItemsOne": true
                     },
+                    "azure_ingress_private_link_gateway": {
+                        "maxItemsOne": true
+                    },
                     "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gcp_ingress_private_service_connect_gateway": {
                         "maxItemsOne": true
                     }
                 }
@@ -1113,6 +1125,9 @@
                             }
                         }
                     },
+                    "azure_ingress_private_link_endpoint": {
+                        "maxItemsOne": false
+                    },
                     "environment": {
                         "maxItemsOne": true
                     },
@@ -1120,6 +1135,9 @@
                         "maxItemsOne": false
                     },
                     "gcp_egress_private_service_connect_endpoint": {
+                        "maxItemsOne": false
+                    },
+                    "gcp_ingress_private_service_connect_endpoint": {
                         "maxItemsOne": false
                     }
                 }
@@ -1430,6 +1448,9 @@
                     "azure_egress_private_link_gateway": {
                         "maxItemsOne": false
                     },
+                    "azure_ingress_private_link_gateway": {
+                        "maxItemsOne": false
+                    },
                     "azure_peering_gateway": {
                         "maxItemsOne": false
                     },
@@ -1437,6 +1458,9 @@
                         "maxItemsOne": true
                     },
                     "gcp_egress_private_service_connect_gateway": {
+                        "maxItemsOne": false
+                    },
+                    "gcp_ingress_private_service_connect_gateway": {
                         "maxItemsOne": false
                     },
                     "gcp_peering_gateway": {
@@ -1498,10 +1522,16 @@
                                 "azure_egress_private_link_gateway": {
                                     "maxItemsOne": false
                                 },
+                                "azure_ingress_private_link_gateway": {
+                                    "maxItemsOne": false
+                                },
                                 "azure_peering_gateway": {
                                     "maxItemsOne": false
                                 },
                                 "gcp_egress_private_service_connect_gateway": {
+                                    "maxItemsOne": false
+                                },
+                                "gcp_ingress_private_service_connect_gateway": {
                                     "maxItemsOne": false
                                 },
                                 "gcp_peering_gateway": {
