@@ -84,10 +84,14 @@ type Gateway struct {
 	AwsPrivateNetworkInterfaceGateway GatewayAwsPrivateNetworkInterfaceGatewayOutput `pulumi:"awsPrivateNetworkInterfaceGateway"`
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateway GatewayAzureEgressPrivateLinkGatewayOutput `pulumi:"azureEgressPrivateLinkGateway"`
+	// (Optional Configuration Block) supports the following:
+	AzureIngressPrivateLinkGateway GatewayAzureIngressPrivateLinkGatewayOutput `pulumi:"azureIngressPrivateLinkGateway"`
 	// The name of the Gateway.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment GatewayEnvironmentOutput `pulumi:"environment"`
+	// (Optional Configuration Block) supports the following:
+	GcpIngressPrivateServiceConnectGateway GatewayGcpIngressPrivateServiceConnectGatewayOutput `pulumi:"gcpIngressPrivateServiceConnectGateway"`
 }
 
 // NewGateway registers a new resource with the given unique name, arguments, and options.
@@ -134,10 +138,14 @@ type gatewayState struct {
 	AwsPrivateNetworkInterfaceGateway *GatewayAwsPrivateNetworkInterfaceGateway `pulumi:"awsPrivateNetworkInterfaceGateway"`
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateway *GatewayAzureEgressPrivateLinkGateway `pulumi:"azureEgressPrivateLinkGateway"`
+	// (Optional Configuration Block) supports the following:
+	AzureIngressPrivateLinkGateway *GatewayAzureIngressPrivateLinkGateway `pulumi:"azureIngressPrivateLinkGateway"`
 	// The name of the Gateway.
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *GatewayEnvironment `pulumi:"environment"`
+	// (Optional Configuration Block) supports the following:
+	GcpIngressPrivateServiceConnectGateway *GatewayGcpIngressPrivateServiceConnectGateway `pulumi:"gcpIngressPrivateServiceConnectGateway"`
 }
 
 type GatewayState struct {
@@ -149,10 +157,14 @@ type GatewayState struct {
 	AwsPrivateNetworkInterfaceGateway GatewayAwsPrivateNetworkInterfaceGatewayPtrInput
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateway GatewayAzureEgressPrivateLinkGatewayPtrInput
+	// (Optional Configuration Block) supports the following:
+	AzureIngressPrivateLinkGateway GatewayAzureIngressPrivateLinkGatewayPtrInput
 	// The name of the Gateway.
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment GatewayEnvironmentPtrInput
+	// (Optional Configuration Block) supports the following:
+	GcpIngressPrivateServiceConnectGateway GatewayGcpIngressPrivateServiceConnectGatewayPtrInput
 }
 
 func (GatewayState) ElementType() reflect.Type {
@@ -168,10 +180,14 @@ type gatewayArgs struct {
 	AwsPrivateNetworkInterfaceGateway *GatewayAwsPrivateNetworkInterfaceGateway `pulumi:"awsPrivateNetworkInterfaceGateway"`
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateway *GatewayAzureEgressPrivateLinkGateway `pulumi:"azureEgressPrivateLinkGateway"`
+	// (Optional Configuration Block) supports the following:
+	AzureIngressPrivateLinkGateway *GatewayAzureIngressPrivateLinkGateway `pulumi:"azureIngressPrivateLinkGateway"`
 	// The name of the Gateway.
 	DisplayName string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment GatewayEnvironment `pulumi:"environment"`
+	// (Optional Configuration Block) supports the following:
+	GcpIngressPrivateServiceConnectGateway *GatewayGcpIngressPrivateServiceConnectGateway `pulumi:"gcpIngressPrivateServiceConnectGateway"`
 }
 
 // The set of arguments for constructing a Gateway resource.
@@ -184,10 +200,14 @@ type GatewayArgs struct {
 	AwsPrivateNetworkInterfaceGateway GatewayAwsPrivateNetworkInterfaceGatewayPtrInput
 	// (Optional Configuration Block) supports the following:
 	AzureEgressPrivateLinkGateway GatewayAzureEgressPrivateLinkGatewayPtrInput
+	// (Optional Configuration Block) supports the following:
+	AzureIngressPrivateLinkGateway GatewayAzureIngressPrivateLinkGatewayPtrInput
 	// The name of the Gateway.
 	DisplayName pulumi.StringInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment GatewayEnvironmentInput
+	// (Optional Configuration Block) supports the following:
+	GcpIngressPrivateServiceConnectGateway GatewayGcpIngressPrivateServiceConnectGatewayPtrInput
 }
 
 func (GatewayArgs) ElementType() reflect.Type {
@@ -299,6 +319,11 @@ func (o GatewayOutput) AzureEgressPrivateLinkGateway() GatewayAzureEgressPrivate
 	return o.ApplyT(func(v *Gateway) GatewayAzureEgressPrivateLinkGatewayOutput { return v.AzureEgressPrivateLinkGateway }).(GatewayAzureEgressPrivateLinkGatewayOutput)
 }
 
+// (Optional Configuration Block) supports the following:
+func (o GatewayOutput) AzureIngressPrivateLinkGateway() GatewayAzureIngressPrivateLinkGatewayOutput {
+	return o.ApplyT(func(v *Gateway) GatewayAzureIngressPrivateLinkGatewayOutput { return v.AzureIngressPrivateLinkGateway }).(GatewayAzureIngressPrivateLinkGatewayOutput)
+}
+
 // The name of the Gateway.
 func (o GatewayOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
@@ -307,6 +332,13 @@ func (o GatewayOutput) DisplayName() pulumi.StringOutput {
 // Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 func (o GatewayOutput) Environment() GatewayEnvironmentOutput {
 	return o.ApplyT(func(v *Gateway) GatewayEnvironmentOutput { return v.Environment }).(GatewayEnvironmentOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GatewayOutput) GcpIngressPrivateServiceConnectGateway() GatewayGcpIngressPrivateServiceConnectGatewayOutput {
+	return o.ApplyT(func(v *Gateway) GatewayGcpIngressPrivateServiceConnectGatewayOutput {
+		return v.GcpIngressPrivateServiceConnectGateway
+	}).(GatewayGcpIngressPrivateServiceConnectGatewayOutput)
 }
 
 type GatewayArrayOutput struct{ *pulumi.OutputState }

@@ -28,7 +28,7 @@ class GetAccessPointResult:
     """
     A collection of values returned by getAccessPoint.
     """
-    def __init__(__self__, aws_egress_private_link_endpoints=None, aws_ingress_private_link_endpoints=None, aws_private_network_interfaces=None, azure_egress_private_link_endpoints=None, display_name=None, environment=None, gateways=None, gcp_egress_private_service_connect_endpoints=None, id=None):
+    def __init__(__self__, aws_egress_private_link_endpoints=None, aws_ingress_private_link_endpoints=None, aws_private_network_interfaces=None, azure_egress_private_link_endpoints=None, azure_ingress_private_link_endpoints=None, display_name=None, environment=None, gateways=None, gcp_egress_private_service_connect_endpoints=None, gcp_ingress_private_service_connect_endpoints=None, id=None):
         if aws_egress_private_link_endpoints and not isinstance(aws_egress_private_link_endpoints, list):
             raise TypeError("Expected argument 'aws_egress_private_link_endpoints' to be a list")
         pulumi.set(__self__, "aws_egress_private_link_endpoints", aws_egress_private_link_endpoints)
@@ -41,6 +41,9 @@ class GetAccessPointResult:
         if azure_egress_private_link_endpoints and not isinstance(azure_egress_private_link_endpoints, list):
             raise TypeError("Expected argument 'azure_egress_private_link_endpoints' to be a list")
         pulumi.set(__self__, "azure_egress_private_link_endpoints", azure_egress_private_link_endpoints)
+        if azure_ingress_private_link_endpoints and not isinstance(azure_ingress_private_link_endpoints, list):
+            raise TypeError("Expected argument 'azure_ingress_private_link_endpoints' to be a list")
+        pulumi.set(__self__, "azure_ingress_private_link_endpoints", azure_ingress_private_link_endpoints)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -53,6 +56,9 @@ class GetAccessPointResult:
         if gcp_egress_private_service_connect_endpoints and not isinstance(gcp_egress_private_service_connect_endpoints, list):
             raise TypeError("Expected argument 'gcp_egress_private_service_connect_endpoints' to be a list")
         pulumi.set(__self__, "gcp_egress_private_service_connect_endpoints", gcp_egress_private_service_connect_endpoints)
+        if gcp_ingress_private_service_connect_endpoints and not isinstance(gcp_ingress_private_service_connect_endpoints, list):
+            raise TypeError("Expected argument 'gcp_ingress_private_service_connect_endpoints' to be a list")
+        pulumi.set(__self__, "gcp_ingress_private_service_connect_endpoints", gcp_ingress_private_service_connect_endpoints)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -90,6 +96,14 @@ class GetAccessPointResult:
         return pulumi.get(self, "azure_egress_private_link_endpoints")
 
     @_builtins.property
+    @pulumi.getter(name="azureIngressPrivateLinkEndpoints")
+    def azure_ingress_private_link_endpoints(self) -> Sequence['outputs.GetAccessPointAzureIngressPrivateLinkEndpointResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_ingress_private_link_endpoints")
+
+    @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
         """
@@ -119,6 +133,14 @@ class GetAccessPointResult:
         return pulumi.get(self, "gcp_egress_private_service_connect_endpoints")
 
     @_builtins.property
+    @pulumi.getter(name="gcpIngressPrivateServiceConnectEndpoints")
+    def gcp_ingress_private_service_connect_endpoints(self) -> Sequence['outputs.GetAccessPointGcpIngressPrivateServiceConnectEndpointResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "gcp_ingress_private_service_connect_endpoints")
+
+    @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
@@ -137,10 +159,12 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
             aws_ingress_private_link_endpoints=self.aws_ingress_private_link_endpoints,
             aws_private_network_interfaces=self.aws_private_network_interfaces,
             azure_egress_private_link_endpoints=self.azure_egress_private_link_endpoints,
+            azure_ingress_private_link_endpoints=self.azure_ingress_private_link_endpoints,
             display_name=self.display_name,
             environment=self.environment,
             gateways=self.gateways,
             gcp_egress_private_service_connect_endpoints=self.gcp_egress_private_service_connect_endpoints,
+            gcp_ingress_private_service_connect_endpoints=self.gcp_ingress_private_service_connect_endpoints,
             id=self.id)
 
 
@@ -182,10 +206,12 @@ def get_access_point(environment: Optional[Union['GetAccessPointEnvironmentArgs'
         aws_ingress_private_link_endpoints=pulumi.get(__ret__, 'aws_ingress_private_link_endpoints'),
         aws_private_network_interfaces=pulumi.get(__ret__, 'aws_private_network_interfaces'),
         azure_egress_private_link_endpoints=pulumi.get(__ret__, 'azure_egress_private_link_endpoints'),
+        azure_ingress_private_link_endpoints=pulumi.get(__ret__, 'azure_ingress_private_link_endpoints'),
         display_name=pulumi.get(__ret__, 'display_name'),
         environment=pulumi.get(__ret__, 'environment'),
         gateways=pulumi.get(__ret__, 'gateways'),
         gcp_egress_private_service_connect_endpoints=pulumi.get(__ret__, 'gcp_egress_private_service_connect_endpoints'),
+        gcp_ingress_private_service_connect_endpoints=pulumi.get(__ret__, 'gcp_ingress_private_service_connect_endpoints'),
         id=pulumi.get(__ret__, 'id'))
 def get_access_point_output(environment: Optional[pulumi.Input[Union['GetAccessPointEnvironmentArgs', 'GetAccessPointEnvironmentArgsDict']]] = None,
                             gcp_egress_private_service_connect_endpoints: Optional[pulumi.Input[Optional[Sequence[Union['GetAccessPointGcpEgressPrivateServiceConnectEndpointArgs', 'GetAccessPointGcpEgressPrivateServiceConnectEndpointArgsDict']]]]] = None,
@@ -224,8 +250,10 @@ def get_access_point_output(environment: Optional[pulumi.Input[Union['GetAccessP
         aws_ingress_private_link_endpoints=pulumi.get(__response__, 'aws_ingress_private_link_endpoints'),
         aws_private_network_interfaces=pulumi.get(__response__, 'aws_private_network_interfaces'),
         azure_egress_private_link_endpoints=pulumi.get(__response__, 'azure_egress_private_link_endpoints'),
+        azure_ingress_private_link_endpoints=pulumi.get(__response__, 'azure_ingress_private_link_endpoints'),
         display_name=pulumi.get(__response__, 'display_name'),
         environment=pulumi.get(__response__, 'environment'),
         gateways=pulumi.get(__response__, 'gateways'),
         gcp_egress_private_service_connect_endpoints=pulumi.get(__response__, 'gcp_egress_private_service_connect_endpoints'),
+        gcp_ingress_private_service_connect_endpoints=pulumi.get(__response__, 'gcp_ingress_private_service_connect_endpoints'),
         id=pulumi.get(__response__, 'id')))

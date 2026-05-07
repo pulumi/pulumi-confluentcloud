@@ -26,7 +26,7 @@ export interface AccessPointAwsEgressPrivateLinkEndpoint {
 
 export interface AccessPointAwsIngressPrivateLinkEndpoint {
     /**
-     * (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+     * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
      */
     dnsDomain?: pulumi.Input<string>;
     /**
@@ -81,6 +81,25 @@ export interface AccessPointAzureEgressPrivateLinkEndpoint {
     privateLinkSubresourceName?: pulumi.Input<string>;
 }
 
+export interface AccessPointAzureIngressPrivateLinkEndpoint {
+    /**
+     * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+     */
+    dnsDomain?: pulumi.Input<string>;
+    /**
+     * Resource ID of a Private Endpoint that will be connected to the Private Link service.
+     */
+    privateEndpointResourceId: pulumi.Input<string>;
+    /**
+     * (Required String) Alias of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceAlias?: pulumi.Input<string>;
+    /**
+     * (Required String) Resource ID of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceResourceId?: pulumi.Input<string>;
+}
+
 export interface AccessPointEnvironment {
     /**
      * The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
@@ -112,6 +131,21 @@ export interface AccessPointGcpEgressPrivateServiceConnectEndpoint {
      * URI of the service attachment for the published service that the Private Service Connect Endpoint connects to, or "all-google-apis" for global Google APIs.
      */
     privateServiceConnectEndpointTarget: pulumi.Input<string>;
+}
+
+export interface AccessPointGcpIngressPrivateServiceConnectEndpoint {
+    /**
+     * (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
+     */
+    dnsDomain?: pulumi.Input<string>;
+    /**
+     * The ID of the Private Service Connect connection. Must be quoted in HCL to avoid numeric precision loss, for example, `privateServiceConnectConnectionId = "116002050319319045"`.
+     */
+    privateServiceConnectConnectionId: pulumi.Input<string>;
+    /**
+     * (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+     */
+    privateServiceConnectServiceAttachment?: pulumi.Input<string>;
 }
 
 export interface ApiKeyManagedResource {
@@ -932,11 +966,37 @@ export interface GatewayAzureEgressPrivateLinkGateway {
     subscription?: pulumi.Input<string>;
 }
 
+export interface GatewayAzureIngressPrivateLinkGateway {
+    /**
+     * (Required String) Alias of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceAlias?: pulumi.Input<string>;
+    /**
+     * (Required String) Resource ID of the Confluent Cloud Private Link Service.
+     */
+    privateLinkServiceResourceId?: pulumi.Input<string>;
+    /**
+     * Azure region of the Ingress Private Link Gateway, for example, `centralus`.
+     */
+    region: pulumi.Input<string>;
+}
+
 export interface GatewayEnvironment {
     /**
      * The ID of the Environment that the Gateway belongs to, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
+}
+
+export interface GatewayGcpIngressPrivateServiceConnectGateway {
+    /**
+     * (Required String) URI of the Private Service Connect Service Attachment in Confluent Cloud.
+     */
+    privateServiceConnectServiceAttachment?: pulumi.Input<string>;
+    /**
+     * GCP region of the Ingress Private Service Connect Gateway, for example, `us-central1`.
+     */
+    region: pulumi.Input<string>;
 }
 
 export interface GetAccessPointEnvironment {
@@ -1583,7 +1643,7 @@ export interface GetGatewaysFilter {
      */
     displayNames?: string[];
     /**
-     * Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+     * Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzureIngressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpIngressPrivateServiceConnect`, `GcpPeering`.
      */
     gatewayTypes?: string[];
     /**
@@ -1606,7 +1666,7 @@ export interface GetGatewaysFilterArgs {
      */
     displayNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpPeering`.
+     * Filter the results by exact match for gateway_type. Pass multiple times to see results matching any of the values. Valid values are: `AwsEgressPrivateLink`, `AwsIngressPrivateLink`, `AwsPeering`, `AwsPrivateNetworkInterface`, `AzureEgressPrivateLink`, `AzureIngressPrivateLink`, `AzurePeering`, `GcpEgressPrivateServiceConnect`, `GcpIngressPrivateServiceConnect`, `GcpPeering`.
      */
     gatewayTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

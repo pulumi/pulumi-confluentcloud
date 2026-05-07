@@ -7,7 +7,9 @@ import com.pulumi.confluentcloud.inputs.GatewayAwsEgressPrivateLinkGatewayArgs;
 import com.pulumi.confluentcloud.inputs.GatewayAwsIngressPrivateLinkGatewayArgs;
 import com.pulumi.confluentcloud.inputs.GatewayAwsPrivateNetworkInterfaceGatewayArgs;
 import com.pulumi.confluentcloud.inputs.GatewayAzureEgressPrivateLinkGatewayArgs;
+import com.pulumi.confluentcloud.inputs.GatewayAzureIngressPrivateLinkGatewayArgs;
 import com.pulumi.confluentcloud.inputs.GatewayEnvironmentArgs;
+import com.pulumi.confluentcloud.inputs.GatewayGcpIngressPrivateServiceConnectGatewayArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -82,6 +84,21 @@ public final class GatewayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Import(name="azureIngressPrivateLinkGateway")
+    private @Nullable Output<GatewayAzureIngressPrivateLinkGatewayArgs> azureIngressPrivateLinkGateway;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Optional<Output<GatewayAzureIngressPrivateLinkGatewayArgs>> azureIngressPrivateLinkGateway() {
+        return Optional.ofNullable(this.azureIngressPrivateLinkGateway);
+    }
+
+    /**
      * The name of the Gateway.
      * 
      */
@@ -111,6 +128,21 @@ public final class GatewayArgs extends com.pulumi.resources.ResourceArgs {
         return this.environment;
     }
 
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Import(name="gcpIngressPrivateServiceConnectGateway")
+    private @Nullable Output<GatewayGcpIngressPrivateServiceConnectGatewayArgs> gcpIngressPrivateServiceConnectGateway;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Optional<Output<GatewayGcpIngressPrivateServiceConnectGatewayArgs>> gcpIngressPrivateServiceConnectGateway() {
+        return Optional.ofNullable(this.gcpIngressPrivateServiceConnectGateway);
+    }
+
     private GatewayArgs() {}
 
     private GatewayArgs(GatewayArgs $) {
@@ -118,8 +150,10 @@ public final class GatewayArgs extends com.pulumi.resources.ResourceArgs {
         this.awsIngressPrivateLinkGateway = $.awsIngressPrivateLinkGateway;
         this.awsPrivateNetworkInterfaceGateway = $.awsPrivateNetworkInterfaceGateway;
         this.azureEgressPrivateLinkGateway = $.azureEgressPrivateLinkGateway;
+        this.azureIngressPrivateLinkGateway = $.azureIngressPrivateLinkGateway;
         this.displayName = $.displayName;
         this.environment = $.environment;
+        this.gcpIngressPrivateServiceConnectGateway = $.gcpIngressPrivateServiceConnectGateway;
     }
 
     public static Builder builder() {
@@ -225,6 +259,27 @@ public final class GatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param azureIngressPrivateLinkGateway (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureIngressPrivateLinkGateway(@Nullable Output<GatewayAzureIngressPrivateLinkGatewayArgs> azureIngressPrivateLinkGateway) {
+            $.azureIngressPrivateLinkGateway = azureIngressPrivateLinkGateway;
+            return this;
+        }
+
+        /**
+         * @param azureIngressPrivateLinkGateway (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureIngressPrivateLinkGateway(GatewayAzureIngressPrivateLinkGatewayArgs azureIngressPrivateLinkGateway) {
+            return azureIngressPrivateLinkGateway(Output.of(azureIngressPrivateLinkGateway));
+        }
+
+        /**
          * @param displayName The name of the Gateway.
          * 
          * @return builder
@@ -264,6 +319,27 @@ public final class GatewayArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder environment(GatewayEnvironmentArgs environment) {
             return environment(Output.of(environment));
+        }
+
+        /**
+         * @param gcpIngressPrivateServiceConnectGateway (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcpIngressPrivateServiceConnectGateway(@Nullable Output<GatewayGcpIngressPrivateServiceConnectGatewayArgs> gcpIngressPrivateServiceConnectGateway) {
+            $.gcpIngressPrivateServiceConnectGateway = gcpIngressPrivateServiceConnectGateway;
+            return this;
+        }
+
+        /**
+         * @param gcpIngressPrivateServiceConnectGateway (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcpIngressPrivateServiceConnectGateway(GatewayGcpIngressPrivateServiceConnectGatewayArgs gcpIngressPrivateServiceConnectGateway) {
+            return gcpIngressPrivateServiceConnectGateway(Output.of(gcpIngressPrivateServiceConnectGateway));
         }
 
         public GatewayArgs build() {

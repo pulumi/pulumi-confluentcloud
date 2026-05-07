@@ -10,9 +10,11 @@ import com.pulumi.confluentcloud.outputs.AccessPointAwsEgressPrivateLinkEndpoint
 import com.pulumi.confluentcloud.outputs.AccessPointAwsIngressPrivateLinkEndpoint;
 import com.pulumi.confluentcloud.outputs.AccessPointAwsPrivateNetworkInterface;
 import com.pulumi.confluentcloud.outputs.AccessPointAzureEgressPrivateLinkEndpoint;
+import com.pulumi.confluentcloud.outputs.AccessPointAzureIngressPrivateLinkEndpoint;
 import com.pulumi.confluentcloud.outputs.AccessPointEnvironment;
 import com.pulumi.confluentcloud.outputs.AccessPointGateway;
 import com.pulumi.confluentcloud.outputs.AccessPointGcpEgressPrivateServiceConnectEndpoint;
+import com.pulumi.confluentcloud.outputs.AccessPointGcpIngressPrivateServiceConnectEndpoint;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -46,6 +48,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs;
  * import com.pulumi.confluentcloud.inputs.AccessPointAwsPrivateNetworkInterfaceArgs;
  * import com.pulumi.confluentcloud.inputs.AccessPointAwsIngressPrivateLinkEndpointArgs;
+ * import com.pulumi.confluentcloud.inputs.AccessPointAzureIngressPrivateLinkEndpointArgs;
+ * import com.pulumi.confluentcloud.inputs.AccessPointGcpIngressPrivateServiceConnectEndpointArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -136,6 +140,32 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         var azureIngress = new AccessPoint("azureIngress", AccessPointArgs.builder()
+ *             .displayName("access_point_ingress")
+ *             .environment(AccessPointEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .gateway(AccessPointGatewayArgs.builder()
+ *                 .id(ingress.id())
+ *                 .build())
+ *             .azureIngressPrivateLinkEndpoint(AccessPointAzureIngressPrivateLinkEndpointArgs.builder()
+ *                 .privateEndpointResourceId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup/providers/Microsoft.Network/privateEndpoints/my-private-endpoint")
+ *                 .build())
+ *             .build());
+ * 
+ *         var gcpIngress = new AccessPoint("gcpIngress", AccessPointArgs.builder()
+ *             .displayName("access_point_ingress")
+ *             .environment(AccessPointEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .gateway(AccessPointGatewayArgs.builder()
+ *                 .id(ingress.id())
+ *                 .build())
+ *             .gcpIngressPrivateServiceConnectEndpoint(AccessPointGcpIngressPrivateServiceConnectEndpointArgs.builder()
+ *                 .privateServiceConnectConnectionId("12345678")
+ *                 .build())
+ *             .build());
+ * 
  *     }
  * }
  * }
@@ -221,6 +251,20 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.azureEgressPrivateLinkEndpoint);
     }
     /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Export(name="azureIngressPrivateLinkEndpoint", refs={AccessPointAzureIngressPrivateLinkEndpoint.class}, tree="[0]")
+    private Output</* @Nullable */ AccessPointAzureIngressPrivateLinkEndpoint> azureIngressPrivateLinkEndpoint;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Output<Optional<AccessPointAzureIngressPrivateLinkEndpoint>> azureIngressPrivateLinkEndpoint() {
+        return Codegen.optional(this.azureIngressPrivateLinkEndpoint);
+    }
+    /**
      * The name of the Access Point.
      * 
      */
@@ -267,6 +311,20 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<AccessPointGcpEgressPrivateServiceConnectEndpoint>> gcpEgressPrivateServiceConnectEndpoint() {
         return Codegen.optional(this.gcpEgressPrivateServiceConnectEndpoint);
+    }
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Export(name="gcpIngressPrivateServiceConnectEndpoint", refs={AccessPointGcpIngressPrivateServiceConnectEndpoint.class}, tree="[0]")
+    private Output</* @Nullable */ AccessPointGcpIngressPrivateServiceConnectEndpoint> gcpIngressPrivateServiceConnectEndpoint;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Output<Optional<AccessPointGcpIngressPrivateServiceConnectEndpoint>> gcpIngressPrivateServiceConnectEndpoint() {
+        return Codegen.optional(this.gcpIngressPrivateServiceConnectEndpoint);
     }
 
     /**

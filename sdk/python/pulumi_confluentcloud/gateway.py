@@ -26,7 +26,9 @@ class GatewayArgs:
                  aws_egress_private_link_gateway: Optional[pulumi.Input['GatewayAwsEgressPrivateLinkGatewayArgs']] = None,
                  aws_ingress_private_link_gateway: Optional[pulumi.Input['GatewayAwsIngressPrivateLinkGatewayArgs']] = None,
                  aws_private_network_interface_gateway: Optional[pulumi.Input['GatewayAwsPrivateNetworkInterfaceGatewayArgs']] = None,
-                 azure_egress_private_link_gateway: Optional[pulumi.Input['GatewayAzureEgressPrivateLinkGatewayArgs']] = None):
+                 azure_egress_private_link_gateway: Optional[pulumi.Input['GatewayAzureEgressPrivateLinkGatewayArgs']] = None,
+                 azure_ingress_private_link_gateway: Optional[pulumi.Input['GatewayAzureIngressPrivateLinkGatewayArgs']] = None,
+                 gcp_ingress_private_service_connect_gateway: Optional[pulumi.Input['GatewayGcpIngressPrivateServiceConnectGatewayArgs']] = None):
         """
         The set of arguments for constructing a Gateway resource.
 
@@ -36,6 +38,8 @@ class GatewayArgs:
         :param pulumi.Input['GatewayAwsIngressPrivateLinkGatewayArgs'] aws_ingress_private_link_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input['GatewayAwsPrivateNetworkInterfaceGatewayArgs'] aws_private_network_interface_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input['GatewayAzureEgressPrivateLinkGatewayArgs'] azure_egress_private_link_gateway: (Optional Configuration Block) supports the following:
+        :param pulumi.Input['GatewayAzureIngressPrivateLinkGatewayArgs'] azure_ingress_private_link_gateway: (Optional Configuration Block) supports the following:
+        :param pulumi.Input['GatewayGcpIngressPrivateServiceConnectGatewayArgs'] gcp_ingress_private_service_connect_gateway: (Optional Configuration Block) supports the following:
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "environment", environment)
@@ -47,6 +51,10 @@ class GatewayArgs:
             pulumi.set(__self__, "aws_private_network_interface_gateway", aws_private_network_interface_gateway)
         if azure_egress_private_link_gateway is not None:
             pulumi.set(__self__, "azure_egress_private_link_gateway", azure_egress_private_link_gateway)
+        if azure_ingress_private_link_gateway is not None:
+            pulumi.set(__self__, "azure_ingress_private_link_gateway", azure_ingress_private_link_gateway)
+        if gcp_ingress_private_service_connect_gateway is not None:
+            pulumi.set(__self__, "gcp_ingress_private_service_connect_gateway", gcp_ingress_private_service_connect_gateway)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -120,6 +128,30 @@ class GatewayArgs:
     def azure_egress_private_link_gateway(self, value: Optional[pulumi.Input['GatewayAzureEgressPrivateLinkGatewayArgs']]):
         pulumi.set(self, "azure_egress_private_link_gateway", value)
 
+    @_builtins.property
+    @pulumi.getter(name="azureIngressPrivateLinkGateway")
+    def azure_ingress_private_link_gateway(self) -> Optional[pulumi.Input['GatewayAzureIngressPrivateLinkGatewayArgs']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_ingress_private_link_gateway")
+
+    @azure_ingress_private_link_gateway.setter
+    def azure_ingress_private_link_gateway(self, value: Optional[pulumi.Input['GatewayAzureIngressPrivateLinkGatewayArgs']]):
+        pulumi.set(self, "azure_ingress_private_link_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gcpIngressPrivateServiceConnectGateway")
+    def gcp_ingress_private_service_connect_gateway(self) -> Optional[pulumi.Input['GatewayGcpIngressPrivateServiceConnectGatewayArgs']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "gcp_ingress_private_service_connect_gateway")
+
+    @gcp_ingress_private_service_connect_gateway.setter
+    def gcp_ingress_private_service_connect_gateway(self, value: Optional[pulumi.Input['GatewayGcpIngressPrivateServiceConnectGatewayArgs']]):
+        pulumi.set(self, "gcp_ingress_private_service_connect_gateway", value)
+
 
 @pulumi.input_type
 class _GatewayState:
@@ -128,8 +160,10 @@ class _GatewayState:
                  aws_ingress_private_link_gateway: Optional[pulumi.Input['GatewayAwsIngressPrivateLinkGatewayArgs']] = None,
                  aws_private_network_interface_gateway: Optional[pulumi.Input['GatewayAwsPrivateNetworkInterfaceGatewayArgs']] = None,
                  azure_egress_private_link_gateway: Optional[pulumi.Input['GatewayAzureEgressPrivateLinkGatewayArgs']] = None,
+                 azure_ingress_private_link_gateway: Optional[pulumi.Input['GatewayAzureIngressPrivateLinkGatewayArgs']] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input['GatewayEnvironmentArgs']] = None):
+                 environment: Optional[pulumi.Input['GatewayEnvironmentArgs']] = None,
+                 gcp_ingress_private_service_connect_gateway: Optional[pulumi.Input['GatewayGcpIngressPrivateServiceConnectGatewayArgs']] = None):
         """
         Input properties used for looking up and filtering Gateway resources.
 
@@ -137,8 +171,10 @@ class _GatewayState:
         :param pulumi.Input['GatewayAwsIngressPrivateLinkGatewayArgs'] aws_ingress_private_link_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input['GatewayAwsPrivateNetworkInterfaceGatewayArgs'] aws_private_network_interface_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input['GatewayAzureEgressPrivateLinkGatewayArgs'] azure_egress_private_link_gateway: (Optional Configuration Block) supports the following:
+        :param pulumi.Input['GatewayAzureIngressPrivateLinkGatewayArgs'] azure_ingress_private_link_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input[_builtins.str] display_name: The name of the Gateway.
         :param pulumi.Input['GatewayEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input['GatewayGcpIngressPrivateServiceConnectGatewayArgs'] gcp_ingress_private_service_connect_gateway: (Optional Configuration Block) supports the following:
         """
         if aws_egress_private_link_gateway is not None:
             pulumi.set(__self__, "aws_egress_private_link_gateway", aws_egress_private_link_gateway)
@@ -148,10 +184,14 @@ class _GatewayState:
             pulumi.set(__self__, "aws_private_network_interface_gateway", aws_private_network_interface_gateway)
         if azure_egress_private_link_gateway is not None:
             pulumi.set(__self__, "azure_egress_private_link_gateway", azure_egress_private_link_gateway)
+        if azure_ingress_private_link_gateway is not None:
+            pulumi.set(__self__, "azure_ingress_private_link_gateway", azure_ingress_private_link_gateway)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if gcp_ingress_private_service_connect_gateway is not None:
+            pulumi.set(__self__, "gcp_ingress_private_service_connect_gateway", gcp_ingress_private_service_connect_gateway)
 
     @_builtins.property
     @pulumi.getter(name="awsEgressPrivateLinkGateway")
@@ -202,6 +242,18 @@ class _GatewayState:
         pulumi.set(self, "azure_egress_private_link_gateway", value)
 
     @_builtins.property
+    @pulumi.getter(name="azureIngressPrivateLinkGateway")
+    def azure_ingress_private_link_gateway(self) -> Optional[pulumi.Input['GatewayAzureIngressPrivateLinkGatewayArgs']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_ingress_private_link_gateway")
+
+    @azure_ingress_private_link_gateway.setter
+    def azure_ingress_private_link_gateway(self, value: Optional[pulumi.Input['GatewayAzureIngressPrivateLinkGatewayArgs']]):
+        pulumi.set(self, "azure_ingress_private_link_gateway", value)
+
+    @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -225,6 +277,18 @@ class _GatewayState:
     def environment(self, value: Optional[pulumi.Input['GatewayEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
 
+    @_builtins.property
+    @pulumi.getter(name="gcpIngressPrivateServiceConnectGateway")
+    def gcp_ingress_private_service_connect_gateway(self) -> Optional[pulumi.Input['GatewayGcpIngressPrivateServiceConnectGatewayArgs']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "gcp_ingress_private_service_connect_gateway")
+
+    @gcp_ingress_private_service_connect_gateway.setter
+    def gcp_ingress_private_service_connect_gateway(self, value: Optional[pulumi.Input['GatewayGcpIngressPrivateServiceConnectGatewayArgs']]):
+        pulumi.set(self, "gcp_ingress_private_service_connect_gateway", value)
+
 
 @pulumi.type_token("confluentcloud:index/gateway:Gateway")
 class Gateway(pulumi.CustomResource):
@@ -236,8 +300,10 @@ class Gateway(pulumi.CustomResource):
                  aws_ingress_private_link_gateway: Optional[pulumi.Input[Union['GatewayAwsIngressPrivateLinkGatewayArgs', 'GatewayAwsIngressPrivateLinkGatewayArgsDict']]] = None,
                  aws_private_network_interface_gateway: Optional[pulumi.Input[Union['GatewayAwsPrivateNetworkInterfaceGatewayArgs', 'GatewayAwsPrivateNetworkInterfaceGatewayArgsDict']]] = None,
                  azure_egress_private_link_gateway: Optional[pulumi.Input[Union['GatewayAzureEgressPrivateLinkGatewayArgs', 'GatewayAzureEgressPrivateLinkGatewayArgsDict']]] = None,
+                 azure_ingress_private_link_gateway: Optional[pulumi.Input[Union['GatewayAzureIngressPrivateLinkGatewayArgs', 'GatewayAzureIngressPrivateLinkGatewayArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment: Optional[pulumi.Input[Union['GatewayEnvironmentArgs', 'GatewayEnvironmentArgsDict']]] = None,
+                 gcp_ingress_private_service_connect_gateway: Optional[pulumi.Input[Union['GatewayGcpIngressPrivateServiceConnectGatewayArgs', 'GatewayGcpIngressPrivateServiceConnectGatewayArgsDict']]] = None,
                  __props__=None):
         """
         [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -288,8 +354,10 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[Union['GatewayAwsIngressPrivateLinkGatewayArgs', 'GatewayAwsIngressPrivateLinkGatewayArgsDict']] aws_ingress_private_link_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Union['GatewayAwsPrivateNetworkInterfaceGatewayArgs', 'GatewayAwsPrivateNetworkInterfaceGatewayArgsDict']] aws_private_network_interface_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Union['GatewayAzureEgressPrivateLinkGatewayArgs', 'GatewayAzureEgressPrivateLinkGatewayArgsDict']] azure_egress_private_link_gateway: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['GatewayAzureIngressPrivateLinkGatewayArgs', 'GatewayAzureIngressPrivateLinkGatewayArgsDict']] azure_ingress_private_link_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input[_builtins.str] display_name: The name of the Gateway.
         :param pulumi.Input[Union['GatewayEnvironmentArgs', 'GatewayEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['GatewayGcpIngressPrivateServiceConnectGatewayArgs', 'GatewayGcpIngressPrivateServiceConnectGatewayArgsDict']] gcp_ingress_private_service_connect_gateway: (Optional Configuration Block) supports the following:
         """
         ...
     @overload
@@ -359,8 +427,10 @@ class Gateway(pulumi.CustomResource):
                  aws_ingress_private_link_gateway: Optional[pulumi.Input[Union['GatewayAwsIngressPrivateLinkGatewayArgs', 'GatewayAwsIngressPrivateLinkGatewayArgsDict']]] = None,
                  aws_private_network_interface_gateway: Optional[pulumi.Input[Union['GatewayAwsPrivateNetworkInterfaceGatewayArgs', 'GatewayAwsPrivateNetworkInterfaceGatewayArgsDict']]] = None,
                  azure_egress_private_link_gateway: Optional[pulumi.Input[Union['GatewayAzureEgressPrivateLinkGatewayArgs', 'GatewayAzureEgressPrivateLinkGatewayArgsDict']]] = None,
+                 azure_ingress_private_link_gateway: Optional[pulumi.Input[Union['GatewayAzureIngressPrivateLinkGatewayArgs', 'GatewayAzureIngressPrivateLinkGatewayArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment: Optional[pulumi.Input[Union['GatewayEnvironmentArgs', 'GatewayEnvironmentArgsDict']]] = None,
+                 gcp_ingress_private_service_connect_gateway: Optional[pulumi.Input[Union['GatewayGcpIngressPrivateServiceConnectGatewayArgs', 'GatewayGcpIngressPrivateServiceConnectGatewayArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -374,12 +444,14 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["aws_ingress_private_link_gateway"] = aws_ingress_private_link_gateway
             __props__.__dict__["aws_private_network_interface_gateway"] = aws_private_network_interface_gateway
             __props__.__dict__["azure_egress_private_link_gateway"] = azure_egress_private_link_gateway
+            __props__.__dict__["azure_ingress_private_link_gateway"] = azure_ingress_private_link_gateway
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            __props__.__dict__["gcp_ingress_private_service_connect_gateway"] = gcp_ingress_private_service_connect_gateway
         super(Gateway, __self__).__init__(
             'confluentcloud:index/gateway:Gateway',
             resource_name,
@@ -394,8 +466,10 @@ class Gateway(pulumi.CustomResource):
             aws_ingress_private_link_gateway: Optional[pulumi.Input[Union['GatewayAwsIngressPrivateLinkGatewayArgs', 'GatewayAwsIngressPrivateLinkGatewayArgsDict']]] = None,
             aws_private_network_interface_gateway: Optional[pulumi.Input[Union['GatewayAwsPrivateNetworkInterfaceGatewayArgs', 'GatewayAwsPrivateNetworkInterfaceGatewayArgsDict']]] = None,
             azure_egress_private_link_gateway: Optional[pulumi.Input[Union['GatewayAzureEgressPrivateLinkGatewayArgs', 'GatewayAzureEgressPrivateLinkGatewayArgsDict']]] = None,
+            azure_ingress_private_link_gateway: Optional[pulumi.Input[Union['GatewayAzureIngressPrivateLinkGatewayArgs', 'GatewayAzureIngressPrivateLinkGatewayArgsDict']]] = None,
             display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            environment: Optional[pulumi.Input[Union['GatewayEnvironmentArgs', 'GatewayEnvironmentArgsDict']]] = None) -> 'Gateway':
+            environment: Optional[pulumi.Input[Union['GatewayEnvironmentArgs', 'GatewayEnvironmentArgsDict']]] = None,
+            gcp_ingress_private_service_connect_gateway: Optional[pulumi.Input[Union['GatewayGcpIngressPrivateServiceConnectGatewayArgs', 'GatewayGcpIngressPrivateServiceConnectGatewayArgsDict']]] = None) -> 'Gateway':
         """
         Get an existing Gateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -407,8 +481,10 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[Union['GatewayAwsIngressPrivateLinkGatewayArgs', 'GatewayAwsIngressPrivateLinkGatewayArgsDict']] aws_ingress_private_link_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Union['GatewayAwsPrivateNetworkInterfaceGatewayArgs', 'GatewayAwsPrivateNetworkInterfaceGatewayArgsDict']] aws_private_network_interface_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Union['GatewayAzureEgressPrivateLinkGatewayArgs', 'GatewayAzureEgressPrivateLinkGatewayArgsDict']] azure_egress_private_link_gateway: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Union['GatewayAzureIngressPrivateLinkGatewayArgs', 'GatewayAzureIngressPrivateLinkGatewayArgsDict']] azure_ingress_private_link_gateway: (Optional Configuration Block) supports the following:
         :param pulumi.Input[_builtins.str] display_name: The name of the Gateway.
         :param pulumi.Input[Union['GatewayEnvironmentArgs', 'GatewayEnvironmentArgsDict']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Union['GatewayGcpIngressPrivateServiceConnectGatewayArgs', 'GatewayGcpIngressPrivateServiceConnectGatewayArgsDict']] gcp_ingress_private_service_connect_gateway: (Optional Configuration Block) supports the following:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -418,8 +494,10 @@ class Gateway(pulumi.CustomResource):
         __props__.__dict__["aws_ingress_private_link_gateway"] = aws_ingress_private_link_gateway
         __props__.__dict__["aws_private_network_interface_gateway"] = aws_private_network_interface_gateway
         __props__.__dict__["azure_egress_private_link_gateway"] = azure_egress_private_link_gateway
+        __props__.__dict__["azure_ingress_private_link_gateway"] = azure_ingress_private_link_gateway
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["gcp_ingress_private_service_connect_gateway"] = gcp_ingress_private_service_connect_gateway
         return Gateway(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -455,6 +533,14 @@ class Gateway(pulumi.CustomResource):
         return pulumi.get(self, "azure_egress_private_link_gateway")
 
     @_builtins.property
+    @pulumi.getter(name="azureIngressPrivateLinkGateway")
+    def azure_ingress_private_link_gateway(self) -> pulumi.Output['outputs.GatewayAzureIngressPrivateLinkGateway']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_ingress_private_link_gateway")
+
+    @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
         """
@@ -469,4 +555,12 @@ class Gateway(pulumi.CustomResource):
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter(name="gcpIngressPrivateServiceConnectGateway")
+    def gcp_ingress_private_service_connect_gateway(self) -> pulumi.Output['outputs.GatewayGcpIngressPrivateServiceConnectGateway']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "gcp_ingress_private_service_connect_gateway")
 

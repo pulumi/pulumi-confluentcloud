@@ -27,12 +27,12 @@ public final class GetAccessPointAzureEgressPrivateLinkEndpoint {
      */
     private String privateEndpointIpAddress;
     /**
-     * @return (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+     * @return (Required String) Resource ID of a Private Endpoint that will be connected to the Private Link service.
      * 
      */
     private String privateEndpointResourceId;
     /**
-     * @return (Required String) Resource ID of the Azure Private Link service.
+     * @return (Required String) Resource ID of the Confluent Cloud Private Link Service.
      * 
      */
     private String privateLinkServiceResourceId;
@@ -65,14 +65,14 @@ public final class GetAccessPointAzureEgressPrivateLinkEndpoint {
         return this.privateEndpointIpAddress;
     }
     /**
-     * @return (Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.
+     * @return (Required String) Resource ID of a Private Endpoint that will be connected to the Private Link service.
      * 
      */
     public String privateEndpointResourceId() {
         return this.privateEndpointResourceId;
     }
     /**
-     * @return (Required String) Resource ID of the Azure Private Link service.
+     * @return (Required String) Resource ID of the Confluent Cloud Private Link Service.
      * 
      */
     public String privateLinkServiceResourceId() {

@@ -72,6 +72,10 @@ export interface GetGatewayResult {
     /**
      * (Optional Configuration Block) supports the following:
      */
+    readonly azureIngressPrivateLinkGateways: outputs.GetGatewayAzureIngressPrivateLinkGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     readonly azurePeeringGateways: outputs.GetGatewayAzurePeeringGateway[];
     /**
      * (Required String) A human-readable name for the Gateway.
@@ -82,6 +86,10 @@ export interface GetGatewayResult {
      * (Optional Configuration Block) supports the following:
      */
     readonly gcpEgressPrivateServiceConnectGateways: outputs.GetGatewayGcpEgressPrivateServiceConnectGateway[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly gcpIngressPrivateServiceConnectGateways: outputs.GetGatewayGcpIngressPrivateServiceConnectGateway[];
     /**
      * (Optional Configuration Block) supports the following:
      */

@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetAccessPointAwsIngressPrivateLinkEndpointResult
     {
         /// <summary>
-        /// (Required String) DNS domain name used to configure the Private Hosted Zone for the Access Point, for example, `ap123abc.us-west-2.aws.accesspoint.confluent.cloud`.
+        /// (Optional String) DNS domain name used to configure the DNS Zone for the Access Point.
         /// </summary>
         public readonly string DnsDomain;
         /// <summary>

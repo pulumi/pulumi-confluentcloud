@@ -8,9 +8,11 @@ import com.pulumi.confluentcloud.outputs.GetGatewayAwsIngressPrivateLinkGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayAwsPeeringGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayAwsPrivateNetworkInterfaceGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayAzureEgressPrivateLinkGateway;
+import com.pulumi.confluentcloud.outputs.GetGatewayAzureIngressPrivateLinkGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayAzurePeeringGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayEnvironment;
 import com.pulumi.confluentcloud.outputs.GetGatewayGcpEgressPrivateServiceConnectGateway;
+import com.pulumi.confluentcloud.outputs.GetGatewayGcpIngressPrivateServiceConnectGateway;
 import com.pulumi.confluentcloud.outputs.GetGatewayGcpPeeringGateway;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -49,6 +51,11 @@ public final class GetGatewayResult {
      * @return (Optional Configuration Block) supports the following:
      * 
      */
+    private List<GetGatewayAzureIngressPrivateLinkGateway> azureIngressPrivateLinkGateways;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     private List<GetGatewayAzurePeeringGateway> azurePeeringGateways;
     /**
      * @return (Required String) A human-readable name for the Gateway.
@@ -61,6 +68,11 @@ public final class GetGatewayResult {
      * 
      */
     private List<GetGatewayGcpEgressPrivateServiceConnectGateway> gcpEgressPrivateServiceConnectGateways;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetGatewayGcpIngressPrivateServiceConnectGateway> gcpIngressPrivateServiceConnectGateways;
     /**
      * @return (Optional Configuration Block) supports the following:
      * 
@@ -108,6 +120,13 @@ public final class GetGatewayResult {
      * @return (Optional Configuration Block) supports the following:
      * 
      */
+    public List<GetGatewayAzureIngressPrivateLinkGateway> azureIngressPrivateLinkGateways() {
+        return this.azureIngressPrivateLinkGateways;
+    }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public List<GetGatewayAzurePeeringGateway> azurePeeringGateways() {
         return this.azurePeeringGateways;
     }
@@ -127,6 +146,13 @@ public final class GetGatewayResult {
      */
     public List<GetGatewayGcpEgressPrivateServiceConnectGateway> gcpEgressPrivateServiceConnectGateways() {
         return this.gcpEgressPrivateServiceConnectGateways;
+    }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetGatewayGcpIngressPrivateServiceConnectGateway> gcpIngressPrivateServiceConnectGateways() {
+        return this.gcpIngressPrivateServiceConnectGateways;
     }
     /**
      * @return (Optional Configuration Block) supports the following:
@@ -153,10 +179,12 @@ public final class GetGatewayResult {
         private List<GetGatewayAwsPeeringGateway> awsPeeringGateways;
         private List<GetGatewayAwsPrivateNetworkInterfaceGateway> awsPrivateNetworkInterfaceGateways;
         private List<GetGatewayAzureEgressPrivateLinkGateway> azureEgressPrivateLinkGateways;
+        private List<GetGatewayAzureIngressPrivateLinkGateway> azureIngressPrivateLinkGateways;
         private List<GetGatewayAzurePeeringGateway> azurePeeringGateways;
         private String displayName;
         private GetGatewayEnvironment environment;
         private List<GetGatewayGcpEgressPrivateServiceConnectGateway> gcpEgressPrivateServiceConnectGateways;
+        private List<GetGatewayGcpIngressPrivateServiceConnectGateway> gcpIngressPrivateServiceConnectGateways;
         private List<GetGatewayGcpPeeringGateway> gcpPeeringGateways;
         private String id;
         public Builder() {}
@@ -167,10 +195,12 @@ public final class GetGatewayResult {
     	      this.awsPeeringGateways = defaults.awsPeeringGateways;
     	      this.awsPrivateNetworkInterfaceGateways = defaults.awsPrivateNetworkInterfaceGateways;
     	      this.azureEgressPrivateLinkGateways = defaults.azureEgressPrivateLinkGateways;
+    	      this.azureIngressPrivateLinkGateways = defaults.azureIngressPrivateLinkGateways;
     	      this.azurePeeringGateways = defaults.azurePeeringGateways;
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
     	      this.gcpEgressPrivateServiceConnectGateways = defaults.gcpEgressPrivateServiceConnectGateways;
+    	      this.gcpIngressPrivateServiceConnectGateways = defaults.gcpIngressPrivateServiceConnectGateways;
     	      this.gcpPeeringGateways = defaults.gcpPeeringGateways;
     	      this.id = defaults.id;
         }
@@ -231,6 +261,17 @@ public final class GetGatewayResult {
             return azureEgressPrivateLinkGateways(List.of(azureEgressPrivateLinkGateways));
         }
         @CustomType.Setter
+        public Builder azureIngressPrivateLinkGateways(List<GetGatewayAzureIngressPrivateLinkGateway> azureIngressPrivateLinkGateways) {
+            if (azureIngressPrivateLinkGateways == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "azureIngressPrivateLinkGateways");
+            }
+            this.azureIngressPrivateLinkGateways = azureIngressPrivateLinkGateways;
+            return this;
+        }
+        public Builder azureIngressPrivateLinkGateways(GetGatewayAzureIngressPrivateLinkGateway... azureIngressPrivateLinkGateways) {
+            return azureIngressPrivateLinkGateways(List.of(azureIngressPrivateLinkGateways));
+        }
+        @CustomType.Setter
         public Builder azurePeeringGateways(List<GetGatewayAzurePeeringGateway> azurePeeringGateways) {
             if (azurePeeringGateways == null) {
               throw new MissingRequiredPropertyException("GetGatewayResult", "azurePeeringGateways");
@@ -269,6 +310,17 @@ public final class GetGatewayResult {
             return gcpEgressPrivateServiceConnectGateways(List.of(gcpEgressPrivateServiceConnectGateways));
         }
         @CustomType.Setter
+        public Builder gcpIngressPrivateServiceConnectGateways(List<GetGatewayGcpIngressPrivateServiceConnectGateway> gcpIngressPrivateServiceConnectGateways) {
+            if (gcpIngressPrivateServiceConnectGateways == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "gcpIngressPrivateServiceConnectGateways");
+            }
+            this.gcpIngressPrivateServiceConnectGateways = gcpIngressPrivateServiceConnectGateways;
+            return this;
+        }
+        public Builder gcpIngressPrivateServiceConnectGateways(GetGatewayGcpIngressPrivateServiceConnectGateway... gcpIngressPrivateServiceConnectGateways) {
+            return gcpIngressPrivateServiceConnectGateways(List.of(gcpIngressPrivateServiceConnectGateways));
+        }
+        @CustomType.Setter
         public Builder gcpPeeringGateways(List<GetGatewayGcpPeeringGateway> gcpPeeringGateways) {
             if (gcpPeeringGateways == null) {
               throw new MissingRequiredPropertyException("GetGatewayResult", "gcpPeeringGateways");
@@ -294,10 +346,12 @@ public final class GetGatewayResult {
             _resultValue.awsPeeringGateways = awsPeeringGateways;
             _resultValue.awsPrivateNetworkInterfaceGateways = awsPrivateNetworkInterfaceGateways;
             _resultValue.azureEgressPrivateLinkGateways = azureEgressPrivateLinkGateways;
+            _resultValue.azureIngressPrivateLinkGateways = azureIngressPrivateLinkGateways;
             _resultValue.azurePeeringGateways = azurePeeringGateways;
             _resultValue.displayName = displayName;
             _resultValue.environment = environment;
             _resultValue.gcpEgressPrivateServiceConnectGateways = gcpEgressPrivateServiceConnectGateways;
+            _resultValue.gcpIngressPrivateServiceConnectGateways = gcpIngressPrivateServiceConnectGateways;
             _resultValue.gcpPeeringGateways = gcpPeeringGateways;
             _resultValue.id = id;
             return _resultValue;

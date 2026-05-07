@@ -127,6 +127,40 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
+    ///     var azureIngress = new ConfluentCloud.Index.AccessPoint("azure_ingress", new()
+    ///     {
+    ///         DisplayName = "access_point_ingress",
+    ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///         Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs
+    ///         {
+    ///             Id = ingress.Id,
+    ///         },
+    ///         AzureIngressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAzureIngressPrivateLinkEndpointArgs
+    ///         {
+    ///             PrivateEndpointResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup/providers/Microsoft.Network/privateEndpoints/my-private-endpoint",
+    ///         },
+    ///     });
+    /// 
+    ///     var gcpIngress = new ConfluentCloud.Index.AccessPoint("gcp_ingress", new()
+    ///     {
+    ///         DisplayName = "access_point_ingress",
+    ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///         Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs
+    ///         {
+    ///             Id = ingress.Id,
+    ///         },
+    ///         GcpIngressPrivateServiceConnectEndpoint = new ConfluentCloud.Inputs.AccessPointGcpIngressPrivateServiceConnectEndpointArgs
+    ///         {
+    ///             PrivateServiceConnectConnectionId = "12345678",
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -178,6 +212,12 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.AccessPointAzureEgressPrivateLinkEndpoint?> AzureEgressPrivateLinkEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Output("azureIngressPrivateLinkEndpoint")]
+        public Output<Outputs.AccessPointAzureIngressPrivateLinkEndpoint?> AzureIngressPrivateLinkEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Access Point.
         /// </summary>
         [Output("displayName")]
@@ -197,6 +237,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("gcpEgressPrivateServiceConnectEndpoint")]
         public Output<Outputs.AccessPointGcpEgressPrivateServiceConnectEndpoint?> GcpEgressPrivateServiceConnectEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Output("gcpIngressPrivateServiceConnectEndpoint")]
+        public Output<Outputs.AccessPointGcpIngressPrivateServiceConnectEndpoint?> GcpIngressPrivateServiceConnectEndpoint { get; private set; } = null!;
 
 
         /// <summary>
@@ -269,6 +315,12 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.AccessPointAzureEgressPrivateLinkEndpointArgs>? AzureEgressPrivateLinkEndpoint { get; set; }
 
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("azureIngressPrivateLinkEndpoint")]
+        public Input<Inputs.AccessPointAzureIngressPrivateLinkEndpointArgs>? AzureIngressPrivateLinkEndpoint { get; set; }
+
+        /// <summary>
         /// The name of the Access Point.
         /// </summary>
         [Input("displayName")]
@@ -288,6 +340,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("gcpEgressPrivateServiceConnectEndpoint")]
         public Input<Inputs.AccessPointGcpEgressPrivateServiceConnectEndpointArgs>? GcpEgressPrivateServiceConnectEndpoint { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("gcpIngressPrivateServiceConnectEndpoint")]
+        public Input<Inputs.AccessPointGcpIngressPrivateServiceConnectEndpointArgs>? GcpIngressPrivateServiceConnectEndpoint { get; set; }
 
         public AccessPointArgs()
         {
@@ -322,6 +380,12 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.AccessPointAzureEgressPrivateLinkEndpointGetArgs>? AzureEgressPrivateLinkEndpoint { get; set; }
 
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("azureIngressPrivateLinkEndpoint")]
+        public Input<Inputs.AccessPointAzureIngressPrivateLinkEndpointGetArgs>? AzureIngressPrivateLinkEndpoint { get; set; }
+
+        /// <summary>
         /// The name of the Access Point.
         /// </summary>
         [Input("displayName")]
@@ -341,6 +405,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("gcpEgressPrivateServiceConnectEndpoint")]
         public Input<Inputs.AccessPointGcpEgressPrivateServiceConnectEndpointGetArgs>? GcpEgressPrivateServiceConnectEndpoint { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("gcpIngressPrivateServiceConnectEndpoint")]
+        public Input<Inputs.AccessPointGcpIngressPrivateServiceConnectEndpointGetArgs>? GcpIngressPrivateServiceConnectEndpoint { get; set; }
 
         public AccessPointState()
         {
